@@ -1,0 +1,6 @@
+include(internal/protobuf.cmake)
+include(tfile/protobuf.cmake)
+include(video/protobuf.cmake)
+include(tensor/protobuf.cmake)
+include(core/protobuf.cmake)
+include(util/protobuf.cmake)

@@ -1,0 +1,9 @@
+include(${CMAKE_SOURCE_DIR}/cmake/protoc_generate_obj.cmake)
+
+PROTOBUF_GENERATE_OBJ_WITH_DEPS(tensor.image_to_tensor_calculator "framework.calculator;framework.calculator_options;gpu.gpu_origin")
+PROTOBUF_GENERATE_OBJ_WITH_DEPS(tensor.inference_calculator "framework.calculator;framework.calculator_options" TRUE)
+PROTOBUF_GENERATE_OBJ_WITH_DEPS(tensor.tensors_to_classification_calculator "framework.calculator;framework.calculator_options;util.label_map")
+PROTOBUF_GENERATE_OBJ_WITH_DEPS(tensor.tensors_to_floats_calculator "framework.calculator;framework.calculator_options")
+PROTOBUF_GENERATE_OBJ_WITH_DEPS(tensor.tensors_to_landmarks_calculator "framework.calculator;framework.calculator_options")
+PROTOBUF_GENERATE_OBJ_WITH_DEPS(tensor.tensors_to_detections_calculator "framework.calculator;framework.calculator_options")
+PROTOBUF_GENERATE_OBJ_WITH_DEPS(tensor.inference_calculator "framework.calculator;framework.calculator_options")
