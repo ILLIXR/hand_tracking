@@ -1,3 +1,3 @@
-include(src/util/protobuf.cmake)
-include(src/framework/protobuf.cmake)
-include(src/gpu/protobuf.cmake)
+include(mediapipe/util/protobuf.cmake)
+include(mediapipe/framework/protobuf.cmake)
+include(mediapipe/gpu/protobuf.cmake)
