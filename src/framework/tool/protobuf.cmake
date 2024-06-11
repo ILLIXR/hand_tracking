@@ -1,6 +1,0 @@
-include(${CMAKE_SOURCE_DIR}/cmake/protoc_generate_obj.cmake)
-
-PROTOBUF_GENERATE_OBJ_WITH_DEPS(tool.packet_generator_wrapper_calculator "framework.calculator_options;framework.packet_generator")
-PROTOBUF_GENERATE_OBJ(tool.field_data)
-PROTOBUF_GENERATE_OBJ_WITH_DEPS(tool.switch_container "framework.calculator_options;framework.calculator")
-PROTOBUF_GENERATE_OBJ_WITH_DEPS(tool.calculator_graph_template "framework.calculator_options;framework.calculator;deps.proto_descriptor")

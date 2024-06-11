@@ -1,0 +1,4 @@
+include(${CMAKE_SOURCE_DIR}/cmake/protoc_generate_obj.cmake)
+
+protobuf_generate_obj(PROTO_PATH framework/stream_handler OBJ_NAME default_input_stream_handler)
+protobuf_generate_obj(PROTO_PATH framework/stream_handler OBJ_NAME fixed_size_input_stream_handler)

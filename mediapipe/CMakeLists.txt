@@ -1,0 +1,129 @@
+set(PLUGIN_NAME illixr_hand_tracking)
+add_library(${PLUGIN_NAME} SHARED
+            $<TARGET_OBJECTS:calc_utils.annotation_overlay_calculator_proto>
+            $<TARGET_OBJECTS:calc_utils.association_calculator_proto>
+            $<TARGET_OBJECTS:calc_utils.collection_has_min_size_calculator_proto>
+            $<TARGET_OBJECTS:calc_utils.detections_to_rects_calculator_proto>
+            $<TARGET_OBJECTS:calc_utils.detections_to_render_data_calculator_proto>
+            $<TARGET_OBJECTS:calc_utils.labels_to_render_data_calculator_proto>
+            $<TARGET_OBJECTS:calc_utils.landmarks_to_render_data_calculator_proto>
+            $<TARGET_OBJECTS:calc_utils.local_file_contents_calculator_proto>
+            $<TARGET_OBJECTS:calc_utils.non_max_suppression_calculator_proto>
+            $<TARGET_OBJECTS:calc_utils.rect_to_render_data_calculator_proto>
+            $<TARGET_OBJECTS:calc_utils.rect_transformation_calculator_proto>
+            $<TARGET_OBJECTS:calc_utils.thresholding_calculator_proto>
+            $<TARGET_OBJECTS:core.clip_vector_size_calculator_proto>
+            $<TARGET_OBJECTS:core.constant_side_packet_calculator_proto>
+            $<TARGET_OBJECTS:core.flow_limiter_calculator_proto>
+            $<TARGET_OBJECTS:core.gate_calculator_proto>
+            $<TARGET_OBJECTS:core.split_vector_calculator_proto>
+            $<TARGET_OBJECTS:formats.classification_proto>
+            $<TARGET_OBJECTS:formats.classification_proto>
+            $<TARGET_OBJECTS:formats.detection_proto>
+            $<TARGET_OBJECTS:formats.landmark_proto>
+            $<TARGET_OBJECTS:formats.landmark_proto>
+            $<TARGET_OBJECTS:formats.location_data_proto>
+            $<TARGET_OBJECTS:formats.rect_proto>
+            $<TARGET_OBJECTS:framework.calculator_options_proto>
+            $<TARGET_OBJECTS:framework.calculator_proto>
+            $<TARGET_OBJECTS:gpu.gpu_origin_proto>
+            $<TARGET_OBJECTS:internal.callback_packet_calculator_proto>
+            $<TARGET_OBJECTS:tensor.image_to_tensor_calculator_proto>
+            $<TARGET_OBJECTS:tensor.inference_calculator_proto>
+            $<TARGET_OBJECTS:tensor.tensors_to_classification_calculator_proto>
+            $<TARGET_OBJECTS:tensor.tensors_to_detections_calculator_proto>
+            $<TARGET_OBJECTS:tensor.tensors_to_floats_calculator_proto>
+            $<TARGET_OBJECTS:tensor.tensors_to_landmarks_calculator_proto>
+            $<TARGET_OBJECTS:tflite.ssd_anchors_calculator_proto>
+            $<TARGET_OBJECTS:tflite.tflite_custom_op_resolver_calculator_proto>
+            $<TARGET_OBJECTS:util.color_proto>
+            $<TARGET_OBJECTS:util.label_map_proto>
+            $<TARGET_OBJECTS:util.render_data_proto>
+            $<TARGET_OBJECTS:video.opencv_video_encoder_calculator_proto>
+            $<TARGET_OBJECTS:framework.calculator_proto>
+            $<TARGET_OBJECTS:framework.mediapipe_options_proto>
+            $<TARGET_OBJECTS:framework.packet_generator_proto>
+            $<TARGET_OBJECTS:framework.status_handler_proto>
+            $<TARGET_OBJECTS:framework.stream_handler_proto>
+            $<TARGET_OBJECTS:framework.threadpool_executor_proto>
+            $<TARGET_OBJECTS:framework.packet_factory_proto>
+            $<TARGET_OBJECTS:internal.callback_packet_calculator_proto>
+            $<TARGET_OBJECTS:framework.calculator_options_proto>
+            $<TARGET_OBJECTS:tool.field_data_proto>
+            $<TARGET_OBJECTS:tool.packet_generator_wrapper_calculator_proto>
+            $<TARGET_OBJECTS:tool.switch_container_proto>
+            $<TARGET_OBJECTS:formats.image_format_proto>
+            $<TARGET_OBJECTS:formats.matrix_data_proto>
+            $<TARGET_OBJECTS:formats.location_data_proto>
+            $<TARGET_OBJECTS:stream_handler.default_input_stream_handler_proto>
+            $<TARGET_OBJECTS:stream_handler.fixed_size_input_stream_handler_proto>
+)
+
+include(calculators/build.cmake)
+include(framework/build.cmake)
+include(gpu/build.cmake)
+include(graphs/build.cmake)
+include(modules/build.cmake)
+include(util/build.cmake)
+
+
+if(HT_ENABLE_GPU)
+    target_link_libraries(${PLUGIN_NAME} PUBLIC
+                          ${glesv2_LIBRARIES}
+                          ${egl_LIBRARIES}
+    )
+    target_include_directories(${PLUGIN_NAME} PUBLIC
+                               ${egl_INCLUDEDIR}
+                               ${glesv2_INCLUDEDIR}
+    )
+    target_sources($<TARGET_OBJECTS:gpu.gl_context_options_proto>)
+    add_compile_options(-layering_check)
+endif()
+
+target_include_directories(${PLUGIN_NAME} PUBLIC
+                           ${Protobuf_INCLUDE_DIR}
+                           ${glog_INCLUDEDIR}
+                           ${ZLIB_INCLUDE_DIR}
+                           ${gflags_INCLUDE_DIR}
+                           ${EIGEN3_INCLUDE_DIRS}
+                           ${OpenCV_INCLUDE_DIRS}
+)
+target_link_libraries(${PLUGIN_NAME} PUBLIC
+                      ${Protobuf_LIBRARIES}
+                      absl::algorithm
+                      absl::base
+                      absl::core_headers
+                      absl::dynamic_annotations
+                      absl::nullability
+                      absl::btree
+                      absl::flat_hash_map
+                      absl::flat_hash_set
+                      absl::node_hash_map
+                      absl::leak_check
+                      absl::flag
+                      absl::any_invocable
+                      absl::bind_front
+                      absl::function_ref
+                      absl::hash
+                      absl::absl_check
+                      absl::absl_log
+                      absl::check
+                      absl::memory
+                      absl::type_traits
+                      absl::status
+                      absl::statusor
+                      absl::strings
+                      absl::str_format
+                      absl::string_view
+                      absl::synchronization
+                      absl::time
+                      absl::optional
+                      absl::span
+                      absl::variant
+                      absl::utility
+                      tensorflow-lite::tensorflow-lite
+                      ${gflags_LIBRARIES}
+                      ${glog_LIBRARIES}
+                      ${OpenCV_LIBRARIES}
+                      ${ZLIB_LIBRARIES}
+)

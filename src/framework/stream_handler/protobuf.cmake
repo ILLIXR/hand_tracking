@@ -1,4 +1,0 @@
-include(${CMAKE_SOURCE_DIR}/cmake/protoc_generate_obj.cmake)
-
-PROTOBUF_GENERATE_OBJ_WITH_DEPS(stream_handler.default_input_stream_handler framework.mediapipe_options)
-PROTOBUF_GENERATE_OBJ_WITH_DEPS(stream_handler.fixed_size_input_stream_handler framework.mediapipe_options)
