@@ -60,7 +60,7 @@ if(NOT tensorflow-lite_FOUND)
 endif()
 
 include(mediapipe/protobuf.cmake)
-#include(cmake/encoder.cmake)
+include(cmake/encoder.cmake)
 
 #foreach(ITEM IN LISTS PROTOBUF_DESCRIPTORS)
 #    file(READ ${ITEM} CONTENTS)
