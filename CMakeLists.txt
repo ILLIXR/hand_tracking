@@ -61,18 +61,29 @@ endif()
 
 include(mediapipe/protobuf.cmake)
 include(cmake/encoder.cmake)
+file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/mediapipe/calculators/tensor)
 
-#foreach(ITEM IN LISTS PROTOBUF_DESCRIPTORS)
-#    file(READ ${ITEM} CONTENTS)
-#    file(APPEND inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin "${CONTENTS}")
-#endforeach()
+foreach(ITEM ${PROTOBUF_DESCRIPTORS})
+    get_filename_component(_FILE ${ITEM} NAME_WE)
+    add_custom_target(${_FILE}_desc
+                      ALL
+                      COMMAND cat ${ITEM} >> ${CMAKE_BINARY_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin
+                      DEPENDS encode_as_c_string ${ITEM}
+    )
+    list(APPEND FILE_DEPS ${_FILE}_desc)
+endforeach()
 
-#add_custom_target(encode_descriptor_sets
-#                  COMMAND encode_as_c_string
-#                  "inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin > ${CMAKE_BINARY_DIR}src/calculators/tensor/inference_calculator_proto_descriptors.inc"
-#                  DEPENDS encode_as_c_string
-#                  BYPRODUCTS ${CMAKE_BINARY_DIR}src/calculators/tensor/inference_calculator_proto_descriptors.inc
-#)
+add_custom_target(encode_descriptor_sets ALL
+                  COMMAND encode_as_c_string
+                  ${CMAKE_BINARY_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin > ${CMAKE_BINARY_DIR}/mediapipe/calculators/tensor/inference_calculator_proto_descriptors.inc
+                  DEPENDS encode_as_c_string ${FILE_DEPS}
+                  BYPRODUCTS ${CMAKE_BINARY_DIR}/mediapipe/calculators/tensor/inference_calculator_proto_descriptors.inc
+)
+
+add_custom_target(encode_cleanup ALL
+                  COMMAND rm ${CMAKE_BINARY_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin
+                  DEPENDS encode_descriptor_sets
+)
 #include(cmake/message_util.cmake)
 #add_custom_target(make_message_type
 #                  COMMAND message_type_util
