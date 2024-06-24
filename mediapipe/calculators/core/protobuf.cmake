@@ -1,7 +1,7 @@
 include(${CMAKE_SOURCE_DIR}/cmake/protoc_generate_obj.cmake)
 
-PROTOBUF_GENERATE_OBJ_WITH_DEPS(core.flow_limiter_calculator "framework.calculator;framework.calculator_options")
-PROTOBUF_GENERATE_OBJ_WITH_DEPS(core.gate_calculator "framework.calculator;framework.calculator_options")
-PROTOBUF_GENERATE_OBJ_WITH_DEPS(core.constant_side_packet_calculator "formats.time_series_header;formats.matrix_data;formats.landmark;formats.classification;framework.calculator;framework.calculator_options")
-PROTOBUF_GENERATE_OBJ_WITH_DEPS(core.split_vector_calculator "framework.calculator;framework.calculator_options")
-PROTOBUF_GENERATE_OBJ_WITH_DEPS(core.clip_vector_size_calculator "framework.calculator;framework.calculator_options")
+protobuf_generate_obj(PROTO_PATH calculators/core OBJ_NAME flow_limiter_calculator)
+protobuf_generate_obj(PROTO_PATH calculators/core OBJ_NAME gate_calculator)
+protobuf_generate_obj(PROTO_PATH calculators/core OBJ_NAME constant_side_packet_calculator)
+protobuf_generate_obj(PROTO_PATH calculators/core OBJ_NAME split_vector_calculator)
+protobuf_generate_obj(PROTO_PATH calculators/core OBJ_NAME clip_vector_size_calculator)
