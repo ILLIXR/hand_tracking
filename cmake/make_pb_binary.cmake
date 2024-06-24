@@ -1,54 +1,80 @@
-function(MAKE_PB_BINARY BINARY_NAME)
-    add_executable(${BINARY_NAME}
-                   ${CMAKE_SOURCE_DIR}/src/framework/deps/ret_check.cc
-                   ${CMAKE_SOURCE_DIR}/src/framework/deps/status_builder.cc
-                   ${CMAKE_SOURCE_DIR}/src/framework/deps/status.cc
-                   ${CMAKE_SOURCE_DIR}/src/framework/tool/text_to_binary_graph.cc
+function(make_proto_binary)
+    set(_singleargs BINARY_NAME FILE_ROOT FILE_BASE_NAME CLASS_NAME)
+    set(_multiargs PROTO_LIBRARIES)
+    cmake_parse_arguments(make_proto_binary "" "${_singleargs}" "${_multiargs}" "${ARGN}")
+    set(SUBGRAPH_CLASS_NAME ${make_proto_binary_CLASS_NAME})
+    set(FILE_PATH_NAME  "${make_proto_binary_FILE_ROOT}/${make_proto_binary_FILE_BASE_NAME}")
+    set(SUBGRAPH_INC_FILE_PATH ${FILE_PATH_NAME}.inc)
+    add_executable(${make_proto_binary_BINARY_NAME}
+                   ${CMAKE_SOURCE_DIR}/mediapipe/framework/deps/ret_check.cc
+                   ${CMAKE_SOURCE_DIR}/mediapipe/framework/deps/status_builder.cc
+                   ${CMAKE_SOURCE_DIR}/mediapipe/framework/deps/status.cc
+                   ${CMAKE_SOURCE_DIR}/mediapipe/framework/tool/text_to_binary_graph.cc
+                   ${make_proto_binary_PROTO_LIBRARIES}
     )
-    target_include_directories(${BINARY_NAME} PUBLIC
-                               ${Protobuf_INCLUDE_DIR}
+    target_include_directories(${make_proto_binary_BINARY_NAME} BEFORE PUBLIC
+                               ${Protobuf_INCLUDE_DIRS}
+    )
+    target_include_directories(${make_proto_binary_BINARY_NAME} PUBLIC
+                                   ${CMAKE_SOURCE_DIR}
+                               ${CMAKE_BINARY_DIR}
                                ${glog_INCLUDE_DIR}
-                               ${tensorflow-lite_INCLUDE_DIR}
+                               ${CMAKE_INSTALL_PREFIX}/include
+                               ${CMAKE_INSTALL_PREFIX}/include/tensorflow
+                               ${CMAKE_INSTALL_PREFIX}/include/tensorflow/lite
+                               ${CMAKE_INSTALL_PREFIX}/include/gemmlowp
                                ${zlib_INCLUDE_DIR}
-                               ${absl-cpp_INCLUDE_DIR}
     )
-    target_link_libraries(${BINARY_NAME} PUBLIC
-                          protobuf::libprotobuf
+
+    target_link_libraries(${make_proto_binary_BINARY_NAME} PUBLIC
+                          ${Protobuf_LIBRARIES}
                           ${glog_LIBRARIES}
                           ${tensorflow-lite_LIBRARIES}
                           ${zlib_LIBRARIES}
-                          ${absl-cpp_LIBRARIES}
-    )
-endfunction()
-
-function(MAKE_LINKED CMD FILE_ROOT FILE_BASE_NAME CLASS_NAME)
-    set(SUBGRAPH_CLASS_NAME ${CLASS_NAME})
-    set(SUBGRAPH_INC_FILE_PATH ${FILE_ROOT}/${FILE_BASE_NAME}.inc)
-
-    add_custom_target(${CMD}_output
-                      COMMAND ${CMD}
-                      "--proto_source=${CMAKE_SOURCE_DIR}/${FILE_ROOT}/${FILE_BASE_NAME}.pbtxt --proto_output=${CMAKE_BINARY_DIR}/${FILE_ROOT}/${FILE_BASE_NAME}.binarypb"
-                      DEPENDS ${CMD}
-                      BYPRODUCTS ${FILE_BASE_NAME}.binarypb
+                          absl::status
+                          absl::absl_log
+                          absl::flags_parse
     )
 
-    add_custom_target(encode_${FILE_BASE_NAME}
-                      COMMAND encode_as_c_string "${CMAKE_BINARY_DIR}/${FILE_ROOT}/${FILE_BASE_NAME}.binarypb > ${CMAKE_BINARY_DIR}/${SUBGRAPH_INC_FILE_PATH}"
-                      DEPENDS encode_as_c_string ${CMD}_output
-                      BYPRODUCTS ${FILE_BASE_NAME}.inc
-    )
+    file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/${make_proto_binaryFILE_ROOT})
 
-    configure_file(${CMAKE_SOURCE_DIR}/simple_subgraph_template.cc.in
-                   ${CMAKE_BINARY_DIR}/${FILE_ROOT}/${FILE_BASE_NAME}_linked.cc
+    add_custom_command(TARGET ${make_proto_binary_BINARY_NAME}
+                       POST_BUILD
+                       COMMAND ${CMAKE_COMMAND} -E env "LD_LIBRARY_PATH=${CMAKE_INSTALL_PREFIX}/lib" ./${make_proto_binary_BINARY_NAME}
+                       ARGS --proto_source=${CMAKE_SOURCE_DIR}/mediapipe/${FILE_PATH_NAME}.pbtxt --proto_output=${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}.binarypb
+                       COMMENT "Processing protobuf file from mediapipe/${FILE_PATH_NAME}.pbtxt"
+                       DEPENDS encode_as_c_string ${make_proto_binary_BINARY_NAME}
+                       VERBATIM
+                       BYPRODUCTS ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}.binarypb
     )
-
-    add_library(${FILE_BASE_NAME}_linked OBJECT
-                ${CMAKE_BINARY_DIR}/${FILE_ROOT}/${FILE_BASE_NAME}_linked.cc
+    add_custom_command(COMMAND ${CMAKE_COMMAND} -E env "LD_LIBRARY_PATH=${CMAKE_INSTALL_PREFIX}/lib" ${CMAKE_BINARY_DIR}/encode_as_c_string
+                       ARGS ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}.binarypb > ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}.inc
+                       COMMENT "Producing include file from ${FILE_PATH_NAME}.binarypb"
+                       VERBATIM
+                       DEPENDS ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}.binarypb
+                       OUTPUT ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}.inc
     )
-    add_dependencies(${FILE_BASE_NAME}_linked encode_${FILE_BASE_NAME})
-    target_compile_definitions(${FILE_BASE_NAME}_linked PUBLIC
-                               GLOG_DEPRECATED=__attribute__((deprecated))
-                               GLOG_EXPORT=__attribute__((visibility("default")))
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/simple_subgraph_template.cc.in
+                   ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}_linked.cc
+    )
+    message("${make_proto_binary_FILE_BASE_NAME}_linked")
+    add_library(${make_proto_binary_FILE_BASE_NAME}_linked OBJECT
+                ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}_linked.cc
+                ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}.inc
+    )
+    target_include_directories(${make_proto_binary_FILE_BASE_NAME}_linked PUBLIC
+                               ${CMAKE_SOURCE_DIR}
+                               ${CMAKE_BINARY_DIR}
+    )
+    target_link_libraries(${make_proto_binary_FILE_BASE_NAME}_linked PUBLIC
+                          absl::statusor
+    )
+    add_dependencies(${make_proto_binary_FILE_BASE_NAME}_linked
+                     ${make_proto_binary_BINARY_NAME}
+    )
+    target_compile_definitions(${make_proto_binary_FILE_BASE_NAME}_linked PUBLIC
+                               "GLOG_DEPRECATED=__attribute__((deprecated))"
+                               "GLOG_EXPORT=__attribute__((visibility(\"default\")))"
                                MEDIAPIPE_PROFILER_AVAILABLE
                                TFLITE_KERNEL_USE_XNNPACK
                                XNNPACK_DELEGATE_ENABLE_QS8=1
@@ -77,10 +103,8 @@ function(MAKE_LINKED CMD FILE_ROOT FILE_BASE_NAME CLASS_NAME)
                                XNN_ENABLE_SPARSE=1
                                XNN_ENABLE_MEMOPT=1
                                TFLITE_BUILD_WITH_XNNPACK_DELEGATE
-                               __DATE__="redacted"
-                               __TIMESTAMP__="redacted"
-                               __TIME__="redacted"
     )
     unset(SUBGRAPH_CLASS_NAME)
     unset(SUBGRAPH_INC_FILE_PATH)
+
 endfunction()
