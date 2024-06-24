@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.17)
 project(ILLIXRHandTracking)
 set(CMAKE_VERBOSE_MAKEFILE True)
-
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_PREFIX_PATH "${CMAKE_INSTALL_PREFIX}/lib/cmake")
 set(ENV{PKG_CONFIG_PATH} "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig")
 
@@ -23,74 +23,77 @@ if(HT_ENABLE_GRAPH_PROFILER)
         add_definitions(-DMEDIAPIPE_WEB_PROFILING_ENABLED=1)
     endif()
 endif()
+set(CMAKE_MODULE_PATH
+    ${CMAKE_SOURCE_DIR}/cmake
+    ${CMAKE_MODULE_PATH}
+    ${CMAKE_INSTALL_PREFIX}/lib/cmake
+)
 find_package(PkgConfig)
 
+set(protobuf_MODULE_COMPATIBLE ON)
 find_package(ZLIB REQUIRED)
-find_package(Protobuf REQUIRED)
+find_package(protobuf 3.19 REQUIRED CONFIG)
 pkg_check_modules(glog REQUIRED libglog)
 pkg_check_modules(egl REQUIRED egl)
 pkg_check_modules(glesv2 REQUIRED glesv2)
 find_package(Eigen3 REQUIRED)
 find_package(OpenCV 4 REQUIRED)
+set(ENABLE_OPENCV ON)
 
 set(PROTOBUF_DESCRIPTORS "" CACHE INTERNAL "")
 pkg_check_modules(cpuinfo REQUIRED libcpuinfo)
 
-find_package(tensorflow-lite QUIET)
-find_package(absl QUIET)
-
-if(NOT tensorflow-lite_FOUND)
-    include(ExternalProject)
-    if(NOT tensorflow-lite)
-        ExternalProject_Add(TF_ext
-                            GIT_REPOSITORY https://github.com/ILLIXR/tensorflow-lite.git
-                            GIT_TAG d13d80b79c3d2f6436b14354c52ad160f4d256ed
-                            PREFIX ${CMAKE_BINARY_DIR}/_deps/tensorflow-lite
-                            CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX} -DABSL_ENABLE_INSTALL=ON -DTFLITE_ENABLE_INSTALL=ON -DSYSTEM_FARMHASH=ON -DBUILD_SHARED_LIBS=OFF -DTFLITE_ENABLE_GPU=${HT_ENABLE_GPU}
-        )
-        include(cmake/gemmlowp.cmake)
-        include(cmake/NEON_2_SSE.cmake)
-        include(cmake/ruy.cmake)
-        include(cmake/flatbuffer.cmake)
-        if(NOT absl_FOUND)
-            include(cmake/absl.cmake)
-        endif()
-        include(cmake/tensorflow-lite.cmake)
-    endif()
+add_library(XNNPACKLIB SHARED IMPORTED)
+set_property(TARGET XNNPACKLIB PROPERTY
+             IMPORTED_LOCATION ${CMAKE_INSTALL_PREFIX}/lib/libXNNPACK.so
+)
+add_library(PTHREADLIB SHARED IMPORTED)
+set_property(TARGET PTHREADLIB PROPERTY
+             IMPORTED_LOCATION ${CMAKE_INSTALL_PREFIX}/lib/libpthreadpool.so
+)
+find_package(tensorflow-lite REQUIRED)
+if(XNNPACK_BINARY_DIR)
+    add_link_options(-L${XNNPACK_BINARY_DIR})
 endif()
 
 include(mediapipe/protobuf.cmake)
 include(cmake/encoder.cmake)
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/mediapipe/calculators/tensor)
-
 foreach(ITEM ${PROTOBUF_DESCRIPTORS})
     get_filename_component(_FILE ${ITEM} NAME_WE)
     add_custom_target(${_FILE}_desc
                       ALL
-                      COMMAND cat ${ITEM} >> ${CMAKE_BINARY_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin
+                      COMMAND cat ${ITEM} >> ${CMAKE_BINARY_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin_temp
                       DEPENDS encode_as_c_string ${ITEM}
     )
     list(APPEND FILE_DEPS ${_FILE}_desc)
 endforeach()
+add_custom_target(move_temp_bin ALL
+                  COMMAND mv ${CMAKE_BINARY_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin_temp ${CMAKE_BINARY_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin
+                  DEPENDS ${FILE_DEPS}
+                  BYPRODUCTS ${CMAKE_BINARY_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin
+)
 
 add_custom_target(encode_descriptor_sets ALL
-                  COMMAND encode_as_c_string
+                  COMMAND ${CMAKE_COMMAND} -E env "LD_LIBRARY_PATH=${CMAKE_INSTALL_PREFIX}/lib" ${CMAKE_BINARY_DIR}/encode_as_c_string
                   ${CMAKE_BINARY_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin > ${CMAKE_BINARY_DIR}/mediapipe/calculators/tensor/inference_calculator_proto_descriptors.inc
-                  DEPENDS encode_as_c_string ${FILE_DEPS}
+                  DEPENDS encode_as_c_string move_temp_bin
                   BYPRODUCTS ${CMAKE_BINARY_DIR}/mediapipe/calculators/tensor/inference_calculator_proto_descriptors.inc
 )
 
-add_custom_target(encode_cleanup ALL
-                  COMMAND rm ${CMAKE_BINARY_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin
-                  DEPENDS encode_descriptor_sets
+include(cmake/message_util.cmake)
+add_custom_target(make_message_type
+                  COMMAND message_type_util
+                  --input_path=${CMAKE_BINARY_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin --root_type_macro_output_path=${CMAKE_BINARY_DIR}/mediapipe/calculators/tensor/inference_calculator_options_lib_type_name.h
+                  DEPENDS message_type_util
+                  BYPRODUCTS ${CMAKE_BINARY_DIR}/mediapipe/calculators/tensor/inference_calculator_options_lib_type_name.h
 )
-#include(cmake/message_util.cmake)
-#add_custom_target(make_message_type
-#                  COMMAND message_type_util
-#                  "--input_path=inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin --root_type_macro_output_path=${CMAKE_BINARY_DIR}/src/calculators/tensor/inference_calculator_options_lib_type_name.h"
+#add_custom_target(encode_cleanup ALL
+#                  COMMAND rm ${CMAKE_BINARY_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin
+#                  DEPENDS encode_descriptor_sets make_message_type
 #)
-#add_subdirectory(src/util/tflite)
 
+add_subdirectory(mediapipe)
 
 
 #message_type_util --input_path=bazel-out/k8-opt/bin/mediapipe/calculators/tensor/inference_calculator_proto_direct-direct-descriptor-set.proto.bin --root_type_macro_output_path=bazel-out/k8-opt/bin/mediapipe/calculators/tensor/inference_calculator_options_lib_type_name.h ')
