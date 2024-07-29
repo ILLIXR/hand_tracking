@@ -180,6 +180,8 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
     int component_count = 0;
     int height = 0;
     int width = 0;
+    int left_idx = -1;
+    int right_idx = -1;
     std::unique_ptr<ILLIXR::illixr_ht_frame> frame_data;
     if (cc->Inputs().HasTag(image_map.at(image_type)) &&
         !cc->Inputs().Tag(image_map.at(image_type)).IsEmpty()) {
@@ -217,12 +219,12 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
             auto input_mat = formats::MatView(&input_frame);
             input_mat.copyTo(*img);
         }
-        frame_data.get()->image = img;
+        frame_data->image = img;
         height = img->rows;
         width = img->cols;
         component_count++;
     } else {
-        frame_data.get()->image = nullptr;
+        frame_data->image = nullptr;
     }
 
     if (cc->Inputs().HasTag(kHandPointsTag) &&
@@ -232,7 +234,21 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
     }
     if (cc->Inputs().HasTag(kHandedness) &&
         !cc->Inputs().Tag(kHandedness).IsEmpty()) {
-        component_count++;
+        const auto &hands = cc->Inputs().Tag(kHandedness).Get<std::vector<ClassificationList> >();
+        if (hands.size() == 1) {
+            for (int i = 0; i < hands[0].classification_size(); i++) {
+                if (hands[0].classification(i).label() == "Left") {
+                    left_idx = i;
+                    frame_data->left_confidence = hands[0].classification(i).score();
+                } else if (hands[0].classification(i).label() == "Right") {
+                    right_idx = i;
+                    frame_data->right_confidence = hands[0].classification(i).score();
+                } else {
+                    // something is wrong
+                }
+            }
+            component_count++;
+        }
     }
     if (cc->Inputs().HasTag(palm_map.at(palm_input)) &&
         !cc->Inputs().Tag(palm_map.at(palm_input)).IsEmpty()) {

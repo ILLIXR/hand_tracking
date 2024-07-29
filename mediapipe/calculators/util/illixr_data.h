@@ -70,6 +70,8 @@ namespace ILLIXR {
         mediapipe::RawRect* left_hand;
         mediapipe::RawRect* right_hand;
 
+        float left_confidence;
+        float right_confidence;
         hand_points* left_hand_points;
         hand_points* right_hand_points;
 
