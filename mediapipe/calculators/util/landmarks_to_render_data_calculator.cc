@@ -24,6 +24,8 @@
 #include "mediapipe/framework/port/ret_check.h"
 #include "mediapipe/util/color.pb.h"
 #include "mediapipe/util/render_data.pb.h"
+#include "mediapipe/calculators/util/illixr_data.h"
+
 namespace mediapipe {
 
 namespace {
@@ -33,6 +35,7 @@ constexpr char kNormLandmarksTag[] = "NORM_LANDMARKS";
 constexpr char kRenderScaleTag[] = "RENDER_SCALE";
 constexpr char kRenderDataTag[] = "RENDER_DATA";
 constexpr char kLandmarkLabel[] = "KEYPOINT";
+constexpr char kHandPoints[] = "HAND_POINTS";
 
 inline Color DefaultMinDepthLineColor() {
   Color color;
@@ -250,6 +253,7 @@ absl::Status LandmarksToRenderDataCalculator::GetContract(
     cc->Inputs().Tag(kRenderScaleTag).Set<float>();
   }
   cc->Outputs().Tag(kRenderDataTag).Set<RenderData>();
+  cc->Outputs().Tag(kHandPoints).Set<ILLIXR::hand_points>();
   return absl::OkStatus();
 }
 
@@ -285,6 +289,8 @@ absl::Status LandmarksToRenderDataCalculator::Process(CalculatorContext* cc) {
   float z_min = 0.f;
   float z_max = 0.f;
 
+  auto ht_points = absl::make_unique<ILLIXR::hand_points>(21, ILLIXR::point());
+
   const Color min_depth_line_color = options_.has_min_depth_line_color()
                                          ? options_.min_depth_line_color()
                                          : DefaultMinDepthLineColor();
@@ -306,6 +312,12 @@ absl::Status LandmarksToRenderDataCalculator::Process(CalculatorContext* cc) {
         cc->Inputs().Tag(kLandmarksTag).Get<LandmarkList>();
     if (visualize_depth) {
       GetMinMaxZ<LandmarkList, Landmark>(landmarks, &z_min, &z_max);
+    }
+
+    for(int i = 0; i < landmarks.landmark_size(); i++) {
+        const auto& lm = landmarks.landmark(i);
+        ht_points.get()->at(i).set(lm.x(), lm.y(), lm.z());
+        ht_points.get()->at(i).normalized = false;
     }
     // Only change rendering if there are actually z values other than 0.
     visualize_depth &= ((z_max - z_min) > 1e-3);
@@ -352,7 +364,14 @@ absl::Status LandmarksToRenderDataCalculator::Process(CalculatorContext* cc) {
   if (cc->Inputs().HasTag(kNormLandmarksTag)) {
     const NormalizedLandmarkList& landmarks =
         cc->Inputs().Tag(kNormLandmarksTag).Get<NormalizedLandmarkList>();
-    if (visualize_depth) {
+
+      for(int i = 0; i < landmarks.landmark_size(); i++) {
+          const auto& lm = landmarks.landmark(i);
+          ht_points.get()->at(i).set(lm.x(), lm.y(), lm.z());
+          ht_points.get()->at(i).normalized = true;
+      }
+
+      if (visualize_depth) {
       GetMinMaxZ<NormalizedLandmarkList, NormalizedLandmark>(landmarks, &z_min,
                                                              &z_max);
     }
@@ -398,9 +417,13 @@ absl::Status LandmarksToRenderDataCalculator::Process(CalculatorContext* cc) {
     }
   }
 
+    //std::cout << ht_points.get()->point(0).x() << ", " << ht_points.get()->point(0).y() << std::endl;
   cc->Outputs()
       .Tag(kRenderDataTag)
       .Add(render_data.release(), cc->InputTimestamp());
+  cc->Outputs()
+          .Tag(kHandPoints)
+          .Add(ht_points.release(), cc->InputTimestamp());
   return absl::OkStatus();
 }
 

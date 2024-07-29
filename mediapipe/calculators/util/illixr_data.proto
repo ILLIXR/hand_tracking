@@ -1,0 +1,14 @@
+syntax = "proto2";
+
+package mediapipe;
+
+import "mediapipe/framework/calculator.proto";
+
+message ILLIXROutputCalculatorOptions {
+  extend CalculatorOptions {
+    optional ILLIXROutputCalculatorOptions ext = 258435395;
+  }
+
+  optional bool save_plots = 1 [default = true];
+
+}

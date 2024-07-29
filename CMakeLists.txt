@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.17)
-project(ILLIXRHandTracking)
+project(ILLIXR_hand_tracking)
 set(CMAKE_VERBOSE_MAKEFILE True)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_PREFIX_PATH "${CMAKE_INSTALL_PREFIX}/lib/cmake")
@@ -16,7 +16,7 @@ if(HT_ENABLE_GPU)
 else()
     add_definitions(-DMEDIAPIPE_DISABLE_GPU=1)
 endif()
-
+add_compile_options(-Wno-deprecated-declarations)
 if(HT_ENABLE_GRAPH_PROFILER)
     add_definitions(-DMEDIAPIPE_PROFILER_AVAILABLE=1)
     if(HT_ENABLE_WEB_PROFILING)
@@ -28,7 +28,15 @@ set(CMAKE_MODULE_PATH
     ${CMAKE_MODULE_PATH}
     ${CMAKE_INSTALL_PREFIX}/lib/cmake
 )
+message(${CMAKE_INSTALL_PREFIX}/lib/cmake)
 find_package(PkgConfig)
+
+if(ILLIXR_ROOT)
+    set(ILLIXR_HDR_PATH ${ILLIXR_ROOT} CACHE PATH "Location of ILLIXR headers")
+    #add_definitions(-DBUILD_ILLIXR)
+else()
+    message(FATAL_ERROR "ILLIXR_ROOT must be specified")
+endif()
 
 set(protobuf_MODULE_COMPATIBLE ON)
 find_package(ZLIB REQUIRED)
@@ -93,10 +101,25 @@ add_custom_target(make_message_type
 #                  DEPENDS encode_descriptor_sets make_message_type
 #)
 
+
 add_subdirectory(mediapipe)
-
-
-#message_type_util --input_path=bazel-out/k8-opt/bin/mediapipe/calculators/tensor/inference_calculator_proto_direct-direct-descriptor-set.proto.bin --root_type_macro_output_path=bazel-out/k8-opt/bin/mediapipe/calculators/tensor/inference_calculator_options_lib_type_name.h ')
+target_include_directories(illixr_hand_tracking PRIVATE
+                           ${ILLIXR_HDR_PATH}
+)
+#set(PLUGIN_NAME plugin.hand_tracking${ILLIXR_BUILD_SUFFIX})
+#add_library(${PLUGIN_NAME} SHARED plugin.cpp)
+#target_link_libraries(${PLUGIN_NAME} PUBLIC
+#                      ${PROJECT_NAME}
+#                      ${OpenCV_LIBRARIES}
+#                      absl::base
+#                      absl::flags_parse
+#)
+#target_include_directories(${PLUGIN_NAME} PRIVATE
+#                           ${ILLIXR_HDR_PATH}
+#                           ${OpenCV_INCLUDE_DIRS}
+#                           ${CMAKE_BINARY_DIR}
+#                           ${CMAKE_SOURCE_DIR}
+#)
 
 
 #get_cmake_property(_variableNames VARIABLES)

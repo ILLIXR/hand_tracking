@@ -73,6 +73,7 @@ add_library(${PLUGIN_NAME} SHARED
             $<TARGET_OBJECTS:framework.formats.annotation.locus_proto>
             $<TARGET_OBJECTS:framework.formats.annotation.rasterization_proto>
             $<TARGET_OBJECTS:framework.deps.proto_descriptor_proto>
+            $<TARGET_OBJECTS:calculators.util.illixr_data_proto>
 
 )
 include(${CMAKE_CURRENT_LIST_DIR}/calculators/build.cmake)

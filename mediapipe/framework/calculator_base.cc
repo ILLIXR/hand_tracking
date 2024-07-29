@@ -15,12 +15,14 @@
 // Definitions for CalculatorBase.
 
 #include "mediapipe/framework/calculator_base.h"
-
 #include <algorithm>
 
 namespace mediapipe {
 
-CalculatorBase::CalculatorBase() {}
+CalculatorBase::CalculatorBase() {
+    int x = 3;
+    x++;
+}
 
 CalculatorBase::~CalculatorBase() {}
 
