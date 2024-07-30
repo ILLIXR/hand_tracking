@@ -62,19 +62,19 @@ namespace ILLIXR {
     typedef std::vector<point> hand_points;
 
 
-    typedef struct {
-        cv::Mat* image;
+    struct illixr_ht_frame {
+        cv::Mat* image = nullptr;
 
-        mediapipe::RawRect* left_palm;
-        mediapipe::RawRect* right_palm;
-        mediapipe::RawRect* left_hand;
-        mediapipe::RawRect* right_hand;
+        mediapipe::RawRect* left_palm = nullptr;
+        mediapipe::RawRect* right_palm = nullptr;
+        mediapipe::RawRect* left_hand = nullptr;
+        mediapipe::RawRect* right_hand = nullptr;
 
-        float left_confidence;
-        float right_confidence;
-        hand_points* left_hand_points;
-        hand_points* right_hand_points;
+        float left_confidence = 0.;
+        float right_confidence = 0.;
+        hand_points* left_hand_points = nullptr;
+        hand_points* right_hand_points = nullptr;
 
-    } illixr_ht_frame;
+    };
 }
 

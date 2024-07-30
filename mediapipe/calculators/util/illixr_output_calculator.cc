@@ -4,6 +4,7 @@
 
 #include "mediapipe/framework/deps/ret_check.h"
 #include "mediapipe/framework/calculator_framework.h"
+#include "mediapipe/framework/formats/image_opencv.h"
 #include "mediapipe/framework/formats/image_frame_opencv.h"
 #include "mediapipe/framework/formats/video_stream_header.h"
 
@@ -178,14 +179,12 @@ absl::Status ILLIXROutputCalculator::Open(CalculatorContext* cc) {
 
 absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
     int component_count = 0;
-    int height = 0;
-    int width = 0;
     int left_idx = -1;
     int right_idx = -1;
     std::unique_ptr<ILLIXR::illixr_ht_frame> frame_data;
     if (cc->Inputs().HasTag(image_map.at(image_type)) &&
         !cc->Inputs().Tag(image_map.at(image_type)).IsEmpty()) {
-        cv::Mat *img;
+        auto img = absl::make_unique<cv::Mat>();
         if (use_gpu_) {
 #if !MEDIAPIPE_DISABLE_GPU
             if (!gpu_initialized_) {
@@ -209,29 +208,22 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
     }
 #endif  // !MEDIAPIPE_DISABLE_GPU
         } else if (image_type == input_image_type::UIMAGE) {
-            const auto& input_frame =
+            const auto& input =
                     cc->Inputs().Tag(kImageTag).Get<mediapipe::Image>();
-            auto input_mat = formats::MatView(&input_frame);
-            input_mat.copyTo(*img);
+            auto input_mat = formats::MatView(&input);
+            input_mat->copyTo(*img);
         } else if (image_type == input_image_type::IMAGE) {
             const auto& input_frame =
                     cc->Inputs().Tag(kImageFrameTag).Get<ImageFrame>();
             auto input_mat = formats::MatView(&input_frame);
             input_mat.copyTo(*img);
         }
-        frame_data->image = img;
-        height = img->rows;
-        width = img->cols;
+        frame_data->image = img.release();
         component_count++;
     } else {
         frame_data->image = nullptr;
     }
 
-    if (cc->Inputs().HasTag(kHandPointsTag) &&
-        !cc->Inputs().Tag(kHandPointsTag).IsEmpty()) {
-
-        component_count++;
-    }
     if (cc->Inputs().HasTag(kHandedness) &&
         !cc->Inputs().Tag(kHandedness).IsEmpty()) {
         const auto &hands = cc->Inputs().Tag(kHandedness).Get<std::vector<ClassificationList> >();
@@ -250,84 +242,109 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
             component_count++;
         }
     }
+    if (cc->Inputs().HasTag(kHandPointsTag) &&
+        !cc->Inputs().Tag(kHandPointsTag).IsEmpty()) {
+
+        component_count++;
+    }
+
     if (cc->Inputs().HasTag(palm_map.at(palm_input)) &&
         !cc->Inputs().Tag(palm_map.at(palm_input)).IsEmpty()) {
-        switch(palm_input) {
-            case palm_input_type::NORM_RECT: {
+        RawRect* p_rect;
+        if (palm_input == palm_input_type::NORM_RECT || palm_input == palm_input_type::RECT) {
+            if (palm_input == palm_input_type::NORM_RECT) {
                 const auto &rect = cc->Inputs().Tag(kNormPalmRectTag).Get<NormalizedRect>();
-                auto p_rect = make_rect(rect, true);
-                break;
-            }
-            case palm_input_type::RECT: {
+                p_rect = make_rect(rect, true);
+            } else {
                 const auto &rect = cc->Inputs().Tag(kRectPalmTag).Get<Rect>();
-                auto p_rect = make_rect(rect, false);
-                break;
+                p_rect = make_rect(rect, false);
             }
-            case palm_input_type::NORM_RECTS: {
-                const auto& rects = cc->Inputs().Tag(kNormPalmRectsTag).Get<std::vector<NormalizedRect> >();
-                if (rects.size() > 2) {
+            if (left_idx == 0)
+                frame_data->left_palm = p_rect;
+            else if (right_idx == 0)
+                frame_data->right_palm = p_rect;
+            else
+                delete p_rect;
+        } else if (palm_input == palm_input_type::NORM_RECTS) {
+            const auto& nrects = cc->Inputs().Tag(kNormPalmRectsTag).Get<std::vector<NormalizedRect> >();
+            if (nrects.size() > 2) {
                     // ERROR
-                    break;
-                }
-                for (auto& rect : rects) {
-                    auto p_rect = make_rect(rect, true);
-                }
-                break;
             }
-            case palm_input_type::RECTS: {
-                const auto& rects = cc->Inputs().Tag(kRectsPalmTag).Get<std::vector<NormalizedRect> >();
-                if (rects.size() > 2) {
-                    // ERROR
-                    break;
-                }
-                for (auto& rect : rects) {
-                    auto p_rect = make_rect(rect, false);
-                }
-                break;
+            for (auto i = 0; i < nrects.size(); i++) {
+                p_rect = make_rect(nrects[i], true);
+                if (i == left_idx)
+                    frame_data->left_palm = p_rect;
+                else if (i == right_idx)
+                    frame_data->right_palm = p_rect;
+                else
+                    delete p_rect;
             }
-            case palm_input_type::NONE:
-                break;
         }
-
+        else if(palm_input == palm_input_type::RECTS) {
+            const auto& rects = cc->Inputs().Tag(kRectsPalmTag).Get<std::vector<NormalizedRect> >();
+            if (rects.size() > 2) {
+                // ERROR
+            }
+            for (auto i = 0; i < rects.size(); i++) {
+                p_rect = make_rect(rects[i], false);
+                if (i == left_idx)
+                    frame_data->left_palm = p_rect;
+                else if (i == right_idx)
+                    frame_data->right_palm = p_rect;
+                else
+                    delete p_rect;
+            }
+        }
         component_count++;
     }
     if (cc->Inputs().HasTag(hand_map.at(hand_input)) &&
         !cc->Inputs().Tag(hand_map.at(hand_input)).IsEmpty()) {
-        switch(hand_input) {
-            case hand_input_type::NORM_RECT: {
-                const auto &rect = cc->Inputs().Tag(kNormHandRectTag).Get<NormalizedRect>();
-                auto h_rect = make_rect(rect, true);
-                break;
-            }
-            case hand_input_type::RECT: {
+        RawRect* h_rect;
+        if (hand_input == hand_input_type::NORM_RECT || hand_input == hand_input_type::RECT) {
+            const auto &rect = cc->Inputs().Tag(kNormHandRectTag).Get<NormalizedRect>();
+            if (hand_input == hand_input_type::NORM_RECT) {
+                h_rect = make_rect(rect, true);
+
+            } else {
                 const auto &rect = cc->Inputs().Tag(kRectHandTag).Get<Rect>();
-                auto h_rect = make_rect(rect, false);
-                break;
+                h_rect = make_rect(rect, false);
             }
-            case hand_input_type::NORM_RECTS: {
-                const auto& rects = cc->Inputs().Tag(kNormHandRectsTag).Get<std::vector<NormalizedRect> >();
-                if (rects.size() > 2) {
-                    // ERROR
-                    break;
-                }
-                for (auto& rect : rects) {
-                    auto h_rect = make_rect(rect, true);
-                }
-                break;
+            if (left_idx == 0)
+                frame_data->left_hand = h_rect;
+            else if (right_idx == 0)
+                frame_data->right_hand = h_rect;
+            else
+                delete h_rect;
+
+        } else if (hand_input == hand_input_type::NORM_RECTS) {
+            const auto &nrects = cc->Inputs().Tag(kNormHandRectsTag).Get<std::vector<NormalizedRect> >();
+            if (nrects.size() > 2) {
+                // ERROR
+
             }
-            case hand_input_type::RECTS: {
-                const auto& rects = cc->Inputs().Tag(kRectsHandTag).Get<std::vector<NormalizedRect> >();
-                if (rects.size() > 2) {
-                    // ERROR
-                    break;
-                }
-                for (auto& rect : rects) {
-                    auto h_rect = make_rect(rect, false);
-                }
-                break;
+            for (auto i = 0; i < nrects.size(); i++) {
+                h_rect = make_rect(nrects[i], true);
+                if (i == left_idx)
+                    frame_data->left_hand = h_rect;
+                else if (i == right_idx)
+                    frame_data->right_hand = h_rect;
+                else
+                    delete h_rect;
             }
-            case hand_input_type::NONE:
-                break;
+        } else if (hand_input == hand_input_type::RECTS) {
+            const auto& rects = cc->Inputs().Tag(kRectsHandTag).Get<std::vector<NormalizedRect> >();
+            if (rects.size() > 2) {
+                // ERROR
+            }
+            for (auto i = 0; i < rects.size(); i++) {
+                h_rect = make_rect(rects[i], false);
+                if (i == left_idx)
+                    frame_data->left_hand = h_rect;
+                else if (i == right_idx)
+                    frame_data->right_hand = h_rect;
+                else
+                    delete h_rect;
+            }
         }
         component_count++;
     }

@@ -57,8 +57,8 @@ private:
 };
 
 template<class T>
-std::unique_ptr<RawRect> make_rect(const T in_rect, bool normalized) {
-    auto h_rect = absl::make_unique<RawRect>();
+RawRect* make_rect(const T in_rect, bool normalized) {
+    auto *h_rect = new RawRect();
     h_rect.get()->set_x_center(in_rect.x_center());
     h_rect.get()->set_y_center(in_rect.y_center());
     h_rect.get()->set_width(in_rect.width());
