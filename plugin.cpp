@@ -74,6 +74,16 @@ void hand_tracking::_p_one_iteration() {
         auto& output_frame = packet.Get<mediapipe::ILLIXR::illixr_ht_frame>();
         // Convert back to opencv for display or saving.
 
+        _ht_publisher.put(_ht_publisher.allocate<ht_frame>(ht_frame{output_frame.image,
+                                                                    output_frame.left_palm,
+                                                                    output_frame.right_palm,
+                                                                    output_frame.left_hand,
+                                                                    output_frame.right_hand,
+                                                                    output_frame.left_confidence,
+                                                                    output_frame.right_confidence,
+                                                                    output_frame.left_hand_points,
+                                                                    output_frame.right_hand_points}));
+
 
     }
 }

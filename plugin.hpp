@@ -25,7 +25,7 @@ private:
     mediapipe::CalculatorGraph _graph;
     switchboard::buffered_reader<cam_type> _camera;
     switchboard::ptr<const cam_type> _cam;
-    switchboard::writer<ht_type> _ht_publisher;
+    switchboard::writer<ht_frame> _ht_publisher;
     mediapipe::OutputStreamPoller* _poller = nullptr;
 
 };
