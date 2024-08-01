@@ -102,24 +102,25 @@ add_custom_target(make_message_type
 #)
 
 
+set(PLUGIN_NAME plugin.hand_tracking${ILLIXR_BUILD_SUFFIX})
+add_library(${PLUGIN_NAME} SHARED plugin.cpp)
+
 add_subdirectory(mediapipe)
-target_include_directories(illixr_hand_tracking PRIVATE
-                           ${ILLIXR_HDR_PATH}
+message(${PLUGIN_NAME})
+
+target_link_libraries(${PLUGIN_NAME} PUBLIC
+                      ${OpenCV_LIBRARIES}
+                      absl::base
+                      absl::flags_parse
+                      fmt
 )
-#set(PLUGIN_NAME plugin.hand_tracking${ILLIXR_BUILD_SUFFIX})
-#add_library(${PLUGIN_NAME} SHARED plugin.cpp)
-#target_link_libraries(${PLUGIN_NAME} PUBLIC
-#                      ${PROJECT_NAME}
-#                      ${OpenCV_LIBRARIES}
-#                      absl::base
-#                      absl::flags_parse
-#)
-#target_include_directories(${PLUGIN_NAME} PRIVATE
-#                           ${ILLIXR_HDR_PATH}
-#                           ${OpenCV_INCLUDE_DIRS}
-#                           ${CMAKE_BINARY_DIR}
-#                           ${CMAKE_SOURCE_DIR}
-#)
+
+target_include_directories(${PLUGIN_NAME} PRIVATE
+                           ${ILLIXR_HDR_PATH}
+                           ${OpenCV_INCLUDE_DIRS}
+                           ${CMAKE_BINARY_DIR}
+                           ${CMAKE_SOURCE_DIR}
+)
 
 
 #get_cmake_property(_variableNames VARIABLES)
