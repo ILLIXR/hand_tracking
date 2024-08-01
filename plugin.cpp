@@ -30,7 +30,7 @@ constexpr char kOutputStream[] = "output_video";
         , _ht_publisher{_switchboard->get_writer<ht_frame>("ht")} {
     std::string calculator_graph_config_contents;
     MP_RAISE_IF_ERROR(mediapipe::file::GetContents(
-            absl::GetFlag(FLAGS_calculator_graph_config_file),
+            std::getenv("CALCULATOR_CONFIG_FILE"),
             &calculator_graph_config_contents), "Failed to get config contents");
     auto config = mediapipe::ParseTextProtoOrDie<mediapipe::CalculatorGraphConfig>(calculator_graph_config_contents);
 
