@@ -49,6 +49,7 @@ namespace mediapipe {
         constexpr char kGpuBufferTag[] = "IMAGE_GPU";
         constexpr char kImageFrameTag[] = "IMAGE";
         constexpr char kImageTag[] = "UIMAGE";  // Universal Image
+        constexpr char kHandPointsTag[] = "HAND_POINTS";
 
         enum { ATTRIB_VERTEX, ATTRIB_TEXTURE_POSITION, NUM_ATTRIBUTES };
 
@@ -242,7 +243,7 @@ namespace mediapipe {
         if (cc->Outputs().HasTag(kImageTag)) {
             cc->Outputs().Tag(kImageTag).Set<mediapipe::Image>();
         }
-
+        cc->Outputs().Tag(kHandPointsTag).Set<std::vector<Points>>();
         if (use_gpu) {
 #if !MEDIAPIPE_DISABLE_GPU
             MP_RETURN_IF_ERROR(mediapipe::GlCalculatorHelper::UpdateContract(cc));
@@ -378,7 +379,7 @@ namespace mediapipe {
                 }
             }
         }
-
+        cc->Outputs().Tag(kHandPointsTag).Add(hand_points.release(), cc->InputTimestamp());
         if (use_gpu_) {
 #if !MEDIAPIPE_DISABLE_GPU
             // Overlay rendered image in OpenGL, onto a copy of input.

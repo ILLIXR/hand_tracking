@@ -9,6 +9,7 @@
 #include "mediapipe/framework/port/parse_text_proto.h"
 #include "mediapipe/framework/formats/image_frame.h"
 #include "mediapipe/framework/formats/image_frame_opencv.h"
+#include "mediapipe/calculators/util/illixr_data.h"
 
 #include <opencv2/opencv.hpp>
 
@@ -26,7 +27,7 @@ constexpr char kOutputStream[] = "output_video";
         , _switchboard{pb_->lookup_impl<switchboard>()}
         , _ht_config_file{getenv("HT_CONFIG_FILE")}
         , _camera{_switchboard->get_buffered_reader<cam_type>("cam")}
-        , _ht_publisher{_switchboard->get_writer<ht_type>("ht")} {
+        , _ht_publisher{_switchboard->get_writer<ht_frame>("ht")} {
     std::string calculator_graph_config_contents;
     MP_RAISE_IF_ERROR(mediapipe::file::GetContents(
             absl::GetFlag(FLAGS_calculator_graph_config_file),
@@ -70,7 +71,7 @@ void hand_tracking::_p_one_iteration() {
         // Get the graph result packet, or stop if that fails.
         mediapipe::Packet packet;
         if(!_poller->Next(&packet)) break;
-        auto& output_frame = packet.Get<mediapipe::ImageFrame>();
+        auto& output_frame = packet.Get<mediapipe::ILLIXR::illixr_ht_frame>();
         // Convert back to opencv for display or saving.
 
 
