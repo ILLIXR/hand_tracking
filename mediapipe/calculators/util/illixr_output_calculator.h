@@ -3,6 +3,7 @@
 #include "mediapipe/framework/calculator_base.h"
 #include "mediapipe/framework/formats/rect.pb.h"
 #include "mediapipe/calculators/util/illixr_data.pb.h"
+#include "mediapipe/calculators/util/illixr_data.h"
 
 namespace mediapipe {
 
@@ -57,14 +58,8 @@ private:
 };
 
 template<class T>
-RawRect* make_rect(const T in_rect, bool normalized) {
-    auto *h_rect = new RawRect();
-    h_rect.get()->set_x_center(in_rect.x_center());
-    h_rect.get()->set_y_center(in_rect.y_center());
-    h_rect.get()->set_width(in_rect.width());
-    h_rect.get()->set_height(in_rect.height());
-    h_rect.get()->set_rotation(in_rect.rotation());
-    h_rect.get()->set_normalized(normalized);
-    return h_rect;
+ILLIXR::rect* make_rect(const T in_rect, bool normalized) {
+    return new ILLIXR::rect(in_rect.x_center(), in_rect.y_center(), in_rect.width(),
+                            in_rect.height(), in_rect.rotation(), normalized);
 }
 } // mediapipe

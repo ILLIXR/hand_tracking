@@ -6,7 +6,6 @@
 #include "mediapipe/framework/calculator_framework.h"
 #include "mediapipe/framework/formats/image_opencv.h"
 #include "mediapipe/framework/formats/image_frame_opencv.h"
-#include "mediapipe/framework/formats/video_stream_header.h"
 
 #include "mediapipe/framework/formats/classification.pb.h"
 #include "mediapipe/calculators/util/illixr_data.h"
@@ -79,7 +78,7 @@ absl::Status ILLIXROutputCalculator::GetContract(CalculatorContract* cc) {
     }
 
     if (cc->Inputs().HasTag(kHandPointsTag)) {
-        cc->Inputs().Tag(kHandPointsTag).Set<ILLIXR::hand_points>();
+        cc->Inputs().Tag(kHandPointsTag).Set<std::vector<Points> >();
     }
 
     if (cc->Inputs().HasTag(kHandedness)) {
@@ -181,7 +180,7 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
     int component_count = 0;
     int left_idx = -1;
     int right_idx = -1;
-    std::unique_ptr<ILLIXR::illixr_ht_frame> frame_data;
+    auto frame_data = absl::make_unique<ILLIXR::illixr_ht_frame>();
     if (cc->Inputs().HasTag(image_map.at(image_type)) &&
         !cc->Inputs().Tag(image_map.at(image_type)).IsEmpty()) {
         auto img = absl::make_unique<cv::Mat>();
@@ -244,13 +243,24 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
     }
     if (cc->Inputs().HasTag(kHandPointsTag) &&
         !cc->Inputs().Tag(kHandPointsTag).IsEmpty()) {
-
+        const auto &hp = cc->Inputs().Tag(kHandPointsTag).Get<std::vector<Points> >();
+        for (auto i = 0; i < hp.size(); i++) {
+            auto hand_points = absl::make_unique<ILLIXR::hand_points>(21, ILLIXR::point());
+            for (auto j = 0; j < hp[i].points_size(); i++) {
+                auto pnt = hp[i].points(j);
+                hand_points->at(j).set(pnt.x(), pnt.y(), pnt.z(), pnt.normalized());
+            }
+            if (i == left_idx)
+                frame_data->left_hand_points = hand_points.release();
+            else if (i == right_idx)
+                frame_data->right_hand_points = hand_points.release();
+        }
         component_count++;
     }
 
     if (cc->Inputs().HasTag(palm_map.at(palm_input)) &&
         !cc->Inputs().Tag(palm_map.at(palm_input)).IsEmpty()) {
-        RawRect* p_rect;
+        ILLIXR::rect* p_rect;
         if (palm_input == palm_input_type::NORM_RECT || palm_input == palm_input_type::RECT) {
             if (palm_input == palm_input_type::NORM_RECT) {
                 const auto &rect = cc->Inputs().Tag(kNormPalmRectTag).Get<NormalizedRect>();
@@ -299,10 +309,10 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
     }
     if (cc->Inputs().HasTag(hand_map.at(hand_input)) &&
         !cc->Inputs().Tag(hand_map.at(hand_input)).IsEmpty()) {
-        RawRect* h_rect;
+        ILLIXR::rect* h_rect;
         if (hand_input == hand_input_type::NORM_RECT || hand_input == hand_input_type::RECT) {
-            const auto &rect = cc->Inputs().Tag(kNormHandRectTag).Get<NormalizedRect>();
             if (hand_input == hand_input_type::NORM_RECT) {
+                const auto &rect = cc->Inputs().Tag(kNormHandRectTag).Get<NormalizedRect>();
                 h_rect = make_rect(rect, true);
 
             } else {
@@ -352,11 +362,11 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
     if (component_count == 0) {
         return absl::OkStatus();
     }
-    if (HasImageTag(cc)) {
-        use_gpu_ = cc->Inputs().Tag(kImageTag).Get<mediapipe::Image>().UsesGpu();
-    }
+    //if (HasImageTag(cc)) {
+    //    use_gpu_ = cc->Inputs().Tag(kImageTag).Get<mediapipe::Image>().UsesGpu();
+    //}
 
-    cv::Mat img;
+    cc->Outputs().Tag(kIllixrData).Add(frame_data.release(), cc->InputTimestamp());
 
 
 
