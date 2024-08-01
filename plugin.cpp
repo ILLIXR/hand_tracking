@@ -60,8 +60,7 @@ void hand_tracking::_p_one_iteration() {
         camera_frame[i].copyTo(input_frame_mat[i]);
 
 // Send image packet into the graph.
-        size_t frame_timestamp_us =
-                (double) cv::getTickCount() / (double) cv::getTickFrequency() * 1e6;
+        size_t frame_timestamp_us = cv::getTickCount() / (double) cv::getTickFrequency() * 1e6;
 
 
         MP_RAISE_IF_ERROR(_graph.AddPacketToInputStream(
