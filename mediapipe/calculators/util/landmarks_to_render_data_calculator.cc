@@ -23,8 +23,9 @@
 #include "mediapipe/framework/formats/location_data.pb.h"
 #include "mediapipe/framework/port/ret_check.h"
 #include "mediapipe/util/color.pb.h"
-#include "mediapipe/util/render_data.pb.h"
-#include "mediapipe/calculators/util/illixr_data.h"
+#include "mediapipe/util/render_and_points.pb.h"
+//#include "mediapipe/util/render_data.pb.h"
+//#include "mediapipe/calculators/util/illixr_data.h"
 
 namespace mediapipe {
 
@@ -252,8 +253,7 @@ absl::Status LandmarksToRenderDataCalculator::GetContract(
   if (cc->Inputs().HasTag(kRenderScaleTag)) {
     cc->Inputs().Tag(kRenderScaleTag).Set<float>();
   }
-  cc->Outputs().Tag(kRenderDataTag).Set<RenderData>();
-  cc->Outputs().Tag(kHandPoints).Set<ILLIXR::hand_points>();
+  cc->Outputs().Tag(kRenderDataTag).Set<RenderPointData>();
   return absl::OkStatus();
 }
 
@@ -284,12 +284,12 @@ absl::Status LandmarksToRenderDataCalculator::Process(CalculatorContext* cc) {
     return absl::OkStatus();
   }
 
-  auto render_data = absl::make_unique<RenderData>();
+  auto render_point_data = absl::make_unique<RenderPointData>();
+  auto render_data = render_point_data->mutable_render_data();
+  auto ht_points = render_point_data->mutable_points();
   bool visualize_depth = options_.visualize_landmark_depth();
   float z_min = 0.f;
   float z_max = 0.f;
-
-  auto ht_points = absl::make_unique<ILLIXR::hand_points>(21, ILLIXR::point());
 
   const Color min_depth_line_color = options_.has_min_depth_line_color()
                                          ? options_.min_depth_line_color()
@@ -316,8 +316,12 @@ absl::Status LandmarksToRenderDataCalculator::Process(CalculatorContext* cc) {
 
     for(int i = 0; i < landmarks.landmark_size(); i++) {
         const auto& lm = landmarks.landmark(i);
-        ht_points.get()->at(i).set(lm.x(), lm.y(), lm.z());
-        ht_points.get()->at(i).normalized = false;
+        auto* ht_point = ht_points->add_points();
+        ht_point->set_x(lm.x());
+        ht_point->set_y(lm.y());
+        ht_point->set_z(lm.z());
+        ht_point->set_normalized(false);
+        ht_point->set_valid(true);
     }
     // Only change rendering if there are actually z values other than 0.
     visualize_depth &= ((z_max - z_min) > 1e-3);
@@ -326,13 +330,13 @@ absl::Status LandmarksToRenderDataCalculator::Process(CalculatorContext* cc) {
           landmarks, landmark_connections_, options_.utilize_visibility(),
           options_.visibility_threshold(), options_.utilize_presence(),
           options_.presence_threshold(), thickness, /*normalized=*/false, z_min,
-          z_max, min_depth_line_color, max_depth_line_color, render_data.get());
+          z_max, min_depth_line_color, max_depth_line_color, render_data);
     } else {
       AddConnections<LandmarkList, Landmark>(
           landmarks, landmark_connections_, options_.utilize_visibility(),
           options_.visibility_threshold(), options_.utilize_presence(),
           options_.presence_threshold(), options_.connection_color(), thickness,
-          /*normalized=*/false, render_data.get());
+          /*normalized=*/false, render_data);
     }
     if (options_.render_landmarks()) {
       for (int i = 0; i < landmarks.landmark_size(); ++i) {
@@ -346,7 +350,7 @@ absl::Status LandmarksToRenderDataCalculator::Process(CalculatorContext* cc) {
         }
 
         auto* landmark_data_render = AddPointRenderData(
-            options_.landmark_color(), thickness, render_data.get());
+            options_.landmark_color(), thickness, render_data);
         if (visualize_depth) {
           SetColorSizeValueFromZ(landmark.z(), z_min, z_max,
                                  landmark_data_render,
@@ -367,8 +371,12 @@ absl::Status LandmarksToRenderDataCalculator::Process(CalculatorContext* cc) {
 
       for(int i = 0; i < landmarks.landmark_size(); i++) {
           const auto& lm = landmarks.landmark(i);
-          ht_points.get()->at(i).set(lm.x(), lm.y(), lm.z());
-          ht_points.get()->at(i).normalized = true;
+          auto* ht_point = ht_points->add_points();
+          ht_point->set_x(lm.x());
+          ht_point->set_y(lm.y());
+          ht_point->set_z(lm.z());
+          ht_point->set_normalized(true);
+          ht_point->set_valid(true);
       }
 
       if (visualize_depth) {
@@ -382,13 +390,13 @@ absl::Status LandmarksToRenderDataCalculator::Process(CalculatorContext* cc) {
           landmarks, landmark_connections_, options_.utilize_visibility(),
           options_.visibility_threshold(), options_.utilize_presence(),
           options_.presence_threshold(), thickness, /*normalized=*/true, z_min,
-          z_max, min_depth_line_color, max_depth_line_color, render_data.get());
+          z_max, min_depth_line_color, max_depth_line_color, render_data);
     } else {
       AddConnections<NormalizedLandmarkList, NormalizedLandmark>(
           landmarks, landmark_connections_, options_.utilize_visibility(),
           options_.visibility_threshold(), options_.utilize_presence(),
           options_.presence_threshold(), options_.connection_color(), thickness,
-          /*normalized=*/true, render_data.get());
+          /*normalized=*/true, render_data);
     }
     if (options_.render_landmarks()) {
       for (int i = 0; i < landmarks.landmark_size(); ++i) {
@@ -402,7 +410,7 @@ absl::Status LandmarksToRenderDataCalculator::Process(CalculatorContext* cc) {
         }
 
         auto* landmark_data_render = AddPointRenderData(
-            options_.landmark_color(), thickness, render_data.get());
+            options_.landmark_color(), thickness, render_data);
         if (visualize_depth) {
           SetColorSizeValueFromZ(landmark.z(), z_min, z_max,
                                  landmark_data_render,
@@ -420,10 +428,7 @@ absl::Status LandmarksToRenderDataCalculator::Process(CalculatorContext* cc) {
     //std::cout << ht_points.get()->point(0).x() << ", " << ht_points.get()->point(0).y() << std::endl;
   cc->Outputs()
       .Tag(kRenderDataTag)
-      .Add(render_data.release(), cc->InputTimestamp());
-  cc->Outputs()
-          .Tag(kHandPoints)
-          .Add(ht_points.release(), cc->InputTimestamp());
+      .Add(render_point_data.release(), cc->InputTimestamp());
   return absl::OkStatus();
 }
 

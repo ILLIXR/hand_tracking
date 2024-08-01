@@ -27,7 +27,7 @@
 #include "mediapipe/framework/formats/rect.pb.h"
 #include "mediapipe/framework/formats/tensor.h"
 #include "mediapipe/gpu/gpu_buffer.h"
-#include "mediapipe/util/render_data.pb.h"
+#include "mediapipe/util/render_and_points.pb.h"
 #include "tensorflow/lite/interpreter.h"
 
 namespace mediapipe {
@@ -50,7 +50,7 @@ REGISTER_CALCULATOR(EndLoopBooleanCalculator);
 typedef EndLoopCalculator<std::vector<float>> EndLoopFloatCalculator;
 REGISTER_CALCULATOR(EndLoopFloatCalculator);
 
-typedef EndLoopCalculator<std::vector<::mediapipe::RenderData>>
+typedef EndLoopCalculator<std::vector<::mediapipe::RenderPointData>>
     EndLoopRenderDataCalculator;
 REGISTER_CALCULATOR(EndLoopRenderDataCalculator);
 

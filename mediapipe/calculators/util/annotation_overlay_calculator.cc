@@ -31,7 +31,7 @@
 #include "mediapipe/framework/port/vector.h"
 #include "mediapipe/util/annotation_renderer.h"
 #include "mediapipe/util/color.pb.h"
-#include "mediapipe/util/render_data.pb.h"
+#include "mediapipe/util/render_and_points.pb.h"
 
 #if !MEDIAPIPE_DISABLE_GPU
 #include "mediapipe/gpu/gl_calculator_helper.h"
@@ -223,7 +223,7 @@ namespace mediapipe {
             auto tag_and_index = cc->Inputs().TagAndIndexFromId(id);
             std::string tag = tag_and_index.first;
             if (tag == kVectorTag) {
-                cc->Inputs().Get(id).Set<std::vector<RenderData>>();
+                cc->Inputs().Get(id).Set<std::vector<RenderPointData>>();
             } else if (tag.empty()) {
                 // Empty tag defaults to accepting a single object of RenderData type.
                 cc->Inputs().Get(id).Set<RenderData>();
@@ -352,7 +352,7 @@ namespace mediapipe {
         // Reset the renderer with the image_mat. No copy here.
         renderer_->AdoptImage(image_mat.get());
         renderer_->AdoptImage(image_mat.get());
-
+        auto hand_points = absl::make_unique<std::vector<Points> >();
         // Render streams onto render target.
         for (CollectionItemId id = cc->Inputs().BeginId(); id < cc->Inputs().EndId();
              ++id) {
@@ -370,10 +370,11 @@ namespace mediapipe {
                 renderer_->RenderDataOnImage(render_data);
             } else {
                 RET_CHECK_EQ(kVectorTag, tag);
-                const std::vector<RenderData>& render_data_vec =
-                        cc->Inputs().Get(id).Get<std::vector<RenderData>>();
-                for (const RenderData& render_data : render_data_vec) {
-                    renderer_->RenderDataOnImage(render_data);
+                const std::vector<RenderPointData>& render_data_vec =
+                        cc->Inputs().Get(id).Get<std::vector<RenderPointData>>();
+                for (const RenderPointData& rp_data : render_data_vec) {
+                    hand_points->push_back(rp_data.points());
+                    renderer_->RenderDataOnImage(rp_data.render_data());
                 }
             }
         }
