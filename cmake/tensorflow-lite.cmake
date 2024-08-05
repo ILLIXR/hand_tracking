@@ -9,7 +9,7 @@ include(FetchContent)
 FetchContent_Declare(
         tensorflow-lite
         GIT_REPOSITORY https://github.com/ILLIXR/tensorflow-lite.git
-        GIT_TAG 421b551e76de7b837394801d1c3b246457bb5742
+        GIT_TAG 6d3cb16d15a7e7518f4e0d309eb9c5eda757c79d
         GIT_SHALLOW TRUE
         GIT_PROGRESS TRUE
         PREFIX "${CMAKE_BINARY_DIR}"

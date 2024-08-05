@@ -40,7 +40,7 @@ endif()
 
 set(protobuf_MODULE_COMPATIBLE ON)
 find_package(ZLIB REQUIRED)
-find_package(protobuf 3.19 REQUIRED CONFIG)
+find_package(Protobuf2 3.19 REQUIRED)
 pkg_check_modules(glog REQUIRED libglog)
 pkg_check_modules(egl REQUIRED egl)
 pkg_check_modules(glesv2 REQUIRED glesv2)
