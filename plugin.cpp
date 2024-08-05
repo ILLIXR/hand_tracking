@@ -26,7 +26,7 @@ constexpr char kOutputStream[] = "output_video";
         : threadloop{name_, pb_}
         , _switchboard{pb_->lookup_impl<switchboard>()}
         , _ht_config_file{getenv("HT_CONFIG_FILE")}
-        , _camera{_switchboard->get_buffered_reader<cam_type>("cam")}
+        , _camera{_switchboard->get_buffered_reader<cam_type>("webcam")}
         , _ht_publisher{_switchboard->get_writer<ht_frame>("ht")} {
     std::string calculator_graph_config_contents;
     MP_RAISE_IF_ERROR(mediapipe::file::GetContents(
