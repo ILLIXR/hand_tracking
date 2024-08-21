@@ -27,7 +27,7 @@
 #include "mediapipe/framework/formats/rect.pb.h"
 #include "mediapipe/framework/formats/tensor.h"
 #include "mediapipe/gpu/gpu_buffer.h"
-#include "mediapipe/util/render_and_points.pb.h"
+#include "mediapipe/calculators/util/render_and_points.pb.h"
 #include "tensorflow/lite/interpreter.h"
 
 namespace mediapipe {

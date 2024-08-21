@@ -23,7 +23,7 @@
 #include "mediapipe/framework/formats/location_data.pb.h"
 #include "mediapipe/framework/port/ret_check.h"
 #include "mediapipe/util/color.pb.h"
-#include "mediapipe/util/render_and_points.pb.h"
+#include "mediapipe/calculators/util/render_and_points.pb.h"
 //#include "mediapipe/util/render_data.pb.h"
 //#include "mediapipe/calculators/util/illixr_data.h"
 

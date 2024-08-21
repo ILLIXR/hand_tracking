@@ -63,7 +63,6 @@ target_sources(${PLUGIN_NAME} PUBLIC
                $<TARGET_OBJECTS:palm_detection_detection_to_roi_linked>
                $<TARGET_OBJECTS:palm_detection_model_loader_linked>
                $<TARGET_OBJECTS:palm_detection_cpu_linked>
-
                $<TARGET_OBJECTS:framework.formats.object_detection.anchor_proto>
                $<TARGET_OBJECTS:framework.formats.time_series_header_proto>
                $<TARGET_OBJECTS:framework.tool.calculator_graph_template_proto>
@@ -71,7 +70,7 @@ target_sources(${PLUGIN_NAME} PUBLIC
                $<TARGET_OBJECTS:framework.formats.annotation.rasterization_proto>
                $<TARGET_OBJECTS:framework.deps.proto_descriptor_proto>
                $<TARGET_OBJECTS:calculators.util.illixr_data_proto>
-               $<TARGET_OBJECTS:util.render_and_points_proto>
+               $<TARGET_OBJECTS:calculators.util.render_and_points_proto>
 )
 include(${CMAKE_CURRENT_LIST_DIR}/calculators/build.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/framework/build.cmake)

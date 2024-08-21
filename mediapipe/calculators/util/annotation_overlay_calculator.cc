@@ -31,7 +31,7 @@
 #include "mediapipe/framework/port/vector.h"
 #include "mediapipe/util/annotation_renderer.h"
 #include "mediapipe/util/color.pb.h"
-#include "mediapipe/util/render_and_points.pb.h"
+#include "mediapipe/calculators/util/render_and_points.pb.h"
 
 #if !MEDIAPIPE_DISABLE_GPU
 #include "mediapipe/gpu/gl_calculator_helper.h"
