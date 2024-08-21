@@ -108,9 +108,9 @@ target_include_directories(${PLUGIN_NAME} PUBLIC
                            ${CMAKE_INSTALL_PREFIX}/include/tensorflow/lite
                            ${CMAKE_INSTALL_PREFIX}/include/gemmlowp
 )
-message(${CMAKE_INSTALL_PREFIX}/include/tensorflow/lite)
+
 target_link_libraries(${PLUGIN_NAME} PUBLIC
-                      ${Protobuf_LIBRARIES}
+                      protobuf::libprotobuf
                       absl::algorithm
                       absl::base
                       absl::core_headers
@@ -142,8 +142,9 @@ target_link_libraries(${PLUGIN_NAME} PUBLIC
                       absl::span
                       absl::variant
                       absl::utility
-                      #${tensorflow-lite_LIBRARIES}
                       tensorflow-lite::tensorflow-lite
+                      ${cpuinfo_LIBRARIES}
+                      tfl-XNNPACK::tfl-XNNPACK
                       ${gflags_LIBRARIES}
                       ${glog_LIBRARIES}
                       ${OpenCV_LIBRARIES}
@@ -155,8 +156,8 @@ add_executable(hand_tracking_tflite
                demo_run_graph_main.cc
 )
 
-target_link_libraries(hand_tracking_tflite PRIVATE
-                      ${Protobuf_LIBRARIES}
+target_link_libraries(hand_tracking_tflite PUBLIC
+                      protobuf::libprotobuf
                       absl::algorithm
                       absl::base
                       absl::core_headers
@@ -189,14 +190,13 @@ target_link_libraries(hand_tracking_tflite PRIVATE
                       absl::span
                       absl::variant
                       absl::utility
-                      #${tensorflow-lite_LIBRARIES}
-                      XNNPACKLIB
-                      pthreadpool
+                      ${cpuinfo_LIBRARIES}
+                      tfl-XNNPACK::tfl-XNNPACK
+                      pthreadpool::pthreadpool
                       tensorflow-lite::tensorflow-lite
                       ${gflags_LIBRARIES}
                       ${glog_LIBRARIES}
                       ${OpenCV_LIBRARIES}
                       ${ZLIB_LIBRARIES}
                       ${PLUGIN_NAME}
-                      pthreadpool
 )

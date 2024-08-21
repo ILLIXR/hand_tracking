@@ -40,7 +40,7 @@ endif()
 
 set(protobuf_MODULE_COMPATIBLE ON)
 find_package(ZLIB REQUIRED)
-find_package(Protobuf2 3.19 REQUIRED)
+find_package(Protobuf 3.19 REQUIRED CONFIG)
 pkg_check_modules(glog REQUIRED libglog)
 pkg_check_modules(egl REQUIRED egl)
 pkg_check_modules(glesv2 REQUIRED glesv2)
@@ -51,17 +51,12 @@ set(ENABLE_OPENCV ON)
 set(PROTOBUF_DESCRIPTORS "" CACHE INTERNAL "")
 pkg_check_modules(cpuinfo REQUIRED libcpuinfo)
 
-add_library(XNNPACKLIB SHARED IMPORTED)
-set_property(TARGET XNNPACKLIB PROPERTY
-             IMPORTED_LOCATION ${CMAKE_INSTALL_PREFIX}/lib/libXNNPACK.so
-)
-add_library(PTHREADLIB SHARED IMPORTED)
-set_property(TARGET PTHREADLIB PROPERTY
-             IMPORTED_LOCATION ${CMAKE_INSTALL_PREFIX}/lib/libpthreadpool.so
-)
-find_package(tensorflow-lite REQUIRED)
-if(XNNPACK_BINARY_DIR)
-    add_link_options(-L${XNNPACK_BINARY_DIR})
+find_package(tfl-XNNPACK REQUIRED CONFIG)
+find_package(pthreadpool REQUIRED CONFIG)
+find_package(tensorflow-lite REQUIRED CONFIG)
+
+if(tfl-XNNPACK_BINARY_DIR)
+    add_link_options(-L${tfl-XNNPACK_BINARY_DIR})
 endif()
 
 include(mediapipe/protobuf.cmake)
