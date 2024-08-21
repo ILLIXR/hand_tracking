@@ -28,7 +28,7 @@ set(CMAKE_MODULE_PATH
     ${CMAKE_MODULE_PATH}
     ${CMAKE_INSTALL_PREFIX}/lib/cmake
 )
-message(${CMAKE_INSTALL_PREFIX}/lib/cmake)
+
 find_package(PkgConfig)
 
 if(ILLIXR_ROOT)
@@ -101,7 +101,6 @@ set(PLUGIN_NAME plugin.hand_tracking${ILLIXR_BUILD_SUFFIX})
 add_library(${PLUGIN_NAME} SHARED plugin.cpp)
 
 add_subdirectory(mediapipe)
-message(${PLUGIN_NAME})
 
 target_link_libraries(${PLUGIN_NAME} PUBLIC
                       ${OpenCV_LIBRARIES}

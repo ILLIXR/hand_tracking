@@ -57,7 +57,6 @@ function(make_proto_binary)
     configure_file(${CMAKE_CURRENT_SOURCE_DIR}/simple_subgraph_template.cc.in
                    ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}_linked.cc
     )
-    message("${make_proto_binary_FILE_BASE_NAME}_linked")
     add_library(${make_proto_binary_FILE_BASE_NAME}_linked OBJECT
                 ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}_linked.cc
                 ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}.inc
