@@ -116,7 +116,7 @@ target_include_directories(${PLUGIN_NAME} PRIVATE
                            ${CMAKE_BINARY_DIR}
                            ${CMAKE_SOURCE_DIR}
 )
-
+install(TARGETS ${PLUGIN_NAME} DESTINATION lib)
 
 #get_cmake_property(_variableNames VARIABLES)
 #foreach (_variableName ${_variableNames})
