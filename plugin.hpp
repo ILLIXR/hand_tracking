@@ -23,8 +23,8 @@ private:
     std::string _ht_config_file;
 
     mediapipe::CalculatorGraph _graph;
-    switchboard::buffered_reader<cam_type> _camera;
-    switchboard::ptr<const cam_type> _cam;
+    switchboard::buffered_reader<frame_type> _frame;
+    switchboard::ptr<const frame_type> _frm_ptr;
     switchboard::writer<ht_frame> _ht_publisher;
     mediapipe::OutputStreamPoller* _poller = nullptr;
 

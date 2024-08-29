@@ -34,9 +34,8 @@ namespace {
 constexpr char kLandmarksTag[] = "LANDMARKS";
 constexpr char kNormLandmarksTag[] = "NORM_LANDMARKS";
 constexpr char kRenderScaleTag[] = "RENDER_SCALE";
-constexpr char kRenderDataTag[] = "RENDER_DATA";
+constexpr char kRenderDataTag[] = "RENDER_POINT_DATA";
 constexpr char kLandmarkLabel[] = "KEYPOINT";
-constexpr char kHandPoints[] = "HAND_POINTS";
 
 inline Color DefaultMinDepthLineColor() {
   Color color;

@@ -19,13 +19,13 @@ ABSL_FLAG(std::string, calculator_graph_config_file, "",
           "Name of the file containing text formatted CalculatorGraphConfig proto.");
 
 constexpr char kInputStream[] = "input_video";
-constexpr char kOutputStream[] = "output_video";
+constexpr char kOutputStream[] = "illixr_data";
 
 
 [[maybe_unused]] hand_tracking::hand_tracking(const std::string& name_, phonebook* pb_)
         : threadloop{name_, pb_}
         , _switchboard{pb_->lookup_impl<switchboard>()}
-        , _ht_config_file{getenv("HT_CONFIG_FILE")}
+    , _frame{_switchboard->get_buffered_reader<frame_type>("webcam")}
         , _camera{_switchboard->get_buffered_reader<cam_type>("webcam")}
         , _ht_publisher{_switchboard->get_writer<ht_frame>("ht")} {
     std::string calculator_graph_config_contents;
