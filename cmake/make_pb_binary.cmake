@@ -27,9 +27,9 @@ function(make_proto_binary)
     )
 
     target_link_libraries(${make_proto_binary_BINARY_NAME} PUBLIC
-                          ${Protobuf_LIBRARIES}
+                          protobuf::libprotobuf
                           ${glog_LIBRARIES}
-                          ${tensorflow-lite_LIBRARIES}
+                          tensorflow-lite::tensorflow-lite
                           ${zlib_LIBRARIES}
                           absl::status
                           absl::absl_log
