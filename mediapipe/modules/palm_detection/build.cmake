@@ -1,5 +1,10 @@
 include(${CMAKE_SOURCE_DIR}/cmake/make_pb_binary.cmake)
 
+configure_file(${CMAKE_SOURCE_DIR}/mediapipe/modules/palm_detection/palm_detection_model_loader.pbtxt.in
+               ${CMAKE_SOURCE_DIR}/mediapipe/modules/palm_detection/palm_detection_model_loader.pbtxt
+               @ONLY
+)
+
 set(PDML_PROTO_LIBRARIES
     $<TARGET_OBJECTS:calculators.util.local_file_contents_calculator_proto>
     $<TARGET_OBJECTS:calculators.core.constant_side_packet_calculator_proto>
@@ -63,3 +68,9 @@ make_proto_binary(BINARY_NAME palm_detection_graph_text_to_binary_graph
                   FILE_BASE_NAME palm_detection_${NAME_POST}
                   CLASS_NAME PalmDetection${CLASS_POST}
                   PROTO_LIBRARIES ${PDGT_LIBRARIES})
+
+install(FILES
+        ${CMAKE_SOURCE_DIR}/mediapipe/modules/palm_detection/palm_detection_full.tflite
+        ${CMAKE_SOURCE_DIR}/mediapipe/modules/palm_detection/palm_detection_lite.tflite
+        DESTINATION ${CMAKE_INSTALL_PREFIX}/share/mediapipe/modules/palm_detection
+)
