@@ -15,9 +15,6 @@
 
 using namespace ILLIXR;
 
-ABSL_FLAG(std::string, calculator_graph_config_file, "",
-          "Name of the file containing text formatted CalculatorGraphConfig proto.");
-
 constexpr char kInputStream[] = "input_video";
 constexpr char kOutputStream[] = "illixr_data";
 
@@ -26,20 +23,46 @@ constexpr char kOutputStream[] = "illixr_data";
         : threadloop{name_, pb_}
         , _switchboard{pb_->lookup_impl<switchboard>()}
     , _frame{_switchboard->get_buffered_reader<frame_type>("webcam")}
-        , _camera{_switchboard->get_buffered_reader<cam_type>("webcam")}
-        , _ht_publisher{_switchboard->get_writer<ht_frame>("ht")} {
+    , _ht_publisher{_switchboard->get_writer<ht_frame>("ht")} {
     std::string calculator_graph_config_contents;
-    MP_RAISE_IF_ERROR(mediapipe::file::GetContents(
-            std::getenv("CALCULATOR_CONFIG_FILE"),
-            &calculator_graph_config_contents), "Failed to get config contents");
+    const char* cfile = std::getenv("CALCULATOR_CONFIG_FILE");
+    auto status = mediapipe::file::GetContents(cfile, &calculator_graph_config_contents);
+    if (!status.ok())
+        throw std::runtime_error("Failed to get config contents");
+    //MP_RAISE_IF_ERROR(mediapipe::file::GetContents(
+    //                      cfile,
+    //                      &calculator_graph_config_contents), "Failed to get config contents");
     auto config = mediapipe::ParseTextProtoOrDie<mediapipe::CalculatorGraphConfig>(calculator_graph_config_contents);
 
-    MP_RAISE_IF_ERROR(_graph.Initialize(config), "Graph initialize failed");
+    //MP_RAISE_IF_ERROR(_graph.Initialize(config), "Graph initialize failed");
 
-    MP_ASSIGN_OR_RAISE(mediapipe::OutputStreamPoller, _poller,
-                       _graph.AddOutputStreamPoller(kOutputStream),
-                       "Error with ourpur poller");
-    MP_RAISE_IF_ERROR(_graph.StartRun({}), "Error starting graph");
+    status = _graph.Initialize(config);
+    //if (mediapipe::status_macro_internal::StatusAdaptorForMacros status_macro_internal_adaptor = {
+    //        (_graph.Initialize(config)), mediapipe::source_location::DoNotInvokeDirectly(39, "_file_name_")}) {}
+    //else
+    if (!status.ok())
+        throw std::runtime_error("Graph initialize failed");
+
+    //MP_ASSIGN_OR_RAISE(mediapipe::OutputStreamPoller, _poller,
+    //                   _graph.AddOutputStreamPoller(kOutputStream),
+    //                   "Error with output poller");
+
+    auto status_or_poller = _graph.AddOutputStreamPoller(kOutputStream);
+    //if ((__builtin_expect(false || (!_raise_or_value45.ok()), false))) {
+    //    throw std::runtime_error("Error with ourpur poller");
+    //}
+    if (!status_or_poller.ok())
+        throw std::runtime_error("Error with ourpur poller");
+    _poller = new mediapipe::OutputStreamPoller(std::move(status_or_poller).value());
+
+    //MP_RAISE_IF_ERROR(_graph.StartRun({}), "Error starting graph");
+
+    status = _graph.StartRun({});
+    //if (mediapipe::status_macro_internal::StatusAdaptorForMacros status_macro_internal_adaptor = {
+    //        (_graph.StartRun({})), mediapipe::source_location::DoNotInvokeDirectly(53, "_file_name_")}) {}
+    //else
+    if (!status.ok())
+        throw std::runtime_error("Error starting graph");
 }
 
 void hand_tracking::_p_one_iteration() {
