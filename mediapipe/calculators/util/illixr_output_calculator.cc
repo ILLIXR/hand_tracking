@@ -244,7 +244,7 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
         const auto &hp = cc->Inputs().Tag(kHandPointsTag).Get<std::vector<Points> >();
         for (auto i = 0; i < hp.size(); i++) {
             auto hand_points = absl::make_unique<::ILLIXR::hand_points>(21, ::ILLIXR::point());
-            for (auto j = 0; j < hp[i].points_size(); i++) {
+            for (auto j = 0; j < hp[i].points_size(); j++) {
                 auto pnt = hp[i].points(j);
                 hand_points->at(j).set(pnt.x(), pnt.y(), pnt.z(), pnt.normalized());
             }
