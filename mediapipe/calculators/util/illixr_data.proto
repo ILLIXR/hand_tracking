@@ -1,0 +1,27 @@
+syntax = "proto2";
+
+package mediapipe;
+
+import "mediapipe/framework/calculator.proto";
+
+message ILLIXROutputCalculatorOptions {
+  extend CalculatorOptions {
+    optional ILLIXROutputCalculatorOptions ext = 258435395;
+  }
+
+  optional bool save_plots = 1 [default = true];
+
+}
+
+message Point {
+  optional float x = 1 [default = 0.];
+  optional float y = 2 [default = 0.];
+  optional float z = 3 [default = 0.];
+
+  optional bool normalized = 4 [default = false];
+  optional bool valid = 5 [default = false];
+}
+
+message Points {
+  repeated Point points = 1;
+}

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.17)
-project(ILLIXRHandTracking)
+project(ILLIXR_hand_tracking)
 set(CMAKE_VERBOSE_MAKEFILE True)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_PREFIX_PATH "${CMAKE_INSTALL_PREFIX}/lib/cmake")
@@ -16,7 +16,7 @@ if(HT_ENABLE_GPU)
 else()
     add_definitions(-DMEDIAPIPE_DISABLE_GPU=1)
 endif()
-
+add_compile_options(-Wno-deprecated-declarations)
 if(HT_ENABLE_GRAPH_PROFILER)
     add_definitions(-DMEDIAPIPE_PROFILER_AVAILABLE=1)
     if(HT_ENABLE_WEB_PROFILING)
@@ -28,11 +28,19 @@ set(CMAKE_MODULE_PATH
     ${CMAKE_MODULE_PATH}
     ${CMAKE_INSTALL_PREFIX}/lib/cmake
 )
+
 find_package(PkgConfig)
+
+if(ILLIXR_ROOT)
+    set(ILLIXR_HDR_PATH ${ILLIXR_ROOT} CACHE PATH "Location of ILLIXR headers")
+    #add_definitions(-DBUILD_ILLIXR)
+else()
+    message(FATAL_ERROR "ILLIXR_ROOT must be specified")
+endif()
 
 set(protobuf_MODULE_COMPATIBLE ON)
 find_package(ZLIB REQUIRED)
-find_package(protobuf 3.19 REQUIRED CONFIG)
+find_package(Protobuf 3.19 REQUIRED CONFIG)
 pkg_check_modules(glog REQUIRED libglog)
 pkg_check_modules(egl REQUIRED egl)
 pkg_check_modules(glesv2 REQUIRED glesv2)
@@ -43,17 +51,12 @@ set(ENABLE_OPENCV ON)
 set(PROTOBUF_DESCRIPTORS "" CACHE INTERNAL "")
 pkg_check_modules(cpuinfo REQUIRED libcpuinfo)
 
-add_library(XNNPACKLIB SHARED IMPORTED)
-set_property(TARGET XNNPACKLIB PROPERTY
-             IMPORTED_LOCATION ${CMAKE_INSTALL_PREFIX}/lib/libXNNPACK.so
-)
-add_library(PTHREADLIB SHARED IMPORTED)
-set_property(TARGET PTHREADLIB PROPERTY
-             IMPORTED_LOCATION ${CMAKE_INSTALL_PREFIX}/lib/libpthreadpool.so
-)
-find_package(tensorflow-lite REQUIRED)
-if(XNNPACK_BINARY_DIR)
-    add_link_options(-L${XNNPACK_BINARY_DIR})
+find_package(tfl-XNNPACK REQUIRED CONFIG)
+find_package(pthreadpool REQUIRED CONFIG)
+find_package(tensorflow-lite REQUIRED CONFIG)
+
+if(tfl-XNNPACK_BINARY_DIR)
+    add_link_options(-L${tfl-XNNPACK_BINARY_DIR})
 endif()
 
 include(mediapipe/protobuf.cmake)
@@ -93,11 +96,26 @@ add_custom_target(make_message_type
 #                  DEPENDS encode_descriptor_sets make_message_type
 #)
 
+
+set(PLUGIN_NAME plugin.hand_tracking${ILLIXR_BUILD_SUFFIX})
+add_library(${PLUGIN_NAME} SHARED plugin.cpp)
+
 add_subdirectory(mediapipe)
 
+target_link_libraries(${PLUGIN_NAME} PUBLIC
+                      ${OpenCV_LIBRARIES}
+                      absl::base
+                      absl::flags_parse
+                      fmt
+)
 
-#message_type_util --input_path=bazel-out/k8-opt/bin/mediapipe/calculators/tensor/inference_calculator_proto_direct-direct-descriptor-set.proto.bin --root_type_macro_output_path=bazel-out/k8-opt/bin/mediapipe/calculators/tensor/inference_calculator_options_lib_type_name.h ')
-
+target_include_directories(${PLUGIN_NAME} PRIVATE
+                           ${ILLIXR_HDR_PATH}
+                           ${OpenCV_INCLUDE_DIRS}
+                           ${CMAKE_BINARY_DIR}
+                           ${CMAKE_SOURCE_DIR}
+)
+install(TARGETS ${PLUGIN_NAME} DESTINATION lib)
 
 #get_cmake_property(_variableNames VARIABLES)
 #foreach (_variableName ${_variableNames})

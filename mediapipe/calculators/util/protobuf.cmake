@@ -13,3 +13,6 @@ protobuf_generate_obj(PROTO_PATH calculators/util OBJ_NAME association_calculato
 protobuf_generate_obj(PROTO_PATH calculators/util OBJ_NAME non_max_suppression_calculator)
 protobuf_generate_obj(PROTO_PATH calculators/util OBJ_NAME thresholding_calculator)
 protobuf_generate_obj(PROTO_PATH calculators/util OBJ_NAME landmark_projection_calculator)
+protobuf_generate_obj(PROTO_PATH calculators/util OBJ_NAME illixr_data)
+protobuf_generate_obj(PROTO_PATH calculators/util OBJ_NAME render_and_points)
+

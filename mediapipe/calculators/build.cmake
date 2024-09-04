@@ -1,0 +1,7 @@
+include(${CMAKE_CURRENT_LIST_DIR}/core/build.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/image/build.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/internal/build.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/tensor/build.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/tflite/build.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/util/build.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/video/build.cmake)
