@@ -150,52 +150,54 @@ target_link_libraries(${PLUGIN_NAME} PUBLIC
                       ${ZLIB_LIBRARIES}
 )
 
-add_executable(hand_tracking_tflite
-               #example/simple_run_graph_main.cc
-               demo_run_graph_main.cc
-)
+if(BUILD_TEST_EXE)
+    add_executable(hand_tracking_tflite
+                   #example/simple_run_graph_main.cc
+                   demo_run_graph_main.cc
+    )
 
-target_link_libraries(hand_tracking_tflite PUBLIC
-                      protobuf::libprotobuf
-                      absl::algorithm
-                      absl::base
-                      absl::core_headers
-                      absl::dynamic_annotations
-                      absl::nullability
-                      absl::btree
-                      absl::flat_hash_map
-                      absl::flat_hash_set
-                      absl::node_hash_map
-                      absl::leak_check
-                      absl::flags
-                      absl::flags_parse
-                      absl::any_invocable
-                      absl::bind_front
-                      absl::function_ref
-                      absl::hash
-                      absl::absl_check
-                      absl::absl_log
-                      absl::check
-                      absl::memory
-                      absl::type_traits
-                      absl::status
-                      absl::statusor
-                      absl::strings
-                      absl::str_format
-                      absl::string_view
-                      absl::synchronization
-                      absl::time
-                      absl::optional
-                      absl::span
-                      absl::variant
-                      absl::utility
-                      ${cpuinfo_LIBRARIES}
-                      tfl-XNNPACK::tfl-XNNPACK
-                      pthreadpool::pthreadpool
-                      tensorflow-lite::tensorflow-lite
-                      ${gflags_LIBRARIES}
-                      ${glog_LIBRARIES}
-                      ${OpenCV_LIBRARIES}
-                      ${ZLIB_LIBRARIES}
-                      ${PLUGIN_NAME}
-)
+    target_link_libraries(hand_tracking_tflite PUBLIC
+                          protobuf::libprotobuf
+                          absl::algorithm
+                          absl::base
+                          absl::core_headers
+                          absl::dynamic_annotations
+                          absl::nullability
+                          absl::btree
+                          absl::flat_hash_map
+                          absl::flat_hash_set
+                          absl::node_hash_map
+                          absl::leak_check
+                          absl::flags
+                          absl::flags_parse
+                          absl::any_invocable
+                          absl::bind_front
+                          absl::function_ref
+                          absl::hash
+                          absl::absl_check
+                          absl::absl_log
+                          absl::check
+                          absl::memory
+                          absl::type_traits
+                          absl::status
+                          absl::statusor
+                          absl::strings
+                          absl::str_format
+                          absl::string_view
+                          absl::synchronization
+                          absl::time
+                          absl::optional
+                          absl::span
+                          absl::variant
+                          absl::utility
+                          ${cpuinfo_LIBRARIES}
+                          tfl-XNNPACK::tfl-XNNPACK
+                          pthreadpool::pthreadpool
+                          tensorflow-lite::tensorflow-lite
+                          ${gflags_LIBRARIES}
+                          ${glog_LIBRARIES}
+                          ${OpenCV_LIBRARIES}
+                          ${ZLIB_LIBRARIES}
+                          ${PLUGIN_NAME}
+    )
+endif()

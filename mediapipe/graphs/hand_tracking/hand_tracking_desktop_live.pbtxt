@@ -7,7 +7,7 @@
 input_stream: "input_video"
 
 # CPU image. (ImageFrame)
-output_stream: "output_video"
+output_stream: "illixr_data"
 
 # Generates side packet cotaining max number of hands to detect/track.
 node {
@@ -42,5 +42,5 @@ node {
   input_stream: "HANDEDNESS:handedness"
   input_stream: "NORM_RECTS:0:multi_palm_rects"
   input_stream: "NORM_RECTS:1:multi_hand_rects"
-  output_stream: "IMAGE:output_video"
+  output_stream: "ILLIXR_DATA:illixr_data"
 }

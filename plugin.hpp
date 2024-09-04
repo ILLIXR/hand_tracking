@@ -1,6 +1,6 @@
 #pragma once
 
-#include "illixr/threadloop.hpp"
+#include "illixr/plugin.hpp"
 #include "illixr/phonebook.hpp"
 #include "illixr/switchboard.hpp"
 #include "illixr/opencv_data_types.hpp"
@@ -9,23 +9,22 @@
 #include "mediapipe/framework/calculator_graph.h"
 
 
-const int _image_count = 2;
-
 namespace ILLIXR {
-class hand_tracking : public threadloop {
+class hand_tracking : public plugin {
 public:
     [[maybe_unused]] hand_tracking(const std::string& name_, phonebook* pb_);
 
-    void _p_thread_setup() override {}
-    void _p_one_iteration() override;
+    void start() override;
+    void process(const switchboard::ptr<const frame_type>& frame);
+    //void _p_one_iteration() override;
 private:
     const std::shared_ptr<switchboard> _switchboard;
     std::string _ht_config_file;
-
     mediapipe::CalculatorGraph _graph;
-    switchboard::buffered_reader<cam_type> _camera;
-    switchboard::ptr<const cam_type> _cam;
+    //switchboard::buffered_reader<frame_type> _frame;
+    switchboard::ptr<const frame_type> _frm_ptr;
     switchboard::writer<ht_frame> _ht_publisher;
+    std::shared_ptr<RelativeClock> _clock;
     mediapipe::OutputStreamPoller* _poller = nullptr;
 
 };

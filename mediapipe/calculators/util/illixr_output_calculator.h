@@ -58,8 +58,8 @@ private:
 };
 
 template<class T>
-ILLIXR::rect* make_rect(const T in_rect, bool normalized) {
-    return new ILLIXR::rect(in_rect.x_center(), in_rect.y_center(), in_rect.width(),
+::ILLIXR::rect* make_rect(const T in_rect, bool normalized) {
+    return new ::ILLIXR::rect(in_rect.x_center(), in_rect.y_center(), in_rect.width(),
                             in_rect.height(), in_rect.rotation(), normalized);
 }
 } // mediapipe

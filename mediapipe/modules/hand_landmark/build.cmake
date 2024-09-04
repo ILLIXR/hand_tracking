@@ -1,5 +1,22 @@
 include(${CMAKE_SOURCE_DIR}/cmake/make_pb_binary.cmake)
 
+configure_file(${CMAKE_SOURCE_DIR}/mediapipe/modules/hand_landmark/hand_landmark_model_loader.pbtxt.in
+               ${CMAKE_SOURCE_DIR}/mediapipe/modules/hand_landmark/hand_landmark_model_loader.pbtxt
+               @ONLY
+)
+
+if(HT_ENABLE_GPU)
+    configure_file(${CMAKE_SOURCE_DIR}/mediapipe/modules/hand_landmark/hand_landmark_gpu.pbtxt.in
+                   ${CMAKE_SOURCE_DIR}/mediapipe/modules/hand_landmark/hand_landmark_gpu.pbtxt
+                   @ONLY
+    )
+else()
+    configure_file(${CMAKE_SOURCE_DIR}/mediapipe/modules/hand_landmark/hand_landmark_cpu.pbtxt.in
+                   ${CMAKE_SOURCE_DIR}/mediapipe/modules/hand_landmark/hand_landmark_cpu.pbtxt
+                   @ONLY
+    )
+endif()
+
 set(HLLR_LIBRARIES
     $<TARGET_OBJECTS:calculators.internal.callback_packet_calculator_proto>
     $<TARGET_OBJECTS:calculators.util.rect_transformation_calculator_proto>
@@ -215,3 +232,10 @@ make_proto_binary(BINARY_NAME palm_detection_detection_to_roi_graph_text_to_bina
                   PROTO_LIBRARIES ${PDDR_LIBRARIES})
 
 include(${CMAKE_CURRENT_LIST_DIR}/calculators/build.cmake)
+
+install(FILES
+        ${CMAKE_SOURCE_DIR}/mediapipe/modules/hand_landmark/hand_landmark_full.tflite
+        ${CMAKE_SOURCE_DIR}/mediapipe/modules/hand_landmark/hand_landmark_lite.tflite
+        ${CMAKE_SOURCE_DIR}/mediapipe/modules/hand_landmark/handedness.txt
+        DESTINATION ${CMAKE_INSTALL_PREFIX}/share/mediapipe/modules/hand_landmark
+)

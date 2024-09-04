@@ -6,7 +6,7 @@ set(UTIL_SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/detections_to_rects_calculator.cc
     ${CMAKE_CURRENT_LIST_DIR}/detections_to_render_data_calculator.cc
     ${CMAKE_CURRENT_LIST_DIR}/filter_collection_calculator.cc
-    #${CMAKE_CURRENT_LIST_DIR}/illixr_output_calculator.cc
+    ${CMAKE_CURRENT_LIST_DIR}/illixr_output_calculator.cc
     ${CMAKE_CURRENT_LIST_DIR}/labels_to_render_data_calculator.cc
     ${CMAKE_CURRENT_LIST_DIR}/landmark_letterbox_removal_calculator.cc
     ${CMAKE_CURRENT_LIST_DIR}/landmark_projection_calculator.cc
@@ -25,8 +25,8 @@ set(UTIL_HEADERS
     ${CMAKE_CURRENT_LIST_DIR}/detections_to_rects_calculator.h
     ${CMAKE_CURRENT_LIST_DIR}/filter_collection_calculator.h
     ${CMAKE_CURRENT_LIST_DIR}/landmarks_to_render_data_calculator.h
-    #${CMAKE_CURRENT_LIST_DIR}/illixr_output_calculator.h
-    #${CMAKE_CURRENT_LIST_DIR}/illixr_data.h
+    ${CMAKE_CURRENT_LIST_DIR}/illixr_output_calculator.h
+    ${CMAKE_CURRENT_LIST_DIR}/illixr_data.h
 )
 
 target_sources(${PLUGIN_NAME} PRIVATE

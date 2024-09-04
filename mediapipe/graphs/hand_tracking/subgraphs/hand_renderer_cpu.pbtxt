@@ -74,13 +74,11 @@ node {
   output_stream: "BATCH_END:landmark_timestamp"
 }
 
-
 # Converts landmarks to drawing primitives for annotation overlay.
 node {
   calculator: "LandmarksToRenderDataCalculator"
   input_stream: "NORM_LANDMARKS:single_hand_landmarks"
-  output_stream: "RENDER_DATA:single_hand_landmark_render_data"
-  output_stream: "HAND_POINTS:single_hand_landmark_points"
+  output_stream: "RENDER_POINT_DATA:single_hand_landmark_render_data"
   node_options: {
     [type.googleapis.com/mediapipe.LandmarksToRenderDataCalculatorOptions] {
       landmark_connections: 0
@@ -208,6 +206,7 @@ node {
   input_stream: "handedness_render_data"
   input_stream: "VECTOR:0:multi_hand_landmarks_render_data"
   output_stream: "IMAGE:output_image"
+  output_stream: "HAND_POINTS:multi_hand_landmark_points"
 }
 
 # combine the results into an ILLIXR data frame
@@ -215,7 +214,7 @@ node {
   calculator: "ILLIXROutputCalculator"
   input_stream: "IMAGE:output_image"
   input_stream: "HANDEDNESS:multi_handedness"
-  input_stream: "HAND_POINTS:single_hand_landmark_points"
+  input_stream: "HAND_POINTS:multi_hand_landmark_points"
   input_stream: "NORM_RECTS_PALM:multi_palm_rects"
   input_stream: "NORM_RECTS_HAND:multi_hand_rects"
   output_stream: "ILLIXR_DATA:illixr_data"

@@ -15,76 +15,77 @@
 
 using namespace ILLIXR;
 
-ABSL_FLAG(std::string, calculator_graph_config_file, "",
-          "Name of the file containing text formatted CalculatorGraphConfig proto.");
-
 constexpr char kInputStream[] = "input_video";
-constexpr char kOutputStream[] = "output_video";
+constexpr char kOutputStream[] = "illixr_data";
 
 
 [[maybe_unused]] hand_tracking::hand_tracking(const std::string& name_, phonebook* pb_)
-        : threadloop{name_, pb_}
-        , _switchboard{pb_->lookup_impl<switchboard>()}
-        , _ht_config_file{getenv("HT_CONFIG_FILE")}
-        , _camera{_switchboard->get_buffered_reader<cam_type>("webcam")}
-        , _ht_publisher{_switchboard->get_writer<ht_frame>("ht")} {
+    : plugin{name_, pb_}
+    , _switchboard{pb_->lookup_impl<switchboard>()}
+    //, _frame{_switchboard->get_buffered_reader<frame_type>("webcam")}
+    , _ht_publisher{_switchboard->get_writer<ht_frame>("ht")}
+    , _clock{pb->lookup_impl<RelativeClock>()} {}
+
+void hand_tracking::start() {
+    plugin::start();
     std::string calculator_graph_config_contents;
-    MP_RAISE_IF_ERROR(mediapipe::file::GetContents(
-            std::getenv("CALCULATOR_CONFIG_FILE"),
-            &calculator_graph_config_contents), "Failed to get config contents");
+    const char* cfile = std::getenv("CALCULATOR_CONFIG_FILE");
+    auto status = mediapipe::file::GetContents(cfile, &calculator_graph_config_contents);
+    if (!status.ok())
+        throw std::runtime_error("Failed to get config contents");
     auto config = mediapipe::ParseTextProtoOrDie<mediapipe::CalculatorGraphConfig>(calculator_graph_config_contents);
 
-    MP_RAISE_IF_ERROR(_graph.Initialize(config), "Graph initialize failed");
+    status = _graph.Initialize(config);
+    if (!status.ok())
+        throw std::runtime_error("Graph initialize failed");
 
-    MP_ASSIGN_OR_RAISE(mediapipe::OutputStreamPoller, _poller,
-                       _graph.AddOutputStreamPoller(kOutputStream),
-                       "Error with ourpur poller");
-    MP_RAISE_IF_ERROR(_graph.StartRun({}), "Error starting graph");
+    auto status_or_poller = _graph.AddOutputStreamPoller(kOutputStream);
+    if (!status_or_poller.ok())
+        throw std::runtime_error("Error with output poller");
+    _poller = new mediapipe::OutputStreamPoller(std::move(status_or_poller).value());
+
+    status = _graph.StartRun({});
+    if (!status.ok())
+        throw std::runtime_error("Error starting graph");
+    _switchboard->schedule<frame_type>(id, "webcam", [this](const switchboard::ptr<const frame_type>& frame, std::size_t) {
+        this->process(frame);
+    });
+
 }
 
-void hand_tracking::_p_one_iteration() {
-    _cam = _camera.size() == 0 ? nullptr : _camera.dequeue();
-    if(_cam == nullptr)
-        return;
-    cv::Mat images[] = {_cam->img0.clone(),
-                        _cam->img1.clone()};
-    cv::Mat camera_frame[_image_count];
-    cv::Mat input_frame_mat[_image_count];
-    std::unique_ptr<mediapipe::ImageFrame> input_frame[2];
-    for(auto i = 0; i < _image_count; i++) {
-        cv::cvtColor(images[i], camera_frame[i], cv::COLOR_BGR2RGB);
-        input_frame[i] = absl::make_unique<mediapipe::ImageFrame>(
-                mediapipe::ImageFormat::SRGB, camera_frame[i].cols, camera_frame[i].rows,
-                mediapipe::ImageFrame::kDefaultAlignmentBoundary);
-        input_frame_mat[i] = mediapipe::formats::MatView(input_frame[i].get());
-        camera_frame[i].copyTo(input_frame_mat[i]);
+void hand_tracking::process(const switchboard::ptr<const frame_type>& frame) {
+    //_frm_ptr = _frame.size() == 0 ? nullptr : _frame.dequeue();
+    //if(frame != nullptr) {
+        cv::Mat image = frame->img.clone();
+        cv::Mat camera_frame;
+        cv::cvtColor(image, camera_frame, cv::COLOR_BGR2RGB);
+        cv::flip(camera_frame, camera_frame, /*flipcode=HORIZONTAL*/ 1);
+        auto input_frame = absl::make_unique<mediapipe::ImageFrame>(mediapipe::ImageFormat::SRGB, camera_frame.cols, camera_frame.rows, mediapipe::ImageFrame::kDefaultAlignmentBoundary);
+        cv::Mat input_frame_mat = mediapipe::formats::MatView(input_frame.get());
+        camera_frame.copyTo(input_frame_mat);
 
-// Send image packet into the graph.
-        size_t frame_timestamp_us = cv::getTickCount() / (double) cv::getTickFrequency() * 1e6;
+        // Send image packet into the graph.
+        size_t frame_timestamp_us = (double)cv::getTickCount() / (double) cv::getTickFrequency() * 1e6;
 
-
-        MP_RAISE_IF_ERROR(_graph.AddPacketToInputStream(
-                kInputStream, mediapipe::Adopt(input_frame[i].release())
-                        .At(mediapipe::Timestamp(frame_timestamp_us))), "Add to input stream failed");
+        MP_RAISE_IF_ERROR(
+            _graph.AddPacketToInputStream(kInputStream,
+                                          mediapipe::Adopt(input_frame.release()).At(mediapipe::Timestamp(frame_timestamp_us))),
+            "Add to input stream failed");
 
         // Get the graph result packet, or stop if that fails.
         mediapipe::Packet packet;
-        if(!_poller->Next(&packet)) break;
+        if (!_poller->Next(&packet))
+            return;
         auto& output_frame = packet.Get<mediapipe::ILLIXR::illixr_ht_frame>();
         // Convert back to opencv for display or saving.
 
-        _ht_publisher.put(_ht_publisher.allocate<ht_frame>(ht_frame{output_frame.image,
-                                                                    output_frame.left_palm,
-                                                                    output_frame.right_palm,
-                                                                    output_frame.left_hand,
-                                                                    output_frame.right_hand,
-                                                                    output_frame.left_confidence,
-                                                                    output_frame.right_confidence,
-                                                                    output_frame.left_hand_points,
-                                                                    output_frame.right_hand_points}));
+        _ht_publisher.put(_ht_publisher.allocate<ht_frame>(
+            ht_frame{_clock->now(), output_frame.image, output_frame.left_palm, output_frame.right_palm, output_frame.left_hand,
+                     output_frame.right_hand, output_frame.left_confidence, output_frame.right_confidence,
+                     output_frame.left_hand_points, output_frame.right_hand_points}));
+    //}
+    //std::this_thread::sleep_for(std::chrono::nanoseconds(33300000));
 
-
-    }
 }
 
 
