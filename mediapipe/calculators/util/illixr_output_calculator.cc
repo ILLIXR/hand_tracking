@@ -226,17 +226,15 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
     if (cc->Inputs().HasTag(kHandedness) &&
         !cc->Inputs().Tag(kHandedness).IsEmpty()) {
         const auto &hands = cc->Inputs().Tag(kHandedness).Get<std::vector<ClassificationList> >();
-        if (hands.size() == 1) {
-            for (int i = 0; i < hands[0].classification_size(); i++) {
-                if (hands[0].classification(i).label() == "Left") {
-                    left_idx = i;
-                    frame_data->left_confidence = hands[0].classification(i).score();
-                } else if (hands[0].classification(i).label() == "Right") {
-                    right_idx = i;
-                    frame_data->right_confidence = hands[0].classification(i).score();
-                } else {
-                    // something is wrong
-                }
+        for(int i = 0; i < hands.size(); i++) {
+            if (hands[i].classification(0).label() == "Left") {
+                left_idx = i;
+                frame_data->left_confidence = hands[i].classification(0).score();
+            } else if (hands[i].classification(0).label() == "Right") {
+                right_idx = i;
+                frame_data->right_confidence = hands[i].classification(0).score();
+            } else {
+                // something is wrong
             }
             component_count++;
         }
