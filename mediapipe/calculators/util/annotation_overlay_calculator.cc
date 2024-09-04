@@ -352,7 +352,6 @@ namespace mediapipe {
 
         // Reset the renderer with the image_mat. No copy here.
         renderer_->AdoptImage(image_mat.get());
-        renderer_->AdoptImage(image_mat.get());
         auto hand_points = absl::make_unique<std::vector<Points> >();
         // Render streams onto render target.
         for (CollectionItemId id = cc->Inputs().BeginId(); id < cc->Inputs().EndId();
