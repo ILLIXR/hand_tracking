@@ -20,11 +20,14 @@ constexpr char kOutputStream[] = "illixr_data";
 
 
 [[maybe_unused]] hand_tracking::hand_tracking(const std::string& name_, phonebook* pb_)
-        : threadloop{name_, pb_}
-        , _switchboard{pb_->lookup_impl<switchboard>()}
-    , _frame{_switchboard->get_buffered_reader<frame_type>("webcam")}
+    : plugin{name_, pb_}
+    , _switchboard{pb_->lookup_impl<switchboard>()}
+    //, _frame{_switchboard->get_buffered_reader<frame_type>("webcam")}
     , _ht_publisher{_switchboard->get_writer<ht_frame>("ht")}
     , _clock{pb->lookup_impl<RelativeClock>()} {}
+
+void hand_tracking::start() {
+    plugin::start();
     std::string calculator_graph_config_contents;
     const char* cfile = std::getenv("CALCULATOR_CONFIG_FILE");
     auto status = mediapipe::file::GetContents(cfile, &calculator_graph_config_contents);
@@ -44,12 +47,16 @@ constexpr char kOutputStream[] = "illixr_data";
     status = _graph.StartRun({});
     if (!status.ok())
         throw std::runtime_error("Error starting graph");
+    _switchboard->schedule<frame_type>(id, "webcam", [this](const switchboard::ptr<const frame_type>& frame, std::size_t) {
+        this->process(frame);
+    });
+
 }
 
-void hand_tracking::_p_one_iteration() {
-    _frm_ptr = _frame.size() == 0 ? nullptr : _frame.dequeue();
-    if(_frm_ptr != nullptr) {
-        cv::Mat image = _frm_ptr->img.clone();
+void hand_tracking::process(const switchboard::ptr<const frame_type>& frame) {
+    //_frm_ptr = _frame.size() == 0 ? nullptr : _frame.dequeue();
+    //if(frame != nullptr) {
+        cv::Mat image = frame->img.clone();
         cv::Mat camera_frame;
         cv::cvtColor(image, camera_frame, cv::COLOR_BGR2RGB);
         cv::flip(camera_frame, camera_frame, /*flipcode=HORIZONTAL*/ 1);
@@ -76,8 +83,8 @@ void hand_tracking::_p_one_iteration() {
             ht_frame{_clock->now(), output_frame.image, output_frame.left_palm, output_frame.right_palm, output_frame.left_hand,
                      output_frame.right_hand, output_frame.left_confidence, output_frame.right_confidence,
                      output_frame.left_hand_points, output_frame.right_hand_points}));
-    }
-    std::this_thread::sleep_for(std::chrono::nanoseconds(33300000));
+    //}
+    //std::this_thread::sleep_for(std::chrono::nanoseconds(33300000));
 
 }
 
