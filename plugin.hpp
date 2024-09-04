@@ -26,6 +26,7 @@ private:
     switchboard::buffered_reader<frame_type> _frame;
     switchboard::ptr<const frame_type> _frm_ptr;
     switchboard::writer<ht_frame> _ht_publisher;
+    std::shared_ptr<RelativeClock> _clock;
     mediapipe::OutputStreamPoller* _poller = nullptr;
 
 };

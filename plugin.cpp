@@ -23,7 +23,8 @@ constexpr char kOutputStream[] = "illixr_data";
         : threadloop{name_, pb_}
         , _switchboard{pb_->lookup_impl<switchboard>()}
     , _frame{_switchboard->get_buffered_reader<frame_type>("webcam")}
-    , _ht_publisher{_switchboard->get_writer<ht_frame>("ht")} {
+    , _ht_publisher{_switchboard->get_writer<ht_frame>("ht")}
+    , _clock{pb->lookup_impl<RelativeClock>()} {}
     std::string calculator_graph_config_contents;
     const char* cfile = std::getenv("CALCULATOR_CONFIG_FILE");
     auto status = mediapipe::file::GetContents(cfile, &calculator_graph_config_contents);
@@ -72,7 +73,7 @@ void hand_tracking::_p_one_iteration() {
         // Convert back to opencv for display or saving.
 
         _ht_publisher.put(_ht_publisher.allocate<ht_frame>(
-            ht_frame{output_frame.image, output_frame.left_palm, output_frame.right_palm, output_frame.left_hand,
+            ht_frame{_clock->now(), output_frame.image, output_frame.left_palm, output_frame.right_palm, output_frame.left_hand,
                      output_frame.right_hand, output_frame.left_confidence, output_frame.right_confidence,
                      output_frame.left_hand_points, output_frame.right_hand_points}));
     }
