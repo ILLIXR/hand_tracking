@@ -370,7 +370,7 @@ namespace mediapipe {
                 renderer_->RenderDataOnImage(render_data);
             } else {
                 RET_CHECK_EQ(kVectorTag, tag);
-                const std::vector<RenderPointData>& render_data_vec =
+                const auto& render_data_vec =
                         cc->Inputs().Get(id).Get<std::vector<RenderPointData>>();
                 for (const RenderPointData& rp_data : render_data_vec) {
                     hand_points->push_back(rp_data.points());
@@ -502,7 +502,7 @@ namespace mediapipe {
 
             image_mat = absl::make_unique<cv::Mat>(
                     input_frame.Height(), input_frame.Width(), CV_8UC4,
-                    cv::Scalar(0,0,0,0));
+                    cv::Scalar(0, 0, 0, 0));
 
         } else {
             image_mat = absl::make_unique<cv::Mat>(
