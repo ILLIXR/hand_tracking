@@ -29,38 +29,18 @@ constexpr char kOutputStream[] = "illixr_data";
     auto status = mediapipe::file::GetContents(cfile, &calculator_graph_config_contents);
     if (!status.ok())
         throw std::runtime_error("Failed to get config contents");
-    //MP_RAISE_IF_ERROR(mediapipe::file::GetContents(
-    //                      cfile,
-    //                      &calculator_graph_config_contents), "Failed to get config contents");
     auto config = mediapipe::ParseTextProtoOrDie<mediapipe::CalculatorGraphConfig>(calculator_graph_config_contents);
 
-    //MP_RAISE_IF_ERROR(_graph.Initialize(config), "Graph initialize failed");
-
     status = _graph.Initialize(config);
-    //if (mediapipe::status_macro_internal::StatusAdaptorForMacros status_macro_internal_adaptor = {
-    //        (_graph.Initialize(config)), mediapipe::source_location::DoNotInvokeDirectly(39, "_file_name_")}) {}
-    //else
     if (!status.ok())
         throw std::runtime_error("Graph initialize failed");
 
-    //MP_ASSIGN_OR_RAISE(mediapipe::OutputStreamPoller, _poller,
-    //                   _graph.AddOutputStreamPoller(kOutputStream),
-    //                   "Error with output poller");
-
     auto status_or_poller = _graph.AddOutputStreamPoller(kOutputStream);
-    //if ((__builtin_expect(false || (!_raise_or_value45.ok()), false))) {
-    //    throw std::runtime_error("Error with ourpur poller");
-    //}
     if (!status_or_poller.ok())
-        throw std::runtime_error("Error with ourpur poller");
+        throw std::runtime_error("Error with output poller");
     _poller = new mediapipe::OutputStreamPoller(std::move(status_or_poller).value());
 
-    //MP_RAISE_IF_ERROR(_graph.StartRun({}), "Error starting graph");
-
     status = _graph.StartRun({});
-    //if (mediapipe::status_macro_internal::StatusAdaptorForMacros status_macro_internal_adaptor = {
-    //        (_graph.StartRun({})), mediapipe::source_location::DoNotInvokeDirectly(53, "_file_name_")}) {}
-    //else
     if (!status.ok())
         throw std::runtime_error("Error starting graph");
 }
