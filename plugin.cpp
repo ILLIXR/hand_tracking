@@ -53,39 +53,35 @@ void hand_tracking::start() {
 
 }
 
-void hand_tracking::process(const switchboard::ptr<const frame_type>& frame) {
-    //_frm_ptr = _frame.size() == 0 ? nullptr : _frame.dequeue();
-    //if(frame != nullptr) {
-        cv::Mat image = frame->img.clone();
-        cv::Mat camera_frame;
-        cv::cvtColor(image, camera_frame, cv::COLOR_BGR2RGB);
-        cv::flip(camera_frame, camera_frame, /*flipcode=HORIZONTAL*/ 1);
-        auto input_frame = absl::make_unique<mediapipe::ImageFrame>(mediapipe::ImageFormat::SRGB, camera_frame.cols, camera_frame.rows, mediapipe::ImageFrame::kDefaultAlignmentBoundary);
-        cv::Mat input_frame_mat = mediapipe::formats::MatView(input_frame.get());
-        camera_frame.copyTo(input_frame_mat);
+void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) {
+    cv::Mat image = frame->img().clone();
+    cv::Mat camera_frame;
+    cv::cvtColor(image, camera_frame, cv::COLOR_BGR2RGB);
+    cv::flip(camera_frame, camera_frame, /*flipcode=HORIZONTAL*/ 1);
+    auto input_frame = absl::make_unique<mediapipe::ImageFrame>(mediapipe::ImageFormat::SRGB, camera_frame.cols, camera_frame.rows, mediapipe::ImageFrame::kDefaultAlignmentBoundary);
+    cv::Mat input_frame_mat = mediapipe::formats::MatView(input_frame.get());
+    camera_frame.copyTo(input_frame_mat);
 
         // Send image packet into the graph.
-        size_t frame_timestamp_us = (double)cv::getTickCount() / (double) cv::getTickFrequency() * 1e6;
+    size_t frame_timestamp_us = (double)cv::getTickCount() / (double) cv::getTickFrequency() * 1e6;
 
-        MP_RAISE_IF_ERROR(
+    MP_RAISE_IF_ERROR(
             _graph.AddPacketToInputStream(kInputStream,
                                           mediapipe::Adopt(input_frame.release()).At(mediapipe::Timestamp(frame_timestamp_us))),
             "Add to input stream failed");
 
-        // Get the graph result packet, or stop if that fails.
-        mediapipe::Packet packet;
-        if (!_poller->Next(&packet))
-            return;
-        auto& output_frame = packet.Get<mediapipe::ILLIXR::illixr_ht_frame>();
-        // Convert back to opencv for display or saving.
+    // Get the graph result packet, or stop if that fails.
+    mediapipe::Packet packet;
+    if (!_poller->Next(&packet))
+        return;
+    auto& output_frame = packet.Get<mediapipe::ILLIXR::illixr_ht_frame>();
+    // Convert back to opencv for display or saving.
 
-        _ht_publisher.put(_ht_publisher.allocate<ht_frame>(
-            ht_frame{_clock->now(), output_frame.image, output_frame.left_palm, output_frame.right_palm, output_frame.left_hand,
-                     output_frame.right_hand, output_frame.left_confidence, output_frame.right_confidence,
-                     output_frame.left_hand_points, output_frame.right_hand_points}));
-    //}
-    //std::this_thread::sleep_for(std::chrono::nanoseconds(33300000));
-
+    _ht_publisher.put(_ht_publisher.allocate<ht_frame>(
+            ht_frame{_clock->now(), output_frame.image, output_frame.left_palm, output_frame.right_palm,
+                     output_frame.left_hand, output_frame.right_hand, output_frame.left_confidence,
+                     output_frame.right_confidence, output_frame.left_hand_points,
+                     output_frame.right_hand_points}));
 }
 
 
