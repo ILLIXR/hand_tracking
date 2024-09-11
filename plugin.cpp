@@ -29,10 +29,9 @@ void img_convert(cv::Mat& img) {
 }
 
 [[maybe_unused]] hand_tracking::hand_tracking(const std::string& name_, phonebook* pb_)
-    : plugin{name_, pb_}
-    , _switchboard{pb_->lookup_impl<switchboard>()}
-    , _ht_publisher{_switchboard->get_writer<ht_frame>("ht")}
-    , _clock{pb->lookup_impl<RelativeClock>()} {
+        : plugin{name_, pb_}
+        , _switchboard{pb_->lookup_impl<switchboard>()}
+        , _ht_publisher{_switchboard->get_writer<ht_frame>("ht")} {
     const char* in_type = std::getenv("HT_INPUT_TYPE");
     if (in_type) {
         if (strcmp(in_type, "LEFT") == 0 || strcmp(in_type, "SINGLE") == 0) {
@@ -75,10 +74,10 @@ void hand_tracking::start() {
         this->process(frame);
     });
     _switchboard->schedule<binocular_cam_type>(id, "cam", [this](const switchboard::ptr<const binocular_cam_type>& img, std::size_t) {
-       this->process(img);
+        this->process(img);
     });
     _switchboard->schedule<cam_type_zed>(id, "cam_zed", [this](const switchboard::ptr<const cam_type_zed>& img, std::size_t) {
-       this->process(img);
+        this->process(img);
     });
 
 }
@@ -171,12 +170,13 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
         auto &output_frame = packet.Get<mediapipe::ILLIXR::illixr_ht_frame>();
         results_images.emplace(input.first, *output_frame.image);
         detections.emplace(input.first, ht_detection{output_frame.left_palm, output_frame.right_palm,
-                                         output_frame.left_hand, output_frame.right_hand, output_frame.left_confidence,
-                                         output_frame.right_confidence, output_frame.left_hand_points,
-                                         output_frame.right_hand_points});
+                                                     output_frame.left_hand, output_frame.right_hand, output_frame.left_confidence,
+                                                     output_frame.right_confidence, output_frame.left_hand_points,
+                                                     output_frame.right_hand_points});
     }
     // Convert back to opencv for display or saving.
-    _ht_publisher.put(_ht_publisher.allocate<ht_frame>(ht_frame{_clock->now(), results_images, detections}));
+    time_point current_time(std::chrono::duration<long, std::nano>{std::chrono::system_clock::now().time_since_epoch().count()});
+    _ht_publisher.put(_ht_publisher.allocate<ht_frame>(ht_frame{current_time, results_images, detections}));
 }
 
 
