@@ -104,10 +104,10 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
             }
             break;
         case MONOCULAR: {
-            cv::Mat temp_img(frame->at(LEFT).clone());
+            cv::Mat temp_img(frame->at(RGB).clone());
             cv::flip(temp_img, temp_img, 1);
             img_convert(temp_img);
-            _current_images = {{LEFT, temp_img}};
+            _current_images = {{RGB, temp_img}};
             break;
         }
         case RGB_DEPTH: {
