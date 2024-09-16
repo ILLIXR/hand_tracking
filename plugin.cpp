@@ -170,23 +170,25 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
             return;
         auto &output_frame = packet.Get<mediapipe::ILLIXR::illixr_ht_frame>();
         results_images.emplace(input.first, input.second.clone());
+        image_type out_type;
         switch(input.first) {
             case LEFT:
-                results_images.emplace(LEFT_PROCESSED, *output_frame.image);
+                out_type = LEFT_PROCESSED;
                 break;
             case RIGHT:
-                results_images.emplace(RIGHT_PROCESSED, *output_frame.image);
+                out_type = RIGHT_PROCESSED;
                 break;
             case RGB:
-                results_images.emplace(RGB_PROCESSED, *output_frame.image);
+                out_type = RGB_PROCESSED;
                 break;
             default:
                 break;
         }
-        detections.emplace(input.first, ht_detection{output_frame.left_palm, output_frame.right_palm,
-                                                     output_frame.left_hand, output_frame.right_hand, output_frame.left_confidence,
-                                                     output_frame.right_confidence, output_frame.left_hand_points,
-                                                     output_frame.right_hand_points});
+        results_images.emplace(out_type, *output_frame.image);
+        detections.emplace(out_type, ht_detection{output_frame.left_palm, output_frame.right_palm,
+                                                  output_frame.left_hand, output_frame.right_hand, output_frame.left_confidence,
+                                                  output_frame.right_confidence, output_frame.left_hand_points,
+                                                  output_frame.right_hand_points});
     }
     // Convert back to opencv for display or saving.
     time_point current_time(std::chrono::duration<long, std::nano>{std::chrono::system_clock::now().time_since_epoch().count()});
