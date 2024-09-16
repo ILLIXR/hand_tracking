@@ -83,6 +83,7 @@ void hand_tracking::start() {
 }
 
 void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) {
+    time_point start_time(std::chrono::duration<long, std::nano>{std::chrono::system_clock::now().time_since_epoch().count()});
     _current_images.clear();
     switch(frame->type) {
         case BINOCULAR:
@@ -168,7 +169,20 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
         if (!_poller->Next(&packet))
             return;
         auto &output_frame = packet.Get<mediapipe::ILLIXR::illixr_ht_frame>();
-        results_images.emplace(input.first, *output_frame.image);
+        results_images.emplace(input.first, input.second.clone());
+        switch(input.first) {
+            case LEFT:
+                results_images.emplace(LEFT_PROCESSED, *output_frame.image);
+                break;
+            case RIGHT:
+                results_images.emplace(RIGHT_PROCESSED, *output_frame.image);
+                break;
+            case RGB:
+                results_images.emplace(RGB_PROCESSED, *output_frame.image);
+                break;
+            default:
+                break;
+        }
         detections.emplace(input.first, ht_detection{output_frame.left_palm, output_frame.right_palm,
                                                      output_frame.left_hand, output_frame.right_hand, output_frame.left_confidence,
                                                      output_frame.right_confidence, output_frame.left_hand_points,
@@ -176,7 +190,7 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
     }
     // Convert back to opencv for display or saving.
     time_point current_time(std::chrono::duration<long, std::nano>{std::chrono::system_clock::now().time_since_epoch().count()});
-    _ht_publisher.put(_ht_publisher.allocate<ht_frame>(ht_frame{current_time, results_images, detections}));
+    _ht_publisher.put(_ht_publisher.allocate<ht_frame>(ht_frame{start_time, current_time, results_images, detections}));
 }
 
 
