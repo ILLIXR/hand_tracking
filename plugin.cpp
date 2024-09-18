@@ -32,8 +32,7 @@ void img_convert(cv::Mat& img) {
         : plugin{name_, pb_}
         , _switchboard{pb_->lookup_impl<switchboard>()}
         , _ht_publisher{_switchboard->get_writer<ht_frame>("ht")} {
-    const char* in_type = std::getenv("HT_INPUT_TYPE");
-    if (in_type) {
+    if (const char* in_type = std::getenv("HT_INPUT_TYPE")) {
         if (strcmp(in_type, "LEFT") == 0 || strcmp(in_type, "SINGLE") == 0) {
             _input_type = ht::LEFT;
         } else if (strcmp(in_type, "RIGHT") == 0) {
@@ -44,7 +43,19 @@ void img_convert(cv::Mat& img) {
     } else {
         _input_type = ht::BOTH;
     }
-
+    if (const char* in_src = std::getenv("HT_INPUT")) {
+        if (strcmp(in_src, "zed") == 0) {
+            _cam_type = ht::ZED;
+        } else if (strcmp(in_src, "cam") == 0) {
+            _cam_type = ht::CAM;
+        } else if (strcmp(in_src, "webcam") == 0) {
+            _cam_type = ht::WEBCAM;
+        } else {
+            _cam_type = ht::UNKNOWN;
+        }
+    } else {
+        _cam_type = ht::UNKNOWN;
+    }
 }
 
 void hand_tracking::start() {
@@ -73,18 +84,47 @@ void hand_tracking::start() {
     _switchboard->schedule<monocular_cam_type>(id, "webcam", [this](const switchboard::ptr<const monocular_cam_type>& frame, std::size_t) {
         this->process(frame);
     });
-    _switchboard->schedule<binocular_cam_type>(id, "cam", [this](const switchboard::ptr<const binocular_cam_type>& img, std::size_t) {
-        this->process(img);
-    });
+    //_switchboard->schedule<binocular_cam_type>(id, "cam", [this](const switchboard::ptr<const binocular_cam_type>& img, std::size_t) {
+    //    this->process(img);
+    //});
     _switchboard->schedule<cam_type_zed>(id, "cam_zed", [this](const switchboard::ptr<const cam_type_zed>& img, std::size_t) {
         this->process(img);
     });
-
 }
 
 void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) {
     time_point start_time(std::chrono::duration<long, std::nano>{std::chrono::system_clock::now().time_since_epoch().count()});
     _current_images.clear();
+    if (_cam_type == ht::UNKNOWN) {
+        switch (frame->type) {
+            case BINOCULAR:
+            case RGB_DEPTH:
+                _cam_type = ht::CAM;
+                break;
+            case MONOCULAR:
+                _cam_type = ht::WEBCAM;
+                break;
+            case ZED:
+                _cam_type = ht::ZED;
+                break;
+        }
+    }
+    switch (_cam_type) {
+        case ht::CAM:
+            if (frame->type != BINOCULAR && frame->type != RGB_DEPTH)
+                return;
+            break;
+        case ht::WEBCAM:
+            if (frame->type != MONOCULAR)
+                return;
+            break;
+        case ht::ZED:
+            if (frame->type != ZED)
+                return;
+            break;
+        case ht::UNKNOWN:
+            return;
+    }
     switch(frame->type) {
         case BINOCULAR:
             switch (_input_type) {
@@ -163,7 +203,6 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
                                               mediapipe::Adopt(input_frame.release()).At(
                                                       mediapipe::Timestamp(frame_timestamp_us))),
                 "Add to input stream failed");
-
         // Get the graph result packet, or stop if that fails.
         mediapipe::Packet packet;
         if (!_poller->Next(&packet))

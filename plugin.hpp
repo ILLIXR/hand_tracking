@@ -19,6 +19,13 @@ namespace ht {
         BOTH,
         RGB
     };
+
+    enum cam_type {
+        CAM,
+        WEBCAM,
+        ZED,
+        UNKNOWN
+    };
 }
 
 class hand_tracking : public plugin {
@@ -34,6 +41,7 @@ private:
     switchboard::writer<ht_frame> _ht_publisher;
     mediapipe::OutputStreamPoller* _poller = nullptr;
     ht::input_type _input_type;
+    ht::cam_type _cam_type;
     std::map<image_type, cv::Mat> _current_images;
 };
 }
