@@ -104,6 +104,12 @@ void hand_tracking::start() {
                                                  });
             break;
     }
+    _publisher.start();
+}
+
+void hand_tracking::stop() {
+    _publisher.stop();
+    plugin::stop();
 }
 
 void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) {
@@ -211,6 +217,7 @@ void hand_tracking_publisher::start() {
     if (!status_or_poller.ok())
         throw std::runtime_error("Error with output poller");
     _poller = new mediapipe::OutputStreamPoller(std::move(status_or_poller).value());
+    threadloop::start();
 }
 
 threadloop::skip_option hand_tracking_publisher::_p_should_skip() {

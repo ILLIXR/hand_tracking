@@ -59,6 +59,7 @@ public:
 
     void start() override;
     void process(const switchboard::ptr<const cam_base_type>& frame);
+    void stop() override;
 private:
     const std::shared_ptr<switchboard> _switchboard;
     std::shared_ptr<mediapipe::CalculatorGraph> _graph;
