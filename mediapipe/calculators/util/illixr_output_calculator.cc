@@ -216,6 +216,8 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
                     cc->Inputs().Tag(kImageFrameTag).Get<ImageFrame>();
             auto input_mat = formats::MatView(&input_frame);
             input_mat.copyTo(*img);
+            frame_data->image_id = input_frame.id();
+            frame_data->type = input_frame.type();
         }
         frame_data->image = img.release();
         component_count++;
