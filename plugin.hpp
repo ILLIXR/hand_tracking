@@ -32,12 +32,11 @@ typedef std::map<image::image_type, cv::Mat> image_map;
 
 class hand_tracking_publisher : public threadloop {
     public:
-        hand_tracking_publisher(const std::string& name_, phonebook *pb_,
-                                std::shared_ptr<mediapipe::CalculatorGraph> graph_);
+        hand_tracking_publisher(const std::string& name_, phonebook *pb_);
         ~hand_tracking_publisher() override;
         void set_framecount(ht::input_type it);
-        void start() override;
         void add_raw(size_t id, image_map&& img);
+        void set_poller(mediapipe::OutputStreamPoller* plr) {_poller = plr;}
     protected:
         skip_option _p_should_skip() override;
         void _p_one_iteration() override;
@@ -45,7 +44,6 @@ class hand_tracking_publisher : public threadloop {
         const std::shared_ptr<switchboard> _switchboard;
         switchboard::writer<ht_frame> _ht_publisher;
         mediapipe::OutputStreamPoller* _poller = nullptr;
-        std::shared_ptr<mediapipe::CalculatorGraph> _graph;
         int _framecount = 0;
         mediapipe::Packet _packet;
         std::map<image::image_type, cv::Mat> _results_images;
@@ -65,7 +63,7 @@ public:
     void stop() override;
 private:
     const std::shared_ptr<switchboard> _switchboard;
-    std::shared_ptr<mediapipe::CalculatorGraph> _graph;
+    mediapipe::CalculatorGraph _graph;
     hand_tracking_publisher _publisher;
     std::string _ht_config_file;
     ht::input_type _input_type;

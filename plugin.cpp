@@ -31,8 +31,8 @@ void img_convert(cv::Mat& img) {
 [[maybe_unused]] hand_tracking::hand_tracking(const std::string& name_, phonebook* pb_)
         : plugin{name_, pb_}
         , _switchboard{pb_->lookup_impl<switchboard>()}
-        , _graph{new mediapipe::CalculatorGraph()}
-        , _publisher{"hand_tracking_publisher", pb_, _graph} {
+        , _graph{mediapipe::CalculatorGraph()}
+        , _publisher{"hand_tracking_publisher", pb_} {
     if (const char* in_type = std::getenv("HT_INPUT_TYPE")) {
         if (strcmp(in_type, "LEFT") == 0 || strcmp(in_type, "SINGLE") == 0) {
             _input_type = ht::LEFT;
@@ -74,11 +74,16 @@ void hand_tracking::start() {
         throw std::runtime_error("Failed to get config contents");
     auto config = mediapipe::ParseTextProtoOrDie<mediapipe::CalculatorGraphConfig>(calculator_graph_config_contents);
 
-    status = _graph->Initialize(config);
+    status = _graph.Initialize(config);
     if (!status.ok())
         throw std::runtime_error(std::string(status.message()));
 
-    status = _graph->StartRun({});
+    auto status_or_poller = _graph.AddOutputStreamPoller(kOutputStream);
+    if (!status_or_poller.ok())
+        throw std::runtime_error("Error with output poller");
+    _publisher.set_poller(new mediapipe::OutputStreamPoller(std::move(status_or_poller).value()));
+
+    status = _graph.StartRun({});
     if (!status.ok())
         throw std::runtime_error("Error starting graph");
     // subscribe to the expected type
@@ -113,8 +118,6 @@ void hand_tracking::stop() {
 }
 
 void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) {
-    time_point start_time(
-            std::chrono::duration<long, std::nano>{std::chrono::system_clock::now().time_since_epoch().count()});
     _current_images.clear();
     switch (frame->type) {
         case ::ILLIXR::image::BINOCULAR:
@@ -193,7 +196,7 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
         size_t frame_timestamp_us = std::chrono::high_resolution_clock::now().time_since_epoch().count();
 
         MP_RAISE_IF_ERROR(
-                _graph->AddPacketToInputStream(kInputStream,
+                _graph.AddPacketToInputStream(kInputStream,
                                                mediapipe::Adopt(input_frame.release()).At(
                                                        mediapipe::Timestamp(frame_timestamp_us))),
                 "Add to input stream failed");
@@ -201,24 +204,13 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
     _publisher.add_raw(frame_id, std::move(_current_images));
 }
 
-hand_tracking_publisher::hand_tracking_publisher(const std::string &name_, ILLIXR::phonebook *pb_,
-                                                 std::shared_ptr<mediapipe::CalculatorGraph> graph_)
+hand_tracking_publisher::hand_tracking_publisher(const std::string &name_, ILLIXR::phonebook *pb_)
         : threadloop(name_, pb_)
         , _switchboard{pb_->lookup_impl<switchboard>()}
-        , _ht_publisher{_switchboard->get_writer<ht_frame>("ht")}
-        , _graph{graph_} {
-}
+        , _ht_publisher{_switchboard->get_writer<ht_frame>("ht")} { }
 
 hand_tracking_publisher::~hand_tracking_publisher() {
     delete _poller;
-}
-
-void hand_tracking_publisher::start() {
-    auto status_or_poller = _graph->AddOutputStreamPoller(kOutputStream);
-    if (!status_or_poller.ok())
-        throw std::runtime_error("Error with output poller");
-    _poller = new mediapipe::OutputStreamPoller(std::move(status_or_poller).value());
-    threadloop::start();
 }
 
 void hand_tracking_publisher::add_raw(const size_t id, image_map&& img) {
