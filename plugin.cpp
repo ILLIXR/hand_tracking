@@ -198,6 +198,7 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
                                                        mediapipe::Timestamp(frame_timestamp_us))),
                 "Add to input stream failed");
     }
+    _publisher.add_raw(frame_id, std::move(_current_images));
 }
 
 hand_tracking_publisher::hand_tracking_publisher(const std::string &name_, ILLIXR::phonebook *pb_,
@@ -218,6 +219,10 @@ void hand_tracking_publisher::start() {
         throw std::runtime_error("Error with output poller");
     _poller = new mediapipe::OutputStreamPoller(std::move(status_or_poller).value());
     threadloop::start();
+}
+
+void hand_tracking_publisher::add_raw(const size_t id, image_map&& img) {
+    _raw_images.emplace(id, img);
 }
 
 threadloop::skip_option hand_tracking_publisher::_p_should_skip() {
@@ -247,23 +252,20 @@ void hand_tracking_publisher::_p_one_iteration() {
                 break;
     }
 
-    //base on _frametype
-    //if _results_images has a size, assume right, else left or rgb
-    if (_framecount == 2 && _results_images.size() == 1) {
-        if (_last_frame_id != 0 && _last_frame_id != output_frame.image_id) {
+    if (_last_frame_id != output_frame.image_id) {
+        _current_raw = _raw_images.extract(output_frame.image_id).mapped();
+        if (_framecount == 2 && _results_images.size() == 1) {
             // we are missing a component so drop the partial frame
             _results_images.clear();
             _detections.clear();
         }
     }
-    _results_images.emplace(output_frame.type, *output_frame.raw_image);
+    _results_images.emplace(output_frame.type, _current_raw.at(output_frame.type));
 
-
-
-    _detections.emplace(out_type, ht_detection{output_frame.left_palm, output_frame.right_palm,
-                                              output_frame.left_hand, output_frame.right_hand, output_frame.left_confidence,
-                                              output_frame.right_confidence, output_frame.left_hand_points,
-                                              output_frame.right_hand_points});
+    _detections.emplace(out_type, ht_detection{start_time - end_time, output_frame.left_palm, output_frame.right_palm,
+                                               output_frame.left_hand, output_frame.right_hand, output_frame.left_confidence,
+                                               output_frame.right_confidence, output_frame.left_hand_points,
+                                               output_frame.right_hand_points});
     _last_frame_id = output_frame.image_id;
     if (_results_images.size() == _framecount) {
         // Convert back to opencv for display or saving.

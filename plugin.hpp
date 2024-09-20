@@ -37,6 +37,7 @@ class hand_tracking_publisher : public threadloop {
         ~hand_tracking_publisher() override;
         void set_framecount(ht::input_type it);
         void start() override;
+        void add_raw(size_t id, image_map&& img);
     protected:
         skip_option _p_should_skip() override;
         void _p_one_iteration() override;
@@ -50,6 +51,8 @@ class hand_tracking_publisher : public threadloop {
         std::map<image::image_type, cv::Mat> _results_images;
         std::map<image::image_type, ht_detection> _detections;
         size_t _last_frame_id = 0;
+        std::unordered_map<size_t, image_map> _raw_images;
+        image_map _current_raw;
     };
 
 
