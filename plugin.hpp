@@ -28,7 +28,7 @@ namespace ht {
     };
 }
 
-class hand_tracking_publisher : threadloop {
+class hand_tracking_publisher : public threadloop {
     public:
         hand_tracking_publisher(const std::string& name_, phonebook *pb_,
                                 std::shared_ptr<mediapipe::CalculatorGraph> graph_);
@@ -44,10 +44,10 @@ class hand_tracking_publisher : threadloop {
         mediapipe::OutputStreamPoller* _poller = nullptr;
         std::shared_ptr<mediapipe::CalculatorGraph> _graph;
         int _framecount = 0;
-        mediapipe::Packet packet;
-        std::map<image::image_type, cv::Mat> results_images;
-        std::map<image::image_type, ht_detection> detections;
-        size_t last_frame_id = 0;
+        mediapipe::Packet _packet;
+        std::map<image::image_type, cv::Mat> _results_images;
+        std::map<image::image_type, ht_detection> _detections;
+        size_t _last_frame_id = 0;
     };
 
 

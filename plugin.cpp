@@ -183,7 +183,7 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
         cv::Mat input_frame_mat = mediapipe::formats::MatView(input_frame.get());
         input.second.copyTo(input_frame_mat);
 
-        // Send image packet into the graph.
+        // Send image _packet into the graph.
         size_t frame_timestamp_us = std::chrono::high_resolution_clock::now().time_since_epoch().count();
 
         MP_RAISE_IF_ERROR(
@@ -214,15 +214,15 @@ void hand_tracking_publisher::start() {
 }
 
 threadloop::skip_option hand_tracking_publisher::_p_should_skip() {
-    // Get the graph result packet, or stop if that fails.
-    if (_poller->Next(&packet))
+    // Get the graph result _packet, or stop if that fails.
+    if (_poller->Next(&_packet))
         return threadloop::skip_option::run;
     return threadloop::skip_option::skip_and_spin;
 }
 
 void hand_tracking_publisher::_p_one_iteration() {
-    auto &output_frame = packet.Get<mediapipe::ILLIXR::illixr_ht_frame>();
-    size_t end_time = packet.Timestamp().Value();
+    auto &output_frame = _packet.Get<mediapipe::ILLIXR::illixr_ht_frame>();
+    size_t end_time = _packet.Timestamp().Value();
     size_t start_time = output_frame.start_time;
 
     ::ILLIXR::image::image_type out_type;
@@ -241,31 +241,31 @@ void hand_tracking_publisher::_p_one_iteration() {
     }
 
     //base on _frametype
-    //if results_images has a size, assume right, else left or rgb
-    if (_framecount == 2 && results_images.size() == 1) {
-        if (last_frame_id != 0 && last_frame_id != output_frame.image_id) {
+    //if _results_images has a size, assume right, else left or rgb
+    if (_framecount == 2 && _results_images.size() == 1) {
+        if (_last_frame_id != 0 && _last_frame_id != output_frame.image_id) {
             // we are missing a component so drop the partial frame
-            results_images.clear();
-            detections.clear();
+            _results_images.clear();
+            _detections.clear();
         }
     }
-    results_images.emplace(output_frame.type, *output_frame.raw_image);
+    _results_images.emplace(output_frame.type, *output_frame.raw_image);
 
 
 
-    detections.emplace(out_type, ht_detection{output_frame.left_palm, output_frame.right_palm,
+    _detections.emplace(out_type, ht_detection{output_frame.left_palm, output_frame.right_palm,
                                               output_frame.left_hand, output_frame.right_hand, output_frame.left_confidence,
                                               output_frame.right_confidence, output_frame.left_hand_points,
                                               output_frame.right_hand_points});
-    last_frame_id = output_frame.image_id;
-    if (results_images.size() == _framecount) {
+    _last_frame_id = output_frame.image_id;
+    if (_results_images.size() == _framecount) {
         // Convert back to opencv for display or saving.
         time_point current_time(
                 std::chrono::duration<long, std::nano>{std::chrono::system_clock::now().time_since_epoch().count()});
         _ht_publisher.put(_ht_publisher.allocate<ht_frame>(
-                ht_frame{current_time, results_images, detections}));
-        results_images.clear();
-        detections.clear();
+                ht_frame{current_time, _results_images, _detections}));
+        _results_images.clear();
+        _detections.clear();
     }
 }
 
