@@ -76,7 +76,7 @@ void hand_tracking::start() {
 
     status = _graph->Initialize(config);
     if (!status.ok())
-        throw std::runtime_error("Graph initialize failed");
+        throw std::runtime_error(std::string(status.message()));
 
     status = _graph->StartRun({});
     if (!status.ok())
