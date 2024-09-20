@@ -94,7 +94,7 @@ ImageFrame& ImageFrame::operator=(ImageFrame&& move_from) {
   move_from.width_ = 0;
   move_from.height_ = 0;
   move_from.width_step_ = 0;
-  +move_from.image_id_ = 0;
+  move_from.image_id_ = 0;
   move_from.image_type_ = ::ILLIXR::image::RGB;
   return *this;
 }
