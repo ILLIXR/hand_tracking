@@ -235,7 +235,7 @@ threadloop::skip_option hand_tracking_publisher::_p_should_skip() {
 void hand_tracking_publisher::_p_one_iteration() {
     auto &output_frame = _packet.Get<mediapipe::ILLIXR::illixr_ht_frame>();
     size_t end_time = _packet.Timestamp().Value();
-    size_t start_time = output_frame.start_time;
+    size_t start_time = output_frame.image_id;
 
     ::ILLIXR::image::image_type out_type;
     switch(output_frame.type) {
