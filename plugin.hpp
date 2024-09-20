@@ -28,6 +28,8 @@ namespace ht {
     };
 }
 
+typedef std::map<image::image_type, cv::Mat> image_map;
+
 class hand_tracking_publisher : public threadloop {
     public:
         hand_tracking_publisher(const std::string& name_, phonebook *pb_,
@@ -64,6 +66,6 @@ private:
     std::string _ht_config_file;
     ht::input_type _input_type;
     ht::cam_type _cam_type;
-    std::map<::ILLIXR::image::image_type, cv::Mat> _current_images;
+    image_map _current_images;
 };
 }
