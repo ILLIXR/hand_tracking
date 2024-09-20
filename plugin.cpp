@@ -51,10 +51,10 @@ void img_convert(cv::Mat& img) {
         } else if (strcmp(in_src, "webcam") == 0) {
             _cam_type = ht::WEBCAM;
         } else {
-            _cam_type = ht::UNKNOWN;
+            throw std::runtime_error("HT_INPUT did not have a valid type");
         }
     } else {
-        _cam_type = ht::UNKNOWN;
+        throw std::runtime_error("HT_INPUT was not specified");
     }
 }
 
@@ -95,20 +95,6 @@ void hand_tracking::start() {
 void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) {
     time_point start_time(std::chrono::duration<long, std::nano>{std::chrono::system_clock::now().time_since_epoch().count()});
     _current_images.clear();
-    if (_cam_type == ht::UNKNOWN) {
-        switch (frame->type) {
-            case BINOCULAR:
-            case RGB_DEPTH:
-                _cam_type = ht::CAM;
-                break;
-            case MONOCULAR:
-                _cam_type = ht::WEBCAM;
-                break;
-            case ZED:
-                _cam_type = ht::ZED;
-                break;
-        }
-    }
     switch (_cam_type) {
         case ht::CAM:
             if (frame->type != BINOCULAR && frame->type != RGB_DEPTH)
@@ -126,59 +112,59 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
             return;
     }
     switch(frame->type) {
-        case BINOCULAR:
+        case ::ILLIXR::image::BINOCULAR:
             switch (_input_type) {
                 case ht::BOTH:
-                    _current_images = {{LEFT,  frame->at(LEFT).clone()},
-                                       {RIGHT, frame->at(RIGHT).clone()}};
+                    _current_images = {{::ILLIXR::image::LEFT,  frame->at(::ILLIXR::image::LEFT).clone()},
+                                       {::ILLIXR::image::RIGHT, frame->at(::ILLIXR::image::RIGHT).clone()}};
                     break;
                 case ht::LEFT:
-                    _current_images = {{LEFT, frame->at(LEFT).clone()}};
+                    _current_images = {{::ILLIXR::image::LEFT, frame->at(::ILLIXR::image::LEFT).clone()}};
                     break;
                 case ht::RIGHT:
-                    _current_images = {{RIGHT, frame->at(RIGHT).clone()}};
+                    _current_images = {{::ILLIXR::image::RIGHT, frame->at(::ILLIXR::image::RIGHT).clone()}};
                     break;
                 case ht::RGB:
                     std::cout << "RGB not provided by binocular view";
                     break;
             }
             break;
-        case MONOCULAR: {
-            cv::Mat temp_img(frame->at(RGB).clone());
+        case ::ILLIXR::image::MONOCULAR: {
+            cv::Mat temp_img(frame->at(::ILLIXR::image::RGB).clone());
             cv::flip(temp_img, temp_img, 1);
             img_convert(temp_img);
-            _current_images = {{RGB, temp_img}};
+            _current_images = {{::ILLIXR::image::RGB, temp_img}};
             break;
         }
-        case RGB_DEPTH: {
-            _current_images = {{RGB, frame->at(RGB).clone()}};
+        case ::ILLIXR::image::RGB_DEPTH: {
+            _current_images = {{::ILLIXR::image::RGB, frame->at(::ILLIXR::image::RGB).clone()}};
             break;
         }
-        case ZED: {
+        case ::ILLIXR::image::ZED: {
             switch (_input_type) {
                 case ht::BOTH: {
-                    cv::Mat tempL(frame->at(LEFT).clone());
-                    cv::Mat tempR(frame->at(RIGHT).clone());
+                    cv::Mat tempL(frame->at(::ILLIXR::image::LEFT).clone());
+                    cv::Mat tempR(frame->at(::ILLIXR::image::RIGHT).clone());
                     img_convert(tempL);
                     img_convert(tempR);
-                    _current_images = {{LEFT,  tempL},
-                                       {RIGHT, tempR}};
+                    _current_images = {{::ILLIXR::image::LEFT,  tempL},
+                                       {::ILLIXR::image::RIGHT, tempR}};
                     break;
                 }
                 case ht::LEFT: {
-                    cv::Mat temp(frame->at(LEFT).clone());
+                    cv::Mat temp(frame->at(::ILLIXR::image::LEFT).clone());
                     img_convert(temp);
-                    _current_images = {{LEFT, temp}};
+                    _current_images = {{::ILLIXR::image::LEFT, temp}};
                     break;
                 }
                 case ht::RIGHT: {
-                    cv::Mat temp(frame->at(RIGHT).clone());
+                    cv::Mat temp(frame->at(::ILLIXR::image::RIGHT).clone());
                     img_convert(temp);
-                    _current_images = {{RIGHT, temp}};
+                    _current_images = {{::ILLIXR::image::RIGHT, temp}};
                     break;
                 }
                 case ht::RGB: {
-                    _current_images = {{RGB, frame->at(RGB).clone()}};
+                    _current_images = {{::ILLIXR::image::RGB, frame->at(::ILLIXR::image::RGB).clone()}};
                     break;
                 }
             }
@@ -186,8 +172,8 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
         }
     }
 
-    std::map<image_type, cv::Mat> results_images;
-    std::map<image_type, ht_detection> detections;
+    std::map<::ILLIXR::image::image_type, cv::Mat> results_images;
+    std::map<::ILLIXR::image::image_type, ht_detection> detections;
     for(const auto &input: _current_images) {
         auto input_frame = absl::make_unique<mediapipe::ImageFrame>(mediapipe::ImageFormat::SRGB, input.second.cols,
                                                                     input.second.rows,
@@ -209,16 +195,16 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
             return;
         auto &output_frame = packet.Get<mediapipe::ILLIXR::illixr_ht_frame>();
         results_images.emplace(input.first, input.second.clone());
-        image_type out_type;
+        ::ILLIXR::image::image_type out_type;
         switch(input.first) {
-            case LEFT:
-                out_type = LEFT_PROCESSED;
+            case ::ILLIXR::image::LEFT:
+                out_type = ::ILLIXR::image::LEFT_PROCESSED;
                 break;
-            case RIGHT:
-                out_type = RIGHT_PROCESSED;
+            case ::ILLIXR::image::RIGHT:
+                out_type = ::ILLIXR::image::RIGHT_PROCESSED;
                 break;
-            case RGB:
-                out_type = RGB_PROCESSED;
+            case ::ILLIXR::image::RGB:
+                out_type = ::ILLIXR::image::RGB_PROCESSED;
                 break;
             default:
                 break;

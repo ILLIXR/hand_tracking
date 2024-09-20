@@ -23,8 +23,7 @@ namespace ht {
     enum cam_type {
         CAM,
         WEBCAM,
-        ZED,
-        UNKNOWN
+        ZED
     };
 }
 
@@ -42,6 +41,6 @@ private:
     mediapipe::OutputStreamPoller* _poller = nullptr;
     ht::input_type _input_type;
     ht::cam_type _cam_type;
-    std::map<image_type, cv::Mat> _current_images;
+    std::map<::ILLIXR::image::image_type, cv::Mat> _current_images;
 };
 }
