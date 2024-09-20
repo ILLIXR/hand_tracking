@@ -59,22 +59,23 @@ const uint32_t ImageFrame::kDefaultAlignmentBoundary;
 const uint32_t ImageFrame::kGlDefaultAlignmentBoundary;
 
 ImageFrame::ImageFrame()
-    : format_(ImageFormat::UNKNOWN), width_(0), height_(0), width_step_(0) {}
+    : format_(ImageFormat::UNKNOWN), width_(0), height_(0), width_step_(0), image_type_(::ILLIXR::image::RGB), image_id_(0) {}
 
 ImageFrame::ImageFrame(ImageFormat::Format format, int width, int height,
-                       uint32_t alignment_boundary)
-    : format_(format), width_(width), height_(height) {
+                       uint32_t alignment_boundary, ::ILLIXR::image::image_type type, size_t id)
+    : format_(format), width_(width), height_(height), image_type_(type), image_id_(id) {
   Reset(format, width, height, alignment_boundary);
 }
 
-ImageFrame::ImageFrame(ImageFormat::Format format, int width, int height)
-    : format_(format), width_(width), height_(height) {
+ImageFrame::ImageFrame(ImageFormat::Format format, int width, int height, ::ILLIXR::image::image_type type, size_t id)
+    : format_(format), width_(width), height_(height), image_type_(type), image_id_(id) {
   Reset(format, width, height, kDefaultAlignmentBoundary);
 }
 
 ImageFrame::ImageFrame(ImageFormat::Format format, int width, int height,
                        int width_step, uint8_t* pixel_data,
-                       ImageFrame::Deleter deleter) {
+                       ImageFrame::Deleter deleter,
+                       ::ILLIXR::image::image_type type, size_t id) : image_type_(type), image_id_(id) {
   AdoptPixelData(format, width, height, width_step, pixel_data, deleter);
 }
 
@@ -86,11 +87,15 @@ ImageFrame& ImageFrame::operator=(ImageFrame&& move_from) {
   width_ = move_from.width_;
   height_ = move_from.height_;
   width_step_ = move_from.width_step_;
+  image_type_ = move_from.image_type_;
+  image_id_ = move_from.image_id_;
 
   move_from.format_ = ImageFormat::UNKNOWN;
   move_from.width_ = 0;
   move_from.height_ = 0;
   move_from.width_step_ = 0;
+  +move_from.image_id_ = 0;
+  move_from.image_type_ = ::ILLIXR::image::RGB;
   return *this;
 }
 

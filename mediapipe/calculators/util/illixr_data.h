@@ -11,7 +11,7 @@ namespace mediapipe::ILLIXR {
         cv::Mat* image = nullptr;
 
         size_t image_id;
-        ::ILLIXR::image::image_type image_type;
+        ::ILLIXR::image::image_type type;
         ::ILLIXR::rect* left_palm = nullptr;
         ::ILLIXR::rect* right_palm = nullptr;
         ::ILLIXR::rect* left_hand = nullptr;
