@@ -197,8 +197,8 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
 
         MP_RAISE_IF_ERROR(
                 _graph.AddPacketToInputStream(kInputStream,
-                                               mediapipe::Adopt(input_frame.release()).At(
-                                                       mediapipe::Timestamp(frame_timestamp_us))),
+                                              mediapipe::Adopt(input_frame.release()).At(
+                                                      mediapipe::Timestamp(frame_timestamp_us))),
                 "Add to input stream failed");
     }
     _publisher.add_raw(frame_id, std::move(_current_images));
@@ -228,38 +228,40 @@ void hand_tracking_publisher::_p_one_iteration() {
     auto &output_frame = _packet.Get<mediapipe::ILLIXR::illixr_ht_frame>();
     size_t end_time = _packet.Timestamp().Value();
     size_t start_time = output_frame.image_id;
+    std::cout << end_time << "  " << start_time << "  " << end_time - start_time<< std::endl;
 
     ::ILLIXR::image::image_type out_type;
     switch(output_frame.type) {
         case ::ILLIXR::image::LEFT:
-                out_type = ::ILLIXR::image::LEFT_PROCESSED;
+            out_type = ::ILLIXR::image::LEFT_PROCESSED;
             break;
         case ::ILLIXR::image::RIGHT:
-                out_type = ::ILLIXR::image::RIGHT_PROCESSED;
+            out_type = ::ILLIXR::image::RIGHT_PROCESSED;
             break;
         case ::ILLIXR::image::RGB:
-                out_type = ::ILLIXR::image::RGB_PROCESSED;
+            out_type = ::ILLIXR::image::RGB_PROCESSED;
             break;
         default:
-                break;
+            break;
     }
 
     if (_last_frame_id != output_frame.image_id) {
         _current_raw = _raw_images.extract(output_frame.image_id).mapped();
-        if (_framecount == 2 && _results_images.size() == 1) {
+        if (_framecount == 2 && _detections.size() == 1) {
             // we are missing a component so drop the partial frame
             _results_images.clear();
             _detections.clear();
         }
     }
     _results_images.emplace(output_frame.type, _current_raw.at(output_frame.type));
+    _results_images.emplace(out_type, *output_frame.image);
 
-    _detections.emplace(out_type, ht_detection{start_time - end_time, output_frame.left_palm, output_frame.right_palm,
+    _detections.emplace(out_type, ht_detection{end_time - start_time, output_frame.left_palm, output_frame.right_palm,
                                                output_frame.left_hand, output_frame.right_hand, output_frame.left_confidence,
                                                output_frame.right_confidence, output_frame.left_hand_points,
                                                output_frame.right_hand_points});
     _last_frame_id = output_frame.image_id;
-    if (_results_images.size() == _framecount) {
+    if (_detections.size() == _framecount) {
         // Convert back to opencv for display or saving.
         time_point current_time(
                 std::chrono::duration<long, std::nano>{std::chrono::system_clock::now().time_since_epoch().count()});
