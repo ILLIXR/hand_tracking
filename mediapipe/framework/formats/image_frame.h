@@ -109,7 +109,7 @@ class ImageFrame {
              uint32_t alignment_boundary,
              ::ILLIXR::image::image_type type = ::ILLIXR::image::RGB, size_t id = 0);
   // Same as above, but use kDefaultAlignmentBoundary for alignment_boundary.
-  ImageFrame(ImageFormat::Format format, int width, int height, ILLIXR::image::image_type type = ::ILLIXR::image::RGB,
+  ImageFrame(ImageFormat::Format format, int width, int height, ::ILLIXR::image::image_type type = ::ILLIXR::image::RGB,
              size_t id = 0);
 
   // Acquires ownership of pixel_data.  Sets the deletion method
