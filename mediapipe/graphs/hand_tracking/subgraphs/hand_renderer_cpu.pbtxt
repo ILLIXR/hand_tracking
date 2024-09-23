@@ -202,7 +202,6 @@ node {
 node {
   calculator: "AnnotationOverlayCalculator"
   input_stream: "IMAGE:input_image"
-  input_stream: "POINT_OF_VIEW:first_person"
   input_stream: "detection_render_data"
   input_stream: "multi_hand_rects_render_data"
   input_stream: "multi_palm_rects_render_data"
@@ -216,6 +215,7 @@ node {
 node {
   calculator: "ILLIXROutputCalculator"
   input_stream: "IMAGE:output_image"
+  input_stream: "POINT_OF_VIEW:first_person"
   input_stream: "HANDEDNESS:multi_handedness"
   input_stream: "HAND_POINTS:multi_hand_landmark_points"
   input_stream: "NORM_RECTS_PALM:multi_palm_rects"

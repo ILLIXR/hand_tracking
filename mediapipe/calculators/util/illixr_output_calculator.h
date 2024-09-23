@@ -51,6 +51,7 @@ private:
     // Indicates if image frame is available as input.
     bool image_frame_available_ = false;
     bool use_gpu_ = false;
+    bool first_person_ = false;
 
     input_image_type image_type = input_image_type::NONE;
     palm_input_type palm_input = palm_input_type::NONE;
