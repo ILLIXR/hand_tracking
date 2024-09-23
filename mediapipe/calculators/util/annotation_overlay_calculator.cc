@@ -50,6 +50,7 @@ namespace mediapipe {
         constexpr char kImageFrameTag[] = "IMAGE";
         constexpr char kImageTag[] = "UIMAGE";  // Universal Image
         constexpr char kHandPointsTag[] = "HAND_POINTS";
+        constexpr char kPointOfViewTag[] = "POINT_OF_VIEW";
 
         enum { ATTRIB_VERTEX, ATTRIB_TEXTURE_POSITION, NUM_ATTRIBUTES };
 
@@ -171,6 +172,7 @@ namespace mediapipe {
 
         bool use_gpu_ = false;
         bool gpu_initialized_ = false;
+        bool first_person_ = false;
 #if !MEDIAPIPE_DISABLE_GPU
         mediapipe::GlCalculatorHelper gpu_helper_;
   GLuint program_ = 0;
@@ -217,6 +219,8 @@ namespace mediapipe {
             use_gpu = true;  // Prepare GPU resources because images can come in on GPU.
 #endif
         }
+        RET_CHECK(cc->Inputs().HasTag(kPointOfViewTag) == 1);
+        cc->Inputs().Tag(kPointOfViewTag).Set<bool>();
 
         // Data streams to render.
         for (CollectionItemId id = cc->Inputs().BeginId(); id < cc->Inputs().EndId();
@@ -314,7 +318,10 @@ namespace mediapipe {
         if (HasImageTag(cc)) {
             use_gpu_ = cc->Inputs().Tag(kImageTag).Get<mediapipe::Image>().UsesGpu();
         }
-
+        if (cc->Inputs().HasTag(kPointOfViewTag) &&
+            !cc->Inputs().Tag(kPointOfViewTag).IsEmpty()) {
+            first_person_ = cc->Inputs().Tag(kPointOfViewTag).Get<bool>();
+        }
         // Initialize render target, drawn with OpenCV.
         std::unique_ptr<cv::Mat> image_mat;
         ImageFormat::Format target_format;

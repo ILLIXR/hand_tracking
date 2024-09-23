@@ -14,6 +14,7 @@ using namespace ILLIXR;
 
 constexpr char kInputStream[] = "input_video";
 constexpr char kOutputStream[] = "illixr_data";
+constexpr char kPointOfView[] = "first_person";
 
 void img_convert(cv::Mat& img) {
     switch (img.type()) {
@@ -33,7 +34,7 @@ void img_convert(cv::Mat& img) {
         , _switchboard{pb_->lookup_impl<switchboard>()}
         , _graph{mediapipe::CalculatorGraph()}
         , _publisher{"hand_tracking_publisher", pb_} {
-    if (const char* in_type = std::getenv("HT_INPUT_TYPE")) {
+    if (const char* in_type = _switchboard->get_env_char("HT_INPUT_TYPE")) {
         if (strcmp(in_type, "LEFT") == 0 || strcmp(in_type, "SINGLE") == 0) {
             _input_type = ht::LEFT;
         } else if (strcmp(in_type, "RIGHT") == 0) {
@@ -47,14 +48,17 @@ void img_convert(cv::Mat& img) {
         _input_type = ht::BOTH;
     }
 
-    if (const char* in_src = std::getenv("HT_INPUT")) {
+    if (const char* in_src = _switchboard->get_env_char("HT_INPUT")) {
         if (strcmp(in_src, "zed") == 0) {
             _cam_type = ht::ZED;
+            _first_person = true;
         } else if (strcmp(in_src, "cam") == 0) {
             _cam_type = ht::CAM;
+            _first_person = true;
         } else if (strcmp(in_src, "webcam") == 0) {
             _cam_type = ht::WEBCAM;
             _input_type = ht::RGB;
+            _first_person = false;
         } else {
             throw std::runtime_error("HT_INPUT did not have a valid type");
         }
@@ -200,6 +204,12 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
                                               mediapipe::Adopt(input_frame.release()).At(
                                                       mediapipe::Timestamp(frame_timestamp_us))),
                 "Add to input stream failed");
+        auto pov = absl::make_unique<bool>(_first_person);
+        MP_RAISE_IF_ERROR(
+                _graph.AddPacketToInputStream(kPointOfView,
+                                              mediapipe::Adopt(pov.release()).At(
+                                                      mediapipe::Timestamp(frame_timestamp_us))),
+                "Add pov failed");
     }
     _publisher.add_raw(frame_id, std::move(_current_images));
 }

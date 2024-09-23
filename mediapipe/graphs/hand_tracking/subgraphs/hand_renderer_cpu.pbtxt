@@ -4,6 +4,8 @@ type: "HandRendererSubgraph"
 
 # CPU image. (ImageFrame)
 input_stream: "IMAGE:input_image"
+
+input_stream: "POINT_OF_VIEW:first_person"
 # Collection of detected/predicted hands, each represented as a list of
 # landmarks. (std::vector<NormalizedLandmarkList>)
 input_stream: "LANDMARKS:multi_hand_landmarks"
@@ -200,6 +202,7 @@ node {
 node {
   calculator: "AnnotationOverlayCalculator"
   input_stream: "IMAGE:input_image"
+  input_stream: "POINT_OF_VIEW:first_person"
   input_stream: "detection_render_data"
   input_stream: "multi_hand_rects_render_data"
   input_stream: "multi_palm_rects_render_data"

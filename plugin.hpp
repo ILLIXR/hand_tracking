@@ -69,5 +69,6 @@ private:
     ht::input_type _input_type;
     ht::cam_type _cam_type;
     image_map _current_images;
+    bool _first_person;
 };
 }

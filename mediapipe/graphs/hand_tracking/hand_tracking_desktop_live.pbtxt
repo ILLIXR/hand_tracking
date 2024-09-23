@@ -5,7 +5,7 @@
 
 # CPU image. (ImageFrame)
 input_stream: "input_video"
-
+input_stream: "first_person"
 # CPU image. (ImageFrame)
 output_stream: "illixr_data"
 
@@ -37,6 +37,7 @@ node {
 node {
   calculator: "HandRendererSubgraph"
   input_stream: "IMAGE:input_video"
+  input_stream: "POINT_OF_VIEW:first_person"
   input_stream: "DETECTIONS:multi_palm_detections"
   input_stream: "LANDMARKS:landmarks"
   input_stream: "HANDEDNESS:handedness"
