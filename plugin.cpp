@@ -197,7 +197,7 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
         input.second.copyTo(input_frame_mat);
 
         // Send image _packet into the graph.
-        size_t frame_timestamp_us = std::chrono::high_resolution_clock::now().time_since_epoch().count();
+        size_t frame_timestamp_us = std::chrono::high_resolution_clock::now().time_since_epoch().count() / 1000;
 
         MP_RAISE_IF_ERROR(
                 _graph.AddPacketToInputStream(kInputStream,
@@ -236,9 +236,8 @@ threadloop::skip_option hand_tracking_publisher::_p_should_skip() {
 
 void hand_tracking_publisher::_p_one_iteration() {
     auto &output_frame = _packet.Get<mediapipe::ILLIXR::illixr_ht_frame>();
-    size_t end_time = _packet.Timestamp().Value();
+    size_t end_time = std::chrono::high_resolution_clock::now().time_since_epoch().count();
     size_t start_time = output_frame.image_id;
-    std::cout << end_time << "  " << start_time << "  " << end_time - start_time<< std::endl;
 
     ::ILLIXR::image::image_type out_type;
     switch(output_frame.type) {
