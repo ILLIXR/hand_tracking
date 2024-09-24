@@ -106,7 +106,8 @@ void AnnotationRenderer::RenderDataOnImage(const RenderData& render_data) {
     } else if (annotation.data_case() == RenderAnnotation::kFilledOval) {
       DrawFilledOval(annotation);
     } else if (annotation.data_case() == RenderAnnotation::kText) {
-      DrawText(annotation);
+        return;
+      //DrawText(annotation);
     } else if (annotation.data_case() == RenderAnnotation::kPoint) {
       DrawPoint(annotation);
     } else if (annotation.data_case() == RenderAnnotation::kLine) {

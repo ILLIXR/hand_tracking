@@ -314,7 +314,6 @@ namespace mediapipe {
         if (HasImageTag(cc)) {
             use_gpu_ = cc->Inputs().Tag(kImageTag).Get<mediapipe::Image>().UsesGpu();
         }
-
         // Initialize render target, drawn with OpenCV.
         std::unique_ptr<cv::Mat> image_mat;
         ImageFormat::Format target_format;
@@ -428,6 +427,11 @@ namespace mediapipe {
         output_frame->CopyPixelData(target_format, renderer_->GetImageWidth(),
                                     renderer_->GetImageHeight(), data_image,
                                     ImageFrame::kDefaultAlignmentBoundary);
+        if (cc->Inputs().HasTag(kImageFrameTag)) {
+            output_frame->SetId(cc->Inputs().Tag(kImageFrameTag).Get<ImageFrame>().id());
+            output_frame->SetType(cc->Inputs().Tag(kImageFrameTag).Get<ImageFrame>().type());
+        }
+
 #endif  // !MEDIAPIPE_DISABLE_GPU
 
         if (HasImageTag(cc)) {

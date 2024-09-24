@@ -21,6 +21,7 @@ namespace mediapipe {
         constexpr char kImageFrameTag[] = "IMAGE";
         constexpr char kImageTag[] = "UIMAGE";
         constexpr char kGpuBufferTag[] = "IMAGE_GPU";
+        constexpr char kPointOfViewTag[] = "POINT_OF_VIEW";
 
         const std::map<input_image_type, const std::string> image_map {{input_image_type::IMAGE, kImageFrameTag},
                                                                        {input_image_type::UIMAGE, kImageTag},
@@ -117,6 +118,9 @@ absl::Status ILLIXROutputCalculator::GetContract(CalculatorContract* cc) {
         cc->Inputs().Tag(kRectsHandTag).Set<std::vector<Rect>>();
     }
 
+    RET_CHECK(cc->Inputs().HasTag(kPointOfViewTag) == 1);
+    cc->Inputs().Tag(kPointOfViewTag).Set<bool>();
+
     RET_CHECK(cc->Outputs().HasTag(kIllixrData));
     cc->Outputs().Tag(kIllixrData).Set<ILLIXR::illixr_ht_frame>();
 
@@ -180,6 +184,10 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
     int component_count = 0;
     int left_idx = -1;
     int right_idx = -1;
+    if (cc->Inputs().HasTag(kPointOfViewTag) &&
+        !cc->Inputs().Tag(kPointOfViewTag).IsEmpty()) {
+        first_person_ = cc->Inputs().Tag(kPointOfViewTag).Get<bool>();
+    }
     auto frame_data = absl::make_unique<ILLIXR::illixr_ht_frame>();
     if (cc->Inputs().HasTag(image_map.at(image_type)) &&
         !cc->Inputs().Tag(image_map.at(image_type)).IsEmpty()) {
@@ -216,6 +224,8 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
                     cc->Inputs().Tag(kImageFrameTag).Get<ImageFrame>();
             auto input_mat = formats::MatView(&input_frame);
             input_mat.copyTo(*img);
+            frame_data->image_id = input_frame.id();
+            frame_data->type = input_frame.type();
         }
         frame_data->image = img.release();
         component_count++;
@@ -228,11 +238,21 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
         const auto &hands = cc->Inputs().Tag(kHandedness).Get<std::vector<ClassificationList> >();
         for(int i = 0; i < hands.size(); i++) {
             if (hands[i].classification(0).label() == "Left") {
-                left_idx = i;
-                frame_data->left_confidence = hands[i].classification(0).score();
+                if (first_person_) {
+                    right_idx = i;
+                    frame_data->right_confidence = hands[i].classification(0).score();
+                } else {
+                    left_idx = i;
+                    frame_data->left_confidence = hands[i].classification(0).score();
+                }
             } else if (hands[i].classification(0).label() == "Right") {
-                right_idx = i;
-                frame_data->right_confidence = hands[i].classification(0).score();
+                if (first_person_) {
+                    left_idx = i;
+                    frame_data->left_confidence = hands[i].classification(0).score();
+                } else {
+                    right_idx = i;
+                    frame_data->right_confidence = hands[i].classification(0).score();
+                }
             } else {
                 // something is wrong
             }

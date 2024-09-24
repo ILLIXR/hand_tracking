@@ -5,6 +5,7 @@
 #include "illixr/switchboard.hpp"
 #include "illixr/opencv_data_types.hpp"
 #include "illixr/hand_tracking_data.hpp"
+#include "illixr/threadloop.hpp"
 
 #include "mediapipe/framework/calculator_graph.h"
 
@@ -23,10 +24,35 @@ namespace ht {
     enum cam_type {
         CAM,
         WEBCAM,
-        ZED,
-        UNKNOWN
+        ZED
     };
 }
+
+typedef std::map<image::image_type, cv::Mat> image_map;
+
+class hand_tracking_publisher : public threadloop {
+    public:
+        hand_tracking_publisher(const std::string& name_, phonebook *pb_);
+        ~hand_tracking_publisher() override;
+        void set_framecount(ht::input_type it);
+        void add_raw(size_t id, image_map&& img);
+        void set_poller(mediapipe::OutputStreamPoller* plr) {_poller = plr;}
+    protected:
+        skip_option _p_should_skip() override;
+        void _p_one_iteration() override;
+    private:
+        const std::shared_ptr<switchboard> _switchboard;
+        switchboard::writer<ht_frame> _ht_publisher;
+        mediapipe::OutputStreamPoller* _poller = nullptr;
+        int _framecount = 0;
+        mediapipe::Packet _packet;
+        std::map<image::image_type, cv::Mat> _results_images;
+        std::map<image::image_type, ht_detection> _detections;
+        size_t _last_frame_id = 0;
+        std::unordered_map<size_t, image_map> _raw_images;
+        image_map _current_raw;
+    };
+
 
 class hand_tracking : public plugin {
 public:
@@ -34,14 +60,15 @@ public:
 
     void start() override;
     void process(const switchboard::ptr<const cam_base_type>& frame);
+    void stop() override;
 private:
     const std::shared_ptr<switchboard> _switchboard;
-    std::string _ht_config_file;
     mediapipe::CalculatorGraph _graph;
-    switchboard::writer<ht_frame> _ht_publisher;
-    mediapipe::OutputStreamPoller* _poller = nullptr;
+    hand_tracking_publisher _publisher;
+    std::string _ht_config_file;
     ht::input_type _input_type;
     ht::cam_type _cam_type;
-    std::map<image_type, cv::Mat> _current_images;
+    image_map _current_images;
+    bool _first_person;
 };
 }

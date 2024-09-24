@@ -10,6 +10,8 @@ namespace mediapipe::ILLIXR {
     struct illixr_ht_frame {
         cv::Mat* image = nullptr;
 
+        size_t image_id;
+        ::ILLIXR::image::image_type type;
         ::ILLIXR::rect* left_palm = nullptr;
         ::ILLIXR::rect* right_palm = nullptr;
         ::ILLIXR::rect* left_hand = nullptr;
