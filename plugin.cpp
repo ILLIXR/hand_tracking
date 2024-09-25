@@ -10,6 +10,10 @@
 #include "mediapipe/framework/formats/image_frame_opencv.h"
 #include "mediapipe/calculators/util/illixr_data.h"
 
+#if !MEDIAPIPE_DISABLE_GPU
+#include "mediapipe/gpu/gpu_buffer.h"
+#include "mediapipe/gpu/gpu_shared_data_internal.h"
+#endif
 using namespace ILLIXR;
 
 constexpr char kInputStream[] = "input_video";
@@ -81,6 +85,17 @@ void hand_tracking::start() {
     status = _graph.Initialize(config);
     if (!status.ok())
         throw std::runtime_error(std::string(status.message()));
+
+#if !MEDIAPIPE_DISABLE_GPU
+    ABSL_LOG(INFO) << "Initialize the GPU.";
+    auto gpu_resources = mediapipe::GpuResources::Create();
+    if(!gpu_resources.ok())
+        throw std::runtime_error("");
+    status = _graph.SetGpuResources(std::move(gpu_resources).value());
+    if(!status.ok())
+        throw std::runtime_error("");
+    _gpu_helper.InitializeForTest(_graph.GetGpuResources().get());
+#endif
 
     auto status_or_poller = _graph.AddOutputStreamPoller(kOutputStream);
     if (!status_or_poller.ok())
@@ -157,21 +172,21 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
                 case ht::BOTH: {
                     cv::Mat tempL(frame->at(::ILLIXR::image::LEFT).clone());
                     cv::Mat tempR(frame->at(::ILLIXR::image::RIGHT).clone());
-                    img_convert(tempL);
-                    img_convert(tempR);
+                    //img_convert(tempL);
+                    //img_convert(tempR);
                     _current_images = {{::ILLIXR::image::LEFT,  tempL},
                                        {::ILLIXR::image::RIGHT, tempR}};
                     break;
                 }
                 case ht::LEFT: {
                     cv::Mat temp(frame->at(::ILLIXR::image::LEFT).clone());
-                    img_convert(temp);
+                    //img_convert(temp);
                     _current_images = {{::ILLIXR::image::LEFT, temp}};
                     break;
                 }
                 case ht::RIGHT: {
                     cv::Mat temp(frame->at(::ILLIXR::image::RIGHT).clone());
-                    img_convert(temp);
+                    //img_convert(temp);
                     _current_images = {{::ILLIXR::image::RIGHT, temp}};
                     break;
                 }
@@ -190,26 +205,54 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
         auto input_frame = absl::make_unique<mediapipe::ImageFrame>(mediapipe::ImageFormat::SRGB,
                                                                     input.second.cols,
                                                                     input.second.rows,
+#if !MEDIAPIPE_DISABLE_GPU
+                                                                    mediapipe::ImageFrame::kGlDefaultAlignmentBoundary,
+#else
                                                                     mediapipe::ImageFrame::kDefaultAlignmentBoundary,
+#endif
                                                                     input.first,
                                                                     frame_id);
+
         cv::Mat input_frame_mat = mediapipe::formats::MatView(input_frame.get());
         input.second.copyTo(input_frame_mat);
 
         // Send image _packet into the graph.
         size_t frame_timestamp_us = std::chrono::high_resolution_clock::now().time_since_epoch().count() / 1000;
 
-        MP_RAISE_IF_ERROR(
-                _graph.AddPacketToInputStream(kInputStream,
+#if !MEDIAPIPE_DISABLE_GPU
+        auto gl_status = _gpu_helper.RunInGlContext([&input_frame, &frame_timestamp_us,
+                                                     &graph=_graph,
+                                                     &gpu_helper=_gpu_helper]()
+                                                             -> absl::Status {
+                    // Convert ImageFrame to GpuBuffer.
+            auto texture = gpu_helper.CreateSourceTexture(*input_frame.get());
+            auto gpu_frame = texture.GetFrame<mediapipe::GpuBuffer>();
+            glFlush();
+            texture.Release();
+            // Send GPU image packet into the graph.
+            auto submit_status = graph.AddPacketToInputStream(
+                    kInputStream, mediapipe::Adopt(gpu_frame.release())
+                            .At(mediapipe::Timestamp(frame_timestamp_us)));
+            if (!submit_status.ok())
+                throw std::runtime_error(std::string(submit_status.message()));
+            return absl::OkStatus();
+        });
+        if (!gl_status.ok())
+            throw std::runtime_error(std::string(gl_status.message()));
+
+#else
+        auto submit_status = _graph.AddPacketToInputStream(kInputStream,
                                               mediapipe::Adopt(input_frame.release()).At(
-                                                      mediapipe::Timestamp(frame_timestamp_us))),
-                "Add to input stream failed");
+                                                      mediapipe::Timestamp(frame_timestamp_us))):
+        if (!submit_status.ok())
+            throw std::runtime_error(std::string(submit_status.message()));
+#endif
         auto pov = absl::make_unique<bool>(_first_person);
-        MP_RAISE_IF_ERROR(
-                _graph.AddPacketToInputStream(kPointOfView,
-                                              mediapipe::Adopt(pov.release()).At(
-                                                      mediapipe::Timestamp(frame_timestamp_us))),
-                "Add pov failed");
+        auto packet_status = _graph.AddPacketToInputStream(kPointOfView,
+                                                           mediapipe::Adopt(pov.release()).At(
+                                                                   mediapipe::Timestamp(frame_timestamp_us)));
+        if (!packet_status.ok())
+            throw std::runtime_error(std::string(packet_status.message()));
     }
     _publisher.add_raw(frame_id, std::move(_current_images));
 }
@@ -236,6 +279,7 @@ threadloop::skip_option hand_tracking_publisher::_p_should_skip() {
 
 void hand_tracking_publisher::_p_one_iteration() {
     auto &output_frame = _packet.Get<mediapipe::ILLIXR::illixr_ht_frame>();
+
     size_t end_time = std::chrono::high_resolution_clock::now().time_since_epoch().count();
     size_t start_time = output_frame.image_id;
 

@@ -4,6 +4,8 @@ type: "HandRendererSubgraph"
 
 # GPU buffer. (GpuBuffer)
 input_stream: "IMAGE:input_image"
+
+input_stream: "POINT_OF_VIEW:first_person"
 # Collection of detected/predicted hands, each represented as a list of
 # landmarks. (std::vector<NormalizedLandmarkList>)
 input_stream: "LANDMARKS:multi_hand_landmarks"
@@ -20,7 +22,7 @@ input_stream: "NORM_RECTS:1:multi_hand_rects"
 input_stream: "DETECTIONS:palm_detections"
 
 # Updated GPU buffer. (GpuBuffer)
-output_stream: "IMAGE:output_image"
+output_stream: "ILLIXR_DATA:illixr_data"
 
 # Converts detections to drawing primitives for annotation overlay.
 node {
@@ -206,4 +208,17 @@ node {
   input_stream: "handedness_render_data"
   input_stream: "VECTOR:0:multi_hand_landmarks_render_data"
   output_stream: "IMAGE_GPU:output_image"
+  output_stream: "HAND_POINTS:multi_hand_landmark_points"
+}
+
+# combine the results into an ILLIXR data frame
+node {
+  calculator: "ILLIXROutputCalculator"
+  input_stream: "IMAGE_GPU:output_image"
+  input_stream: "POINT_OF_VIEW:first_person"
+  input_stream: "HANDEDNESS:multi_handedness"
+  input_stream: "HAND_POINTS:multi_hand_landmark_points"
+  input_stream: "NORM_RECTS_PALM:multi_palm_rects"
+  input_stream: "NORM_RECTS_HAND:multi_hand_rects"
+  output_stream: "ILLIXR_DATA:illixr_data"
 }

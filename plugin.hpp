@@ -11,7 +11,9 @@
 
 #include <opencv2/opencv.hpp>
 
-
+#if !MEDIAPIPE_DISABLE_GPU
+#include "mediapipe/gpu/gl_calculator_helper.h"
+#endif
 namespace ILLIXR {
 namespace ht {
     enum input_type {
@@ -31,27 +33,29 @@ namespace ht {
 typedef std::map<image::image_type, cv::Mat> image_map;
 
 class hand_tracking_publisher : public threadloop {
-    public:
-        hand_tracking_publisher(const std::string& name_, phonebook *pb_);
-        ~hand_tracking_publisher() override;
-        void set_framecount(ht::input_type it);
-        void add_raw(size_t id, image_map&& img);
-        void set_poller(mediapipe::OutputStreamPoller* plr) {_poller = plr;}
-    protected:
-        skip_option _p_should_skip() override;
-        void _p_one_iteration() override;
-    private:
-        const std::shared_ptr<switchboard> _switchboard;
-        switchboard::writer<ht_frame> _ht_publisher;
-        mediapipe::OutputStreamPoller* _poller = nullptr;
-        int _framecount = 0;
-        mediapipe::Packet _packet;
-        std::map<image::image_type, cv::Mat> _results_images;
-        std::map<image::image_type, ht_detection> _detections;
-        size_t _last_frame_id = 0;
-        std::unordered_map<size_t, image_map> _raw_images;
-        image_map _current_raw;
-    };
+public:
+    hand_tracking_publisher(const std::string& name_, phonebook *pb_);
+    ~hand_tracking_publisher() override;
+    void set_framecount(ht::input_type it);
+    void add_raw(size_t id, image_map&& img);
+    void set_poller(mediapipe::OutputStreamPoller* plr) {_poller = plr;}
+
+protected:
+    skip_option _p_should_skip() override;
+    void _p_one_iteration() override;
+
+private:
+    const std::shared_ptr<switchboard> _switchboard;
+    switchboard::writer<ht_frame> _ht_publisher;
+    mediapipe::OutputStreamPoller* _poller = nullptr;
+    int _framecount = 0;
+    mediapipe::Packet _packet;
+    std::map<image::image_type, cv::Mat> _results_images;
+    std::map<image::image_type, ht_detection> _detections;
+    size_t _last_frame_id = 0;
+    std::unordered_map<size_t, image_map> _raw_images;
+    image_map _current_raw;
+};
 
 
 class hand_tracking : public plugin {
@@ -70,5 +74,8 @@ private:
     ht::cam_type _cam_type;
     image_map _current_images;
     bool _first_person;
+#if !MEDIAPIPE_DISABLE_GPU
+    mediapipe::GlCalculatorHelper _gpu_helper;
+#endif
 };
 }

@@ -55,14 +55,10 @@ target_sources(${PLUGIN_NAME} PUBLIC
                $<TARGET_OBJECTS:framework.formats.matrix_data_proto>
                $<TARGET_OBJECTS:framework.stream_handler.default_input_stream_handler_proto>
                $<TARGET_OBJECTS:framework.stream_handler.fixed_size_input_stream_handler_proto>
-               $<TARGET_OBJECTS:hand_renderer_cpu_linked>
                $<TARGET_OBJECTS:hand_landmark_landmarks_to_roi_linked>
-               $<TARGET_OBJECTS:hand_landmark_cpu_linked>
                $<TARGET_OBJECTS:hand_landmark_model_loader_linked>
-               $<TARGET_OBJECTS:hand_landmark_tracking_cpu_linked>
                $<TARGET_OBJECTS:palm_detection_detection_to_roi_linked>
                $<TARGET_OBJECTS:palm_detection_model_loader_linked>
-               $<TARGET_OBJECTS:palm_detection_cpu_linked>
                $<TARGET_OBJECTS:framework.formats.object_detection.anchor_proto>
                $<TARGET_OBJECTS:framework.formats.time_series_header_proto>
                $<TARGET_OBJECTS:framework.tool.calculator_graph_template_proto>
@@ -72,6 +68,25 @@ target_sources(${PLUGIN_NAME} PUBLIC
                $<TARGET_OBJECTS:calculators.util.illixr_data_proto>
                $<TARGET_OBJECTS:calculators.util.render_and_points_proto>
 )
+
+if(HT_ENABLE_GPU)
+    target_sources(${PLUGIN_NAME} PUBLIC
+                   $<TARGET_OBJECTS:hand_renderer_gpu_linked>
+                   $<TARGET_OBJECTS:hand_landmark_gpu_linked>
+                   $<TARGET_OBJECTS:hand_landmark_tracking_gpu_linked>
+                   $<TARGET_OBJECTS:palm_detection_gpu_linked>
+    )
+
+else()
+    target_sources(${PLUGIN_NAME} PUBLIC
+                   $<TARGET_OBJECTS:hand_renderer_cpu_linked>
+                   $<TARGET_OBJECTS:hand_landmark_cpu_linked>
+                   $<TARGET_OBJECTS:hand_landmark_tracking_cpu_linked>
+                   $<TARGET_OBJECTS:palm_detection_cpu_linked>
+    )
+endif()
+
+
 include(${CMAKE_CURRENT_LIST_DIR}/calculators/build.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/framework/build.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/gpu/build.cmake)
@@ -89,7 +104,7 @@ if(HT_ENABLE_GPU)
                                ${egl_INCLUDEDIR}
                                ${glesv2_INCLUDEDIR}
     )
-    target_sources($<TARGET_OBJECTS:gpu.gl_context_options_proto>)
+    target_sources(${PLUGIN_NAME} PUBLIC $<TARGET_OBJECTS:gpu.gl_context_options_proto>)
     add_compile_options(-layering_check)
 endif()
 
@@ -152,7 +167,6 @@ target_link_libraries(${PLUGIN_NAME} PUBLIC
 
 if(BUILD_TEST_EXE)
     add_executable(hand_tracking_tflite
-                   #example/simple_run_graph_main.cc
                    demo_run_graph_main.cc
     )
 
@@ -200,4 +214,55 @@ if(BUILD_TEST_EXE)
                           ${ZLIB_LIBRARIES}
                           ${PLUGIN_NAME}
     )
+
+    add_executable(hand_tracking_tflite_gpu
+                   demo_run_graph_main_gpu.cc
+    )
+
+    target_link_libraries(hand_tracking_tflite_gpu PUBLIC
+                          protobuf::libprotobuf
+                          absl::algorithm
+                          absl::base
+                          absl::core_headers
+                          absl::dynamic_annotations
+                          absl::nullability
+                          absl::btree
+                          absl::flat_hash_map
+                          absl::flat_hash_set
+                          absl::node_hash_map
+                          absl::leak_check
+                          absl::flags
+                          absl::flags_parse
+                          absl::any_invocable
+                          absl::bind_front
+                          absl::function_ref
+                          absl::hash
+                          absl::absl_check
+                          absl::absl_log
+                          absl::check
+                          absl::memory
+                          absl::type_traits
+                          absl::status
+                          absl::statusor
+                          absl::strings
+                          absl::str_format
+                          absl::string_view
+                          absl::synchronization
+                          absl::time
+                          absl::optional
+                          absl::span
+                          absl::variant
+                          absl::utility
+                          ${cpuinfo_LIBRARIES}
+                          tfl-XNNPACK::tfl-XNNPACK
+                          pthreadpool::pthreadpool
+                          tensorflow-lite::tensorflow-lite
+                          ${gflags_LIBRARIES}
+                          ${glog_LIBRARIES}
+                          ${OpenCV_LIBRARIES}
+                          ${ZLIB_LIBRARIES}
+                          ${PLUGIN_NAME}
+    )
+
 endif()
+
