@@ -4,8 +4,9 @@
 #include "mediapipe/framework/formats/rect.pb.h"
 #include "mediapipe/calculators/util/illixr_data.pb.h"
 #include "mediapipe/calculators/util/illixr_data.h"
+#if !MEDIAPIPE_DISABLE_GPU
 #include "mediapipe/gpu/gl_calculator_helper.h"
-
+#endif
 namespace mediapipe {
 
 namespace {

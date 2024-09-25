@@ -96,8 +96,11 @@ add_custom_target(make_message_type
 #                  DEPENDS encode_descriptor_sets make_message_type
 #)
 
-
-set(PLUGIN_NAME plugin.hand_tracking${ILLIXR_BUILD_SUFFIX})
+set(HT_PROCESSOR "")
+if(HT_ENABLE_GPU)
+    set(HT_PROCESSOR "_gpu")
+endif()
+set(PLUGIN_NAME plugin.hand_tracking${HT_PROCESSOR}${ILLIXR_BUILD_SUFFIX})
 add_library(${PLUGIN_NAME} SHARED plugin.cpp)
 
 add_subdirectory(mediapipe)

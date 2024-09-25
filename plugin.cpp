@@ -243,7 +243,7 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
 #else
         auto submit_status = _graph.AddPacketToInputStream(kInputStream,
                                               mediapipe::Adopt(input_frame.release()).At(
-                                                      mediapipe::Timestamp(frame_timestamp_us))):
+                                                      mediapipe::Timestamp(frame_timestamp_us)));
         if (!submit_status.ok())
             throw std::runtime_error(std::string(submit_status.message()));
 #endif
