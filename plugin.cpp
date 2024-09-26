@@ -2,7 +2,6 @@
 
 #include "plugin.hpp"
 
-#include "mediapipe/framework/deps/status_macros.h"
 #include "mediapipe/framework/deps/file_helpers.h"
 #include "mediapipe/framework/calculator.pb.h"
 #include "mediapipe/framework/port/parse_text_proto.h"
@@ -19,6 +18,7 @@ using namespace ILLIXR;
 constexpr char kInputStream[] = "input_video";
 constexpr char kOutputStream[] = "illixr_data";
 constexpr char kPointOfView[] = "first_person";
+constexpr char kFrameIdTag[] = "frame_id";
 
 void img_convert(cv::Mat& img) {
     switch (img.type()) {
@@ -239,6 +239,12 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
         });
         if (!gl_status.ok())
             throw std::runtime_error(std::string(gl_status.message()));
+        auto packet_id = absl::make_unique<size_t>(frame_id);
+        auto id_status = _graph.AddPacketToInputStream(kFrameIdTag,
+                                                       mediapipe::Adopt(packet_id.release()).At(
+                                                               mediapipe::Timestamp(frame_timestamp_us)));
+        if (!id_status.ok())
+            throw std::runtime_error(std::string(id_status.message()));
 
 #else
         auto submit_status = _graph.AddPacketToInputStream(kInputStream,

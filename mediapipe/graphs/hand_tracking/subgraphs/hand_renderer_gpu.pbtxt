@@ -6,6 +6,7 @@ type: "HandRendererSubgraph"
 input_stream: "IMAGE:input_image"
 
 input_stream: "POINT_OF_VIEW:first_person"
+input_stream: "FRAME_ID:frame_id"
 # Collection of detected/predicted hands, each represented as a list of
 # landmarks. (std::vector<NormalizedLandmarkList>)
 input_stream: "LANDMARKS:multi_hand_landmarks"
@@ -80,7 +81,7 @@ node {
 node {
   calculator: "LandmarksToRenderDataCalculator"
   input_stream: "NORM_LANDMARKS:single_hand_landmarks"
-  output_stream: "RENDER_DATA:single_hand_landmark_render_data"
+  output_stream: "RENDER_POINT_DATA:single_hand_landmark_render_data"
   node_options: {
     [type.googleapis.com/mediapipe.LandmarksToRenderDataCalculatorOptions] {
       landmark_connections: 0
@@ -216,6 +217,7 @@ node {
   calculator: "ILLIXROutputCalculator"
   input_stream: "IMAGE_GPU:output_image"
   input_stream: "POINT_OF_VIEW:first_person"
+  input_stream: "FRAME_ID:frame_id"
   input_stream: "HANDEDNESS:multi_handedness"
   input_stream: "HAND_POINTS:multi_hand_landmark_points"
   input_stream: "NORM_RECTS_PALM:multi_palm_rects"

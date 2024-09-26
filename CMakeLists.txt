@@ -12,7 +12,7 @@ option(HT_ENABLE_GRAPH_PROFILER "Whether to enable the graph profiler" OFF)
 cmake_dependent_option(HT_ENABLE_WEB_PROFILING "Whether to enable web profiling" ON HT_ENABLE_GRAPH_PROFILER OFF)
 
 if(HT_ENABLE_GPU)
-    add_definitions(-DMEDIAPIPE_DISABLE_GPU=0)
+    add_definitions(-DMEDIAPIPE_DISABLE_GPU=0 -DMESA_EGL_NO_X11_HEADERS -DEGL_NO_X11)
 else()
     add_definitions(-DMEDIAPIPE_DISABLE_GPU=1)
 endif()

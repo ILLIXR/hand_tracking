@@ -29,6 +29,7 @@ namespace mediapipe {
         constexpr char kImageTag[] = "UIMAGE";
         constexpr char kGpuBufferTag[] = "IMAGE_GPU";
         constexpr char kPointOfViewTag[] = "POINT_OF_VIEW";
+        constexpr char kFrameIdTag[] = "FRAME_ID";
 
         const std::map<input_image_type, const std::string> image_map {{input_image_type::IMAGE, kImageFrameTag},
                                                                        {input_image_type::UIMAGE, kImageTag},
@@ -139,6 +140,9 @@ absl::Status ILLIXROutputCalculator::GetContract(CalculatorContract* cc) {
     RET_CHECK(cc->Inputs().HasTag(kPointOfViewTag) == 1);
     cc->Inputs().Tag(kPointOfViewTag).Set<bool>();
 
+    RET_CHECK(cc->Inputs().HasTag(kFrameIdTag) == 1);
+    cc->Inputs().Tag(kFrameIdTag).Set<size_t>();
+
     RET_CHECK(cc->Outputs().HasTag(kIllixrData));
     cc->Outputs().Tag(kIllixrData).Set<ILLIXR::illixr_ht_frame>();
 
@@ -235,7 +239,9 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
                         (CreateRenderTargetGpu<mediapipe::GpuBuffer, kGpuBufferTag>(
                                 cc, image_mat)));
             }
+            if (cc->Inputs().HasTag(kFrameIdTag)) {}
             frame_data-> image = image_mat.release();
+            frame_data->image_id = cc->Inputs().Tag(kFrameIdTag).Get<size_t>();
 #endif  // !MEDIAPIPE_DISABLE_GPU
         } else if (image_type == input_image_type::UIMAGE) {
             const auto& input =
