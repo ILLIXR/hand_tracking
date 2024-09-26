@@ -148,10 +148,10 @@ namespace mediapipe {
         cc->Inputs().Tag(kPointOfViewTag).Set<bool>();
 
 #if !MEDIAPIPE_DISABLE_GPU
-        RET_CHECK(cc->Inputs().HasTag(kFrameIdTag) == 1);
+        RET_CHECK(cc->Inputs().HasTag(kFrameIdTag));
         cc->Inputs().Tag(kFrameIdTag).Set<size_t>();
 
-        RET_CHECK(cc->Inputs().HasTag(kImageTypeTag) == 1);
+        RET_CHECK(cc->Inputs().HasTag(kImageTypeTag));
         cc->Inputs().Tag(kImageTypeTag).Set<::ILLIXR::image::image_type>();
 #endif
         RET_CHECK(cc->Outputs().HasTag(kIllixrData));

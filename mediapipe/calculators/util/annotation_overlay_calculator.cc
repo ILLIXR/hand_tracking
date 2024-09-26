@@ -50,6 +50,10 @@ namespace mediapipe {
         constexpr char kImageFrameTag[] = "IMAGE";
         constexpr char kImageTag[] = "UIMAGE";  // Universal Image
         constexpr char kHandPointsTag[] = "HAND_POINTS";
+#if !MEDIAPIPE_DISABLE_GPU
+        constexpr char kImageWidthTag[] = "IMAGE_WIDTH";
+        constexpr char kImageHeightTag[] = "IMAGE_HEIGHT";
+#endif
 
         enum { ATTRIB_VERTEX, ATTRIB_TEXTURE_POSITION, NUM_ATTRIBUTES };
 
@@ -173,12 +177,12 @@ namespace mediapipe {
         bool gpu_initialized_ = false;
 #if !MEDIAPIPE_DISABLE_GPU
         mediapipe::GlCalculatorHelper gpu_helper_;
-  GLuint program_ = 0;
-  GLuint image_mat_tex_ = 0;  // Overlay drawing image for GPU.
-  int width_ = 0;
-  int height_ = 0;
-  int width_canvas_ = 0;  // Size of overlay drawing texture canvas.
-  int height_canvas_ = 0;
+        GLuint program_ = 0;
+        GLuint image_mat_tex_ = 0;  // Overlay drawing image for GPU.
+        int width_ = 0;
+        int height_ = 0;
+        int width_canvas_ = 0;  // Size of overlay drawing texture canvas.
+        int height_canvas_ = 0;
 #endif  // MEDIAPIPE_DISABLE_GPU
     };
     REGISTER_CALCULATOR(AnnotationOverlayCalculator);
@@ -234,8 +238,12 @@ namespace mediapipe {
         // Rendered image. Should be same type as input.
 #if !MEDIAPIPE_DISABLE_GPU
         if (cc->Outputs().HasTag(kGpuBufferTag)) {
-    cc->Outputs().Tag(kGpuBufferTag).Set<mediapipe::GpuBuffer>();
-  }
+            cc->Outputs().Tag(kGpuBufferTag).Set<mediapipe::GpuBuffer>();
+        }
+        RET_CHECK(cc->Inputs().HasTag(kImageWidthTag));
+        RET_CHECK(cc->Inputs().HasTag(kImageHeightTag));
+        cc->Inputs().Tag(kImageWidthTag).Set<size_t>();
+        cc->Inputs().Tag(kImageHeightTag).Set<size_t>();
 #endif  // !MEDIAPIPE_DISABLE_GPU
         if (cc->Outputs().HasTag(kImageFrameTag)) {
             cc->Outputs().Tag(kImageFrameTag).Set<ImageFrame>();
@@ -319,25 +327,27 @@ namespace mediapipe {
         ImageFormat::Format target_format;
         if (use_gpu_) {
 #if !MEDIAPIPE_DISABLE_GPU
+            width_ = cc->Inputs().Tag(kImageWidthTag).Get<size_t>();
+            height_ = cc->Inputs().Tag(kImageHeightTag).Get<size_t>();
             if (!gpu_initialized_) {
-      MP_RETURN_IF_ERROR(
-          gpu_helper_.RunInGlContext([this, cc]() -> absl::Status {
-            if (HasImageTag(cc)) {
-              return GlSetup<mediapipe::Image, kImageTag>(cc);
+                MP_RETURN_IF_ERROR(
+                        gpu_helper_.RunInGlContext([this, cc]() -> absl::Status {
+                            if (HasImageTag(cc)) {
+                                return GlSetup<mediapipe::Image, kImageTag>(cc);
+                            }
+                            return GlSetup<mediapipe::GpuBuffer, kGpuBufferTag>(cc);
+                        }));
+                gpu_initialized_ = true;
             }
-            return GlSetup<mediapipe::GpuBuffer, kGpuBufferTag>(cc);
-          }));
-      gpu_initialized_ = true;
-    }
-    if (HasImageTag(cc)) {
-      MP_RETURN_IF_ERROR(
-          (CreateRenderTargetGpu<mediapipe::Image, kImageTag>(cc, image_mat)));
-    }
-    if (cc->Inputs().HasTag(kGpuBufferTag)) {
-      MP_RETURN_IF_ERROR(
-          (CreateRenderTargetGpu<mediapipe::GpuBuffer, kGpuBufferTag>(
-              cc, image_mat)));
-    }
+            if (HasImageTag(cc)) {
+                MP_RETURN_IF_ERROR(
+                        (CreateRenderTargetGpu<mediapipe::Image, kImageTag>(cc, image_mat)));
+            }
+            if (cc->Inputs().HasTag(kGpuBufferTag)) {
+                MP_RETURN_IF_ERROR(
+                        (CreateRenderTargetGpu<mediapipe::GpuBuffer, kGpuBufferTag>(
+                                cc, image_mat)));
+            }
 #endif  // !MEDIAPIPE_DISABLE_GPU
         } else {
             if (cc->Outputs().HasTag(kImageTag)) {
@@ -381,15 +391,15 @@ namespace mediapipe {
         if (use_gpu_) {
 #if !MEDIAPIPE_DISABLE_GPU
             // Overlay rendered image in OpenGL, onto a copy of input.
-    uchar* image_mat_ptr = image_mat->data;
-    MP_RETURN_IF_ERROR(
-        gpu_helper_.RunInGlContext([this, cc, image_mat_ptr]() -> absl::Status {
-          if (HasImageTag(cc)) {
-            return RenderToGpu<mediapipe::Image, kImageTag>(cc, image_mat_ptr);
-          }
-          return RenderToGpu<mediapipe::GpuBuffer, kGpuBufferTag>(
-              cc, image_mat_ptr);
-        }));
+            uchar* image_mat_ptr = image_mat->data;
+            MP_RETURN_IF_ERROR(
+                    gpu_helper_.RunInGlContext([this, cc, image_mat_ptr]() -> absl::Status {
+                        if (HasImageTag(cc)) {
+                            return RenderToGpu<mediapipe::Image, kImageTag>(cc, image_mat_ptr);
+                        }
+                        return RenderToGpu<mediapipe::GpuBuffer, kGpuBufferTag>(
+                                cc, image_mat_ptr);
+                    }));
 #endif  // !MEDIAPIPE_DISABLE_GPU
         } else {
             // Copy the rendered image to output.
@@ -544,22 +554,16 @@ namespace mediapipe {
             CalculatorContext* cc, std::unique_ptr<cv::Mat>& image_mat) {
 #if !MEDIAPIPE_DISABLE_GPU
         if (image_frame_available_) {
-    const auto& input_frame = cc->Inputs().Tag(Tag).Get<Type>();
-    const mediapipe::ImageFormat::Format format =
-        mediapipe::ImageFormatForGpuBufferFormat(input_frame.format());
-    if (format != mediapipe::ImageFormat::SRGBA &&
-        format != mediapipe::ImageFormat::SRGB)
-      RET_CHECK_FAIL() << "Unsupported GPU input format: " << format;
-    image_mat =
-        absl::make_unique<cv::Mat>(height_canvas_, width_canvas_, CV_8UC3);
-    memset(image_mat->data, kAnnotationBackgroundColor,
-           height_canvas_ * width_canvas_ * image_mat->elemSize());
-  } else {
-    image_mat = absl::make_unique<cv::Mat>(
-        height_canvas_, width_canvas_, CV_8UC3,
-        cv::Scalar(options_.canvas_color().r(), options_.canvas_color().g(),
-                   options_.canvas_color().b()));
-  }
+            const auto &input_frame = cc->Inputs().Tag(Tag).Get<Type>();
+            const mediapipe::ImageFormat::Format format =
+                    mediapipe::ImageFormatForGpuBufferFormat(input_frame.format());
+            if (format != mediapipe::ImageFormat::SRGBA &&
+                format != mediapipe::ImageFormat::SRGB)
+                RET_CHECK_FAIL() << "Unsupported GPU input format: " << format;
+        }
+        image_mat =
+                absl::make_unique<cv::Mat>(height_canvas_, width_canvas_, CV_8UC4,
+                                           cv::Scalar(0, 0, 0, 0));
 #endif  // !MEDIAPIPE_DISABLE_GPU
 
         return absl::OkStatus();
@@ -693,14 +697,6 @@ namespace mediapipe {
   // Ensure GPU texture is divisible by 4. See b/138751944 for more info.
   const float alignment = ImageFrame::kGlDefaultAlignmentBoundary;
   const float scale_factor = options_.gpu_scale_factor();
-  if (image_frame_available_) {
-    const auto& input_frame = cc->Inputs().Tag(Tag).Get<Type>();
-    width_ = RoundUp(input_frame.width(), alignment);
-    height_ = RoundUp(input_frame.height(), alignment);
-  } else {
-    width_ = RoundUp(options_.canvas_width_px(), alignment);
-    height_ = RoundUp(options_.canvas_height_px(), alignment);
-  }
   width_canvas_ = RoundUp(width_ * scale_factor, alignment);
   height_canvas_ = RoundUp(height_ * scale_factor, alignment);
 

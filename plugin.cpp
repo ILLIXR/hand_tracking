@@ -18,8 +18,13 @@ using namespace ILLIXR;
 constexpr char kInputStream[] = "input_video";
 constexpr char kOutputStream[] = "illixr_data";
 constexpr char kPointOfView[] = "first_person";
+#if !MEDIAPIPE_DISABLE_GPU
 constexpr char kFrameIdTag[] = "frame_id";
 constexpr char kImageTypeTag[] = "image_type";
+constexpr char kImageWidthTag[] = "IMAGE_WIDTH";
+constexpr char kImageHeightTag[] = "IMAGE_HEIGHT";
+#endif
+
 
 void img_convert(cv::Mat& img) {
     switch (img.type()) {
@@ -252,6 +257,21 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
                                                                  mediapipe::Timestamp(frame_timestamp_us)));
         if (!type_status.ok())
             throw std::runtime_error(std::string(type_status.message()));
+        auto img_width = absl::make_unique<size_t>(input_frame.get()->Width());
+        auto size_status = _graph.AddPacketToInputStream(kImageWidthTag,
+                                                         mediapipe::Adopt(
+                                                                 img_width.release()).At(
+                                                                 mediapipe::Timestamp(frame_timestamp_us)));
+        if (!size_status.ok())
+            throw std::runtime_error(std::string(size_status.message()));
+        auto img_height = absl::make_unique<size_t>(input_frame.get()->Height());
+        size_status = _graph.AddPacketToInputStream(kImageWidthTag,
+                                                    mediapipe::Adopt(
+                                                            img_height.release()).At(
+                                                            mediapipe::Timestamp(frame_timestamp_us)));
+        if (!size_status.ok())
+            throw std::runtime_error(std::string(size_status.message()));
+
 #else
         auto submit_status = _graph.AddPacketToInputStream(kInputStream,
                                               mediapipe::Adopt(input_frame.release()).At(
