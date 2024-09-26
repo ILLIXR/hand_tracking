@@ -19,6 +19,7 @@ constexpr char kInputStream[] = "input_video";
 constexpr char kOutputStream[] = "illixr_data";
 constexpr char kPointOfView[] = "first_person";
 constexpr char kFrameIdTag[] = "frame_id";
+constexpr char kImageTypeTag[] = "image_type";
 
 void img_convert(cv::Mat& img) {
     switch (img.type()) {
@@ -208,7 +209,7 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
 #if !MEDIAPIPE_DISABLE_GPU
                                                                     mediapipe::ImageFrame::kGlDefaultAlignmentBoundary,
 #else
-                                                                    mediapipe::ImageFrame::kDefaultAlignmentBoundary,
+                mediapipe::ImageFrame::kDefaultAlignmentBoundary,
 #endif
                                                                     input.first,
                                                                     frame_id);
@@ -221,10 +222,10 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
 
 #if !MEDIAPIPE_DISABLE_GPU
         auto gl_status = _gpu_helper.RunInGlContext([&input_frame, &frame_timestamp_us,
-                                                     &graph=_graph,
-                                                     &gpu_helper=_gpu_helper]()
-                                                             -> absl::Status {
-                    // Convert ImageFrame to GpuBuffer.
+                                                            &graph=_graph,
+                                                            &gpu_helper=_gpu_helper]()
+                                                            -> absl::Status {
+            // Convert ImageFrame to GpuBuffer.
             auto texture = gpu_helper.CreateSourceTexture(*input_frame.get());
             auto gpu_frame = texture.GetFrame<mediapipe::GpuBuffer>();
             glFlush();
@@ -245,7 +246,12 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
                                                                mediapipe::Timestamp(frame_timestamp_us)));
         if (!id_status.ok())
             throw std::runtime_error(std::string(id_status.message()));
-
+        auto packet_type = absl::make_unique<::ILLIXR::image::image_type>(input.first);
+        auto type_status = _graph.AddPacketToInputStream(kImageTypeTag,
+                                                         mediapipe::Adopt(packet_type.release()).At(
+                                                                 mediapipe::Timestamp(frame_timestamp_us)));
+        if (!type_status.ok())
+            throw std::runtime_error(std::string(type_status.message()));
 #else
         auto submit_status = _graph.AddPacketToInputStream(kInputStream,
                                               mediapipe::Adopt(input_frame.release()).At(
