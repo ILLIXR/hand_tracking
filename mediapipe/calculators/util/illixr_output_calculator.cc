@@ -29,7 +29,9 @@ namespace mediapipe {
         constexpr char kImageTag[] = "UIMAGE";
         constexpr char kGpuBufferTag[] = "IMAGE_GPU";
         constexpr char kPointOfViewTag[] = "POINT_OF_VIEW";
+#if !MEDIAPIPE_DISABLE_GPU
         constexpr char kFrameIdTag[] = "FRAME_ID";
+#endif
 
         const std::map<input_image_type, const std::string> image_map {{input_image_type::IMAGE, kImageFrameTag},
                                                                        {input_image_type::UIMAGE, kImageTag},
@@ -77,7 +79,7 @@ namespace mediapipe {
 absl::Status ILLIXROutputCalculator::GetContract(CalculatorContract* cc) {
     RET_CHECK_GE(cc->Inputs().NumEntries(), 1);
 
-
+    bool use_gpu = false;
     RET_CHECK(cc->Inputs().HasTag(kImageFrameTag) +
 #if !MEDIAPIPE_DISABLE_GPU
               cc->Inputs().HasTag(kGpuBufferTag) +
@@ -88,6 +90,7 @@ absl::Status ILLIXROutputCalculator::GetContract(CalculatorContract* cc) {
 #if !MEDIAPIPE_DISABLE_GPU
     if (cc->Inputs().HasTag(kGpuBufferTag)) {
         cc->Inputs().Tag(kGpuBufferTag).Set<mediapipe::GpuBuffer>();
+        use_gpu = true;
     }
 #endif  // !MEDIAPIPE_DISABLE_GPU
 
@@ -95,6 +98,9 @@ absl::Status ILLIXROutputCalculator::GetContract(CalculatorContract* cc) {
         cc->Inputs().Tag(kImageFrameTag).Set<ImageFrame>();
     } else if (cc->Inputs().HasTag(kImageTag)) {
         cc->Inputs().Tag(kImageTag).Set<mediapipe::Image>();
+#if !MEDIAPIPE_DISABLE_GPU
+        use_gpu = true;
+#endif
     }
 
     if (cc->Inputs().HasTag(kHandPointsTag)) {
@@ -140,12 +146,17 @@ absl::Status ILLIXROutputCalculator::GetContract(CalculatorContract* cc) {
     RET_CHECK(cc->Inputs().HasTag(kPointOfViewTag) == 1);
     cc->Inputs().Tag(kPointOfViewTag).Set<bool>();
 
+#if !MEDIAPIPE_DISABLE_GPU
     RET_CHECK(cc->Inputs().HasTag(kFrameIdTag) == 1);
     cc->Inputs().Tag(kFrameIdTag).Set<size_t>();
-
+#endif
     RET_CHECK(cc->Outputs().HasTag(kIllixrData));
     cc->Outputs().Tag(kIllixrData).Set<ILLIXR::illixr_ht_frame>();
-
+    if (use_gpu) {
+#if !MEDIAPIPE_DISABLE_GPU
+        MP_RETURN_IF_ERROR(mediapipe::GlCalculatorHelper::UpdateContract(cc));
+#endif
+    }
 
     return absl::OkStatus();
 }
@@ -193,11 +204,12 @@ absl::Status ILLIXROutputCalculator::Open(CalculatorContext* cc) {
         hand_input = hand_input_type::NONE;
     }
 
+    if (cc->Inputs().HasTag(kGpuBufferTag) || HasImageTag(cc)) {
 #if !MEDIAPIPE_DISABLE_GPU
-    if (use_gpu_) {
+        use_gpu_ = true;
         MP_RETURN_IF_ERROR(gpu_helper_.Open(cc));
-    }
 #endif  // !MEDIAPIPE_DISABLE_GPU
+    }
 
     return absl::OkStatus();
 }
@@ -210,9 +222,11 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
         !cc->Inputs().Tag(kPointOfViewTag).IsEmpty()) {
         first_person_ = cc->Inputs().Tag(kPointOfViewTag).Get<bool>();
     }
+
     if (HasImageTag(cc)) {
         use_gpu_ = cc->Inputs().Tag(kImageTag).Get<mediapipe::Image>().UsesGpu();
     }
+
     auto frame_data = absl::make_unique<ILLIXR::illixr_ht_frame>();
     if (cc->Inputs().HasTag(image_map.at(image_type)) &&
         !cc->Inputs().Tag(image_map.at(image_type)).IsEmpty()) {
