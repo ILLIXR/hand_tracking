@@ -67,6 +67,7 @@ target_sources(${PLUGIN_NAME} PUBLIC
                $<TARGET_OBJECTS:framework.deps.proto_descriptor_proto>
                $<TARGET_OBJECTS:calculators.util.illixr_data_proto>
                $<TARGET_OBJECTS:calculators.util.render_and_points_proto>
+               $<TARGET_OBJECTS:calculators.util.image_data_proto>
 )
 
 if(HT_ENABLE_GPU)
