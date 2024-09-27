@@ -28,11 +28,7 @@ namespace mediapipe {
         constexpr char kImageFrameTag[] = "IMAGE";
         constexpr char kImageTag[] = "UIMAGE";
         constexpr char kGpuBufferTag[] = "IMAGE_GPU";
-        constexpr char kPointOfViewTag[] = "POINT_OF_VIEW";
-#if !MEDIAPIPE_DISABLE_GPU
-        constexpr char kFrameIdTag[] = "FRAME_ID";
-        constexpr char kImageTypeTag[] = "IMAGE_TYPE";
-#endif
+        constexpr char kImageDataTag[] = "IMAGE_DATA";
 
         const std::map<input_image_type, const std::string> image_map {{input_image_type::IMAGE, kImageFrameTag},
                                                                        {input_image_type::UIMAGE, kImageTag},
@@ -144,16 +140,9 @@ namespace mediapipe {
             cc->Inputs().Tag(kRectsHandTag).Set<std::vector<Rect>>();
         }
 
-        RET_CHECK(cc->Inputs().HasTag(kPointOfViewTag) == 1);
-        cc->Inputs().Tag(kPointOfViewTag).Set<bool>();
+        RET_CHECK(cc->Inputs().HasTag(kImageDataTag) == 1);
+        cc->Inputs().Tag(kImageDataTag).Set<mediapipe::ImageData>();
 
-#if !MEDIAPIPE_DISABLE_GPU
-        RET_CHECK(cc->Inputs().HasTag(kFrameIdTag));
-        cc->Inputs().Tag(kFrameIdTag).Set<size_t>();
-
-        RET_CHECK(cc->Inputs().HasTag(kImageTypeTag));
-        cc->Inputs().Tag(kImageTypeTag).Set<::ILLIXR::image::image_type>();
-#endif
         RET_CHECK(cc->Outputs().HasTag(kIllixrData));
         cc->Outputs().Tag(kIllixrData).Set<ILLIXR::illixr_ht_frame>();
         if (use_gpu) {
@@ -222,10 +211,7 @@ namespace mediapipe {
         int component_count = 0;
         int left_idx = -1;
         int right_idx = -1;
-        if (cc->Inputs().HasTag(kPointOfViewTag) &&
-            !cc->Inputs().Tag(kPointOfViewTag).IsEmpty()) {
-            first_person_ = cc->Inputs().Tag(kPointOfViewTag).Get<bool>();
-        }
+        img_data_ = cc->Inputs().Tag(kImageDataTag).Get<mediapipe::ImageData>();
 
         if (HasImageTag(cc)) {
             use_gpu_ = cc->Inputs().Tag(kImageTag).Get<mediapipe::Image>().UsesGpu();
@@ -235,6 +221,8 @@ namespace mediapipe {
         if (cc->Inputs().HasTag(image_map.at(image_type)) &&
             !cc->Inputs().Tag(image_map.at(image_type)).IsEmpty()) {
             auto img = absl::make_unique<cv::Mat>();
+            frame_data->image_id = img_data_.frame_id();
+            frame_data->type = static_cast<::ILLIXR::image::image_type>(img_data_.image_type());
             if (use_gpu_) {
 #if !MEDIAPIPE_DISABLE_GPU
                 std::unique_ptr<cv::Mat> image_mat;
@@ -257,10 +245,7 @@ namespace mediapipe {
                             (CreateRenderTargetGpu<mediapipe::GpuBuffer, kGpuBufferTag>(
                                     cc, image_mat)));
                 }
-                if (cc->Inputs().HasTag(kFrameIdTag)) {}
                 frame_data->image = image_mat.release();
-                frame_data->image_id = cc->Inputs().Tag(kFrameIdTag).Get<size_t>();
-                frame_data->type = cc->Inputs().Tag(kImageTypeTag).Get<::ILLIXR::image::image_type>();
 #endif  // !MEDIAPIPE_DISABLE_GPU
             } else if (image_type == input_image_type::UIMAGE) {
                 const auto& input =
@@ -272,8 +257,6 @@ namespace mediapipe {
                         cc->Inputs().Tag(kImageFrameTag).Get<ImageFrame>();
                 auto input_mat = formats::MatView(&input_frame);
                 input_mat.copyTo(*img);
-                frame_data->image_id = input_frame.id();
-                frame_data->type = input_frame.type();
             }
             if (!use_gpu_)
                 frame_data->image = img.release();
@@ -287,7 +270,7 @@ namespace mediapipe {
             const auto &hands = cc->Inputs().Tag(kHandedness).Get<std::vector<ClassificationList> >();
             for(int i = 0; i < hands.size(); i++) {
                 if (hands[i].classification(0).label() == "Left") {
-                    if (first_person_) {
+                    if (img_data_.first_person()) {
                         right_idx = i;
                         frame_data->right_confidence = hands[i].classification(0).score();
                     } else {
@@ -295,7 +278,7 @@ namespace mediapipe {
                         frame_data->left_confidence = hands[i].classification(0).score();
                     }
                 } else if (hands[i].classification(0).label() == "Right") {
-                    if (first_person_) {
+                    if (img_data_.first_person()) {
                         left_idx = i;
                         frame_data->left_confidence = hands[i].classification(0).score();
                     } else {
@@ -514,16 +497,8 @@ namespace mediapipe {
         // Ensure GPU texture is divisible by 4. See b/138751944 for more info.
         const float alignment = ImageFrame::kGlDefaultAlignmentBoundary;
         const float scale_factor = options_.gpu_scale_factor();
-        if (image_frame_available_) {
-            const auto& input_frame = cc->Inputs().Tag(Tag).Get<Type>();
-            width_ = RoundUp(input_frame.width(), alignment);
-            height_ = RoundUp(input_frame.height(), alignment);
-        } else {
-            width_ = RoundUp(options_.canvas_width_px(), alignment);
-            height_ = RoundUp(options_.canvas_height_px(), alignment);
-        }
-        width_canvas_ = RoundUp(width_ * scale_factor, alignment);
-        height_canvas_ = RoundUp(height_ * scale_factor, alignment);
+        width_canvas_ = RoundUp(img_data_.width() * scale_factor, alignment);
+        height_canvas_ = RoundUp(img_data_.height() * scale_factor, alignment);
 
         // Init texture for opencv rendered frame.
         {

@@ -4,11 +4,8 @@
 
 # GPU image. (GpuBuffer)
 input_stream: "input_video"
-input_stream: "first_person"
-input_stream: "frame_id"
-input_stream: "image_type"
-input_stream: "image_width"
-input_stream: "image_height"
+input_stream: "image_data"
+
 # illixr type data
 output_stream: "illixr_data"
 # Collection of detected/predicted hands, each represented as a list of
@@ -43,11 +40,7 @@ node {
 node {
   calculator: "HandRendererSubgraph"
   input_stream: "IMAGE:input_video"
-  input_stream: "POINT_OF_VIEW:first_person"
-  input_stream: "FRAME_ID:frame_id"
-  input_stream: "IMAGE_TYPE:image_type"
-  input_stream: "IMAGE_WIDTH:image_width"
-  input_stream: "IMAGE_HEIGHT:image_height"
+  input_stream: "IMAGE_DATA:image_data"
   input_stream: "DETECTIONS:palm_detections"
   input_stream: "LANDMARKS:hand_landmarks"
   input_stream: "HANDEDNESS:handedness"

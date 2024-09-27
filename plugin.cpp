@@ -3,7 +3,7 @@
 #include "plugin.hpp"
 
 #include "mediapipe/framework/deps/file_helpers.h"
-#include "mediapipe/framework/calculator.pb.h"
+//#include "mediapipe/framework/calculator.pb.h"
 #include "mediapipe/framework/port/parse_text_proto.h"
 #include "mediapipe/framework/formats/image_frame.h"
 #include "mediapipe/framework/formats/image_frame_opencv.h"
@@ -12,18 +12,13 @@
 #if !MEDIAPIPE_DISABLE_GPU
 #include "mediapipe/gpu/gpu_buffer.h"
 #include "mediapipe/gpu/gpu_shared_data_internal.h"
+#include "mediapipe/calculators/util/image_data.pb.h"
 #endif
 using namespace ILLIXR;
 
 constexpr char kInputStream[] = "input_video";
 constexpr char kOutputStream[] = "illixr_data";
-constexpr char kPointOfView[] = "first_person";
-#if !MEDIAPIPE_DISABLE_GPU
-constexpr char kFrameIdTag[] = "frame_id";
-constexpr char kImageTypeTag[] = "image_type";
-constexpr char kImageWidthTag[] = "IMAGE_WIDTH";
-constexpr char kImageHeightTag[] = "IMAGE_HEIGHT";
-#endif
+constexpr char kImageDataTag[] = "image_data";
 
 
 void img_convert(cv::Mat& img) {
@@ -212,12 +207,11 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
                                                                     input.second.cols,
                                                                     input.second.rows,
 #if !MEDIAPIPE_DISABLE_GPU
-                                                                    mediapipe::ImageFrame::kGlDefaultAlignmentBoundary,
+                                                                    mediapipe::ImageFrame::kGlDefaultAlignmentBoundary
 #else
-                mediapipe::ImageFrame::kDefaultAlignmentBoundary,
+                mediapipe::ImageFrame::kDefaultAlignmentBoundary
 #endif
-                                                                    input.first,
-                                                                    frame_id);
+        );
 
         cv::Mat input_frame_mat = mediapipe::formats::MatView(input_frame.get());
         input.second.copyTo(input_frame_mat);
@@ -245,33 +239,6 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
         });
         if (!gl_status.ok())
             throw std::runtime_error(std::string(gl_status.message()));
-        auto packet_id = absl::make_unique<size_t>(frame_id);
-        auto id_status = _graph.AddPacketToInputStream(kFrameIdTag,
-                                                       mediapipe::Adopt(packet_id.release()).At(
-                                                               mediapipe::Timestamp(frame_timestamp_us)));
-        if (!id_status.ok())
-            throw std::runtime_error(std::string(id_status.message()));
-        auto packet_type = absl::make_unique<::ILLIXR::image::image_type>(input.first);
-        auto type_status = _graph.AddPacketToInputStream(kImageTypeTag,
-                                                         mediapipe::Adopt(packet_type.release()).At(
-                                                                 mediapipe::Timestamp(frame_timestamp_us)));
-        if (!type_status.ok())
-            throw std::runtime_error(std::string(type_status.message()));
-        auto img_width = absl::make_unique<size_t>(input_frame.get()->Width());
-        auto size_status = _graph.AddPacketToInputStream(kImageWidthTag,
-                                                         mediapipe::Adopt(
-                                                                 img_width.release()).At(
-                                                                 mediapipe::Timestamp(frame_timestamp_us)));
-        if (!size_status.ok())
-            throw std::runtime_error(std::string(size_status.message()));
-        auto img_height = absl::make_unique<size_t>(input_frame.get()->Height());
-        size_status = _graph.AddPacketToInputStream(kImageWidthTag,
-                                                    mediapipe::Adopt(
-                                                            img_height.release()).At(
-                                                            mediapipe::Timestamp(frame_timestamp_us)));
-        if (!size_status.ok())
-            throw std::runtime_error(std::string(size_status.message()));
-
 #else
         auto submit_status = _graph.AddPacketToInputStream(kInputStream,
                                               mediapipe::Adopt(input_frame.release()).At(
@@ -279,13 +246,22 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
         if (!submit_status.ok())
             throw std::runtime_error(std::string(submit_status.message()));
 #endif
-        auto pov = absl::make_unique<bool>(_first_person);
-        auto packet_status = _graph.AddPacketToInputStream(kPointOfView,
-                                                           mediapipe::Adopt(pov.release()).At(
-                                                                   mediapipe::Timestamp(frame_timestamp_us)));
-        if (!packet_status.ok())
-            throw std::runtime_error(std::string(packet_status.message()));
+        mediapipe::ImageData image_data;
+        image_data.set_width(input_frame.get()->Width());
+        image_data.set_height(input_frame.get()->Height());
+        image_data.set_frame_id(frame_id);
+        image_data.set_image_type(input.first);
+        image_data.set_first_person(_first_person);
+
+        auto img_ptr = absl::make_unique<mediapipe::ImageData>(image_data);
+        auto img_status = _graph.AddPacketToInputStream(kImageDataTag,
+                                                        mediapipe::Adopt(img_ptr.release()).At(
+                                                                mediapipe::Timestamp(frame_timestamp_us)));
+
+        if (!img_status.ok())
+            throw std::runtime_error(std::string(img_status.message()));
     }
+
     _publisher.add_raw(frame_id, std::move(_current_images));
 }
 

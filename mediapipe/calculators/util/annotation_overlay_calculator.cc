@@ -34,6 +34,7 @@
 #include "mediapipe/calculators/util/render_and_points.pb.h"
 
 #if !MEDIAPIPE_DISABLE_GPU
+#include "mediapipe/calculators/util/image_data.pb.h"
 #include "mediapipe/gpu/gl_calculator_helper.h"
 #include "mediapipe/gpu/gl_simple_shaders.h"
 #include "mediapipe/gpu/gpu_buffer.h"
@@ -51,10 +52,8 @@ namespace mediapipe {
         constexpr char kImageTag[] = "UIMAGE";  // Universal Image
         constexpr char kHandPointsTag[] = "HAND_POINTS";
 #if !MEDIAPIPE_DISABLE_GPU
-        constexpr char kImageWidthTag[] = "IMAGE_WIDTH";
-        constexpr char kImageHeightTag[] = "IMAGE_HEIGHT";
+        constexpr char kImageDataTag[] = "IMAGE_DATA";
 #endif
-
         enum { ATTRIB_VERTEX, ATTRIB_TEXTURE_POSITION, NUM_ATTRIBUTES };
 
 // Round up n to next multiple of m.
@@ -204,10 +203,10 @@ namespace mediapipe {
         // Input image to render onto copy of. Should be same type as output.
 #if !MEDIAPIPE_DISABLE_GPU
         if (cc->Inputs().HasTag(kGpuBufferTag)) {
-    cc->Inputs().Tag(kGpuBufferTag).Set<mediapipe::GpuBuffer>();
-    RET_CHECK(cc->Outputs().HasTag(kGpuBufferTag));
-    use_gpu = true;
-  }
+            cc->Inputs().Tag(kGpuBufferTag).Set<mediapipe::GpuBuffer>();
+            RET_CHECK(cc->Outputs().HasTag(kGpuBufferTag));
+            use_gpu = true;
+        }
 #endif  // !MEDIAPIPE_DISABLE_GPU
         if (cc->Inputs().HasTag(kImageFrameTag)) {
             cc->Inputs().Tag(kImageFrameTag).Set<ImageFrame>();
@@ -240,10 +239,8 @@ namespace mediapipe {
         if (cc->Outputs().HasTag(kGpuBufferTag)) {
             cc->Outputs().Tag(kGpuBufferTag).Set<mediapipe::GpuBuffer>();
         }
-        RET_CHECK(cc->Inputs().HasTag(kImageWidthTag));
-        RET_CHECK(cc->Inputs().HasTag(kImageHeightTag));
-        cc->Inputs().Tag(kImageWidthTag).Set<size_t>();
-        cc->Inputs().Tag(kImageHeightTag).Set<size_t>();
+        RET_CHECK(cc->Inputs().HasTag(kImageDataTag));
+        cc->Inputs().Tag(kImageDataTag).Set<mediapipe::ImageData>();
 #endif  // !MEDIAPIPE_DISABLE_GPU
         if (cc->Outputs().HasTag(kImageFrameTag)) {
             cc->Outputs().Tag(kImageFrameTag).Set<ImageFrame>();
@@ -327,8 +324,9 @@ namespace mediapipe {
         ImageFormat::Format target_format;
         if (use_gpu_) {
 #if !MEDIAPIPE_DISABLE_GPU
-            width_ = cc->Inputs().Tag(kImageWidthTag).Get<size_t>();
-            height_ = cc->Inputs().Tag(kImageHeightTag).Get<size_t>();
+            mediapipe::ImageData im_data = cc->Inputs().Tag(kImageDataTag).Get<mediapipe::ImageData>();
+            width_ = im_data.width();
+            height_ = im_data.height();
             if (!gpu_initialized_) {
                 MP_RETURN_IF_ERROR(
                         gpu_helper_.RunInGlContext([this, cc]() -> absl::Status {
