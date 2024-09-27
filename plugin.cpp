@@ -3,7 +3,7 @@
 #include "plugin.hpp"
 
 #include "mediapipe/framework/deps/file_helpers.h"
-//#include "mediapipe/framework/calculator.pb.h"
+#include "mediapipe/calculators/util/image_data.pb.h"
 #include "mediapipe/framework/port/parse_text_proto.h"
 #include "mediapipe/framework/formats/image_frame.h"
 #include "mediapipe/framework/formats/image_frame_opencv.h"
@@ -12,7 +12,6 @@
 #if !MEDIAPIPE_DISABLE_GPU
 #include "mediapipe/gpu/gpu_buffer.h"
 #include "mediapipe/gpu/gpu_shared_data_internal.h"
-#include "mediapipe/calculators/util/image_data.pb.h"
 #endif
 using namespace ILLIXR;
 
@@ -219,6 +218,22 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
         // Send image _packet into the graph.
         size_t frame_timestamp_us = std::chrono::high_resolution_clock::now().time_since_epoch().count() / 1000;
 
+        // make sure image data makes it into stream first
+        mediapipe::ImageData image_data;
+        image_data.set_width(input_frame.get()->Width());
+        image_data.set_height(input_frame.get()->Height());
+        image_data.set_frame_id(frame_id);
+        image_data.set_image_type(input.first);
+        image_data.set_first_person(_first_person);
+
+        auto img_ptr = absl::make_unique<mediapipe::ImageData>(image_data);
+        auto img_status = _graph.AddPacketToInputStream(kImageDataTag,
+                                                        mediapipe::Adopt(img_ptr.release()).At(
+                                                                mediapipe::Timestamp(frame_timestamp_us)));
+
+        if (!img_status.ok())
+            throw std::runtime_error(std::string(img_status.message()));
+
 #if !MEDIAPIPE_DISABLE_GPU
         auto gl_status = _gpu_helper.RunInGlContext([&input_frame, &frame_timestamp_us,
                                                             &graph=_graph,
@@ -246,20 +261,6 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
         if (!submit_status.ok())
             throw std::runtime_error(std::string(submit_status.message()));
 #endif
-        mediapipe::ImageData image_data;
-        image_data.set_width(input_frame.get()->Width());
-        image_data.set_height(input_frame.get()->Height());
-        image_data.set_frame_id(frame_id);
-        image_data.set_image_type(input.first);
-        image_data.set_first_person(_first_person);
-
-        auto img_ptr = absl::make_unique<mediapipe::ImageData>(image_data);
-        auto img_status = _graph.AddPacketToInputStream(kImageDataTag,
-                                                        mediapipe::Adopt(img_ptr.release()).At(
-                                                                mediapipe::Timestamp(frame_timestamp_us)));
-
-        if (!img_status.ok())
-            throw std::runtime_error(std::string(img_status.message()));
     }
 
     _publisher.add_raw(frame_id, std::move(_current_images));
