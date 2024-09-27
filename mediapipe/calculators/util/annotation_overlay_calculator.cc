@@ -435,10 +435,6 @@ namespace mediapipe {
         output_frame->CopyPixelData(target_format, renderer_->GetImageWidth(),
                                     renderer_->GetImageHeight(), data_image,
                                     ImageFrame::kDefaultAlignmentBoundary);
-        if (cc->Inputs().HasTag(kImageFrameTag)) {
-            output_frame->SetId(cc->Inputs().Tag(kImageFrameTag).Get<ImageFrame>().id());
-            output_frame->SetType(cc->Inputs().Tag(kImageFrameTag).Get<ImageFrame>().type());
-        }
 
 #endif  // !MEDIAPIPE_DISABLE_GPU
 
