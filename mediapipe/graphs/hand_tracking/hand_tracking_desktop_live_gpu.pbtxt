@@ -4,9 +4,10 @@
 
 # GPU image. (GpuBuffer)
 input_stream: "input_video"
+input_stream: "image_data"
 
-# GPU image. (GpuBuffer)
-output_stream: "output_video"
+# illixr type data
+output_stream: "illixr_data"
 # Collection of detected/predicted hands, each represented as a list of
 # landmarks. (std::vector<NormalizedLandmarkList>)
 output_stream: "hand_landmarks"
@@ -39,10 +40,11 @@ node {
 node {
   calculator: "HandRendererSubgraph"
   input_stream: "IMAGE:input_video"
+  input_stream: "IMAGE_DATA:image_data"
   input_stream: "DETECTIONS:palm_detections"
   input_stream: "LANDMARKS:hand_landmarks"
   input_stream: "HANDEDNESS:handedness"
   input_stream: "NORM_RECTS:0:hand_rects_from_palm_detections"
   input_stream: "NORM_RECTS:1:hand_rects_from_landmarks"
-  output_stream: "IMAGE:output_video"
+  output_stream: "ILLIXR_DATA:illixr_data"
 }

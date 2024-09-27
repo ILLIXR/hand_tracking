@@ -15,4 +15,5 @@ protobuf_generate_obj(PROTO_PATH calculators/util OBJ_NAME thresholding_calculat
 protobuf_generate_obj(PROTO_PATH calculators/util OBJ_NAME landmark_projection_calculator)
 protobuf_generate_obj(PROTO_PATH calculators/util OBJ_NAME illixr_data)
 protobuf_generate_obj(PROTO_PATH calculators/util OBJ_NAME render_and_points)
+protobuf_generate_obj(PROTO_PATH calculators/util OBJ_NAME image_data)
 

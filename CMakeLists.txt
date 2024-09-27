@@ -12,7 +12,7 @@ option(HT_ENABLE_GRAPH_PROFILER "Whether to enable the graph profiler" OFF)
 cmake_dependent_option(HT_ENABLE_WEB_PROFILING "Whether to enable web profiling" ON HT_ENABLE_GRAPH_PROFILER OFF)
 
 if(HT_ENABLE_GPU)
-    add_definitions(-DMEDIAPIPE_DISABLE_GPU=0)
+    add_definitions(-DMEDIAPIPE_DISABLE_GPU=0 -DMESA_EGL_NO_X11_HEADERS -DEGL_NO_X11)
 else()
     add_definitions(-DMEDIAPIPE_DISABLE_GPU=1)
 endif()
@@ -96,8 +96,11 @@ add_custom_target(make_message_type
 #                  DEPENDS encode_descriptor_sets make_message_type
 #)
 
-
-set(PLUGIN_NAME plugin.hand_tracking${ILLIXR_BUILD_SUFFIX})
+set(HT_PROCESSOR "")
+if(HT_ENABLE_GPU)
+    set(HT_PROCESSOR "_gpu")
+endif()
+set(PLUGIN_NAME plugin.hand_tracking${HT_PROCESSOR}${ILLIXR_BUILD_SUFFIX})
 add_library(${PLUGIN_NAME} SHARED plugin.cpp)
 
 add_subdirectory(mediapipe)

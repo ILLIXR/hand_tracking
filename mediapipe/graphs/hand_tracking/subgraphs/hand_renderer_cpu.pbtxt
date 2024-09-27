@@ -5,7 +5,7 @@ type: "HandRendererSubgraph"
 # CPU image. (ImageFrame)
 input_stream: "IMAGE:input_image"
 
-input_stream: "POINT_OF_VIEW:first_person"
+input_stream: "IMAGE_DATA:image_data"
 # Collection of detected/predicted hands, each represented as a list of
 # landmarks. (std::vector<NormalizedLandmarkList>)
 input_stream: "LANDMARKS:multi_hand_landmarks"
@@ -215,7 +215,7 @@ node {
 node {
   calculator: "ILLIXROutputCalculator"
   input_stream: "IMAGE:output_image"
-  input_stream: "POINT_OF_VIEW:first_person"
+  input_stream: "IMAGE_DATA:image_data"
   input_stream: "HANDEDNESS:multi_handedness"
   input_stream: "HAND_POINTS:multi_hand_landmark_points"
   input_stream: "NORM_RECTS_PALM:multi_palm_rects"

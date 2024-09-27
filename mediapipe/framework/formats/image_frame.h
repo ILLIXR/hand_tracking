@@ -106,11 +106,9 @@ class ImageFrame {
   // must be a power of 2 (the number 1 is valid, and means the data will
   // be stored contiguously).
   ImageFrame(ImageFormat::Format format, int width, int height,
-             uint32_t alignment_boundary,
-             ::ILLIXR::image::image_type type = ::ILLIXR::image::RGB, size_t id = 0);
+             uint32_t alignment_boundary);
   // Same as above, but use kDefaultAlignmentBoundary for alignment_boundary.
-  ImageFrame(ImageFormat::Format format, int width, int height, ::ILLIXR::image::image_type type = ::ILLIXR::image::RGB,
-             size_t id = 0);
+  ImageFrame(ImageFormat::Format format, int width, int height);
 
   // Acquires ownership of pixel_data.  Sets the deletion method
   // to use on pixel_data with deletion_method (which defaults
@@ -120,8 +118,7 @@ class ImageFrame {
   // of bytes.
   ImageFrame(ImageFormat::Format format, int width, int height, int width_step,
              uint8_t* pixel_data,
-             Deleter deleter = std::default_delete<uint8_t[]>(),
-             ::ILLIXR::image::image_type type = ::ILLIXR::image::RGB, size_t id = 0);
+             Deleter deleter = std::default_delete<uint8_t[]>());
 
   ImageFrame(ImageFrame&& move_from);
   ImageFrame& operator=(ImageFrame&& move_from);
@@ -236,10 +233,6 @@ class ImageFrame {
   // Returns an error message which prints out the format encountered.
   static std::string InvalidFormatString(ImageFormat::Format format);
 
-  ::ILLIXR::image::image_type type() const {return image_type_;}
-  size_t id() const {return image_id_;}
-  void SetType(::ILLIXR::image::image_type type) {image_type_ = type;}
-  void SetId(size_t id) {image_id_ = id;}
  private:
   // Returns true if alignment_number is 1 or a power of 2.
   static bool IsValidAlignmentNumber(uint32_t alignment_boundary);
@@ -257,8 +250,6 @@ class ImageFrame {
   int width_;
   int height_;
   int width_step_;
-  ::ILLIXR::image::image_type image_type_;
-  size_t image_id_;
   std::unique_ptr<uint8_t[], Deleter> pixel_data_;
 };
 

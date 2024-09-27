@@ -4,8 +4,11 @@ type: "HandRendererSubgraph"
 
 # GPU buffer. (GpuBuffer)
 input_stream: "IMAGE:input_image"
+
+input_stream: "IMAGE_DATA:image_data"
+
 # Collection of detected/predicted hands, each represented as a list of
-# landmarks. (std::vector<NormalizedLandmarkList>)
+# landmarks. (std::vector<NormalizedLandmarkList>)input_frame.get()->Width()
 input_stream: "LANDMARKS:multi_hand_landmarks"
 # Handedness of the detected hand (i.e. is hand left or right).
 # (std::vector<ClassificationList>)
@@ -20,7 +23,7 @@ input_stream: "NORM_RECTS:1:multi_hand_rects"
 input_stream: "DETECTIONS:palm_detections"
 
 # Updated GPU buffer. (GpuBuffer)
-output_stream: "IMAGE:output_image"
+output_stream: "ILLIXR_DATA:illixr_data"
 
 # Converts detections to drawing primitives for annotation overlay.
 node {
@@ -78,7 +81,7 @@ node {
 node {
   calculator: "LandmarksToRenderDataCalculator"
   input_stream: "NORM_LANDMARKS:single_hand_landmarks"
-  output_stream: "RENDER_DATA:single_hand_landmark_render_data"
+  output_stream: "RENDER_POINT_DATA:single_hand_landmark_render_data"
   node_options: {
     [type.googleapis.com/mediapipe.LandmarksToRenderDataCalculatorOptions] {
       landmark_connections: 0
@@ -205,5 +208,19 @@ node {
   input_stream: "multi_palm_rects_render_data"
   input_stream: "handedness_render_data"
   input_stream: "VECTOR:0:multi_hand_landmarks_render_data"
+  input_stream: "IMAGE_DATA:image_data"
   output_stream: "IMAGE_GPU:output_image"
+  output_stream: "HAND_POINTS:multi_hand_landmark_points"
+}
+
+# combine the results into an ILLIXR data frame
+node {
+  calculator: "ILLIXROutputCalculator"
+  input_stream: "IMAGE_GPU:output_image"
+  input_stream: "IMAGE_DATA:image_data"
+  input_stream: "HANDEDNESS:multi_handedness"
+  input_stream: "HAND_POINTS:multi_hand_landmark_points"
+  input_stream: "NORM_RECTS_PALM:multi_palm_rects"
+  input_stream: "NORM_RECTS_HAND:multi_hand_rects"
+  output_stream: "ILLIXR_DATA:illixr_data"
 }
