@@ -35,24 +35,26 @@ void img_convert(cv::Mat& img) {
 
 [[maybe_unused]] hand_tracking::hand_tracking(const std::string& name_, phonebook* pb_)
         : plugin{name_, pb_}
+        , _graph{{::ILLIXR::image::LEFT, nullptr},
+                 {::ILLIXR::image::RIGHT, nullptr},
+                 {::ILLIXR::image::RGB, nullptr}}
         , _switchboard{pb_->lookup_impl<switchboard>()}
-        , _graph{mediapipe::CalculatorGraph()}
         , _publisher{"hand_tracking_publisher", pb_} {
-    if (const char* in_type = _switchboard->get_env_char("HT_INPUT_TYPE")) {
+    if (const char *in_type = _switchboard->get_env_char("HT_INPUT_TYPE")) {
         if (strcmp(in_type, "LEFT") == 0 || strcmp(in_type, "SINGLE") == 0) {
             _input_type = ht::LEFT;
         } else if (strcmp(in_type, "RIGHT") == 0) {
             _input_type = ht::RIGHT;
         } else if (strcmp(in_type, "MULTI") == 0 || strcmp(in_type, "BOTH") == 0) {
             _input_type = ht::BOTH;
-        } else if(strcmp(in_type, "RGB") == 0) {
+        } else if (strcmp(in_type, "RGB") == 0) {
             _input_type = ht::RGB;
         }
     } else {
         _input_type = ht::BOTH;
     }
 
-    if (const char* in_src = _switchboard->get_env_char("HT_INPUT")) {
+    if (const char *in_src = _switchboard->get_env_char("HT_INPUT")) {
         if (strcmp(in_src, "zed") == 0) {
             _cam_type = ht::ZED;
             _first_person = true;
@@ -69,6 +71,14 @@ void img_convert(cv::Mat& img) {
     } else {
         throw std::runtime_error("HT_INPUT was not specified");
     }
+    if (_input_type == ht::RGB) {
+        _graph.at(::ILLIXR::image::RGB) = new mediapipe::CalculatorGraph();
+    } else {
+        if (_input_type != ht::RIGHT)
+            _graph.at(::ILLIXR::image::LEFT) = new mediapipe::CalculatorGraph();
+        if (_input_type == ht::RIGHT || _input_type == ht::BOTH)
+            _graph.at(::ILLIXR::image::RIGHT) = new mediapipe::CalculatorGraph();
+    }
     _publisher.set_framecount(_input_type);
 }
 
@@ -82,29 +92,55 @@ void hand_tracking::start() {
         throw std::runtime_error("Failed to get config contents");
     auto config = mediapipe::ParseTextProtoOrDie<mediapipe::CalculatorGraphConfig>(calculator_graph_config_contents);
 
-    status = _graph.Initialize(config);
-    if (!status.ok())
-        throw std::runtime_error(std::string(status.message()));
+    if (_input_type == ht::RGB) {
+        status = _graph[::ILLIXR::image::RGB]->Initialize(config);
+        if (!status.ok())
+            throw std::runtime_error(std::string(status.message()));
+    } else {
+        if (_input_type != ht::RIGHT) {
+            status = _graph[::ILLIXR::image::LEFT]->Initialize(config);
+            if (!status.ok())
+                throw std::runtime_error(std::string(status.message()));
+        }
+        if (_input_type == ht::RIGHT || _input_type == ht::BOTH) {
+            status = _graph[::ILLIXR::image::RIGHT]->Initialize(config);
+            if (!status.ok())
+                throw std::runtime_error(std::string(status.message()));
+        }
+    }
 
 #if !MEDIAPIPE_DISABLE_GPU
     ABSL_LOG(INFO) << "Initialize the GPU.";
-    auto gpu_resources = mediapipe::GpuResources::Create();
-    if(!gpu_resources.ok())
-        throw std::runtime_error("");
-    status = _graph.SetGpuResources(std::move(gpu_resources).value());
-    if(!status.ok())
-        throw std::runtime_error("");
-    _gpu_helper.InitializeForTest(_graph.GetGpuResources().get());
 #endif
+    for (auto& item : _graph) {
+        if (item.second != nullptr) {
+#if !MEDIAPIPE_DISABLE_GPU
+            auto gpu_resources = mediapipe::GpuResources::Create();
+            if(!gpu_resources.ok())
+                throw std::runtime_error("");
 
-    auto status_or_poller = _graph.AddOutputStreamPoller(kOutputStream);
-    if (!status_or_poller.ok())
-        throw std::runtime_error("Error with output poller");
-    _publisher.set_poller(new mediapipe::OutputStreamPoller(std::move(status_or_poller).value()));
+            status = _graph.at(item.first)->SetGpuResources(std::move(gpu_resources).value());
+            if (!status.ok())
+                throw std::runtime_error(std::string(status.message()));
+            _gpu_helper[item.first].InitializeForTest(
+                    _graph.at(item.first)->GetGpuResources().get());
+#endif
+            if (_graph.at(item.first) != nullptr) {
+                auto status_or_poller = _graph.at(item.first)->AddOutputStreamPoller(kOutputStream);
+                if (!status_or_poller.ok())
+                    throw std::runtime_error("Error with output poller");
+                _publisher.set_poller(item.first, new mediapipe::OutputStreamPoller(std::move(status_or_poller).value()));
+            }
 
-    status = _graph.StartRun({});
-    if (!status.ok())
-        throw std::runtime_error("Error starting graph");
+        }
+    }
+    for (auto& item : _graph) {
+        if (item.second != nullptr) {
+            status = _graph.at(item.first)->StartRun({});
+            if (!status.ok())
+                throw std::runtime_error("Error starting graph");
+        }
+    }
     // subscribe to the expected type
     switch (_cam_type) {
         case ht::WEBCAM:
@@ -134,6 +170,11 @@ void hand_tracking::start() {
 void hand_tracking::stop() {
     _publisher.stop();
     plugin::stop();
+}
+
+hand_tracking::~hand_tracking() {
+    for (auto& i : _graph)
+        delete i.second;
 }
 
 void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) {
@@ -172,26 +213,28 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
                 case ht::BOTH: {
                     cv::Mat tempL(frame->at(::ILLIXR::image::LEFT).clone());
                     cv::Mat tempR(frame->at(::ILLIXR::image::RIGHT).clone());
-                    //img_convert(tempL);
-                    //img_convert(tempR);
+                    img_convert(tempL);
+                    img_convert(tempR);
                     _current_images = {{::ILLIXR::image::LEFT,  tempL},
                                        {::ILLIXR::image::RIGHT, tempR}};
                     break;
                 }
                 case ht::LEFT: {
                     cv::Mat temp(frame->at(::ILLIXR::image::LEFT).clone());
-                    //img_convert(temp);
+                    img_convert(temp);
                     _current_images = {{::ILLIXR::image::LEFT, temp}};
                     break;
                 }
                 case ht::RIGHT: {
                     cv::Mat temp(frame->at(::ILLIXR::image::RIGHT).clone());
-                    //img_convert(temp);
+                    img_convert(temp);
                     _current_images = {{::ILLIXR::image::RIGHT, temp}};
                     break;
                 }
                 case ht::RGB: {
-                    _current_images = {{::ILLIXR::image::RGB, frame->at(::ILLIXR::image::RGB).clone()}};
+                    cv::Mat temp(frame->at(::ILLIXR::image::RGB).clone());
+                    img_convert(temp);
+                    _current_images = {{::ILLIXR::image::RGB, temp}};
                     break;
                 }
             }
@@ -227,7 +270,7 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
         image_data.set_first_person(_first_person);
 
         auto img_ptr = absl::make_unique<mediapipe::ImageData>(image_data);
-        auto img_status = _graph.AddPacketToInputStream(kImageDataTag,
+        auto img_status = _graph.at(input.first)->AddPacketToInputStream(kImageDataTag,
                                                         mediapipe::Adopt(img_ptr.release()).At(
                                                                 mediapipe::Timestamp(frame_timestamp_us)));
 
@@ -235,9 +278,9 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
             throw std::runtime_error(std::string(img_status.message()));
 
 #if !MEDIAPIPE_DISABLE_GPU
-        auto gl_status = _gpu_helper.RunInGlContext([&input_frame, &frame_timestamp_us,
-                                                            &graph=_graph,
-                                                            &gpu_helper=_gpu_helper]()
+        auto gl_status = _gpu_helper.at(input.first).RunInGlContext([&input_frame, &frame_timestamp_us,
+                                                            &graph=_graph.at(input.first),
+                                                            &gpu_helper=_gpu_helper.at(input.first)]()
                                                             -> absl::Status {
             // Convert ImageFrame to GpuBuffer.
             auto texture = gpu_helper.CreateSourceTexture(*input_frame.get());
@@ -245,7 +288,7 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
             glFlush();
             texture.Release();
             // Send GPU image packet into the graph.
-            auto submit_status = graph.AddPacketToInputStream(
+            auto submit_status = graph->AddPacketToInputStream(
                     kInputStream, mediapipe::Adopt(gpu_frame.release())
                             .At(mediapipe::Timestamp(frame_timestamp_us)));
             if (!submit_status.ok())
@@ -255,7 +298,7 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
         if (!gl_status.ok())
             throw std::runtime_error(std::string(gl_status.message()));
 #else
-        auto submit_status = _graph.AddPacketToInputStream(kInputStream,
+        auto submit_status = _graph.at(input.first)->AddPacketToInputStream(kInputStream,
                                               mediapipe::Adopt(input_frame.release()).At(
                                                       mediapipe::Timestamp(frame_timestamp_us)));
         if (!submit_status.ok())
@@ -272,7 +315,8 @@ hand_tracking_publisher::hand_tracking_publisher(const std::string &name_, ILLIX
         , _ht_publisher{_switchboard->get_writer<ht_frame>("ht")} { }
 
 hand_tracking_publisher::~hand_tracking_publisher() {
-    delete _poller;
+    for (auto& i : _poller)
+        delete i.second;
 }
 
 void hand_tracking_publisher::add_raw(const size_t id, image_map&& img) {
@@ -281,8 +325,34 @@ void hand_tracking_publisher::add_raw(const size_t id, image_map&& img) {
 
 threadloop::skip_option hand_tracking_publisher::_p_should_skip() {
     // Get the graph result _packet, or stop if that fails.
-    if (_poller->Next(&_packet))
-        return threadloop::skip_option::run;
+    if (_count == 1) {
+        if (_poller.at(::ILLIXR::image::LEFT) != nullptr) {
+            if (_poller.at(::ILLIXR::image::LEFT)->Next(&_packet)) {
+                return threadloop::skip_option::run;
+            }
+        } else if(_poller.at(::ILLIXR::image::RGB) != nullptr) {
+            if (_poller.at(::ILLIXR::image::RGB)->Next(&_packet)) {
+                return threadloop::skip_option::run;
+            }
+
+        } else {
+            if (_poller.at(::ILLIXR::image::RIGHT)->Next(&_packet)) {
+                return threadloop::skip_option::run;
+            }
+        }
+    } else {
+        if (_last_input == ht::RIGHT) {
+            if (_poller.at(::ILLIXR::image::LEFT)->Next(&_packet)) {
+                _last_input = ht::LEFT;
+                return threadloop::skip_option::run;
+            }
+        } else {
+            if (_poller.at(::ILLIXR::image::RIGHT)->Next(&_packet)) {
+                _last_input = ht::RIGHT;
+                return threadloop::skip_option::run;
+            }
+        }
+    }
     return threadloop::skip_option::skip_and_spin;
 }
 
