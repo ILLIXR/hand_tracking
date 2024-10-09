@@ -38,7 +38,10 @@ public:
     ~hand_tracking_publisher() override;
     void set_framecount(ht::input_type it);
     void add_raw(size_t id, image_map&& img);
-    void set_poller(mediapipe::OutputStreamPoller* plr) {_poller = plr;}
+    void set_poller(::ILLIXR::image::image_type im_type, mediapipe::OutputStreamPoller* plr) {
+        _poller.at(im_type) = plr;
+        _count++;
+    }
 
 protected:
     skip_option _p_should_skip() override;
@@ -47,7 +50,8 @@ protected:
 private:
     const std::shared_ptr<switchboard> _switchboard;
     switchboard::writer<ht_frame> _ht_publisher;
-    mediapipe::OutputStreamPoller* _poller = nullptr;
+    std::map<::ILLIXR::image::image_type, mediapipe::OutputStreamPoller*> _poller = {{::ILLIXR::image::LEFT, nullptr},
+                                                                                     {::ILLIXR::image::RIGHT, nullptr}};
     int _framecount = 0;
     mediapipe::Packet _packet;
     std::map<image::image_type, cv::Mat> _results_images;
@@ -55,6 +59,8 @@ private:
     size_t _last_frame_id = 0;
     std::unordered_map<size_t, image_map> _raw_images;
     image_map _current_raw;
+    ht::input_type _last_input = ht::RIGHT;
+    ushort _count = 0;
 };
 
 
@@ -65,9 +71,10 @@ public:
     void start() override;
     void process(const switchboard::ptr<const cam_base_type>& frame);
     void stop() override;
+    ~hand_tracking() override;
 private:
     const std::shared_ptr<switchboard> _switchboard;
-    mediapipe::CalculatorGraph _graph;
+    std::map<::ILLIXR::image::image_type, mediapipe::CalculatorGraph*> _graph;
     hand_tracking_publisher _publisher;
     std::string _ht_config_file;
     ht::input_type _input_type;
@@ -75,7 +82,7 @@ private:
     image_map _current_images;
     bool _first_person;
 #if !MEDIAPIPE_DISABLE_GPU
-    mediapipe::GlCalculatorHelper _gpu_helper;
+    std::map<::ILLIXR::image::image_type, mediapipe::GlCalculatorHelper> _gpu_helper;
 #endif
 };
 }
