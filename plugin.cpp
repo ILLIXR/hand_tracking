@@ -36,7 +36,8 @@ void img_convert(cv::Mat& img) {
 [[maybe_unused]] hand_tracking::hand_tracking(const std::string& name_, phonebook* pb_)
         : plugin{name_, pb_}
         , _graph{{::ILLIXR::image::LEFT, nullptr},
-                 {::ILLIXR::image::RIGHT, nullptr}}
+                 {::ILLIXR::image::RIGHT, nullptr},
+                 {::ILLIXR::image::RGB, nullptr}}
         , _switchboard{pb_->lookup_impl<switchboard>()}
         , _publisher{"hand_tracking_publisher", pb_} {
     if (const char *in_type = _switchboard->get_env_char("HT_INPUT_TYPE")) {
@@ -70,11 +71,14 @@ void img_convert(cv::Mat& img) {
     } else {
         throw std::runtime_error("HT_INPUT was not specified");
     }
-    if (_input_type != ht::RIGHT)
-        _graph.at(::ILLIXR::image::LEFT) = new mediapipe::CalculatorGraph();
-    if (_input_type == ht::RIGHT || _input_type == ht::BOTH)
-        _graph.at(::ILLIXR::image::RIGHT) = new mediapipe::CalculatorGraph();
-
+    if (_input_type == ht::RGB) {
+        _graph.at(::ILLIXR::image::RGB) = new mediapipe::CalculatorGraph();
+    } else {
+        if (_input_type != ht::RIGHT)
+            _graph.at(::ILLIXR::image::LEFT) = new mediapipe::CalculatorGraph();
+        if (_input_type == ht::RIGHT || _input_type == ht::BOTH)
+            _graph.at(::ILLIXR::image::RIGHT) = new mediapipe::CalculatorGraph();
+    }
     _publisher.set_framecount(_input_type);
 }
 
@@ -88,15 +92,21 @@ void hand_tracking::start() {
         throw std::runtime_error("Failed to get config contents");
     auto config = mediapipe::ParseTextProtoOrDie<mediapipe::CalculatorGraphConfig>(calculator_graph_config_contents);
 
-    if (_input_type != ht::RIGHT) {
-        status = _graph[::ILLIXR::image::LEFT]->Initialize(config);
+    if (_input_type == ht::RGB) {
+        status = _graph[::ILLIXR::image::RGB]->Initialize(config);
         if (!status.ok())
             throw std::runtime_error(std::string(status.message()));
-    }
-    if (_input_type == ht::RIGHT || _input_type == ht::BOTH) {
-        status = _graph[::ILLIXR::image::RIGHT]->Initialize(config);
-        if (!status.ok())
-            throw std::runtime_error(std::string(status.message()));
+    } else {
+        if (_input_type != ht::RIGHT) {
+            status = _graph[::ILLIXR::image::LEFT]->Initialize(config);
+            if (!status.ok())
+                throw std::runtime_error(std::string(status.message()));
+        }
+        if (_input_type == ht::RIGHT || _input_type == ht::BOTH) {
+            status = _graph[::ILLIXR::image::RIGHT]->Initialize(config);
+            if (!status.ok())
+                throw std::runtime_error(std::string(status.message()));
+        }
     }
 
 #if !MEDIAPIPE_DISABLE_GPU
@@ -320,6 +330,11 @@ threadloop::skip_option hand_tracking_publisher::_p_should_skip() {
             if (_poller.at(::ILLIXR::image::LEFT)->Next(&_packet)) {
                 return threadloop::skip_option::run;
             }
+        } else if(_poller.at(::ILLIXR::image::RGB) != nullptr) {
+            if (_poller.at(::ILLIXR::image::RGB)->Next(&_packet)) {
+                return threadloop::skip_option::run;
+            }
+
         } else {
             if (_poller.at(::ILLIXR::image::RIGHT)->Next(&_packet)) {
                 return threadloop::skip_option::run;

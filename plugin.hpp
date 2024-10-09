@@ -51,7 +51,8 @@ private:
     const std::shared_ptr<switchboard> _switchboard;
     switchboard::writer<ht_frame> _ht_publisher;
     std::map<::ILLIXR::image::image_type, mediapipe::OutputStreamPoller*> _poller = {{::ILLIXR::image::LEFT, nullptr},
-                                                                                     {::ILLIXR::image::RIGHT, nullptr}};
+                                                                                     {::ILLIXR::image::RIGHT, nullptr},
+                                                                                     {::ILLIXR::image::RGB, nullptr}};
     int _framecount = 0;
     mediapipe::Packet _packet;
     std::map<image::image_type, cv::Mat> _results_images;
