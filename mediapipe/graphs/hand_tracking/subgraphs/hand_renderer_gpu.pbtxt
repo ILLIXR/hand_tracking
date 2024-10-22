@@ -209,14 +209,14 @@ node {
   input_stream: "handedness_render_data"
   input_stream: "VECTOR:0:multi_hand_landmarks_render_data"
   input_stream: "IMAGE_DATA:image_data"
-  output_stream: "IMAGE_GPU:output_image"
+  output_stream: "IMAGE:output_image"
   output_stream: "HAND_POINTS:multi_hand_landmark_points"
 }
 
 # combine the results into an ILLIXR data frame
 node {
   calculator: "ILLIXROutputCalculator"
-  input_stream: "IMAGE_GPU:output_image"
+  input_stream: "IMAGE:output_image"
   input_stream: "IMAGE_DATA:image_data"
   input_stream: "HANDEDNESS:multi_handedness"
   input_stream: "HAND_POINTS:multi_hand_landmark_points"

@@ -153,8 +153,6 @@ namespace mediapipe {
         template <typename Type, const char* Tag>
         absl::Status CreateRenderTargetGpu(CalculatorContext* cc,
                                            std::unique_ptr<cv::Mat>& image_mat);
-        template <typename Type, const char* Tag>
-        absl::Status RenderToGpu(CalculatorContext* cc, uchar* overlay_image);
         absl::Status RenderToCpu(CalculatorContext* cc,
                                  const ImageFormat::Format& target_format,
                                  uchar* data_image);
@@ -201,13 +199,6 @@ namespace mediapipe {
                   1);
 
         // Input image to render onto copy of. Should be same type as output.
-#if !MEDIAPIPE_DISABLE_GPU
-        if (cc->Inputs().HasTag(kGpuBufferTag)) {
-            cc->Inputs().Tag(kGpuBufferTag).Set<mediapipe::GpuBuffer>();
-            RET_CHECK(cc->Outputs().HasTag(kGpuBufferTag));
-            use_gpu = true;
-        }
-#endif  // !MEDIAPIPE_DISABLE_GPU
         if (cc->Inputs().HasTag(kImageFrameTag)) {
             cc->Inputs().Tag(kImageFrameTag).Set<ImageFrame>();
             RET_CHECK(cc->Outputs().HasTag(kImageFrameTag));
@@ -236,9 +227,6 @@ namespace mediapipe {
 
         // Rendered image. Should be same type as input.
 #if !MEDIAPIPE_DISABLE_GPU
-        if (cc->Outputs().HasTag(kGpuBufferTag)) {
-            cc->Outputs().Tag(kGpuBufferTag).Set<mediapipe::GpuBuffer>();
-        }
         RET_CHECK(cc->Inputs().HasTag(kImageDataTag));
         cc->Inputs().Tag(kImageDataTag).Set<mediapipe::ImageData>();
 #endif  // !MEDIAPIPE_DISABLE_GPU
@@ -285,9 +273,7 @@ namespace mediapipe {
                             << "Annotation scale factor only supports GPU backed Image.";
 
         // Set the output header based on the input header (if present).
-        const char* tag = HasImageTag(cc) ? kImageTag
-                                          : use_gpu_      ? kGpuBufferTag
-                                                          : kImageFrameTag;
+        const char* tag = HasImageTag(cc) ? kImageTag : kImageFrameTag;
         if (image_frame_available_ && !cc->Inputs().Tag(tag).Header().IsEmpty()) {
             const auto& input_header =
                     cc->Inputs().Tag(tag).Header().Get<VideoHeader>();
@@ -386,24 +372,9 @@ namespace mediapipe {
             }
         }
         cc->Outputs().Tag(kHandPointsTag).Add(hand_points.release(), cc->InputTimestamp());
-        if (use_gpu_) {
-#if !MEDIAPIPE_DISABLE_GPU
-            // Overlay rendered image in OpenGL, onto a copy of input.
-            uchar* image_mat_ptr = image_mat->data;
-            MP_RETURN_IF_ERROR(
-                    gpu_helper_.RunInGlContext([this, cc, image_mat_ptr]() -> absl::Status {
-                        if (HasImageTag(cc)) {
-                            return RenderToGpu<mediapipe::Image, kImageTag>(cc, image_mat_ptr);
-                        }
-                        return RenderToGpu<mediapipe::GpuBuffer, kGpuBufferTag>(
-                                cc, image_mat_ptr);
-                    }));
-#endif  // !MEDIAPIPE_DISABLE_GPU
-        } else {
-            // Copy the rendered image to output.
-            uchar* image_mat_ptr = image_mat->data;
-            MP_RETURN_IF_ERROR(RenderToCpu(cc, target_format, image_mat_ptr));
-        }
+        // Copy the rendered image to output.
+        uchar* image_mat_ptr = image_mat->data;
+        MP_RETURN_IF_ERROR(RenderToCpu(cc, target_format, image_mat_ptr));
 
         return absl::OkStatus();
     }
@@ -447,56 +418,6 @@ namespace mediapipe {
                     .Tag(kImageFrameTag)
                     .Add(output_frame.release(), cc->InputTimestamp());
         }
-
-        return absl::OkStatus();
-    }
-
-    template <typename Type, const char* Tag>
-    absl::Status AnnotationOverlayCalculator::RenderToGpu(CalculatorContext* cc,
-                                                              uchar* overlay_image) {
-#if !MEDIAPIPE_DISABLE_GPU
-        // Source and destination textures.
-  const auto& input_frame = cc->Inputs().Tag(Tag).Get<Type>();
-  auto input_texture = gpu_helper_.CreateSourceTexture(input_frame);
-
-  auto output_texture = gpu_helper_.CreateDestinationTexture(
-      input_texture.width(), input_texture.height(),
-      mediapipe::GpuBufferFormat::kBGRA32);
-
-  // Upload render target to GPU.
-  {
-    glBindTexture(GL_TEXTURE_2D, image_mat_tex_);
-    glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, width_canvas_, height_canvas_,
-                    GL_RGB, GL_UNSIGNED_BYTE, overlay_image);
-    glBindTexture(GL_TEXTURE_2D, 0);
-  }
-
-  // Blend overlay image in GPU shader.
-  {
-    gpu_helper_.BindFramebuffer(output_texture);
-
-    glActiveTexture(GL_TEXTURE1);
-    glBindTexture(GL_TEXTURE_2D, input_texture.name());
-    glActiveTexture(GL_TEXTURE2);
-    glBindTexture(GL_TEXTURE_2D, image_mat_tex_);
-
-    MP_RETURN_IF_ERROR(GlRender(cc));
-
-    glActiveTexture(GL_TEXTURE2);
-    glBindTexture(GL_TEXTURE_2D, 0);
-    glActiveTexture(GL_TEXTURE1);
-    glBindTexture(GL_TEXTURE_2D, 0);
-    glFlush();
-  }
-
-  // Send out blended image as GPU packet.
-  auto output_frame = output_texture.template GetFrame<Type>();
-  cc->Outputs().Tag(Tag).Add(output_frame.release(), cc->InputTimestamp());
-
-  // Cleanup
-  input_texture.Release();
-  output_texture.Release();
-#endif  // !MEDIAPIPE_DISABLE_GPU
 
         return absl::OkStatus();
     }

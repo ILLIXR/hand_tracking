@@ -5,16 +5,12 @@
 #include "mediapipe/calculators/util/illixr_data.pb.h"
 #include "mediapipe/calculators/util/illixr_data.h"
 #include "mediapipe/calculators/util/image_data.pb.h"
-#if !MEDIAPIPE_DISABLE_GPU
-#include "mediapipe/gpu/gl_calculator_helper.h"
-#endif
 namespace mediapipe {
 
 namespace {
     enum class input_image_type {
         IMAGE,
         UIMAGE,
-        IMAGE_GPU,
         NONE
     };
 
@@ -53,25 +49,11 @@ protected:
 private:
     // Indicates if image frame is available as input.
     bool image_frame_available_ = false;
-    bool use_gpu_ = false;
     mediapipe::ImageData img_data_;
 
     input_image_type image_type = input_image_type::NONE;
     palm_input_type palm_input = palm_input_type::NONE;
     hand_input_type hand_input = hand_input_type::NONE;
-#if !MEDIAPIPE_DISABLE_GPU
-    mediapipe::GlCalculatorHelper gpu_helper_;
-    bool gpu_initialized_;
-    GLuint program_ = 0;
-    GLuint image_mat_tex_ = 0;  // Overlay drawing image for GPU.
-    int width_canvas_ = 0;  // Size of overlay drawing texture canvas.
-    int height_canvas_ = 0;
-    template <typename Type, const char* Tag>
-    absl::Status GlSetup(CalculatorContext* cc);
-
-    template <typename Type, const char* Tag>
-    absl::Status CreateRenderTargetGpu(CalculatorContext* cc, std::unique_ptr<cv::Mat>& image_mat);
-#endif
 };
 
 template<class T>

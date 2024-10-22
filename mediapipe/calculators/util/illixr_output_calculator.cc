@@ -10,29 +10,15 @@
 #include "mediapipe/framework/formats/classification.pb.h"
 #include "mediapipe/calculators/util/illixr_data.h"
 
-#if !MEDIAPIPE_DISABLE_GPU
-#include "mediapipe/gpu/gl_calculator_helper.h"
-#include "mediapipe/gpu/gl_simple_shaders.h"
-#include "mediapipe/gpu/gpu_buffer.h"
-#include "mediapipe/gpu/gpu_buffer_format.h"
-#include "mediapipe/gpu/shader_util.h"
-#endif
 namespace mediapipe {
 
     namespace {
-        constexpr char kNormRectTag[] = "NORM_RECT";
-        constexpr char kRectTag[] = "RECT";
-        constexpr char kNormRectsTag[] = "NORM_RECTS";
-        constexpr char kRectsTag[] = "RECTS";
-
         constexpr char kImageFrameTag[] = "IMAGE";
         constexpr char kImageTag[] = "UIMAGE";
-        constexpr char kGpuBufferTag[] = "IMAGE_GPU";
         constexpr char kImageDataTag[] = "IMAGE_DATA";
 
         const std::map<input_image_type, const std::string> image_map {{input_image_type::IMAGE, kImageFrameTag},
-                                                                       {input_image_type::UIMAGE, kImageTag},
-                                                                       {input_image_type::IMAGE_GPU, kGpuBufferTag}};
+                                                                       {input_image_type::UIMAGE, kImageTag}};
         constexpr char kHandPointsTag[] = "HAND_POINTS";
         constexpr char kHandedness[] = "HANDEDNESS";
 
@@ -58,17 +44,6 @@ namespace mediapipe {
 
         constexpr char kIllixrData[] = "ILLIXR_DATA";
 
-#if !MEDIAPIPE_DISABLE_GPU
-        enum { ATTRIB_VERTEX, ATTRIB_TEXTURE_POSITION, NUM_ATTRIBUTES };
-
-// Round up n to next multiple of m.
-        size_t RoundUp(size_t n, size_t m) { return ((n + m - 1) / m) * m; }  // NOLINT
-
-// When using GPU, this color will become transparent when the calculator
-// merges the annotation overlay with the image frame. As a result, drawing in
-// this color is not supported and it should be set to something unlikely used.
-        constexpr uchar kAnnotationBackgroundColor = 2;  // Grayscale value.
-#endif
         inline bool HasImageTag(mediapipe::CalculatorContext* cc) {
             return cc->Inputs().HasTag(kImageTag);
         }
@@ -76,28 +51,14 @@ namespace mediapipe {
     absl::Status ILLIXROutputCalculator::GetContract(CalculatorContract* cc) {
         RET_CHECK_GE(cc->Inputs().NumEntries(), 1);
 
-        bool use_gpu = false;
         RET_CHECK(cc->Inputs().HasTag(kImageFrameTag) +
-#if !MEDIAPIPE_DISABLE_GPU
-                          cc->Inputs().HasTag(kGpuBufferTag) +
-#endif
                           cc->Inputs().HasTag(kImageTag) <=
                           1);
-
-#if !MEDIAPIPE_DISABLE_GPU
-        if (cc->Inputs().HasTag(kGpuBufferTag)) {
-            cc->Inputs().Tag(kGpuBufferTag).Set<mediapipe::GpuBuffer>();
-            use_gpu = true;
-        }
-#endif  // !MEDIAPIPE_DISABLE_GPU
 
         if (cc->Inputs().HasTag(kImageFrameTag)) {
             cc->Inputs().Tag(kImageFrameTag).Set<ImageFrame>();
         } else if (cc->Inputs().HasTag(kImageTag)) {
             cc->Inputs().Tag(kImageTag).Set<mediapipe::Image>();
-#if !MEDIAPIPE_DISABLE_GPU
-            use_gpu = true;
-#endif
         }
 
         if (cc->Inputs().HasTag(kHandPointsTag)) {
@@ -145,11 +106,6 @@ namespace mediapipe {
 
         RET_CHECK(cc->Outputs().HasTag(kIllixrData));
         cc->Outputs().Tag(kIllixrData).Set<ILLIXR::illixr_ht_frame>();
-        if (use_gpu) {
-#if !MEDIAPIPE_DISABLE_GPU
-            MP_RETURN_IF_ERROR(mediapipe::GlCalculatorHelper::UpdateContract(cc));
-#endif
-        }
 
         return absl::OkStatus();
     }
@@ -164,11 +120,6 @@ namespace mediapipe {
         } else if (cc->Inputs().HasTag(kImageTag)) {
             image_type = input_image_type::UIMAGE;
         }
-#if !MEDIAPIPE_DISABLE_GPU
-        else if (cc->Inputs().HasTag(kGpuBufferTag)) {
-            image_type = input_image_type::IMAGE_GPU;
-        }
-#endif  // !MEDIAPIPE_DISABLE_GPU
         else {
             image_type = input_image_type::NONE;
         }
@@ -197,13 +148,6 @@ namespace mediapipe {
             hand_input = hand_input_type::NONE;
         }
 
-        if (cc->Inputs().HasTag(kGpuBufferTag) || HasImageTag(cc)) {
-#if !MEDIAPIPE_DISABLE_GPU
-            use_gpu_ = true;
-            MP_RETURN_IF_ERROR(gpu_helper_.Open(cc));
-#endif  // !MEDIAPIPE_DISABLE_GPU
-        }
-
         return absl::OkStatus();
     }
 
@@ -213,41 +157,13 @@ namespace mediapipe {
         int right_idx = -1;
         img_data_ = cc->Inputs().Tag(kImageDataTag).Get<mediapipe::ImageData>();
 
-        if (HasImageTag(cc)) {
-            use_gpu_ = cc->Inputs().Tag(kImageTag).Get<mediapipe::Image>().UsesGpu();
-        }
-
         auto frame_data = absl::make_unique<ILLIXR::illixr_ht_frame>();
         if (cc->Inputs().HasTag(image_map.at(image_type)) &&
             !cc->Inputs().Tag(image_map.at(image_type)).IsEmpty()) {
             auto img = absl::make_unique<cv::Mat>();
             frame_data->image_id = img_data_.frame_id();
             frame_data->type = static_cast<::ILLIXR::image::image_type>(img_data_.image_type());
-            if (use_gpu_) {
-#if !MEDIAPIPE_DISABLE_GPU
-                std::unique_ptr<cv::Mat> image_mat;
-                if (!gpu_initialized_) {
-                    MP_RETURN_IF_ERROR(
-                            gpu_helper_.RunInGlContext([this, cc]() -> absl::Status {
-                                if (HasImageTag(cc)) {
-                                    return GlSetup<mediapipe::Image, kImageTag>(cc);
-                                }
-                                return GlSetup<mediapipe::GpuBuffer, kGpuBufferTag>(cc);
-                            }));
-                    gpu_initialized_ = true;
-                }
-                if (HasImageTag(cc)) {
-                    MP_RETURN_IF_ERROR(
-                            (CreateRenderTargetGpu<mediapipe::Image, kImageTag>(cc, image_mat)));
-                }
-                if (cc->Inputs().HasTag(kGpuBufferTag)) {
-                    MP_RETURN_IF_ERROR(
-                            (CreateRenderTargetGpu<mediapipe::GpuBuffer, kGpuBufferTag>(
-                                    cc, image_mat)));
-                }
-                frame_data->image = image_mat.release();
-#endif  // !MEDIAPIPE_DISABLE_GPU
-            } else if (image_type == input_image_type::UIMAGE) {
+            if (image_type == input_image_type::UIMAGE) {
                 const auto& input =
                         cc->Inputs().Tag(kImageTag).Get<mediapipe::Image>();
                 auto input_mat = formats::MatView(&input);
@@ -258,8 +174,8 @@ namespace mediapipe {
                 auto input_mat = formats::MatView(&input_frame);
                 input_mat.copyTo(*img);
             }
-            if (!use_gpu_)
-                frame_data->image = img.release();
+
+            frame_data->image = img.release();
             component_count++;
         } else {
             frame_data->image = nullptr;
@@ -412,10 +328,6 @@ namespace mediapipe {
         if (component_count == 0) {
             return absl::OkStatus();
         }
-        //if (HasImageTag(cc)) {
-        //    use_gpu_ = cc->Inputs().Tag(kImageTag).Get<mediapipe::Image>().UsesGpu();
-        //}
-
         cc->Outputs().Tag(kIllixrData).Add(frame_data.release(), cc->InputTimestamp());
 
 
@@ -423,125 +335,5 @@ namespace mediapipe {
         return absl::OkStatus();
 
     }
-#if !MEDIAPIPE_DISABLE_GPU
-    template <typename Type, const char* Tag>
-    absl::Status ILLIXROutputCalculator::GlSetup(CalculatorContext* cc) {
-        const GLint attr_location[NUM_ATTRIBUTES] = {
-                ATTRIB_VERTEX,
-                ATTRIB_TEXTURE_POSITION,
-        };
-        const GLchar* attr_name[NUM_ATTRIBUTES] = {
-                "position",
-                "texture_coordinate",
-        };
-
-        // Shader to overlay a texture onto another when overlay is non-zero.
-        constexpr char kFragSrcBody[] = R"(
-  DEFAULT_PRECISION(mediump, float)
-  #ifdef GL_ES
-    #define fragColor gl_FragColor
-  #else
-    out vec4 fragColor;
-  #endif  // GL_ES
-
-    in vec2 sample_coordinate;
-    uniform sampler2D input_frame;
-    // "overlay" texture has top-left origin (OpenCV mat with annotations has
-    // been uploaded to GPU without vertical flip)
-    uniform sampler2D overlay;
-    uniform vec3 transparent_color;
-
-    void main() {
-      vec3 image_pix = texture2D(input_frame, sample_coordinate).rgb;
-  #ifdef INPUT_FRAME_HAS_TOP_LEFT_ORIGIN
-      // "input_frame" has top-left origin same as "overlay", hence overlaying
-      // as is.
-      vec3 overlay_pix = texture2D(overlay, sample_coordinate).rgb;
-  #else
-      // "input_frame" has bottom-left origin, hence flipping "overlay" texture
-      // coordinates.
-      vec3 overlay_pix = texture2D(overlay, vec2(sample_coordinate.x, 1.0 - sample_coordinate.y)).rgb;
-  #endif  // INPUT_FRAME_HAS_TOP_LEFT_ORIGIN
-
-      vec3 out_pix = image_pix;
-      float dist = distance(overlay_pix.rgb, transparent_color);
-      if (dist > 0.001) out_pix = overlay_pix;
-      fragColor.rgb = out_pix;
-      fragColor.a = 1.0;
-    }
-  )";
-
-        std::string defines;
-        if (options_.gpu_uses_top_left_origin()) {
-            defines = R"(
-      #define INPUT_FRAME_HAS_TOP_LEFT_ORIGIN;
-    )";
-        }
-
-        const std::string frag_src = absl::StrCat(
-                mediapipe::kMediaPipeFragmentShaderPreamble, defines, kFragSrcBody);
-
-        // Create shader program and set parameters
-        mediapipe::GlhCreateProgram(mediapipe::kBasicVertexShader, frag_src.c_str(),
-                                    NUM_ATTRIBUTES, (const GLchar**)&attr_name[0],
-                                    attr_location, &program_);
-        RET_CHECK(program_) << "Problem initializing the program.";
-        glUseProgram(program_);
-        glUniform1i(glGetUniformLocation(program_, "input_frame"), 1);
-        glUniform1i(glGetUniformLocation(program_, "overlay"), 2);
-        glUniform3f(glGetUniformLocation(program_, "transparent_color"),
-                    kAnnotationBackgroundColor / 255.0,
-                    kAnnotationBackgroundColor / 255.0,
-                    kAnnotationBackgroundColor / 255.0);
-
-        // Ensure GPU texture is divisible by 4. See b/138751944 for more info.
-        const float alignment = ImageFrame::kGlDefaultAlignmentBoundary;
-        const float scale_factor = options_.gpu_scale_factor();
-        width_canvas_ = RoundUp(img_data_.width() * scale_factor, alignment);
-        height_canvas_ = RoundUp(img_data_.height() * scale_factor, alignment);
-
-        // Init texture for opencv rendered frame.
-        {
-            glGenTextures(1, &image_mat_tex_);
-            glBindTexture(GL_TEXTURE_2D, image_mat_tex_);
-            // TODO
-            // OpenCV only renders to RGB images, not RGBA. Ideally this should be RGBA.
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width_canvas_, height_canvas_, 0,
-                         GL_RGB, GL_UNSIGNED_BYTE, nullptr);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-            glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-            glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-            glBindTexture(GL_TEXTURE_2D, 0);
-        }
-
-        return absl::OkStatus();
-    }
-
-    template <typename Type, const char* Tag>
-    absl::Status ILLIXROutputCalculator::CreateRenderTargetGpu(
-            CalculatorContext* cc, std::unique_ptr<cv::Mat>& image_mat) {
-        if (image_frame_available_) {
-            const auto& input_frame = cc->Inputs().Tag(Tag).Get<Type>();
-            const mediapipe::ImageFormat::Format format =
-                    mediapipe::ImageFormatForGpuBufferFormat(input_frame.format());
-            if (format != mediapipe::ImageFormat::SRGBA &&
-                format != mediapipe::ImageFormat::SRGB)
-                RET_CHECK_FAIL() << "Unsupported GPU input format: " << format;
-            image_mat =
-                    absl::make_unique<cv::Mat>(height_canvas_, width_canvas_, CV_8UC3);
-            memset(image_mat->data, kAnnotationBackgroundColor,
-                   height_canvas_ * width_canvas_ * image_mat->elemSize());
-        } else {
-            image_mat = absl::make_unique<cv::Mat>(
-                    height_canvas_, width_canvas_, CV_8UC3,
-                    cv::Scalar(options_.canvas_color().r(), options_.canvas_color().g(),
-                               options_.canvas_color().b()));
-        }
-
-        return absl::OkStatus();
-    }
-
-#endif
     REGISTER_CALCULATOR(ILLIXROutputCalculator);
 } // mediapipe
