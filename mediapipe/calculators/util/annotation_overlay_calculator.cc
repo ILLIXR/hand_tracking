@@ -144,15 +144,16 @@ namespace mediapipe {
         absl::Status Close(CalculatorContext* cc) override;
 
     private:
+        template <typename Type, const char* Tag>
         absl::Status CreateRenderTargetCpu(CalculatorContext* cc,
                                            std::unique_ptr<cv::Mat>& image_mat,
                                            ImageFormat::Format* target_format);
-        absl::Status CreateRenderTargetCpuImage(CalculatorContext* cc,
-                                                std::unique_ptr<cv::Mat>& image_mat,
-                                                ImageFormat::Format* target_format);
+
         template <typename Type, const char* Tag>
-        absl::Status CreateRenderTargetGpu(CalculatorContext* cc,
-                                           std::unique_ptr<cv::Mat>& image_mat);
+        absl::Status CreateRenderTargetCpuFromGpu(CalculatorContext* cc,
+                                                  std::unique_ptr<cv::Mat>& image_mat,
+                                                  ImageFormat::Format* target_format);
+
         absl::Status RenderToCpu(CalculatorContext* cc,
                                  const ImageFormat::Format& target_format,
                                  uchar* data_image);
@@ -194,11 +195,17 @@ namespace mediapipe {
                   cc->Inputs().HasTag(kImageTag) <=
                   1);
         RET_CHECK(cc->Outputs().HasTag(kImageFrameTag) +
-                  cc->Outputs().HasTag(kGpuBufferTag) +
                   cc->Outputs().HasTag(kImageTag) ==
                   1);
 
         // Input image to render onto copy of. Should be same type as output.
+#if !MEDIAPIPE_DISABLE_GPU
+        if (cc->Inputs().HasTag(kGpuBufferTag)) {
+            cc->Inputs().Tag(kGpuBufferTag).Set<mediapipe::GpuBuffer>();
+            RET_CHECK(cc->Outputs().HasTag(kImageFrameTag));
+            use_gpu = true;
+        }
+#endif
         if (cc->Inputs().HasTag(kImageFrameTag)) {
             cc->Inputs().Tag(kImageFrameTag).Set<ImageFrame>();
             RET_CHECK(cc->Outputs().HasTag(kImageFrameTag));
@@ -273,7 +280,9 @@ namespace mediapipe {
                             << "Annotation scale factor only supports GPU backed Image.";
 
         // Set the output header based on the input header (if present).
-        const char* tag = HasImageTag(cc) ? kImageTag : kImageFrameTag;
+        const char* tag = HasImageTag(cc) ? kImageTag
+                                          : use_gpu_    ? kGpuBufferTag
+                                                        : kImageFrameTag;
         if (image_frame_available_ && !cc->Inputs().Tag(tag).Header().IsEmpty()) {
             const auto& input_header =
                     cc->Inputs().Tag(tag).Header().Get<VideoHeader>();
@@ -323,23 +332,19 @@ namespace mediapipe {
                         }));
                 gpu_initialized_ = true;
             }
-            if (HasImageTag(cc)) {
+            if (HasImageTag(cc) || cc->Inputs().HasTag(kGpuBufferTag)) {
                 MP_RETURN_IF_ERROR(
-                        (CreateRenderTargetGpu<mediapipe::Image, kImageTag>(cc, image_mat)));
+                        (CreateRenderTargetCpuFromGpu<mediapipe::Image, kImageTag>(cc, image_mat, &target_format)));
             }
             if (cc->Inputs().HasTag(kGpuBufferTag)) {
                 MP_RETURN_IF_ERROR(
-                        (CreateRenderTargetGpu<mediapipe::GpuBuffer, kGpuBufferTag>(
-                                cc, image_mat)));
+                        (CreateRenderTargetCpuFromGpu<mediapipe::GpuBuffer, kGpuBufferTag>(
+                            cc, image_mat, &target_format)));
             }
 #endif  // !MEDIAPIPE_DISABLE_GPU
         } else {
-            if (cc->Outputs().HasTag(kImageTag)) {
-                MP_RETURN_IF_ERROR(
-                        CreateRenderTargetCpuImage(cc, image_mat, &target_format));
-            }
             if (cc->Outputs().HasTag(kImageFrameTag)) {
-                MP_RETURN_IF_ERROR(CreateRenderTargetCpu(cc, image_mat, &target_format));
+                MP_RETURN_IF_ERROR((CreateRenderTargetCpu<mediapipe::ImageFrame, kImageFrameTag>(cc, image_mat, &target_format)));
             }
         }
 
@@ -422,12 +427,13 @@ namespace mediapipe {
         return absl::OkStatus();
     }
 
+    template <typename Type, const char* Tag>
     absl::Status AnnotationOverlayCalculator::CreateRenderTargetCpu(
             CalculatorContext* cc, std::unique_ptr<cv::Mat>& image_mat,
             ImageFormat::Format* target_format) {
         if (image_frame_available_) {
             const auto& input_frame =
-                    cc->Inputs().Tag(kImageFrameTag).Get<ImageFrame>();
+                    cc->Inputs().Tag(Tag).Get<Type>();
 
             image_mat = absl::make_unique<cv::Mat>(
                     input_frame.Height(), input_frame.Width(), CV_8UC4,
@@ -443,30 +449,11 @@ namespace mediapipe {
         return absl::OkStatus();
     }
 
-    absl::Status AnnotationOverlayCalculator::CreateRenderTargetCpuImage(
-            CalculatorContext* cc, std::unique_ptr<cv::Mat>& image_mat,
-            ImageFormat::Format* target_format) {
-        if (image_frame_available_) {
-            const auto& input_frame =
-                    cc->Inputs().Tag(kImageTag).Get<mediapipe::Image>();
-
-            image_mat = absl::make_unique<cv::Mat>(
-                    input_frame.height(), input_frame.width(), CV_8UC4,
-                    cv::Scalar(0, 0, 0, 0));
-
-        } else {
-            image_mat = absl::make_unique<cv::Mat>(
-                    options_.canvas_height_px(), options_.canvas_width_px(), CV_8UC4,
-                    cv::Scalar(0, 0, 0, 0));
-        }
-        *target_format = ImageFormat::SRGBA;
-
-        return absl::OkStatus();
-    }
-
     template <typename Type, const char* Tag>
-    absl::Status AnnotationOverlayCalculator::CreateRenderTargetGpu(
-            CalculatorContext* cc, std::unique_ptr<cv::Mat>& image_mat) {
+    absl::Status AnnotationOverlayCalculator::CreateRenderTargetCpuFromGpu(
+                                          CalculatorContext* cc,
+                                          std::unique_ptr<cv::Mat>& image_mat,
+                                          ImageFormat::Format* target_format) {
 #if !MEDIAPIPE_DISABLE_GPU
         if (image_frame_available_) {
             const auto &input_frame = cc->Inputs().Tag(Tag).Get<Type>();
@@ -480,6 +467,8 @@ namespace mediapipe {
                 absl::make_unique<cv::Mat>(height_canvas_, width_canvas_, CV_8UC4,
                                            cv::Scalar(0, 0, 0, 0));
 #endif  // !MEDIAPIPE_DISABLE_GPU
+
+        *target_format = ImageFormat::SRGBA;
 
         return absl::OkStatus();
     }
