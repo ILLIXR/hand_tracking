@@ -20,7 +20,7 @@ constexpr char kOutputStream[] = "illixr_data";
 constexpr char kImageDataTag[] = "image_data";
 
 
-void img_convert(cv::Mat& img) {
+void img_convert(cv::Mat& img, bool flip=false) {
     switch (img.type()) {
         case CV_8UC1:
             cv::cvtColor(img, img, cv::COLOR_GRAY2RGB);
@@ -28,7 +28,11 @@ void img_convert(cv::Mat& img) {
         case CV_8UC3:
             break;
         case CV_8UC4:
-            cv::cvtColor(img, img, cv::COLOR_RGBA2RGB);
+            if (flip) {
+                cv::cvtColor(img, img, cv::COLOR_BGRA2RGB);
+            } else {
+                cv::cvtColor(img, img, cv::COLOR_RGBA2RGB);
+            }
             break;
     }
 }
@@ -213,27 +217,27 @@ void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) 
                 case ht::BOTH: {
                     cv::Mat tempL(frame->at(::ILLIXR::image::LEFT).clone());
                     cv::Mat tempR(frame->at(::ILLIXR::image::RIGHT).clone());
-                    img_convert(tempL);
-                    img_convert(tempR);
+                    img_convert(tempL, true);
+                    img_convert(tempR, true);
                     _current_images = {{::ILLIXR::image::LEFT,  tempL},
                                        {::ILLIXR::image::RIGHT, tempR}};
                     break;
                 }
                 case ht::LEFT: {
                     cv::Mat temp(frame->at(::ILLIXR::image::LEFT).clone());
-                    img_convert(temp);
+                    img_convert(temp, true);
                     _current_images = {{::ILLIXR::image::LEFT, temp}};
                     break;
                 }
                 case ht::RIGHT: {
                     cv::Mat temp(frame->at(::ILLIXR::image::RIGHT).clone());
-                    img_convert(temp);
+                    img_convert(temp, true);
                     _current_images = {{::ILLIXR::image::RIGHT, temp}};
                     break;
                 }
                 case ht::RGB: {
                     cv::Mat temp(frame->at(::ILLIXR::image::RGB).clone());
-                    img_convert(temp);
+                    img_convert(temp, true);
                     _current_images = {{::ILLIXR::image::RGB, temp}};
                     break;
                 }
