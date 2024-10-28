@@ -108,6 +108,7 @@ if(HT_ENABLE_GPU)
     target_sources(${PLUGIN_NAME} PUBLIC $<TARGET_OBJECTS:gpu.gl_context_options_proto>)
     add_compile_options(-layering_check)
 endif()
+get_target_property(TFL_INCLUDE_DIR tensorflow-lite::tensorflow-lite${TF_POSTFIX} INTERFACE_INCLUDE_DIRECTORIES)
 
 target_include_directories(${PLUGIN_NAME} BEFORE PUBLIC ${Protobuf_INCLUDE_DIRS})
 target_include_directories(${PLUGIN_NAME} PUBLIC
@@ -119,8 +120,8 @@ target_include_directories(${PLUGIN_NAME} PUBLIC
                            ${EIGEN3_INCLUDE_DIRS}
                            ${OpenCV_INCLUDE_DIRS}
                            ${CMAKE_INSTALL_PREFIX}/include
-                           ${tensorflow-lite${TF_POSTFIX}_INCLUDE_DIRS}/include/tensorflow
-                           ${tensorflow-lite${TF_POSTFIX}_INCLUDE_DIRS}/include/tensorflow/lite
+                           ${TFL_INCLUDE_DIR}/tensorflow
+                           ${TFL_INCLUDE_DIR}/tensorflow/lite
 )
 
 target_link_libraries(${PLUGIN_NAME} PUBLIC
@@ -156,9 +157,9 @@ target_link_libraries(${PLUGIN_NAME} PUBLIC
                       absl::span
                       absl::variant
                       absl::utility
-                      tensorflow-lite::tensorflow-lite
+                      tensorflow-lite::tensorflow-lite${TF_POSTFIX}
                       ${cpuinfo_LIBRARIES}
-                      tfl-XNNPACK::tfl-XNNPACK
+                      tfl-XNNPACK::tfl-XNNPACK${TFLIBRARY_POSTFIX}
                       ${gflags_LIBRARIES}
                       ${glog_LIBRARIES}
                       ${OpenCV_LIBRARIES}
@@ -206,9 +207,9 @@ if(BUILD_TEST_EXE)
                           absl::variant
                           absl::utility
                           ${cpuinfo_LIBRARIES}
-                          tfl-XNNPACK::tfl-XNNPACK
+                          tfl-XNNPACK::tfl-XNNPACK${TFLIBRARY_POSTFIX}
                           pthreadpool::pthreadpool
-                          tensorflow-lite::tensorflow-lite
+                          tensorflow-lite::tensorflow-lite${TF_POSTFIX}
                           ${gflags_LIBRARIES}
                           ${glog_LIBRARIES}
                           ${OpenCV_LIBRARIES}
@@ -255,9 +256,9 @@ if(BUILD_TEST_EXE)
                           absl::variant
                           absl::utility
                           ${cpuinfo_LIBRARIES}
-                          tfl-XNNPACK::tfl-XNNPACK
+                          tfl-XNNPACK::tfl-XNNPACK${TFLIBRARY_POSTFIX}
                           pthreadpool::pthreadpool
-                          tensorflow-lite::tensorflow-lite
+                          tensorflow-lite::tensorflow-lite${TF_POSTFIX}
                           ${gflags_LIBRARIES}
                           ${glog_LIBRARIES}
                           ${OpenCV_LIBRARIES}
@@ -266,4 +267,3 @@ if(BUILD_TEST_EXE)
     )
 
 endif()
-

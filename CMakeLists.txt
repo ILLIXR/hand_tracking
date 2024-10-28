@@ -130,8 +130,3 @@ target_include_directories(${PLUGIN_NAME} PRIVATE
                            ${CMAKE_SOURCE_DIR}
 )
 install(TARGETS ${PLUGIN_NAME} DESTINATION lib)
-
-#get_cmake_property(_variableNames VARIABLES)
-#foreach (_variableName ${_variableNames})
-#    message(STATUS "${_variableName}=${${_variableName}}")
-#endforeach()

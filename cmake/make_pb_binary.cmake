@@ -15,25 +15,26 @@ function(make_proto_binary)
     target_include_directories(${make_proto_binary_BINARY_NAME} BEFORE PUBLIC
                                ${Protobuf_INCLUDE_DIRS}
     )
+    get_target_property(TFL_INCLUDE_DIR tensorflow-lite::tensorflow-lite${TF_POSTFIX} INTERFACE_INCLUDE_DIRECTORIES)
     target_include_directories(${make_proto_binary_BINARY_NAME} PUBLIC
-                                   ${CMAKE_SOURCE_DIR}
+                               ${CMAKE_SOURCE_DIR}
                                ${CMAKE_BINARY_DIR}
                                ${glog_INCLUDE_DIR}
                                ${CMAKE_INSTALL_PREFIX}/include
-                               ${CMAKE_INSTALL_PREFIX}/include/tensorflow
-                               ${CMAKE_INSTALL_PREFIX}/include/tensorflow/lite
-                               ${CMAKE_INSTALL_PREFIX}/include/gemmlowp
+                               ${TFL_INCLUDE_DIR}/tensorflow
+                               ${TFL_INCLUDE_DIR}/tensorflow/lite
                                ${zlib_INCLUDE_DIR}
     )
 
     target_link_libraries(${make_proto_binary_BINARY_NAME} PUBLIC
                           protobuf::libprotobuf
                           ${glog_LIBRARIES}
-                          tensorflow-lite::tensorflow-lite
+                          tensorflow-lite::tensorflow-lite${TF_POSTFIX}
                           ${zlib_LIBRARIES}
                           absl::status
                           absl::absl_log
                           absl::flags_parse
+                          gemmlowp::gemmlowp
     )
 
     file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/${make_proto_binaryFILE_ROOT})
