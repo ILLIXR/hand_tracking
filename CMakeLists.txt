@@ -13,8 +13,8 @@ option(TFLIBRARY_POSTFIX "Postfix to attach to XNNPACK and tensorflow libraries 
 cmake_dependent_option(HT_ENABLE_WEB_PROFILING "Whether to enable web profiling" ON HT_ENABLE_GRAPH_PROFILER OFF)
 
 if(TFLIBRARY_POSTFIX)
-    if(NOT ((LIBRARY_POSTFIX MATCHES "^-") OR (LIBRARY_POSTFIX MATCHES "^_")))
-        set(LIBRARY_POSTFIX "-${LIBRARY_POSTFIX}")
+    if(NOT ((TFLIBRARY_POSTFIX MATCHES "^-") OR (TFLIBRARY_POSTFIX MATCHES "^_")))
+        set(TFLIBRARY_POSTFIX "-${TFLIBRARY_POSTFIX}")
     endif()
 else()
     set(TFLIBRARY_POSTFIX "")
