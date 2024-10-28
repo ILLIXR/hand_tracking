@@ -119,9 +119,8 @@ target_include_directories(${PLUGIN_NAME} PUBLIC
                            ${EIGEN3_INCLUDE_DIRS}
                            ${OpenCV_INCLUDE_DIRS}
                            ${CMAKE_INSTALL_PREFIX}/include
-                           ${CMAKE_INSTALL_PREFIX}/include/tensorflow
-                           ${CMAKE_INSTALL_PREFIX}/include/tensorflow/lite
-                           ${CMAKE_INSTALL_PREFIX}/include/gemmlowp
+                           ${tensorflow-lite${TF_POSTFIX}_INCLUDE_DIRS}/include/tensorflow
+                           ${tensorflow-lite${TF_POSTFIX}_INCLUDE_DIRS}/include/tensorflow/lite
 )
 
 target_link_libraries(${PLUGIN_NAME} PUBLIC
@@ -164,6 +163,7 @@ target_link_libraries(${PLUGIN_NAME} PUBLIC
                       ${glog_LIBRARIES}
                       ${OpenCV_LIBRARIES}
                       ${ZLIB_LIBRARIES}
+                      gemmlowp::gemmlowp
 )
 
 if(BUILD_TEST_EXE)
