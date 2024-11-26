@@ -59,6 +59,6 @@ private:
 template<class T>
 ::ILLIXR::HandTracking::rect* make_rect(const T in_rect, bool normalized) {
     return new ::ILLIXR::HandTracking::rect(in_rect.x_center(), in_rect.y_center(), in_rect.width(),
-                            in_rect.height(), in_rect.rotation(), normalized);
+                                            in_rect.height(), in_rect.rotation(), (normalized) ? ::ILLIXR::units::PERCENT : ::ILLIXR::units::PIXEL);
 }
 } // mediapipe

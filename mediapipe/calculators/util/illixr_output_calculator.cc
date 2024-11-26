@@ -211,10 +211,10 @@ namespace mediapipe {
             !cc->Inputs().Tag(kHandPointsTag).IsEmpty()) {
             const auto &hp = cc->Inputs().Tag(kHandPointsTag).Get<std::vector<Points> >();
             for (auto i = 0; i < hp.size(); i++) {
-                auto hand_points = absl::make_unique<::ILLIXR::HandTracking::hand_points>(21, ::ILLIXR::HandTracking::point());
+                auto hand_points = absl::make_unique<::ILLIXR::HandTracking::hand_points>();
                 for (auto j = 0; j < hp[i].points_size(); j++) {
                     auto pnt = hp[i].points(j);
-                    hand_points->at(j).set(pnt.x(), pnt.y(), pnt.z(), pnt.normalized());
+                    hand_points->at(j).set(pnt.x(), pnt.y(), pnt.z(), ::ILLIXR::units::PERCENT);
                 }
                 if (i == left_idx)
                     frame_data->left_hand_points = hand_points.release();
