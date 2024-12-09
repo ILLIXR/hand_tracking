@@ -7,10 +7,15 @@ set(ENV{PKG_CONFIG_PATH} "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig")
 
 include(CMakeDependentOption)
 
+cmake_policy(SET CMP0153 OLD)
+cmake_policy(SET CMP0146 OLD)
+
 option(HT_ENABLE_GPU "Whether to enable GPU based codes vs CPU based" OFF)
 option(HT_ENABLE_GRAPH_PROFILER "Whether to enable the graph profiler" OFF)
+option(BUILD_OXR_INTERFACE "Whether to build the OpenXR interface library" OFF)
 option(TFLIBRARY_POSTFIX "Postfix to attach to XNNPACK and tensorflow libraries to identify the specuific version needed" OFF)
 cmake_dependent_option(HT_ENABLE_WEB_PROFILING "Whether to enable web profiling" ON HT_ENABLE_GRAPH_PROFILER OFF)
+
 
 if(TFLIBRARY_POSTFIX)
     if(NOT ((TFLIBRARY_POSTFIX MATCHES "^-") OR (TFLIBRARY_POSTFIX MATCHES "^_")))
@@ -42,14 +47,20 @@ set(CMAKE_MODULE_PATH
 find_package(PkgConfig)
 
 if(ILLIXR_ROOT)
-    set(ILLIXR_HDR_PATH ${ILLIXR_ROOT} CACHE PATH "Location of ILLIXR headers")
-    #add_definitions(-DBUILD_ILLIXR)
+    set(ILLIXR_HDR_PATH "${ILLIXR_ROOT}/include" CACHE PATH "Location of ILLIXR headers")
 else()
     message(FATAL_ERROR "ILLIXR_ROOT must be specified")
 endif()
 
 set(protobuf_MODULE_COMPATIBLE ON)
 find_package(ZLIB REQUIRED)
+find_package(ZED 3 QUIET)
+if (ZED_FOUND)
+    find_package(CUDAToolkit ${ZED_CUDA_VERSION} EXACT QUIET)
+    if (NOT CUDAToolkit_FOUND)
+        set(ZED_FOUND NO)
+    endif()
+endif()
 find_package(Protobuf 3.19 REQUIRED CONFIG)
 pkg_check_modules(glog REQUIRED libglog)
 pkg_check_modules(egl REQUIRED egl)
@@ -112,8 +123,12 @@ if(HT_ENABLE_GPU)
     set(HT_PROCESSOR "_gpu")
 endif()
 set(PLUGIN_NAME plugin.hand_tracking${HT_PROCESSOR}${ILLIXR_BUILD_SUFFIX})
-add_library(${PLUGIN_NAME} SHARED plugin.cpp)
-
+add_library(${PLUGIN_NAME} SHARED
+            plugin.cpp
+            plugin.hpp
+            hand_tracking_publisher.cpp
+            hand_tracking_publisher.hpp
+)
 add_subdirectory(mediapipe)
 
 target_link_libraries(${PLUGIN_NAME} PUBLIC
@@ -123,10 +138,28 @@ target_link_libraries(${PLUGIN_NAME} PUBLIC
                       fmt
 )
 
-target_include_directories(${PLUGIN_NAME} PRIVATE
+target_include_directories(${PLUGIN_NAME} PUBLIC
                            ${ILLIXR_HDR_PATH}
                            ${OpenCV_INCLUDE_DIRS}
                            ${CMAKE_BINARY_DIR}
                            ${CMAKE_SOURCE_DIR}
 )
+if(ZED_FOUND)
+    add_compile_definitions(-DUSE_ZED)
+    target_include_directories(${PLUGIN_NAME} PUBLIC
+                               ${ILLIXR_ROOT}
+                               ${ZED_INCLUDE_DIRS}
+    )
+    target_link_libraries(${PLUGIN_NAME} PUBLIC
+                          ${ZED_LIBRARIES}
+                          ${CUDA_CUDA_LIBRARY}
+                          ${CUDA_CUDART_LIBRARY}
+    )
+endif()
+add_compile_definitions(-DUSE_HAND_TRACKING)
+
+if(BUILD_OXR_INTERFACE)
+    add_subdirectory(openxr)
+endif()
+
 install(TARGETS ${PLUGIN_NAME} DESTINATION lib)
