@@ -12,10 +12,10 @@ namespace mediapipe::ILLIXR {
 
         size_t image_id;
         ::ILLIXR::image::image_type type;
-        ::ILLIXR::HandTracking::rect* left_palm = nullptr;
-        ::ILLIXR::HandTracking::rect* right_palm = nullptr;
-        ::ILLIXR::HandTracking::rect* left_hand = nullptr;
-        ::ILLIXR::HandTracking::rect* right_hand = nullptr;
+        ::ILLIXR::rect* left_palm = nullptr;
+        ::ILLIXR::rect* right_palm = nullptr;
+        ::ILLIXR::rect* left_hand = nullptr;
+        ::ILLIXR::rect* right_hand = nullptr;
 
         float left_confidence = 0.;
         float right_confidence = 0.;

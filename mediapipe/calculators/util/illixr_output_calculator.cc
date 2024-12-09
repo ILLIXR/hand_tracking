@@ -226,7 +226,7 @@ namespace mediapipe {
 
         if (cc->Inputs().HasTag(palm_map.at(palm_input)) &&
             !cc->Inputs().Tag(palm_map.at(palm_input)).IsEmpty()) {
-            ::ILLIXR::HandTracking::rect* p_rect;
+            ::ILLIXR::rect* p_rect;
             if (palm_input == palm_input_type::NORM_RECT || palm_input == palm_input_type::RECT) {
                 if (palm_input == palm_input_type::NORM_RECT) {
                     const auto &rect = cc->Inputs().Tag(kNormPalmRectTag).Get<NormalizedRect>();
@@ -275,7 +275,7 @@ namespace mediapipe {
         }
         if (cc->Inputs().HasTag(hand_map.at(hand_input)) &&
             !cc->Inputs().Tag(hand_map.at(hand_input)).IsEmpty()) {
-            ::ILLIXR::HandTracking::rect* h_rect;
+            ::ILLIXR::rect* h_rect;
             if (hand_input == hand_input_type::NORM_RECT || hand_input == hand_input_type::RECT) {
                 if (hand_input == hand_input_type::NORM_RECT) {
                     const auto &rect = cc->Inputs().Tag(kNormHandRectTag).Get<NormalizedRect>();
