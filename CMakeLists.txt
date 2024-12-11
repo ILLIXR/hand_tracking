@@ -144,19 +144,6 @@ target_include_directories(${PLUGIN_NAME} PUBLIC
                            ${CMAKE_BINARY_DIR}
                            ${CMAKE_SOURCE_DIR}
 )
-if(ZED_FOUND)
-    add_compile_definitions(-DUSE_ZED)
-    target_include_directories(${PLUGIN_NAME} PUBLIC
-                               ${ILLIXR_ROOT}
-                               ${ZED_INCLUDE_DIRS}
-    )
-    target_link_libraries(${PLUGIN_NAME} PUBLIC
-                          ${ZED_LIBRARIES}
-                          ${CUDA_CUDA_LIBRARY}
-                          ${CUDA_CUDART_LIBRARY}
-    )
-endif()
-add_compile_definitions(-DUSE_HAND_TRACKING)
 
 if(BUILD_OXR_INTERFACE)
     add_subdirectory(openxr)
