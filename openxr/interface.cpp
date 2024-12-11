@@ -3,7 +3,6 @@
 #include "illixr/phonebook.hpp"
 #include "illixr/switchboard.hpp"
 #include "oxr_objects.h"
-#include "oxr_defines.h"
 #include <boost/interprocess/shared_memory_object.hpp>
 #include <boost/interprocess/mapped_region.hpp>
 
@@ -104,7 +103,7 @@ XrResult locate_hand(struct ixr_hand_tracker* hand_tracker, const XrHandJointsLo
 
     if (hand_tracker->ht_handle->do_convert)
         h_pts.mult(hand_tracker->ht_handle->convert);
-    oxr_space* space = XRT_CAST_OXR_HANDLE_TO_PTR(struct oxr_space*, info->baseSpace);
+    struct oxr_space* space = ((struct oxr_space *) (uintptr_t) (uint64_t) (info->baseSpace));
     if (space->space_type != OXR_SPACE_TYPE_REFERENCE_VIEW)
         h_pts.transform(data->offset_pose);
     if (locations->jointCount == 21) {
