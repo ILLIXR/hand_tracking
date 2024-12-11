@@ -23,21 +23,25 @@ struct ixr_hand_tracker {
     int ixr_hand;
     XrHandJointSetEXT hand_joints;
 };
-EXTERNC XrResult handle_create(struct ixr_session* session,
-                               const XrHandTrackerCreateInfoEXT* info,
-                               struct ixr_hand_tracker** handle);
-EXTERNC void handle_destory(struct ixr_hand_tracker* handle);
-EXTERNC XrResult locate_hand(struct ixr_hand_tracker* hand_tracker, const XrHandJointsLocateInfoEXT* info,
-        XrHandJointLocationsEXT* locations);
+XrResult handle_create(ixr_session* session,
+                       const XrHandTrackerCreateInfoEXT* info,
+                       ixr_hand_tracker* handle);
+void handle_destory(ixr_hand_tracker* handle);
+
+XrResult locate_hand(ixr_hand_tracker* hand_tracker, const XrHandJointsLocateInfoEXT* info,
+                     XrHandJointLocationsEXT* locations);
 
 EXTERNC XRAPI_ATTR XrResult XRAPI_CALL
-ixrCreateHandTrackerEXT(XrSession session, const XrHandTrackerCreateInfoEXT* createInfo,
+ixrCreateHandTrackerEXT(XrSession session,
+                        const XrHandTrackerCreateInfoEXT* createInfo,
                         XrHandTrackerEXT* handTracker);
+
 EXTERNC XRAPI_ATTR XrResult XRAPI_CALL
 ixrDestroyHandTrackerEXT(XrHandTrackerEXT handTracker);
 
 EXTERNC XRAPI_ATTR XrResult XRAPI_CALL
-ixrLocateHandJointsEXT(XrHandTrackerEXT handTracker, const XrHandJointsLocateInfoEXT* locateInfo,
+ixrLocateHandJointsEXT(XrHandTrackerEXT handTracker,
+                       const XrHandJointsLocateInfoEXT* locateInfo,
                        XrHandJointLocationsEXT* locations);
 
 

@@ -59,6 +59,8 @@ if (ZED_FOUND)
     find_package(CUDAToolkit ${ZED_CUDA_VERSION} EXACT QUIET)
     if (NOT CUDAToolkit_FOUND)
         set(ZED_FOUND NO)
+    else()
+        add_definitions(-DHAVE_ZED)
     endif()
 endif()
 find_package(Protobuf 3.19 REQUIRED CONFIG)
@@ -140,6 +142,7 @@ target_link_libraries(${PLUGIN_NAME} PUBLIC
 
 target_include_directories(${PLUGIN_NAME} PUBLIC
                            ${ILLIXR_HDR_PATH}
+                           ${ILLIXR_ROOT}
                            ${OpenCV_INCLUDE_DIRS}
                            ${CMAKE_BINARY_DIR}
                            ${CMAKE_SOURCE_DIR}

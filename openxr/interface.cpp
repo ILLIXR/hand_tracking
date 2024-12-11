@@ -63,30 +63,29 @@ struct ht_illixr_handle_t {
 
 };
 
-XrResult handle_create(struct ixr_session* session,
+XrResult handle_create(ixr_session* session,
                        const XrHandTrackerCreateInfoEXT* info,
-                       struct ixr_hand_tracker **handle) {
+                       ixr_hand_tracker *handle) {
     try {
-        struct ixr_hand_tracker *hand_tracker = nullptr;
-        hand_tracker = ((struct ixr_hand_tracker *) calloc(1, sizeof(*hand_tracker)));
-        hand_tracker->session = session;
-        hand_tracker->hand = info->hand;
-        hand_tracker->ixr_hand = (hand_tracker->hand == XR_HAND_LEFT_EXT) ? ILLIXR::HandTracking::LEFT_HAND
-                                                                          : ILLIXR::HandTracking::RIGHT_HAND;
-        hand_tracker->hand_joints = info->handJointSet;
-        hand_tracker->ht_handle = create_ht_illixr();
+        handle = new ixr_hand_tracker();
+        handle->session = session;
+        handle->hand = info->hand;
+        handle->ixr_hand = (handle->hand == XR_HAND_LEFT_EXT) ? ILLIXR::HandTracking::LEFT_HAND
+                                                              : ILLIXR::HandTracking::RIGHT_HAND;
+        handle->hand_joints = info->handJointSet;
+        handle->ht_handle = create_ht_illixr();
 
-        *handle = hand_tracker;
     } catch (...) {
         return XR_ERROR_HANDLE_INVALID;
     }
     return XR_SUCCESS;
 }
 
-void handle_destory(struct ixr_hand_tracker* handle) {
+void handle_destory(ixr_hand_tracker* handle) {
     delete handle->ht_handle;
+    delete handle;
+    handle = NULL;
 }
-// #define XRT_CAST_PTR_TO_OXR_HANDLE(HANDLE_TYPE, PTR) ((HANDLE_TYPE)(uint64_t)(uintptr_t)(PTR))
 
 
 XrResult locate_hand(struct ixr_hand_tracker* hand_tracker, const XrHandJointsLocateInfoEXT* info, XrHandJointLocationsEXT* locations) {
@@ -103,7 +102,7 @@ XrResult locate_hand(struct ixr_hand_tracker* hand_tracker, const XrHandJointsLo
 
     if (hand_tracker->ht_handle->do_convert)
         h_pts.mult(hand_tracker->ht_handle->convert);
-    struct oxr_space* space = ((struct oxr_space *) (uintptr_t) (uint64_t) (info->baseSpace));
+    auto* space = reinterpret_cast<oxr_space *>(info->baseSpace);
     if (space->space_type != OXR_SPACE_TYPE_REFERENCE_VIEW)
         h_pts.transform(data->offset_pose);
     if (locations->jointCount == 21) {
