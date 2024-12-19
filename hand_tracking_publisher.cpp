@@ -15,7 +15,6 @@ ILLIXR::hand_tracking_publisher::hand_tracking_publisher(const std::string &name
 void ILLIXR::hand_tracking_publisher::start() {
     threadloop::start();
     cam_data_ = *_camera_reader.get_ro().get();
-    _initial_pose = *_initial_pose_reader.get_ro().get();
 }
 
 ILLIXR::hand_tracking_publisher::~hand_tracking_publisher() {
