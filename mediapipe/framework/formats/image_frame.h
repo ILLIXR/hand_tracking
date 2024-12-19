@@ -44,7 +44,7 @@
 #include "mediapipe/framework/formats/image_format.pb.h"
 #include "mediapipe/framework/port.h"
 #include "mediapipe/framework/tool/type_util.h"
-#include "illixr/opencv_data_types.hpp"
+#include "illixr/data_format/opencv_data_types.hpp"
 
 #define IMAGE_FRAME_RAW_IMAGE MEDIAPIPE_HAS_RTTI
 
