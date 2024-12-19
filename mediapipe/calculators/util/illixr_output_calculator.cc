@@ -162,7 +162,7 @@ namespace mediapipe {
             !cc->Inputs().Tag(image_map.at(image_type)).IsEmpty()) {
             auto img = absl::make_unique<cv::Mat>();
             frame_data->image_id = img_data_.frame_id();
-            frame_data->type = static_cast<::ILLIXR::image::image_type>(img_data_.image_type());
+            frame_data->type = static_cast<::ILLIXR::data_format::image::image_type>(img_data_.image_type());
             if (image_type == input_image_type::UIMAGE) {
                 const auto& input =
                         cc->Inputs().Tag(kImageTag).Get<mediapipe::Image>();
@@ -211,10 +211,11 @@ namespace mediapipe {
             !cc->Inputs().Tag(kHandPointsTag).IsEmpty()) {
             const auto &hp = cc->Inputs().Tag(kHandPointsTag).Get<std::vector<Points> >();
             for (auto i = 0; i < hp.size(); i++) {
-                auto hand_points = absl::make_unique<::ILLIXR::HandTracking::hand_points>();
+                auto hand_points = absl::make_unique<::ILLIXR::data_format::ht::hand_points>();
+                hand_points->unit = ::ILLIXR::data_format::units::PERCENT;
                 for (auto j = 0; j < hp[i].points_size(); j++) {
                     auto pnt = hp[i].points(j);
-                    hand_points->at(j).set(pnt.x(), pnt.y(), pnt.z(), ::ILLIXR::units::PERCENT);
+                    hand_points->at(j).set(pnt.x(), pnt.y(), pnt.z(), ::ILLIXR::data_format::units::PERCENT);
                 }
                 if (i == left_idx)
                     frame_data->left_hand_points = hand_points.release();
@@ -226,7 +227,7 @@ namespace mediapipe {
 
         if (cc->Inputs().HasTag(palm_map.at(palm_input)) &&
             !cc->Inputs().Tag(palm_map.at(palm_input)).IsEmpty()) {
-            ::ILLIXR::rect* p_rect;
+            ::ILLIXR::data_format::rect* p_rect;
             if (palm_input == palm_input_type::NORM_RECT || palm_input == palm_input_type::RECT) {
                 if (palm_input == palm_input_type::NORM_RECT) {
                     const auto &rect = cc->Inputs().Tag(kNormPalmRectTag).Get<NormalizedRect>();
@@ -275,7 +276,7 @@ namespace mediapipe {
         }
         if (cc->Inputs().HasTag(hand_map.at(hand_input)) &&
             !cc->Inputs().Tag(hand_map.at(hand_input)).IsEmpty()) {
-            ::ILLIXR::rect* h_rect;
+            ::ILLIXR::data_format::rect* h_rect;
             if (hand_input == hand_input_type::NORM_RECT || hand_input == hand_input_type::RECT) {
                 if (hand_input == hand_input_type::NORM_RECT) {
                     const auto &rect = cc->Inputs().Tag(kNormHandRectTag).Get<NormalizedRect>();

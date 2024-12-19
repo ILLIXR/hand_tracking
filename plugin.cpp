@@ -9,14 +9,16 @@
 #include "mediapipe/framework/formats/image_frame.h"
 #include "mediapipe/framework/formats/image_frame_opencv.h"
 
-#include "illixr/zed_cam.hpp"
+#include "illixr/data_format/misc.hpp"
+#include "illixr/data_format/zed_cam.hpp"
 
 #if !MEDIAPIPE_DISABLE_GPU
 #include "mediapipe/gpu/gpu_buffer.h"
 #include "mediapipe/gpu/gpu_shared_data_internal.h"
 #endif
 using namespace ILLIXR;
-using namespace ILLIXR::HandTracking;
+namespace idf = ILLIXR::data_format;
+namespace iht = ILLIXR::data_format::ht;
 
 constexpr char kInputStream[] = "input_video";
 constexpr char kOutputStream[] = "illixr_data";
@@ -42,11 +44,11 @@ void img_convert(cv::Mat& img, bool flip=false) {
 
 ht::cam_type get_cam_type(const std::shared_ptr<switchboard>& sb) {
     std::string input_src = sb->get_env("HT_INPUT");
-    if (ILLIXR::compare(input_src, "zed")) {
+    if (ILLIXR::data_format::compare(input_src, "zed")) {
         return ht::ZED;
-    } else if (ILLIXR::compare(input_src, "cam")) {
+    } else if (ILLIXR::data_format::compare(input_src, "cam")) {
         return ht::CAM;
-    } else if (ILLIXR::compare(input_src, "webcam")) {
+    } else if (ILLIXR::data_format::compare(input_src, "webcam")) {
         return  ht::WEBCAM;
     } else {
         throw std::runtime_error("HT_INPUT did not have a valid type");
@@ -55,9 +57,9 @@ ht::cam_type get_cam_type(const std::shared_ptr<switchboard>& sb) {
 
 [[maybe_unused]] hand_tracking::hand_tracking(const std::string& name_, phonebook* pb_)
         : plugin{name_, pb_}
-        , _graph{{::ILLIXR::image::LEFT_EYE, nullptr},
-                 {::ILLIXR::image::RIGHT_EYE, nullptr},
-                 {::ILLIXR::image::RGB, nullptr}}
+        , _graph{{idf::image::LEFT_EYE, nullptr},
+                 {idf::image::RIGHT_EYE, nullptr},
+                 {idf::image::RGB, nullptr}}
         , _switchboard{pb_->lookup_impl<switchboard>()}
         , _cam_type{get_cam_type(_switchboard)}
         , _publisher{"hand_tracking_publisher", pb_, _cam_type} {
@@ -80,14 +82,14 @@ ht::cam_type get_cam_type(const std::shared_ptr<switchboard>& sb) {
 
 
     if (_input_type == ht::RGB) {
-        _graph.at(::ILLIXR::image::RGB) = new mediapipe::CalculatorGraph();
+        _graph.at(idf::image::RGB) = new mediapipe::CalculatorGraph();
     } else {
         if (_input_type != ht::RIGHT)
-            _graph.at(::ILLIXR::image::LEFT_EYE) = new mediapipe::CalculatorGraph();
+            _graph.at(idf::image::LEFT_EYE) = new mediapipe::CalculatorGraph();
         if (_input_type == ht::RIGHT || _input_type == ht::BOTH)
-            _graph.at(::ILLIXR::image::RIGHT_EYE) = new mediapipe::CalculatorGraph();
+            _graph.at(idf::image::RIGHT_EYE) = new mediapipe::CalculatorGraph();
     }
-    _publisher.set_framecount(_input_type);
+    _publisher.set_frame_count(_input_type);
 }
 
 void hand_tracking::start() {
@@ -101,17 +103,17 @@ void hand_tracking::start() {
     auto config = mediapipe::ParseTextProtoOrDie<mediapipe::CalculatorGraphConfig>(calculator_graph_config_contents);
 
     if (_input_type == ht::RGB) {
-        status = _graph[::ILLIXR::image::RGB]->Initialize(config);
+        status = _graph[idf::image::RGB]->Initialize(config);
         if (!status.ok())
             throw std::runtime_error(std::string(status.message()));
     } else {
         if (_input_type != ht::RIGHT) {
-            status = _graph[::ILLIXR::image::LEFT_EYE]->Initialize(config);
+            status = _graph[idf::image::LEFT_EYE]->Initialize(config);
             if (!status.ok())
                 throw std::runtime_error(std::string(status.message()));
         }
         if (_input_type == ht::RIGHT || _input_type == ht::BOTH) {
-            status = _graph[::ILLIXR::image::RIGHT_EYE]->Initialize(config);
+            status = _graph[idf::image::RIGHT_EYE]->Initialize(config);
             if (!status.ok())
                 throw std::runtime_error(std::string(status.message()));
         }
@@ -152,24 +154,28 @@ void hand_tracking::start() {
     // subscribe to the expected type
     switch (_cam_type) {
         case ht::WEBCAM:
-            _switchboard->schedule<monocular_cam_type>(id, "webcam",
-                                                       [this](const switchboard::ptr<const monocular_cam_type> &frame,
+            _switchboard->schedule<idf::monocular_cam_type>(id, "webcam",
+                                                       [this](const switchboard::ptr<const idf::monocular_cam_type> &frame,
                                                               std::size_t) {
                                                            this->process(frame);
                                                        });
             break;
         case ht::CAM:
-            _switchboard->schedule<binocular_cam_type>(id, "cam",
-                                                       [this](const switchboard::ptr<const binocular_cam_type> &img,
+            _switchboard->schedule<idf::binocular_cam_type>(id, "cam",
+                                                       [this](const switchboard::ptr<const idf::binocular_cam_type> &img,
                                                               std::size_t) {
                                                            this->process(img);
                                                        });
             break;
         case ht::ZED:
-            _switchboard->schedule<cam_type_zed>(id, "cam_zed",
-                                                 [this](const switchboard::ptr<const cam_type_zed> &img, std::size_t) {
+#ifdef HAVE_ZED
+        _switchboard->schedule<idf::cam_type_zed>(id, "cam_zed",
+                                                 [this](const switchboard::ptr<const idf::cam_type_zed> &img, std::size_t) {
                                                      this->process(img);
                                                  });
+#else
+            throw std::runtime_error("No support for zed camera");
+#endif
             break;
     }
     _publisher.start();
@@ -185,99 +191,101 @@ hand_tracking::~hand_tracking() {
         delete i.second;
 }
 
-void hand_tracking::process(const switchboard::ptr<const cam_base_type>& frame) {
+void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& frame) {
     _current_images.clear();
     pose_image pose_img;
     switch (frame->type) {
-        case ::ILLIXR::camera::BINOCULAR:
+        case idf::camera::BINOCULAR:
             switch (_input_type) {
                 case ht::BOTH:
-                    _current_images = {{::ILLIXR::image::LEFT_EYE,  frame->at(::ILLIXR::image::LEFT_EYE).clone()},
-                                       {::ILLIXR::image::RIGHT_EYE, frame->at(::ILLIXR::image::RIGHT_EYE).clone()}};
+                    _current_images = {{idf::image::LEFT_EYE,  frame->at(idf::image::LEFT_EYE).clone()},
+                                       {idf::image::RIGHT_EYE, frame->at(idf::image::RIGHT_EYE).clone()}};
                     pose_img.eye_count = 2;
                     break;
                 case ht::LEFT:
-                    _current_images = {{::ILLIXR::image::LEFT_EYE, frame->at(::ILLIXR::image::LEFT_EYE).clone()}};
+                    _current_images = {{idf::image::LEFT_EYE, frame->at(idf::image::LEFT_EYE).clone()}};
                     pose_img.eye_count = 1;
-                    pose_img.primary = ::ILLIXR::units::LEFT_EYE;
+                    pose_img.primary = idf::units::LEFT_EYE;
                     break;
                 case ht::RIGHT:
-                    _current_images = {{::ILLIXR::image::RIGHT_EYE, frame->at(::ILLIXR::image::RIGHT_EYE).clone()}};
+                    _current_images = {{idf::image::RIGHT_EYE, frame->at(idf::image::RIGHT_EYE).clone()}};
                     pose_img.eye_count = 1;
-                    pose_img.primary = ::ILLIXR::units::RIGHT_EYE;
+                    pose_img.primary = idf::units::RIGHT_EYE;
                     break;
                 case ht::RGB:
                     std::cout << "RGB not provided by binocular view";
                     break;
             }
             break;
-        case ::ILLIXR::camera::MONOCULAR: {
-            cv::Mat temp_img(frame->at(::ILLIXR::image::RGB).clone());
+        case idf::camera::MONOCULAR: {
+            cv::Mat temp_img(frame->at(idf::image::RGB).clone());
             cv::flip(temp_img, temp_img, 1);
             img_convert(temp_img);
-            _current_images = {{::ILLIXR::image::LEFT_EYE, temp_img}};
+            _current_images = {{idf::image::LEFT_EYE, temp_img}};
             pose_img.eye_count = 1;
-            pose_img.primary = ::ILLIXR::units::LEFT_EYE;
+            pose_img.primary = idf::units::LEFT_EYE;
             break;
         }
-        case ::ILLIXR::camera::RGB_DEPTH: {
-            _current_images = {{::ILLIXR::image::LEFT_EYE, frame->at(::ILLIXR::image::RGB).clone()}};
+        case idf::camera::RGB_DEPTH: {
+            _current_images = {{idf::image::LEFT_EYE, frame->at(idf::image::RGB).clone()}};
             pose_img.eye_count = 1;
-            pose_img.primary = ::ILLIXR::units::LEFT_EYE;
+            pose_img.primary = idf::units::LEFT_EYE;
             break;
         }
-        case ::ILLIXR::camera::ZED: {
+        case idf::camera::ZED: {
+#ifdef HAVE_ZED
             switch (_input_type) {
                 case ht::BOTH: {
-                    cv::Mat tempL(frame->at(::ILLIXR::image::LEFT_EYE).clone());
-                    cv::Mat tempR(frame->at(::ILLIXR::image::RIGHT_EYE).clone());
+                    cv::Mat tempL(frame->at(idf::image::LEFT_EYE).clone());
+                    cv::Mat tempR(frame->at(idf::image::RIGHT_EYE).clone());
                     img_convert(tempL, true);
                     img_convert(tempR, true);
-                    _current_images = {{::ILLIXR::image::LEFT_EYE, tempL},
-                                       {::ILLIXR::image::RIGHT_EYE, tempR}};
+                    _current_images = {{idf::image::LEFT_EYE, tempL},
+                                       {idf::image::RIGHT_EYE, tempR}};
                     pose_img.eye_count = 2;
-                    pose_img.primary = ::ILLIXR::units::LEFT_EYE;
+                    pose_img.primary = idf::units::LEFT_EYE;
                     break;
                 }
                 case ht::LEFT: {
-                    cv::Mat temp(frame->at(::ILLIXR::image::LEFT_EYE).clone());
+                    cv::Mat temp(frame->at(idf::image::LEFT_EYE).clone());
                     img_convert(temp, true);
-                    _current_images = {{::ILLIXR::image::LEFT_EYE, temp}};
+                    _current_images = {{idf::image::LEFT_EYE, temp}};
                     pose_img.eye_count = 1;
-                    pose_img.primary = ::ILLIXR::units::LEFT_EYE;
+                    pose_img.primary =idf:: units::LEFT_EYE;
                     break;
                 }
                 case ht::RIGHT: {
-                    cv::Mat temp(frame->at(::ILLIXR::image::RIGHT_EYE).clone());
+                    cv::Mat temp(frame->at(idf::image::RIGHT_EYE).clone());
                     img_convert(temp, true);
-                    _current_images = {{::ILLIXR::image::RIGHT_EYE, temp}};
+                    _current_images = {{idf::image::RIGHT_EYE, temp}};
                     pose_img.eye_count = 1;
-                    pose_img.primary = ::ILLIXR::units::RIGHT_EYE;
+                    pose_img.primary = idf::units::RIGHT_EYE;
                     break;
                 }
                 case ht::RGB: {
-                    cv::Mat temp(frame->at(::ILLIXR::image::RGB).clone());
+                    cv::Mat temp(frame->at(idf::image::RGB).clone());
                     img_convert(temp, true);
-                    _current_images = {{::ILLIXR::image::LEFT_EYE, temp}};
+                    _current_images = {{idf::image::LEFT_EYE, temp}};
                     pose_img.eye_count = 1;
-                    pose_img.primary = ::ILLIXR::units::LEFT_EYE;
+                    pose_img.primary = idf::units::LEFT_EYE;
                     break;
                 }
             }
-            if (frame->find(::ILLIXR::image::DEPTH) != frame->end()) {
-                pose_img.images[::ILLIXR::image::DEPTH] = frame->at(::ILLIXR::image::DEPTH).clone();
+            if (frame->find(idf::image::DEPTH) != frame->end()) {
+                pose_img.images[idf::image::DEPTH] = frame->at(idf::image::DEPTH).clone();
                 pose_img.depth_valid = true;
             }
-            if (frame->find(::ILLIXR::image::CONFIDENCE) != frame->end()) {
-                pose_img.images[::ILLIXR::image::CONFIDENCE] = frame->at(::ILLIXR::image::CONFIDENCE).clone();
+            if (frame->find(idf::image::CONFIDENCE) != frame->end()) {
+                pose_img.images[idf::image::CONFIDENCE] = frame->at(idf::image::CONFIDENCE).clone();
                 pose_img.confidence_valid_ = true;
             }
-            pose_img.poses = dynamic_cast<const cam_type_zed*>(frame.get())->poses;
+            pose_img.poses = dynamic_cast<const idf::cam_type_zed*>(frame.get())->poses;
             pose_img.insert(_current_images.begin(), _current_images.end());
             pose_img.pose_valid = true;
             break;
+#endif
         }
-        case ::ILLIXR::camera::DEPTH: {
+        case idf::camera::DEPTH: {
             /// TODO Error
         }
     }

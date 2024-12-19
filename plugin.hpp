@@ -20,12 +20,12 @@ public:
     [[maybe_unused]] hand_tracking(const std::string& name_, phonebook* pb_);
 
     void start() override;
-    void process(const switchboard::ptr<const cam_base_type>& frame);
+    void process(const switchboard::ptr<const data_format::cam_base_type>& frame);
     void stop() override;
     ~hand_tracking() override;
 private:
     const std::shared_ptr<switchboard> _switchboard;
-    std::map<::ILLIXR::image::image_type, mediapipe::CalculatorGraph*> _graph;
+    std::map<data_format::image::image_type, mediapipe::CalculatorGraph*> _graph;
     ht::cam_type _cam_type;
     hand_tracking_publisher _publisher;
     std::string _ht_config_file;
@@ -33,7 +33,7 @@ private:
     image_map _current_images;
     bool _first_person = true;
 #if !MEDIAPIPE_DISABLE_GPU
-    std::map<::ILLIXR::image::image_type, mediapipe::GlCalculatorHelper> _gpu_helper;
+    std::map<data_format::image::image_type, mediapipe::GlCalculatorHelper> _gpu_helper;
 #endif
-};
+    };
 }
