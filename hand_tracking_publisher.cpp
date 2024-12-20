@@ -95,12 +95,14 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
     _img_size_y = _current_raw.at(output_frame.type).rows;
     _results_images.emplace(output_frame.type, _current_raw.at(output_frame.type));
     _results_images.emplace(out_img_type, *output_frame.image);
-    output_frame.left_hand->flip_y();
-    output_frame.right_hand->flip_y();
-    output_frame.left_palm->flip_y();
-    output_frame.right_palm->flip_y();
-    output_frame.left_hand_points->flip_y();
-    output_frame.right_hand_points->flip_y();
+    if (output_frame.left_hand_points) {
+        output_frame.left_hand_points->enforce_bounds(1., 1.);
+        output_frame.left_hand_points->check_validity();
+    }
+    if (output_frame.right_hand_points) {
+        output_frame.right_hand_points->enforce_bounds(1., 1.);
+        output_frame.right_hand_points->check_validity();
+    }
 
     _detections.emplace(out_type, data_format::ht::ht_detection{end_time - start_time, output_frame.left_palm, output_frame.right_palm,
                                                                 output_frame.left_hand, output_frame.right_hand, output_frame.left_confidence,
@@ -127,8 +129,15 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
         }
         calculate_proper_position(hp);
 
-        auto current_position = HandTracking::position(hp, _current_pose.unit, std::chrono::system_clock::now().time_since_epoch().count());
-        std::map<HandTracking::hand, HandTracking::velocity> velocity = {};
+        // need to correct the y-axis to have 0 in the bottom left corner
+        for (auto& det : _detections) {
+            for (const data_format::ht::hand h : data_format::ht::hand_map) {
+                det.second.palms.at(h).flip_y(_img_size_y);
+                det.second.hands.at(h).flip_y(_img_size_y);
+                det.second.points.at(h).flip_y(_img_size_y);
+            }
+        }
+
         auto current_position = data_format::ht::position(hp, _current_pose.unit, std::chrono::system_clock::now().time_since_epoch().count());
         std::map<data_format::ht::hand, data_format::ht::velocity> velocity = {};
         if (_last_position.valid) {
@@ -182,7 +191,6 @@ void ILLIXR::hand_tracking_publisher::calculate_proper_position(std::map<data_fo
     for (auto h : data_format::ht::hand_map) {
         auto& primary_eye = _detections.at(_current_raw.primary).points.at(h);
         if (!primary_eye.valid) {
-            hp[h].clear();
             continue;
         }
 
@@ -191,6 +199,7 @@ void ILLIXR::hand_tracking_publisher::calculate_proper_position(std::map<data_fo
         for (int i = 0 ; i < data_format::ht::NUM_LANDMARKS; i++) {
             if (primary_eye[i].x() == 0. || primary_eye[i].y() == 0. || !primary_eye[i].valid) {
                 hand_pnts[i].confidence = 0.;
+                hand_pnts[i].valid = false;
             } else {
                 Eigen::Vector3f pnt;
 
@@ -203,9 +212,9 @@ void ILLIXR::hand_tracking_publisher::calculate_proper_position(std::map<data_fo
                 float distance = 0;
                 double confidence = -1.;
                 if (!_current_confidence.empty())
-                    confidence = 1. - (_current_confidence.at<float>(primary_x, primary_y)) / 100.;
+                    confidence = 1. - (_current_confidence.at<float>(primary_y, primary_x)) / 100.;
                 if (!_current_depth.empty())
-                    distance = std::abs(_current_depth.at<float>(primary_x, primary_y));
+                    distance = std::abs(_current_depth.at<float>(primary_y, primary_x));
 
                 // use parallax to determine distance
                 if ((!_current_confidence.empty() && confidence <= .05) ||
@@ -231,12 +240,24 @@ void ILLIXR::hand_tracking_publisher::calculate_proper_position(std::map<data_fo
                         double theta_r = sqrt(pow(t_xr, 2.) + pow(t_yr, 2.));
 
                         double top_angle = sqrt(pow(tax, 2.) + pow(tay, 2.0));
-                        distance = cam_data_.baseline * (float)(std::sin(theta_r) / std::sin(top_angle));
+                        distance = -cam_data_.baseline * (float)(std::sin(theta_r) / std::sin(top_angle));
                     }
+                } else {
                 }
+
                 pnt.x() = distance * (float)std::sin(theta_xl);
                 pnt.y() = distance * (float)std::sin(theta_yl);
-                pnt.z() = -1.f * distance;  // negative Z is forward
+
+                distance *= (float)std::cos(theta_xl) * (float)std::cos(theta_yl);
+
+                if (pnt.z() > 0.)
+                    pnt.z() = -1.f * distance;  // negative Z is forward
+                else
+                    pnt.z() = distance;
+                hand_pnts[i].set(pnt);
+                hand_pnts[i].valid = true;
+                hand_pnts[i].confidence = confidence;
+                hand_pnts.valid = true;
             }
         }
         hp[h] = hand_pnts;
