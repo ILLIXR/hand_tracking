@@ -115,16 +115,16 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
 
         if (_current_raw.pose_valid) {
             if (_current_raw.eye_count == 1) {
-                _current_pose = _current_raw.poses.at(_current_raw.primary);
+                _current_pose = static_cast<data_format::pose_data>(_current_raw.poses.at(_current_raw.primary));
             } else {
-                _current_pose = _current_raw.poses.at(data_format::units::non_primary(_current_raw.primary));
+                _current_pose = static_cast<data_format::pose_data>(_current_raw.poses.at(data_format::units::non_primary(_current_raw.primary)));
             }
         } else {
             auto pose = _pose_reader.get_ro_nullable();
             if (pose == nullptr) {
                 _current_pose = data_format::pose_data({0., 0., 0.}, {0., 0., 0., 0.});
             } else {
-                _current_pose = *pose.get();
+                _current_pose = static_cast<data_format::pose_data>(*pose.get());
             }
         }
         calculate_proper_position(hp);
@@ -143,10 +143,10 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
         if (_last_position.valid) {
             velocity[data_format::ht::LEFT_HAND] = data_format::ht::velocity(current_position.points[data_format::ht::LEFT_HAND],
                                                                              _last_position.points[data_format::ht::LEFT_HAND],
-                                                                             (float)(current_position.time - _last_position.time) * NANO);
+                                                                             static_cast<float>(current_position.time - _last_position.time) * NANO);
             velocity[data_format::ht::RIGHT_HAND] = data_format::ht::velocity(current_position.points[data_format::ht::RIGHT_HAND],
                                                                               _last_position.points[data_format::ht::RIGHT_HAND],
-                                                                              (float)(current_position.time - _last_position.time) * NANO);
+                                                                              static_cast<float>(current_position.time - _last_position.time) * NANO);
         }
         // Convert back to opencv for display or saving.
         time_point current_time(
@@ -185,8 +185,12 @@ void ILLIXR::hand_tracking_publisher::calculate_proper_position(std::map<data_fo
     } else {
         _current_confidence = cv::Mat();
     }
+    Eigen::Matrix3f rot;
+    if (_current_pose.valid)
+        rot =_current_pose.orientation.toRotationMatrix();
+
     for (auto& item : _detections)
-        data_format::denormalize(item.second, (float)_img_size_x, (float)_img_size_y, data_format::units::PIXEL);
+        data_format::denormalize(item.second, static_cast<float>(_img_size_x), static_cast<float>(_img_size_y), data_format::units::PIXEL);
     // only use left eye detections, as the depth map is expressed as left eye distance
     for (auto h : data_format::ht::hand_map) {
         auto& primary_eye = _detections.at(_current_raw.primary).points.at(h);
@@ -240,15 +244,15 @@ void ILLIXR::hand_tracking_publisher::calculate_proper_position(std::map<data_fo
                         double theta_r = sqrt(pow(t_xr, 2.) + pow(t_yr, 2.));
 
                         double top_angle = sqrt(pow(tax, 2.) + pow(tay, 2.0));
-                        distance = -cam_data_.baseline * (float)(std::sin(theta_r) / std::sin(top_angle));
+                        distance = -cam_data_.baseline * static_cast<float>(std::sin(theta_r) / std::sin(top_angle));
                     }
                 } else {
                 }
 
-                pnt.x() = distance * (float)std::sin(theta_xl);
-                pnt.y() = distance * (float)std::sin(theta_yl);
+                pnt.x() = distance * static_cast<float>(std::sin(theta_xl));
+                pnt.y() = distance * static_cast<float>(std::sin(theta_yl));
 
-                distance *= (float)std::cos(theta_xl) * (float)std::cos(theta_yl);
+                distance *= static_cast<float>(std::cos(theta_xl)) * static_cast<float>(std::cos(theta_yl));
 
                 if (pnt.z() > 0.)
                     pnt.z() = -1.f * distance;  // negative Z is forward
@@ -256,8 +260,12 @@ void ILLIXR::hand_tracking_publisher::calculate_proper_position(std::map<data_fo
                     pnt.z() = distance;
                 hand_pnts[i].set(pnt);
                 hand_pnts[i].valid = true;
-                hand_pnts[i].confidence = confidence;
+                hand_pnts[i].confidence = static_cast<float>(confidence);
                 hand_pnts.valid = true;
+                if (_current_pose.valid) {
+                    hand_pnts[i].set(rot * hand_pnts[i]);
+                    hand_pnts[i] += _current_pose.position;
+                }
             }
         }
         hp[h] = hand_pnts;

@@ -92,12 +92,12 @@ protected:
 private:
     void calculate_proper_position(std::map<data_format::ht::hand, data_format::ht::hand_points> &thp);
 
-    const std::shared_ptr<switchboard>           _switchboard;
-    switchboard::writer <data_format::ht::ht_frame> _ht_publisher;
-    switchboard::reader <data_format::pose_type>              _pose_reader;
-    switchboard::reader <data_format::camera_data>            _camera_reader;
-    switchboard::reader <data_format::depth_type>             _depth_reader;
-    switchboard::reader <data_format::rgb_depth_type>         _rgb_depth_reader;
+    const std::shared_ptr<switchboard>                 _switchboard;
+    switchboard::writer <data_format::ht::ht_frame>    _ht_publisher;
+    switchboard::reader <data_format::pose_type>       _pose_reader;
+    switchboard::reader <data_format::camera_data>     _camera_reader;
+    switchboard::reader <data_format::depth_type>      _depth_reader;
+    switchboard::reader <data_format::rgb_depth_type>  _rgb_depth_reader;
 
     std::map<data_format::image::image_type, mediapipe::OutputStreamPoller *> _poller = {{data_format::image::LEFT_EYE,  nullptr},
                                                                                          {data_format::image::RIGHT_EYE, nullptr},
