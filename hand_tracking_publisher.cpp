@@ -19,22 +19,6 @@ ILLIXR::hand_tracking_publisher::hand_tracking_publisher(const std::string &name
 void ILLIXR::hand_tracking_publisher::start() {
     cam_data_ = *_camera_reader.get_ro().get();
     _initial_pose = *_initial_pose_reader.get_ro().get();
-    /*
-//#ifdef USE_ZED
-    //if (_cam_type == ht::ZED) {
-
-        //for (int i = 0; i < 10; i++) {
-        //    try {
-
-        //        break;
-        //    } catch (std::runtime_error &) {
-        //    }
-        //    std::this_thread::sleep_for(std::chrono::milliseconds(10));
-        //}
-        //throw std::runtime_error("Could not get camera config from zed");
-    //}
-//#endif
-     */
 }
 
 ILLIXR::hand_tracking_publisher::~hand_tracking_publisher() {
