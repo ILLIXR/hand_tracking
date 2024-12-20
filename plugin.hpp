@@ -3,7 +3,6 @@
 #include "illixr/plugin.hpp"
 #include "illixr/phonebook.hpp"
 #include "illixr/switchboard.hpp"
-#include "illixr/zed_cam.hpp"
 #include "hand_tracking_publisher.hpp"
 
 #include "mediapipe/framework/calculator_graph.h"

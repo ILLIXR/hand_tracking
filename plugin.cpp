@@ -9,6 +9,8 @@
 #include "mediapipe/framework/formats/image_frame.h"
 #include "mediapipe/framework/formats/image_frame_opencv.h"
 
+#include "illixr/zed_cam.hpp"
+
 #if !MEDIAPIPE_DISABLE_GPU
 #include "mediapipe/gpu/gpu_buffer.h"
 #include "mediapipe/gpu/gpu_shared_data_internal.h"
@@ -39,12 +41,12 @@ void img_convert(cv::Mat& img, bool flip=false) {
 }
 
 ht::cam_type get_cam_type(const std::shared_ptr<switchboard>& sb) {
-    std::string in_src = sb->get_env("HT_INPUT");
-    if (ILLIXR::compare(in_src, "zed")) {
+    std::string input_src = sb->get_env("HT_INPUT");
+    if (ILLIXR::compare(input_src, "zed")) {
         return ht::ZED;
-    } else if (ILLIXR::compare(in_src, "cam")) {
+    } else if (ILLIXR::compare(input_src, "cam")) {
         return ht::CAM;
-    } else if (ILLIXR::compare(in_src, "webcam")) {
+    } else if (ILLIXR::compare(input_src, "webcam")) {
         return  ht::WEBCAM;
     } else {
         throw std::runtime_error("HT_INPUT did not have a valid type");
