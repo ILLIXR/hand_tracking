@@ -66,6 +66,8 @@ struct pose_image {
     }
 };
 
+void transform(const pose_data& pose, ILLIXR::HandTracking::hand_points& hp);
+
 class hand_tracking_publisher : public threadloop {
 public:
     hand_tracking_publisher(const std::string &name_, phonebook *pb_, ht::cam_type _c_type);

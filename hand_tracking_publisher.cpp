@@ -115,6 +115,13 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
     _img_size_y = _current_raw.at(output_frame.type).rows;
     _results_images.emplace(output_frame.type, _current_raw.at(output_frame.type));
     _results_images.emplace(out_img_type, *output_frame.image);
+    output_frame.left_hand->flip_y();
+    output_frame.right_hand->flip_y();
+    output_frame.left_palm->flip_y();
+    output_frame.right_palm->flip_y();
+    output_frame.left_hand_points->flip_y();
+    output_frame.right_hand_points->flip_y();
+
     _detections.emplace(out_type, HandTracking::ht_detection{end_time - start_time, output_frame.left_palm, output_frame.right_palm,
                                                              output_frame.left_hand, output_frame.right_hand, output_frame.left_confidence,
                                                              output_frame.right_confidence, output_frame.left_hand_points,
@@ -124,6 +131,20 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
         std::map<HandTracking::hand, HandTracking::hand_points> hp{{HandTracking::LEFT_HAND, HandTracking::hand_points()},
                                                                    {HandTracking::RIGHT_HAND, HandTracking::hand_points()}};
 
+        if (_current_raw.pose_valid) {
+            if (_current_raw.eye_count == 1) {
+                _current_pose = _current_raw.poses.at(_current_raw.primary);
+            } else {
+                _current_pose = _current_raw.poses.at(::ILLIXR::units::non_primary(_current_raw.primary));
+            }
+        } else {
+            auto pose = _pose_reader.get_ro_nullable();
+            if (pose == nullptr) {
+                _current_pose = pose_data({0., 0., 0.}, {0., 0., 0., 0.});
+            } else {
+                _current_pose = *pose.get();
+            }
+        }
         calculate_proper_position(hp);
 
         auto current_position = HandTracking::position(hp, _current_pose.unit, std::chrono::system_clock::now().time_since_epoch().count());
@@ -131,16 +152,17 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
         if (_last_position.valid) {
             velocity[HandTracking::LEFT_HAND] = HandTracking::velocity(current_position.points[HandTracking::LEFT_HAND],
                                                                        _last_position.points[HandTracking::LEFT_HAND],
-                                                                       (current_position.time - _last_position.time) * NANO);
+                                                                       (float)(current_position.time - _last_position.time) * NANO);
             velocity[HandTracking::RIGHT_HAND] = HandTracking::velocity(current_position.points[HandTracking::RIGHT_HAND],
                                                                         _last_position.points[HandTracking::RIGHT_HAND],
-                                                                        (current_position.time - _last_position.time) * NANO);
+                                                                        (float)(current_position.time - _last_position.time) * NANO);
         }
         // Convert back to opencv for display or saving.
         time_point current_time(
                 std::chrono::duration<long, std::nano>{std::chrono::system_clock::now().time_since_epoch().count()});
         _ht_publisher.put(_ht_publisher.allocate<HandTracking::ht_frame>(
-                HandTracking::ht_frame{current_time, _results_images, _detections, hp, velocity}));
+                HandTracking::ht_frame{current_time, _results_images, _detections, hp, velocity, _current_pose,
+                                       coordinates::VIEWER}));
         _results_images.clear();
         _detections.clear();
     }
@@ -167,28 +189,13 @@ void ILLIXR::hand_tracking_publisher::calculate_proper_position(std::map<HandTra
         }
     }
 
-    if (_current_raw.pose_valid) {
-        if (_current_raw.eye_count == 1) {
-            _current_pose = _current_raw.poses.at(_current_raw.primary);
-        } else {
-            _current_pose = _current_raw.poses.at(::ILLIXR::units::non_primary(_current_raw.primary));
-        }
-    } else {
-        auto pose = _pose_reader.get_ro_nullable();
-        if (pose == nullptr) {
-            // cannot process
-        } else {
-            _current_pose = *pose.get();
-        }
-    }
-
     if (_current_raw.confidence_valid_) {
         _current_confidence = _current_raw.at(::ILLIXR::image::CONFIDENCE);
     } else {
         _current_confidence = cv::Mat();
     }
     for (auto& item : _detections)
-        item.second.denormalize((float)_img_size_x, (float)_img_size_y, _current_pose.unit);
+        denormalize(item.second, (float)_img_size_x, (float)_img_size_y, _current_pose.unit);
     // only use left eye detections, as the depth map is expressed as left eye distance
     for (auto h : ILLIXR::HandTracking::hand_map) {
         auto& primary_eye = _detections.at(_current_raw.primary).points.at(h);
@@ -248,9 +255,6 @@ void ILLIXR::hand_tracking_publisher::calculate_proper_position(std::map<HandTra
                 pnt.x() = distance * (float)std::sin(theta_xl);
                 pnt.y() = distance * (float)std::sin(theta_yl);
                 pnt.z() = distance;
-
-                Eigen::Vector3f rotpnt = _current_pose.orientation * pnt;
-                hand_pnts[i].set(rotpnt + _current_pose.position);
             }
         }
         hp[h] = hand_pnts;
