@@ -85,7 +85,7 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
 
     if (_last_frame_id != output_frame.image_id) {
         _current_raw = _raw_data.extract(output_frame.image_id).mapped();
-        if (_framecount == 2 && _detections.size() == 1) {
+        if (_frame_count == 2 && _detections.size() == 1) {
             // we are missing a component so drop the partial frame
             _results_images.clear();
             _detections.clear();
@@ -102,25 +102,25 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
     output_frame.left_hand_points->flip_y();
     output_frame.right_hand_points->flip_y();
 
-    _detections.emplace(out_type, HandTracking::ht_detection{end_time - start_time, output_frame.left_palm, output_frame.right_palm,
-                                                             output_frame.left_hand, output_frame.right_hand, output_frame.left_confidence,
-                                                             output_frame.right_confidence, output_frame.left_hand_points,
-                                                             output_frame.right_hand_points});
+    _detections.emplace(out_type, data_format::ht::ht_detection{end_time - start_time, output_frame.left_palm, output_frame.right_palm,
+                                                                output_frame.left_hand, output_frame.right_hand, output_frame.left_confidence,
+                                                                output_frame.right_confidence, output_frame.left_hand_points,
+                                                                output_frame.right_hand_points});
     _last_frame_id = output_frame.image_id;
-    if (_detections.size() == _framecount) {
-        std::map<HandTracking::hand, HandTracking::hand_points> hp{{HandTracking::LEFT_HAND, HandTracking::hand_points()},
-                                                                   {HandTracking::RIGHT_HAND, HandTracking::hand_points()}};
+    if (_detections.size() == _frame_count) {
+        std::map<data_format::ht::hand, data_format::ht::hand_points> hp{{data_format::ht::LEFT_HAND, data_format::ht::hand_points()},
+                                                                         {data_format::ht::RIGHT_HAND, data_format::ht::hand_points()}};
 
         if (_current_raw.pose_valid) {
             if (_current_raw.eye_count == 1) {
                 _current_pose = _current_raw.poses.at(_current_raw.primary);
             } else {
-                _current_pose = _current_raw.poses.at(::ILLIXR::units::non_primary(_current_raw.primary));
+                _current_pose = _current_raw.poses.at(data_format::units::non_primary(_current_raw.primary));
             }
         } else {
             auto pose = _pose_reader.get_ro_nullable();
             if (pose == nullptr) {
-                _current_pose = pose_data({0., 0., 0.}, {0., 0., 0., 0.});
+                _current_pose = data_format::pose_data({0., 0., 0.}, {0., 0., 0., 0.});
             } else {
                 _current_pose = *pose.get();
             }
@@ -243,10 +243,10 @@ void ILLIXR::hand_tracking_publisher::calculate_proper_position(std::map<data_fo
     }
 }
 
-void ILLIXR::hand_tracking_publisher::set_framecount(ht::input_type it) {
+void ILLIXR::hand_tracking_publisher::set_frame_count(ht::input_type it) {
     if (it == ht::BOTH) {
-        _framecount = 2;
+        _frame_count = 2;
     } else {
-        _framecount = 1;
+        _frame_count = 1;
     }
 }
