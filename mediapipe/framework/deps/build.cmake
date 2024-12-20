@@ -1,0 +1,48 @@
+set(DEPS_SOURCES
+    ${CMAKE_CURRENT_LIST_DIR}/clock.cc
+    ${CMAKE_CURRENT_LIST_DIR}/file_helpers.cc
+    ${CMAKE_CURRENT_LIST_DIR}/file_path.cc
+    ${CMAKE_CURRENT_LIST_DIR}/monotonic_clock.cc
+    ${CMAKE_CURRENT_LIST_DIR}/registration.cc
+    ${CMAKE_CURRENT_LIST_DIR}/registration_token.cc
+    ${CMAKE_CURRENT_LIST_DIR}/ret_check.cc
+    ${CMAKE_CURRENT_LIST_DIR}/status.cc
+    ${CMAKE_CURRENT_LIST_DIR}/status_builder.cc
+    ${CMAKE_CURRENT_LIST_DIR}/threadpool_pthread_impl.cc
+    ${CMAKE_CURRENT_LIST_DIR}/topologicalsorter.cc
+)
+
+set(DEPS_HEADERS
+    ${CMAKE_CURRENT_LIST_DIR}/aligned_malloc_and_free.h
+    ${CMAKE_CURRENT_LIST_DIR}/canonical_errors.h
+    ${CMAKE_CURRENT_LIST_DIR}/clock.h
+    ${CMAKE_CURRENT_LIST_DIR}/file_helpers.h
+    ${CMAKE_CURRENT_LIST_DIR}/file_path.h
+    ${CMAKE_CURRENT_LIST_DIR}/map_util.h
+    ${CMAKE_CURRENT_LIST_DIR}/mathutil.h
+    ${CMAKE_CURRENT_LIST_DIR}/monotonic_clock.h
+    ${CMAKE_CURRENT_LIST_DIR}/no_destructor.h
+    ${CMAKE_CURRENT_LIST_DIR}/numbers.h
+    ${CMAKE_CURRENT_LIST_DIR}/point2.h
+    ${CMAKE_CURRENT_LIST_DIR}/re2.h
+    ${CMAKE_CURRENT_LIST_DIR}/rectangle.h
+    ${CMAKE_CURRENT_LIST_DIR}/registration.h
+    ${CMAKE_CURRENT_LIST_DIR}/registration_token.h
+    ${CMAKE_CURRENT_LIST_DIR}/ret_check.h
+    ${CMAKE_CURRENT_LIST_DIR}/safe_int.h
+    ${CMAKE_CURRENT_LIST_DIR}/singleton.h
+    ${CMAKE_CURRENT_LIST_DIR}/source_location.h
+    ${CMAKE_CURRENT_LIST_DIR}/status.h
+    ${CMAKE_CURRENT_LIST_DIR}/status_builder.h
+    ${CMAKE_CURRENT_LIST_DIR}/status_macros.h
+    ${CMAKE_CURRENT_LIST_DIR}/strong_int.h
+    ${CMAKE_CURRENT_LIST_DIR}/thread_options.h
+    ${CMAKE_CURRENT_LIST_DIR}/threadpool.h
+    ${CMAKE_CURRENT_LIST_DIR}/topologicalsorter.h
+    ${CMAKE_CURRENT_LIST_DIR}/vector.h
+)
+
+target_sources(${PLUGIN_NAME} PRIVATE
+               ${DEPS_SOURCES}
+               ${DEPS_HEADERS}
+)

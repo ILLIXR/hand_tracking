@@ -1,0 +1,10 @@
+include(${CMAKE_SOURCE_DIR}/cmake/protoc_generate_obj.cmake)
+
+protobuf_generate_obj(PROTO_PATH framework/formats OBJ_NAME rect)
+protobuf_generate_obj(PROTO_PATH framework/formats OBJ_NAME image_format)
+protobuf_generate_obj(PROTO_PATH framework/formats OBJ_NAME matrix_data)
+protobuf_generate_obj(PROTO_PATH framework/formats OBJ_NAME location_data)
+protobuf_generate_obj(PROTO_PATH framework/formats OBJ_NAME classification)
+protobuf_generate_obj(PROTO_PATH framework/formats OBJ_NAME time_series_header)
+protobuf_generate_obj(PROTO_PATH framework/formats OBJ_NAME detection)
+protobuf_generate_obj(PROTO_PATH framework/formats OBJ_NAME landmark)
