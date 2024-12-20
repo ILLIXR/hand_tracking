@@ -199,7 +199,6 @@ void ILLIXR::hand_tracking_publisher::calculate_proper_position(std::map<data_fo
         }
 
         data_format::ht::hand_points hand_pnts(_current_pose.unit);
-
         for (int i = 0 ; i < data_format::ht::NUM_LANDMARKS; i++) {
             if (primary_eye[i].x() == 0. || primary_eye[i].y() == 0. || !primary_eye[i].valid) {
                 hand_pnts[i].confidence = 0.;
@@ -258,13 +257,11 @@ void ILLIXR::hand_tracking_publisher::calculate_proper_position(std::map<data_fo
                     pnt.z() = -1.f * distance;  // negative Z is forward
                 else
                     pnt.z() = distance;
-                hand_pnts[i].set(pnt);
-                hand_pnts[i].valid = true;
-                hand_pnts[i].confidence = static_cast<float>(confidence);
-                hand_pnts.valid = true;
                 if (_current_pose.valid) {
-                    hand_pnts[i].set(rot * hand_pnts[i]);
-                    hand_pnts[i] += _current_pose.position;
+                    hand_pnts[i].set(rot * pnt);
+                    hand_pnts[i] -= _current_pose.position;
+                    hand_pnts[i].valid = true;
+                    hand_pnts[i].confidence = static_cast<float>(confidence);
                 }
             }
         }
