@@ -223,7 +223,7 @@ void ILLIXR::hand_tracking_publisher::calculate_proper_position(std::map<HandTra
                 if (!_current_confidence.empty())
                     confidence = 1. - (_current_confidence.at<float>(primary_x, primary_y)) / 100.;
                 if (!_current_depth.empty())
-                    distance = _current_depth.at<float>(primary_x, primary_y);
+                    distance = std::abs(_current_depth.at<float>(primary_x, primary_y));
 
                 // use parallax to determine distance
                 if ((!_current_confidence.empty() && confidence <= .05) ||
@@ -254,7 +254,7 @@ void ILLIXR::hand_tracking_publisher::calculate_proper_position(std::map<HandTra
                 }
                 pnt.x() = distance * (float)std::sin(theta_xl);
                 pnt.y() = distance * (float)std::sin(theta_yl);
-                pnt.z() = distance;
+                pnt.z() = -1.f * distance;  // negative Z is forward
             }
         }
         hp[h] = hand_pnts;
