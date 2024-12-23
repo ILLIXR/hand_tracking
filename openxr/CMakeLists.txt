@@ -12,12 +12,14 @@ set(ENV{PKG_CONFIG_PATH} "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig")
 find_package(OpenXR REQUIRED CONFIG)
 find_package(Boost REQUIRED CONFIG)
 
-if(NOT EXISTS "./oxr_sdk.zip" AND NOT EXISTS "OpenXR-SDK-release-1.0.34")
-    file(DOWNLOAD https://github.com/KhronosGroup/OpenXR-SDK/archive/refs/tags/release-1.0.34.zip ./oxr_sdk.zip SHOW_PROGRESS)
+if(NOT EXISTS "${CMAKE_SOURCE_DIR}/openxr/external/OpenXR-SDK-release-1.0.34")
+    if(NOT EXISTS "${CMAKE_SOURCE_DIR}/openxr/external/oxr_sdk.zip")
+        file(DOWNLOAD https://github.com/KhronosGroup/OpenXR-SDK/archive/refs/tags/release-1.0.34.zip ${CMAKE_SOURCE_DIR}/openxr/external/oxr_sdk.zip SHOW_PROGRESS)
+    endif()
     if(${CMAKE_MINOR_VERSION} LESS 18)
-        execute_process(COMMAND unzip -d ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/oxr_sdk.zip)
+        execute_process(COMMAND unzip -d ${CMAKE_SOURCE_DIR}/openxr/external ${CMAKE_SOURCE_DIR}/openxr/external/oxr_sdk.zip)
     else()
-        file(ARCHIVE_EXTRACT INPUT ./oxr_sdk.zip DESTINATION ${CMAKE_CURRENT_SOURCE_DIR})
+        file(ARCHIVE_EXTRACT INPUT ${CMAKE_SOURCE_DIR}/openxr/external/oxr_sdk.zip DESTINATION ${CMAKE_SOURCE_DIR}/openxr/external)
     endif()
 endif()
 
@@ -37,7 +39,7 @@ target_include_directories(openxr_illixr_ht PUBLIC
                            ${ILLIXR_HDR_PATH}
                            ${OpenXR_INCLUDE_DIR}
                            ${Boost_INCLUDE_DIRS}
-                           OpenXR-SDK-release-1.0.34/include
+                           external/OpenXR-SDK-release-1.0.34/include
 )
 
 
