@@ -155,21 +155,21 @@ void hand_tracking::start() {
     switch (_cam_type) {
         case ht::WEBCAM:
             _switchboard->schedule<idf::monocular_cam_type>(id, "webcam",
-                                                       [this](const switchboard::ptr<const idf::monocular_cam_type> &frame,
-                                                              std::size_t) {
-                                                           this->process(frame);
-                                                       });
+                                                            [this](const switchboard::ptr<const idf::monocular_cam_type> &frame,
+                                                                   std::size_t) {
+                                                                this->process(frame);
+                                                            });
             break;
         case ht::CAM:
             _switchboard->schedule<idf::binocular_cam_type>(id, "cam",
-                                                       [this](const switchboard::ptr<const idf::binocular_cam_type> &img,
-                                                              std::size_t) {
-                                                           this->process(img);
-                                                       });
+                                                            [this](const switchboard::ptr<const idf::binocular_cam_type> &img,
+                                                                   std::size_t) {
+                                                                this->process(img);
+                                                            });
             break;
         case ht::ZED:
 #ifdef HAVE_ZED
-        _switchboard->schedule<idf::cam_type_zed>(id, "cam_zed",
+            _switchboard->schedule<idf::cam_type_zed>(id, "cam_zed",
                                                  [this](const switchboard::ptr<const idf::cam_type_zed> &img, std::size_t) {
                                                      this->process(img);
                                                  });
@@ -319,17 +319,17 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
 
         auto img_ptr = absl::make_unique<mediapipe::ImageData>(image_data);
         auto img_status = _graph.at(input.first)->AddPacketToInputStream(kImageDataTag,
-                                                        mediapipe::Adopt(img_ptr.release()).At(
-                                                                mediapipe::Timestamp(frame_timestamp_us)));
+                                                                         mediapipe::Adopt(img_ptr.release()).At(
+                                                                                 mediapipe::Timestamp(frame_timestamp_us)));
 
         if (!img_status.ok())
             throw std::runtime_error(std::string(img_status.message()));
 
 #if !MEDIAPIPE_DISABLE_GPU
         auto gl_status = _gpu_helper.at(input.first).RunInGlContext([&input_frame, &frame_timestamp_us,
-                                                            &graph=_graph.at(input.first),
-                                                            &gpu_helper=_gpu_helper.at(input.first)]()
-                                                            -> absl::Status {
+                                                                            &graph=_graph.at(input.first),
+                                                                            &gpu_helper=_gpu_helper.at(input.first)]()
+                                                                            -> absl::Status {
             // Convert ImageFrame to GpuBuffer.
             auto texture = gpu_helper.CreateSourceTexture(*input_frame.get());
             auto gpu_frame = texture.GetFrame<mediapipe::GpuBuffer>();

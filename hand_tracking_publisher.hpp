@@ -12,18 +12,18 @@ namespace ILLIXR {
 typedef std::map<data_format::image::image_type, cv::Mat> image_map;
 
 namespace ht {
-    enum input_type {
-        LEFT,
-        RIGHT,
-        BOTH,
-        RGB
-    };
+enum input_type {
+    LEFT,
+    RIGHT,
+    BOTH,
+    RGB
+};
 
-    enum cam_type {
-        CAM,
-        WEBCAM,
-        ZED
-    };
+enum cam_type {
+    CAM,
+    WEBCAM,
+    ZED
+};
 }
 
 
