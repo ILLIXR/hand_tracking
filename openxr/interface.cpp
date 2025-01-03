@@ -1,13 +1,26 @@
+#ifdef BUILD_OXR
+
 #include "interface.h"
 #include "../hand_tracking_publisher.hpp"
+#include "oxr_objects.h"
+
 #include "illixr/math_util.hpp"
 #include "illixr/phonebook.hpp"
 #include "illixr/switchboard.hpp"
-#include "oxr_objects.h"
+
 #include <boost/interprocess/shared_memory_object.hpp>
 #include <boost/interprocess/mapped_region.hpp>
+#include <iostream>
+
+FILE* fptr2;
 
 namespace bt_int = boost::interprocess;
+#define PRINT_MSG(...) \
+    do {               \
+        fptr2 = fopen("/home/friedel/oxr2.log", "a"); \
+        fprintf(fptr2, __VA_ARGS__);                  \
+        fclose(fptr2);\
+        } while(0)
 
 const std::map<int, int> oxr_to_ixr_points = {{XR_HAND_JOINT_WRIST_EXT, ILLIXR::data_format::ht::WRIST},
                                               {XR_HAND_JOINT_THUMB_METACARPAL_EXT, ILLIXR::data_format::ht::THUMB_CMC},
@@ -47,7 +60,9 @@ struct ht_illixr_handle_t {
 
     explicit ht_illixr_handle_t(ILLIXR::switchboard* sb) :
             frame_reader{sb->get_reader<ILLIXR::data_format::ht::ht_frame>("ht")} {
-        auto rf = sb-> root_coordinates;
+        PRINT_MSG("have frame reader");
+        //auto rf = sb->root_coordinates;
+        ref = ILLIXR::data_format::coordinates::RIGHT_HANDED_Y_UP;
         if (ref == ILLIXR::data_format::coordinates::RIGHT_HANDED_Y_UP) {
             convert = ILLIXR::math_util::identity;
             do_convert = false;
@@ -63,6 +78,7 @@ XrResult handle_create(ixr_session* session,
                        const XrHandTrackerCreateInfoEXT* info,
                        ixr_hand_tracker *handle) {
     try {
+        PRINT_MSG("handle_create");
         handle = new ixr_hand_tracker();
         handle->session = session;
         handle->hand = info->hand;
@@ -124,6 +140,7 @@ XrResult locate_hand(struct ixr_hand_tracker* hand_tracker, const XrHandJointsLo
 
 ht_illixr_handle_t* create_ht_illixr() {
     // get phonebook somehow
+    PRINT_MSG("create_ht");
     bt_int::shared_memory_object shm_obj(bt_int::open_only, "ILLIXR_OPENXR_SHM", bt_int::read_only);
     bt_int::mapped_region region(shm_obj, bt_int::read_only);
 
@@ -133,3 +150,5 @@ ht_illixr_handle_t* create_ht_illixr() {
 
     return hth;
 }
+
+#endif  // BUILD_OXR

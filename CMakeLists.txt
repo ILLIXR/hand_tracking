@@ -15,6 +15,9 @@ option(HT_ENABLE_GRAPH_PROFILER "Whether to enable the graph profiler" OFF)
 option(BUILD_OXR_INTERFACE "Whether to build the OpenXR interface library" OFF)
 option(TFLIBRARY_POSTFIX "Postfix to attach to XNNPACK and tensorflow libraries to identify the specuific version needed" OFF)
 cmake_dependent_option(HT_ENABLE_WEB_PROFILING "Whether to enable web profiling" ON HT_ENABLE_GRAPH_PROFILER OFF)
+if(BUILD_OXR_INTERFACE)
+    add_definitions(-DBUILD_OXR)
+endif()
 
 
 if(TFLIBRARY_POSTFIX)

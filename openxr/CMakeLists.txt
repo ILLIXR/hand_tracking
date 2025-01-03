@@ -11,6 +11,8 @@ set(ENV{PKG_CONFIG_PATH} "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig")
 
 find_package(OpenXR REQUIRED CONFIG)
 find_package(Boost REQUIRED CONFIG)
+find_package(OpenCV 4 REQUIRED)
+find_package(spdlog REQUIRED)
 
 if(NOT EXISTS "${CMAKE_SOURCE_DIR}/openxr/external/OpenXR-SDK-release-1.0.34")
     if(NOT EXISTS "${CMAKE_SOURCE_DIR}/openxr/external/oxr_sdk.zip")
@@ -32,13 +34,18 @@ add_library(openxr_illixr_ht SHARED
             interface.cpp
 )
 target_link_libraries(openxr_illixr_ht PUBLIC
-                      ${PLUGIN_NAME}
+                      absl::base
+                      spdlog::spdlog
+                      ${glog_LIBRARIES}
 )
 
 target_include_directories(openxr_illixr_ht PUBLIC
                            ${ILLIXR_HDR_PATH}
                            ${OpenXR_INCLUDE_DIR}
                            ${Boost_INCLUDE_DIRS}
+                           ${OpenCV_INCLUDE_DIRS}
+                           ${CMAKE_SOURCE_DIR}
+                           ${CMAKE_BINARY_DIR}
                            external/OpenXR-SDK-release-1.0.34/include
 )
 

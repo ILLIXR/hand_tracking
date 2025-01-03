@@ -12,6 +12,11 @@
 #include "illixr/data_format/misc.hpp"
 #include "illixr/data_format/zed_cam.hpp"
 
+#ifdef BUILD_OXR
+#include <map>
+std::unordered_map<std::string, std::string> ILLIXR::switchboard::_m_env_vars = {};
+#endif
+
 #if !MEDIAPIPE_DISABLE_GPU
 #include "mediapipe/gpu/gpu_buffer.h"
 #include "mediapipe/gpu/gpu_shared_data_internal.h"
@@ -84,15 +89,20 @@ ht::cam_type get_cam_type(const std::shared_ptr<switchboard>& sb) {
     if (_input_type == ht::RGB) {
         _graph.at(idf::image::RGB) = new mediapipe::CalculatorGraph();
     } else {
-        if (_input_type != ht::RIGHT)
+        if (_input_type != ht::RIGHT) {
+            std::cout << "LEFT_INIT" << std::endl;
             _graph.at(idf::image::LEFT_EYE) = new mediapipe::CalculatorGraph();
-        if (_input_type == ht::RIGHT || _input_type == ht::BOTH)
+        }
+        if (_input_type == ht::RIGHT || _input_type == ht::BOTH) {
+            std::cout << "RIGHT_INIT" << std::endl;
             _graph.at(idf::image::RIGHT_EYE) = new mediapipe::CalculatorGraph();
+        }
     }
     _publisher.set_frame_count(_input_type);
 }
 
 void hand_tracking::start() {
+    std::cout << "STARTING" << std::endl;
     plugin::start();
     std::string calculator_graph_config_contents;
     const char* cfile = _switchboard->get_env_char("CALCULATOR_CONFIG_FILE");
@@ -170,9 +180,9 @@ void hand_tracking::start() {
         case ht::ZED:
 #ifdef HAVE_ZED
             _switchboard->schedule<idf::cam_type_zed>(id, "cam_zed",
-                                                 [this](const switchboard::ptr<const idf::cam_type_zed> &img, std::size_t) {
-                                                     this->process(img);
-                                                 });
+                                                      [this](const switchboard::ptr<const idf::cam_type_zed> &img, std::size_t) {
+                                                          this->process(img);
+                                                      });
 #else
             throw std::runtime_error("No support for zed camera");
 #endif
@@ -216,6 +226,7 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
                     std::cout << "RGB not provided by binocular view";
                     break;
             }
+            pose_img.insert(_current_images.begin(), _current_images.end());
             break;
         case idf::camera::MONOCULAR: {
             cv::Mat temp_img(frame->at(idf::image::RGB).clone());
@@ -224,12 +235,14 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
             _current_images = {{idf::image::LEFT_EYE, temp_img}};
             pose_img.eye_count = 1;
             pose_img.primary = idf::units::LEFT_EYE;
+            pose_img.insert(_current_images.begin(), _current_images.end());
             break;
         }
         case idf::camera::RGB_DEPTH: {
             _current_images = {{idf::image::LEFT_EYE, frame->at(idf::image::RGB).clone()}};
             pose_img.eye_count = 1;
             pose_img.primary = idf::units::LEFT_EYE;
+            pose_img.insert(_current_images.begin(), _current_images.end());
             break;
         }
         case idf::camera::ZED: {
@@ -299,7 +312,7 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
 #if !MEDIAPIPE_DISABLE_GPU
                                                                     mediapipe::ImageFrame::kGlDefaultAlignmentBoundary
 #else
-                mediapipe::ImageFrame::kDefaultAlignmentBoundary
+                                                                    mediapipe::ImageFrame::kDefaultAlignmentBoundary
 #endif
         );
 
@@ -347,8 +360,8 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
             throw std::runtime_error(std::string(gl_status.message()));
 #else
         auto submit_status = _graph.at(input.first)->AddPacketToInputStream(kInputStream,
-                                              mediapipe::Adopt(input_frame.release()).At(
-                                                      mediapipe::Timestamp(frame_timestamp_us)));
+                                                                            mediapipe::Adopt(input_frame.release()).At(
+                                                                                    mediapipe::Timestamp(frame_timestamp_us)));
         if (!submit_status.ok())
             throw std::runtime_error(std::string(submit_status.message()));
 #endif
