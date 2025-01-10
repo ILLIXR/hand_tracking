@@ -61,8 +61,7 @@ struct ht_illixr_handle_t {
     explicit ht_illixr_handle_t(ILLIXR::switchboard* sb) :
             frame_reader{sb->get_reader<ILLIXR::data_format::ht::ht_frame>("ht")} {
         PRINT_MSG("have frame reader");
-        //auto rf = sb->root_coordinates;
-        ref = ILLIXR::data_format::coordinates::RIGHT_HANDED_Y_UP;
+        auto rf = sb-> root_coordinates;
         if (ref == ILLIXR::data_format::coordinates::RIGHT_HANDED_Y_UP) {
             convert = ILLIXR::math_util::identity;
             do_convert = false;

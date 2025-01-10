@@ -32,6 +32,7 @@ add_library(openxr_illixr_ht SHARED
             oxr_objects.h
             ../hand_tracking_publisher.hpp
             interface.cpp
+            openxr.h
 )
 target_link_libraries(openxr_illixr_ht PUBLIC
                       absl::base
@@ -46,13 +47,17 @@ target_include_directories(openxr_illixr_ht PUBLIC
                            ${OpenCV_INCLUDE_DIRS}
                            ${CMAKE_SOURCE_DIR}
                            ${CMAKE_BINARY_DIR}
-                           external/OpenXR-SDK-release-1.0.34/include
+                           ${CMAKE_SOURCE_DIR}/openxr/external/OpenXR-SDK-release-1.0.34/include
 )
 
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/illixr_ht.json.in ${CMAKE_BINARY_DIR}/illixr_ht.json)
 install(FILES ${CMAKE_BINARY_DIR}/illixr_ht.json
         DESTINATION $ENV{HOME}/.local/share/openxr/1/api_layers/implicit.d)
+
+if(BUILD_OXR_TEST)
+    add_subdirectory(test)
+endif()
 
 install(TARGETS openxr_illixr_ht DESTINATION lib)
 

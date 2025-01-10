@@ -32,20 +32,7 @@ void handle_destory(ixr_hand_tracker* handle);
 XrResult locate_hand(ixr_hand_tracker* hand_tracker, const XrHandJointsLocateInfoEXT* info,
                      XrHandJointLocationsEXT* locations);
 
-EXTERNC XRAPI_ATTR XrResult XRAPI_CALL
-ixrCreateHandTrackerEXT(XrSession session,
-                        const XrHandTrackerCreateInfoEXT* createInfo,
-                        XrHandTrackerEXT* handTracker);
 
-EXTERNC XRAPI_ATTR XrResult XRAPI_CALL
-ixrDestroyHandTrackerEXT(XrHandTrackerEXT handTracker);
-
-EXTERNC XRAPI_ATTR XrResult XRAPI_CALL
-ixrLocateHandJointsEXT(XrHandTrackerEXT handTracker,
-                       const XrHandJointsLocateInfoEXT* locateInfo,
-                       XrHandJointLocationsEXT* locations);
-
-
-EXTERNC ht_illixr_handle create_ht_illixr();
+ht_illixr_handle create_ht_illixr();
 
 #endif  // BUILD_OXR
