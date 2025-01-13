@@ -1,20 +1,24 @@
 #ifdef BUILD_OXR
 
 #include "interface.h"
-#include "../hand_tracking_publisher.hpp"
+#include "illixr/data_format/hand_tracking_data.hpp"
+#include "ixr_openxr.hpp"
 #include "oxr_objects.h"
 
 #include "illixr/math_util.hpp"
 #include "illixr/phonebook.hpp"
 #include "illixr/switchboard.hpp"
 
-#include <boost/interprocess/shared_memory_object.hpp>
-#include <boost/interprocess/mapped_region.hpp>
+//#include <boost/interprocess/shared_memory_object.hpp>
+#include <boost/interprocess/managed_shared_memory.hpp>
+//#include <boost/interprocess/mapped_region.hpp>
+#include <boost/interprocess/sync/named_mutex.hpp>
+#include <boost/interprocess/sync/scoped_lock.hpp>
 #include <iostream>
 
 FILE* fptr2;
 
-namespace bt_int = boost::interprocess;
+namespace b_intp = boost::interprocess;
 #define PRINT_MSG(...) \
     do {               \
         fptr2 = fopen("/home/friedel/oxr2.log", "a"); \
@@ -53,15 +57,25 @@ const std::vector<int>invalid = {XR_HAND_JOINT_PALM_EXT,
 };
 
 struct ht_illixr_handle_t {
-    ILLIXR::switchboard::reader <ILLIXR::data_format::ht::ht_frame> frame_reader;
+    boost::interprocess::named_mutex*          m_swap[2];
+    boost::interprocess::named_mutex*          m_current_swap_idx;
+    boost::interprocess::managed_shared_memory shm_obj;
+    ILLIXR::data_format::ht::ht_data* ht_data_swap[2];
+    int* current_swap_idx;
     ILLIXR::data_format::coordinates::frame ref;
     Eigen::Matrix3f convert;
     bool do_convert;
 
-    explicit ht_illixr_handle_t(ILLIXR::switchboard* sb) :
-            frame_reader{sb->get_reader<ILLIXR::data_format::ht::ht_frame>("ht")} {
+    explicit ht_illixr_handle_t() {
         PRINT_MSG("have frame reader");
-        auto rf = sb-> root_coordinates;
+        shm_obj = b_intp::managed_shared_memory(b_intp::open_only, illixr_shm_name);
+        ht_data_swap[0] = shm_obj.find<ILLIXR::data_format::ht::ht_data>(illixr_shm_swap1).first;
+        ht_data_swap[1] = shm_obj.find<ILLIXR::data_format::ht::ht_data>(illixr_shm_swap2).first;
+        current_swap_idx = shm_obj.find<int>(illixr_shm_current).first;
+        m_current_swap_idx = new b_intp::named_mutex(b_intp::open_only, illixr_shm_mutex_latest);
+        m_swap[0] = new b_intp::named_mutex(b_intp::open_only, illixr_shm_mutex_swap1);
+        m_swap[1] = new b_intp::named_mutex(b_intp::open_only, illixr_shm_mutex_swap2);
+
         if (ref == ILLIXR::data_format::coordinates::RIGHT_HANDED_Y_UP) {
             convert = ILLIXR::math_util::identity;
             do_convert = false;
@@ -100,38 +114,55 @@ void handle_destory(ixr_hand_tracker* handle) {
 
 
 XrResult locate_hand(struct ixr_hand_tracker* hand_tracker, const XrHandJointsLocateInfoEXT* info, XrHandJointLocationsEXT* locations) {
-    auto data = hand_tracker->ht_handle->frame_reader.get_ro_nullable();
-    if (data == nullptr) {
-        locations->isActive = false;
-        return XR_SUCCESS;
+    ILLIXR::data_format::ht::ht_data* data;
+    int idx;
+    {
+        b_intp::scoped_lock<b_intp::named_mutex> lock(*hand_tracker->ht_handle->m_current_swap_idx);
+        idx = *hand_tracker->ht_handle->current_swap_idx;
     }
-    ILLIXR::data_format::points_with_units h_pts(data->hand_positions.at(static_cast<const ILLIXR::data_format::ht::hand>(hand_tracker->ixr_hand)));
-    if (!h_pts.valid) {
-        locations->isActive = false;
-        return XR_SUCCESS;
-    }
+    {
+        b_intp::scoped_lock<b_intp::named_mutex> d_lock(*hand_tracker->ht_handle->m_swap[idx]);
+        data = hand_tracker->ht_handle->ht_data_swap[idx];
 
-    if (hand_tracker->ht_handle->do_convert)
-        h_pts.mult(hand_tracker->ht_handle->convert);
-    auto* space = reinterpret_cast<oxr_space *>(info->baseSpace);
-    if (space->space_type != OXR_SPACE_TYPE_REFERENCE_VIEW)
-        h_pts.transform(data->offset_pose);
-    if (locations->jointCount == 21) {
-        for (int i = ILLIXR::data_format::ht::WRIST; i <= ILLIXR::data_format::ht::PINKY_TIP; i++) {
-            locations->jointLocations[i].locationFlags = (h_pts[i].valid) ? (XR_SPACE_LOCATION_POSITION_VALID_BIT | XR_SPACE_LOCATION_POSITION_TRACKED_BIT) : XR_SPACE_LOCATION_POSITION_VALID_BIT;
-            locations->jointLocations[i].pose.position = {h_pts[i].x(), h_pts[i].y(), h_pts[i].z()};
-            locations->jointLocations[i].pose.orientation = {0., 0., 0., 0.};
+        //auto data = hand_tracker->ht_handle->frame_reader.get_ro_nullable();
+        if (data == nullptr) {
+            locations->isActive = false;
+            return XR_SUCCESS;
         }
-    } else {
-        for (auto& m : oxr_to_ixr_points) {
-            locations->jointLocations[m.first].locationFlags = (h_pts[m.second].valid) ? (XR_SPACE_LOCATION_POSITION_VALID_BIT | XR_SPACE_LOCATION_POSITION_TRACKED_BIT) : XR_SPACE_LOCATION_POSITION_VALID_BIT;
-            locations->jointLocations[m.first].pose.position = {h_pts[m.second].x(), h_pts[m.second].y(), h_pts[m.second].z()};
-            locations->jointLocations[m.first].pose.orientation = {0., 0., 0., 0.};
+        ILLIXR::data_format::points_with_units h_pts(
+                data->hand_positions.at(static_cast<const ILLIXR::data_format::ht::hand>(hand_tracker->ixr_hand)));
+        if (!h_pts.valid) {
+            locations->isActive = false;
+            return XR_SUCCESS;
         }
-        for (auto pnt : invalid) {
-            locations->jointLocations[pnt].locationFlags = 0;
-            locations->jointLocations[pnt].pose.position = {0., 0., 0.};
-            locations->jointLocations[pnt].pose.orientation = {0., 0., 0., 0.};
+
+        if (hand_tracker->ht_handle->do_convert)
+            h_pts.mult(hand_tracker->ht_handle->convert);
+        auto *space = reinterpret_cast<oxr_space *>(info->baseSpace);
+        if (space->space_type != OXR_SPACE_TYPE_REFERENCE_VIEW)
+            h_pts.transform(data->wcs_offset);
+        if (locations->jointCount == 21) {
+            for (int i = ILLIXR::data_format::ht::WRIST; i <= ILLIXR::data_format::ht::PINKY_TIP; i++) {
+                locations->jointLocations[i].locationFlags = (h_pts[i].valid) ? (XR_SPACE_LOCATION_POSITION_VALID_BIT |
+                                                                                 XR_SPACE_LOCATION_POSITION_TRACKED_BIT)
+                                                                              : XR_SPACE_LOCATION_POSITION_VALID_BIT;
+                locations->jointLocations[i].pose.position = {h_pts[i].x(), h_pts[i].y(), h_pts[i].z()};
+                locations->jointLocations[i].pose.orientation = {0., 0., 0., 0.};
+            }
+        } else {
+            for (auto &m: oxr_to_ixr_points) {
+                locations->jointLocations[m.first].locationFlags = (h_pts[m.second].valid) ? (
+                        XR_SPACE_LOCATION_POSITION_VALID_BIT | XR_SPACE_LOCATION_POSITION_TRACKED_BIT)
+                                                                                           : XR_SPACE_LOCATION_POSITION_VALID_BIT;
+                locations->jointLocations[m.first].pose.position = {h_pts[m.second].x(), h_pts[m.second].y(),
+                                                                    h_pts[m.second].z()};
+                locations->jointLocations[m.first].pose.orientation = {0., 0., 0., 0.};
+            }
+            for (auto pnt: invalid) {
+                locations->jointLocations[pnt].locationFlags = 0;
+                locations->jointLocations[pnt].pose.position = {0., 0., 0.};
+                locations->jointLocations[pnt].pose.orientation = {0., 0., 0., 0.};
+            }
         }
     }
     return XR_SUCCESS;
@@ -140,14 +171,14 @@ XrResult locate_hand(struct ixr_hand_tracker* hand_tracker, const XrHandJointsLo
 ht_illixr_handle_t* create_ht_illixr() {
     // get phonebook somehow
     PRINT_MSG("create_ht");
-    bt_int::shared_memory_object shm_obj(bt_int::open_only, "ILLIXR_OPENXR_SHM", bt_int::read_only);
-    bt_int::mapped_region region(shm_obj, bt_int::read_only);
+    try {
+        auto *hth = new ht_illixr_handle_t();
+        return hth;
+    } catch (std::exception & ex) {
+        auto x = ex.what();
+        throw;
+    }
 
-    auto* sb = reinterpret_cast<ILLIXR::switchboard*>(reinterpret_cast<std::uintptr_t>(region.get_address()));
-    auto* hth = new ht_illixr_handle_t(sb);
-
-
-    return hth;
 }
 
 #endif  // BUILD_OXR

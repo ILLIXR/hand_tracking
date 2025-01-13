@@ -1,5 +1,12 @@
 #include "hand_tracking_publisher.hpp"
 
+#ifdef BUILD_OXR
+#include <boost/interprocess/sync/scoped_lock.hpp>
+
+#include "openxr/ixr_openxr.hpp"
+namespace b_intp = boost::interprocess;
+#endif
+
 constexpr float NANO = 1. / (1000. * 1000. * 1000.);
 
 ILLIXR::hand_tracking_publisher::hand_tracking_publisher(const std::string &name_, ::ILLIXR::phonebook *pb_, ht::cam_type ct)
@@ -10,7 +17,35 @@ ILLIXR::hand_tracking_publisher::hand_tracking_publisher(const std::string &name
         , _camera_reader{_switchboard->get_reader<data_format::camera_data>("cam_data")}
         , _depth_reader{_switchboard->get_reader<data_format::depth_type>("depth")}
         , _rgb_depth_reader{_switchboard->get_reader<data_format::rgb_depth_type>("rgb_depth")}
-        , _cam_type{ct} {}
+        , _cam_type{ct} {
+#ifdef BUILD_OXR
+    b_intp::shared_memory_object::remove(illixr_shm_name);
+    b_intp::named_mutex::remove(illixr_shm_mutex_latest);
+    b_intp::named_mutex::remove(illixr_shm_mutex_swap1);
+    b_intp::named_mutex::remove(illixr_shm_mutex_swap2);
+
+    //shm_obj = b_intp::shared_memory_object(b_intp::create_only, illixr_shm_name, b_intp::read_write);
+    size_t obj_size = sizeof(ILLIXR::data_format::ht::ht_data);
+    //shm_obj.truncate(obj_size * 2 + sizeof(int) + 10);
+    //latest = b_intp::mapped_region(shm_obj, b_intp::read_write, 0, sizeof(int));
+    //swap1 = new b_intp::mapped_region(shm_obj, b_intp::read_write, sizeof(int) + 1, obj_size);
+    //swap2 = new b_intp::mapped_region(shm_obj, b_intp::read_write, sizeof(int) + obj_size + 2, obj_size);
+
+    shm_obj = b_intp::managed_shared_memory (b_intp::create_only, illixr_shm_name, obj_size * 2 + sizeof(int) + 10);
+    m_current_swap_idx = new b_intp::named_mutex(b_intp::open_or_create, illixr_shm_mutex_latest);
+    m_swap[0] = new b_intp::named_mutex(b_intp::open_or_create, illixr_shm_mutex_swap1);
+    m_swap[1] = new b_intp::named_mutex(b_intp::open_or_create, illixr_shm_mutex_swap2);
+
+    ht_data_swap[0] = shm_obj.construct<ILLIXR::data_format::ht::ht_data>(illixr_shm_swap1)();
+    ht_data_swap[1] = shm_obj.construct<ILLIXR::data_format::ht::ht_data>(illixr_shm_swap2)();
+    current_swap_idx = shm_obj.construct<int>(illixr_shm_current)(0);
+#else
+    ht_data_swap[0] = new ILLIXR::data_format::ht::ht_data();
+    ht_data_swap[1] = new ILLIXR::data_format::ht::ht_data();
+    current_swap_idx = new int(0);
+#endif
+
+}
 
 void ILLIXR::hand_tracking_publisher::start() {
     threadloop::start();
@@ -20,6 +55,19 @@ void ILLIXR::hand_tracking_publisher::start() {
 ILLIXR::hand_tracking_publisher::~hand_tracking_publisher() {
     for (auto& i : _poller)
         delete i.second;
+#ifdef BUILD_OXR
+    shm_obj.destroy<ILLIXR::data_format::ht::ht_data>(illixr_shm_swap1);
+    shm_obj.destroy<ILLIXR::data_format::ht::ht_data>(illixr_shm_swap2);
+    shm_obj.destroy<ILLIXR::data_format::ht::ht_data>(illixr_shm_current);
+    b_intp::named_mutex::remove(illixr_shm_mutex_latest);
+    b_intp::named_mutex::remove(illixr_shm_mutex_swap1);
+    b_intp::named_mutex::remove(illixr_shm_mutex_swap2);
+    b_intp::shared_memory_object::remove(illixr_shm_name);
+#else
+    delete ht_data_swap[0];
+    delete ht_data_swap[1];
+    delete active_swap;
+#endif
 }
 
 void ILLIXR::hand_tracking_publisher::add_raw(const size_t id, pose_image& pi) {
@@ -151,9 +199,38 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
         // Convert back to opencv for display or saving.
         time_point current_time(
                 std::chrono::duration<long, std::nano>{std::chrono::system_clock::now().time_since_epoch().count()});
+
+        int idx_to_use;
+        if (*current_swap_idx == 0) {
+            idx_to_use = 1;
+        } else {
+            idx_to_use = 0;
+        }
+#ifdef BUILD_OXR
+        {
+            b_intp::scoped_lock<b_intp::named_mutex> lock(*m_swap[idx_to_use]);
+#endif
+            //data_format::ht::ht_data hd = data_format::ht::ht_data(current_time, hp, velocity, data_format::coordinates::VIEWER);
+            ht_data_swap[idx_to_use]->_time = current_time;
+            ht_data_swap[idx_to_use]->hand_positions = hp;
+            ht_data_swap[idx_to_use]->hand_velocities = velocity;
+            if (_current_pose.valid) {
+                ht_data_swap[idx_to_use]->wcs_offset = _current_pose;
+                ht_data_swap[idx_to_use]->reference = data_format::coordinates::WORLD;
+            } else {
+                ht_data_swap[idx_to_use]->wcs_offset = {};
+                ht_data_swap[idx_to_use]->reference = data_format::coordinates::VIEWER;
+            }
+            ht_data_swap[idx_to_use]->set_unit();
+#ifdef BUILD_OXR
+        }
+        {
+            b_intp::scoped_lock<b_intp::named_mutex> lock(*m_current_swap_idx);
+            *current_swap_idx = idx_to_use;
+        }
+#endif
         _ht_publisher.put(_ht_publisher.allocate<data_format::ht::ht_frame>(
-                data_format::ht::ht_frame{current_time, _results_images, _detections, hp, velocity, _current_pose,
-                                          data_format::coordinates::VIEWER}));
+                data_format::ht::ht_frame{current_time, _results_images, _detections, *ht_data_swap[idx_to_use]}));
         _results_images.clear();
         _detections.clear();
     }

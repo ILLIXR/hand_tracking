@@ -339,3 +339,4 @@ XrResult illixr_xrNegotiateLoaderApiLayerInterface(const XrNegotiateLoaderInfo* 
 #ifdef __cplusplus
 }
 #endif
+#endif

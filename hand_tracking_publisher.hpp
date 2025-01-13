@@ -6,6 +6,12 @@
 #include "mediapipe/calculators/util/illixr_data.h"
 #include "mediapipe/framework/calculator_graph.h"
 
+#ifdef BUILD_OXR
+//#include <boost/interprocess/mapped_region.hpp>
+#include <boost/interprocess/sync/named_mutex.hpp>
+//#include <boost/interprocess/shared_memory_object.hpp>
+#include <boost/interprocess/managed_shared_memory.hpp>
+#endif
 
 namespace ILLIXR {
 
@@ -102,6 +108,18 @@ private:
     std::map<data_format::image::image_type, mediapipe::OutputStreamPoller *> _poller = {{data_format::image::LEFT_EYE,  nullptr},
                                                                                          {data_format::image::RIGHT_EYE, nullptr},
                                                                                          {data_format::image::RGB,       nullptr}};
+#ifdef BUILD_OXR
+    boost::interprocess::managed_shared_memory shm_obj;
+    //boost::interprocess::mapped_region* swap1;
+    //boost::interprocess::mapped_region* swap2;
+    //boost::interprocess::mapped_region latest;
+    //boost::interprocess::mapped_region* current_region = nullptr;
+    boost::interprocess::named_mutex*          m_swap[2];
+    boost::interprocess::named_mutex*          m_current_swap_idx;
+    //boost::interprocess::named_mutex*          current_mutex = nullptr;
+    //bool use_swap1 = true;
+    //boost::interprocess::mapped_region mutex;
+#endif
     size_t _frame_count = 0;
     mediapipe::Packet _packet;
     std::map<data_format::image::image_type, cv::Mat> _results_images;
@@ -115,6 +133,9 @@ private:
     cv::Mat _current_depth;
     int _img_size_x = 0;
     int _img_size_y = 0;
+    ILLIXR::data_format::ht::ht_data* ht_data_swap[2];
+    //ILLIXR::data_format::ht::ht_data* current_data = nullptr;
+    int* current_swap_idx;
     data_format::ht::position _last_position;
     ht::input_type _last_input = ht::RIGHT;
     ushort _count = 0;

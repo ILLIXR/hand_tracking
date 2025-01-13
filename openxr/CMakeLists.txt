@@ -32,7 +32,7 @@ add_library(openxr_illixr_ht SHARED
             oxr_objects.h
             ../hand_tracking_publisher.hpp
             interface.cpp
-            openxr.h
+            ixr_openxr.hpp
 )
 target_link_libraries(openxr_illixr_ht PUBLIC
                       absl::base
