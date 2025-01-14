@@ -109,13 +109,14 @@ private:
                                                                                          {data_format::image::RIGHT_EYE, nullptr},
                                                                                          {data_format::image::RGB,       nullptr}};
 #ifdef BUILD_OXR
-    boost::interprocess::managed_shared_memory shm_obj;
+    boost::interprocess::managed_shared_memory managed_shm;
     //boost::interprocess::mapped_region* swap1;
     //boost::interprocess::mapped_region* swap2;
     //boost::interprocess::mapped_region latest;
     //boost::interprocess::mapped_region* current_region = nullptr;
     boost::interprocess::named_mutex*          m_swap[2];
     boost::interprocess::named_mutex*          m_current_swap_idx;
+    ILLIXR::data_format::ht::raw_ht_data*      htdb[2];
     //boost::interprocess::named_mutex*          current_mutex = nullptr;
     //bool use_swap1 = true;
     //boost::interprocess::mapped_region mutex;
@@ -133,8 +134,6 @@ private:
     cv::Mat _current_depth;
     int _img_size_x = 0;
     int _img_size_y = 0;
-    ILLIXR::data_format::ht::ht_data* ht_data_swap[2];
-    //ILLIXR::data_format::ht::ht_data* current_data = nullptr;
     int* current_swap_idx;
     data_format::ht::position _last_position;
     ht::input_type _last_input = ht::RIGHT;

@@ -9,9 +9,7 @@
 #include "illixr/phonebook.hpp"
 #include "illixr/switchboard.hpp"
 
-//#include <boost/interprocess/shared_memory_object.hpp>
 #include <boost/interprocess/managed_shared_memory.hpp>
-//#include <boost/interprocess/mapped_region.hpp>
 #include <boost/interprocess/sync/named_mutex.hpp>
 #include <boost/interprocess/sync/scoped_lock.hpp>
 #include <iostream>
@@ -56,25 +54,36 @@ const std::vector<int>invalid = {XR_HAND_JOINT_PALM_EXT,
                                  XR_HAND_JOINT_LITTLE_METACARPAL_EXT
 };
 
+struct valid_points {
+    ILLIXR::data_format::raw_point points[ILLIXR::data_format::ht::NUM_LANDMARKS];
+    bool valid = false;
+
+    valid_points() = default;
+
+    valid_points(ILLIXR::data_format::raw_point pnts[ILLIXR::data_format::ht::NUM_LANDMARKS], bool is_valid) {
+        for (auto i = 0; i < ILLIXR::data_format::ht::NUM_LANDMARKS; i++) {
+            points[i] = pnts[i];
+        }
+        valid = is_valid;
+    }
+};
+
 struct ht_illixr_handle_t {
-    boost::interprocess::named_mutex*          m_swap[2];
-    boost::interprocess::named_mutex*          m_current_swap_idx;
-    boost::interprocess::managed_shared_memory shm_obj;
-    ILLIXR::data_format::ht::ht_data* ht_data_swap[2];
-    int* current_swap_idx;
-    ILLIXR::data_format::coordinates::frame ref;
-    Eigen::Matrix3f convert;
-    bool do_convert;
+    boost::interprocess::named_mutex*          m_swap[2]{nullptr, nullptr};
+    boost::interprocess::named_mutex*          m_current_swap_idx = nullptr;
+    boost::interprocess::managed_shared_memory managed_shm;
+    int*                                       current_swap_idx = nullptr;
+    ILLIXR::data_format::coordinates::frame    ref = ILLIXR::data_format::coordinates::RIGHT_HANDED_Y_UP;
+    valid_points                               last_valid_frame[2];
+    Eigen::Matrix3f                            convert;
+    bool                                       do_convert;
 
     explicit ht_illixr_handle_t() {
         PRINT_MSG("have frame reader");
-        shm_obj = b_intp::managed_shared_memory(b_intp::open_only, illixr_shm_name);
-        ht_data_swap[0] = shm_obj.find<ILLIXR::data_format::ht::ht_data>(illixr_shm_swap1).first;
-        ht_data_swap[1] = shm_obj.find<ILLIXR::data_format::ht::ht_data>(illixr_shm_swap2).first;
-        current_swap_idx = shm_obj.find<int>(illixr_shm_current).first;
+        managed_shm = b_intp::managed_shared_memory(b_intp::open_only, illixr_shm_name);
         m_current_swap_idx = new b_intp::named_mutex(b_intp::open_only, illixr_shm_mutex_latest);
-        m_swap[0] = new b_intp::named_mutex(b_intp::open_only, illixr_shm_mutex_swap1);
-        m_swap[1] = new b_intp::named_mutex(b_intp::open_only, illixr_shm_mutex_swap2);
+        m_swap[0] = new b_intp::named_mutex(b_intp::open_only, illixr_shm_mutex_swap[0]);
+        m_swap[1] = new b_intp::named_mutex(b_intp::open_only, illixr_shm_mutex_swap[1]);
 
         if (ref == ILLIXR::data_format::coordinates::RIGHT_HANDED_Y_UP) {
             convert = ILLIXR::math_util::identity;
@@ -100,7 +109,8 @@ XrResult handle_create(ixr_session* session,
         handle->hand_joints = info->handJointSet;
         handle->ht_handle = create_ht_illixr();
 
-    } catch (...) {
+    } catch (std::exception &e) {
+        auto x = e.what();
         return XR_ERROR_HANDLE_INVALID;
     }
     return XR_SUCCESS;
@@ -114,57 +124,79 @@ void handle_destory(ixr_hand_tracker* handle) {
 
 
 XrResult locate_hand(struct ixr_hand_tracker* hand_tracker, const XrHandJointsLocateInfoEXT* info, XrHandJointLocationsEXT* locations) {
-    ILLIXR::data_format::ht::ht_data* data;
+    ILLIXR::data_format::ht::raw_ht_data* data;
     int idx;
     {
         b_intp::scoped_lock<b_intp::named_mutex> lock(*hand_tracker->ht_handle->m_current_swap_idx);
         idx = *hand_tracker->ht_handle->current_swap_idx;
-    }
-    {
         b_intp::scoped_lock<b_intp::named_mutex> d_lock(*hand_tracker->ht_handle->m_swap[idx]);
-        data = hand_tracker->ht_handle->ht_data_swap[idx];
+        data = hand_tracker->ht_handle->managed_shm.find<ILLIXR::data_format::ht::raw_ht_data>(
+                illixr_shm_swap[idx]).first;
+    }
+    int flags = 0;
+    if (data == nullptr) {
+        locations->isActive = false;
+        return XR_SUCCESS;
+    }
 
-        //auto data = hand_tracker->ht_handle->frame_reader.get_ro_nullable();
-        if (data == nullptr) {
-            locations->isActive = false;
-            return XR_SUCCESS;
-        }
-        ILLIXR::data_format::points_with_units h_pts(
-                data->hand_positions.at(static_cast<const ILLIXR::data_format::ht::hand>(hand_tracker->ixr_hand)));
-        if (!h_pts.valid) {
-            locations->isActive = false;
-            return XR_SUCCESS;
-        }
+    bool is_valid;
 
-        if (hand_tracker->ht_handle->do_convert)
-            h_pts.mult(hand_tracker->ht_handle->convert);
-        auto *space = reinterpret_cast<oxr_space *>(info->baseSpace);
-        if (space->space_type != OXR_SPACE_TYPE_REFERENCE_VIEW)
-            h_pts.transform(data->wcs_offset);
-        if (locations->jointCount == 21) {
-            for (int i = ILLIXR::data_format::ht::WRIST; i <= ILLIXR::data_format::ht::PINKY_TIP; i++) {
-                locations->jointLocations[i].locationFlags = (h_pts[i].valid) ? (XR_SPACE_LOCATION_POSITION_VALID_BIT |
-                                                                                 XR_SPACE_LOCATION_POSITION_TRACKED_BIT)
-                                                                              : XR_SPACE_LOCATION_POSITION_VALID_BIT;
-                locations->jointLocations[i].pose.position = {h_pts[i].x(), h_pts[i].y(), h_pts[i].z()};
-                locations->jointLocations[i].pose.orientation = {0., 0., 0., 0.};
-            }
+    valid_points h_pts{&data->h_points[hand_tracker->ixr_hand][0], data->hp_valid[hand_tracker->ixr_hand]};
+    is_valid = data->hp_valid[hand_tracker->ixr_hand];
+    if (!is_valid) {
+        locations->isActive = false;
+        if (hand_tracker->ht_handle->last_valid_frame[hand_tracker->ixr_hand].valid) {
+            h_pts = hand_tracker->ht_handle->last_valid_frame[hand_tracker->ixr_hand];
         } else {
-            for (auto &m: oxr_to_ixr_points) {
-                locations->jointLocations[m.first].locationFlags = (h_pts[m.second].valid) ? (
-                        XR_SPACE_LOCATION_POSITION_VALID_BIT | XR_SPACE_LOCATION_POSITION_TRACKED_BIT)
-                                                                                           : XR_SPACE_LOCATION_POSITION_VALID_BIT;
-                locations->jointLocations[m.first].pose.position = {h_pts[m.second].x(), h_pts[m.second].y(),
-                                                                    h_pts[m.second].z()};
-                locations->jointLocations[m.first].pose.orientation = {0., 0., 0., 0.};
+            locations->isActive = false;
+            return XR_SUCCESS;
+        }
+    } else {
+        if (hand_tracker->ht_handle->do_convert) {
+            for (auto i = 0; i < ILLIXR::data_format::ht::NUM_LANDMARKS; i++) {
+                h_pts.points[i].mult(hand_tracker->ht_handle->convert);
             }
-            for (auto pnt: invalid) {
-                locations->jointLocations[pnt].locationFlags = 0;
-                locations->jointLocations[pnt].pose.position = {0., 0., 0.};
-                locations->jointLocations[pnt].pose.orientation = {0., 0., 0., 0.};
+        }
+        auto *space = reinterpret_cast<oxr_space *>(info->baseSpace);
+        if (space->space_type == OXR_SPACE_TYPE_REFERENCE_VIEW) {
+            ILLIXR::data_format::pose_data wcs_offset{{data->wcs_origin.x, data->wcs_origin.y, data->wcs_origin.z},
+                                                      {data->wcs_origin.w, data->wcs_origin.wx, data->wcs_origin.wy,
+                                                       data->wcs_origin.wz}, data->unit};
+            for (auto i = 0; i < ILLIXR::data_format::ht::NUM_LANDMARKS; i++) {
+                h_pts.points[i].transform(wcs_offset);
             }
+
+        }
+        hand_tracker->ht_handle->last_valid_frame[hand_tracker->ixr_hand] = h_pts;
+
+        flags |= XR_SPACE_LOCATION_POSITION_TRACKED_BIT;
+    }
+
+
+    if (locations->jointCount == 21) {
+        for (int i = ILLIXR::data_format::ht::WRIST; i <= ILLIXR::data_format::ht::PINKY_TIP; i++) {
+            locations->jointLocations[i].locationFlags = (h_pts.points[i].valid) ? (XR_SPACE_LOCATION_POSITION_VALID_BIT |
+                                                                                    flags)
+                                                                                 : 0;
+            locations->jointLocations[i].pose.position = {h_pts.points[i].x, h_pts.points[i].y, h_pts.points[i].z};
+            locations->jointLocations[i].pose.orientation = {0., 0., 0., 0.};
+        }
+    } else {
+        for (auto &m: oxr_to_ixr_points) {
+            locations->jointLocations[m.first].locationFlags = (h_pts.points[m.second].valid) ? (
+                    XR_SPACE_LOCATION_POSITION_VALID_BIT | flags)
+                                                                                              : 0;
+            locations->jointLocations[m.first].pose.position = {h_pts.points[m.second].x, h_pts.points[m.second].y,
+                                                                h_pts.points[m.second].z};
+            locations->jointLocations[m.first].pose.orientation = {0., 0., 0., 0.};
+        }
+        for (auto pnt: invalid) {
+            locations->jointLocations[pnt].locationFlags = 0;
+            locations->jointLocations[pnt].pose.position = {0., 0., 0.};
+            locations->jointLocations[pnt].pose.orientation = {0., 0., 0., 0.};
         }
     }
+
     return XR_SUCCESS;
 }
 

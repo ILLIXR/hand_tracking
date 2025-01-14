@@ -8,12 +8,10 @@
 // DEFINE OUR OWN oxr_space and *_VIEW, *_LOCAL, *_LOCAL_FLOOR, and *_STAGE enums.
 
 const char* illixr_shm_name = "ILLIXR_OXR_SHM";
-const char* illixr_shm_swap1 = "ILLIXR_SHM_SWAP1";
-const char* illixr_shm_swap2 = "ILLIXR_SHM_SWAP2";
+const char* illixr_shm_swap[2] = {"ILLIXR_SHM_SWAP1", "ILLIXR_SHM_SWAP2"};
 const char* illixr_shm_current = "ILLIXR_SHM_CURRENT";
 const char* illixr_shm_mutex_latest = "ILLIXR_OXR_MUTEX_L";
-const char* illixr_shm_mutex_swap1 = "ILLIXR_OXR_MUTEX_S1";
-const char* illixr_shm_mutex_swap2 = "ILLIXR_OXR_MUTEX_S2";
+const char* illixr_shm_mutex_swap[2] = {"ILLIXR_OXR_MUTEX_S1", "ILLIXR_OXR_MUTEX_S2"};
 
 XrResult illixr_xrEnumerateInstanceExtensionProperties(
         const char*                                 layerName,
