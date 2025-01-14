@@ -188,6 +188,9 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
             velocity[data_format::ht::RIGHT_HAND] = data_format::ht::velocity(current_position.points[data_format::ht::RIGHT_HAND],
                                                                               _last_position.points[data_format::ht::RIGHT_HAND],
                                                                               static_cast<float>(current_position.time - _last_position.time) * NANO);
+        } else {
+            velocity[data_format::ht::LEFT_HAND] = data_format::ht::velocity();
+            velocity[data_format::ht::RIGHT_HAND] = data_format::ht::velocity();
         }
         // Convert back to opencv for display or saving.
         time_point current_time(
