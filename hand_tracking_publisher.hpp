@@ -7,9 +7,7 @@
 #include "mediapipe/framework/calculator_graph.h"
 
 #ifdef ENABLE_OXR
-//#include <boost/interprocess/mapped_region.hpp>
 #include <boost/interprocess/sync/named_mutex.hpp>
-//#include <boost/interprocess/shared_memory_object.hpp>
 #include <boost/interprocess/managed_shared_memory.hpp>
 #endif
 
@@ -66,7 +64,7 @@ struct pose_image {
         images.insert(start, end);
     }
 
-    int count(data_format::image::image_type imgt) const {
+    [[nodiscard]] size_t count(data_format::image::image_type imgt) const {
         return images.count(imgt);
     }
 };
@@ -110,16 +108,9 @@ private:
                                                                                          {data_format::image::RGB,       nullptr}};
 #ifdef ENABLE_OXR
     boost::interprocess::managed_shared_memory managed_shm;
-    //boost::interprocess::mapped_region* swap1;
-    //boost::interprocess::mapped_region* swap2;
-    //boost::interprocess::mapped_region latest;
-    //boost::interprocess::mapped_region* current_region = nullptr;
     boost::interprocess::named_mutex*          m_swap[2];
     boost::interprocess::named_mutex*          m_current_swap_idx;
     ILLIXR::data_format::ht::raw_ht_data*      htdb[2];
-    //boost::interprocess::named_mutex*          current_mutex = nullptr;
-    //bool use_swap1 = true;
-    //boost::interprocess::mapped_region mutex;
 #endif
     size_t _frame_count = 0;
     mediapipe::Packet _packet;

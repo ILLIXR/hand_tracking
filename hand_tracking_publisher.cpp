@@ -27,7 +27,7 @@ ILLIXR::hand_tracking_publisher::hand_tracking_publisher(const std::string &name
 
     size_t o1 = sizeof(ILLIXR::data_format::ht::raw_ht_data);
 
-    managed_shm = b_intp::managed_shared_memory (b_intp::create_only, illixr_shm_name, o1 * 4);//obj_size * 2 + sizeof(int) + 10);
+    managed_shm = b_intp::managed_shared_memory (b_intp::create_only, illixr_shm_name, o1 * 4);
     m_current_swap_idx = new b_intp::named_mutex(b_intp::open_or_create, illixr_shm_mutex_latest);
     m_swap[0] = new b_intp::named_mutex(b_intp::open_or_create, illixr_shm_mutex_swap[0]);
     m_swap[1] = new b_intp::named_mutex(b_intp::open_or_create, illixr_shm_mutex_swap[1]);

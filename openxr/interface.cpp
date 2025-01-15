@@ -12,17 +12,9 @@
 #include <boost/interprocess/managed_shared_memory.hpp>
 #include <boost/interprocess/sync/named_mutex.hpp>
 #include <boost/interprocess/sync/scoped_lock.hpp>
-#include <iostream>
-
-FILE* fptr2;
+#include <sstream>
 
 namespace b_intp = boost::interprocess;
-#define PRINT_MSG(...) \
-    do {               \
-        fptr2 = fopen("/home/friedel/oxr2.log", "a"); \
-        fprintf(fptr2, __VA_ARGS__);                  \
-        fclose(fptr2);\
-        } while(0)
 
 const std::map<int, int> oxr_to_ixr_points = {{XR_HAND_JOINT_WRIST_EXT, ILLIXR::data_format::ht::WRIST},
                                               {XR_HAND_JOINT_THUMB_METACARPAL_EXT, ILLIXR::data_format::ht::THUMB_CMC},
@@ -72,14 +64,12 @@ struct ht_illixr_handle_t {
     boost::interprocess::named_mutex*          m_swap[2]{nullptr, nullptr};
     boost::interprocess::named_mutex*          m_current_swap_idx = nullptr;
     boost::interprocess::managed_shared_memory managed_shm;
-    int*                                       current_swap_idx = nullptr;
     ILLIXR::data_format::coordinates::frame    ref = ILLIXR::data_format::coordinates::RIGHT_HANDED_Y_UP;
     valid_points                               last_valid_frame[2];
     Eigen::Matrix3f                            convert;
     bool                                       do_convert;
 
     explicit ht_illixr_handle_t() {
-        PRINT_MSG("have frame reader");
         managed_shm = b_intp::managed_shared_memory(b_intp::open_only, illixr_shm_name);
         m_current_swap_idx = new b_intp::named_mutex(b_intp::open_only, illixr_shm_mutex_latest);
         m_swap[0] = new b_intp::named_mutex(b_intp::open_only, illixr_shm_mutex_swap[0]);
@@ -100,17 +90,14 @@ XrResult handle_create(ixr_session* session,
                        const XrHandTrackerCreateInfoEXT* info,
                        ixr_hand_tracker *handle) {
     try {
-        PRINT_MSG("handle_create");
-        handle = new ixr_hand_tracker();
         handle->session = session;
         handle->hand = info->hand;
         handle->ixr_hand = (handle->hand == XR_HAND_LEFT_EXT) ? ILLIXR::data_format::ht::LEFT_HAND
                                                               : ILLIXR::data_format::ht::RIGHT_HAND;
         handle->hand_joints = info->handJointSet;
-        handle->ht_handle = create_ht_illixr();
+        handle->ht_handle =  new ht_illixr_handle_t();
 
     } catch (std::exception &e) {
-        auto x = e.what();
         return XR_ERROR_HANDLE_INVALID;
     }
     return XR_SUCCESS;
@@ -122,13 +109,14 @@ void handle_destory(ixr_hand_tracker* handle) {
     handle = NULL;
 }
 
-
-XrResult locate_hand(struct ixr_hand_tracker* hand_tracker, const XrHandJointsLocateInfoEXT* info, XrHandJointLocationsEXT* locations) {
+XrResult locate_hand(struct ixr_hand_tracker* hand_tracker,
+                     const XrHandJointsLocateInfoEXT* info,
+                     XrHandJointLocationsEXT* locations) {
     ILLIXR::data_format::ht::raw_ht_data* data;
     int idx;
     {
         b_intp::scoped_lock<b_intp::named_mutex> lock(*hand_tracker->ht_handle->m_current_swap_idx);
-        idx = *hand_tracker->ht_handle->current_swap_idx;
+        idx = *hand_tracker->ht_handle->managed_shm.find<int>(illixr_shm_current).first;
         b_intp::scoped_lock<b_intp::named_mutex> d_lock(*hand_tracker->ht_handle->m_swap[idx]);
         data = hand_tracker->ht_handle->managed_shm.find<ILLIXR::data_format::ht::raw_ht_data>(
                 illixr_shm_swap[idx]).first;
@@ -144,7 +132,7 @@ XrResult locate_hand(struct ixr_hand_tracker* hand_tracker, const XrHandJointsLo
     valid_points h_pts{&data->h_points[hand_tracker->ixr_hand][0], data->hp_valid[hand_tracker->ixr_hand]};
     is_valid = data->hp_valid[hand_tracker->ixr_hand];
     if (!is_valid) {
-        locations->isActive = false;
+
         if (hand_tracker->ht_handle->last_valid_frame[hand_tracker->ixr_hand].valid) {
             h_pts = hand_tracker->ht_handle->last_valid_frame[hand_tracker->ixr_hand];
         } else {
@@ -171,7 +159,6 @@ XrResult locate_hand(struct ixr_hand_tracker* hand_tracker, const XrHandJointsLo
 
         flags |= XR_SPACE_LOCATION_POSITION_TRACKED_BIT;
     }
-
 
     if (locations->jointCount == 21) {
         for (int i = ILLIXR::data_format::ht::WRIST; i <= ILLIXR::data_format::ht::PINKY_TIP; i++) {
@@ -201,16 +188,3 @@ XrResult locate_hand(struct ixr_hand_tracker* hand_tracker, const XrHandJointsLo
 }
 
 #endif  // ENABLE_OXR
-    // get phonebook somehow
-    PRINT_MSG("create_ht");
-    try {
-        auto *hth = new ht_illixr_handle_t();
-        return hth;
-    } catch (std::exception & ex) {
-        auto x = ex.what();
-        throw;
-    }
-
-}
-
-#endif  // BUILD_OXR

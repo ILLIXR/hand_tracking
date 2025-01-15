@@ -5,7 +5,6 @@
 #else
 #define EXTERNC
 #endif
-// DEFINE OUR OWN oxr_space and *_VIEW, *_LOCAL, *_LOCAL_FLOOR, and *_STAGE enums.
 
 const char* illixr_shm_name = "ILLIXR_OXR_SHM";
 const char* illixr_shm_swap[2] = {"ILLIXR_SHM_SWAP1", "ILLIXR_SHM_SWAP2"};

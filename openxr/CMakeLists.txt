@@ -60,8 +60,3 @@ if(BUILD_OXR_TEST)
 endif()
 
 install(TARGETS openxr_illixr_ht DESTINATION lib)
-
-#get_cmake_property(_variableNames VARIABLES)
-#foreach (_variableName ${_variableNames})
-#    message(STATUS "${_variableName}=${${_variableName}}")
-#endforeach()
