@@ -183,7 +183,22 @@ XrResult locate_hand(struct ixr_hand_tracker* hand_tracker,
             locations->jointLocations[pnt].pose.orientation = {0., 0., 0., 0.};
         }
     }
-
+#ifdef ENABLE_OXR_TEST
+    std::ostringstream oss;
+    oss << std::setprecision(6) << "HT Data" << std::endl << "  Time: " << data->time << std::endl;
+    if (hand_tracker->ixr_hand == 0) {
+        oss << "  Left Hand:";
+    } else {
+        oss << "  Right Hand:";
+    }
+    for (auto i = 0; i < locations->jointCount; i++) {
+        oss << std::endl << "    " << i << ": " << locations->jointLocations[i].pose.position.x << ", "
+            << locations->jointLocations[i].pose.position.y
+            << ", " << locations->jointLocations[i].pose.position.z << "  " << locations->jointLocations[i].locationFlags;
+    }
+    oss << std::endl << std::endl;
+    printf("%s", oss.str().c_str());
+#endif
     return XR_SUCCESS;
 }
 

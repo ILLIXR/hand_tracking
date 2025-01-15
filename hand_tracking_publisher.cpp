@@ -211,6 +211,7 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
             b_intp::scoped_lock<b_intp::named_mutex> lock(*m_swap[idx_to_use]);
             htdb[idx_to_use]->copy(current_frame);
         }
+        std::cout << *htdb[idx_to_use] << std::endl;
         _ht_publisher.put(_ht_publisher.allocate<data_format::ht::ht_frame>(data_format::ht::ht_frame{current_frame}));
         {
             b_intp::scoped_lock<b_intp::named_mutex> lock(*m_current_swap_idx);
