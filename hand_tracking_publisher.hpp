@@ -6,7 +6,7 @@
 #include "mediapipe/calculators/util/illixr_data.h"
 #include "mediapipe/framework/calculator_graph.h"
 
-#ifdef BUILD_OXR
+#ifdef ENABLE_OXR
 //#include <boost/interprocess/mapped_region.hpp>
 #include <boost/interprocess/sync/named_mutex.hpp>
 //#include <boost/interprocess/shared_memory_object.hpp>
@@ -108,7 +108,7 @@ private:
     std::map<data_format::image::image_type, mediapipe::OutputStreamPoller *> _poller = {{data_format::image::LEFT_EYE,  nullptr},
                                                                                          {data_format::image::RIGHT_EYE, nullptr},
                                                                                          {data_format::image::RGB,       nullptr}};
-#ifdef BUILD_OXR
+#ifdef ENABLE_OXR
     boost::interprocess::managed_shared_memory managed_shm;
     //boost::interprocess::mapped_region* swap1;
     //boost::interprocess::mapped_region* swap2;

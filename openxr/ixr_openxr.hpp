@@ -1,4 +1,4 @@
-#ifdef BUILD_OXR
+#ifdef ENABLE_OXR
 #include "openxr/openxr_loader_negotiation.h"
 #ifdef __cplusplus
 #define EXTERNC extern "C"

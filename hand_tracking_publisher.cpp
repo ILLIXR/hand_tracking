@@ -1,6 +1,6 @@
 #include "hand_tracking_publisher.hpp"
 
-#ifdef BUILD_OXR
+#ifdef ENABLE_OXR
 #include <boost/interprocess/sync/scoped_lock.hpp>
 
 #include "openxr/ixr_openxr.hpp"
@@ -19,7 +19,7 @@ ILLIXR::hand_tracking_publisher::hand_tracking_publisher(const std::string &name
         , _rgb_depth_reader{_switchboard->get_reader<data_format::rgb_depth_type>("rgb_depth")}
         , _cam_type{ct} {
 
-#ifdef BUILD_OXR
+#ifdef ENABLE_OXR
     b_intp::shared_memory_object::remove(illixr_shm_name);
     b_intp::named_mutex::remove(illixr_shm_mutex_latest);
     b_intp::named_mutex::remove(illixr_shm_mutex_swap[0]);
@@ -52,7 +52,7 @@ void ILLIXR::hand_tracking_publisher::start() {
 ILLIXR::hand_tracking_publisher::~hand_tracking_publisher() {
     for (auto& i : _poller)
         delete i.second;
-#ifdef BUILD_OXR
+#ifdef ENABLE_OXR
     managed_shm.destroy<ILLIXR::data_format::ht::raw_ht_data>(illixr_shm_swap[0]);
     managed_shm.destroy<ILLIXR::data_format::ht::raw_ht_data>(illixr_shm_swap[1]);
     managed_shm.destroy<int>(illixr_shm_current);
@@ -196,7 +196,7 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
         time_point current_time(
                 std::chrono::duration<long, std::nano>{std::chrono::system_clock::now().time_since_epoch().count()});
 
-#ifdef BUILD_OXR
+#ifdef ENABLE_OXR
         int idx_to_use;
         if (*current_swap_idx == 0) {
             idx_to_use = 1;

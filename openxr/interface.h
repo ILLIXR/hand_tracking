@@ -1,5 +1,5 @@
 #pragma once
-#ifdef BUILD_OXR
+#ifdef ENABLE_OXR
 #include <openxr/openxr.h>
 
 
@@ -35,4 +35,4 @@ XrResult locate_hand(ixr_hand_tracker* hand_tracker, const XrHandJointsLocateInf
 
 ht_illixr_handle create_ht_illixr();
 
-#endif  // BUILD_OXR
+#endif  // ENABLE_OXR

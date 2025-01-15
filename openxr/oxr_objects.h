@@ -1,5 +1,5 @@
 #pragma once
-#ifdef BUILD_OXR
+#ifdef ENABLE_OXR
 #include <openxr/openxr.h>
 
 #define XRT_MAX_HANDLE_CHILDREN 256
@@ -712,4 +712,4 @@ static const XrExtensionProperties extension_props = {XR_TYPE_EXTENSION_PROPERTI
 }
 #endif
 
-#endif  // BUILD_OXR
+#endif  // ENABLE_OXR

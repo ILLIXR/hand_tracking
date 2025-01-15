@@ -1,4 +1,4 @@
-#ifdef BUILD_OXR
+#ifdef ENABLE_OXR
 
 #ifndef XR_NO_PROTOTYPES
 #define XR_NO_PROTOTYPES

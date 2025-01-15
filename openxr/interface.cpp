@@ -1,4 +1,4 @@
-#ifdef BUILD_OXR
+#ifdef ENABLE_OXR
 
 #include "interface.h"
 #include "illixr/data_format/hand_tracking_data.hpp"
@@ -200,7 +200,7 @@ XrResult locate_hand(struct ixr_hand_tracker* hand_tracker, const XrHandJointsLo
     return XR_SUCCESS;
 }
 
-ht_illixr_handle_t* create_ht_illixr() {
+#endif  // ENABLE_OXR
     // get phonebook somehow
     PRINT_MSG("create_ht");
     try {

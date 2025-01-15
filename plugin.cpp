@@ -12,7 +12,7 @@
 #include "illixr/data_format/misc.hpp"
 #include "illixr/data_format/zed_cam.hpp"
 
-#ifdef BUILD_OXR
+#ifdef ENABLE_OXR
 #include <map>
 std::unordered_map<std::string, std::string> ILLIXR::switchboard::_m_env_vars = {};
 #endif
