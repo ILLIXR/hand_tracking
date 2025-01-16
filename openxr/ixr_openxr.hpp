@@ -1,4 +1,3 @@
-#ifdef ENABLE_OXR
 #include "openxr/openxr_loader_negotiation.h"
 #ifdef __cplusplus
 #define EXTERNC extern "C"
@@ -37,5 +36,3 @@ XrResult XRAPI_CALL illixr_xrGetInstanceProcAddr(
         XrInstance instance,
         const char *name,
         PFN_xrVoidFunction *function);
-
-#endif

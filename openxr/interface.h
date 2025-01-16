@@ -1,5 +1,4 @@
 #pragma once
-#ifdef ENABLE_OXR
 #include <openxr/openxr.h>
 
 
@@ -24,15 +23,13 @@ struct ixr_hand_tracker {
     int ixr_hand;
     [[maybe_unused]] XrHandJointSetEXT hand_joints;
 };
-XrResult handle_create(ixr_session* session,
-                       const XrHandTrackerCreateInfoEXT* info,
-                       ixr_hand_tracker* handle);
-void handle_destory(ixr_hand_tracker* handle);
 
-XrResult locate_hand(ixr_hand_tracker* hand_tracker, const XrHandJointsLocateInfoEXT* info,
-                     XrHandJointLocationsEXT* locations);
+XrResult illixr_xrCreateHandTrackerEXT(XrSession session,
+                                       const XrHandTrackerCreateInfoEXT* createInfo,
+                                       XrHandTrackerEXT* handTracker);
 
+XrResult XRAPI_CALL illixr_xrDestroyHandTrackerEXT(XrHandTrackerEXT handTracker);
 
-ht_illixr_handle create_ht_illixr();
-
-#endif  // ENABLE_OXR
+XrResult XRAPI_CALL illixr_xrLocateHandJointsEXT(XrHandTrackerEXT handTracker,
+                                                 const XrHandJointsLocateInfoEXT* locateInfo,
+                                                 XrHandJointLocationsEXT* locations);

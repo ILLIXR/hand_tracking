@@ -1,5 +1,8 @@
 #pragma once
-#ifdef ENABLE_OXR
+
+/*
+ * This file was borrowed from github.com/KhronosGroup/OpenXR-SDK on Dec 15, 2024 under Apache License v2.0
+ */
 #include <openxr/openxr.h>
 
 #define XRT_MAX_HANDLE_CHILDREN 256
@@ -711,5 +714,3 @@ static const XrExtensionProperties extension_props = {XR_TYPE_EXTENSION_PROPERTI
 #ifdef __cplusplus
 }
 #endif
-
-#endif  // ENABLE_OXR

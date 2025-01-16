@@ -1,5 +1,3 @@
-#ifdef ENABLE_OXR
-
 #ifndef XR_NO_PROTOTYPES
 #define XR_NO_PROTOTYPES
 #endif
@@ -10,12 +8,6 @@
 
 #include "interface.h"
 #include "openxr/openxr_loader_negotiation.h"
-
-#ifdef __cplusplus
-#define EXTERNC extern "C"
-#else
-#define EXTERNC
-#endif
 
 #define INTERFACE_VERSION 1
 #define API_VERSION 1
@@ -118,61 +110,6 @@ XrResult illixr_xrCreateApiLayerInstance(
 }
 
 
-XrResult XRAPI_CALL illixr_xrCreateHandTrackerEXT(XrSession session,
-                                                  const XrHandTrackerCreateInfoEXT* createInfo,
-                                                  XrHandTrackerEXT* handTracker) {
-    ixr_hand_tracker* tracker_handle = nullptr;
-    ixr_session *sess = nullptr;
-
-    if (!session)
-        return XR_ERROR_HANDLE_INVALID;
-
-    sess = reinterpret_cast<ixr_session *>(session);
-    if (createInfo == ((void *) 0) ||
-            createInfo->type != XR_TYPE_HAND_TRACKER_CREATE_INFO_EXT ||
-            handTracker == ((void *) 0) ||
-            (createInfo->hand != XR_HAND_LEFT_EXT && createInfo->hand != XR_HAND_RIGHT_EXT)) {
-        return XR_ERROR_VALIDATION_FAILURE;
-    }
-    tracker_handle = new ixr_hand_tracker();
-
-    auto ret = handle_create(sess, createInfo, tracker_handle);
-    if (XR_FAILED(ret))
-        return ret;
-
-    *handTracker = reinterpret_cast<XrHandTrackerEXT>(tracker_handle);
-    return ret;
-}
-
-XrResult XRAPI_CALL illixr_xrDestroyHandTrackerEXT(XrHandTrackerEXT handTracker) {
-    ixr_hand_tracker* hand_tracker;
-
-    if (handTracker == NULL)
-        return XR_ERROR_HANDLE_INVALID;
-
-    hand_tracker = reinterpret_cast<ixr_hand_tracker*>(handTracker);
-    handle_destory(hand_tracker);
-    return XR_SUCCESS;
-}
-
-XrResult XRAPI_CALL illixr_xrLocateHandJointsEXT(XrHandTrackerEXT handTracker,
-                                                 const XrHandJointsLocateInfoEXT* locateInfo,
-                                                 XrHandJointLocationsEXT* locations) {
-    struct ixr_hand_tracker* hand_tracker;
-    if (handTracker == ((void *) 0))
-        return XR_ERROR_HANDLE_INVALID;
-
-    hand_tracker = reinterpret_cast<ixr_hand_tracker*>(handTracker);
-    if (locateInfo == ((void *) 0) ||
-        locateInfo->type != XR_TYPE_HAND_JOINTS_LOCATE_INFO_EXT ||
-        locations == ((void *) 0) ||
-        locations->type != XR_TYPE_HAND_JOINT_LOCATIONS_EXT ||
-        (locations->jointCount != 26 && locations->jointCount != 21)) {
-        return XR_ERROR_VALIDATION_FAILURE;
-    }
-    locate_hand(hand_tracker, locateInfo, locations);
-    return XR_SUCCESS;
-}
 
 
 XrResult XRAPI_CALL illixr_xrGetInstanceProcAddr(
@@ -263,5 +200,4 @@ XrResult illixr_xrNegotiateLoaderApiLayerInterface(const XrNegotiateLoaderInfo* 
 
 #ifdef __cplusplus
 }
-#endif
 #endif

@@ -1,5 +1,3 @@
-#ifdef ENABLE_OXR
-
 #include "interface.h"
 #include "illixr/data_format/hand_tracking_data.hpp"
 #include "ixr_openxr.hpp"
@@ -86,32 +84,71 @@ struct ht_illixr_handle_t {
 
 };
 
-XrResult handle_create(ixr_session* session,
-                       const XrHandTrackerCreateInfoEXT* info,
-                       ixr_hand_tracker *handle) {
+
+XrResult illixr_xrCreateHandTrackerEXT(XrSession session,
+                                       const XrHandTrackerCreateInfoEXT* createInfo,
+                                       XrHandTrackerEXT* handTracker) {
+    ixr_hand_tracker* tracker_handle = nullptr;
+    ixr_session *sess = nullptr;
+
+    if (!session)
+        return XR_ERROR_HANDLE_INVALID;
+
+    sess = reinterpret_cast<ixr_session *>(session);
+    if (createInfo == ((void *) 0) ||
+        createInfo->type != XR_TYPE_HAND_TRACKER_CREATE_INFO_EXT ||
+        handTracker == ((void *) 0) ||
+        (createInfo->hand != XR_HAND_LEFT_EXT && createInfo->hand != XR_HAND_RIGHT_EXT)) {
+        return XR_ERROR_VALIDATION_FAILURE;
+    }
+    tracker_handle = new ixr_hand_tracker();
+
+
     try {
-        handle->session = session;
-        handle->hand = info->hand;
-        handle->ixr_hand = (handle->hand == XR_HAND_LEFT_EXT) ? ILLIXR::data_format::ht::LEFT_HAND
+        tracker_handle->session = sess;
+        tracker_handle->hand = createInfo->hand;
+        tracker_handle->ixr_hand = (tracker_handle->hand == XR_HAND_LEFT_EXT) ? ILLIXR::data_format::ht::LEFT_HAND
                                                               : ILLIXR::data_format::ht::RIGHT_HAND;
-        handle->hand_joints = info->handJointSet;
-        handle->ht_handle =  new ht_illixr_handle_t();
+        tracker_handle->hand_joints = createInfo->handJointSet;
+        tracker_handle->ht_handle =  new ht_illixr_handle_t();
 
     } catch (std::exception &e) {
         return XR_ERROR_HANDLE_INVALID;
     }
+
+    *handTracker = reinterpret_cast<XrHandTrackerEXT>(tracker_handle);
     return XR_SUCCESS;
 }
 
-void handle_destory(ixr_hand_tracker* handle) {
-    delete handle->ht_handle;
-    delete handle;
-    handle = NULL;
+XrResult XRAPI_CALL illixr_xrDestroyHandTrackerEXT(XrHandTrackerEXT handTracker) {
+    ixr_hand_tracker* hand_tracker;
+
+    if (handTracker == NULL)
+        return XR_ERROR_HANDLE_INVALID;
+
+    hand_tracker = reinterpret_cast<ixr_hand_tracker*>(handTracker);
+    delete hand_tracker->ht_handle;
+    delete hand_tracker;
+    hand_tracker = NULL;
+
+    return XR_SUCCESS;
 }
 
-XrResult locate_hand(struct ixr_hand_tracker* hand_tracker,
-                     const XrHandJointsLocateInfoEXT* info,
-                     XrHandJointLocationsEXT* locations) {
+XrResult XRAPI_CALL illixr_xrLocateHandJointsEXT(XrHandTrackerEXT handTracker,
+                                                 const XrHandJointsLocateInfoEXT* locateInfo,
+                                                 XrHandJointLocationsEXT* locations) {
+    struct ixr_hand_tracker* hand_tracker;
+    if (handTracker == ((void *) 0))
+        return XR_ERROR_HANDLE_INVALID;
+
+    hand_tracker = reinterpret_cast<ixr_hand_tracker*>(handTracker);
+    if (locateInfo == ((void *) 0) ||
+        locateInfo->type != XR_TYPE_HAND_JOINTS_LOCATE_INFO_EXT ||
+        locations == ((void *) 0) ||
+        locations->type != XR_TYPE_HAND_JOINT_LOCATIONS_EXT ||
+        (locations->jointCount != 26 && locations->jointCount != 21)) {
+        return XR_ERROR_VALIDATION_FAILURE;
+    }
     ILLIXR::data_format::ht::raw_ht_data* data;
     int idx;
     {
@@ -145,7 +182,7 @@ XrResult locate_hand(struct ixr_hand_tracker* hand_tracker,
                 h_pts.points[i].mult(hand_tracker->ht_handle->convert);
             }
         }
-        auto *space = reinterpret_cast<oxr_space *>(info->baseSpace);
+        auto *space = reinterpret_cast<oxr_space *>(locateInfo->baseSpace);
         if (space->space_type == OXR_SPACE_TYPE_REFERENCE_VIEW) {
             ILLIXR::data_format::pose_data wcs_offset{{data->wcs_origin.x, data->wcs_origin.y, data->wcs_origin.z},
                                                       {data->wcs_origin.w, data->wcs_origin.wx, data->wcs_origin.wy,
@@ -199,7 +236,6 @@ XrResult locate_hand(struct ixr_hand_tracker* hand_tracker,
     oss << std::endl << std::endl;
     printf("%s", oss.str().c_str());
 #endif
+
     return XR_SUCCESS;
 }
-
-#endif  // ENABLE_OXR
