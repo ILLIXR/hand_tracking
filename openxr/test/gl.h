@@ -62,13 +62,16 @@ bool create_swapchain_from_views(XrInstance instance,
                                  uint32_t view_count,
                                  int64_t format,
                                  XrViewConfigurationView* viewconfig_views,
-                                 XrSwapchainUsageFlags usage_flags);
+                            XrSwapchainUsageFlags usage_flags);
 
 void destroy_swapchain(struct swapchain_t* swapchain);
 
 // =============================================================================
 // OpenGL rendering code
 // =============================================================================
+
+static SDL_Window* desktop_window;
+static SDL_GLContext gl_context;
 
 
 void MessageCallback(GLenum source,
