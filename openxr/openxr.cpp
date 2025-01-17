@@ -164,7 +164,7 @@ XrResult XRAPI_CALL illixr_xrGetInstanceProcAddr(
 #ifdef __cplusplus
 extern "C" {
 #endif
-XrResult illixr_xrNegotiateLoaderApiLayerInterface(const XrNegotiateLoaderInfo* loaderInfo,
+[[maybe_unused]]XrResult illixr_xrNegotiateLoaderApiLayerInterface(const XrNegotiateLoaderInfo* loaderInfo,
                                                    const char* layerName,
                                                    XrNegotiateApiLayerRequest* layerRequest) {
     std::string lname = layerName;

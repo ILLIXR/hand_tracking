@@ -12,11 +12,6 @@
 #include "illixr/data_format/misc.hpp"
 #include "illixr/data_format/zed_cam.hpp"
 
-#ifdef ENABLE_OXR
-#include <map>
-std::unordered_map<std::string, std::string> ILLIXR::switchboard::_m_env_vars = {};
-#endif
-
 #if !MEDIAPIPE_DISABLE_GPU
 #include "mediapipe/gpu/gpu_buffer.h"
 #include "mediapipe/gpu/gpu_shared_data_internal.h"
@@ -67,7 +62,7 @@ ht::cam_type get_cam_type(const std::shared_ptr<switchboard>& sb) {
                  {idf::image::RGB, nullptr}}
         , _switchboard{pb_->lookup_impl<switchboard>()}
         , _cam_type{get_cam_type(_switchboard)}
-        , _publisher{"hand_tracking_publisher", pb_, _cam_type} {
+        , _publisher{"hand_tracking_publisher", pb_} {
     if (_cam_type == ht::WEBCAM) {
         _input_type = ht::RGB;
         _first_person = false;

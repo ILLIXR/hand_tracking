@@ -303,11 +303,6 @@ int main(int argc, char** argv) {
     if (!xr_check(app->oxr.instance, result, "Failed to create play space!"))
         return 1;
 
-
-    XrPosef y1 = {.position = {0, 1, 0}, .orientation = {0, 0, 0, 1}};
-
-    XrPosef z1 = {.position = {0, 0, -1}, .orientation = {0, 0, 0, 1}};
-
     {
         XrReferenceSpaceCreateInfo space_create_info = {.type = XR_TYPE_REFERENCE_SPACE_CREATE_INFO,
                 .next = NULL,
@@ -620,7 +615,7 @@ int main(int argc, char** argv) {
             }
         }
         frame_count++;
-        usleep(35 * 1000); // sleep for 35 ms
+        usleep(66 * 1000); // sleep for 66 ms (this is the timing of the test data set
     }
 
 

@@ -27,7 +27,7 @@ XrResult illixr_xrCreateApiLayerInstance(
         const XrApiLayerCreateInfo*                 layerInfo,
         XrInstance*                                 instance);
 
-EXTERNC XrResult illixr_xrNegotiateLoaderApiLayerInterface(
+EXTERNC [[maybe_unused]]XrResult illixr_xrNegotiateLoaderApiLayerInterface(
         const XrNegotiateLoaderInfo* loaderInfo,
         const char* layerName,
         XrNegotiateApiLayerRequest* layerRequest);

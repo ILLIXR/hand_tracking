@@ -9,15 +9,14 @@ namespace b_intp = boost::interprocess;
 
 constexpr float NANO = 1. / (1000. * 1000. * 1000.);
 
-ILLIXR::hand_tracking_publisher::hand_tracking_publisher(const std::string &name_, ::ILLIXR::phonebook *pb_, ht::cam_type ct)
+ILLIXR::hand_tracking_publisher::hand_tracking_publisher(const std::string &name_, ::ILLIXR::phonebook *pb_)
         : threadloop(name_, pb_)
         , _switchboard{pb_->lookup_impl<switchboard>()}
         , _ht_publisher{_switchboard->get_writer<data_format::ht::ht_frame>("ht")}
         , _pose_reader{_switchboard->get_reader<data_format::pose_type>("pose")}
         , _camera_reader{_switchboard->get_reader<data_format::camera_data>("cam_data")}
         , _depth_reader{_switchboard->get_reader<data_format::depth_type>("depth")}
-        , _rgb_depth_reader{_switchboard->get_reader<data_format::rgb_depth_type>("rgb_depth")}
-        , _cam_type{ct} {
+        , _rgb_depth_reader{_switchboard->get_reader<data_format::rgb_depth_type>("rgb_depth")} {
 
 #ifdef ENABLE_OXR
     b_intp::shared_memory_object::remove(illixr_shm_name);
@@ -37,7 +36,7 @@ ILLIXR::hand_tracking_publisher::hand_tracking_publisher(const std::string &name
         current_swap_idx = managed_shm.construct<int>(illixr_shm_current)(0);
     }
     catch (std::exception &e) {
-        auto x = e.what();
+        spdlog::get("illixr")->error("[hand_tracking_publisher] " + std::string(e.what()));
         throw;
     }
 #endif

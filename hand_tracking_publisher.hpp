@@ -73,7 +73,7 @@ void transform(const data_format::pose_data& pose, data_format::ht::hand_points&
 
 class hand_tracking_publisher : public threadloop {
 public:
-    hand_tracking_publisher(const std::string &name_, phonebook *pb_, ht::cam_type _c_type);
+    hand_tracking_publisher(const std::string &name_, phonebook *pb_);
 
     void start() override;
 
@@ -111,6 +111,7 @@ private:
     boost::interprocess::named_mutex*          m_swap[2];
     boost::interprocess::named_mutex*          m_current_swap_idx;
     ILLIXR::data_format::ht::raw_ht_data*      htdb[2];
+    int* current_swap_idx;
 #endif
     size_t _frame_count = 0;
     mediapipe::Packet _packet;
@@ -125,12 +126,10 @@ private:
     cv::Mat _current_depth;
     int _img_size_x = 0;
     int _img_size_y = 0;
-    int* current_swap_idx;
     data_format::ht::position _last_position;
     ht::input_type _last_input = ht::RIGHT;
     ushort _count = 0;
     data_format::camera_data cam_data_;
-    ht::cam_type _cam_type;
 };
 
 }
