@@ -19,7 +19,7 @@ externalproject_add(
         PREFIX ${CMAKE_BINARY_DIR}/_deps/data
         CONFIGURE_COMMAND ""
         BUILD_COMMAND ""
-        INSTALL_COMMAND "rm -f ${CMAKE_INSTALL_PREFIX}/share/fps30_dur10; ln -s ${CMAKE_BINARY_DIR}/_deps/data/src/zed_test_data/fps30_dur10 ${CMAKE_INSTALL_PREFIX}/share/fps30_dur10"
+        INSTALL_COMMAND ln -fs ${CMAKE_BINARY_DIR}/_deps/data/src/zed_test_data/fps30_dur10 ${CMAKE_INSTALL_PREFIX}/share/fps30_dur10
 )
 find_package(X11 REQUIRED)
 
