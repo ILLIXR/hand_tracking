@@ -1,9 +1,25 @@
 cmake_minimum_required(VERSION 3.16)
 
 project(illixr_oxr_test LANGUAGES C)
-#set(CMAKE_CXX_STANDARD 17)
-#set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+include(ExternalProject)
+
+externalproject_add(
+        monado
+        GIT_REPOSITORY https://gitlab.freedesktop.org/monado/monado.git
+        GIT_TAG 529aa5b092b592714812b4685aa0454a3cfb120e
+        PREFIX ${CMAKE_BINARY_DIR}/_deps/monado
+        CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX} -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DXRT_HAVE_LIBUDEV=ON -DXRT_HAVE_LIBUSB=ON -DXRT_HAVE_LIBUVC=ON -DXRT_HAVE_V4L2=ON -DXRT_FEATURE_SERVICE=ON
+)
+
+externalproject_add(
+        test_data
+        GIT_REPOSITORY https://github.com/ILLIXR/zed_test_data.git
+        PREFIX ${CMAKE_BINARY_DIR}/_deps/data
+        CONFIGURE_COMMAND ""
+        BUILD_COMMAND ""
+        INSTALL_COMMAND ln -s ${CMAKE_BINARY_DIR}/_deps/data/src/zed_test_data/fps30_dur10 ${CMAKE_INSTALL_PREFIX}/share/fps30_dur10
+)
 find_package(X11 REQUIRED)
 
 pkg_check_modules(gl REQUIRED gl)
