@@ -80,7 +80,7 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
             out_img_type = data_format::image::LEFT_EYE_PROCESSED;
             break;
         default:
-            break;
+            throw std::runtime_error("Unexpected frame type: " + ILLIXR::data_format::image::image_type_map.at(output_frame.type));
     }
 
     if (_last_frame_id != output_frame.image_id) {
