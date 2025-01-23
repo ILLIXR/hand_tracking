@@ -170,9 +170,9 @@ void hand_tracking::start() {
         case ht::ZED:
 #ifdef HAVE_ZED
             _switchboard->schedule<idf::cam_type_zed>(id, "cam_zed",
-                                                 [this](const switchboard::ptr<const idf::cam_type_zed> &img, std::size_t) {
-                                                     this->process(img);
-                                                 });
+                                                      [this](const switchboard::ptr<const idf::cam_type_zed> &img, std::size_t) {
+                                                          this->process(img);
+                                                      });
 #else
             throw std::runtime_error("No support for zed camera");
 #endif
@@ -198,26 +198,55 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
         case idf::camera::BINOCULAR:
             switch (_input_type) {
                 case ht::BOTH:
-                    _current_images = {{idf::image::LEFT_EYE,  frame->at(idf::image::LEFT_EYE).clone()},
-                                       {idf::image::RIGHT_EYE, frame->at(idf::image::RIGHT_EYE).clone()}};
-                    pose_img.eye_count = 2;
+                    if(!frame->at(idf::image::LEFT_EYE).empty() && !frame->at(idf::image::RIGHT_EYE).empty()) {
+                        _current_images = {{idf::image::LEFT_EYE,  frame->at(idf::image::LEFT_EYE).clone()},
+                                           {idf::image::RIGHT_EYE, frame->at(idf::image::RIGHT_EYE).clone()}};
+                        pose_img.eye_count = 2;
+                    } else if(frame->at(idf::image::LEFT_EYE).empty() && frame->at(idf::image::RIGHT_EYE).empty()) {
+                        spdlog::get("illixr")->info("[hand_tracking.plugin] Received empty frame, skipping");
+                        return;
+                    } else if(frame->at(idf::image::LEFT_EYE).empty()) {
+                        _current_images = {{idf::image::LEFT_EYE, frame->at(idf::image::LEFT_EYE).clone()}};
+                        pose_img.eye_count = 1;
+                        pose_img.primary = idf::units::LEFT_EYE;
+                    } else {
+                        if(frame->at(idf::image::RIGHT_EYE).empty()) {
+                            spdlog::get("illixr")->info("[hand_tracking.plugin] Received empty frame, skipping");
+                            return;
+                        }
+                        _current_images = {{idf::image::RIGHT_EYE, frame->at(idf::image::RIGHT_EYE).clone()}};
+                        pose_img.eye_count = 1;
+                        pose_img.primary = idf::units::RIGHT_EYE;
+                    }
                     break;
                 case ht::LEFT:
-                    _current_images = {{idf::image::LEFT_EYE, frame->at(idf::image::LEFT_EYE).clone()}};
-                    pose_img.eye_count = 1;
-                    pose_img.primary = idf::units::LEFT_EYE;
-                    break;
-                case ht::RIGHT:
+                    if(frame->at(idf::image::LEFT_EYE).empty()) {
+                        spdlog::get("illixr")->info("[hand_tracking.plugin] Received empty frame, skipping");
+                        return;
+                    }
                     _current_images = {{idf::image::RIGHT_EYE, frame->at(idf::image::RIGHT_EYE).clone()}};
                     pose_img.eye_count = 1;
                     pose_img.primary = idf::units::RIGHT_EYE;
                     break;
+                case ht::RIGHT:
+                    if(frame->at(idf::image::RIGHT_EYE).empty()) {
+                        spdlog::get("illixr")->info("[hand_tracking.plugin] Received empty frame, skipping");
+                        return;
+                    }
+                    _current_images = {{idf::image::LEFT_EYE, frame->at(idf::image::LEFT_EYE).clone()}};
+                    pose_img.eye_count = 1;
+                    pose_img.primary = idf::units::LEFT_EYE;
+                    break;
                 case ht::RGB:
-                    std::cout << "RGB not provided by binocular view";
+                    spdlog::get("illixr")->warn("[hand_tracking.plugin] RGB not provided by binocular view");
                     break;
             }
             break;
         case idf::camera::MONOCULAR: {
+            if(frame->at(idf::image::RGB).empty()) {
+                spdlog::get("illixr")->info("[hand_tracking.plugin] Received empty frame, skipping");
+                return;
+            }
             cv::Mat temp_img(frame->at(idf::image::RGB).clone());
             cv::flip(temp_img, temp_img, 1);
             img_convert(temp_img);
@@ -227,6 +256,10 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
             break;
         }
         case idf::camera::RGB_DEPTH: {
+            if(frame->at(idf::image::LEFT_EYE).empty() && frame->at(idf::image::RGB).empty()) {
+                spdlog::get("illixr")->info("[hand_tracking.plugin] Received empty frame, skipping");
+                return;
+            }
             _current_images = {{idf::image::LEFT_EYE, frame->at(idf::image::RGB).clone()}};
             pose_img.eye_count = 1;
             pose_img.primary = idf::units::LEFT_EYE;
@@ -236,17 +269,39 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
 #ifdef HAVE_ZED
             switch (_input_type) {
                 case ht::BOTH: {
-                    cv::Mat tempL(frame->at(idf::image::LEFT_EYE).clone());
-                    cv::Mat tempR(frame->at(idf::image::RIGHT_EYE).clone());
-                    img_convert(tempL, true);
-                    img_convert(tempR, true);
-                    _current_images = {{idf::image::LEFT_EYE, tempL},
-                                       {idf::image::RIGHT_EYE, tempR}};
-                    pose_img.eye_count = 2;
-                    pose_img.primary = idf::units::LEFT_EYE;
+                    if(!frame->at(idf::image::LEFT_EYE).empty() && !frame->at(idf::image::RIGHT_EYE).empty()) {
+                        cv::Mat tempL(frame->at(idf::image::LEFT_EYE).clone());
+                        cv::Mat tempR(frame->at(idf::image::RIGHT_EYE).clone());
+                        img_convert(tempL, true);
+                        img_convert(tempR, true);
+                        _current_images = {{idf::image::LEFT_EYE, tempL},
+                                           {idf::image::RIGHT_EYE, tempR}};
+                        pose_img.eye_count = 2;
+                        pose_img.primary = idf::units::LEFT_EYE;
+                    } else if(frame->at(idf::image::LEFT_EYE).empty() && frame->at(idf::image::RIGHT_EYE).empty()) {
+                        spdlog::get("illixr")->info("[hand_tracking.plugin] Received empty frame, skipping");
+                        return;
+                    } else if(frame->at(idf::image::LEFT_EYE).empty()) {
+                        cv::Mat temp(frame->at(idf::image::RIGHT_EYE).clone());
+                        img_convert(temp, true);
+                        _current_images = {{idf::image::RIGHT_EYE, temp}};
+                        pose_img.eye_count = 1;
+                        pose_img.primary = idf::units::RIGHT_EYE;
+                    } else {
+                        cv::Mat temp(frame->at(idf::image::LEFT_EYE).clone());
+                        img_convert(temp, true);
+                        _current_images = {{idf::image::LEFT_EYE, temp}};
+                        pose_img.eye_count = 1;
+                        pose_img.primary =idf:: units::LEFT_EYE;
+                    }
                     break;
                 }
                 case ht::LEFT: {
+                    if(frame->at(idf::image::LEFT_EYE).empty()) {
+                        spdlog::get("illixr")->info("[hand_tracking.plugin] Received empty frame, skipping");
+                        return;
+                    }
+
                     cv::Mat temp(frame->at(idf::image::LEFT_EYE).clone());
                     img_convert(temp, true);
                     _current_images = {{idf::image::LEFT_EYE, temp}};
@@ -255,6 +310,10 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
                     break;
                 }
                 case ht::RIGHT: {
+                    if(frame->at(idf::image::RIGHT_EYE).empty()) {
+                        spdlog::get("illixr")->info("[hand_tracking.plugin] Received empty frame, skipping");
+                        return;
+                    }
                     cv::Mat temp(frame->at(idf::image::RIGHT_EYE).clone());
                     img_convert(temp, true);
                     _current_images = {{idf::image::RIGHT_EYE, temp}};
@@ -263,6 +322,10 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
                     break;
                 }
                 case ht::RGB: {
+                    if(frame->at(idf::image::LEFT_EYE).empty() && frame->at(idf::image::RGB).empty()) {
+                        spdlog::get("illixr")->info("[hand_tracking.plugin] Received empty frame, skipping");
+                        return;
+                    }
                     cv::Mat temp(frame->at(idf::image::RGB).clone());
                     img_convert(temp, true);
                     _current_images = {{idf::image::LEFT_EYE, temp}};
@@ -272,12 +335,16 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
                 }
             }
             if (frame->find(idf::image::DEPTH) != frame->end()) {
-                pose_img.images[idf::image::DEPTH] = frame->at(idf::image::DEPTH).clone();
-                pose_img.depth_valid = true;
+                if(!pose_img.images[idf::image::DEPTH].empty()) {
+                    pose_img.images[idf::image::DEPTH] = frame->at(idf::image::DEPTH).clone();
+                    pose_img.depth_valid = true;
+                }
             }
             if (frame->find(idf::image::CONFIDENCE) != frame->end()) {
-                pose_img.images[idf::image::CONFIDENCE] = frame->at(idf::image::CONFIDENCE).clone();
-                pose_img.confidence_valid_ = true;
+                if(!pose_img.images[idf::image::CONFIDENCE].empty()) {
+                    pose_img.images[idf::image::CONFIDENCE] = frame->at(idf::image::CONFIDENCE).clone();
+                    pose_img.confidence_valid_ = true;
+                }
             }
             pose_img.poses = dynamic_cast<const idf::cam_type_zed*>(frame.get())->poses;
             pose_img.insert(_current_images.begin(), _current_images.end());
@@ -299,7 +366,7 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
 #if !MEDIAPIPE_DISABLE_GPU
                                                                     mediapipe::ImageFrame::kGlDefaultAlignmentBoundary
 #else
-                mediapipe::ImageFrame::kDefaultAlignmentBoundary
+                                                                    mediapipe::ImageFrame::kDefaultAlignmentBoundary
 #endif
         );
 
@@ -327,9 +394,9 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
 
 #if !MEDIAPIPE_DISABLE_GPU
         auto gl_status = _gpu_helper.at(input.first).RunInGlContext([&input_frame, &frame_timestamp_us,
-                                                                            &graph=_graph.at(input.first),
-                                                                            &gpu_helper=_gpu_helper.at(input.first)]()
-                                                                            -> absl::Status {
+                                                                     &graph=_graph.at(input.first),
+                                                                     &gpu_helper=_gpu_helper.at(input.first)]()
+                                                                        -> absl::Status {
             // Convert ImageFrame to GpuBuffer.
             auto texture = gpu_helper.CreateSourceTexture(*input_frame.get());
             auto gpu_frame = texture.GetFrame<mediapipe::GpuBuffer>();
@@ -337,8 +404,8 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
             texture.Release();
             // Send GPU image packet into the graph.
             auto submit_status = graph->AddPacketToInputStream(
-                    kInputStream, mediapipe::Adopt(gpu_frame.release())
-                            .At(mediapipe::Timestamp(frame_timestamp_us)));
+                kInputStream, mediapipe::Adopt(gpu_frame.release())
+                                  .At(mediapipe::Timestamp(frame_timestamp_us)));
             if (!submit_status.ok())
                 throw std::runtime_error(std::string(submit_status.message()));
             return absl::OkStatus();
@@ -347,8 +414,8 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
             throw std::runtime_error(std::string(gl_status.message()));
 #else
         auto submit_status = _graph.at(input.first)->AddPacketToInputStream(kInputStream,
-                                              mediapipe::Adopt(input_frame.release()).At(
-                                                      mediapipe::Timestamp(frame_timestamp_us)));
+                                                                            mediapipe::Adopt(input_frame.release()).At(
+                                                                                    mediapipe::Timestamp(frame_timestamp_us)));
         if (!submit_status.ok())
             throw std::runtime_error(std::string(submit_status.message()));
 #endif
