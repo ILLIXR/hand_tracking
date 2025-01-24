@@ -177,6 +177,8 @@ void hand_tracking::start() {
             throw std::runtime_error("No support for zed camera");
 #endif
             break;
+        default:
+            throw std::runtime_error("Unexpected HT_INPUT entry. It must be one of webcam, cam, or zed (if supported).");
     }
     _publisher.start();
 }
@@ -352,9 +354,8 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
             break;
 #endif
         }
-        case idf::camera::DEPTH: {
-            /// TODO Error
-        }
+        default:
+            throw std::runtime_error("Unexpected frame type");
     }
 
     size_t frame_id = std::chrono::high_resolution_clock::now().time_since_epoch().count();
