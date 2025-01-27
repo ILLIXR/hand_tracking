@@ -184,6 +184,13 @@ void hand_tracking::start() {
 }
 
 void hand_tracking::stop() {
+    for (auto& item : _graph) {
+        if (item.second != nullptr) {
+            item.second->Cancel();
+            auto status = item.second->CloseAllPacketSources();
+            delete item.second;
+        }
+    }
     _publisher.stop();
     plugin::stop();
 }
@@ -349,7 +356,6 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
                 }
             }
             pose_img.poses = dynamic_cast<const idf::cam_type_zed*>(frame.get())->poses;
-            pose_img.insert(_current_images.begin(), _current_images.end());
             pose_img.pose_valid = true;
             break;
 #endif
@@ -357,6 +363,7 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
         default:
             throw std::runtime_error("Unexpected frame type");
     }
+    pose_img.insert(_current_images.begin(), _current_images.end());
 
     size_t frame_id = std::chrono::high_resolution_clock::now().time_since_epoch().count();
 
@@ -365,7 +372,7 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
                                                                     input.second.cols,
                                                                     input.second.rows,
 #if !MEDIAPIPE_DISABLE_GPU
-                                                                    mediapipe::ImageFrame::kGlDefaultAlignmentBoundary
+                mediapipe::ImageFrame::kGlDefaultAlignmentBoundary
 #else
                                                                     mediapipe::ImageFrame::kDefaultAlignmentBoundary
 #endif

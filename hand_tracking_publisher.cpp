@@ -17,6 +17,13 @@ void ILLIXR::hand_tracking_publisher::start() {
     cam_data_ = *_camera_reader.get_ro().get();
 }
 
+void ILLIXR::hand_tracking_publisher::stop() {
+    for (auto& i : _poller)
+        delete i.second;
+
+    threadloop::stop();
+}
+
 ILLIXR::hand_tracking_publisher::~hand_tracking_publisher() {
     for (auto& i : _poller)
         delete i.second;

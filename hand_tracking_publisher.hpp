@@ -83,6 +83,8 @@ public:
 
     void start() override;
 
+    void stop() override;
+
     ~hand_tracking_publisher() override;
 
     void set_frame_count(ht::input_type it);
