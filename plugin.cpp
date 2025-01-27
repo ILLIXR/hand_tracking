@@ -190,6 +190,7 @@ void hand_tracking::stop() {
             item.second->Cancel();
             auto status = item.second->CloseAllPacketSources();
             delete item.second;
+            item.second = nullptr;
         }
     }
     _publisher.stop();

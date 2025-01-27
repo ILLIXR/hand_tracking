@@ -18,8 +18,10 @@ void ILLIXR::hand_tracking_publisher::start() {
 }
 
 void ILLIXR::hand_tracking_publisher::stop() {
-    for (auto& i : _poller)
+    for (auto& i : _poller) {
         delete i.second;
+        i.second = nullptr;
+    }
 
     threadloop::stop();
 }
