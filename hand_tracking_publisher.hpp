@@ -40,6 +40,8 @@ struct pose_image {
     int eye_count = 0;
     data_format::units::eyes primary = data_format::units::LEFT_EYE;
 
+    typedef std::map<data_format::image::image_type, cv::Mat>::const_iterator img_iterator;
+
     cv::Mat& operator[](data_format::image::image_type idx) {
         return images.at(idx);
     }
@@ -56,11 +58,19 @@ struct pose_image {
         return images.at(idx);
     }
 
-    [[nodiscard]] std::map<data_format::image::image_type, cv::Mat>::const_iterator find(const data_format::image::image_type idx) const {
-        return images.find(idx);
+    [[nodiscard]] img_iterator find(data_format::image::image_type eye) const {
+        return images.find(eye);
     }
 
-    void insert(std::map<data_format::image::image_type, cv::Mat>::const_iterator start, std::map<data_format::image::image_type, cv::Mat>::const_iterator end) {
+    [[nodiscard]] img_iterator end() const {
+        return images.end();
+    }
+
+    [[nodiscard]] img_iterator begin() const {
+        return images.begin();
+    }
+
+    void insert(img_iterator start, img_iterator end) {
         images.insert(start, end);
     }
 
@@ -76,6 +86,8 @@ public:
     hand_tracking_publisher(const std::string &name_, phonebook *pb_);
 
     void start() override;
+
+    void stop() override;
 
     ~hand_tracking_publisher() override;
 

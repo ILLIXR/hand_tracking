@@ -48,6 +48,15 @@ void ILLIXR::hand_tracking_publisher::start() {
     cam_data_ = *_camera_reader.get_ro().get();
 }
 
+void ILLIXR::hand_tracking_publisher::stop() {
+    for (auto& i : _poller) {
+        delete i.second;
+        i.second = nullptr;
+    }
+
+    threadloop::stop();
+}
+
 ILLIXR::hand_tracking_publisher::~hand_tracking_publisher() {
     for (auto& i : _poller)
         delete i.second;
@@ -120,10 +129,14 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
             out_img_type = data_format::image::LEFT_EYE_PROCESSED;
             break;
         default:
-            break;
+            throw std::runtime_error("Unexpected frame type: " + ILLIXR::data_format::image::image_type_map.at(output_frame.type));
     }
 
     if (_last_frame_id != output_frame.image_id) {
+        if(_raw_data.find(output_frame.image_id) == _raw_data.end()) {
+            spdlog::get("illixr")->info("[hand_tracking.publisher] Empty result, skipping frame " + std::to_string(output_frame.image_id));
+            return;
+        }
         _current_raw = _raw_data.extract(output_frame.image_id).mapped();
         if (_frame_count == 2 && _detections.size() == 1) {
             // we are missing a component so drop the partial frame
@@ -131,6 +144,11 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
             _detections.clear();
         }
     }
+    if(auto search = _current_raw.find(output_frame.type); search == _current_raw.end()) {
+        spdlog::get("illixr")->info("[hand_tracking.publisher] Empty result, skipping frame");
+        return;
+    }
+
     _img_size_x = _current_raw.at(output_frame.type).cols;
     _img_size_y = _current_raw.at(output_frame.type).rows;
     _results_images.emplace(output_frame.type, _current_raw.at(output_frame.type));
