@@ -94,14 +94,15 @@ ht::cam_type get_cam_type(const std::shared_ptr<switchboard>& sb) {
 
 void hand_tracking::start() {
     plugin::start();
-    std::string calculator_graph_config_contents;
-    const char* cfile = _switchboard->get_env_char("CALCULATOR_CONFIG_FILE");
-
-    auto status = mediapipe::file::GetContents(cfile, &calculator_graph_config_contents);
-    if (!status.ok())
-        throw std::runtime_error("Failed to get config contents");
+    const std::string calculator_graph_config_contents =
+#if !MEDIAPIPE_DISABLE_GPU
+#include "mediapipe/hand_tracking_desktop_live_gpu.pbtxt"
+#else
+#include "mediapipe/hand_tracking_desktop_live.pbtxt"
+#endif
+            ;  // NOLINT(whitespace/semicolon)
     auto config = mediapipe::ParseTextProtoOrDie<mediapipe::CalculatorGraphConfig>(calculator_graph_config_contents);
-
+    absl::Status status;
     if (_input_type == ht::RGB) {
         status = _graph[idf::image::RGB]->Initialize(config);
         if (!status.ok())
