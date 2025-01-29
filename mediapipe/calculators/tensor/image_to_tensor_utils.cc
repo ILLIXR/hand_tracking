@@ -226,6 +226,8 @@ BorderMode GetBorderMode(
       return BorderMode::kZero;
     case mediapipe::ImageToTensorCalculatorOptions_BorderMode_BORDER_REPLICATE:
       return BorderMode::kReplicate;
+    default:
+        throw std::runtime_error("Unspecified value.");
   }
 }
 

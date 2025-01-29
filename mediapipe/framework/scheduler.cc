@@ -409,7 +409,7 @@ bool Scheduler::TryToScheduleNextSourceLayer() {
   // guarantee they are scheduled in a round-robin fashion. Pause the
   // scheduler queue until all the sources have been added.
   SetQueuesRunning(false);
-  for (int i = 0; i < active_sources_.size(); ++i) {
+  for (int i = 0; i < (int)active_sources_.size(); ++i) {
     CalculatorNode* node = active_sources_[i];
     node->ActivateNode();
     ScheduleNodeIfNotThrottled(node, contexts[i]);

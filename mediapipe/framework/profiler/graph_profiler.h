@@ -33,6 +33,7 @@
 #include "mediapipe/framework/profiler/graph_tracer.h"
 #include "mediapipe/framework/profiler/sharded_map.h"
 #include "mediapipe/framework/validated_graph_config.h"
+#include "mediapipe/util/unused.hpp"
 
 namespace mediapipe {
 
@@ -462,12 +463,12 @@ class GlProfilingHelper : public GlContextProfiler {
 class GlContextProfilerStub {
  public:
   explicit GlContextProfilerStub(
-      std::shared_ptr<ProfilingContext> profiling_context) {}
+      std::shared_ptr<ProfilingContext> profiling_context) {UNUSED(profiling_context);}
   // Not copyable or movable.
   GlContextProfilerStub(const GlContextProfilerStub&) = delete;
   GlContextProfilerStub& operator=(const GlContextProfilerStub&) = delete;
   bool Initialze() { return false; }
-  void MarkTimestamp(int node_id, Timestamp input_timestamp, bool is_finish) {}
+  void MarkTimestamp(int node_id, Timestamp input_timestamp, bool is_finish) {UNUSED(node_id); UNUSED(input_timestamp); UNUSED(is_finish);}
   void LogAllTimestamps() {}
 };
 class GlProfilingHelper : public GlContextProfilerStub {

@@ -22,6 +22,7 @@
 #include "mediapipe/framework/calculator_framework.h"
 #include "mediapipe/framework/formats/object_detection/anchor.pb.h"
 #include "mediapipe/framework/port/ret_check.h"
+#include "mediapipe/util/unused.hpp"
 
 namespace mediapipe {
 
@@ -46,7 +47,7 @@ float CalculateScale(float min_scale, float max_scale, int stride_index,
     return (min_scale + max_scale) * 0.5f;
   } else {
     return min_scale +
-           (max_scale - min_scale) * 1.0 * stride_index / (num_strides - 1.0f);
+           (max_scale - min_scale) * (float)stride_index / ((float)num_strides - 1.0f);
   }
 }
 
@@ -66,9 +67,9 @@ FeatureMapDim GetFeatureMapDimensions(
   } else {
     const int stride = options.strides(index);
     feature_map_dims.height =
-        std::ceil(1.0f * options.input_size_height() / stride);
+        std::ceil((float)options.input_size_height() / (float)stride);
     feature_map_dims.width =
-        std::ceil(1.0f * options.input_size_width() / stride);
+        std::ceil((float)options.input_size_width() / (float)stride);
   }
   return feature_map_dims;
 }
@@ -80,14 +81,14 @@ std::pair<float, float> GetMultiScaleAnchorOffset(
     const SsdAnchorsCalculatorOptions& options, const float stride,
     const int level) {
   std::pair<float, float> result(0., 0.);
-  int denominator = std::pow(2, level);
+  int denominator = (int)std::pow(2, level);
   if (options.input_size_height() % denominator == 0 ||
       options.input_size_height() == 1) {
-    result.first = stride / 2.0;
+    result.first = stride / 2.0f;
   }
   if (options.input_size_width() % denominator == 0 ||
       options.input_size_width() == 1) {
-    result.second = stride / 2.0;
+    result.second = stride / 2.0f;
   }
   return result;
 }
@@ -110,8 +111,8 @@ Anchor CalculateAnchorBox(const int y_center, const int x_center,
   float ratio_sqrt = std::sqrt(aspect_ratio);
   result.set_h(scale * base_anchor_size.first / ratio_sqrt);
   result.set_w(scale * ratio_sqrt * base_anchor_size.second);
-  result.set_y_center(y_center * anchor_stride.first + anchor_offset.first);
-  result.set_x_center(x_center * anchor_stride.second + anchor_offset.second);
+  result.set_y_center((float)y_center * anchor_stride.first + anchor_offset.first);
+  result.set_x_center((float)x_center * anchor_stride.second + anchor_offset.second);
   return result;
 }
 
@@ -185,6 +186,7 @@ class SsdAnchorsCalculator : public CalculatorBase {
   }
 
   absl::Status Process(CalculatorContext* cc) override {
+      UNUSED(cc);
     return absl::OkStatus();
   }
 
@@ -216,11 +218,11 @@ absl::Status SsdAnchorsCalculator::GenerateMultiScaleAnchors(
     // scale
     for (int i = 0; i < options.scales_per_octave(); ++i) {
       current_anchor_info.scales.push_back(
-          std::pow(2.0, (double)i / (double)options.scales_per_octave()));
+              (float)std::pow(2.0, (double)i / (double)options.scales_per_octave()));
     }
 
     // anchor stride
-    float anchor_stride = std::pow(2.0, i);
+    float anchor_stride = (float)std::pow(2.0, i);
     current_anchor_info.anchor_stride =
         std::make_pair(anchor_stride, anchor_stride);
 
@@ -232,7 +234,7 @@ absl::Status SsdAnchorsCalculator::GenerateMultiScaleAnchors(
   }
 
   for (unsigned int i = 0; i < anchor_infos.size(); ++i) {
-    FeatureMapDim dimensions = GetFeatureMapDimensions(options, i);
+    FeatureMapDim dimensions = GetFeatureMapDimensions(options, (int)i);
     for (int y = 0; y < dimensions.height; ++y) {
       for (int x = 0; x < dimensions.width; ++x) {
         // loop over combination of scale and aspect ratio
@@ -332,7 +334,7 @@ absl::Status SsdAnchorsCalculator::GenerateAnchors(
       last_same_stride_layer++;
     }
 
-    for (int i = 0; i < aspect_ratios.size(); ++i) {
+    for (int i = 0; i < (int)aspect_ratios.size(); ++i) {
       const float ratio_sqrts = std::sqrt(aspect_ratios[i]);
       anchor_height.push_back(scales[i] / ratio_sqrts);
       anchor_width.push_back(scales[i] * ratio_sqrts);
@@ -346,18 +348,18 @@ absl::Status SsdAnchorsCalculator::GenerateAnchors(
     } else {
       const int stride = options.strides(layer_id);
       feature_map_height =
-          std::ceil(1.0f * options.input_size_height() / stride);
-      feature_map_width = std::ceil(1.0f * options.input_size_width() / stride);
+          std::ceil((float)options.input_size_height() / (float)stride);
+      feature_map_width = std::ceil((float)options.input_size_width() / (float)stride);
     }
 
     for (int y = 0; y < feature_map_height; ++y) {
       for (int x = 0; x < feature_map_width; ++x) {
-        for (int anchor_id = 0; anchor_id < anchor_height.size(); ++anchor_id) {
+        for (int anchor_id = 0; anchor_id < (int)anchor_height.size(); ++anchor_id) {
           // TODO: Support specifying anchor_offset_x, anchor_offset_y.
           const float x_center =
-              (x + options.anchor_offset_x()) * 1.0f / feature_map_width;
+                  ((float)x + options.anchor_offset_x()) / (float)feature_map_width;
           const float y_center =
-              (y + options.anchor_offset_y()) * 1.0f / feature_map_height;
+                  ((float)y + options.anchor_offset_y()) / (float)feature_map_height;
 
           Anchor new_anchor;
           new_anchor.set_x_center(x_center);

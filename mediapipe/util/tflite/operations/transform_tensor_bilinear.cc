@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #include "transform_tensor_bilinear.h"
+#include "mediapipe/util/unused.hpp"
 
 #include "tensorflow/lite/delegates/gpu/common/mediapipe/transform_tensor_bilinear.h"
 #include "tensorflow/lite/delegates/gpu/common/types.h"
@@ -42,6 +43,8 @@ inline void TransformTensor(
     const tflite::RuntimeShape& input1_shape,
     const float* input_data_1,  // transformation matrix
     const tflite::RuntimeShape& output_shape, float* output_data) {
+    UNUSED(params);
+    UNUSED(input1_shape);
   TFLITE_CHECK_EQ(input0_shape.DimensionsCount(), 4);
   TFLITE_CHECK_EQ(output_shape.DimensionsCount(), 4);
   const int output_height = output_shape.Dims(1);
@@ -73,8 +76,8 @@ inline void TransformTensor(
       tflite::gpu::float2 tc(DotProduct(x_transform, coord),
                              DotProduct(y_transform, coord));
 
-      bool out_of_bound = tc.x < 0.0 || tc.x > input_width - 1 || tc.y < 0.0 ||
-                          tc.y > input_height - 1;
+      bool out_of_bound = tc.x < 0.0 || tc.x > (float)input_width - 1 || tc.y < 0.0 ||
+                          tc.y > (float)input_height - 1;
 
       for (int out_z = 0; out_z < output_channels; ++out_z) {
         float result = 0;
@@ -92,17 +95,17 @@ inline void TransformTensor(
           };
 
           float q_11 = ReadValue(floor(tc.y), floor(tc.x));
-          float q_21 = ReadValue(floor(tc.y), floor(tc.x) + 1);
-          float q_12 = ReadValue(floor(tc.y) + 1, floor(tc.x));
-          float q_22 = ReadValue(floor(tc.y) + 1, floor(tc.x) + 1);
+          float q_21 = ReadValue(floor(tc.y), (int)floor(tc.x) + 1);
+          float q_12 = ReadValue((int)floor(tc.y) + 1, floor(tc.x));
+          float q_22 = ReadValue((int)floor(tc.y) + 1, (int)floor(tc.x) + 1);
 
-          float right_contrib = tc.x - floor(tc.x);
-          float lower_contrib = tc.y - floor(tc.y);
+          float right_contrib = tc.x - (float)floor(tc.x);
+          float lower_contrib = tc.y - (float)floor(tc.y);
 
-          float upper = (1.0 - right_contrib) * q_11 + right_contrib * q_21;
-          float lower = (1.0 - right_contrib) * q_12 + right_contrib * q_22;
+          float upper = (1.0f - right_contrib) * q_11 + right_contrib * q_21;
+          float lower = (1.0f - right_contrib) * q_12 + right_contrib * q_22;
 
-          result = lower_contrib * lower + (1.0 - lower_contrib) * upper;
+          result = lower_contrib * lower + (1.0f - lower_contrib) * upper;
         }
 
         const int out_offset =
@@ -168,6 +171,8 @@ inline void TransformTensorBilinearV2(
     const tflite::RuntimeShape& input1_shape,
     const float* input_data_1,  // transformation matrix
     const tflite::RuntimeShape& output_shape, float* output_data) {
+    UNUSED(params);
+    UNUSED(input1_shape);
   TFLITE_CHECK_EQ(input0_shape.DimensionsCount(), 4);
   TFLITE_CHECK_EQ(output_shape.DimensionsCount(), 4);
   const int output_height = output_shape.Dims(1);
@@ -199,8 +204,8 @@ inline void TransformTensorBilinearV2(
   // Transformation matrix column 3 and rows 3, 4 are identity, which makes
   // the final formula pretty simple and easy to get if doing a manual
   // multiuplication.
-  x_transform[3] += x_transform[0] * 0.5 + x_transform[1] * 0.5 - 0.5;
-  y_transform[3] += y_transform[0] * 0.5 + y_transform[1] * 0.5 - 0.5;
+  x_transform[3] += x_transform[0] * 0.5f + x_transform[1] * 0.5f - 0.5f;
+  y_transform[3] += y_transform[0] * 0.5f + y_transform[1] * 0.5f - 0.5f;
 
   for (int out_y = 0; out_y < output_height; ++out_y) {
     for (int out_x = 0; out_x < output_width; ++out_x) {
@@ -212,8 +217,8 @@ inline void TransformTensorBilinearV2(
       tflite::gpu::float2 tc(DotProduct(x_transform, coord),
                              DotProduct(y_transform, coord));
 
-      bool out_of_bound = tc.x < 0.0 || tc.x > input_width - 1 || tc.y < 0.0 ||
-                          tc.y > input_height - 1;
+      bool out_of_bound = tc.x < 0.0 || tc.x > (float)input_width - 1 || tc.y < 0.0 ||
+                          tc.y > (float)input_height - 1;
 
       for (int out_z = 0; out_z < output_channels; ++out_z) {
         float result = 0;
@@ -231,17 +236,17 @@ inline void TransformTensorBilinearV2(
           };
 
           float q_11 = ReadValue(floor(tc.y), floor(tc.x));
-          float q_21 = ReadValue(floor(tc.y), floor(tc.x) + 1);
-          float q_12 = ReadValue(floor(tc.y) + 1, floor(tc.x));
-          float q_22 = ReadValue(floor(tc.y) + 1, floor(tc.x) + 1);
+          float q_21 = ReadValue(floor(tc.y), (int)floor(tc.x) + 1);
+          float q_12 = ReadValue((int)floor(tc.y) + 1, floor(tc.x));
+          float q_22 = ReadValue((int)floor(tc.y) + 1, (int)floor(tc.x) + 1);
 
-          float right_contrib = tc.x - floor(tc.x);
-          float lower_contrib = tc.y - floor(tc.y);
+          float right_contrib = tc.x - (float)floor(tc.x);
+          float lower_contrib = tc.y - (float)floor(tc.y);
 
-          float upper = (1.0 - right_contrib) * q_11 + right_contrib * q_21;
-          float lower = (1.0 - right_contrib) * q_12 + right_contrib * q_22;
+          float upper = (1.0f - right_contrib) * q_11 + right_contrib * q_21;
+          float lower = (1.0f - right_contrib) * q_12 + right_contrib * q_22;
 
-          result = lower_contrib * lower + (1.0 - lower_contrib) * upper;
+          result = lower_contrib * lower + (1.0f - lower_contrib) * upper;
         }
 
         const int out_offset =

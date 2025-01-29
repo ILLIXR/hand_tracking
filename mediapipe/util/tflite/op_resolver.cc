@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #include "mediapipe/util/tflite/op_resolver.h"
+#include "mediapipe/util/unused.hpp"
 
 #include "tensorflow/lite/builtin_ops.h"
 #include "tensorflow/lite/c/builtin_op_data.h"
@@ -48,7 +49,7 @@ TfLiteRegistration* RegisterMaxPoolingWithArgmax2D() {
     TfLiteOperatorSetPrepare(
         r,
         [](TfLiteOpaqueContext* context,
-           TfLiteOpaqueNode* node) -> TfLiteStatus { return kTfLiteOk; });
+           TfLiteOpaqueNode* node) -> TfLiteStatus { UNUSED(context); UNUSED(node); return kTfLiteOk; });
     TfLiteOperatorSetInvoke(
         r, [](TfLiteOpaqueContext* context, TfLiteOpaqueNode*) -> TfLiteStatus {
           TfLiteOpaqueContextReportError(

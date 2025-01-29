@@ -29,6 +29,7 @@
 #include "mediapipe/framework/formats/image_format.pb.h"
 #include "mediapipe/framework/port/aligned_malloc_and_free.h"
 #include "mediapipe/framework/port/proto_ns.h"
+#include "mediapipe/util/unused.hpp"
 
 namespace mediapipe {
 
@@ -53,6 +54,7 @@ const ImageFrame::Deleter ImageFrame::PixelDataDeleter::kFree = free;
 const ImageFrame::Deleter ImageFrame::PixelDataDeleter::kAlignedFree =
     aligned_free;
 const ImageFrame::Deleter ImageFrame::PixelDataDeleter::kNone = [](uint8_t* x) {
+    UNUSED(x);
 };
 
 const uint32_t ImageFrame::kDefaultAlignmentBoundary;
@@ -110,9 +112,9 @@ void ImageFrame::Reset(ImageFormat::Format format, int width, int height,
     // which is large enough to hold all the data.  This is done by
     // twiddling bits.  alignment_boundary - 1 is a mask which sets all
     // the low order bits.
-    width_step_ = ((width_step_ - 1) | (alignment_boundary - 1)) + 1;
+    width_step_ = (int)((width_step_ - 1) | (alignment_boundary - 1)) + 1;
     pixel_data_ = {reinterpret_cast<uint8_t*>(aligned_malloc(
-                       height * width_step_, alignment_boundary)),
+                       height * width_step_, (int)alignment_boundary)),
                    PixelDataDeleter::kAlignedFree};
   }
 }

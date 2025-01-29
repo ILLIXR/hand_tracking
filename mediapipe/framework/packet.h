@@ -44,6 +44,7 @@
 #include "mediapipe/framework/timestamp.h"
 #include "mediapipe/framework/tool/type_util.h"
 #include "mediapipe/framework/type_map.h"
+#include "mediapipe/util/unused.hpp"
 
 namespace mediapipe {
 
@@ -370,7 +371,7 @@ std::shared_ptr<const T> SharedPtrWithPacket(Packet packet) {
   // moves the packet.
   const T* ptr = &packet.Get<T>();
   return std::shared_ptr<const T>(
-      ptr, [packet = std::move(packet)](const T* ptr) mutable { packet = {}; });
+      ptr, [packet = std::move(packet)](const T* ptr) mutable { UNUSED(ptr);packet = {}; });
 }
 
 //// Implementation details.
@@ -427,6 +428,7 @@ class HolderBase {
 template <typename T>
 const proto_ns::MessageLite* ConvertToProtoMessageLite(const T* data,
                                                        std::false_type) {
+    UNUSED(data);
   return nullptr;
 }
 
@@ -450,6 +452,7 @@ template <typename T>
 StatusOr<std::vector<const proto_ns::MessageLite*>>
 ConvertToVectorOfProtoMessageLitePtrs(const T* data,
                                       /*is_proto_vector=*/std::false_type) {
+    UNUSED(data);
   return absl::InvalidArgumentError(absl::StrCat(
       "The Packet stores \"", kTypeId<T>.name(), "\"",
       "which is not convertible to vector<proto_ns::MessageLite*>."));
@@ -725,6 +728,7 @@ inline absl::StatusOr<std::unique_ptr<T>> Packet::ConsumeOrCopy(
     bool* was_copied,
     typename std::enable_if<std::is_array<T>::value &&
                             std::extent<T>::value == 0>::type*) {
+    UNUSED(was_copied);
   return absl::InternalError("Unbounded array isn't supported.");
 }
 

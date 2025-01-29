@@ -270,7 +270,7 @@ void DetectionsToRenderDataCalculator::AddLabels(
     labels.push_back(absl::StrJoin(label_and_scores, ""));
   }
   // Add the render annotations for "label(_id),score".
-  for (int i = 0; i < labels.size(); ++i) {
+  for (int i = 0; i < (int)labels.size(); ++i) {
     auto label = labels.at(i);
     auto* label_annotation = render_data->add_render_annotations();
     label_annotation->set_scene_tag(kSceneLabelLabel);

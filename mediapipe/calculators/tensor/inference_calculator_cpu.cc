@@ -34,6 +34,7 @@
 #include "tensorflow/lite/delegates/nnapi/nnapi_delegate.h"
 #endif  // ANDROID
 #include "tensorflow/lite/delegates/xnnpack/xnnpack_delegate.h"
+#include "mediapipe/util/unused.hpp"
 
 namespace mediapipe {
 namespace api2 {
@@ -81,6 +82,7 @@ absl::StatusOr<std::vector<Tensor>> InferenceCalculatorCpuImpl::Process(
 }
 
 absl::Status InferenceCalculatorCpuImpl::Close(CalculatorContext* cc) {
+    UNUSED(cc);
   inference_runner_ = nullptr;
   return absl::OkStatus();
 }

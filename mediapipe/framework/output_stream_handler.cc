@@ -63,6 +63,7 @@ void OutputStreamHandler::Open(OutputStreamShardSet* output_shards) {
 
 void OutputStreamHandler::PrepareOutputs(Timestamp input_timestamp,
                                          OutputStreamShardSet* output_shards) {
+    UNUSED(input_timestamp);
   ABSL_CHECK(output_shards);
   for (CollectionItemId id = output_stream_managers_.BeginId();
        id < output_stream_managers_.EndId(); ++id) {

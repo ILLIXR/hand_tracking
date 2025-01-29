@@ -11,6 +11,7 @@
 #include "mediapipe/framework/port/advanced_proto_inc.h"
 #include "mediapipe/framework/port/file_helpers.h"
 #include "mediapipe/framework/port/logging.h"
+#include "mediapipe/util/unused.hpp"
 
 ABSL_FLAG(std::string, input_path, "",
           "Full path of the FileDescriptorSet to summarize. ");
@@ -64,7 +65,7 @@ class DescriptorReader {
   // Returns the length of the common prefix between two strings.
   static int MatchingPrefixLength(const std::string& s, const std::string& t) {
     int i = 0;
-    while (i < std::min(s.size(), t.size()) && s[i] == t[i]) {
+    while (i < (int)std::min(s.size(), t.size()) && s[i] == t[i]) {
       ++i;
     }
     return i;
@@ -131,6 +132,7 @@ class DescriptorReader {
 
   static void WriteMessageTypeName(const std::string& path,
                                    const FileDescriptorSet& files) {
+      UNUSED(path);
     FileDescriptorProto file = FindTopFile(files);
     DescriptorProto descriptor = FindTopDescriptor(file);
     std::string type_name = mediapipe::DescriptorReader::FindTopTypeName(files);

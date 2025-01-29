@@ -115,12 +115,13 @@ class AssociationCalculator : public CalculatorBase {
   CollectionItemId prev_input_stream_id_;
 
   virtual absl::StatusOr<Rectangle_f> GetRectangle(const T& input) {
+      UNUSED(input);
     return absl::OkStatus();
   }
 
-  virtual std::pair<bool, int> GetId(const T& input) { return {false, -1}; }
+  virtual std::pair<bool, int> GetId(const T& input) { UNUSED(input); return {false, -1}; }
 
-  virtual void SetId(T* input, int id) {}
+  virtual void SetId(T* input, int id) {UNUSED(input); UNUSED(id);}
 
  private:
   // Get a list of non-overlapping elements from all input streams, with
@@ -141,7 +142,7 @@ class AssociationCalculator : public CalculatorBase {
       if (!input_vec.empty()) {
         non_empty_id = id;
         result.push_back(input_vec[0]);
-        for (int j = 1; j < input_vec.size(); ++j) {
+        for (int j = 1; j < (int)input_vec.size(); ++j) {
           MP_RETURN_IF_ERROR(AddElementToList(input_vec[j], &result));
         }
         break;
@@ -159,7 +160,7 @@ class AssociationCalculator : public CalculatorBase {
       const std::vector<T>& input_vec =
           cc->Inputs().Get(id).Get<std::vector<T>>();
 
-      for (int vi = 0; vi < input_vec.size(); ++vi) {
+      for (int vi = 0; vi < (int)input_vec.size(); ++vi) {
         MP_RETURN_IF_ERROR(AddElementToList(input_vec[vi], &result));
       }
     }
@@ -216,7 +217,7 @@ class AssociationCalculator : public CalculatorBase {
       bool change_id = false;
       int id_for_vi = -1;
 
-      for (int ui = 0; ui < prev_input_vec.size(); ++ui) {
+      for (int ui = 0; ui < (int)prev_input_vec.size(); ++ui) {
         auto get_prev_rectangle = GetRectangle(prev_input_vec[ui]);
         if (!get_prev_rectangle.ok()) {
           return get_prev_rectangle.status();

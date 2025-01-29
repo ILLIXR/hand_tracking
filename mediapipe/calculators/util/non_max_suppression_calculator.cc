@@ -221,7 +221,7 @@ class NonMaxSuppressionCalculator : public CalculatorBase {
     // stems, while the second is the actual score.
     IndexedScores indexed_scores;
     indexed_scores.reserve(pruned_detections.size());
-    for (int index = 0; index < pruned_detections.size(); ++index) {
+    for (int index = 0; index < (int)pruned_detections.size(); ++index) {
       indexed_scores.push_back(
           std::make_pair(index, pruned_detections[index].score(0)));
     }
@@ -287,7 +287,7 @@ class NonMaxSuppressionCalculator : public CalculatorBase {
         output_detections->push_back(detection);
         retained_locations.push_back(location);
       }
-      if (output_detections->size() >= max_num_detections) {
+      if (output_detections->size() >= (size_t)max_num_detections) {
         break;
       }
     }
@@ -297,6 +297,8 @@ class NonMaxSuppressionCalculator : public CalculatorBase {
                                  const Detections& detections,
                                  int max_num_detections, CalculatorContext* cc,
                                  Detections* output_detections) {
+      UNUSED(cc);
+      UNUSED(max_num_detections);
     IndexedScores remained_indexed_scores;
     remained_indexed_scores.assign(indexed_scores.begin(),
                                    indexed_scores.end());
@@ -305,7 +307,7 @@ class NonMaxSuppressionCalculator : public CalculatorBase {
     IndexedScores candidates;
     output_detections->clear();
     while (!remained_indexed_scores.empty()) {
-      const int original_indexed_scores_size = remained_indexed_scores.size();
+      const int original_indexed_scores_size = (int)remained_indexed_scores.size();
       const auto& detection = detections[remained_indexed_scores[0].first];
       if (options_.min_score_threshold() > 0 &&
           detection.score(0) < options_.min_score_threshold()) {
@@ -371,7 +373,7 @@ class NonMaxSuppressionCalculator : public CalculatorBase {
       output_detections->push_back(weighted_detection);
       // Breaks the loop if the size of indexed scores doesn't change after an
       // iteration.
-      if (original_indexed_scores_size == remained.size()) {
+      if ((size_t)original_indexed_scores_size == remained.size()) {
         break;
       } else {
         remained_indexed_scores = std::move(remained);
@@ -381,6 +383,6 @@ class NonMaxSuppressionCalculator : public CalculatorBase {
 
   NonMaxSuppressionCalculatorOptions options_;
 };
-REGISTER_CALCULATOR(NonMaxSuppressionCalculator);
+REGISTER_CALCULATOR(NonMaxSuppressionCalculator)
 
 }  // namespace mediapipe

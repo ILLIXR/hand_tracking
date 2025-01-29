@@ -28,7 +28,7 @@ namespace {
 // This class is thread safe.
 class BasicCounter : public Counter {
  public:
-  explicit BasicCounter(const std::string& name) : value_(0) {}
+  explicit BasicCounter(const std::string& name) : value_(0) {UNUSED(name);}
 
   void Increment() ABSL_LOCKS_EXCLUDED(mu_) override {
     absl::WriterMutexLock lock(&mu_);

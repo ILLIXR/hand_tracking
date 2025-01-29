@@ -64,7 +64,7 @@ absl::StatusOr<std::vector<int>> GenerateAndValidateTensorList(
 absl::StatusOr<absl::flat_hash_map<std::string, int>> CreateNameToIndexMap(
     const std::vector<std::string>& names) {
   absl::flat_hash_map<std::string, int> name_to_index_map;
-  for (int i = 0; i < names.size(); ++i) {
+  for (int i = 0; i < (int)names.size(); ++i) {
     auto [unused_iter, was_inserted] = name_to_index_map.insert({names[i], i});
     RET_CHECK(was_inserted)
         << "Duplicate tensor names found in model signatures: "
@@ -129,16 +129,16 @@ absl::Status ExcludeFeedbackTensorsFromRemappingIndicesVector(
   // indices to InferenceRunner I/O indices with excluded feedback tensors.
   std::vector<int> indices_translation(model_tensor_names.size(), -1);
   int model_output_idx = 0;
-  for (int i = 0; i < model_tensor_names.size(); ++i) {
+  for (int i = 0; i < (int)model_tensor_names.size(); ++i) {
     if (!feedback_tensor_names.contains(model_tensor_names[i])) {
       indices_translation[i] = model_output_idx;
       ++model_output_idx;
     }
   }
   // Adjust remapping_tensor_indices.
-  for (int i = 0; i < remapping_tensor_indices.size(); ++i) {
+  for (int i = 0; i < (int)remapping_tensor_indices.size(); ++i) {
     const int model_index = remapping_tensor_indices[i];
-    RET_CHECK(model_index >= 0 && model_index < indices_translation.size())
+    RET_CHECK(model_index >= 0 && (size_t)model_index < indices_translation.size())
         << "Index " << model_index << " out of range.";
     remapping_tensor_indices[i] =
         indices_translation[remapping_tensor_indices[i]];
@@ -240,7 +240,7 @@ absl::Status InferenceIoMapper::UpdateIoMap(
   if (io_config.has_input_tensor_names_map()) {
     // Read number of model inputs directly from the signature.
     const int num_model_input_tensors =
-        input_output_tensor_names_default_signature.input_tensor_names.size();
+            (int)input_output_tensor_names_default_signature.input_tensor_names.size();
     input_tensor_indices_.reserve(
         io_config.input_tensor_names_map().tensor_names().size());
     MP_ASSIGN_OR_RETURN(
@@ -256,13 +256,13 @@ absl::Status InferenceIoMapper::UpdateIoMap(
     }
     // Feedback tensors are excluded from the input_tensor_indices_.
     RET_CHECK_EQ(input_tensor_indices_.size() + num_feedback_tensors_,
-                 num_model_input_tensors)
+                 (size_t)num_model_input_tensors)
         << "Unexpected number of input tensors.";
   }
 
   if (io_config.has_output_tensor_names_map()) {
     const int num_model_output_tensors =
-        input_output_tensor_names_default_signature.output_tensor_names.size();
+            (int)input_output_tensor_names_default_signature.output_tensor_names.size();
     output_tensor_indices_.reserve(num_model_output_tensors);
     MP_ASSIGN_OR_RETURN(
         output_tensor_indices_,
@@ -277,7 +277,7 @@ absl::Status InferenceIoMapper::UpdateIoMap(
     }
     // Feedback tensors are excluded from the output_tensor_indices_.
     RET_CHECK_EQ(output_tensor_indices_.size() + num_feedback_tensors_,
-                 num_model_output_tensors)
+                 (size_t)num_model_output_tensors)
         << "Unexpected number of output tensors.";
   }
   return absl::OkStatus();
@@ -288,7 +288,7 @@ absl::StatusOr<TensorSpan> InferenceIoMapper::RemapInputTensors(
   if (input_tensor_indices_.empty()) {
     return unmapped_tensors;
   }
-  RET_CHECK_EQ(unmapped_tensors.size(), input_tensor_indices_.size())
+  RET_CHECK_EQ((size_t)unmapped_tensors.size(), input_tensor_indices_.size())
       << "Unexpected number of input tensors.";
   std::vector<const Tensor*> mapped_tensors(unmapped_tensors.size());
   for (int i = 0; i < unmapped_tensors.size(); ++i) {
@@ -310,9 +310,9 @@ absl::StatusOr<std::vector<Tensor>> InferenceIoMapper::RemapOutputTensors(
       << "Unexpected number of output tensors.";
   std::vector<Tensor> mapped_tensors;
   mapped_tensors.reserve(unmapped_tensors.size());
-  for (int i = 0; i < unmapped_tensors.size(); ++i) {
+  for (int i = 0; i < (int)unmapped_tensors.size(); ++i) {
     const int index = output_tensor_indices_[i];
-    RET_CHECK(index < unmapped_tensors.size())
+    RET_CHECK(index < (int)unmapped_tensors.size())
         << "Index " << index << " out of range"
         << ". Size of TensorIndicesMap: " << unmapped_tensors.size() << ".";
 

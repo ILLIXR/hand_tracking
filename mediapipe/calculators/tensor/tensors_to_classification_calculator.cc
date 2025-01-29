@@ -101,7 +101,7 @@ class TensorsToClassificationCalculator : public Node {
   const proto_ns::Map<int64_t, LabelMapItem>& GetLabelMap(
       CalculatorContext* cc);
 };
-MEDIAPIPE_REGISTER_NODE(TensorsToClassificationCalculator);
+MEDIAPIPE_REGISTER_NODE(TensorsToClassificationCalculator)
 
 absl::Status TensorsToClassificationCalculator::Open(CalculatorContext* cc) {
   const auto& options = cc->Options<TensorsToClassificationCalculatorOptions>();
@@ -176,7 +176,7 @@ absl::Status TensorsToClassificationCalculator::Process(CalculatorContext* cc) {
     num_classes = 2;
   }
   if (label_map_loaded_) {
-    RET_CHECK_EQ(num_classes, GetLabelMap(cc).size());
+    RET_CHECK_EQ((size_t)num_classes, GetLabelMap(cc).size());
   }
   auto view = input_tensors[0].GetCpuReadView();
   auto raw_scores = view.buffer<float>();
@@ -188,7 +188,7 @@ absl::Status TensorsToClassificationCalculator::Process(CalculatorContext* cc) {
     class_first->set_index(0);
     class_second->set_index(1);
     class_first->set_score(raw_scores[0]);
-    class_second->set_score(1. - raw_scores[0]);
+    class_second->set_score(1.f - raw_scores[0]);
 
     if (label_map_loaded_) {
       SetClassificationLabel(GetLabelMap(cc).at(0), class_first);
@@ -239,6 +239,7 @@ absl::Status TensorsToClassificationCalculator::Process(CalculatorContext* cc) {
 }
 
 absl::Status TensorsToClassificationCalculator::Close(CalculatorContext* cc) {
+    UNUSED(cc);
   return absl::OkStatus();
 }
 

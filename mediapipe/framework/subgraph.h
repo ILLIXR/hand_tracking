@@ -30,6 +30,7 @@
 #include "mediapipe/framework/port/statusor.h"
 #include "mediapipe/framework/tool/calculator_graph_template.pb.h"
 #include "mediapipe/framework/tool/options_util.h"
+#include "mediapipe/util/unused.hpp"
 
 namespace mediapipe {
 
@@ -115,6 +116,7 @@ class Subgraph {
   // `SubgraphContext*` param.
   virtual absl::StatusOr<CalculatorGraphConfig> GetConfig(
       const SubgraphOptions& options) {
+      UNUSED(options);
     return absl::UnimplementedError("Not implemented.");
   }
 

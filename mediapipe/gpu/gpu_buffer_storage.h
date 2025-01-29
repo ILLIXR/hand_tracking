@@ -11,6 +11,7 @@
 #include "mediapipe/framework/deps/no_destructor.h"
 #include "mediapipe/framework/tool/type_util.h"
 #include "mediapipe/gpu/gpu_buffer_format.h"
+#include "mediapipe/util/unused.hpp"
 
 namespace mediapipe {
 namespace internal {
@@ -237,7 +238,7 @@ class GpuBufferStorageImpl : public GpuBufferStorage, public U... {
   }
   TypeId storage_type() const final { return kTypeId<T>; }
 
-  const void* down_cast_impl(TypeId to, types<>) const { return nullptr; }
+  const void* down_cast_impl(TypeId to, types<>) const { UNUSED(to); return nullptr; }
   template <class V, class... W>
   const void* down_cast_impl(TypeId to, types<V, W...>) const {
     if (to == kTypeId<V>) return static_cast<const V*>(this);

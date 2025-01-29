@@ -145,7 +145,7 @@ class OpenCvVideoDecoderCalculator : public CalculatorBase {
     header->width = width_;
     header->height = height_;
     header->frame_rate = fps;
-    header->duration = frame_count_ / fps;
+    header->duration = (float)frame_count_ / fps;
 
     if (cc->Outputs().HasTag(kVideoPrestreamTag)) {
       cc->Outputs()
@@ -192,7 +192,7 @@ class OpenCvVideoDecoderCalculator : public CalculatorBase {
     auto image_frame = absl::make_unique<ImageFrame>(format_, width_, height_,
                                                      /*alignment_boundary=*/1);
     // Use microsecond as the unit of time.
-    Timestamp timestamp(cap_->get(cv::CAP_PROP_POS_MSEC) * 1000);
+    Timestamp timestamp((long)cap_->get(cv::CAP_PROP_POS_MSEC) * 1000);
     if (format_ == ImageFormat::GRAY8) {
       cv::Mat frame = formats::MatView(image_frame.get());
       ReadFrame(frame);
@@ -225,6 +225,7 @@ class OpenCvVideoDecoderCalculator : public CalculatorBase {
   }
 
   absl::Status Close(CalculatorContext* cc) override {
+      UNUSED(cc);
     if (cap_ && cap_->isOpened()) {
       cap_->release();
     }
@@ -254,5 +255,5 @@ class OpenCvVideoDecoderCalculator : public CalculatorBase {
   Timestamp prev_timestamp_ = Timestamp::Unset();
 };
 
-REGISTER_CALCULATOR(OpenCvVideoDecoderCalculator);
+REGISTER_CALCULATOR(OpenCvVideoDecoderCalculator)
 }  // namespace mediapipe

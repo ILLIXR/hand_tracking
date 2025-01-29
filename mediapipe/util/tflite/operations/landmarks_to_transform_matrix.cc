@@ -14,8 +14,10 @@
 
 #include "landmarks_to_transform_matrix.h"
 
+#include <cmath>
 #include <vector>
 
+#include "mediapipe/util/unused.hpp"
 #include "tensorflow/lite/delegates/gpu/common/mediapipe/landmarks_to_transform_matrix.h"
 #include "tensorflow/lite/delegates/gpu/common/types.h"
 #include "tensorflow/lite/kernels/internal/common.h"
@@ -148,13 +150,13 @@ inline void LandmarksToTransformMatrixV1(
 
   float2 max_value(-100000, -100000);
   float2 min_value(100000, 100000);
-  for (int i = 0; i < params.subset.size(); i++) {
+  for (int i = 0; i < (int)params.subset.size(); i++) {
     for (int j = 0; j < 2; j++) {
       float2 landmark_current =
           Read3DLandmarkXY(landmarks, params.subset[i][j]);
       float2 rotated(
-          landmark_current.x * cos(alpha) - landmark_current.y * sin(alpha),
-          landmark_current.x * sin(alpha) + landmark_current.y * cos(alpha));
+          landmark_current.x * std::cos(alpha) - landmark_current.y * std::sin(alpha),
+          landmark_current.x * std::sin(alpha) + landmark_current.y * std::cos(alpha));
       max_value = float2(std::max(max_value.x, rotated.x),
                          std::max(max_value.y, rotated.y));
       min_value = float2(std::min(min_value.x, rotated.x),
@@ -173,24 +175,24 @@ inline void LandmarksToTransformMatrixV1(
   float2 middle((max_value.x + min_value.x) / 2.0,
                 (max_value.y + min_value.y) / 2.0);
 
-  float2 rotated_middle(middle.x * cos(-alpha) - middle.y * sin(-alpha),
-                        middle.x * sin(-alpha) + middle.y * cos(-alpha));
+  float2 rotated_middle(middle.x * std::cos(-alpha) - middle.y * std::sin(-alpha),
+                        middle.x * std::sin(-alpha) + middle.y * std::cos(-alpha));
 
   Mat3 rotation_matrix(
-      cos(-alpha), -sin(-alpha),
-      (rotated_middle.x / params.landmarks_range) * 2.0 - 1.0,  // first row
-      sin(-alpha), cos(-alpha),
-      (rotated_middle.y / params.landmarks_range) * 2.0 - 1.0,  // second row
+      std::cos(-alpha), -std::sin(-alpha),
+      (rotated_middle.x / (float)params.landmarks_range) * 2.0f - 1.0f,  // first row
+      std::sin(-alpha), std::cos(-alpha),
+      (rotated_middle.y / (float)params.landmarks_range) * 2.0f - 1.0f,  // second row
       0, 0, 1);                                                 // third row
 
-  Mat3 to_relative(2.0 / (params.output_hw.w - 1.0), 0.0, -1.0,  // first row
-                   0.0, 2.0 / (params.output_hw.h - 1.0), -1.0,  // second row
-                   0.0, 0.0, 1.0);                               // third row
+  Mat3 to_relative(2.0f / ((float)params.output_hw.w - 1.0f), 0.0f, -1.0f,  // first row
+                   0.0f, 2.0f / ((float)params.output_hw.h - 1.0f), -1.0f,  // second row
+                   0.0f, 0.0f, 1.0f);                               // third row
 
-  Mat3 to_absolute((params.input_hw.w - 1.0) / 2.0, 0.0,
-                   (params.input_hw.w - 1.0) / 2.0,  // first row
-                   0.0, (params.input_hw.h - 1.0) / 2.0,
-                   (params.input_hw.h - 1.0) / 2.0,  // second row
+  Mat3 to_absolute(((float)params.input_hw.w - 1.0f) / 2.0f, 0.0,
+                   ((float)params.input_hw.w - 1.0f) / 2.0f,  // first row
+                   0.0, ((float)params.input_hw.h - 1.0f) / 2.0f,
+                   ((float)params.input_hw.h - 1.0f) / 2.0f,  // second row
                    0.0, 0.0, 1.0);                   // third row
 
   // Inverse Transformstion Matrix
@@ -345,11 +347,11 @@ void EstimateCenterAndSize(const float* input_data_0,
                            float* crop_width, float* crop_height) {
   std::vector<float3> landmarks;
   landmarks.reserve(subset_idxs.size() * 2);
-  for (int i = 0; i < subset_idxs.size(); i++) {
+  for (int i = 0; i < (int)subset_idxs.size(); i++) {
     landmarks.push_back(Read3DLandmarkXYZ(input_data_0, subset_idxs[i][0]));
     landmarks.push_back(Read3DLandmarkXYZ(input_data_0, subset_idxs[i][1]));
   }
-  for (int i = 0; i < landmarks.size(); i++) {
+  for (int i = 0; i < (int)landmarks.size(); i++) {
     landmarks[i].z = 1.0;
   }
   const float& r = rotation_radians;
@@ -362,11 +364,11 @@ void EstimateCenterAndSize(const float* input_data_0,
                                std::sin(-r),  std::cos(-r), 0.0,
                                         0.0,           0.0, 1.0);
   // clang-format on
-  for (int i = 0; i < landmarks.size(); i++) {
+  for (int i = 0; i < (int)landmarks.size(); i++) {
     landmarks[i] = t_rotation * landmarks[i];
   }
   float3 xy1_max = landmarks[0], xy1_min = landmarks[0];
-  for (int i = 1; i < landmarks.size(); i++) {
+  for (int i = 1; i < (int)landmarks.size(); i++) {
     if (xy1_max.x < landmarks[i].x) xy1_max.x = landmarks[i].x;
     if (xy1_max.y < landmarks[i].y) xy1_max.y = landmarks[i].y;
 
@@ -389,6 +391,8 @@ inline void LandmarksToTransformMatrixV2(
     const LandmarksToTransformMatrixV2Attributes& params,
     const RuntimeShape& input0_shape, const float* landmarks,
     const RuntimeShape& output_shape, float* output_data) {
+    UNUSED(input0_shape);
+    UNUSED(output_shape);
   float rotation_radians = 0.0;
   EstimateRotationRadians(landmarks, params.left_rotation_idx,
                           params.right_rotation_idx,
@@ -413,15 +417,15 @@ inline void LandmarksToTransformMatrixV2(
                                        0.0,          0.0, 1.0, 0.0,
                                        0.0,          0.0, 0.0, 1.0);
   t *= t_rotation;
-  const float scale_x = params.scale_x * crop_width / params.output_width;
-  const float scale_y = params.scale_y * crop_height / params.output_height;
+  const float scale_x = params.scale_x * crop_width / (float)params.output_width;
+  const float scale_y = params.scale_y * crop_height / (float)params.output_height;
   const Mat4 t_scale = Mat4(scale_x,     0.0, 0.0, 0.0,
                                 0.0, scale_y, 0.0, 0.0,
                                 0.0,     0.0, 1.0, 0.0,
                                 0.0,     0.0, 0.0, 1.0);
   t *= t_scale;
-  const float shift_x = -1.0 * (params.output_width / 2.0);
-  const float shift_y = -1.0 * (params.output_height / 2.0);
+  const float shift_x = -1.0f * ((float)params.output_width / 2.0f);
+  const float shift_y = -1.0f * ((float)params.output_height / 2.0f);
   const Mat4 t_shift2 = Mat4(1.0, 0.0, 0.0, shift_x,
                              0.0, 1.0, 0.0, shift_y,
                              0.0, 0.0, 1.0,     0.0,

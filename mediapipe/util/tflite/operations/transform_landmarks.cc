@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #include "transform_landmarks.h"
+#include "mediapipe/util/unused.hpp"
 
 #include "tensorflow/lite/delegates/gpu/common/mediapipe/transform_landmarks.h"
 #include "tensorflow/lite/delegates/gpu/common/types.h"
@@ -41,6 +42,7 @@ inline void TransformLandmarks(
     const tflite::RuntimeShape& input0_shape, const float* landmarks,
     const tflite::RuntimeShape& input1_shape, const float* transform_matrix,
     const tflite::RuntimeShape& output_shape, float* output_data) {
+    UNUSED(input1_shape);
   TFLITE_CHECK_EQ(input0_shape.DimensionsCount(), 4);
   TFLITE_CHECK_EQ(output_shape.DimensionsCount(), 4);
   const int output_height = output_shape.Dims(1);

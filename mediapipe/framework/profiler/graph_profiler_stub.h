@@ -19,6 +19,7 @@
 
 #include "mediapipe/framework/port/status.h"
 #include "mediapipe/framework/timestamp.h"
+#include "mediapipe/util/unused.hpp"
 
 namespace mediapipe {
 class CalculatorProfile;
@@ -58,22 +59,24 @@ class TraceEvent {
     GPU_CALIBRATION,
     PACKET_QUEUED,
   };
-  TraceEvent(const EventType& event_type) {}
+  TraceEvent(const EventType& event_type) {UNUSED(event_type);}
   TraceEvent() {}
-  inline TraceEvent& set_event_time(absl::Time event_time) { return *this; }
+  inline TraceEvent& set_event_time(absl::Time event_time) {UNUSED(event_time); return *this; }
   inline TraceEvent& set_event_type(const EventType& event_type) {
+      UNUSED(event_type);
     return *this;
   }
-  inline TraceEvent& set_node_id(int node_id) { return *this; }
+  inline TraceEvent& set_node_id(int node_id) { UNUSED(node_id); return *this; }
   inline TraceEvent& set_stream_id(const std::string* stream_id) {
+      UNUSED(stream_id);
     return *this;
   }
-  inline TraceEvent& set_input_ts(Timestamp input_ts) { return *this; }
-  inline TraceEvent& set_packet_ts(Timestamp packet_ts) { return *this; }
-  inline TraceEvent& set_packet_data_id(const Packet* packet) { return *this; }
-  inline TraceEvent& set_thread_id(int thread_id) { return *this; }
-  inline TraceEvent& set_is_finish(bool is_finish) { return *this; }
-  inline TraceEvent& set_event_data(int64_t data) { return *this; }
+  inline TraceEvent& set_input_ts(Timestamp input_ts) { UNUSED(input_ts); return *this; }
+  inline TraceEvent& set_packet_ts(Timestamp packet_ts) { UNUSED(packet_ts); return *this; }
+  inline TraceEvent& set_packet_data_id(const Packet* packet) { UNUSED(packet); return *this; }
+  inline TraceEvent& set_thread_id(int thread_id) { UNUSED(thread_id);return *this; }
+  inline TraceEvent& set_is_finish(bool is_finish) { UNUSED(is_finish); return *this; }
+  inline TraceEvent& set_event_data(int64_t data) { UNUSED(data); return *this; }
 };
 
 // GraphProfiler::CaptureProfile option, see the method for details.
@@ -83,9 +86,9 @@ enum class PopulateGraphConfig { kNo, kFull };
 // GraphProfiler when the main implementation is disabled.
 class GraphProfilerStub {
  public:
-  inline void Initialize(const ValidatedGraphConfig& validated_graph_config) {}
-  inline void SetClock(const std::shared_ptr<mediapipe::Clock>& clock) {}
-  inline void LogEvent(const TraceEvent& event) {}
+  inline void Initialize(const ValidatedGraphConfig& validated_graph_config) {UNUSED(validated_graph_config);}
+  inline void SetClock(const std::shared_ptr<mediapipe::Clock>& clock) {UNUSED(clock);}
+  inline void LogEvent(const TraceEvent& event) {UNUSED(event);}
   inline absl::Status GetCalculatorProfiles(
       std::vector<CalculatorProfile>*) const {
     return absl::OkStatus();
@@ -93,6 +96,8 @@ class GraphProfilerStub {
   absl::Status CaptureProfile(
       GraphProfile* result,
       PopulateGraphConfig populate_config = PopulateGraphConfig::kNo) {
+      UNUSED(result);
+      UNUSED(populate_config);
     return absl::OkStatus();
   }
   inline absl::Status WriteProfile() { return absl::OkStatus(); }
@@ -100,6 +105,7 @@ class GraphProfilerStub {
   inline void Resume() {}
   inline void Reset() {}
   inline absl::Status Start(mediapipe::Executor* executor) {
+      UNUSED(executor);
     return absl::OkStatus();
   }
   inline absl::Status Stop() { return absl::OkStatus(); }
@@ -121,12 +127,12 @@ class ProfilingContext : public GraphProfilerStub {};
 class GlContextProfilerStub {
  public:
   explicit GlContextProfilerStub(
-      std::shared_ptr<ProfilingContext> profiling_context) {}
+      std::shared_ptr<ProfilingContext> profiling_context) {UNUSED(profiling_context);}
   // Not copyable or movable.
   GlContextProfilerStub(const GlContextProfilerStub&) = delete;
   GlContextProfilerStub& operator=(const GlContextProfilerStub&) = delete;
   bool Initialze() { return false; }
-  void MarkTimestamp(int node_id, Timestamp input_timestamp, bool is_finish) {}
+  void MarkTimestamp(int node_id, Timestamp input_timestamp, bool is_finish) {UNUSED(node_id); UNUSED(input_timestamp); UNUSED(is_finish);}
   void LogAllTimestamps() {}
 };
 

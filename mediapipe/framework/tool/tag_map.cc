@@ -59,7 +59,7 @@ absl::Status TagMap::Initialize(
     // Add to the per tag names, being careful about allowing indexes
     // to be out of order.
     std::vector<std::string>& names = tag_to_names[tag];
-    if (names.size() <= index) {
+    if ((int)names.size() <= index) {
       names.resize(index + 1);
     }
     if (!names[index].empty()) {
@@ -80,19 +80,19 @@ absl::Status TagMap::Initialize(
     // (and an index couldn't have been reused due to the check in the
     // loop above), this means that all indexes were used exactly once.
     const std::vector<std::string>& names = tag_to_names[item.first];
-    if (tag_data.count != names.size()) {
+    if (tag_data.count != (int)names.size()) {
       auto builder = mediapipe::FailedPreconditionErrorBuilder(MEDIAPIPE_LOC)
                      << "Not all indexes were assigned names.  Tag \""
                      << item.first << "\" has the following:\n";
       // Note, names.size() will always be larger than tag_data.count.
-      for (int index = 0; index < names.size(); ++index) {
+      for (int index = 0; index < (int)names.size(); ++index) {
         if (!names[index].empty()) {
           builder << "index " << index << " name \"" << names[index] << "\"\n";
         } else {
           builder << "index " << index << " name <missing>\n";
         }
       }
-      return std::move(builder);
+      return builder;
     }
     tag_data.id = CollectionItemId(current_index);
     current_index += tag_data.count;
@@ -111,7 +111,7 @@ absl::Status TagMap::Initialize(const TagAndNameInfo& info) {
           std::forward_as_tuple(CollectionItemId(0), info.names.size()));
       names_ = info.names;
     }
-    num_entries_ = info.names.size();
+    num_entries_ = (int)info.names.size();
   } else {
     std::map<std::string, std::vector<std::string>> tag_to_names;
     if (info.tags.size() != info.names.size()) {
@@ -120,7 +120,7 @@ absl::Status TagMap::Initialize(const TagAndNameInfo& info) {
     }
 
     // Add the tags (unsorted).
-    for (int i = 0; i < info.tags.size(); ++i) {
+    for (int i = 0; i < (int)info.tags.size(); ++i) {
       auto item = mapping_.emplace(std::piecewise_construct,
                                    std::forward_as_tuple(info.tags[i]),
                                    std::forward_as_tuple());

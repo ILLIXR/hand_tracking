@@ -25,6 +25,7 @@
 #include "mediapipe/framework/port/ret_check.h"
 #include "mediapipe/framework/port/status.h"
 #include "mediapipe/util/resource_util.h"
+#include "mediapipe/util/unused.hpp"
 #include "tensorflow/lite/error_reporter.h"
 #include "tensorflow/lite/interpreter.h"
 #include "tensorflow/lite/kernels/register.h"
@@ -141,11 +142,11 @@ class SplitVectorCalculator : public CalculatorBase {
     // static_assert(std::is_copy_constructible<U>::value,
     //              "Cannot copy non-copyable elements");
     const auto& input = cc->Inputs().Index(0).Get<std::vector<U>>();
-    RET_CHECK_GE(input.size(), max_range_end_);
+    RET_CHECK_GE((int)input.size(), max_range_end_);
     if (combine_outputs_) {
       auto output = absl::make_unique<std::vector<U>>();
       output->reserve(total_elements_);
-      for (int i = 0; i < ranges_.size(); ++i) {
+      for (int i = 0; i < (int)ranges_.size(); ++i) {
         auto elements = absl::make_unique<std::vector<U>>(
             input.begin() + ranges_[i].first,
             input.begin() + ranges_[i].second);
@@ -154,12 +155,12 @@ class SplitVectorCalculator : public CalculatorBase {
       cc->Outputs().Index(0).Add(output.release(), cc->InputTimestamp());
     } else {
       if (element_only_) {
-        for (int i = 0; i < ranges_.size(); ++i) {
+        for (int i = 0; i < (int)ranges_.size(); ++i) {
           cc->Outputs().Index(i).AddPacket(
               MakePacket<U>(input[ranges_[i].first]).At(cc->InputTimestamp()));
         }
       } else {
-        for (int i = 0; i < ranges_.size(); ++i) {
+        for (int i = 0; i < (int)ranges_.size(); ++i) {
           auto output = absl::make_unique<std::vector<T>>(
               input.begin() + ranges_[i].first,
               input.begin() + ranges_[i].second);
@@ -173,6 +174,7 @@ class SplitVectorCalculator : public CalculatorBase {
 
   template <typename U, IsNotCopyable<U> = true>
   absl::Status ProcessCopyableElements(CalculatorContext* cc) {
+      UNUSED(cc);
     return absl::InternalError("Cannot copy non-copyable elements.");
   }
 
@@ -183,12 +185,12 @@ class SplitVectorCalculator : public CalculatorBase {
     if (!input_status.ok()) return input_status.status();
     std::unique_ptr<std::vector<U>> input_vector =
         std::move(input_status).value();
-    RET_CHECK_GE(input_vector->size(), max_range_end_);
+    RET_CHECK_GE((int)input_vector->size(), max_range_end_);
 
     if (combine_outputs_) {
       auto output = absl::make_unique<std::vector<U>>();
       output->reserve(total_elements_);
-      for (int i = 0; i < ranges_.size(); ++i) {
+      for (int i = 0; i < (int)ranges_.size(); ++i) {
         output->insert(
             output->end(),
             std::make_move_iterator(input_vector->begin() + ranges_[i].first),
@@ -197,13 +199,13 @@ class SplitVectorCalculator : public CalculatorBase {
       cc->Outputs().Index(0).Add(output.release(), cc->InputTimestamp());
     } else {
       if (element_only_) {
-        for (int i = 0; i < ranges_.size(); ++i) {
+        for (int i = 0; i < (int)ranges_.size(); ++i) {
           cc->Outputs().Index(i).AddPacket(
               MakePacket<U>(std::move(input_vector->at(ranges_[i].first)))
                   .At(cc->InputTimestamp()));
         }
       } else {
-        for (int i = 0; i < ranges_.size(); ++i) {
+        for (int i = 0; i < (int)ranges_.size(); ++i) {
           auto output = absl::make_unique<std::vector<T>>();
           output->insert(
               output->end(),
@@ -220,6 +222,7 @@ class SplitVectorCalculator : public CalculatorBase {
 
   template <typename U, IsNotMovable<U> = true>
   absl::Status ProcessMovableElements(CalculatorContext* cc) {
+      UNUSED(cc);
     return absl::InternalError("Cannot move non-movable elements.");
   }
 

@@ -54,7 +54,7 @@ absl::StatusOr<std::shared_ptr<TagMap>> CreateTagMap(int num_entries) {
 absl::StatusOr<std::shared_ptr<TagMap>> CreateTagMapFromTags(
     const std::vector<std::string>& tags) {
   proto_ns::RepeatedPtrField<ProtoString> fields;
-  for (int i = 0; i < tags.size(); ++i) {
+  for (int i = 0; i < (int)tags.size(); ++i) {
     *fields.Add() = absl::StrCat(tags[i], ":name", i);
   }
   return TagMap::Create(fields);

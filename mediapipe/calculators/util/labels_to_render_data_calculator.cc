@@ -78,7 +78,7 @@ class LabelsToRenderDataCalculator : public CalculatorBase {
   int label_height_px_ = 0;
   int label_left_px_ = 0;
 };
-REGISTER_CALCULATOR(LabelsToRenderDataCalculator);
+REGISTER_CALCULATOR(LabelsToRenderDataCalculator)
 
 absl::Status LabelsToRenderDataCalculator::GetContract(CalculatorContract* cc) {
   if (cc->Inputs().HasTag(kClassificationsTag)) {
@@ -102,7 +102,7 @@ absl::Status LabelsToRenderDataCalculator::Open(CalculatorContext* cc) {
   cc->SetOffset(TimestampDiff(0));
   options_ = cc->Options<LabelsToRenderDataCalculatorOptions>();
   num_colors_ = options_.color_size();
-  label_height_px_ = std::ceil(options_.font_height_px() * kFontHeightScale);
+  label_height_px_ = std::ceil((float)options_.font_height_px() * kFontHeightScale);
   return absl::OkStatus();
 }
 
@@ -139,7 +139,7 @@ absl::Status LabelsToRenderDataCalculator::Process(CalculatorContext* cc) {
     const std::vector<std::string>& label_vector =
         cc->Inputs().Tag(kLabelsTag).Get<std::vector<std::string>>();
     labels.resize(label_vector.size());
-    for (int i = 0; i < label_vector.size(); ++i) {
+    for (int i = 0; i < (int)label_vector.size(); ++i) {
       labels[i] = label_vector[i];
     }
 
@@ -148,7 +148,7 @@ absl::Status LabelsToRenderDataCalculator::Process(CalculatorContext* cc) {
           cc->Inputs().Tag(kScoresTag).Get<std::vector<float>>();
       ABSL_CHECK_EQ(label_vector.size(), score_vector.size());
       scores.resize(label_vector.size());
-      for (int i = 0; i < label_vector.size(); ++i) {
+      for (int i = 0; i < (int)label_vector.size(); ++i) {
         scores[i] = score_vector[i];
       }
     }

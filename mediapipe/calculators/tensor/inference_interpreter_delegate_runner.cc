@@ -37,6 +37,7 @@
 #include "tensorflow/lite/c/common.h"
 #include "tensorflow/lite/interpreter_builder.h"
 #include "tensorflow/lite/string_util.h"
+#include "mediapipe/util/unused.hpp"
 
 namespace mediapipe {
 
@@ -113,10 +114,11 @@ class InferenceInterpreterDelegateRunner : public InferenceRunner {
 
 absl::StatusOr<std::vector<Tensor>> InferenceInterpreterDelegateRunner::Run(
     CalculatorContext* cc, const TensorSpan& tensor_span) {
+    UNUSED(cc);
   const int num_feedback_tensors =
       feedback_manager_ ? feedback_manager_->GetNumberOfFeedbackTensors() : 0;
 
-  RET_CHECK_EQ(tensor_span.size() + num_feedback_tensors,
+  RET_CHECK_EQ((size_t)(tensor_span.size() + num_feedback_tensors),
                interpreter_->inputs().size());
 
   // If the input tensors have dynamic shape, then the tensors need to be
@@ -207,14 +209,14 @@ absl::StatusOr<std::vector<Tensor>> InferenceInterpreterDelegateRunner::Run(
 
   // Run inference.
   {
-    MEDIAPIPE_PROFILING(CPU_TASK_INVOKE, cc);
+    MEDIAPIPE_PROFILING(CPU_TASK_INVOKE, cc)
     RET_CHECK_EQ(interpreter_->Invoke(), kTfLiteOk);
   }
   // Output result tensors (CPU).
   const auto& tensor_indexes = interpreter_->outputs();
   std::vector<Tensor> output_tensors;
   output_tensors.reserve(tensor_indexes.size() - num_feedback_tensors);
-  for (int i = 0; i < tensor_indexes.size(); ++i) {
+  for (int i = 0; i < (int)tensor_indexes.size(); ++i) {
     if (feedback_manager_ &&
         feedback_manager_->IsFeedbackOutputTensorAtIndex(i)) {
       // Exclude feedback tensors from InferenceRunner output.

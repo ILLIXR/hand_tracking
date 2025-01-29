@@ -34,6 +34,7 @@ ProtoSubgraph::~ProtoSubgraph() {}
 
 absl::StatusOr<CalculatorGraphConfig> ProtoSubgraph::GetConfig(
     const Subgraph::SubgraphOptions& options) {
+    UNUSED(options);
   return config_;
 }
 

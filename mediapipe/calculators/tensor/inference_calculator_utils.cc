@@ -94,7 +94,7 @@ absl::Status CopyTensorToTfLiteTensor(const Tensor& input_tensor,
       << "Tensor and TfLiteTensor types do not match.";
   void* local_tensor_buffer = tflite_tensor.data.raw;
   RET_CHECK(local_tensor_buffer) << "TfLiteTensor data is null.";
-  RET_CHECK_EQ(tflite_tensor.bytes, input_tensor.bytes())
+  RET_CHECK_EQ(tflite_tensor.bytes, (size_t)input_tensor.bytes())
           .SetCode(absl::StatusCode::kInvalidArgument)
       << "TfLiteTensor and Tensor sizes do not match.";
   std::memcpy(local_tensor_buffer, input_tensor_buffer, input_tensor.bytes());
@@ -118,7 +118,7 @@ absl::Status CopyTensorToTfLiteTensor<char>(const Tensor& input_tensor,
 }
 
 bool operator==(const TfLiteIntArray& lhs, const std::vector<int>& rhs) {
-  if (lhs.size != rhs.size()) return false;
+  if ((size_t)lhs.size != rhs.size()) return false;
   for (int i = 0; i < lhs.size; ++i) {
     if (lhs.data[i] != rhs[i]) return false;
   }
@@ -173,7 +173,7 @@ absl::Status CopyTfLiteTensorToTensor<char>(const TfLiteTensor& tflite_tensor,
   RET_CHECK_EQ(tflite::GetStringCount(&tflite_tensor), 1);
   const tflite::StringRef string_ref = tflite::GetString(&tflite_tensor, 0);
   std::string str(string_ref.str, string_ref.len);
-  RET_CHECK(str.size() == output_tensor.shape().num_elements())
+  RET_CHECK(str.size() == (size_t)output_tensor.shape().num_elements())
           .SetCode(absl::StatusCode::kInvalidArgument)
       << absl::StrFormat(
              "TfLiteTensor and Tensor shape do not match: %d vs [%s]",

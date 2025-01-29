@@ -351,6 +351,8 @@ class Tensor {
         return sizeof(char);
       case ElementType::kBool:
         return sizeof(bool);
+      default:
+          throw std::runtime_error("Unexpected value");
     }
   }
   int bytes() const { return shape_.num_elements() * element_size(); }

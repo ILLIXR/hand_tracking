@@ -344,14 +344,14 @@ absl::Status ValidatedGraphConfig::Initialize(
 
   sorted_nodes_.reserve(generators_.size() + calculators_.size());
   // Initialize sorted_nodes_ to list generators before calculators.
-  for (int index = 0; index < generators_.size(); ++index) {
+  for (int index = 0; index < (int)generators_.size(); ++index) {
     NodeTypeInfo* node_type_info = &generators_[index];
     RET_CHECK(node_type_info->Node().type ==
               NodeTypeInfo::NodeType::PACKET_GENERATOR);
     RET_CHECK_EQ(node_type_info->Node().index, index);
     sorted_nodes_.push_back(node_type_info);
   }
-  for (int index = 0; index < calculators_.size(); ++index) {
+  for (int index = 0; index < (int)calculators_.size(); ++index) {
     NodeTypeInfo* node_type_info = &calculators_[index];
     RET_CHECK(node_type_info->Node().type ==
               NodeTypeInfo::NodeType::CALCULATOR);
@@ -480,7 +480,7 @@ absl::Status ValidatedGraphConfig::InitializeCalculatorInfo() {
   for (const auto& node : config_.node()) {
     calculators_.emplace_back();
     absl::Status status =
-        calculators_.back().Initialize(*this, node, calculators_.size() - 1);
+        calculators_.back().Initialize(*this, node, (int)calculators_.size() - 1);
     if (!status.ok()) {
       statuses.push_back(status);
     }
@@ -495,7 +495,7 @@ absl::Status ValidatedGraphConfig::InitializeGeneratorInfo() {
   for (const auto& node : config_.packet_generator()) {
     generators_.emplace_back();
     absl::Status status =
-        generators_.back().Initialize(*this, node, generators_.size() - 1);
+        generators_.back().Initialize(*this, node, (int)generators_.size() - 1);
     if (!status.ok()) {
       statuses.push_back(status);
     }
@@ -510,7 +510,7 @@ absl::Status ValidatedGraphConfig::InitializeStatusHandlerInfo() {
   for (const auto& node : config_.status_handler()) {
     status_handlers_.emplace_back();
     absl::Status status = status_handlers_.back().Initialize(
-        *this, node, status_handlers_.size() - 1);
+        *this, node, (int)status_handlers_.size() - 1);
     if (!status.ok()) {
       statuses.push_back(status);
     }
@@ -541,7 +541,7 @@ absl::Status ValidatedGraphConfig::InitializeSidePacketInfo(
 
 absl::Status ValidatedGraphConfig::AddInputSidePacketsForNode(
     NodeTypeInfo* node_type_info) {
-  node_type_info->SetInputSidePacketBaseIndex(input_side_packets_.size());
+  node_type_info->SetInputSidePacketBaseIndex((int)input_side_packets_.size());
   const tool::TagMap& tag_map =
       *node_type_info->InputSidePacketTypes().TagMap();
   for (CollectionItemId id = tag_map.BeginId(); id < tag_map.EndId(); ++id) {
@@ -556,7 +556,7 @@ absl::Status ValidatedGraphConfig::AddInputSidePacketsForNode(
     } else {
       // The side packet must be given to the graph (or the graph isn't
       // topologically sorted).
-      required_side_packets_[name].push_back(input_side_packets_.size() - 1);
+      required_side_packets_[name].push_back((int)input_side_packets_.size() - 1);
     }
     edge_info.parent_node = node_type_info->Node();
     edge_info.name = name;
@@ -567,7 +567,7 @@ absl::Status ValidatedGraphConfig::AddInputSidePacketsForNode(
 
 absl::Status ValidatedGraphConfig::AddOutputSidePacketsForNode(
     NodeTypeInfo* node_type_info, bool* need_sorting_ptr) {
-  node_type_info->SetOutputSidePacketBaseIndex(output_side_packets_.size());
+  node_type_info->SetOutputSidePacketBaseIndex((int)output_side_packets_.size());
   const tool::TagMap& tag_map =
       *node_type_info->OutputSidePacketTypes().TagMap();
   for (CollectionItemId id = tag_map.BeginId(); id < tag_map.EndId(); ++id) {
@@ -580,7 +580,7 @@ absl::Status ValidatedGraphConfig::AddOutputSidePacketsForNode(
     edge_info.packet_type = &node_type_info->OutputSidePacketTypes().Get(id);
 
     if (!mediapipe::InsertIfNotPresent(&side_packet_to_producer_, name,
-                                       output_side_packets_.size() - 1)) {
+                                       (int)output_side_packets_.size() - 1)) {
       return mediapipe::UnknownErrorBuilder(MEDIAPIPE_LOC)
              << "Output Side Packet \"" << name << "\" defined twice.";
     }
@@ -604,7 +604,7 @@ absl::Status ValidatedGraphConfig::InitializeStreamInfo(
   // Define output streams for graph input streams.
   MP_ASSIGN_OR_RETURN(std::shared_ptr<tool::TagMap> graph_input_streams,
                       tool::TagMap::Create(config_.input_stream()));
-  for (int index = 0; index < graph_input_streams->Names().size(); ++index) {
+  for (int index = 0; index < (int)graph_input_streams->Names().size(); ++index) {
     std::string name = graph_input_streams->Names()[index];
     owned_packet_types_.emplace_back(new PacketType());
     owned_packet_types_.back()->SetAny();
@@ -634,7 +634,7 @@ absl::Status ValidatedGraphConfig::InitializeStreamInfo(
 absl::Status ValidatedGraphConfig::AddOutputStreamsForNode(
     NodeTypeInfo* node_type_info) {
   // Define output streams connecting calculators.
-  node_type_info->SetOutputStreamBaseIndex(output_streams_.size());
+  node_type_info->SetOutputStreamBaseIndex((int)output_streams_.size());
   const tool::TagMap& tag_map = *node_type_info->OutputStreamTypes().TagMap();
   for (CollectionItemId id = tag_map.BeginId(); id < tag_map.EndId(); ++id) {
     MP_RETURN_IF_ERROR(
@@ -655,7 +655,7 @@ absl::Status ValidatedGraphConfig::AddOutputStream(NodeTypeInfo::NodeRef node,
   edge_info.packet_type = packet_type;
 
   if (!mediapipe::InsertIfNotPresent(&stream_to_producer_, name,
-                                     output_streams_.size() - 1)) {
+                                     (int)output_streams_.size() - 1)) {
     return mediapipe::UnknownErrorBuilder(MEDIAPIPE_LOC)
            << "Output Stream \"" << name << "\" defined twice.";
   }
@@ -664,7 +664,7 @@ absl::Status ValidatedGraphConfig::AddOutputStream(NodeTypeInfo::NodeRef node,
 
 absl::Status ValidatedGraphConfig::AddInputStreamsForNode(
     NodeTypeInfo* node_type_info, bool* need_sorting_ptr) {
-  node_type_info->SetInputStreamBaseIndex(input_streams_.size());
+  node_type_info->SetInputStreamBaseIndex((int)input_streams_.size());
   const int node_index = node_type_info->Node().index;
   const PacketTypeSet& input_stream_types = node_type_info->InputStreamTypes();
   std::vector<bool> is_back_edge;  // Indexed by CollectionItemId.
@@ -747,7 +747,7 @@ int ValidatedGraphConfig::SorterIndexForNode(NodeTypeInfo::NodeRef node) const {
     case NodeTypeInfo::NodeType::PACKET_GENERATOR:
       return node.index;
     case NodeTypeInfo::NodeType::CALCULATOR:
-      return generators_.size() + node.index;
+      return (int)generators_.size() + node.index;
     default:
       ABSL_CHECK(false);
   }
@@ -755,7 +755,7 @@ int ValidatedGraphConfig::SorterIndexForNode(NodeTypeInfo::NodeRef node) const {
 
 NodeTypeInfo::NodeRef ValidatedGraphConfig::NodeForSorterIndex(
     int index) const {
-  if (index < generators_.size()) {
+  if (index < (int)generators_.size()) {
     return {NodeTypeInfo::NodeType::PACKET_GENERATOR, index};
   } else {
     return {NodeTypeInfo::NodeType::CALCULATOR,
@@ -773,8 +773,8 @@ absl::Status ValidatedGraphConfig::TopologicalSortNodes() {
   // follows:
   // - We use the generator indexes directly.
   // - We shift the calculator indexes up by the number of generators.
-  TopologicalSorter sorter(generators_.size() + calculators_.size());
-  for (int index = 0; index < input_streams_.size(); ++index) {
+  TopologicalSorter sorter((int)(generators_.size() + calculators_.size()));
+  for (int index = 0; index < (int)input_streams_.size(); ++index) {
     const std::string& name = input_streams_[index].name;
     // The upstream field may be broken since the order was wrong, so
     // look it up directly (now that we've filled stream_to_producer_).
@@ -794,7 +794,7 @@ absl::Status ValidatedGraphConfig::TopologicalSortNodes() {
       }
     }
   }
-  for (int index = 0; index < input_side_packets_.size(); ++index) {
+  for (int index = 0; index < (int)input_side_packets_.size(); ++index) {
     if (input_side_packets_[index].parent_node.type !=
             NodeTypeInfo::NodeType::PACKET_GENERATOR &&
         input_side_packets_[index].parent_node.type !=
@@ -819,12 +819,12 @@ absl::Status ValidatedGraphConfig::TopologicalSortNodes() {
   proto_ns::RepeatedPtrField<PacketGeneratorConfig> generator_configs;
   std::vector<NodeTypeInfo> tmp_generators;
   tmp_generators.reserve(generators_.size());
-  generator_configs.Reserve(generators_.size());
+  generator_configs.Reserve((int)generators_.size());
 
   proto_ns::RepeatedPtrField<CalculatorGraphConfig::Node> node_configs;
   std::vector<NodeTypeInfo> tmp_calculators;
   tmp_calculators.reserve(calculators_.size());
-  node_configs.Reserve(calculators_.size());
+  node_configs.Reserve((int)calculators_.size());
 
   sorted_nodes_.clear();
   int index;
@@ -836,7 +836,7 @@ absl::Status ValidatedGraphConfig::TopologicalSortNodes() {
       VLOG(3) << "Taking generator with index " << node.index
               << " in the original order";
       tmp_generators.emplace_back(std::move(generators_[node.index]));
-      tmp_generators.back().SetNodeIndex(tmp_generators.size() - 1);
+      tmp_generators.back().SetNodeIndex((int)tmp_generators.size() - 1);
       generator_configs.Add()->Swap(
           config_.mutable_packet_generator(node.index));
       sorted_nodes_.push_back(&tmp_generators.back());
@@ -844,7 +844,7 @@ absl::Status ValidatedGraphConfig::TopologicalSortNodes() {
       VLOG(3) << "Taking calculator with index " << node.index
               << " in the original order";
       tmp_calculators.emplace_back(std::move(calculators_[node.index]));
-      tmp_calculators.back().SetNodeIndex(tmp_calculators.size() - 1);
+      tmp_calculators.back().SetNodeIndex((int)tmp_calculators.size() - 1);
       node_configs.Add()->Swap(config_.mutable_node(node.index));
       sorted_nodes_.push_back(&tmp_calculators.back());
     }
@@ -875,7 +875,7 @@ absl::Status ValidatedGraphConfig::TopologicalSortNodes() {
 }
 
 absl::Status ValidatedGraphConfig::FillUpstreamFieldForBackEdges() {
-  for (int index = 0; index < input_streams_.size(); ++index) {
+  for (int index = 0; index < (int)input_streams_.size(); ++index) {
     auto& input_stream = input_streams_[index];
     if (input_stream.back_edge) {
       RET_CHECK_EQ(-1, input_stream.upstream)
@@ -1093,7 +1093,7 @@ absl::Status ValidatedGraphConfig::ValidateRequiredSidePacketTypes(
 }
 
 absl::Status ValidatedGraphConfig::ComputeSourceDependence() {
-  for (int node_index = 0; node_index < calculators_.size(); ++node_index) {
+  for (int node_index = 0; node_index < (int)calculators_.size(); ++node_index) {
     NodeTypeInfo& node_type_info = calculators_[node_index];
     if (node_type_info.InputStreamTypes().NumEntries() == 0) {
       node_type_info.AddSource(node_index);
@@ -1104,7 +1104,7 @@ absl::Status ValidatedGraphConfig::ComputeSourceDependence() {
                               node_type_info.InputStreamTypes().NumEntries();
            ++stream_index) {
         // Get all the sources of the upstream node.
-        RET_CHECK(stream_index >= 0 && stream_index < input_streams_.size())
+        RET_CHECK(stream_index >= 0 && stream_index < (int)input_streams_.size())
             << "Unable to find input streams for non-source node with index "
             << node_index << " tried to use " << stream_index;
         const EdgeInfo& input_edge_info = input_streams_[stream_index];
@@ -1116,7 +1116,7 @@ absl::Status ValidatedGraphConfig::ComputeSourceDependence() {
         RET_CHECK_LE(0, output_edge_info.parent_node.index)
             << "output stream \"" << output_edge_info.name
             << "\" does not have a valid node which owns it.";
-        RET_CHECK_LE(output_edge_info.parent_node.index,
+        RET_CHECK_LE((size_t)output_edge_info.parent_node.index,
                      calculators_.size() + config_.input_stream_size())
             << "output stream \"" << output_edge_info.name
             << "\" does not have a valid node which owns it.";

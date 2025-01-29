@@ -80,7 +80,7 @@ bool TopologicalSorter::GetNext(int* node_index, bool* cyclic,
   adjacency_list.swap(adjacency_lists_[*node_index]);
 
   // Updates the indegree_ vector and nodes_with_zero_indegree_ queue.
-  for (int i = 0; i < adjacency_list.size(); ++i) {
+  for (int i = 0; i < (int)adjacency_list.size(); ++i) {
     if (--indegree_[adjacency_list[i]] == 0) {
       nodes_with_zero_indegree_.push(adjacency_list[i]);
     }
@@ -115,7 +115,7 @@ void TopologicalSorter::FindCycle(std::vector<int>* cycle_nodes) {
     in_cur_stack[start_node] = true;
     while (!dfs_stack.empty()) {
       DfsState* cur_state = &dfs_stack.back();
-      if (cur_state->adjacency_list_index >=
+      if ((size_t)cur_state->adjacency_list_index >=
           adjacency_lists_[cur_state->node].size()) {
         no_cycle_reachable_from[cur_state->node] = true;
         in_cur_stack[cur_state->node] = false;

@@ -38,7 +38,7 @@ absl::StatusOr<std::vector<FieldData>> GetFieldValues(
   MP_RETURN_IF_ERROR(ProtoUtilLite::GetFieldRange(
       mesage_bytes, proto_path, count, field->type(), &field_values));
   std::vector<FieldData> result;
-  for (int i = 0; i < field_values.size(); ++i) {
+  for (int i = 0; i < (int)field_values.size(); ++i) {
     FieldData r;
     std::string message_type =
         field->message_type() ? field->message_type()->full_name() : "";

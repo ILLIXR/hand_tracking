@@ -105,7 +105,7 @@ absl::Status InputStreamManager::AddOrMovePacketsInternal(Container container,
     }
     // Check if the queue was full before packets came in.
     bool was_queue_full =
-        (max_queue_size_ != -1 && queue_.size() >= max_queue_size_);
+        (max_queue_size_ != -1 && queue_.size() >= (size_t)max_queue_size_);
     // Check if the queue becomes non-empty.
     queue_became_non_empty = queue_.empty() && !container.empty();
     for (auto& packet : container) {
@@ -164,7 +164,7 @@ absl::Status InputStreamManager::AddOrMovePacketsInternal(Container container,
       }
     }
     queue_became_full = (!was_queue_full && max_queue_size_ != -1 &&
-                         queue_.size() >= max_queue_size_);
+                         queue_.size() >= (size_t)max_queue_size_);
     if (queue_.size() > 1) {
       VLOG(3) << "Queue size greater than 1: stream name: " << name_
               << " queue_size: " << queue_.size();
@@ -271,7 +271,7 @@ Packet InputStreamManager::PopPacketAtTimestamp(Timestamp timestamp,
 
     // Checks if queue is full.
     bool was_queue_full =
-        (max_queue_size_ != -1 && queue_.size() >= max_queue_size_);
+        (max_queue_size_ != -1 && queue_.size() >= (size_t)max_queue_size_);
 
     while (!queue_.empty() && queue_.front().Timestamp() <= timestamp) {
       packet = std::move(queue_.front());
@@ -289,7 +289,7 @@ Packet InputStreamManager::PopPacketAtTimestamp(Timestamp timestamp,
 
     VLOG(3) << "Input stream removed packets:" << name_
             << " Size:" << queue_.size();
-    queue_became_non_full = (was_queue_full && queue_.size() < max_queue_size_);
+    queue_became_non_full = (was_queue_full && queue_.size() < (size_t)max_queue_size_);
     *stream_is_done = IsDone();
   }
   if (queue_became_non_full) {
@@ -311,7 +311,7 @@ Packet InputStreamManager::PopQueueHead(bool* stream_is_done) {
 
     // Check if queue is full.
     bool was_queue_full =
-        (max_queue_size_ != -1 && queue_.size() >= max_queue_size_);
+        (max_queue_size_ != -1 && queue_.size() >= (size_t)max_queue_size_);
 
     if (!queue_.empty()) {
       packet = std::move(queue_.front());
@@ -322,7 +322,7 @@ Packet InputStreamManager::PopQueueHead(bool* stream_is_done) {
 
     VLOG(3) << "Input stream removed a packet:" << name_
             << " Size:" << queue_.size();
-    queue_became_non_full = (was_queue_full && queue_.size() < max_queue_size_);
+    queue_became_non_full = (was_queue_full && queue_.size() < (size_t)max_queue_size_);
     *stream_is_done = IsDone();
   }
   if (queue_became_non_full) {
@@ -334,7 +334,7 @@ Packet InputStreamManager::PopQueueHead(bool* stream_is_done) {
 
 int InputStreamManager::NumPacketsAdded() const {
   absl::MutexLock lock(&stream_mutex_);
-  return num_packets_added_;
+  return (int)num_packets_added_;
 }
 
 int InputStreamManager::QueueSize() const {
@@ -352,9 +352,9 @@ void InputStreamManager::SetMaxQueueSize(int max_queue_size) {
   bool is_full;
   {
     absl::MutexLock lock(&stream_mutex_);
-    was_full = (max_queue_size_ != -1 && queue_.size() >= max_queue_size_);
+    was_full = (max_queue_size_ != -1 && queue_.size() >= (size_t)max_queue_size_);
     max_queue_size_ = max_queue_size;
-    is_full = (max_queue_size_ != -1 && queue_.size() >= max_queue_size_);
+    is_full = (max_queue_size_ != -1 && queue_.size() >= (size_t)max_queue_size_);
   }
 
   // QueueSizeCallback is called with no mutexes held.
@@ -369,7 +369,7 @@ void InputStreamManager::SetMaxQueueSize(int max_queue_size) {
 
 bool InputStreamManager::IsFull() const {
   absl::MutexLock lock(&stream_mutex_);
-  return max_queue_size_ != -1 && queue_.size() >= max_queue_size_;
+  return max_queue_size_ != -1 && queue_.size() >= (size_t)max_queue_size_;
 }
 
 Timestamp InputStreamManager::GetMinTimestampAmongNLatest(int n) const {
@@ -377,7 +377,7 @@ Timestamp InputStreamManager::GetMinTimestampAmongNLatest(int n) const {
   if (queue_.empty()) {
     return Timestamp::Unset();
   }
-  return (queue_.cend() - std::min((size_t)n, queue_.size()))->Timestamp();
+  return (queue_.cend() - (long)std::min((size_t)n, queue_.size()))->Timestamp();
 }
 
 void InputStreamManager::ErasePacketsEarlierThan(Timestamp timestamp) {
@@ -386,7 +386,7 @@ void InputStreamManager::ErasePacketsEarlierThan(Timestamp timestamp) {
     absl::MutexLock lock(&stream_mutex_);
     // Checks if queue is full.
     bool was_queue_full =
-        (max_queue_size_ != -1 && queue_.size() >= max_queue_size_);
+        (max_queue_size_ != -1 && queue_.size() >= (size_t)max_queue_size_);
 
     while (!queue_.empty() && queue_.front().Timestamp() < timestamp) {
       queue_.pop_front();
@@ -394,7 +394,7 @@ void InputStreamManager::ErasePacketsEarlierThan(Timestamp timestamp) {
 
     VLOG(3) << "Input stream removed packets:" << name_
             << " Size:" << queue_.size();
-    queue_became_non_full = (was_queue_full && queue_.size() < max_queue_size_);
+    queue_became_non_full = (was_queue_full && queue_.size() < (size_t)max_queue_size_);
   }
   if (queue_became_non_full) {
     VLOG(3) << "Queue became non-full: " << Name();

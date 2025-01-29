@@ -59,7 +59,7 @@ class TagMap {
       const proto_ns::RepeatedPtrField<ProtoString>& tag_index_names) {
     std::shared_ptr<TagMap> output(new TagMap());
     MP_RETURN_IF_ERROR(output->Initialize(tag_index_names));
-    return std::move(output);
+    return output;
   }
 
   // Create a TagMap from a TagAndNameInfo.
@@ -70,7 +70,7 @@ class TagMap {
       const TagAndNameInfo& info) {
     std::shared_ptr<TagMap> output(new TagMap());
     MP_RETURN_IF_ERROR(output->Initialize(info));
-    return std::move(output);
+    return output;
   }
 
   // Returns a reference to the mapping from tag to tag data.

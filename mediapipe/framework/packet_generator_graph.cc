@@ -321,7 +321,7 @@ absl::Status GeneratorScheduler::GetNonScheduledGenerators(
   if (!statuses_.empty()) {
     return tool::CombinedStatus("PacketGeneratorGraph failed.", statuses_);
   }
-  for (int i = 0; i < scheduled_generators_.size(); ++i) {
+  for (int i = 0; i < (int)scheduled_generators_.size(); ++i) {
     if (!scheduled_generators_[i]) {
       non_scheduled_generators->push_back(i);
     }

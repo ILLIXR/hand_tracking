@@ -158,6 +158,7 @@ class TfLiteModelCalculator : public CalculatorBase {
   }
 
   absl::Status Process(CalculatorContext* cc) override {
+      UNUSED(cc);
     return absl::OkStatus();
   }
 };

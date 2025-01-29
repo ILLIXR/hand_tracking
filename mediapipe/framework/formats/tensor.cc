@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #include "mediapipe/framework/formats/tensor.h"
+#include "mediapipe/util/unused.hpp"
 
 #include <algorithm>
 #include <cstdint>
@@ -468,6 +469,8 @@ Tensor::Tensor(ElementType element_type, const Shape& shape,
   if (memory_manager) {
     hardware_buffer_pool_ = memory_manager->GetAndroidHardwareBufferPool();
   }
+#else
+    UNUSED(memory_manager);
 #endif  // MEDIAPIPE_TENSOR_USE_AHWB
 }
 Tensor::Tensor(ElementType element_type, const Shape& shape,
@@ -482,6 +485,8 @@ Tensor::Tensor(ElementType element_type, const Shape& shape,
   if (memory_manager) {
     hardware_buffer_pool_ = memory_manager->GetAndroidHardwareBufferPool();
   }
+#else
+    UNUSED(memory_manager);
 #endif  // MEDIAPIPE_TENSOR_USE_AHWB
 }
 

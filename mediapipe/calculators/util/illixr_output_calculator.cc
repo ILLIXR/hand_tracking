@@ -184,7 +184,7 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
     if (cc->Inputs().HasTag(kHandedness) &&
         !cc->Inputs().Tag(kHandedness).IsEmpty()) {
         const auto &hands = cc->Inputs().Tag(kHandedness).Get<std::vector<ClassificationList> >();
-        for(int i = 0; i < hands.size(); i++) {
+        for(int i = 0; i < (int)hands.size(); i++) {
             if (hands[i].classification(0).label() == "Left") {
                 if (img_data_.first_person()) {
                     right_idx = i;
@@ -210,7 +210,7 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
     if (cc->Inputs().HasTag(kHandPointsTag) &&
         !cc->Inputs().Tag(kHandPointsTag).IsEmpty()) {
         const auto &hp = cc->Inputs().Tag(kHandPointsTag).Get<std::vector<Points> >();
-        for (auto i = 0; i < hp.size(); i++) {
+        for(int i = 0; i < (int)hp.size(); i++) {
             auto hand_points = absl::make_unique<::ILLIXR::data_format::ht::hand_points>();
             hand_points->unit = ::ILLIXR::data_format::units::PERCENT;
             for (auto j = 0; j < hp[i].points_size(); j++) {
@@ -247,7 +247,7 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
             if (nrects.size() > 2) {
                 // ERROR
             }
-            for (auto i = 0; i < nrects.size(); i++) {
+            for (int i = 0; i < (int)nrects.size(); i++) {
                 p_rect = make_rect(nrects[i], true);
                 if (i == left_idx)
                     frame_data->left_palm = p_rect;
@@ -262,7 +262,7 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
             if (rects.size() > 2) {
                 // ERROR
             }
-            for (auto i = 0; i < rects.size(); i++) {
+            for (int i = 0; i < (int)rects.size(); i++) {
                 p_rect = make_rect(rects[i], false);
                 if (i == left_idx)
                     frame_data->left_palm = p_rect;
@@ -299,7 +299,7 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
                 // ERROR
 
             }
-            for (auto i = 0; i < nrects.size(); i++) {
+            for (int i = 0; i < (int)nrects.size(); i++) {
                 h_rect = make_rect(nrects[i], true);
                 if (i == left_idx)
                     frame_data->left_hand = h_rect;
@@ -313,7 +313,7 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
             if (rects.size() > 2) {
                 // ERROR
             }
-            for (auto i = 0; i < rects.size(); i++) {
+            for (int i = 0; i < (int)rects.size(); i++) {
                 h_rect = make_rect(rects[i], false);
                 if (i == left_idx)
                     frame_data->left_hand = h_rect;
@@ -336,5 +336,5 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
     return absl::OkStatus();
 
 }
-REGISTER_CALCULATOR(ILLIXROutputCalculator);
+REGISTER_CALCULATOR(ILLIXROutputCalculator)
 } // mediapipe

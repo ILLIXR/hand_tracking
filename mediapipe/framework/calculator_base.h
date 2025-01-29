@@ -28,6 +28,7 @@
 #include "mediapipe/framework/deps/registration.h"
 #include "mediapipe/framework/port.h"
 #include "mediapipe/framework/timestamp.h"
+#include "mediapipe/util/unused.hpp"
 
 namespace mediapipe {
 
@@ -123,7 +124,7 @@ class CalculatorBase {
   // framework will call neither Process() nor Close() on the calculator (so any
   // necessary cleanup should be done before returning failure or in the
   // destructor).
-  virtual absl::Status Open(CalculatorContext* cc) { return absl::OkStatus(); }
+  virtual absl::Status Open(CalculatorContext* cc) {UNUSED(cc); return absl::OkStatus(); }
 
   // Processes the incoming inputs. May call the methods on cc to access
   // inputs and produce outputs.
@@ -155,7 +156,7 @@ class CalculatorBase {
   // NOTE: Do not call cc->GraphStatus() in Close() if you need to check if the
   // processing is complete. Please, see CalculatorContext::GraphStatus
   // documentation for the suggested solution.
-  virtual absl::Status Close(CalculatorContext* cc) { return absl::OkStatus(); }
+  virtual absl::Status Close(CalculatorContext* cc) {UNUSED(cc); return absl::OkStatus(); }
 
   // Returns a value according to which the framework selects
   // the next source calculator to Process(); smaller value means
@@ -226,6 +227,7 @@ class CalculatorBaseFactoryFor<
 
   std::unique_ptr<CalculatorBase> CreateCalculator(
       CalculatorContext* calculator_context) final {
+      UNUSED(calculator_context);
     return absl::make_unique<T>();
   }
 };

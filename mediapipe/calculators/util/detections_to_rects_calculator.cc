@@ -97,10 +97,10 @@ absl::Status DetectionsToRectsCalculator::DetectionToRect(
       const int height = detection_spec.image_size->second;
       NormalizedRect norm_rect;
       MP_RETURN_IF_ERROR(NormRectFromKeyPoints(location_data, &norm_rect));
-      rect->set_x_center(std::round(norm_rect.x_center() * width));
-      rect->set_y_center(std::round(norm_rect.y_center() * height));
-      rect->set_width(std::round(norm_rect.width() * width));
-      rect->set_height(std::round(norm_rect.height() * height));
+      rect->set_x_center((int)std::round(norm_rect.x_center() * (float)width));
+      rect->set_y_center((int)std::round(norm_rect.y_center() * (float)height));
+      rect->set_width((int)std::round(norm_rect.width() * (float)width));
+      rect->set_height((int)std::round(norm_rect.height() * (float)height));
       break;
     }
   }
@@ -110,6 +110,7 @@ absl::Status DetectionsToRectsCalculator::DetectionToRect(
 absl::Status DetectionsToRectsCalculator::DetectionToNormalizedRect(
     const Detection& detection, const DetectionSpec& detection_spec,
     NormalizedRect* rect) {
+    UNUSED(detection_spec);
   const LocationData location_data = detection.location_data();
   switch (options_.conversion_mode()) {
     case mediapipe::DetectionsToRectsCalculatorOptions_ConversionMode_DEFAULT:
@@ -271,7 +272,7 @@ absl::Status DetectionsToRectsCalculator::Process(CalculatorContext* cc) {
   }
   if (cc->Outputs().HasTag(kRectsTag)) {
     auto output_rects = absl::make_unique<std::vector<Rect>>(detections.size());
-    for (int i = 0; i < detections.size(); ++i) {
+    for (int i = 0; i < (int)detections.size(); ++i) {
       MP_RETURN_IF_ERROR(DetectionToRect(detections[i], detection_spec,
                                          &(output_rects->at(i))));
       if (rotate_) {
@@ -287,7 +288,7 @@ absl::Status DetectionsToRectsCalculator::Process(CalculatorContext* cc) {
   if (cc->Outputs().HasTag(kNormRectsTag)) {
     auto output_rects =
         absl::make_unique<std::vector<NormalizedRect>>(detections.size());
-    for (int i = 0; i < detections.size(); ++i) {
+    for (int i = 0; i < (int)detections.size(); ++i) {
       MP_RETURN_IF_ERROR(DetectionToNormalizedRect(
           detections[i], detection_spec, &(output_rects->at(i))));
       if (rotate_) {
@@ -313,13 +314,13 @@ absl::Status DetectionsToRectsCalculator::ComputeRotation(
   RET_CHECK(image_size) << "Image size is required to calculate rotation";
 
   const float x0 = location_data.relative_keypoints(start_keypoint_index_).x() *
-                   image_size->first;
+          (float)image_size->first;
   const float y0 = location_data.relative_keypoints(start_keypoint_index_).y() *
-                   image_size->second;
+          (float)image_size->second;
   const float x1 = location_data.relative_keypoints(end_keypoint_index_).x() *
-                   image_size->first;
+          (float)image_size->first;
   const float y1 = location_data.relative_keypoints(end_keypoint_index_).y() *
-                   image_size->second;
+          (float)image_size->second;
 
   *rotation = NormalizeRadians(target_angle_ - std::atan2(-(y1 - y0), x1 - x0));
 
@@ -336,6 +337,6 @@ DetectionSpec DetectionsToRectsCalculator::GetDetectionSpec(
   return {image_size};
 }
 
-REGISTER_CALCULATOR(DetectionsToRectsCalculator);
+REGISTER_CALCULATOR(DetectionsToRectsCalculator)
 
 }  // namespace mediapipe

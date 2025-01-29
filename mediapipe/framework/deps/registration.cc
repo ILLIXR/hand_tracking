@@ -13,6 +13,7 @@
 // limitations under the License.
 
 #include "mediapipe/framework/deps/registration.h"
+#include "mediapipe/util/unused.hpp"
 
 #include "absl/container/flat_hash_set.h"
 
@@ -30,6 +31,7 @@ constexpr char const* kTopNamespaces[] = {
 
 template <size_t SIZE, class T>
 inline size_t array_size(T (&arr)[SIZE]) {
+    UNUSED(arr);
   return SIZE;
 }
 

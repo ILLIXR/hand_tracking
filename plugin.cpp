@@ -57,10 +57,10 @@ ht::cam_type get_cam_type(const std::shared_ptr<switchboard>& sb) {
 
 [[maybe_unused]] hand_tracking::hand_tracking(const std::string& name_, phonebook* pb_)
         : plugin{name_, pb_}
+        , _switchboard{pb_->lookup_impl<switchboard>()}
         , _graph{{idf::image::LEFT_EYE, nullptr},
                  {idf::image::RIGHT_EYE, nullptr},
                  {idf::image::RGB, nullptr}}
-        , _switchboard{pb_->lookup_impl<switchboard>()}
         , _cam_type{get_cam_type(_switchboard)}
         , _publisher{"hand_tracking_publisher", pb_, _cam_type} {
     if (_cam_type == ht::WEBCAM) {
