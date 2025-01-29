@@ -44,7 +44,6 @@ function(make_proto_binary)
                        COMMAND ${CMAKE_COMMAND} -E env "LD_LIBRARY_PATH=${CMAKE_INSTALL_PREFIX}/lib" ./${make_proto_binary_BINARY_NAME}
                        ARGS --proto_source=${CMAKE_SOURCE_DIR}/mediapipe/${FILE_PATH_NAME}.pbtxt --proto_output=${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}.binarypb
                        COMMENT "Processing protobuf file from mediapipe/${FILE_PATH_NAME}.pbtxt"
-                       DEPENDS encode_as_c_string ${make_proto_binary_BINARY_NAME}
                        VERBATIM
                        BYPRODUCTS ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}.binarypb
     )
@@ -52,7 +51,6 @@ function(make_proto_binary)
                        ARGS ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}.binarypb > ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}.inc
                        COMMENT "Producing include file from ${FILE_PATH_NAME}.binarypb"
                        VERBATIM
-                       DEPENDS ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}.binarypb
                        OUTPUT ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}.inc
     )
     configure_file(${CMAKE_CURRENT_SOURCE_DIR}/simple_subgraph_template.cc.in
