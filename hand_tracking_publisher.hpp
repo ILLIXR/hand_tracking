@@ -79,59 +79,57 @@ void transform(const data_format::pose_data& pose, data_format::ht::hand_points&
 
 class hand_tracking_publisher : public threadloop {
 public:
-    hand_tracking_publisher(const std::string &name_, phonebook *pb_, ht::cam_type _c_type);
-
-    void start() override;
-
-    void stop() override;
-
+    hand_tracking_publisher(const std::string &name_, phonebook *pb_);
     ~hand_tracking_publisher() override;
 
-    void set_frame_count(ht::input_type it);
-
     void add_raw(size_t id, pose_image &pi);
-
+    void set_frame_count(ht::input_type it);
     void set_poller(data_format::image::image_type im_type, mediapipe::OutputStreamPoller *plr) {
-        _poller.at(im_type) = plr;
-        _count++;
+        poller_.at(im_type) = plr;
+        count_++;
     }
+    void start() override;
+    void stop() override;
 
 protected:
     skip_option _p_should_skip() override;
-
     void _p_one_iteration() override;
 
 private:
     void calculate_proper_position(std::map<data_format::ht::hand, data_format::ht::hand_points> &thp);
 
-    const std::shared_ptr<switchboard>                 _switchboard;
-    switchboard::writer <data_format::ht::ht_frame>    _ht_publisher;
-    switchboard::reader <data_format::pose_type>       _pose_reader;
-    switchboard::reader <data_format::camera_data>     _camera_reader;
-    switchboard::reader <data_format::depth_type>      _depth_reader;
-    switchboard::reader <data_format::rgb_depth_type>  _rgb_depth_reader;
+    const std::shared_ptr<switchboard>                 switchboard_;
+    switchboard::writer <data_format::ht::ht_frame>    ht_publisher_;
+    switchboard::reader <data_format::pose_type>       pose_reader_;
+    switchboard::reader <data_format::camera_data>     camera_reader_;
+    switchboard::reader <data_format::depth_type>      depth_reader_;
+    switchboard::reader <data_format::rgb_depth_type>  rgb_depth_reader_;
 
-    std::map<data_format::image::image_type, mediapipe::OutputStreamPoller *> _poller = {{data_format::image::LEFT_EYE,  nullptr},
+    std::map<data_format::image::image_type, mediapipe::OutputStreamPoller *> poller_ = {{data_format::image::LEFT_EYE,  nullptr},
                                                                                          {data_format::image::RIGHT_EYE, nullptr},
                                                                                          {data_format::image::RGB,       nullptr}};
-    size_t _frame_count = 0;
-    mediapipe::Packet _packet;
-    std::map<data_format::image::image_type, cv::Mat> _results_images;
-    std::map<data_format::units::eyes, data_format::ht::ht_detection> _detections;
-    size_t _last_frame_id = 0;
-    std::unordered_map<size_t, pose_image> _raw_data;
-    data_format::pose_data _current_pose;
-    data_format::pose_data _initial_pose;
-    pose_image _current_raw;
-    cv::Mat _current_confidence;
-    cv::Mat _current_depth;
-    int _img_size_x = 0;
-    int _img_size_y = 0;
-    data_format::ht::position _last_position;
-    ht::input_type _last_input = ht::RIGHT;
-    ushort _count = 0;
+
+    ushort            count_ = 0;
+    size_t            frame_count_ = 0;
+    int               img_size_x_ = 0;
+    int               img_size_y_ = 0;
+    size_t            last_frame_id_ = 0;
+    mediapipe::Packet packet_;
+
+    std::map<data_format::image::image_type, cv::Mat>                 results_images_;
+    std::map<data_format::units::eyes, data_format::ht::ht_detection> detections_;
+
+    std::unordered_map<size_t, pose_image> raw_data_;
+
+    data_format::pose_data    current_pose_;
+    data_format::pose_data    initial_pose_;
+    pose_image                current_raw_;
+    cv::Mat                   current_confidence_;
+    cv::Mat                   current_depth_;
+    data_format::ht::position last_position_;
+    ht::input_type            last_input_ = ht::RIGHT;
+
     data_format::camera_data cam_data_;
-    ht::cam_type _cam_type;
 };
 
 }

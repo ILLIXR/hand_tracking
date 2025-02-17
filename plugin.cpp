@@ -43,7 +43,11 @@ void img_convert(cv::Mat& img, bool flip=false) {
 }
 
 ht::cam_type get_cam_type(const std::shared_ptr<switchboard>& sb) {
-    std::string input_src = sb->get_env("HT_INPUT");
+    const char* input_t = std::getenv("HT_INPUT");
+    if (!input_t)
+        throw std::runtime_error("HT_INPUT did not have a valid type");
+    std::string input_src{input_t};
+    //std::string input_src = sb->get_env("HT_INPUT");
     if (ILLIXR::data_format::compare(input_src, "zed")) {
         return ht::ZED;
     } else if (ILLIXR::data_format::compare(input_src, "cam")) {
@@ -57,39 +61,39 @@ ht::cam_type get_cam_type(const std::shared_ptr<switchboard>& sb) {
 
 [[maybe_unused]] hand_tracking::hand_tracking(const std::string& name_, phonebook* pb_)
         : plugin{name_, pb_}
-        , _switchboard{pb_->lookup_impl<switchboard>()}
-        , _graph{{idf::image::LEFT_EYE, nullptr},
+        , switchboard_{pb_->lookup_impl<switchboard>()}
+        , graph_{{idf::image::LEFT_EYE,  nullptr},
                  {idf::image::RIGHT_EYE, nullptr},
-                 {idf::image::RGB, nullptr}}
-        , _cam_type{get_cam_type(_switchboard)}
-        , _publisher{"hand_tracking_publisher", pb_, _cam_type} {
-    if (_cam_type == ht::WEBCAM) {
-        _input_type = ht::RGB;
-        _first_person = false;
-    } else if (const char *in_type = _switchboard->get_env_char("HT_INPUT_TYPE")) {
+                 {idf::image::RGB,       nullptr}}
+        , cam_type_{get_cam_type(switchboard_)}
+        , publisher_{"hand_tracking_publisher", pb_} {
+    if (cam_type_ == ht::WEBCAM) {
+        input_type_ = ht::RGB;
+        first_person_ = false;
+    //} else if (const char *in_type = switchboard_->get_env_char("HT_INPUT_TYPE")) {
+    } else if (const char *in_type = std::getenv("HT_INPUT_TYPE")) {
         if (strcmp(in_type, "LEFT") == 0 || strcmp(in_type, "SINGLE") == 0) {
-            _input_type = ht::LEFT;
+            input_type_ = ht::LEFT;
         } else if (strcmp(in_type, "RIGHT") == 0) {
-            _input_type = ht::RIGHT;
+            input_type_ = ht::RIGHT;
         } else if (strcmp(in_type, "MULTI") == 0 || strcmp(in_type, "BOTH") == 0) {
-            _input_type = ht::BOTH;
+            input_type_ = ht::BOTH;
         } else if (strcmp(in_type, "RGB") == 0) {
-            _input_type = ht::RGB;
+            input_type_ = ht::RGB;
         }
     } else {
-        _input_type = ht::BOTH;
+        input_type_ = ht::BOTH;
     }
 
-
-    if (_input_type == ht::RGB) {
-        _graph.at(idf::image::RGB) = new mediapipe::CalculatorGraph();
+    if (input_type_ == ht::RGB) {
+        graph_.at(idf::image::RGB) = new mediapipe::CalculatorGraph();
     } else {
-        if (_input_type != ht::RIGHT)
-            _graph.at(idf::image::LEFT_EYE) = new mediapipe::CalculatorGraph();
-        if (_input_type == ht::RIGHT || _input_type == ht::BOTH)
-            _graph.at(idf::image::RIGHT_EYE) = new mediapipe::CalculatorGraph();
+        if (input_type_ != ht::RIGHT)
+            graph_.at(idf::image::LEFT_EYE) = new mediapipe::CalculatorGraph();
+        if (input_type_ == ht::RIGHT || input_type_ == ht::BOTH)
+            graph_.at(idf::image::RIGHT_EYE) = new mediapipe::CalculatorGraph();
     }
-    _publisher.set_frame_count(_input_type);
+    publisher_.set_frame_count(input_type_);
 }
 
 void hand_tracking::start() {
@@ -103,18 +107,18 @@ void hand_tracking::start() {
             ;  // NOLINT(whitespace/semicolon)
     auto config = mediapipe::ParseTextProtoOrDie<mediapipe::CalculatorGraphConfig>(calculator_graph_config_contents);
     absl::Status status;
-    if (_input_type == ht::RGB) {
-        status = _graph[idf::image::RGB]->Initialize(config);
+    if (input_type_ == ht::RGB) {
+        status = graph_[idf::image::RGB]->Initialize(config);
         if (!status.ok())
             throw std::runtime_error(std::string(status.message()));
     } else {
-        if (_input_type != ht::RIGHT) {
-            status = _graph[idf::image::LEFT_EYE]->Initialize(config);
+        if (input_type_ != ht::RIGHT) {
+            status = graph_[idf::image::LEFT_EYE]->Initialize(config);
             if (!status.ok())
                 throw std::runtime_error(std::string(status.message()));
         }
-        if (_input_type == ht::RIGHT || _input_type == ht::BOTH) {
-            status = _graph[idf::image::RIGHT_EYE]->Initialize(config);
+        if (input_type_ == ht::RIGHT || input_type_ == ht::BOTH) {
+            status = graph_[idf::image::RIGHT_EYE]->Initialize(config);
             if (!status.ok())
                 throw std::runtime_error(std::string(status.message()));
         }
@@ -123,7 +127,7 @@ void hand_tracking::start() {
 #if !MEDIAPIPE_DISABLE_GPU
     ABSL_LOG(INFO) << "Initialize the GPU.";
 #endif
-    for (auto& item : _graph) {
+    for (auto& item : graph_) {
         if (item.second != nullptr) {
 #if !MEDIAPIPE_DISABLE_GPU
             auto gpu_resources = mediapipe::GpuResources::Create();
@@ -136,33 +140,33 @@ void hand_tracking::start() {
             _gpu_helper[item.first].InitializeForTest(
                     _graph.at(item.first)->GetGpuResources().get());
 #endif
-            if (_graph.at(item.first) != nullptr) {
-                auto status_or_poller = _graph.at(item.first)->AddOutputStreamPoller(kOutputStream);
+            if (graph_.at(item.first) != nullptr) {
+                auto status_or_poller = graph_.at(item.first)->AddOutputStreamPoller(kOutputStream);
                 if (!status_or_poller.ok())
                     throw std::runtime_error("Error with output poller");
-                _publisher.set_poller(item.first, new mediapipe::OutputStreamPoller(std::move(status_or_poller).value()));
+                publisher_.set_poller(item.first, new mediapipe::OutputStreamPoller(std::move(status_or_poller).value()));
             }
 
         }
     }
-    for (auto& item : _graph) {
+    for (auto& item : graph_) {
         if (item.second != nullptr) {
-            status = _graph.at(item.first)->StartRun({});
+            status = graph_.at(item.first)->StartRun({});
             if (!status.ok())
                 throw std::runtime_error("Error starting graph");
         }
     }
     // subscribe to the expected type
-    switch (_cam_type) {
+    switch (cam_type_) {
         case ht::WEBCAM:
-            _switchboard->schedule<idf::monocular_cam_type>(id, "webcam",
+            switchboard_->schedule<idf::monocular_cam_type>(id_, "webcam",
                                                             [this](const switchboard::ptr<const idf::monocular_cam_type> &frame,
                                                                    std::size_t) {
                                                                 this->process(frame);
                                                             });
             break;
         case ht::CAM:
-            _switchboard->schedule<idf::binocular_cam_type>(id, "cam",
+            switchboard_->schedule<idf::binocular_cam_type>(id_, "cam",
                                                             [this](const switchboard::ptr<const idf::binocular_cam_type> &img,
                                                                    std::size_t) {
                                                                 this->process(img);
@@ -170,7 +174,7 @@ void hand_tracking::start() {
             break;
         case ht::ZED:
 #ifdef HAVE_ZED
-            _switchboard->schedule<idf::cam_type_zed>(id, "cam_zed",
+            switchboard_->schedule<idf::cam_type_zed>(id_, "cam_zed",
                                                       [this](const switchboard::ptr<const idf::cam_type_zed> &img, std::size_t) {
                                                           this->process(img);
                                                       });
@@ -181,11 +185,11 @@ void hand_tracking::start() {
         default:
             throw std::runtime_error("Unexpected HT_INPUT entry. It must be one of webcam, cam, or zed (if supported).");
     }
-    _publisher.start();
+    publisher_.start();
 }
 
 void hand_tracking::stop() {
-    for (auto& item : _graph) {
+    for (auto& item : graph_) {
         if (item.second != nullptr) {
             item.second->Cancel();
             auto status = item.second->CloseAllPacketSources();
@@ -193,31 +197,31 @@ void hand_tracking::stop() {
             item.second = nullptr;
         }
     }
-    _publisher.stop();
+    publisher_.stop();
     plugin::stop();
 }
 
 hand_tracking::~hand_tracking() {
-    for (auto& i : _graph)
+    for (auto& i : graph_)
         delete i.second;
 }
 
 void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& frame) {
-    _current_images.clear();
+    current_images_.clear();
     pose_image pose_img;
     switch (frame->type) {
         case idf::camera::BINOCULAR:
-            switch (_input_type) {
+            switch (input_type_) {
                 case ht::BOTH:
                     if(!frame->at(idf::image::LEFT_EYE).empty() && !frame->at(idf::image::RIGHT_EYE).empty()) {
-                        _current_images = {{idf::image::LEFT_EYE,  frame->at(idf::image::LEFT_EYE).clone()},
+                        current_images_ = {{idf::image::LEFT_EYE,  frame->at(idf::image::LEFT_EYE).clone()},
                                            {idf::image::RIGHT_EYE, frame->at(idf::image::RIGHT_EYE).clone()}};
                         pose_img.eye_count = 2;
                     } else if(frame->at(idf::image::LEFT_EYE).empty() && frame->at(idf::image::RIGHT_EYE).empty()) {
                         spdlog::get("illixr")->info("[hand_tracking.plugin] Received empty frame, skipping");
                         return;
                     } else if(frame->at(idf::image::LEFT_EYE).empty()) {
-                        _current_images = {{idf::image::LEFT_EYE, frame->at(idf::image::LEFT_EYE).clone()}};
+                        current_images_ = {{idf::image::LEFT_EYE, frame->at(idf::image::LEFT_EYE).clone()}};
                         pose_img.eye_count = 1;
                         pose_img.primary = idf::units::LEFT_EYE;
                     } else {
@@ -225,7 +229,7 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
                             spdlog::get("illixr")->info("[hand_tracking.plugin] Received empty frame, skipping");
                             return;
                         }
-                        _current_images = {{idf::image::RIGHT_EYE, frame->at(idf::image::RIGHT_EYE).clone()}};
+                        current_images_ = {{idf::image::RIGHT_EYE, frame->at(idf::image::RIGHT_EYE).clone()}};
                         pose_img.eye_count = 1;
                         pose_img.primary = idf::units::RIGHT_EYE;
                     }
@@ -235,7 +239,7 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
                         spdlog::get("illixr")->info("[hand_tracking.plugin] Received empty frame, skipping");
                         return;
                     }
-                    _current_images = {{idf::image::RIGHT_EYE, frame->at(idf::image::RIGHT_EYE).clone()}};
+                    current_images_ = {{idf::image::RIGHT_EYE, frame->at(idf::image::RIGHT_EYE).clone()}};
                     pose_img.eye_count = 1;
                     pose_img.primary = idf::units::RIGHT_EYE;
                     break;
@@ -244,7 +248,7 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
                         spdlog::get("illixr")->info("[hand_tracking.plugin] Received empty frame, skipping");
                         return;
                     }
-                    _current_images = {{idf::image::LEFT_EYE, frame->at(idf::image::LEFT_EYE).clone()}};
+                    current_images_ = {{idf::image::LEFT_EYE, frame->at(idf::image::LEFT_EYE).clone()}};
                     pose_img.eye_count = 1;
                     pose_img.primary = idf::units::LEFT_EYE;
                     break;
@@ -261,7 +265,7 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
             cv::Mat temp_img(frame->at(idf::image::RGB).clone());
             cv::flip(temp_img, temp_img, 1);
             img_convert(temp_img);
-            _current_images = {{idf::image::LEFT_EYE, temp_img}};
+            current_images_ = {{idf::image::LEFT_EYE, temp_img}};
             pose_img.eye_count = 1;
             pose_img.primary = idf::units::LEFT_EYE;
             break;
@@ -271,21 +275,21 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
                 spdlog::get("illixr")->info("[hand_tracking.plugin] Received empty frame, skipping");
                 return;
             }
-            _current_images = {{idf::image::LEFT_EYE, frame->at(idf::image::RGB).clone()}};
+            current_images_ = {{idf::image::LEFT_EYE, frame->at(idf::image::RGB).clone()}};
             pose_img.eye_count = 1;
             pose_img.primary = idf::units::LEFT_EYE;
             break;
         }
         case idf::camera::ZED: {
 #ifdef HAVE_ZED
-            switch (_input_type) {
+            switch (input_type_) {
                 case ht::BOTH: {
                     if(!frame->at(idf::image::LEFT_EYE).empty() && !frame->at(idf::image::RIGHT_EYE).empty()) {
                         cv::Mat tempL(frame->at(idf::image::LEFT_EYE).clone());
                         cv::Mat tempR(frame->at(idf::image::RIGHT_EYE).clone());
                         img_convert(tempL, true);
                         img_convert(tempR, true);
-                        _current_images = {{idf::image::LEFT_EYE, tempL},
+                        current_images_ = {{idf::image::LEFT_EYE,  tempL},
                                            {idf::image::RIGHT_EYE, tempR}};
                         pose_img.eye_count = 2;
                         pose_img.primary = idf::units::LEFT_EYE;
@@ -295,13 +299,13 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
                     } else if(frame->at(idf::image::LEFT_EYE).empty()) {
                         cv::Mat temp(frame->at(idf::image::RIGHT_EYE).clone());
                         img_convert(temp, true);
-                        _current_images = {{idf::image::RIGHT_EYE, temp}};
+                        current_images_ = {{idf::image::RIGHT_EYE, temp}};
                         pose_img.eye_count = 1;
                         pose_img.primary = idf::units::RIGHT_EYE;
                     } else {
                         cv::Mat temp(frame->at(idf::image::LEFT_EYE).clone());
                         img_convert(temp, true);
-                        _current_images = {{idf::image::LEFT_EYE, temp}};
+                        current_images_ = {{idf::image::LEFT_EYE, temp}};
                         pose_img.eye_count = 1;
                         pose_img.primary =idf:: units::LEFT_EYE;
                     }
@@ -315,7 +319,7 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
 
                     cv::Mat temp(frame->at(idf::image::LEFT_EYE).clone());
                     img_convert(temp, true);
-                    _current_images = {{idf::image::LEFT_EYE, temp}};
+                    current_images_ = {{idf::image::LEFT_EYE, temp}};
                     pose_img.eye_count = 1;
                     pose_img.primary =idf:: units::LEFT_EYE;
                     break;
@@ -327,7 +331,7 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
                     }
                     cv::Mat temp(frame->at(idf::image::RIGHT_EYE).clone());
                     img_convert(temp, true);
-                    _current_images = {{idf::image::RIGHT_EYE, temp}};
+                    current_images_ = {{idf::image::RIGHT_EYE, temp}};
                     pose_img.eye_count = 1;
                     pose_img.primary = idf::units::RIGHT_EYE;
                     break;
@@ -339,7 +343,7 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
                     }
                     cv::Mat temp(frame->at(idf::image::RGB).clone());
                     img_convert(temp, true);
-                    _current_images = {{idf::image::LEFT_EYE, temp}};
+                    current_images_ = {{idf::image::LEFT_EYE, temp}};
                     pose_img.eye_count = 1;
                     pose_img.primary = idf::units::LEFT_EYE;
                     break;
@@ -365,11 +369,11 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
         default:
             throw std::runtime_error("Unexpected frame type");
     }
-    pose_img.insert(_current_images.begin(), _current_images.end());
+    pose_img.insert(current_images_.begin(), current_images_.end());
 
     size_t frame_id = std::chrono::high_resolution_clock::now().time_since_epoch().count();
 
-    for (const auto &input: _current_images) {
+    for (const auto &input: current_images_) {
         auto input_frame = absl::make_unique<mediapipe::ImageFrame>(mediapipe::ImageFormat::SRGB,
                                                                     input.second.cols,
                                                                     input.second.rows,
@@ -392,10 +396,10 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
         image_data.set_height(input_frame.get()->Height());
         image_data.set_frame_id(frame_id);
         image_data.set_image_type(input.first);
-        image_data.set_first_person(_first_person);
+        image_data.set_first_person(first_person_);
 
         auto img_ptr = absl::make_unique<mediapipe::ImageData>(image_data);
-        auto img_status = _graph.at(input.first)->AddPacketToInputStream(kImageDataTag,
+        auto img_status = graph_.at(input.first)->AddPacketToInputStream(kImageDataTag,
                                                                          mediapipe::Adopt(img_ptr.release()).At(
                                                                                  mediapipe::Timestamp(frame_timestamp_us)));
 
@@ -423,14 +427,14 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
         if (!gl_status.ok())
             throw std::runtime_error(std::string(gl_status.message()));
 #else
-        auto submit_status = _graph.at(input.first)->AddPacketToInputStream(kInputStream,
+        auto submit_status = graph_.at(input.first)->AddPacketToInputStream(kInputStream,
                                                                             mediapipe::Adopt(input_frame.release()).At(
                                                                                     mediapipe::Timestamp(frame_timestamp_us)));
         if (!submit_status.ok())
             throw std::runtime_error(std::string(submit_status.message()));
 #endif
     }
-    _publisher.add_raw(frame_id, pose_img);
+    publisher_.add_raw(frame_id, pose_img);
 }
 
 //###############################################################################################
