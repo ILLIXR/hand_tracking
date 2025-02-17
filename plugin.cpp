@@ -134,11 +134,11 @@ void hand_tracking::start() {
             if(!gpu_resources.ok())
                 throw std::runtime_error("");
 
-            status = _graph.at(item.first)->SetGpuResources(std::move(gpu_resources).value());
+            status = graph_.at(item.first)->SetGpuResources(std::move(gpu_resources).value());
             if (!status.ok())
                 throw std::runtime_error(std::string(status.message()));
-            _gpu_helper[item.first].InitializeForTest(
-                    _graph.at(item.first)->GetGpuResources().get());
+            gpu_helper_[item.first].InitializeForTest(
+                    graph_.at(item.first)->GetGpuResources().get());
 #endif
             if (graph_.at(item.first) != nullptr) {
                 auto status_or_poller = graph_.at(item.first)->AddOutputStreamPoller(kOutputStream);
@@ -407,9 +407,9 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
             throw std::runtime_error(std::string(img_status.message()));
 
 #if !MEDIAPIPE_DISABLE_GPU
-        auto gl_status = _gpu_helper.at(input.first).RunInGlContext([&input_frame, &frame_timestamp_us,
-                                                                     &graph=_graph.at(input.first),
-                                                                     &gpu_helper=_gpu_helper.at(input.first)]()
+        auto gl_status = gpu_helper_.at(input.first).RunInGlContext([&input_frame, &frame_timestamp_us,
+                                                                     &graph=graph_.at(input.first),
+                                                                     &gpu_helper=gpu_helper_.at(input.first)]()
                                                                         -> absl::Status {
             // Convert ImageFrame to GpuBuffer.
             auto texture = gpu_helper.CreateSourceTexture(*input_frame.get());

@@ -33,7 +33,7 @@ private:
     image_map                                                             current_images_;
     bool                                                                  first_person_ = true;
 #if !MEDIAPIPE_DISABLE_GPU
-    std::map<data_format::image::image_type, mediapipe::GlCalculatorHelper> _gpu_helper;
+    std::map<data_format::image::image_type, mediapipe::GlCalculatorHelper> gpu_helper_;
 #endif
 };
 }
