@@ -1,0 +1,269 @@
+target_sources(${PLUGIN_NAME} PUBLIC
+               $<TARGET_OBJECTS:calculators.util.annotation_overlay_calculator_proto>
+               $<TARGET_OBJECTS:calculators.util.association_calculator_proto>
+               $<TARGET_OBJECTS:calculators.util.collection_has_min_size_calculator_proto>
+               $<TARGET_OBJECTS:calculators.util.detections_to_rects_calculator_proto>
+               $<TARGET_OBJECTS:calculators.util.detections_to_render_data_calculator_proto>
+               $<TARGET_OBJECTS:calculators.util.labels_to_render_data_calculator_proto>
+               $<TARGET_OBJECTS:calculators.util.landmark_projection_calculator_proto>
+               $<TARGET_OBJECTS:calculators.util.landmarks_to_render_data_calculator_proto>
+               $<TARGET_OBJECTS:calculators.util.local_file_contents_calculator_proto>
+               $<TARGET_OBJECTS:calculators.util.non_max_suppression_calculator_proto>
+               $<TARGET_OBJECTS:calculators.util.rect_to_render_data_calculator_proto>
+               $<TARGET_OBJECTS:calculators.util.rect_transformation_calculator_proto>
+               $<TARGET_OBJECTS:calculators.util.thresholding_calculator_proto>
+               $<TARGET_OBJECTS:calculators.core.clip_vector_size_calculator_proto>
+               $<TARGET_OBJECTS:calculators.core.constant_side_packet_calculator_proto>
+               $<TARGET_OBJECTS:calculators.core.flow_limiter_calculator_proto>
+               $<TARGET_OBJECTS:calculators.core.gate_calculator_proto>
+               $<TARGET_OBJECTS:calculators.core.split_vector_calculator_proto>
+               $<TARGET_OBJECTS:framework.formats.classification_proto>
+               $<TARGET_OBJECTS:framework.formats.classification_proto>
+               $<TARGET_OBJECTS:framework.formats.detection_proto>
+               $<TARGET_OBJECTS:framework.formats.landmark_proto>
+               $<TARGET_OBJECTS:framework.formats.location_data_proto>
+               $<TARGET_OBJECTS:framework.formats.rect_proto>
+               $<TARGET_OBJECTS:framework.calculator_options_proto>
+               $<TARGET_OBJECTS:framework.calculator_proto>
+               $<TARGET_OBJECTS:gpu.gpu_origin_proto>
+               $<TARGET_OBJECTS:calculators.internal.callback_packet_calculator_proto>
+               $<TARGET_OBJECTS:calculators.tensor.image_to_tensor_calculator_proto>
+               $<TARGET_OBJECTS:calculators.tensor.inference_calculator_proto>
+               $<TARGET_OBJECTS:calculators.tensor.tensors_to_classification_calculator_proto>
+               $<TARGET_OBJECTS:calculators.tensor.tensors_to_detections_calculator_proto>
+               $<TARGET_OBJECTS:calculators.tensor.tensors_to_floats_calculator_proto>
+               $<TARGET_OBJECTS:calculators.tensor.tensors_to_landmarks_calculator_proto>
+               $<TARGET_OBJECTS:calculators.tflite.ssd_anchors_calculator_proto>
+               $<TARGET_OBJECTS:calculators.tflite.tflite_custom_op_resolver_calculator_proto>
+               $<TARGET_OBJECTS:util.color_proto>
+               $<TARGET_OBJECTS:util.label_map_proto>
+               $<TARGET_OBJECTS:util.render_data_proto>
+               $<TARGET_OBJECTS:calculators.video.opencv_video_encoder_calculator_proto>
+               $<TARGET_OBJECTS:framework.calculator_proto>
+               $<TARGET_OBJECTS:framework.mediapipe_options_proto>
+               $<TARGET_OBJECTS:framework.packet_generator_proto>
+               $<TARGET_OBJECTS:framework.status_handler_proto>
+               $<TARGET_OBJECTS:framework.stream_handler_proto>
+               $<TARGET_OBJECTS:framework.thread_pool_executor_proto>
+               $<TARGET_OBJECTS:framework.packet_factory_proto>
+               $<TARGET_OBJECTS:calculators.internal.callback_packet_calculator_proto>
+               $<TARGET_OBJECTS:framework.calculator_options_proto>
+               $<TARGET_OBJECTS:framework.tool.field_data_proto>
+               $<TARGET_OBJECTS:framework.tool.packet_generator_wrapper_calculator_proto>
+               $<TARGET_OBJECTS:framework.tool.switch_container_proto>
+               $<TARGET_OBJECTS:framework.formats.image_format_proto>
+               $<TARGET_OBJECTS:framework.formats.matrix_data_proto>
+               $<TARGET_OBJECTS:framework.stream_handler.default_input_stream_handler_proto>
+               $<TARGET_OBJECTS:framework.stream_handler.fixed_size_input_stream_handler_proto>
+               $<TARGET_OBJECTS:hand_landmark_landmarks_to_roi_linked>
+               $<TARGET_OBJECTS:hand_landmark_model_loader_linked>
+               $<TARGET_OBJECTS:palm_detection_detection_to_roi_linked>
+               $<TARGET_OBJECTS:palm_detection_model_loader_linked>
+               $<TARGET_OBJECTS:framework.formats.object_detection.anchor_proto>
+               $<TARGET_OBJECTS:framework.formats.time_series_header_proto>
+               $<TARGET_OBJECTS:framework.tool.calculator_graph_template_proto>
+               $<TARGET_OBJECTS:framework.formats.annotation.locus_proto>
+               $<TARGET_OBJECTS:framework.formats.annotation.rasterization_proto>
+               $<TARGET_OBJECTS:framework.deps.proto_descriptor_proto>
+               $<TARGET_OBJECTS:calculators.util.illixr_data_proto>
+               $<TARGET_OBJECTS:calculators.util.render_and_points_proto>
+               $<TARGET_OBJECTS:calculators.util.image_data_proto>
+)
+
+if(HT_ENABLE_GPU)
+    target_sources(${PLUGIN_NAME} PUBLIC
+                   $<TARGET_OBJECTS:hand_renderer_gpu_linked>
+                   $<TARGET_OBJECTS:hand_landmark_gpu_linked>
+                   $<TARGET_OBJECTS:hand_landmark_tracking_gpu_linked>
+                   $<TARGET_OBJECTS:palm_detection_gpu_linked>
+    )
+
+else()
+    target_sources(${PLUGIN_NAME} PUBLIC
+                   $<TARGET_OBJECTS:hand_renderer_cpu_linked>
+                   $<TARGET_OBJECTS:hand_landmark_cpu_linked>
+                   $<TARGET_OBJECTS:hand_landmark_tracking_cpu_linked>
+                   $<TARGET_OBJECTS:palm_detection_cpu_linked>
+    )
+endif()
+
+
+include(${CMAKE_CURRENT_LIST_DIR}/calculators/build.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/framework/build.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/gpu/build.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/graphs/build.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/modules/build.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/util/build.cmake)
+
+
+if(HT_ENABLE_GPU)
+    target_link_libraries(${PLUGIN_NAME} PUBLIC
+                          ${glesv2_LIBRARIES}
+                          ${egl_LIBRARIES}
+    )
+    target_include_directories(${PLUGIN_NAME} PUBLIC
+                               ${egl_INCLUDEDIR}
+                               ${glesv2_INCLUDEDIR}
+    )
+    target_sources(${PLUGIN_NAME} PUBLIC $<TARGET_OBJECTS:gpu.gl_context_options_proto>)
+    add_compile_options(-layering_check)
+endif()
+get_target_property(TFL_INCLUDE_DIR tensorflow-lite::tensorflow-lite${TF_POSTFIX} INTERFACE_INCLUDE_DIRECTORIES)
+
+target_include_directories(${PLUGIN_NAME} BEFORE PUBLIC ${Protobuf_INCLUDE_DIRS})
+target_include_directories(${PLUGIN_NAME} PUBLIC
+                           ${CMAKE_BINARY_DIR}
+                           ${CMAKE_SOURCE_DIR}
+                           ${glog_INCLUDEDIR}
+                           ${ZLIB_INCLUDE_DIR}
+                           ${gflags_INCLUDE_DIR}
+                           ${EIGEN3_INCLUDE_DIRS}
+                           ${OpenCV_INCLUDE_DIRS}
+                           ${CMAKE_INSTALL_PREFIX}/include
+                           ${TFL_INCLUDE_DIR}/tensorflow
+                           ${TFL_INCLUDE_DIR}/tensorflow/lite
+)
+
+target_link_libraries(${PLUGIN_NAME} PUBLIC
+                      protobuf::libprotobuf
+                      absl::algorithm
+                      absl::base
+                      absl::core_headers
+                      absl::dynamic_annotations
+                      absl::nullability
+                      absl::btree
+                      absl::flat_hash_map
+                      absl::flat_hash_set
+                      absl::node_hash_map
+                      absl::leak_check
+                      absl::flags
+                      absl::any_invocable
+                      absl::bind_front
+                      absl::function_ref
+                      absl::hash
+                      absl::absl_check
+                      absl::absl_log
+                      absl::check
+                      absl::memory
+                      absl::type_traits
+                      absl::status
+                      absl::statusor
+                      absl::strings
+                      absl::str_format
+                      absl::string_view
+                      absl::synchronization
+                      absl::time
+                      absl::optional
+                      absl::span
+                      absl::variant
+                      absl::utility
+                      tensorflow-lite::tensorflow-lite${TF_POSTFIX}
+                      ${cpuinfo_LIBRARIES}
+                      tfl-XNNPACK::tfl-XNNPACK${TFLIBRARY_POSTFIX}
+                      ${gflags_LIBRARIES}
+                      ${glog_LIBRARIES}
+                      ${OpenCV_LIBRARIES}
+                      ${ZLIB_LIBRARIES}
+                      gemmlowp::gemmlowp
+)
+
+if(BUILD_TEST_EXE)
+    add_executable(hand_tracking_tflite
+                   demo_run_graph_main.cc
+    )
+
+    target_link_libraries(hand_tracking_tflite PUBLIC
+                          protobuf::libprotobuf
+                          absl::algorithm
+                          absl::base
+                          absl::core_headers
+                          absl::dynamic_annotations
+                          absl::nullability
+                          absl::btree
+                          absl::flat_hash_map
+                          absl::flat_hash_set
+                          absl::node_hash_map
+                          absl::leak_check
+                          absl::flags
+                          absl::flags_parse
+                          absl::any_invocable
+                          absl::bind_front
+                          absl::function_ref
+                          absl::hash
+                          absl::absl_check
+                          absl::absl_log
+                          absl::check
+                          absl::memory
+                          absl::type_traits
+                          absl::status
+                          absl::statusor
+                          absl::strings
+                          absl::str_format
+                          absl::string_view
+                          absl::synchronization
+                          absl::time
+                          absl::optional
+                          absl::span
+                          absl::variant
+                          absl::utility
+                          ${cpuinfo_LIBRARIES}
+                          tfl-XNNPACK::tfl-XNNPACK${TFLIBRARY_POSTFIX}
+                          pthreadpool::pthreadpool
+                          tensorflow-lite::tensorflow-lite${TF_POSTFIX}
+                          ${gflags_LIBRARIES}
+                          ${glog_LIBRARIES}
+                          ${OpenCV_LIBRARIES}
+                          ${ZLIB_LIBRARIES}
+                          ${PLUGIN_NAME}
+    )
+
+    add_executable(hand_tracking_tflite_gpu
+                   demo_run_graph_main_gpu.cc
+    )
+
+    target_link_libraries(hand_tracking_tflite_gpu PUBLIC
+                          protobuf::libprotobuf
+                          absl::algorithm
+                          absl::base
+                          absl::core_headers
+                          absl::dynamic_annotations
+                          absl::nullability
+                          absl::btree
+                          absl::flat_hash_map
+                          absl::flat_hash_set
+                          absl::node_hash_map
+                          absl::leak_check
+                          absl::flags
+                          absl::flags_parse
+                          absl::any_invocable
+                          absl::bind_front
+                          absl::function_ref
+                          absl::hash
+                          absl::absl_check
+                          absl::absl_log
+                          absl::check
+                          absl::memory
+                          absl::type_traits
+                          absl::status
+                          absl::statusor
+                          absl::strings
+                          absl::str_format
+                          absl::string_view
+                          absl::synchronization
+                          absl::time
+                          absl::optional
+                          absl::span
+                          absl::variant
+                          absl::utility
+                          ${cpuinfo_LIBRARIES}
+                          tfl-XNNPACK::tfl-XNNPACK${TFLIBRARY_POSTFIX}
+                          pthreadpool::pthreadpool
+                          tensorflow-lite::tensorflow-lite${TF_POSTFIX}
+                          ${gflags_LIBRARIES}
+                          ${glog_LIBRARIES}
+                          ${OpenCV_LIBRARIES}
+                          ${ZLIB_LIBRARIES}
+                          ${PLUGIN_NAME}
+    )
+
+endif()

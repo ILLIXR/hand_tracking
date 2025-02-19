@@ -1,0 +1,36 @@
+set(PORT_HEADERS
+    ${CMAKE_CURRENT_LIST_DIR}/advanced_proto_inc.h
+    ${CMAKE_CURRENT_LIST_DIR}/advanced_proto_lite_inc.h
+    ${CMAKE_CURRENT_LIST_DIR}/aligned_malloc_and_free.h
+    ${CMAKE_CURRENT_LIST_DIR}/any_proto.h
+    ${CMAKE_CURRENT_LIST_DIR}/canonical_errors.h
+    ${CMAKE_CURRENT_LIST_DIR}/core_proto_inc.h
+    ${CMAKE_CURRENT_LIST_DIR}/file_helpers.h
+    ${CMAKE_CURRENT_LIST_DIR}/integral_types.h
+    ${CMAKE_CURRENT_LIST_DIR}/logging.h
+    ${CMAKE_CURRENT_LIST_DIR}/map_util.h
+    ${CMAKE_CURRENT_LIST_DIR}/numbers.h
+    ${CMAKE_CURRENT_LIST_DIR}/opencv_core_inc.h
+    ${CMAKE_CURRENT_LIST_DIR}/opencv_highgui_inc.h
+    ${CMAKE_CURRENT_LIST_DIR}/opencv_imgproc_inc.h
+    ${CMAKE_CURRENT_LIST_DIR}/opencv_video_inc.h
+    ${CMAKE_CURRENT_LIST_DIR}/parse_text_proto.h
+    ${CMAKE_CURRENT_LIST_DIR}/point2.h
+    ${CMAKE_CURRENT_LIST_DIR}/proto_ns.h
+    ${CMAKE_CURRENT_LIST_DIR}/re2.h
+    ${CMAKE_CURRENT_LIST_DIR}/rectangle.h
+    ${CMAKE_CURRENT_LIST_DIR}/ret_check.h
+    ${CMAKE_CURRENT_LIST_DIR}/singleton.h
+    ${CMAKE_CURRENT_LIST_DIR}/source_location.h
+    ${CMAKE_CURRENT_LIST_DIR}/status.h
+    ${CMAKE_CURRENT_LIST_DIR}/status_builder.h
+    ${CMAKE_CURRENT_LIST_DIR}/status_macros.h
+    ${CMAKE_CURRENT_LIST_DIR}/statusor.h
+    ${CMAKE_CURRENT_LIST_DIR}/threadpool.h
+    ${CMAKE_CURRENT_LIST_DIR}/topologicalsorter.h
+    ${CMAKE_CURRENT_LIST_DIR}/vector.h
+)
+
+target_sources(${PLUGIN_NAME} PRIVATE
+               ${PORT_HEADERS}
+)
