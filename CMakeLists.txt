@@ -175,6 +175,9 @@ target_include_directories(${PLUGIN_NAME} PUBLIC
 
 if(BUILD_OXR_INTERFACE)
     add_subdirectory(openxr)
+    target_link_libraries(${PLUGIN_NAME} PUBLIC
+                          OXR_HEADERS
+    )
     if(BUILD_OXR_TEST)
         include(openxr/test/cmake/scripts.cmake)
     endif()

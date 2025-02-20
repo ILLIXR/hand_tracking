@@ -25,6 +25,9 @@ if(NOT EXISTS "${CMAKE_SOURCE_DIR}/openxr/external/OpenXR-SDK-release-1.0.34")
     endif()
 endif()
 
+add_library(OXR_HEADERS INTERFACE)
+target_include_directories(OXR_HEADERS INTERFACE ${CMAKE_SOURCE_DIR}/openxr/external/OpenXR-SDK-release-1.0.34/include)
+
 
 add_library(openxr_illixr_ht SHARED
             openxr.cpp
@@ -34,11 +37,6 @@ add_library(openxr_illixr_ht SHARED
             interface.cpp
             ixr_openxr.hpp
 )
-target_link_libraries(openxr_illixr_ht PUBLIC
-                      absl::base
-                      spdlog::spdlog
-                      ${glog_LIBRARIES}
-)
 
 target_include_directories(openxr_illixr_ht PUBLIC
                            ${ILLIXR_HDR_PATH}
@@ -47,7 +45,13 @@ target_include_directories(openxr_illixr_ht PUBLIC
                            ${OpenCV_INCLUDE_DIRS}
                            ${CMAKE_SOURCE_DIR}
                            ${CMAKE_BINARY_DIR}
-                           ${CMAKE_SOURCE_DIR}/openxr/external/OpenXR-SDK-release-1.0.34/include
+)
+
+target_link_libraries(openxr_illixr_ht PUBLIC
+                      absl::base
+                      spdlog::spdlog
+                      ${glog_LIBRARIES}
+                      OXR_HEADERS
 )
 
 
