@@ -6,6 +6,7 @@
 #include <utility>
 
 #include "absl/meta/type_traits.h"
+#include "mediapipe/util/unused.hpp"
 
 // This file contains utilities for working with constexpr tuples.
 
@@ -34,6 +35,7 @@ constexpr auto index_sequence_cat(std::index_sequence<I...>,
 template <template <typename...> class Pred, typename Tuple, std::size_t... I>
 constexpr auto filtered_tuple_indices_impl(Tuple&& t,
                                            std::index_sequence<I...>) {
+    UNUSED(t);
   return index_sequence_cat(
       std::conditional_t<
           Pred<std::tuple_element_t<I, std::decay_t<Tuple>>>::value,
@@ -57,6 +59,7 @@ struct Wrap {
 template <class F, typename Tuple, std::size_t... I>
 constexpr auto filtered_tuple_indices_impl(Tuple&& t,
                                            std::index_sequence<I...>) {
+    UNUSED(t);
   return index_sequence_cat(
       std::conditional_t<
           F{}(Wrap<std::tuple_element_t<I, std::decay_t<Tuple>>>{}),
@@ -103,6 +106,7 @@ constexpr auto call_with_optional_index(F&& f, T&& t, I i)
 template <class F, class T, class I>
 constexpr auto call_with_optional_index(F&& f, T&& t, I i)
     -> absl::void_t<decltype(f(std::forward<T>(t)))> {
+        UNUSED(i);
   return f(std::forward<T>(t));
 }
 
@@ -159,6 +163,8 @@ template <class F, class Tuple, std::size_t i = 0>
 constexpr std::enable_if_t<i == std::tuple_size_v<std::decay_t<Tuple>>,
                            std::size_t>
 tuple_find(F&& f, Tuple&& tuple) {
+    UNUSED(f);
+    UNUSED(tuple);
   return i;
 }
 

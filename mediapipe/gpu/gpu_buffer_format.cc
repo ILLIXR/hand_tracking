@@ -257,6 +257,7 @@ ImageFormat::Format ImageFormatForGpuBufferFormat(GpuBufferFormat format) {
     case GpuBufferFormat::kI420:
     case GpuBufferFormat::kYV12:
     case GpuBufferFormat::kUnknown:
+    default:
       return ImageFormat::UNKNOWN;
   }
 }

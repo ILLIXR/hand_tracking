@@ -35,7 +35,7 @@ bool TfLiteTensorSpecEqual(const TfLiteTensor& a, const TfLiteTensor& b) {
 absl::flat_hash_map<std::string, int> CreateNameToIndexMap(
     const std::vector<std::string>& names) {
   absl::flat_hash_map<std::string, int> name_to_index_map;
-  for (int i = 0; i < names.size(); ++i) {
+  for (int i = 0; i < (int)names.size(); ++i) {
     name_to_index_map[names[i]] = i;
   }
   return name_to_index_map;
@@ -78,7 +78,7 @@ absl::Status InferenceFeedbackManager::Init(
   // Populate input_tensor_to_model_indices_ which maps InferenceRunner input
   // tensors indices to the model input indices.
   input_tensor_to_model_indices_.reserve(interpreter_->inputs().size());
-  for (int i = 0; i < interpreter_->inputs().size(); ++i) {
+  for (int i = 0; i < (int)interpreter_->inputs().size(); ++i) {
     if (!feedback_input_indices_.contains(i)) {
       input_tensor_to_model_indices_.push_back(i);
     }
@@ -176,16 +176,16 @@ bool InferenceFeedbackManager::IsFeedbackOutputTensorAtIndex(int idx) const {
 absl::StatusOr<int> InferenceFeedbackManager::MapInputTensorToModelIndex(
     int input_idx) const {
   RET_CHECK(input_idx >= 0 &&
-            input_idx <= input_tensor_to_model_indices_.size())
+            (size_t)input_idx <= input_tensor_to_model_indices_.size())
       << "Invalid input tensor index: " << input_idx;
   return input_tensor_to_model_indices_[input_idx];
 }
 
 int InferenceFeedbackManager::GetNumberOfNonFeedbackInputTensors() const {
-  return input_tensor_to_model_indices_.size();
+  return (int)input_tensor_to_model_indices_.size();
 }
 
 int InferenceFeedbackManager::GetNumberOfFeedbackTensors() const {
-  return feedback_tensor_indices_links_.size();
+  return (int)feedback_tensor_indices_links_.size();
 }
 }  // namespace mediapipe

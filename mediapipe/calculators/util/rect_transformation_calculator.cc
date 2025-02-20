@@ -126,7 +126,7 @@ absl::Status RectTransformationCalculator::Process(CalculatorContext* cc) {
       !cc->Inputs().Tag(kRectsTag).IsEmpty()) {
     auto rects = cc->Inputs().Tag(kRectsTag).Get<std::vector<Rect>>();
     auto output_rects = absl::make_unique<std::vector<Rect>>(rects.size());
-    for (int i = 0; i < rects.size(); ++i) {
+    for (int i = 0; i < (int)rects.size(); ++i) {
       output_rects->at(i) = rects[i];
       auto it = output_rects->begin() + i;
       TransformRect(&(*it));
@@ -150,7 +150,7 @@ absl::Status RectTransformationCalculator::Process(CalculatorContext* cc) {
         cc->Inputs().Tag(kImageSizeTag).Get<std::pair<int, int>>();
     auto output_rects =
         absl::make_unique<std::vector<NormalizedRect>>(rects.size());
-    for (int i = 0; i < rects.size(); ++i) {
+    for (int i = 0; i < (int)rects.size(); ++i) {
       output_rects->at(i) = rects[i];
       auto it = output_rects->begin() + i;
       TransformNormalizedRect(&(*it), image_size.first, image_size.second);
@@ -171,23 +171,23 @@ float RectTransformationCalculator::ComputeNewRotation(float rotation) {
 }
 
 void RectTransformationCalculator::TransformRect(Rect* rect) {
-  float width = rect->width();
-  float height = rect->height();
+  float width = (float)rect->width();
+  float height = (float)rect->height();
   float rotation = rect->rotation();
 
   if (options_.has_rotation() || options_.has_rotation_degrees()) {
     rotation = ComputeNewRotation(rotation);
   }
   if (rotation == 0.f) {
-    rect->set_x_center(rect->x_center() + width * options_.shift_x());
-    rect->set_y_center(rect->y_center() + height * options_.shift_y());
+    rect->set_x_center((int)((float)rect->x_center() + width * options_.shift_x()));
+    rect->set_y_center((int)((float)rect->y_center() + height * options_.shift_y()));
   } else {
     const float x_shift = width * options_.shift_x() * std::cos(rotation) -
                           height * options_.shift_y() * std::sin(rotation);
     const float y_shift = width * options_.shift_x() * std::sin(rotation) +
                           height * options_.shift_y() * std::cos(rotation);
-    rect->set_x_center(rect->x_center() + x_shift);
-    rect->set_y_center(rect->y_center() + y_shift);
+    rect->set_x_center(rect->x_center() + (int)x_shift);
+    rect->set_y_center(rect->y_center() + (int)y_shift);
   }
 
   if (options_.square_long()) {
@@ -199,8 +199,8 @@ void RectTransformationCalculator::TransformRect(Rect* rect) {
     width = short_side;
     height = short_side;
   }
-  rect->set_width(width * options_.scale_x());
-  rect->set_height(height * options_.scale_y());
+  rect->set_width((int)(width * options_.scale_x()));
+  rect->set_height((int)(height * options_.scale_y()));
 }
 
 void RectTransformationCalculator::TransformNormalizedRect(NormalizedRect* rect,
@@ -218,27 +218,27 @@ void RectTransformationCalculator::TransformNormalizedRect(NormalizedRect* rect,
     rect->set_y_center(rect->y_center() + height * options_.shift_y());
   } else {
     const float x_shift =
-        (image_width * width * options_.shift_x() * std::cos(rotation) -
-         image_height * height * options_.shift_y() * std::sin(rotation)) /
-        image_width;
+            ((float)image_width * width * options_.shift_x() * std::cos(rotation) -
+             (float)image_height * height * options_.shift_y() * std::sin(rotation)) /
+            (float)image_width;
     const float y_shift =
-        (image_width * width * options_.shift_x() * std::sin(rotation) +
-         image_height * height * options_.shift_y() * std::cos(rotation)) /
-        image_height;
+            ((float)image_width * width * options_.shift_x() * std::sin(rotation) +
+             (float)image_height * height * options_.shift_y() * std::cos(rotation)) /
+            (float)image_height;
     rect->set_x_center(rect->x_center() + x_shift);
     rect->set_y_center(rect->y_center() + y_shift);
   }
 
   if (options_.square_long()) {
     const float long_side =
-        std::max(width * image_width, height * image_height);
-    width = long_side / image_width;
-    height = long_side / image_height;
+        std::max(width * (float)image_width, height * (float)image_height);
+    width = long_side / (float)image_width;
+    height = long_side / (float)image_height;
   } else if (options_.square_short()) {
     const float short_side =
-        std::min(width * image_width, height * image_height);
-    width = short_side / image_width;
-    height = short_side / image_height;
+        std::min(width * (float)image_width, height * (float)image_height);
+    width = short_side / (float)image_width;
+    height = short_side / (float)image_height;
   }
   rect->set_width(width * options_.scale_x());
   rect->set_height(height * options_.scale_y());

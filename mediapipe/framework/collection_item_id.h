@@ -16,6 +16,7 @@
 #define MEDIAPIPE_FRAMEWORK_COLLECTION_ITEM_ID_H_
 
 #include "mediapipe/framework/deps/strong_int.h"
+#include "mediapipe/util/unused.hpp"
 
 namespace mediapipe {
 
@@ -59,6 +60,7 @@ class CollectionItemId {
     return *this;
   }
   const CollectionItemId operator++(int postfix_flag) {  // x++
+      UNUSED(postfix_flag);
     CollectionItemId temp(*this);
     ++value_;
     return temp;
@@ -68,6 +70,7 @@ class CollectionItemId {
     return *this;
   }
   const CollectionItemId operator--(int postfix_flag) {  // x--
+      UNUSED(postfix_flag);
     CollectionItemId temp(*this);
     --value_;
     return temp;

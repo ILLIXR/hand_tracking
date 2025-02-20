@@ -74,7 +74,7 @@ class SwitchContainer : public Subgraph {
   absl::StatusOr<CalculatorGraphConfig> GetConfig(
       const Subgraph::SubgraphOptions& options) override;
 };
-REGISTER_MEDIAPIPE_GRAPH(SwitchContainer);
+REGISTER_MEDIAPIPE_GRAPH(SwitchContainer)
 
 using TagIndex = std::pair<std::string, int>;
 
@@ -90,6 +90,8 @@ CalculatorGraphConfig::Node* BuildDemuxNode(
     const std::map<TagIndex, std::string>& input_tags,
     const CalculatorGraphConfig::Node& container_node,
     CalculatorGraphConfig* config) {
+    UNUSED(input_tags);
+    UNUSED(container_node);
   CalculatorGraphConfig::Node* result = config->add_node();
   *result->mutable_calculator() = "SwitchDemuxCalculator";
   return result;
@@ -99,6 +101,8 @@ CalculatorGraphConfig::Node* BuildDemuxNode(
 CalculatorGraphConfig::Node* BuildMuxNode(
     const std::map<TagIndex, std::string>& output_tags,
     CalculatorGraphConfig* config) {
+    UNUSED(output_tags);
+    UNUSED(config);
   CalculatorGraphConfig::Node* result = config->add_node();
   *result->mutable_calculator() = "SwitchMuxCalculator";
   return result;
@@ -353,7 +357,7 @@ absl::StatusOr<CalculatorGraphConfig> SwitchContainer::GetConfig(
                    .contained_node();
   std::vector<CalculatorGraphConfig::Node> contained_nodes(nodes.begin(),
                                                            nodes.end());
-  for (int i = 0; i < contained_nodes.size(); ++i) {
+  for (int i = 0; i < (int)contained_nodes.size(); ++i) {
     auto subnode = config.add_node();
     *subnode = contained_nodes[i];
     subnodes.push_back(subnode);
@@ -361,7 +365,7 @@ absl::StatusOr<CalculatorGraphConfig> SwitchContainer::GetConfig(
   }
 
   // Connect each contained graph node to demux and mux.
-  for (int channel = 0; channel < subnodes.size(); ++channel) {
+  for (int channel = 0; channel < (int)subnodes.size(); ++channel) {
     CalculatorGraphConfig::Node& streams = substreams[channel];
 
     // Connect each contained graph node input to a demux output.

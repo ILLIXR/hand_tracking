@@ -66,7 +66,7 @@ absl::StatusOr<std::vector<FieldData>> GetFieldValues(
   std::vector<std::string> field_values;
   MP_RETURN_IF_ERROR(ProtoUtilLite::GetFieldRange(
       message_bytes, proto_path, count, field.type(), &field_values));
-  for (int i = 0; i < field_values.size(); ++i) {
+  for (int i = 0; i < (int)field_values.size(); ++i) {
     FieldData r;
     MP_RETURN_IF_ERROR(ReadField(field_values[i], field, &r));
     result.push_back(std::move(r));
@@ -131,7 +131,7 @@ absl::Status SetFieldValues(FieldData& result, const FieldPathEntry& entry,
     replace_length = 1;
   }
   std::vector<std::string> field_values(values.size());
-  for (int i = 0; i < values.size(); ++i) {
+  for (int i = 0; i < (int)values.size(); ++i) {
     MP_RETURN_IF_ERROR(WriteField(values[i], entry.field, &field_values[i]));
   }
   proto_path = {{entry.field->number(), replace_start}};
@@ -177,7 +177,7 @@ StatusOr<int> FindExtensionIndex(const FieldData& message_data,
   std::vector<FieldData> field_values;
   MP_ASSIGN_OR_RETURN(field_values,
                       GetFieldValues(message_data, *entry->field));
-  for (int i = 0; i < field_values.size(); ++i) {
+  for (int i = 0; i < (int)field_values.size(); ++i) {
     FieldData extension = ParseProtobufAny(field_values[i]);
     if (extension_type == "*" ||
         ParseTypeUrl(extension.message_value().type_url()) == extension_type) {
@@ -370,7 +370,7 @@ absl::StatusOr<std::vector<FieldData>> GetFieldValues(
   RET_CHECK_NE(head.field, nullptr);
   MP_ASSIGN_OR_RETURN(results, GetFieldValues(message_data, *head.field));
   if (IsProtobufAny(head.field)) {
-    for (int i = 0; i < results.size(); ++i) {
+    for (int i = 0; i < (int)results.size(); ++i) {
       results[i] = ParseProtobufAny(results[i]);
     }
   }
@@ -455,7 +455,7 @@ absl::Status MergeFieldValues(FieldData& message_data,
   std::vector<FieldData> prevs;
   MP_ASSIGN_OR_RETURN(prevs, GetFieldValues(message_data, field_path));
   if (field_type == FieldType::TYPE_MESSAGE) {
-    for (int i = 0; i < std::min(values.size(), prevs.size()); ++i) {
+    for (int i = 0; i < (int)std::min(values.size(), prevs.size()); ++i) {
       FieldData& v = results[i];
       FieldData& b = prevs[i];
       MP_ASSIGN_OR_RETURN(v, MergeMessages(b, v));

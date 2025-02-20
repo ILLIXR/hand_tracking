@@ -30,6 +30,7 @@
 #include "mediapipe/framework/output_side_packet.h"
 #include "mediapipe/framework/port/logging.h"
 #include "mediapipe/framework/tool/type_util.h"
+#include "mediapipe/util/unused.hpp"
 
 namespace mediapipe {
 namespace api2 {
@@ -111,23 +112,27 @@ class Contract;
 
 template <class CC>
 auto GetCollection(CC* cc, const InputBase& port) -> decltype(cc->Inputs()) {
+    UNUSED(port);
   return cc->Inputs();
 }
 
 template <class CC>
 auto GetCollection(CC* cc, const SideInputBase& port)
     -> decltype(cc->InputSidePackets()) {
+        UNUSED(port);
   return cc->InputSidePackets();
 }
 
 template <class CC>
 auto GetCollection(CC* cc, const OutputBase& port) -> decltype(cc->Outputs()) {
+    UNUSED(port);
   return cc->Outputs();
 }
 
 template <class CC>
 auto GetCollection(CC* cc, const SideOutputBase& port)
     -> decltype(cc->OutputSidePackets()) {
+        UNUSED(port);
   return cc->OutputSidePackets();
 }
 
@@ -155,6 +160,7 @@ template <typename T,
                                       !IsOneOf<T>{} && !IsSameType<T>{},
                                   int>::type = 0>
 inline void SetType(CalculatorContract* cc, PacketType& pt) {
+    UNUSED(cc);
   pt.Set<T>();
 }
 
@@ -166,17 +172,20 @@ inline void SetType(CalculatorContract* cc, PacketType& pt) {
 template <typename T,
           typename std::enable_if<std::is_same<T, AnyType>{}, int>::type = 0>
 inline void SetType(CalculatorContract* cc, PacketType& pt) {
+    UNUSED(cc);
   pt.SetAny();
 }
 
 template <>
 inline void SetType<NoneType>(CalculatorContract* cc, PacketType& pt) {
+    UNUSED(cc);
   // This is used for header-only streams. Should it be removed?
   pt.SetNone();
 }
 
 template <typename... T>
 inline void SetTypeOneOf(OneOf<T...>, CalculatorContract* cc, PacketType& pt) {
+    UNUSED(cc);
   pt.SetOneOf<T...>();
 }
 
@@ -200,12 +209,14 @@ OutputShardAccess<ValueT> SinglePortAccess(mediapipe::CalculatorContext* cc,
 template <typename ValueT>
 InputSidePacketAccess<ValueT> SinglePortAccess(
     mediapipe::CalculatorContext* cc, const mediapipe::Packet* packet) {
+    UNUSED(cc);
   return InputSidePacketAccess<ValueT>(packet);
 }
 
 template <typename ValueT>
 OutputSidePacketAccess<ValueT> SinglePortAccess(
     mediapipe::CalculatorContext* cc, OutputSidePacket* osp) {
+    UNUSED(cc);
   return OutputSidePacketAccess<ValueT>(osp);
 }
 
@@ -728,11 +739,13 @@ namespace internal {
 template <typename ValueT>
 PacketTypeAccess SinglePortAccess(mediapipe::CalculatorContract* cc,
                                   PacketType* pt) {
+    UNUSED(cc);
   return PacketTypeAccess(pt);
 }
 template <typename ValueT>
 PacketTypeAccessFallback SinglePortAccess(mediapipe::CalculatorContract* cc,
                                           PacketType* pt, bool is_stream) {
+    UNUSED(cc);
   return PacketTypeAccessFallback(pt, is_stream);
 }
 }  // namespace internal

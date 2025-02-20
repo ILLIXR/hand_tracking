@@ -95,7 +95,7 @@ absl::Status StatusBuilder::Impl::JoinMessageToStatus() {
   if (stream.str().empty() || no_logging) {
     return status;
   }
-  return absl::Status(status.code(), [this]() {
+  return {status.code(), [this]() {
     switch (join_style) {
       case MessageJoinStyle::kAnnotate:
         return absl::StrCat(status.message(), "; ", stream.str());
@@ -103,8 +103,10 @@ absl::Status StatusBuilder::Impl::JoinMessageToStatus() {
         return absl::StrCat(status.message(), stream.str());
       case MessageJoinStyle::kPrepend:
         return absl::StrCat(stream.str(), status.message());
+      default:
+        return std::string("");
     }
-  }());
+  }()};
 }
 
 StatusBuilder::Impl::Impl(const absl::Status& status,

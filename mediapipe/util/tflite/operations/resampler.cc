@@ -120,7 +120,7 @@ TfLiteStatus Eval(TfLiteContext* context, TfLiteNode* node) {
   const int w = src->dims->data[2];
   const int d = src->dims->data[3];
 
-  for (size_t batch = 0; batch < b; ++batch) {
+  for (size_t batch = 0; (int)batch < b; ++batch) {
     const size_t warp_offset = h * w * 2 * batch;
     const float* warp_data = ::tflite::GetTensorData<float>(warp) + warp_offset;
     const size_t data_offset = h * w * d * batch;

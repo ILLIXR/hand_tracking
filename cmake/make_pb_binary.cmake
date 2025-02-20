@@ -51,7 +51,6 @@ function(make_proto_binary)
                        ARGS ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}.binarypb > ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}.inc
                        COMMENT "Producing include file from ${FILE_PATH_NAME}.binarypb"
                        VERBATIM
-                       DEPENDS ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}.binarypb
                        OUTPUT ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}.inc
     )
     configure_file(${CMAKE_CURRENT_SOURCE_DIR}/simple_subgraph_template.cc.in

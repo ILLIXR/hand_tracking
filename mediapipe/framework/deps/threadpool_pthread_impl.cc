@@ -135,7 +135,7 @@ ThreadPool::~ThreadPool() {
   condition_.SignalAll();
   mutex_.Unlock();
 
-  for (int i = 0; i < threads_.size(); ++i) {
+  for (int i = 0; i < (int)threads_.size(); ++i) {
     threads_[i]->Join();
     delete threads_[i];
   }

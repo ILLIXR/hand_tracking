@@ -97,7 +97,7 @@ class ImageToTensorOpenCvConverter : public ImageToTensorConverter {
     switch (tensor_type_) {
       case Tensor::ElementType::kInt8:
         RET_CHECK_GE(
-            output_shape.num_elements(),
+                (size_t)output_shape.num_elements(),
             tensor_buffer_offset / sizeof(int8_t) + num_elements_per_img)
             << "The buffer offset + the input image size is larger than the "
                "allocated tensor buffer.";
@@ -107,7 +107,7 @@ class ImageToTensorOpenCvConverter : public ImageToTensorConverter {
         break;
       case Tensor::ElementType::kFloat32:
         RET_CHECK_GE(
-            output_shape.num_elements(),
+                (size_t)output_shape.num_elements(),
             tensor_buffer_offset / sizeof(float) + num_elements_per_img)
             << "The buffer offset + the input image size is larger than the "
                "allocated tensor buffer.";
@@ -117,7 +117,7 @@ class ImageToTensorOpenCvConverter : public ImageToTensorConverter {
         break;
       case Tensor::ElementType::kUInt8:
         RET_CHECK_GE(
-            output_shape.num_elements(),
+        (size_t)output_shape.num_elements(),
             tensor_buffer_offset / sizeof(uint8_t) + num_elements_per_img)
             << "The buffer offset + the input image size is larger than the "
                "allocated tensor buffer.";
@@ -130,14 +130,14 @@ class ImageToTensorOpenCvConverter : public ImageToTensorConverter {
             absl::StrCat("Unsupported tensor type: ", tensor_type_));
     }
 
-    const cv::RotatedRect rotated_rect(cv::Point2f(roi.center_x, roi.center_y),
-                                       cv::Size2f(roi.width, roi.height),
-                                       roi.rotation * 180.f / M_PI);
+    const cv::RotatedRect rotated_rect(cv::Point2f((float)roi.center_x, (float)roi.center_y),
+                                       cv::Size2f((float)roi.width, (float)roi.height),
+                                               (float)roi.rotation * 180.f / (float)M_PI);
     cv::Mat src_points;
     cv::boxPoints(rotated_rect, src_points);
 
-    const float dst_width = output_width;
-    const float dst_height = output_height;
+    const float dst_width = (float)output_width;
+    const float dst_height = (float)output_height;
     /* clang-format off */
     float dst_corners[8] = {0.0f,      dst_height,
                             0.0f,      0.0f,
@@ -151,7 +151,7 @@ class ImageToTensorOpenCvConverter : public ImageToTensorConverter {
         cv::getPerspectiveTransform(src_points, dst_points);
     cv::Mat transformed;
     cv::warpPerspective(*src, transformed, projection_matrix,
-                        cv::Size(dst_width, dst_height),
+                        cv::Size((int)dst_width, (int)dst_height),
                         /*flags=*/flags_,
                         /*borderMode=*/border_mode_);
 
@@ -195,6 +195,7 @@ class ImageToTensorOpenCvConverter : public ImageToTensorConverter {
 absl::StatusOr<std::unique_ptr<ImageToTensorConverter>> CreateOpenCvConverter(
     CalculatorContext* cc, BorderMode border_mode,
     Tensor::ElementType tensor_type, cv::InterpolationFlags flags) {
+    UNUSED(cc);
   if (tensor_type != Tensor::ElementType::kInt8 &&
       tensor_type != Tensor::ElementType::kFloat32 &&
       tensor_type != Tensor::ElementType::kUInt8) {

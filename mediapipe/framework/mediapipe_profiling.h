@@ -15,6 +15,7 @@
 #ifndef MEDIAPIPE_FRAMEWORK_MEDIAPIPE_PROFILING_H_
 #define MEDIAPIPE_FRAMEWORK_MEDIAPIPE_PROFILING_H_
 
+#include "mediapipe/util/unused.hpp"
 #include "mediapipe/framework/platform_specific_profiling.h"
 #ifdef MEDIAPIPE_PROFILER_AVAILABLE
 #include "mediapipe/framework/profiler/graph_profiler.h"
@@ -42,6 +43,9 @@ inline void LogEvent(ProfilingContext* context, TraceEvent event) {
   if (context) {
     context->LogEvent(event);
   }
+#else
+    UNUSED(context);
+    UNUSED(event);
 #endif
 }
 }  // namespace mediapipe

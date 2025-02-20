@@ -87,7 +87,7 @@ class FilterCollectionCalculator : public CalculatorBase {
     }
 
     auto output = absl::make_unique<IterableU>();
-    for (int i = 0; i < input.size(); ++i) {
+    for (int i = 0; i < (int)input.size(); ++i) {
       if (filter_by[i]) {
         output->push_back(input[i]);
       }
@@ -99,6 +99,8 @@ class FilterCollectionCalculator : public CalculatorBase {
   template <typename IterableU>
   absl::Status FilterCollection(std::false_type, CalculatorContext* cc,
                                 const std::vector<bool>& filter_by) {
+      UNUSED(cc);
+      UNUSED(filter_by);
     return absl::InternalError("Cannot copy input collection to filter it.");
   }
 };

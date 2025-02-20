@@ -34,6 +34,7 @@
 #include "mediapipe/framework/port/ret_check.h"
 #include "mediapipe/framework/port/status.h"
 #include "mediapipe/framework/timestamp.h"
+#include "mediapipe/util/unused.hpp"
 
 namespace mediapipe {
 
@@ -88,6 +89,7 @@ class GraphOutputStream {
 
    protected:
     NodeReadiness GetNodeReadiness(Timestamp* min_stream_timestamp) override {
+        UNUSED(min_stream_timestamp);
       ABSL_LOG(FATAL) << "GraphOutputStreamHandler::GetNodeReadiness should "
                          "never be invoked.";
       return NodeReadiness::kNotReady;
@@ -95,6 +97,8 @@ class GraphOutputStream {
 
     void FillInputSet(Timestamp input_timestamp,
                       InputStreamShardSet* input_set) override {
+        UNUSED(input_timestamp);
+        UNUSED(input_set);
       ABSL_LOG(FATAL) << "GraphOutputStreamHandler::FillInputSet should "
                          "never be invoked.";
     }

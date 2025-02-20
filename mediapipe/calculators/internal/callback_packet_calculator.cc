@@ -21,6 +21,7 @@
 #include "mediapipe/framework/calculator_base.h"
 #include "mediapipe/framework/calculator_registry.h"
 #include "mediapipe/framework/output_side_packet.h"
+#include "mediapipe/util/unused.hpp"
 
 namespace mediapipe {
 
@@ -88,9 +89,10 @@ absl::Status CallbackPacketCalculator::Open(CalculatorContext* cc) {
 }
 
 absl::Status CallbackPacketCalculator::Process(CalculatorContext* cc) {
+    UNUSED(cc);
   return absl::OkStatus();
 }
 
-REGISTER_CALCULATOR(CallbackPacketCalculator);
+REGISTER_CALCULATOR(CallbackPacketCalculator)
 
 }  // namespace mediapipe

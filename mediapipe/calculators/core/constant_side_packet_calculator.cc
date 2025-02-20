@@ -27,6 +27,7 @@
 #include "mediapipe/framework/port/canonical_errors.h"
 #include "mediapipe/framework/port/ret_check.h"
 #include "mediapipe/framework/port/status.h"
+#include "mediapipe/util/unused.hpp"
 
 namespace mediapipe {
 
@@ -154,6 +155,7 @@ class ConstantSidePacketCalculator : public CalculatorBase {
   }
 
   absl::Status Process(CalculatorContext* cc) override {
+      UNUSED(cc);
     return absl::OkStatus();
   }
 
@@ -161,6 +163,6 @@ class ConstantSidePacketCalculator : public CalculatorBase {
   static constexpr const char* kPacketTag = "PACKET";
 };
 
-REGISTER_CALCULATOR(ConstantSidePacketCalculator);
+REGISTER_CALCULATOR(ConstantSidePacketCalculator)
 
 }  // namespace mediapipe

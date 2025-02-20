@@ -83,7 +83,7 @@ absl::Status SetFromTagAndNameInfo(
              << "Number of tags " << info.names.size()
              << " does not match the number of tags " << info.tags.size();
     }
-    for (int i = 0; i < info.tags.size(); ++i) {
+    for (int i = 0; i < (int)info.tags.size(); ++i) {
       MP_RETURN_IF_ERROR(ValidateTag(info.tags[i]));
       MP_RETURN_IF_ERROR(ValidateName(info.names[i]));
       *tags_and_names->Add() = absl::StrCat(info.tags[i], ":", info.names[i]);
@@ -189,7 +189,7 @@ absl::Status ParseTagIndexName(const std::string& tag_index_name,
       int64_t index64;
       RET_CHECK(absl::SimpleAtoi(v[1], &index64));
       RET_CHECK_LE(index64, internal::kMaxCollectionItemId);
-      the_index = index64;
+      the_index = (int)index64;
     }
     name_status = ValidateName(v[2]);
     name_index = 2;
@@ -231,7 +231,7 @@ absl::Status ParseTagIndex(const std::string& tag_index, std::string* tag,
       int64_t index64;
       RET_CHECK(absl::SimpleAtoi(v[1], &index64));
       RET_CHECK_LE(index64, internal::kMaxCollectionItemId);
-      the_index = index64;
+      the_index = (int)index64;
     }
   }  // else omitted, the_index == -1, triggering error.
   if (the_index == -1 || !tag_status.ok() || !number_status.ok()) {

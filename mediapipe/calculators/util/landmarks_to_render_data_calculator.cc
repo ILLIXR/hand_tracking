@@ -155,7 +155,7 @@ void AddConnectionsWithDepth(const LandmarkListType& landmarks,
                              const Color& min_depth_line_color,
                              const Color& max_depth_line_color,
                              RenderData* render_data) {
-  for (int i = 0; i < landmark_connections.size(); i += 2) {
+  for (int i = 0; i < (int)landmark_connections.size(); i += 2) {
     if (landmark_connections[i] >= landmarks.landmark_size() ||
         landmark_connections[i + 1] >= landmarks.landmark_size()) {
       continue;
@@ -202,7 +202,7 @@ void AddConnections(const LandmarkListType& landmarks,
                     bool utilize_presence, float presence_threshold,
                     const Color& connection_color, float thickness,
                     bool normalized, RenderData* render_data) {
-  for (int i = 0; i < landmark_connections.size(); i += 2) {
+  for (int i = 0; i < (int)landmark_connections.size(); i += 2) {
     if (landmark_connections[i] >= landmarks.landmark_size() ||
         landmark_connections[i + 1] >= landmarks.landmark_size()) {
       continue;

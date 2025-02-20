@@ -160,7 +160,7 @@ absl::Status CalculatorGraph::InitializePacketGeneratorGraph(
     output_side_packets_ = absl::make_unique<OutputSidePacketImpl[]>(
         validated_graph_->OutputSidePacketInfos().size());
   }
-  for (int index = 0; index < validated_graph_->OutputSidePacketInfos().size();
+  for (int index = 0; index < (int)validated_graph_->OutputSidePacketInfos().size();
        ++index) {
     const EdgeInfo& edge_info =
         validated_graph_->OutputSidePacketInfos()[index];
@@ -188,7 +188,7 @@ absl::Status CalculatorGraph::InitializeStreams() {
   // Create and initialize the input streams.
   input_stream_managers_ = absl::make_unique<InputStreamManager[]>(
       validated_graph_->InputStreamInfos().size());
-  for (int index = 0; index < validated_graph_->InputStreamInfos().size();
+  for (int index = 0; index < (int)validated_graph_->InputStreamInfos().size();
        ++index) {
     const EdgeInfo& edge_info = validated_graph_->InputStreamInfos()[index];
     MP_RETURN_IF_ERROR(input_stream_managers_[index].Initialize(
@@ -199,7 +199,7 @@ absl::Status CalculatorGraph::InitializeStreams() {
   // Create and initialize the output streams.
   output_stream_managers_ = absl::make_unique<OutputStreamManager[]>(
       validated_graph_->OutputStreamInfos().size());
-  for (int index = 0; index < validated_graph_->OutputStreamInfos().size();
+  for (int index = 0; index < (int)validated_graph_->OutputStreamInfos().size();
        ++index) {
     const EdgeInfo& edge_info = validated_graph_->OutputStreamInfos()[index];
     MP_RETURN_IF_ERROR(output_stream_managers_[index].Initialize(
@@ -229,7 +229,7 @@ absl::Status CalculatorGraph::InitializeStreams() {
     // Assign a virtual node ID to each graph input stream so we can treat
     // these as regular nodes for throttling.
     graph_input_stream_node_ids_[stream_name] =
-        validated_graph_->CalculatorInfos().size() + graph_input_stream_count;
+            (int)validated_graph_->CalculatorInfos().size() + graph_input_stream_count;
     ++graph_input_stream_count;
   }
 
@@ -249,6 +249,8 @@ static void MaybeFixupLegacyGpuNodeContract(CalculatorNode& node) {
   if (node.Contract().InputSidePackets().HasTag(kGpuSharedTagName)) {
     const_cast<CalculatorContract&>(node.Contract()).UseService(kGpuService);
   }
+#else
+    UNUSED(node);
 #endif  // !MEDIAPIPE_DISABLE_GPU
 }
 
@@ -261,7 +263,7 @@ absl::Status CalculatorGraph::InitializeCalculatorNodes() {
   std::vector<absl::Status> errors;
 
   // Create and initialize all the nodes in the graph.
-  for (int node_id = 0; node_id < validated_graph_->CalculatorInfos().size();
+  for (int node_id = 0; node_id < (int)validated_graph_->CalculatorInfos().size();
        ++node_id) {
     // buffer_size_hint will be positive if one was specified in
     // the graph proto.
@@ -524,7 +526,7 @@ absl::StatusOr<OutputStreamPoller> CalculatorGraph::AddOutputStreamPoller(
       &output_stream_managers_[output_stream_index], observe_timestamp_bounds));
   OutputStreamPoller poller(internal_poller);
   graph_output_streams_.push_back(std::move(internal_poller));
-  return std::move(poller);
+  return poller;
 }
 
 absl::StatusOr<Packet> CalculatorGraph::GetOutputSidePacket(
@@ -779,7 +781,7 @@ absl::Status CalculatorGraph::PrepareForRun(
     item.second->PrepareForRun(
         std::bind(&CalculatorGraph::RecordError, this, std::placeholders::_1));
   }
-  for (int index = 0; index < validated_graph_->OutputSidePacketInfos().size();
+  for (int index = 0; index < (int)validated_graph_->OutputSidePacketInfos().size();
        ++index) {
     output_side_packets_[index].PrepareForRun(
         std::bind(&CalculatorGraph::RecordError, this, std::placeholders::_1));
@@ -1167,7 +1169,7 @@ void CalculatorGraph::UpdateThrottledNodes(InputStreamManager* stream,
   int node_index = validated_graph_->OutputStreamToNode(stream->Name());
   absl::flat_hash_set<int> owned_set;
   const absl::flat_hash_set<int>* upstream_nodes;
-  if (node_index >= validated_graph_->CalculatorInfos().size()) {
+  if (node_index >= (int)validated_graph_->CalculatorInfos().size()) {
     // TODO just create a NodeTypeInfo object for each virtual node.
     owned_set.insert(node_index);
     upstream_nodes = &owned_set;
@@ -1206,7 +1208,7 @@ void CalculatorGraph::UpdateThrottledNodes(InputStreamManager* stream,
 
         bool is_throttled = !full_input_streams_[node_id].empty();
         bool is_graph_input_stream =
-            node_id >= validated_graph_->CalculatorInfos().size();
+            node_id >= (int)validated_graph_->CalculatorInfos().size();
         if (is_graph_input_stream) {
           // Making these calls while holding full_input_streams_mutex_
           // ensures they are correctly serialized.

@@ -1,14 +1,13 @@
-#include "illixr/threadloop.hpp"
 #include "illixr/data_format/camera_data.hpp"
 #include "illixr/data_format/hand_tracking_data.hpp"
 #include "illixr/data_format/pose.hpp"
-
+#include "illixr/threadloop.hpp"
 #include "mediapipe/calculators/util/illixr_data.h"
 #include "mediapipe/framework/calculator_graph.h"
 
 #ifdef ENABLE_OXR
-#include <boost/interprocess/sync/named_mutex.hpp>
-#include <boost/interprocess/managed_shared_memory.hpp>
+    #include <boost/interprocess/managed_shared_memory.hpp>
+    #include <boost/interprocess/sync/named_mutex.hpp>
 #endif
 
 namespace ILLIXR {
@@ -16,29 +15,19 @@ namespace ILLIXR {
 typedef std::map<data_format::image::image_type, cv::Mat> image_map;
 
 namespace ht {
-enum input_type {
-    LEFT,
-    RIGHT,
-    BOTH,
-    RGB
-};
+    enum input_type { LEFT, RIGHT, BOTH, RGB };
 
-enum cam_type {
-    CAM,
-    WEBCAM,
-    ZED
-};
-}
-
+    enum cam_type { CAM, WEBCAM, ZED };
+} // namespace ht
 
 struct pose_image {
-    image_map images;
-    data_format:: multi_pose_map poses;
-    bool depth_valid = false;
-    bool confidence_valid_ = false;
-    bool pose_valid = false;
-    int eye_count = 0;
-    data_format::units::eyes primary = data_format::units::LEFT_EYE;
+    image_map                   images;
+    data_format::multi_pose_map poses;
+    bool                        depth_valid       = false;
+    bool                        confidence_valid_ = false;
+    bool                        pose_valid        = false;
+    int                         eye_count         = 0;
+    data_format::units::eyes    primary           = data_format::units::LEFT_EYE;
 
     typedef std::map<data_format::image::image_type, cv::Mat>::const_iterator img_iterator;
 
@@ -83,65 +72,64 @@ void transform(const data_format::pose_data& pose, data_format::ht::hand_points&
 
 class hand_tracking_publisher : public threadloop {
 public:
-    hand_tracking_publisher(const std::string &name_, phonebook *pb_);
-
-    void start() override;
-
-    void stop() override;
-
+    hand_tracking_publisher(const std::string& name_, phonebook* pb_);
     ~hand_tracking_publisher() override;
 
+    void add_raw(size_t id, pose_image& pi);
     void set_frame_count(ht::input_type it);
 
-    void add_raw(size_t id, pose_image &pi);
-
-    void set_poller(data_format::image::image_type im_type, mediapipe::OutputStreamPoller *plr) {
-        _poller.at(im_type) = plr;
-        _count++;
+    void set_poller(data_format::image::image_type im_type, mediapipe::OutputStreamPoller* plr) {
+        poller_.at(im_type) = plr;
+        count_++;
     }
+
+    void start() override;
+    void stop() override;
 
 protected:
     skip_option _p_should_skip() override;
-
-    void _p_one_iteration() override;
+    void        _p_one_iteration() override;
 
 private:
-    void calculate_proper_position(std::map<data_format::ht::hand, data_format::ht::hand_points> &thp);
+    void calculate_proper_position(std::map<data_format::ht::hand, data_format::ht::hand_points>& thp);
 
-    const std::shared_ptr<switchboard>                 _switchboard;
-    switchboard::writer <data_format::ht::ht_frame>    _ht_publisher;
-    switchboard::reader <data_format::pose_type>       _pose_reader;
-    switchboard::reader <data_format::camera_data>     _camera_reader;
-    switchboard::reader <data_format::depth_type>      _depth_reader;
-    switchboard::reader <data_format::rgb_depth_type>  _rgb_depth_reader;
+    const std::shared_ptr<switchboard>               switchboard_;
+    switchboard::writer<data_format::ht::ht_frame>   ht_publisher_;
+    switchboard::reader<data_format::pose_type>      pose_reader_;
+    switchboard::reader<data_format::camera_data>    camera_reader_;
+    switchboard::reader<data_format::depth_type>     depth_reader_;
+    switchboard::reader<data_format::rgb_depth_type> rgb_depth_reader_;
 
-    std::map<data_format::image::image_type, mediapipe::OutputStreamPoller *> _poller = {{data_format::image::LEFT_EYE,  nullptr},
-                                                                                         {data_format::image::RIGHT_EYE, nullptr},
-                                                                                         {data_format::image::RGB,       nullptr}};
+    std::map<data_format::image::image_type, mediapipe::OutputStreamPoller*> poller_ = {
+        {data_format::image::LEFT_EYE, nullptr}, {data_format::image::RIGHT_EYE, nullptr}, {data_format::image::RGB, nullptr}};
 #ifdef ENABLE_OXR
-    boost::interprocess::managed_shared_memory managed_shm;
-    boost::interprocess::named_mutex*          m_swap[2];
-    boost::interprocess::named_mutex*          m_current_swap_idx;
-    ILLIXR::data_format::ht::raw_ht_data*      htdb[2];
-    int* current_swap_idx;
+    boost::interprocess::managed_shared_memory managed_shm_;
+    boost::interprocess::named_mutex*          shm_mutex_[2]{nullptr, nullptr};
+    boost::interprocess::named_mutex*          current_shm_mutex_idx_ = nullptr;
+    ILLIXR::data_format::ht::raw_ht_data*      ht_raw_data_[2]{nullptr, nullptr};
+    int*                                       current_swap_idx_;
 #endif
-    size_t _frame_count = 0;
-    mediapipe::Packet _packet;
-    std::map<data_format::image::image_type, cv::Mat> _results_images;
-    std::map<data_format::units::eyes, data_format::ht::ht_detection> _detections;
-    size_t _last_frame_id = 0;
-    std::unordered_map<size_t, pose_image> _raw_data;
-    data_format::pose_data _current_pose;
-    data_format::pose_data _initial_pose;
-    pose_image _current_raw;
-    cv::Mat _current_confidence;
-    cv::Mat _current_depth;
-    int _img_size_x = 0;
-    int _img_size_y = 0;
-    data_format::ht::position _last_position;
-    ht::input_type _last_input = ht::RIGHT;
-    ushort _count = 0;
+    ushort            count_         = 0;
+    size_t            frame_count_   = 0;
+    int               img_size_x_    = 0;
+    int               img_size_y_    = 0;
+    size_t            last_frame_id_ = 0;
+    mediapipe::Packet packet_;
+
+    std::map<data_format::image::image_type, cv::Mat>                 results_images_;
+    std::map<data_format::units::eyes, data_format::ht::ht_detection> detections_;
+
+    std::unordered_map<size_t, pose_image> raw_data_;
+
+    data_format::pose_data    current_pose_;
+    data_format::pose_data    initial_pose_;
+    pose_image                current_raw_;
+    cv::Mat                   current_confidence_;
+    cv::Mat                   current_depth_;
+    data_format::ht::position last_position_;
+    ht::input_type            last_input_ = ht::RIGHT;
+
     data_format::camera_data cam_data_;
 };
 
-}
+} // namespace ILLIXR

@@ -92,7 +92,7 @@ class ClipVectorSizeCalculator : public CalculatorBase {
     auto output = absl::make_unique<std::vector<U>>();
     const std::vector<U>& input_vector =
         cc->Inputs().Index(0).Get<std::vector<U>>();
-    if (max_vec_size_ >= input_vector.size()) {
+    if ((size_t)max_vec_size_ >= input_vector.size()) {
       output->insert(output->end(), input_vector.begin(), input_vector.end());
     } else {
       for (int i = 0; i < max_vec_size_; ++i) {

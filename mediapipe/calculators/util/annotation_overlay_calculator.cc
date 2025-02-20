@@ -385,6 +385,7 @@ namespace mediapipe {
     }
 
     absl::Status AnnotationOverlayCalculator::Close(CalculatorContext* cc) {
+        UNUSED(cc);
 #if !MEDIAPIPE_DISABLE_GPU
         gpu_helper_.RunInGlContext([this] {
     if (program_) glDeleteProgram(program_);
@@ -466,6 +467,9 @@ namespace mediapipe {
         image_mat =
                 absl::make_unique<cv::Mat>(height_canvas_, width_canvas_, CV_8UC4,
                                            cv::Scalar(0, 0, 0, 0));
+#else
+        UNUSED(cc);
+        UNUSED(image_mat);
 #endif  // !MEDIAPIPE_DISABLE_GPU
 
         *target_format = ImageFormat::SRGBA;
@@ -474,6 +478,7 @@ namespace mediapipe {
     }
 
     absl::Status AnnotationOverlayCalculator::GlRender(CalculatorContext* cc) {
+        UNUSED(cc);
 #if !MEDIAPIPE_DISABLE_GPU
         static const GLfloat square_vertices[] = {
       -1.0f, -1.0f,  // bottom left
@@ -529,6 +534,7 @@ namespace mediapipe {
 
     template <typename Type, const char* Tag>
     absl::Status AnnotationOverlayCalculator::GlSetup(CalculatorContext* cc) {
+        UNUSED(cc);
 #if !MEDIAPIPE_DISABLE_GPU
         const GLint attr_location[NUM_ATTRIBUTES] = {
       ATTRIB_VERTEX,

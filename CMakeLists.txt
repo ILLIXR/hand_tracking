@@ -10,6 +10,10 @@ include(CMakeDependentOption)
 cmake_policy(SET CMP0153 OLD)
 cmake_policy(SET CMP0146 OLD)
 
+set(CMAKE_CXX_FLAGS_DEBUG "-ggdb -Wall -Wextra -rdynamic -Wno-attributes -Wno-unused-function -Wno-unknown-pragmas -fPIC")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG -Wall -Wextra -Wno-attributes -Wno-unused-function -Wno-unknown-pragmas -fPIC")
+set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-ggdb -O3 -Wall -Wextra -Wno-attributes -Wno-unused-function -Wno-unknown-pragmas -fPIC")
+
 option(HT_ENABLE_GPU "Whether to enable GPU based codes vs CPU based" OFF)
 option(HT_ENABLE_GRAPH_PROFILER "Whether to enable the graph profiler" OFF)
 option(BUILD_OXR_INTERFACE "Whether to build the OpenXR interface library" OFF)
@@ -138,6 +142,19 @@ add_library(${PLUGIN_NAME} SHARED
             plugin.hpp
             hand_tracking_publisher.cpp
             hand_tracking_publisher.hpp
+            ${ILLIXR_HDR_PATH}/illixr/data_format/misc.hpp
+            ${ILLIXR_HDR_PATH}/illixr/data_format/zed_cam.hpp
+            ${ILLIXR_HDR_PATH}/illixr/threadloop.hpp
+            ${ILLIXR_HDR_PATH}/illixr/data_format/camera_data.hpp
+            ${ILLIXR_HDR_PATH}/illixr/data_format/hand_tracking_data.hpp
+            ${ILLIXR_HDR_PATH}/illixr/data_format/pose.hpp
+            ${ILLIXR_HDR_PATH}/illixr/plugin.hpp
+            ${ILLIXR_HDR_PATH}/illixr/phonebook.hpp
+            ${ILLIXR_HDR_PATH}/illixr/switchboard.hpp
+            ${ILLIXR_HDR_PATH}/illixr/record_logger.hpp
+            ${ILLIXR_HDR_PATH}/illixr/stoplight.hpp
+            ${ILLIXR_HDR_PATH}/illixr/cpu_timer.hpp
+            ${ILLIXR_HDR_PATH}/illixr/error_util.hpp
 )
 add_subdirectory(mediapipe)
 

@@ -11,6 +11,7 @@
 #include "mediapipe/framework/calculator_contract.h"
 #include "mediapipe/framework/deps/registration.h"
 #include "mediapipe/framework/subgraph.h"
+#include "mediapipe/util/unused.hpp"
 
 namespace mediapipe {
 namespace api2 {
@@ -42,6 +43,7 @@ class CalculatorBaseFactoryFor<
 
   std::unique_ptr<CalculatorBase> CreateCalculator(
       CalculatorContext* calculator_context) final {
+      UNUSED(calculator_context);
     return absl::make_unique<T>();
   }
 

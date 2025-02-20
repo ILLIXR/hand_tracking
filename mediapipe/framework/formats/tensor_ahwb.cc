@@ -1,4 +1,5 @@
 #include "mediapipe/framework/formats/tensor.h"
+#include "mediapipe/util/unused.hpp"
 
 #ifdef MEDIAPIPE_TENSOR_USE_AHWB
 #include <EGL/egl.h>
@@ -467,11 +468,11 @@ void Tensor::TrackAhwbUsage(uint64_t source_location_hash) const {
 
 bool Tensor::AllocateAhwbMapToSsbo() const { return false; }
 bool Tensor::InsertAhwbToSsboFence() const { return false; }
-void Tensor::MoveAhwbStuff(Tensor* src) {}
+void Tensor::MoveAhwbStuff(Tensor* src) {UNUSED(src);}
 void Tensor::ReleaseAhwbStuff() {}
 void* Tensor::MapAhwbToCpuRead() const { return nullptr; }
 void* Tensor::MapAhwbToCpuWrite() const { return nullptr; }
-void Tensor::TrackAhwbUsage(uint64_t key) const {}
+void Tensor::TrackAhwbUsage(uint64_t key) const {UNUSED(key);}
 
 #endif  // MEDIAPIPE_TENSOR_USE_AHWB
 

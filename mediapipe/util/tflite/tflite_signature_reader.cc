@@ -80,7 +80,7 @@ TfLiteSignatureReader::GetInputOutputTensorNamesFromTfliteSignature(
   auto& output_names = input_output_tensor_names.output_tensor_names;
 
   input_names.reserve(model_input_tensor_ids.size());
-  for (int i = 0; i < model_input_tensor_ids.size(); ++i) {
+  for (int i = 0; i < (int)model_input_tensor_ids.size(); ++i) {
     const auto it =
         model_input_tensor_id_to_name_map.find(model_input_tensor_ids[i]);
     if (it == model_input_tensor_id_to_name_map.end()) {
@@ -92,7 +92,7 @@ TfLiteSignatureReader::GetInputOutputTensorNamesFromTfliteSignature(
   }
 
   output_names.reserve(model_output_tensor_ids.size());
-  for (int i = 0; i < model_output_tensor_ids.size(); ++i) {
+  for (int i = 0; i < (int)model_output_tensor_ids.size(); ++i) {
     const auto it =
         model_output_tensor_id_to_name_map.find(model_output_tensor_ids[i]);
     if (it == model_output_tensor_id_to_name_map.end()) {

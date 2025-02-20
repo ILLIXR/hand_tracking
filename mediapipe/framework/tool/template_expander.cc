@@ -88,13 +88,13 @@ std::unique_ptr<MessageLite> CloneMessage(const MessageLite& message) {
 // to serialize the key text to protobuf wire format.
 absl::Status ParseEntry(absl::string_view& path, ProtoPath* result) {
   bool ok = true;
-  int sb = path.find('[');
-  int eb = path.find(']');
+  size_t sb = path.find('[');
+  size_t eb = path.find(']');
   int field_id = -1;
   ok &= absl::SimpleAtoi(path.substr(0, sb), &field_id);
   auto selector = path.substr(sb + 1, eb - 1 - sb);
   if (absl::StartsWith(selector, "@")) {
-    int eq = selector.find('=');
+    size_t eq = selector.find('=');
     int key_id = -1;
     ok &= absl::SimpleAtoi(selector.substr(1, eq - 1), &key_id);
     auto key_text = selector.substr(eq + 1);
@@ -105,7 +105,7 @@ absl::Status ParseEntry(absl::string_view& path, ProtoPath* result) {
     ok &= absl::SimpleAtoi(selector, &index);
     result->push_back({field_id, index});
   }
-  int end = path.find('/', eb);
+  size_t end = path.find('/', eb);
   if (end == std::string::npos) {
     path = "";
   } else {
@@ -161,7 +161,7 @@ absl::Status ParseProtoPath(const TemplateExpression& rule,
     key_types.push_back(static_cast<FieldType>(type));
   }
   MP_RETURN_IF_ERROR(SetMapKeyTypes(key_types, result));
-  result->erase(result->begin(), result->begin() + base_entries.size());
+  result->erase(result->begin(), result->begin() + (int)base_entries.size());
   return absl::OkStatus();
 }
 
@@ -316,7 +316,7 @@ class TemplateExpanderImpl {
     // Evaluate the rules nested below base_path in lexical order.
     std::vector<int> rules = GetNestedRules(base_index, base_path);
     std::vector<std::vector<FieldValue>> edits;
-    for (int i = 0; i < rules.size(); ++i) {
+    for (int i = 0; i < (int)rules.size(); ++i) {
       const auto& rule = template_rules_.rule().Get(rules[i]);
       std::vector<FieldValue> base;
       status = GetBaseValue(base_path, rule, output, &base);
@@ -334,7 +334,7 @@ class TemplateExpanderImpl {
     }
     // Replace base field values with the evaluated results.
     // Edits are applied in reverse order since later indices are invalidated.
-    for (int i = edits.size() - 1; i >= 0; --i) {
+    for (int i = (int)edits.size() - 1; i >= 0; --i) {
       const auto& rule = template_rules_.rule().Get(rules[i]);
       status = ReplaceBaseValue(base_path, rule, edits[i], &output);
       if (!status.ok()) break;
@@ -509,7 +509,7 @@ class TemplateExpanderImpl {
       return result;
     }
     TemplateDict* dict = result.mutable_dict();
-    for (int i = 0; i < args.size(); i += 2) {
+    for (int i = 0; i < (int)args.size(); i += 2) {
       TemplateDict::Parameter* p = dict->add_arg();
       *p->mutable_key() = AsString(args[i]);
       *p->mutable_value() = args[i + 1];
@@ -521,7 +521,7 @@ class TemplateExpanderImpl {
   TemplateArgument AsList(const std::vector<TemplateArgument>& args) {
     TemplateArgument result;
     auto list = result.mutable_element();
-    for (int i = 0; i < args.size(); ++i) {
+    for (int i = 0; i < (int)args.size(); ++i) {
       *list->Add() = args[i];
     }
     return result;
@@ -640,7 +640,7 @@ class TemplateExpanderImpl {
   absl::Status AsFieldValues(const std::vector<TemplateArgument>& args,
                              FieldType field_type,
                              std::vector<FieldValue>* result) {
-    for (int i = 0; i < args.size(); ++i) {
+    for (int i = 0; i < (int)args.size(); ++i) {
       if (args[i].has_dict()) {
         FieldValue dict_bytes;
         ABSL_CHECK(args[i].dict().SerializePartialToString(&dict_bytes));

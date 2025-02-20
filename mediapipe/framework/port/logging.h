@@ -28,6 +28,7 @@
 
 #include "absl/strings/has_ostream_operator.h"
 #include "glog/logging.h"
+#include "mediapipe/util/unused.hpp"
 
 namespace std {
 
@@ -80,6 +81,9 @@ class LogSink : public google::LogSink {
                     const char* base_filename, int line,
                     const struct ::tm* tm_time, const char* message,
                     size_t message_len) {
+      UNUSED(full_filename);
+      UNUSED(base_filename);
+      UNUSED(line);
     LogEntry log_entry(severity, tm_time,
                        absl::string_view(message, message_len));
     Send(log_entry);

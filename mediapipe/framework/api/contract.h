@@ -15,6 +15,7 @@
 #include "mediapipe/framework/calculator_contract.h"
 #include "mediapipe/framework/output_side_packet.h"
 #include "mediapipe/framework/port/logging.h"
+#include "mediapipe/util/unused.hpp"
 
 namespace mediapipe {
 namespace api2 {
@@ -93,6 +94,7 @@ struct TagTuple {
 
   template <std::size_t... I>
   static constexpr auto Make(std::index_sequence<I...> indices) {
+      UNUSED(indices);
     return std::make_tuple(mediapipe::api2::internal::tag_build(S<I>{})...);
   }
 
@@ -342,7 +344,7 @@ class FunCaller {
   auto inputs() const { return internal::filter_tuple<IsInputPort>(args_); }
   auto outputs() const { return internal::filter_tuple<IsOutputPort>(args_); }
 
-  absl::Status AddToContract(CalculatorContract* cc) const { return {}; }
+  absl::Status AddToContract(CalculatorContract* cc) const { UNUSED(cc); return {}; }
 
   absl::Status Process(CalculatorContext* cc) const { return (*this)(cc); }
 
@@ -359,6 +361,7 @@ template <class... T>
 absl::Status ProcessFnCallers(CalculatorContext* cc, std::tuple<T...> callers);
 
 inline absl::Status ProcessFnCallers(CalculatorContext* cc, std::tuple<>) {
+    UNUSED(cc);
   return absl::InternalError("Process unimplemented");
 }
 

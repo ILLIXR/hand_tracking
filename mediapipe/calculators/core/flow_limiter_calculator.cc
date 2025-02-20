@@ -150,7 +150,7 @@ class FlowLimiterCalculator : public CalculatorBase {
     // Limit the number of queued frames.
     // Note that frames can be dropped after frames are released because
     // frame-packets and FINISH-packets never arrive in the same Process call.
-    while (input_queue.size() > options_.max_in_queue()) {
+    while (input_queue.size() > (size_t)options_.max_in_queue()) {
       Packet packet = input_queue.front();
       input_queue.pop_front();
       SendAllow(false, packet.Timestamp(), cc);
@@ -179,9 +179,9 @@ class FlowLimiterCalculator : public CalculatorBase {
   }
 
   int LedgerSize() {
-    int result = frames_in_flight_.size() + allowed_.size();
+    int result = (int)(frames_in_flight_.size() + allowed_.size());
     for (const auto& queue : input_queues_) {
-      result += queue.size();
+      result += (int)queue.size();
     }
     return result;
   }
@@ -190,7 +190,7 @@ class FlowLimiterCalculator : public CalculatorBase {
   // Returns true if an additional frame can be released for processing.
   // The "ALLOW" output stream indicates this condition at each input frame.
   bool ProcessingAllowed() {
-    return frames_in_flight_.size() < options_.max_in_flight();
+    return frames_in_flight_.size() < (size_t)options_.max_in_flight();
   }
 
   // Outputs a packet indicating whether a frame was sent or dropped.
@@ -219,7 +219,7 @@ class FlowLimiterCalculator : public CalculatorBase {
   // Returns the lowest unprocessed input Timestamp.
   Timestamp InputTimestampBound(CalculatorContext* cc) {
     Timestamp result = Timestamp::Done();
-    for (int i = 0; i < input_queues_.size(); ++i) {
+    for (int i = 0; i < (int)input_queues_.size(); ++i) {
       auto& queue = input_queues_[i];
       auto& stream = cc->Inputs().Get("", i);
       Timestamp bound = queue.empty()
@@ -262,6 +262,6 @@ class FlowLimiterCalculator : public CalculatorBase {
   std::deque<Timestamp> frames_in_flight_;
   std::map<Timestamp, bool> allowed_;
 };
-REGISTER_CALCULATOR(FlowLimiterCalculator);
+REGISTER_CALCULATOR(FlowLimiterCalculator)
 
 }  // namespace mediapipe

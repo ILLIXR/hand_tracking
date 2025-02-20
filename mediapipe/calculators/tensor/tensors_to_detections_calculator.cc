@@ -27,6 +27,7 @@
 #include "mediapipe/framework/formats/tensor.h"
 #include "mediapipe/framework/port.h"
 #include "mediapipe/framework/port/ret_check.h"
+#include "mediapipe/util/unused.hpp"
 
 // Note: On Apple platforms MEDIAPIPE_DISABLE_GL_COMPUTE is automatically
 // defined in mediapipe/framework/port.h. Therefore,
@@ -261,10 +262,11 @@ class TensorsToDetectionsCalculator : public Node {
   bool gpu_has_enough_work_groups_ = true;
   bool anchors_init_ = false;
 };
-MEDIAPIPE_REGISTER_NODE(TensorsToDetectionsCalculator);
+MEDIAPIPE_REGISTER_NODE(TensorsToDetectionsCalculator)
 
 absl::Status TensorsToDetectionsCalculator::UpdateContract(
     CalculatorContract* cc) {
+    UNUSED(cc);
   if (CanUseGpu()) {
 #ifndef MEDIAPIPE_DISABLE_GL_COMPUTE
     MP_RETURN_IF_ERROR(mediapipe::GlCalculatorHelper::UpdateContract(
@@ -308,7 +310,7 @@ absl::Status TensorsToDetectionsCalculator::Process(CalculatorContext* cc) {
   for (const auto& tensor : input_tensors) {
     RET_CHECK(tensor.element_type() == Tensor::ElementType::kFloat32);
   }
-  const int num_input_tensors = input_tensors.size();
+  const int num_input_tensors = (int)input_tensors.size();
   if (!scores_tensor_index_is_set_) {
     if (num_input_tensors == 2 ||
         num_input_tensors == kNumInputTensorsWithAnchors) {
@@ -484,7 +486,7 @@ absl::Status TensorsToDetectionsCalculator::ProcessCPU(
 
     auto num_boxes_view = num_boxes_tensor->GetCpuReadView();
     auto num_boxes = num_boxes_view.buffer<float>();
-    num_boxes_ = num_boxes[0];
+    num_boxes_ = (int)num_boxes[0];
     // The detection model with Detection_PostProcess op may output duplicate
     // boxes with different classes, in the following format:
     //   num_boxes_tensor = [num_boxes]
@@ -504,7 +506,7 @@ absl::Status TensorsToDetectionsCalculator::ProcessCPU(
     auto detection_classes_view = detection_classes_tensor->GetCpuReadView();
     auto detection_classes_ptr = detection_classes_view.buffer<float>();
     std::vector<int> detection_classes(num_boxes_ * classes_per_detection_);
-    for (int i = 0; i < detection_classes.size(); ++i) {
+    for (int i = 0; i < (int)detection_classes.size(); ++i) {
       detection_classes[i] = static_cast<int>(detection_classes_ptr[i]);
     }
     MP_RETURN_IF_ERROR(ConvertToDetections(detection_boxes, detection_scores,
@@ -516,6 +518,7 @@ absl::Status TensorsToDetectionsCalculator::ProcessCPU(
 
 absl::Status TensorsToDetectionsCalculator::ProcessGPU(
     CalculatorContext* cc, std::vector<Detection>* output_detections) {
+    UNUSED(output_detections);
   const auto& input_tensors = *kInTensors(cc);
   RET_CHECK_GE(input_tensors.size(), 2);
   RET_CHECK_GT(num_boxes_, 0) << "Please set num_boxes in calculator options";
@@ -685,6 +688,7 @@ absl::Status TensorsToDetectionsCalculator::ProcessGPU(
 }
 
 absl::Status TensorsToDetectionsCalculator::Close(CalculatorContext* cc) {
+    UNUSED(cc);
 #ifndef MEDIAPIPE_DISABLE_GL_COMPUTE
   if (gpu_inited_) {
     gpu_helper_.RunInGlContext([this] {
@@ -875,7 +879,7 @@ absl::Status TensorsToDetectionsCalculator::ConvertToDetections(
     const int* detection_classes, std::vector<Detection>* output_detections) {
   for (int i = 0; i < num_boxes_ * classes_per_detection_;
        i += classes_per_detection_) {
-    if (max_results_ > 0 && output_detections->size() == max_results_) {
+    if (max_results_ > 0 && output_detections->size() == (size_t)max_results_) {
       break;
     }
     const int box_offset = i * num_coords_;
@@ -925,7 +929,7 @@ Detection TensorsToDetectionsCalculator::ConvertToDetection(
     absl::Span<const float> scores, absl::Span<const int> class_ids,
     bool flip_vertically) {
   Detection detection;
-  for (int i = 0; i < scores.size(); ++i) {
+  for (int i = 0; i < (int)scores.size(); ++i) {
     if (!IsClassIndexAllowed(class_ids[i])) {
       continue;
     }
@@ -951,6 +955,7 @@ Detection TensorsToDetectionsCalculator::ConvertToDetection(
 }
 
 absl::Status TensorsToDetectionsCalculator::GpuInit(CalculatorContext* cc) {
+    UNUSED(cc);
   int output_format_flag = 0;
   switch (box_output_format_) {
     case mediapipe::TensorsToDetectionsCalculatorOptions::UNSPECIFIED:

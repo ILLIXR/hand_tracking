@@ -7,7 +7,6 @@
 #include "mediapipe/calculators/util/image_data.pb.h"
 namespace mediapipe {
 
-namespace {
 enum class input_image_type {
     IMAGE,
     UIMAGE,
@@ -29,7 +28,6 @@ enum class hand_input_type {
     RECTS,
     NONE
 };
-}
 
 class ILLIXROutputCalculator : public CalculatorBase {
 public:

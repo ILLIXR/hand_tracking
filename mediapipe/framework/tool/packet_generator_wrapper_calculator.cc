@@ -47,6 +47,7 @@ absl::Status PacketGeneratorWrapperCalculator::Open(CalculatorContext* cc) {
 }
 
 absl::Status PacketGeneratorWrapperCalculator::Process(CalculatorContext* cc) {
+    UNUSED(cc);
   return absl::OkStatus();
 }
 

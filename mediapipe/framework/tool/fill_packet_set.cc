@@ -67,7 +67,7 @@ absl::StatusOr<std::unique_ptr<PacketSet>> FillPacketSet(
   if (!errors.empty()) {
     return tool::CombinedStatus("FillPacketSet failed:", errors);
   }
-  return std::move(packet_set);
+  return packet_set;
 }
 
 }  // namespace tool

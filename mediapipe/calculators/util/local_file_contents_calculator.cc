@@ -98,10 +98,11 @@ class LocalFileContentsCalculator : public CalculatorBase {
   }
 
   absl::Status Process(CalculatorContext* cc) override {
+      UNUSED(cc);
     return absl::OkStatus();
   }
 };
 
-REGISTER_CALCULATOR(LocalFileContentsCalculator);
+REGISTER_CALCULATOR(LocalFileContentsCalculator)
 
 }  // namespace mediapipe

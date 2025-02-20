@@ -53,7 +53,7 @@ void ImmediateInputStreamHandler::PrepareForRun(
     std::function<void(absl::Status)> error_callback) {
   {
     absl::MutexLock lock(&mutex_);
-    for (int i = 0; i < sync_sets_.size(); ++i) {
+    for (int i = 0; i < (int)sync_sets_.size(); ++i) {
       sync_sets_[i].PrepareForRun();
       ready_timestamps_[i] = Timestamp::Unset();
     }
@@ -69,7 +69,7 @@ NodeReadiness ImmediateInputStreamHandler::GetNodeReadiness(
   Timestamp input_timestamp = Timestamp::Done();
   Timestamp min_bound = Timestamp::Done();
   bool stream_became_done = false;
-  for (int i = 0; i < sync_sets_.size(); ++i) {
+  for (int i = 0; i < (int)sync_sets_.size(); ++i) {
     if (ready_timestamps_[i] > Timestamp::Unset()) {
       min_bound = std::min(min_bound, ready_timestamps_[i]);
       input_timestamp = std::min(input_timestamp, ready_timestamps_[i]);
@@ -129,7 +129,7 @@ NodeReadiness ImmediateInputStreamHandler::GetNodeReadiness(
 void ImmediateInputStreamHandler::FillInputSet(Timestamp input_timestamp,
                                                InputStreamShardSet* input_set) {
   absl::MutexLock lock(&mutex_);
-  for (int i = 0; i < sync_sets_.size(); ++i) {
+  for (int i = 0; i < (int)sync_sets_.size(); ++i) {
     if (ready_timestamps_[i] == input_timestamp) {
       sync_sets_[i].FillInputSet(input_timestamp, input_set);
       ready_timestamps_[i] = Timestamp::Unset();

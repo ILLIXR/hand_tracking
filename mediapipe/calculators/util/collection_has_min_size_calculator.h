@@ -78,7 +78,7 @@ class CollectionHasMinSizeCalculator : public CalculatorBase {
 
   absl::Status Process(CalculatorContext* cc) override {
     const IterableT& input = cc->Inputs().Tag("ITERABLE").Get<IterableT>();
-    bool has_min_size = input.size() >= min_size_;
+    bool has_min_size = input.size() >= (size_t)min_size_;
 
     cc->Outputs().Index(0).AddPacket(
         MakePacket<bool>(has_min_size).At(cc->InputTimestamp()));

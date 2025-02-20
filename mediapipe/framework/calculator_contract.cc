@@ -81,7 +81,7 @@ absl::Status CalculatorContract::Initialize(
     builder << "\nFor calculator:\n";
     builder << node.DebugString();
 #endif  // !(MEDIAPIPE_LITE || MEDIAPIPE_MOBILE)
-    return std::move(builder);
+    return builder;
   }
 
   node_config_ = &node;
@@ -123,7 +123,7 @@ absl::Status CalculatorContract::Initialize(const PacketGeneratorConfig& node,
     builder << "\nFor packet_generator:\n";
     builder << node.DebugString();
 #endif  // !(MEDIAPIPE_LITE || MEDIAPIPE_MOBILE)
-    return std::move(builder);
+    return builder;
   }
 
   wrapper_config_ = std::make_unique<CalculatorGraphConfig::Node>(
@@ -157,7 +157,7 @@ absl::Status CalculatorContract::Initialize(const StatusHandlerConfig& node) {
     builder << "\nFor status_handler:\n";
     builder << node.DebugString();
 #endif  // !(MEDIAPIPE_LITE || MEDIAPIPE_MOBILE)
-    return std::move(builder);
+    return builder;
   }
 
   input_side_packets_ = absl::make_unique<PacketTypeSet>(

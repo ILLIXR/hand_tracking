@@ -37,6 +37,7 @@
 namespace mediapipe {
 
 absl::Status PacketType::AcceptAny(const TypeSpec& type) {
+    UNUSED(type);
   return absl::OkStatus();
 }
 
