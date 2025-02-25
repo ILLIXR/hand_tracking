@@ -242,13 +242,9 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
         }
 #else
 
-        _ht_publisher.put(_ht_publisher.allocate<data_format::ht::ht_frame>(
-                data_format::ht::ht_frame{
-            current_time, _results_images, _detections, hp, velocity, _current_pose,
-                (_current_pose.valid) ? data_format::coordinates::WORLD
-                                      : ht_publisher_.put(ht_publisher_.allocate<data_format::ht::ht_frame>(
-                                            data_format::ht::ht_frame{current_time, results_images_, detections_, hp, velocity,
-                                                                      current_pose_, data_format::coordinates::VIEWER}));
+        ht_publisher_.put(ht_publisher_.allocate<data_format::ht::ht_frame>(
+                data_format::ht::ht_frame{current_time, results_images_, detections_, hp, velocity, current_pose_,
+                                          (current_pose_.valid) ? data_format::coordinates::WORLD : data_format::coordinates::VIEWER}));
 #endif
         results_images_.clear();
         detections_.clear();

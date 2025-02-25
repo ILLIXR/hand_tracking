@@ -380,7 +380,7 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
         cv::Mat input_frame_mat = mediapipe::formats::MatView(input_frame.get());
         input.second.copyTo(input_frame_mat);
 
-        // Send image _packet into the graph.
+        // Send image packet into the graph.
         int64_t frame_timestamp_us = std::chrono::high_resolution_clock::now().time_since_epoch().count() / 1000;
 
         // make sure image data makes it into stream first
