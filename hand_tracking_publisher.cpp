@@ -18,6 +18,7 @@ ILLIXR::hand_tracking_publisher::hand_tracking_publisher(const std::string& name
     , depth_reader_{switchboard_->get_reader<data_format::depth_type>("depth")}
     , rgb_depth_reader_{switchboard_->get_reader<data_format::rgb_depth_type>("rgb_depth")} {
 #ifdef ENABLE_OXR
+    dump_data = ILLIXR::str_to_bool(ILLIXR::getenv_or("HT_DUMP_DATA", "False"));
     b_intp::shared_memory_object::remove(illixr_shm_name);
     b_intp::named_mutex::remove(illixr_shm_mutex_latest);
     b_intp::named_mutex::remove(illixr_shm_mutex_swap[0]);
@@ -234,7 +235,8 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
             b_intp::scoped_lock<b_intp::named_mutex> lock(*shm_mutex_[idx_to_use]);
             ht_raw_data_[idx_to_use]->copy(current_frame);
         }
-        std::cout << *ht_raw_data_[idx_to_use] << std::endl;
+        if (dump_data)
+            std::cout << *ht_raw_data_[idx_to_use] << std::endl;
         ht_publisher_.put(ht_publisher_.allocate<data_format::ht::ht_frame>(data_format::ht::ht_frame{current_frame}));
         {
             b_intp::scoped_lock<b_intp::named_mutex> lock(*current_shm_mutex_idx_);
@@ -242,9 +244,9 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
         }
 #else
 
-        ht_publisher_.put(ht_publisher_.allocate<data_format::ht::ht_frame>(
-                data_format::ht::ht_frame{current_time, results_images_, detections_, hp, velocity, current_pose_,
-                                          (current_pose_.valid) ? data_format::coordinates::WORLD : data_format::coordinates::VIEWER}));
+        ht_publisher_.put(ht_publisher_.allocate<data_format::ht::ht_frame>(data_format::ht::ht_frame{
+            current_time, results_images_, detections_, hp, velocity, current_pose_,
+            (current_pose_.valid) ? data_format::coordinates::WORLD : data_format::coordinates::VIEWER}));
 #endif
         results_images_.clear();
         detections_.clear();

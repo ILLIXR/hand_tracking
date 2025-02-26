@@ -108,6 +108,7 @@ private:
     boost::interprocess::named_mutex*          current_shm_mutex_idx_ = nullptr;
     ILLIXR::data_format::ht::raw_ht_data*      ht_raw_data_[2]{nullptr, nullptr};
     int*                                       current_swap_idx_;
+    bool                                       dump_data;
 #endif
     ushort            count_         = 0;
     size_t            frame_count_   = 0;
