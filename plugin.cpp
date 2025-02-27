@@ -41,11 +41,9 @@ void img_convert(cv::Mat& img, bool flip = false) {
 }
 
 ht::cam_type hand_tracking::get_cam_type() {
-    const char* input_t = std::getenv("HT_INPUT");
-    if (!input_t)
+    std::string input_src = switchboard_->get_env("HT_INPUT");
+    if (input_src.empty())
         throw std::runtime_error("HT_INPUT did not have a valid type");
-    std::string input_src{input_t};
-    // std::string input_src = switchboard_->get_env("HT_INPUT");
     if (ILLIXR::data_format::compare(input_src, "zed")) {
         return ht::ZED;
     } else if (ILLIXR::data_format::compare(input_src, "cam")) {
@@ -66,8 +64,7 @@ ht::cam_type hand_tracking::get_cam_type() {
     if (cam_type_ == ht::WEBCAM) {
         input_type_   = ht::RGB;
         first_person_ = false;
-        //} else if (const char *in_type = switchboard_->get_env_char("HT_INPUT_TYPE")) {
-    } else if (const char* in_type = std::getenv("HT_INPUT_TYPE")) {
+    } else if (const char *in_type = switchboard_->get_env_char("HT_INPUT_TYPE")) {
         if (strcmp(in_type, "LEFT") == 0 || strcmp(in_type, "SINGLE") == 0) {
             input_type_ = ht::LEFT;
         } else if (strcmp(in_type, "RIGHT") == 0) {
