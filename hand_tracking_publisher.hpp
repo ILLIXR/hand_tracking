@@ -1,3 +1,4 @@
+#define DOUBLE_INCLUDE
 #include "illixr/threadloop.hpp"
 #include "illixr/data_format/camera_data.hpp"
 #include "illixr/data_format/hand_tracking_data.hpp"
@@ -5,7 +6,7 @@
 
 #include "mediapipe/calculators/util/illixr_data.h"
 #include "mediapipe/framework/calculator_graph.h"
-
+#undef DOUBLE_INCLUDE
 
 namespace ILLIXR {
 
