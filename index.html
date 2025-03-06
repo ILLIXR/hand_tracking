@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://illixr.github.io/hand_tracking/" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Intro - ILLIXR Hand Tracking Docs</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="css/code-box-copy.css" rel="stylesheet" />
+        <link href="css/prism.min.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Intro";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = "/hand_tracking/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="." class="icon icon-home"> ILLIXR Hand Tracking Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Latest Documentation</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Intro</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#inputs">Inputs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#outputs">Outputs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#hand-tracking-process">Hand Tracking Process</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#environment-variables">Environment Variables</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#openxr-interface">OpenXR Interface</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#download-and-installation">Download and Installation</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="api/html/annotated.html">API</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="LICENSE/">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">ILLIXR Hand Tracking Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Latest Documentation</li>
+      <li class="breadcrumb-item active">Intro</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p><img alt="ILLIXR logo" src="images/LogoWithHeader.png" /></p>
+<p><a href="LICENSE/"><img alt="MIT licensed" src="https://img.shields.io/badge/license-MIT-blue.svg" /></a></p>
+<h1 id="illixr-hand-tracking-plugin">ILLIXR Hand Tracking Plugin</h1>
+<p>This <a href="https://illixr.org">ILLIXR</a> <a href="https://illixr.github.io/ILLIXR/glossary/#plugin">plugin</a> computes hand points (joints and fingertips) of any hands (max 2) that are visible in the
+input image(s). It utilizes the mediapipe <a href="https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker">hand detection pipeline</a> to do the detection, then uses either supplied or
+calculated depth data to determine the 3D position of each point in the reference space.</p>
+<h2 id="inputs">Inputs</h2>
+<p>The hand tracking plugin takes a wide variety of inputs.</p>
+<ul>
+<li>image (required), single or left/right pair</li>
+<li>current pose (required)</li>
+<li>camera imformation (required) (see below) pertaining to the image(s)</li>
+<li>depth image (required for single image input, optional for left/right image pair)</li>
+</ul>
+<h2 id="outputs">Outputs</h2>
+<p>The hand tracking outputs a single data type: ht_frame. The detections report positions of the following points</p>
+<p><img alt="Hand point map" src="https://ai.google.dev/static/mediapipe/images/solutions/hand-landmarks.png" /></p>
+<h2 id="dependencies">Dependencies</h2>
+<p>This plugin has the following dependencies:</p>
+<ul>
+<li>abseil-cpp</li>
+<li>egl_headers</li>
+<li>farmhash</li>
+<li>fft2d</li>
+<li>flatbuffers</li>
+<li>gemmlowp</li>
+<li>neon_2_sse</li>
+<li>ruy</li>
+<li>pthreadpool</li>
+<li>XNNPACK</li>
+<li>tensorflow-lite</li>
+<li>protobuf (version 3.19)</li>
+</ul>
+<p>All of these dependencies are packaged in the hand_tracking_dependencies repo, and are installed automatically (if
+needed).</p>
+<p>This plugin has the following dependencies which are provided by operating system repos:</p>
+<ul>
+<li>libcpuinfo</li>
+<li>libgles</li>
+<li>fp16</li>
+</ul>
+<h2 id="hand-tracking-process">Hand Tracking Process</h2>
+<p>The image below shows the hand tracking flow.</p>
+<p><img alt="Hand tracking flow diagram" src="images/flow.png" /></p>
+<p>Here I will refer to the two plugin components as hand tracking plugin (<em>plugin</em>) and hand tracking publisher (
+<em>publisher</em>)</p>
+<ol>
+<li>When the <em>publisher</em> starts up it gets the camera information from the <a href="https://illixr.github.io/ILLIXR/glossary/#switchboard">switchboard</a></li>
+<li>One of these is input to the <em>plugin</em><ul>
+<li>ZED image (L &amp; R images, pose, depth image)</li>
+<li>Single (monocular) image</li>
+<li>L/R image pair (binocular)</li>
+</ul>
+</li>
+<li>The <em>plugin</em> takes the raw images and sends them to the mediapipe pipeline</li>
+<li>The <em>plugin</em> sends the raw images and any pose and depth information from the ZED to the <em>publisher</em>. (the raw images
+   may not be necessary and may not be sent in the future)</li>
+<li>The <em>publisher</em> waits for output from the mediapipe pipeline</li>
+<li>When the <em>publisher</em> receives output it gets the current pose and depth images from the <a href="https://illixr.github.io/ILLIXR/glossary/#switchboard">switchboard</a> (this is not
+   done if the input was from the ZED). A pose is required, but the depth image is optional, unless the input was a
+   single image.</li>
+<li>The <em>publisher</em> iterates through the detected hand points
+   a. converting them from percentage (of image size) to pixel
+   b. using the depth and camera information the pixel values are converted to mm, relative to the camera's center (if
+   no depth information is input, then the <em>publisher</em> uses parallax calculations from the L/R images to determine
+   distance)
+   c. using the pose, these x, y, z values are converted to real-world coordinates</li>
+<li>The <em>publisher</em> sends a ht_frame to the <a href="https://illixr.github.io/ILLIXR/glossary/#switchboard">switchboard</a></li>
+</ol>
+<h2 id="environment-variables">Environment Variables</h2>
+<p>The hand tracking utilizes the following environment/yaml file variables to control its processing:</p>
+<ul>
+<li><em>HT_INPUT</em>: the type of images to be fed to the <em>plugin</em>. Values are<ul>
+<li>zed</li>
+<li>cam (for typical cam_type/binocular images)</li>
+<li>webcam (single image)</li>
+</ul>
+</li>
+<li><em>HT_INPUT_TYPE</em>: descriptor of what image(s) to use. Values are<ul>
+<li>LEFT - only use the left eye image from an input pair</li>
+<li>SINGLE - same as LEFT</li>
+<li>RIGHT - only use the right eye image from an input pair</li>
+<li>MULTI - use both input images</li>
+<li>BOTH - same as MULTI</li>
+<li>RGB - only a single input image</li>
+</ul>
+</li>
+<li><em>WCF_ORIGIN</em>: the pose of the world coordinate system as a string of 7 numbers denoting x, y, z, w, wx, wy, wz</li>
+</ul>
+<h2 id="openxr-interface">OpenXR Interface</h2>
+<p>This plugin can be built with an <a href="https://www.khronos.org/OpenXR">OpenXR</a> <a href="https://registry.khronos.org/OpenXR/specs/1.0/loader.html#openxr-api-layers">API Layer</a>, which will be auto-detected by the OpenXR <a href="https://registry.khronos.org/OpenXR/specs/1.0/loader.html">loader</a>. It
+has been tested with the <a href="https://monado.freedesktop.org/">Monado</a> XR runtime, but should work with any runtime and application. Due to the way
+OpenXR, treats hand tracking, you will need to be running ILLIXR with the hand tracking plugin and at least one other
+plugin to feed data to the hand tracker. Essentially, ILLIXR is acting like a device from Monado's standpoint. To enable
+the OpenXR interface, add <code>-DBUILD_OXR_INTERFACE=ON</code> to your ILLIXR configuration command line.</p>
+<h2 id="download-and-installation">Download and Installation</h2>
+<p>This code should only be downloaded, compiled, and installed inside the <a href="https://github.com/ILLIXR/ILLIXR">ILLIXR system</a> by enabling the hand_tracking
+plugin.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="api/html/annotated.html" class="btn btn-neutral float-right" title="API">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="api/html/annotated.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="js/clipboard.min.js"></script>
+      <script src="js/code-box-copy.js"></script>
+      <script src="js/prism.min.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

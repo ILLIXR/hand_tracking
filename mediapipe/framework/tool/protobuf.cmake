@@ -1,6 +1,0 @@
-include(${CMAKE_SOURCE_DIR}/cmake/protoc_generate_obj.cmake)
-
-protobuf_generate_obj(PROTO_PATH framework/tool OBJ_NAME packet_generator_wrapper_calculator)
-protobuf_generate_obj(PROTO_PATH framework/tool OBJ_NAME field_data)
-protobuf_generate_obj(PROTO_PATH framework/tool OBJ_NAME switch_container)
-protobuf_generate_obj(PROTO_PATH framework/tool OBJ_NAME calculator_graph_template)

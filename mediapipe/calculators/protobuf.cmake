@@ -1,6 +1,0 @@
-include(${CMAKE_CURRENT_LIST_DIR}/internal/protobuf.cmake)
-include(${CMAKE_CURRENT_LIST_DIR}/tflite/protobuf.cmake)
-include(${CMAKE_CURRENT_LIST_DIR}/video/protobuf.cmake)
-include(${CMAKE_CURRENT_LIST_DIR}/tensor/protobuf.cmake)
-include(${CMAKE_CURRENT_LIST_DIR}/core/protobuf.cmake)
-include(${CMAKE_CURRENT_LIST_DIR}/util/protobuf.cmake)
