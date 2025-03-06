@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_5b_5d_0',['operator[]',['../structILLIXR_1_1pose__image.html#ae5e20901c5c6521dbe7cc4546410d7e5',1,'ILLIXR::pose_image']]]
+  ['last_5fvalid_5fframe_0',['last_valid_frame',['../structht__illixr__handle__t.html#af27e428ae35ecbd77b4e24a700b3f3ef',1,'ht_illixr_handle_t']]]
 ];
