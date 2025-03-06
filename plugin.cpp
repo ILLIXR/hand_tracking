@@ -202,25 +202,25 @@ void hand_tracking::process(const switchboard::ptr<const idf::cam_base_type>& fr
     case idf::camera::BINOCULAR:
         switch (input_type_) {
         case ht::BOTH:
+            // If we have both eye data
             if (!frame->at(idf::image::LEFT_EYE).empty() && !frame->at(idf::image::RIGHT_EYE).empty()) {
                 current_images_    = {{idf::image::LEFT_EYE, frame->at(idf::image::LEFT_EYE).clone()},
                                       {idf::image::RIGHT_EYE, frame->at(idf::image::RIGHT_EYE).clone()}};
                 pose_img.eye_count = 2;
+                // if we have neither eye data
             } else if (frame->at(idf::image::LEFT_EYE).empty() && frame->at(idf::image::RIGHT_EYE).empty()) {
                 spdlog::get("illixr")->info("[hand_tracking.plugin] Received empty frame, skipping");
                 return;
+                // if there is no left eye data, then just use the right
             } else if (frame->at(idf::image::LEFT_EYE).empty()) {
-                current_images_    = {{idf::image::LEFT_EYE, frame->at(idf::image::LEFT_EYE).clone()}};
-                pose_img.eye_count = 1;
-                pose_img.primary   = idf::units::LEFT_EYE;
-            } else {
-                if (frame->at(idf::image::RIGHT_EYE).empty()) {
-                    spdlog::get("illixr")->info("[hand_tracking.plugin] Received empty frame, skipping");
-                    return;
-                }
                 current_images_    = {{idf::image::RIGHT_EYE, frame->at(idf::image::RIGHT_EYE).clone()}};
                 pose_img.eye_count = 1;
                 pose_img.primary   = idf::units::RIGHT_EYE;
+                // if we have just left eye data, then just use it.
+            } else {
+                current_images_    = {{idf::image::LEFT_EYE, frame->at(idf::image::LEFT_EYE).clone()}};
+                pose_img.eye_count = 1;
+                pose_img.primary   = idf::units::LEFT_EYE;
             }
             break;
         case ht::LEFT:

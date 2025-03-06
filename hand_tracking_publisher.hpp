@@ -7,6 +7,7 @@
 #include "mediapipe/framework/calculator_graph.h"
 #undef DOUBLE_INCLUDE
 
+// if we are building the openXR interface
 #ifdef ENABLE_OXR
     #include <boost/interprocess/managed_shared_memory.hpp>
     #include <boost/interprocess/sync/named_mutex.hpp>
@@ -104,6 +105,7 @@ private:
 
     std::map<data_format::image::image_type, mediapipe::OutputStreamPoller*> poller_ = {
         {data_format::image::LEFT_EYE, nullptr}, {data_format::image::RIGHT_EYE, nullptr}, {data_format::image::RGB, nullptr}};
+// if we are building the openXR interface
 #ifdef ENABLE_OXR
     boost::interprocess::managed_shared_memory managed_shm_;
     boost::interprocess::named_mutex*          shm_mutex_[2]{nullptr, nullptr};

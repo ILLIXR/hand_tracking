@@ -1,5 +1,5 @@
 #include "hand_tracking_publisher.hpp"
-
+// if we are building the openXR interface
 #ifdef ENABLE_OXR
     #include "openxr/ixr_openxr.hpp"
 
@@ -17,6 +17,7 @@ ILLIXR::hand_tracking_publisher::hand_tracking_publisher(const std::string& name
     , camera_reader_{switchboard_->get_reader<data_format::camera_data>("cam_data")}
     , depth_reader_{switchboard_->get_reader<data_format::depth_type>("depth")}
     , rgb_depth_reader_{switchboard_->get_reader<data_format::rgb_depth_type>("rgb_depth")} {
+// if we are building the openXR interface
 #ifdef ENABLE_OXR
     dump_data = ILLIXR::str_to_bool(ILLIXR::getenv_or("HT_DUMP_DATA", "False"));
     b_intp::shared_memory_object::remove(illixr_shm_name);
@@ -58,6 +59,7 @@ void ILLIXR::hand_tracking_publisher::stop() {
 ILLIXR::hand_tracking_publisher::~hand_tracking_publisher() {
     for (auto& i : poller_)
         delete i.second;
+// if we are building the openXR interface
 #ifdef ENABLE_OXR
     managed_shm_.destroy<ILLIXR::data_format::ht::raw_ht_data>(illixr_shm_swap[0]);
     managed_shm_.destroy<ILLIXR::data_format::ht::raw_ht_data>(illixr_shm_swap[1]);
@@ -216,7 +218,8 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
         time_point current_time(
             std::chrono::duration<long, std::nano>{std::chrono::system_clock::now().time_since_epoch().count()});
 
-#ifdef ENABLE_OXR
+// if we are building the openXR interface
+// #ifdef ENABLE_OXR
         int idx_to_use;
         if (*current_swap_idx_ == 0) {
             idx_to_use = 1;
