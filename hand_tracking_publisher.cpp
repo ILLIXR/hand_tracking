@@ -17,9 +17,9 @@ ILLIXR::hand_tracking_publisher::hand_tracking_publisher(const std::string& name
     , camera_reader_{switchboard_->get_reader<data_format::camera_data>("cam_data")}
     , depth_reader_{switchboard_->get_reader<data_format::depth_type>("depth")}
     , rgb_depth_reader_{switchboard_->get_reader<data_format::rgb_depth_type>("rgb_depth")} {
-// if we are building the openXR interface
+// if we are building the openXR interface, create the shared memory areas for talking to OpenXR
 #ifdef ENABLE_OXR
-    dump_data = ILLIXR::str_to_bool(ILLIXR::getenv_or("HT_DUMP_DATA", "False"));
+    dump_data = switchboard_->get_env_bool("HT_DUMP_DATA", "False");
     b_intp::shared_memory_object::remove(illixr_shm_name);
     b_intp::named_mutex::remove(illixr_shm_mutex_latest);
     b_intp::named_mutex::remove(illixr_shm_mutex_swap[0]);
@@ -59,7 +59,7 @@ void ILLIXR::hand_tracking_publisher::stop() {
 ILLIXR::hand_tracking_publisher::~hand_tracking_publisher() {
     for (auto& i : poller_)
         delete i.second;
-// if we are building the openXR interface
+// if we are building the openXR interface, clean up the shared memory
 #ifdef ENABLE_OXR
     managed_shm_.destroy<ILLIXR::data_format::ht::raw_ht_data>(illixr_shm_swap[0]);
     managed_shm_.destroy<ILLIXR::data_format::ht::raw_ht_data>(illixr_shm_swap[1]);
@@ -154,6 +154,7 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
     img_size_y_ = current_raw_.at(output_frame.type).rows;
     results_images_.emplace(output_frame.type, current_raw_.at(output_frame.type));
     results_images_.emplace(out_img_type, *output_frame.image);
+    // do some error checking
     if (output_frame.left_hand_points) {
         output_frame.left_hand_points->enforce_bounds(1., 1.);
         output_frame.left_hand_points->check_validity();
@@ -163,17 +164,20 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
         output_frame.right_hand_points->check_validity();
     }
 
+    // take the current detection and hold on to it
     detections_.emplace(out_type,
                         data_format::ht::ht_detection{end_time - start_time, output_frame.left_palm, output_frame.right_palm,
                                                       output_frame.left_hand, output_frame.right_hand,
                                                       output_frame.left_confidence, output_frame.right_confidence,
                                                       output_frame.left_hand_points, output_frame.right_hand_points});
     last_frame_id_ = output_frame.image_id;
+    // if we have all the expected data for the frame, put it all together and publish
     if (detections_.size() == frame_count_) {
         std::map<data_format::ht::hand, data_format::ht::hand_points> hp{
             {data_format::ht::LEFT_HAND, data_format::ht::hand_points()},
             {data_format::ht::RIGHT_HAND, data_format::ht::hand_points()}};
 
+        // get the current pose
         if (current_raw_.pose_valid) {
             if (current_raw_.eye_count == 1) {
                 current_pose_ = static_cast<data_format::pose_data>(current_raw_.poses.at(current_raw_.primary));
@@ -189,6 +193,8 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
                 current_pose_ = static_cast<data_format::pose_data>(*pose.get());
             }
         }
+
+        // calculate the current real-world positions
         calculate_proper_position(hp);
 
         // need to correct the y-axis to have 0 in the bottom left corner
@@ -202,7 +208,9 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
 
         auto current_position =
             data_format::ht::position(hp, current_pose_.unit, std::chrono::system_clock::now().time_since_epoch().count());
+
         std::map<data_format::ht::hand, data_format::ht::velocity> velocity = {};
+        // calculate the velocity, but only if the last points were valid
         if (last_position_.valid) {
             velocity[data_format::ht::LEFT_HAND] = data_format::ht::velocity(
                 current_position.points[data_format::ht::LEFT_HAND], last_position_.points[data_format::ht::LEFT_HAND],
@@ -219,7 +227,7 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
             std::chrono::duration<long, std::nano>{std::chrono::system_clock::now().time_since_epoch().count()});
 
 // if we are building the openXR interface
-// #ifdef ENABLE_OXR
+#ifdef ENABLE_OXR
         int idx_to_use;
         if (*current_swap_idx_ == 0) {
             idx_to_use = 1;
@@ -235,6 +243,7 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
                                                 (current_pose_.valid) ? data_format::coordinates::WORLD
                                                                       : data_format::coordinates::VIEWER};
         {
+            // copy the current frame to shared memory
             b_intp::scoped_lock<b_intp::named_mutex> lock(*shm_mutex_[idx_to_use]);
             ht_raw_data_[idx_to_use]->copy(current_frame);
         }
