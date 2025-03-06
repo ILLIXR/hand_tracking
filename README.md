@@ -95,6 +95,14 @@ The hand tracking utilizes the following environment/yaml file variables to cont
     - RGB - only a single input image
 - _WCF_ORIGIN_: the pose of the world coordinate system as a string of 7 numbers denoting x, y, z, w, wx, wy, wz
 
+## OpenXR Interface
+
+This plugin can be built with an [OpenXR][6] [API Layer][8], which will be auto-detected by the OpenXR [loader][7]. It
+has been tested with the [Monado][9] XR runtime, but should work with any runtime and application. Due to the way
+OpenXR, treats hand tracking, you will need to be running ILLIXR with the hand tracking plugin and at least one other
+plugin to feed data to the hand tracker. Essentially, ILLIXR is acting like a device from Monado's standpoint. To enable
+the OpenXR interface, add `-DBUILD_OXR_INTERFACE=ON` to your ILLIXR configuration command line.
+
 ## Download and Installation
 
 This code should only be downloaded, compiled, and installed inside the [ILLIXR system][5] by enabling the hand_tracking
@@ -111,3 +119,11 @@ plugin.
 [4]:   https://illixr.github.io/ILLIXR/glossary/#switchboard
 
 [5]:   https://github.com/ILLIXR/ILLIXR
+
+[6]:   https://www.khronos.org/OpenXR
+
+[7]:   https://registry.khronos.org/OpenXR/specs/1.0/loader.html
+
+[8]:   https://registry.khronos.org/OpenXR/specs/1.0/loader.html#openxr-api-layers
+
+[9]:   https://monado.freedesktop.org/
