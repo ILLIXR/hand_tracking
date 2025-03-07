@@ -16,8 +16,20 @@ set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-ggdb -O3 -Wall -Wextra -Wno-attributes -Wno
 
 option(HT_ENABLE_GPU "Whether to enable GPU based codes vs CPU based" OFF)
 option(HT_ENABLE_GRAPH_PROFILER "Whether to enable the graph profiler" OFF)
+option(BUILD_OXR_INTERFACE "Whether to build the OpenXR interface library" OFF)
+cmake_dependent_option(BUILD_OXR_TEST "Whether to build the OpenXR test" OFF BUILD_OXR_INTERFACE OFF)
 option(TFLIBRARY_POSTFIX "Postfix to attach to XNNPACK and tensorflow libraries to identify the specuific version needed" OFF)
 cmake_dependent_option(HT_ENABLE_WEB_PROFILING "Whether to enable web profiling" ON HT_ENABLE_GRAPH_PROFILER OFF)
+option(BUILD_DOCS "Build the documentation" OFF)
+
+if(BUILD_OXR_INTERFACE)
+    add_definitions(-DENABLE_OXR)
+endif()
+
+if(BUILD_OXR_TEST)
+    add_definitions(-DENABLE_OXR_TEST)
+endif()
+
 
 if(TFLIBRARY_POSTFIX)
     if(NOT ((TFLIBRARY_POSTFIX MATCHES "^-") OR (TFLIBRARY_POSTFIX MATCHES "^_")))
@@ -57,9 +69,9 @@ endif()
 set(protobuf_MODULE_COMPATIBLE ON)
 find_package(ZLIB REQUIRED)
 find_package(ZED 3 QUIET)
-if (ZED_FOUND)
+if(ZED_FOUND)
     find_package(CUDAToolkit ${ZED_CUDA_VERSION} EXACT QUIET)
-    if (NOT CUDAToolkit_FOUND)
+    if(NOT CUDAToolkit_FOUND)
         set(ZED_FOUND NO)
     else()
         add_definitions(-DHAVE_ZED)
@@ -163,4 +175,18 @@ target_include_directories(${PLUGIN_NAME} PUBLIC
                            ${CMAKE_SOURCE_DIR}
 )
 
+if(BUILD_OXR_INTERFACE)
+    add_subdirectory(openxr)
+    target_link_libraries(${PLUGIN_NAME} PUBLIC
+                          OXR_HEADERS
+    )
+    if(BUILD_OXR_TEST)
+        include(openxr/test/cmake/scripts.cmake)
+    endif()
+endif()
+
 install(TARGETS ${PLUGIN_NAME} DESTINATION lib)
+
+if(BUILD_DOCS)
+    add_subdirectory(docs)
+endif()

@@ -1,13 +1,12 @@
 #pragma once
 
-#include "illixr/plugin.hpp"
-#include "illixr/phonebook.hpp"
-#include "illixr/switchboard.hpp"
 #include "hand_tracking_publisher.hpp"
-
+#include "illixr/phonebook.hpp"
+#include "illixr/plugin.hpp"
+#include "illixr/switchboard.hpp"
 #include "mediapipe/framework/calculator_graph.h"
 #if !MEDIAPIPE_DISABLE_GPU
-#include "mediapipe/gpu/gl_calculator_helper.h"
+    #include "mediapipe/gpu/gl_calculator_helper.h"
 #endif
 
 #include <opencv2/opencv.hpp>
@@ -24,6 +23,8 @@ public:
     void stop() override;
 
 private:
+    ht::cam_type get_cam_type();
+
     const std::shared_ptr<switchboard>                                    switchboard_;
     std::map<data_format::image::image_type, mediapipe::CalculatorGraph*> graph_;
     ht::cam_type                                                          cam_type_;
@@ -36,4 +37,4 @@ private:
     std::map<data_format::image::image_type, mediapipe::GlCalculatorHelper> gpu_helper_;
 #endif
 };
-}
+} // namespace ILLIXR
