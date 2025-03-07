@@ -14,7 +14,7 @@ externalproject_add(
 
 externalproject_add(
         test_data
-        GIT_REPOSITORY https://github.com/ILLIXR/zed_test_data.git
+        GIT_REPOSITORY https://github.com/ILLIXR/zed_test_data_public.git
         GIT_TAG main
         PREFIX ${CMAKE_BINARY_DIR}/_deps/data
         CONFIGURE_COMMAND ""
