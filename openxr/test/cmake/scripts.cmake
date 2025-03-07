@@ -39,7 +39,7 @@ else()
 endif()
 
 write_three("# set environment variables\n")
-
+write_three("${SET_CMD} VK_INSTANCE_LAYERS${SPACER}VK_LAYER_KHRONOS_validation\n")
 write_three("${SET_CMD} IXIR_PTH${SPACER}${CMAKE_INSTALL_PREFIX}/lib\n\n")
 
 if(CSHELL)
