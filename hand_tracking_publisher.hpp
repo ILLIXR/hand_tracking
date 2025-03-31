@@ -17,10 +17,10 @@ namespace ILLIXR {
 
 typedef std::map<data_format::image::image_type, cv::Mat> image_map;
 
-namespace ht {\
-/**
- * Enumeration of what type of image(s) are the input
- */
+namespace ht { /**
+                * Enumeration of what type of image(s) are the input
+                */
+
     enum input_type { LEFT, RIGHT, BOTH, RGB };
 
     /**
@@ -33,13 +33,13 @@ namespace ht {\
  * Holds current input image(s) and pose
  */
 struct pose_image {
-    image_map                   images;                    //!< mapping of the current images
-    data_format::multi_pose_map poses;                      //!< mapping of poses for each image
-    bool                        depth_valid       = false;   //!< flag to indicate if there is a valid depth image
-    bool                        confidence_valid_ = false;   //!< flags to indicate if there is a valid confidence image assocaited with the depth image
-    bool                        pose_valid        = false;  //!< flags indicating if the poses are valid
-    int                         eye_count         = 0;      //!< the number of "eyes" (input images)
-    data_format::units::eyes    primary           = data_format::units::LEFT_EYE;  //!< the primary eye, will depend on the camera type
+    image_map                   images;              //!< mapping of the current images
+    data_format::multi_pose_map poses;               //!< mapping of poses for each image
+    bool                        depth_valid = false; //!< flag to indicate if there is a valid depth image
+    bool confidence_valid_ = false; //!< flags to indicate if there is a valid confidence image assocaited with the depth image
+    bool pose_valid        = false; //!< flags indicating if the poses are valid
+    int  eye_count         = 0;     //!< the number of "eyes" (input images)
+    data_format::units::eyes primary = data_format::units::LEFT_EYE; //!< the primary eye, will depend on the camera type
 
     typedef std::map<data_format::image::image_type, cv::Mat>::const_iterator img_iterator;
 
@@ -178,7 +178,7 @@ protected:
     /**
      * @copydoc threadloop::_p_one_iteration()
      */
-    void        _p_one_iteration() override;
+    void _p_one_iteration() override;
 
 private:
     void calculate_proper_position(std::map<data_format::ht::hand, data_format::ht::hand_points>& thp);
@@ -199,7 +199,7 @@ private:
     boost::interprocess::named_mutex*          current_shm_mutex_idx_ = nullptr;  //!< locks for communication
     ILLIXR::data_format::ht::raw_ht_data*      ht_raw_data_[2]{nullptr, nullptr}; //!< data type used for openXR
     int*                                       current_swap_idx_;                 //!< current active buffer
-    bool                                       dump_data;                         //!< whether to dump data to stdout for testing
+    bool                                       dump_data; //!< whether to dump data to stdout for testing
 #endif
     ushort            count_         = 0;
     size_t            frame_count_   = 0;

@@ -12,7 +12,7 @@
 // normally be declared in the body of the enum, but can't be declared
 // that way easily for experimental extensions.
 
-#define XR_ENUM(type, enm, constant) static const type enm = (type)constant
-#define XR_STRUCT_ENUM(enm, constant) XR_ENUM(XrStructureType, enm, constant)
-#define XR_RESULT_ENUM(enm, constant) XR_ENUM(XrResult, enm, constant)
+#define XR_ENUM(type, enm, constant)    static const type enm = (type) constant
+#define XR_STRUCT_ENUM(enm, constant)   XR_ENUM(XrStructureType, enm, constant)
+#define XR_RESULT_ENUM(enm, constant)   XR_ENUM(XrResult, enm, constant)
 #define XR_REFSPACE_ENUM(enm, constant) XR_ENUM(XrReferenceSpaceType, enm, constant)

@@ -15,26 +15,22 @@
 
 #include "mediapipe/calculators/util/collection_has_min_size_calculator.h"
 
-#include <vector>
-
 #include "mediapipe/framework/formats/classification.pb.h"
 #include "mediapipe/framework/formats/landmark.pb.h"
 #include "mediapipe/framework/formats/rect.pb.h"
 
+#include <vector>
+
 namespace mediapipe {
 
-typedef CollectionHasMinSizeCalculator<std::vector<mediapipe::NormalizedRect>>
-    NormalizedRectVectorHasMinSizeCalculator;
+typedef CollectionHasMinSizeCalculator<std::vector<mediapipe::NormalizedRect>> NormalizedRectVectorHasMinSizeCalculator;
 REGISTER_CALCULATOR(NormalizedRectVectorHasMinSizeCalculator);
 
-typedef CollectionHasMinSizeCalculator<
-    std::vector<mediapipe::NormalizedLandmarkList>>
+typedef CollectionHasMinSizeCalculator<std::vector<mediapipe::NormalizedLandmarkList>>
     NormalizedLandmarkListVectorHasMinSizeCalculator;
 REGISTER_CALCULATOR(NormalizedLandmarkListVectorHasMinSizeCalculator);
 
-typedef CollectionHasMinSizeCalculator<
-    std::vector<mediapipe::ClassificationList>>
-    ClassificationListVectorHasMinSizeCalculator;
+typedef CollectionHasMinSizeCalculator<std::vector<mediapipe::ClassificationList>> ClassificationListVectorHasMinSizeCalculator;
 REGISTER_CALCULATOR(ClassificationListVectorHasMinSizeCalculator);
 
-}  // namespace mediapipe
+} // namespace mediapipe

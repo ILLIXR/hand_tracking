@@ -20,8 +20,8 @@
 #include "mediapipe/framework/port.h"
 
 #ifdef MEDIAPIPE_TENSOR_USE_AHWB
-#include "mediapipe/framework/formats/hardware_buffer_pool.h"
-#include "mediapipe/gpu/multi_pool.h"
+    #include "mediapipe/framework/formats/hardware_buffer_pool.h"
+    #include "mediapipe/gpu/multi_pool.h"
 #endif
 
 namespace mediapipe {
@@ -53,30 +53,30 @@ namespace mediapipe {
 //       Tensor tensor(Tensor::ElementType::kFloat32,
 //                     Tensor::Shape{kTensorSize}, &memory_manager_);
 class MemoryManager {
- public:
-  MemoryManager() {
+public:
+    MemoryManager() {
 #ifdef MEDIAPIPE_TENSOR_USE_AHWB
-    hardware_buffer_pool_ = std::make_shared<HardwareBufferPool>();
+        hardware_buffer_pool_ = std::make_shared<HardwareBufferPool>();
 #endif
-  }
+    }
 
 #ifdef MEDIAPIPE_TENSOR_USE_AHWB
-  std::shared_ptr<HardwareBufferPool> GetAndroidHardwareBufferPool() const {
-    return hardware_buffer_pool_;
-  }
+    std::shared_ptr<HardwareBufferPool> GetAndroidHardwareBufferPool() const {
+        return hardware_buffer_pool_;
+    }
 #endif
 
 #ifdef MEDIAPIPE_TENSOR_USE_AHWB
-  explicit MemoryManager(const MultiPoolOptions& options)
-      : hardware_buffer_pool_(std::make_shared<HardwareBufferPool>(options)) {}
+    explicit MemoryManager(const MultiPoolOptions& options)
+        : hardware_buffer_pool_(std::make_shared<HardwareBufferPool>(options)) { }
 #endif
 
- private:
+private:
 #ifdef MEDIAPIPE_TENSOR_USE_AHWB
-  std::shared_ptr<HardwareBufferPool> hardware_buffer_pool_;
+    std::shared_ptr<HardwareBufferPool> hardware_buffer_pool_;
 #endif
 };
 
-}  //  namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_FRAMEWORK_MEMORY_MANAGER_H_
+#endif // MEDIAPIPE_FRAMEWORK_MEMORY_MANAGER_H_

@@ -75,4 +75,4 @@
 #include "mediapipe/framework/tool/validate_name.h"
 #include "mediapipe/framework/validated_graph_config.h"
 
-#endif  // MEDIAPIPE_FRAMEWORK_CALCULATOR_FRAMEWORK_H_
+#endif // MEDIAPIPE_FRAMEWORK_CALCULATOR_FRAMEWORK_H_

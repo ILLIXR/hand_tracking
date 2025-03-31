@@ -15,29 +15,28 @@
 #ifndef MEDIAPIPE_FRAMEWORK_TOOL_FILL_PACKET_SET_H_
 #define MEDIAPIPE_FRAMEWORK_TOOL_FILL_PACKET_SET_H_
 
-#include <map>
-#include <memory>
-#include <string>
-
 #include "mediapipe/framework/packet_set.h"
 #include "mediapipe/framework/packet_type.h"
 #include "mediapipe/framework/port/statusor.h"
 
+#include <map>
+#include <memory>
+#include <string>
+
 namespace mediapipe {
 namespace tool {
 
-// Finds the packet names from input_side_packet_types's TagMap, looks
-// them up in |input_side_packets| and creates a PacketSet.  An error
-// is returned if any packets fail the type check.  If
-// missing_packet_count_ptr is not null, the number of missing packets
-// is returned in *missing_packet_count_ptr.  Otherwise, an error is
-// returned if any packets are missing.
-absl::StatusOr<std::unique_ptr<PacketSet>> FillPacketSet(
-    const PacketTypeSet& input_side_packet_types,
-    const std::map<std::string, Packet>& input_side_packets,
-    int* missing_packet_count_ptr);
+    // Finds the packet names from input_side_packet_types's TagMap, looks
+    // them up in |input_side_packets| and creates a PacketSet.  An error
+    // is returned if any packets fail the type check.  If
+    // missing_packet_count_ptr is not null, the number of missing packets
+    // is returned in *missing_packet_count_ptr.  Otherwise, an error is
+    // returned if any packets are missing.
+    absl::StatusOr<std::unique_ptr<PacketSet>> FillPacketSet(const PacketTypeSet&                 input_side_packet_types,
+                                                             const std::map<std::string, Packet>& input_side_packets,
+                                                             int*                                 missing_packet_count_ptr);
 
-}  // namespace tool
-}  // namespace mediapipe
+} // namespace tool
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_FRAMEWORK_TOOL_FILL_PACKET_SET_H_
+#endif // MEDIAPIPE_FRAMEWORK_TOOL_FILL_PACKET_SET_H_

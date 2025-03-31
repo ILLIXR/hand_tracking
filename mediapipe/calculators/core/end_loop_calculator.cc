@@ -14,10 +14,7 @@
 
 #include "mediapipe/calculators/core/end_loop_calculator.h"
 
-#include <array>
-#include <utility>
-#include <vector>
-
+#include "mediapipe/calculators/util/render_and_points.pb.h"
 #include "mediapipe/framework/formats/classification.pb.h"
 #include "mediapipe/framework/formats/detection.pb.h"
 #include "mediapipe/framework/formats/image.h"
@@ -27,21 +24,21 @@
 #include "mediapipe/framework/formats/rect.pb.h"
 #include "mediapipe/framework/formats/tensor.h"
 #include "mediapipe/gpu/gpu_buffer.h"
-#include "mediapipe/calculators/util/render_and_points.pb.h"
 #include "tensorflow/lite/interpreter.h"
+
+#include <array>
+#include <utility>
+#include <vector>
 
 namespace mediapipe {
 
-typedef EndLoopCalculator<std::vector<::mediapipe::NormalizedRect>>
-    EndLoopNormalizedRectCalculator;
+typedef EndLoopCalculator<std::vector<::mediapipe::NormalizedRect>> EndLoopNormalizedRectCalculator;
 REGISTER_CALCULATOR(EndLoopNormalizedRectCalculator);
 
-typedef EndLoopCalculator<std::vector<::mediapipe::LandmarkList>>
-    EndLoopLandmarkListVectorCalculator;
+typedef EndLoopCalculator<std::vector<::mediapipe::LandmarkList>> EndLoopLandmarkListVectorCalculator;
 REGISTER_CALCULATOR(EndLoopLandmarkListVectorCalculator);
 
-typedef EndLoopCalculator<std::vector<::mediapipe::NormalizedLandmarkList>>
-    EndLoopNormalizedLandmarkListVectorCalculator;
+typedef EndLoopCalculator<std::vector<::mediapipe::NormalizedLandmarkList>> EndLoopNormalizedLandmarkListVectorCalculator;
 REGISTER_CALCULATOR(EndLoopNormalizedLandmarkListVectorCalculator);
 
 typedef EndLoopCalculator<std::vector<bool>> EndLoopBooleanCalculator;
@@ -50,20 +47,16 @@ REGISTER_CALCULATOR(EndLoopBooleanCalculator);
 typedef EndLoopCalculator<std::vector<float>> EndLoopFloatCalculator;
 REGISTER_CALCULATOR(EndLoopFloatCalculator);
 
-typedef EndLoopCalculator<std::vector<::mediapipe::RenderPointData>>
-    EndLoopRenderDataCalculator;
+typedef EndLoopCalculator<std::vector<::mediapipe::RenderPointData>> EndLoopRenderDataCalculator;
 REGISTER_CALCULATOR(EndLoopRenderDataCalculator);
 
-typedef EndLoopCalculator<std::vector<::mediapipe::ClassificationList>>
-    EndLoopClassificationListCalculator;
+typedef EndLoopCalculator<std::vector<::mediapipe::ClassificationList>> EndLoopClassificationListCalculator;
 REGISTER_CALCULATOR(EndLoopClassificationListCalculator);
 
-typedef EndLoopCalculator<std::vector<TfLiteTensor>>
-    EndLoopTfLiteTensorCalculator;
+typedef EndLoopCalculator<std::vector<TfLiteTensor>> EndLoopTfLiteTensorCalculator;
 REGISTER_CALCULATOR(EndLoopTfLiteTensorCalculator);
 
-typedef EndLoopCalculator<std::vector<::mediapipe::Detection>>
-    EndLoopDetectionCalculator;
+typedef EndLoopCalculator<std::vector<::mediapipe::Detection>> EndLoopDetectionCalculator;
 REGISTER_CALCULATOR(EndLoopDetectionCalculator);
 
 typedef EndLoopCalculator<std::vector<Matrix>> EndLoopMatrixCalculator;
@@ -78,16 +71,13 @@ REGISTER_CALCULATOR(EndLoopImageFrameCalculator);
 typedef EndLoopCalculator<std::vector<GpuBuffer>> EndLoopGpuBufferCalculator;
 REGISTER_CALCULATOR(EndLoopGpuBufferCalculator);
 
-typedef EndLoopCalculator<std::vector<::mediapipe::Image>>
-    EndLoopImageCalculator;
+typedef EndLoopCalculator<std::vector<::mediapipe::Image>> EndLoopImageCalculator;
 REGISTER_CALCULATOR(EndLoopImageCalculator);
 
-typedef EndLoopCalculator<std::vector<std::array<float, 16>>>
-    EndLoopAffineMatrixCalculator;
+typedef EndLoopCalculator<std::vector<std::array<float, 16>>> EndLoopAffineMatrixCalculator;
 REGISTER_CALCULATOR(EndLoopAffineMatrixCalculator);
 
-typedef EndLoopCalculator<std::vector<std::pair<int, int>>>
-    EndLoopImageSizeCalculator;
+typedef EndLoopCalculator<std::vector<std::pair<int, int>>> EndLoopImageSizeCalculator;
 REGISTER_CALCULATOR(EndLoopImageSizeCalculator);
 
-}  // namespace mediapipe
+} // namespace mediapipe

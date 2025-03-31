@@ -21,76 +21,73 @@ namespace {
 // See mediapipe...image_format.proto and cv...opencv2/core/hal/interface.h
 // for more details on respective formats.
 int GetMatType(const mediapipe::ImageFormat::Format format) {
-  int type = 0;
-  switch (format) {
+    int type = 0;
+    switch (format) {
     case mediapipe::ImageFormat::UNKNOWN:
-      // Invalid; Default to uchar.
-      type = CV_8U;
-      break;
+        // Invalid; Default to uchar.
+        type = CV_8U;
+        break;
     case mediapipe::ImageFormat::SRGB:
-      type = CV_8U;
-      break;
+        type = CV_8U;
+        break;
     case mediapipe::ImageFormat::SRGBA:
-      type = CV_8U;
-      break;
+        type = CV_8U;
+        break;
     case mediapipe::ImageFormat::GRAY8:
-      type = CV_8U;
-      break;
+        type = CV_8U;
+        break;
     case mediapipe::ImageFormat::GRAY16:
-      type = CV_16U;
-      break;
+        type = CV_16U;
+        break;
     case mediapipe::ImageFormat::YCBCR420P:
-      // Invalid; Default to uchar.
-      type = CV_8U;
-      break;
+        // Invalid; Default to uchar.
+        type = CV_8U;
+        break;
     case mediapipe::ImageFormat::YCBCR420P10:
-      // Invalid; Default to uint16.
-      type = CV_16U;
-      break;
+        // Invalid; Default to uint16.
+        type = CV_16U;
+        break;
     case mediapipe::ImageFormat::SRGB48:
-      type = CV_16U;
-      break;
+        type = CV_16U;
+        break;
     case mediapipe::ImageFormat::SRGBA64:
-      type = CV_16U;
-      break;
+        type = CV_16U;
+        break;
     case mediapipe::ImageFormat::VEC32F1:
-      type = CV_32F;
-      break;
+        type = CV_32F;
+        break;
     case mediapipe::ImageFormat::VEC32F2:
-      type = CV_32FC2;
-      break;
+        type = CV_32FC2;
+        break;
     case mediapipe::ImageFormat::VEC32F4:
-      type = CV_32FC4;
-      break;
+        type = CV_32FC4;
+        break;
     case mediapipe::ImageFormat::LAB8:
-      type = CV_8U;
-      break;
+        type = CV_8U;
+        break;
     case mediapipe::ImageFormat::SBGRA:
-      type = CV_8U;
-      break;
+        type = CV_8U;
+        break;
     default:
-      // Invalid or unknown; Default to uchar.
-      type = CV_8U;
-      break;
-  }
-  return type;
+        // Invalid or unknown; Default to uchar.
+        type = CV_8U;
+        break;
+    }
+    return type;
 }
-}  // namespace
+} // namespace
 
 namespace mediapipe {
 namespace formats {
 
-cv::Mat MatView(const ImageFrame* image) {
-  const int dims = 2;
-  const int sizes[] = {image->Height(), image->Width()};
-  const int type =
-      CV_MAKETYPE(GetMatType(image->Format()), image->NumberOfChannels());
-  const size_t steps[] = {static_cast<size_t>(image->WidthStep()),
-                          static_cast<size_t>(image->ByteDepth())};
-  // Use ImageFrame to initialize in-place. ImageFrame still owns memory.
-  return cv::Mat(dims, sizes, type, const_cast<uint8_t*>(image->PixelData()),
-                 steps);
-}
+    cv::Mat MatView(const ImageFrame* image) {
+        const int    dims    = 2;
+        const int    sizes[] = {image->Height(), image->Width()};
+        const int    type    = CV_MAKETYPE(GetMatType(image->Format()), image->NumberOfChannels());
+        const size_t steps[] = {static_cast<size_t>(image->WidthStep()), static_cast<size_t>(image->ByteDepth())};
+        // Use ImageFrame to initialize in-place. ImageFrame still owns memory.
+        return cv::Mat(dims, sizes, type, const_cast<uint8_t*>(image->PixelData()), steps);
+    }
 
-}  // namespace formats
-}  // namespace mediapipe
+} // namespace formats
+} // namespace mediapipe

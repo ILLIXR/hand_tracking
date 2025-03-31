@@ -27,14 +27,13 @@ absl::StatusOr<Rectangle_f> ToRectangle(const mediapipe::NormalizedRect& input);
 
 // If the new_rect overlaps with any of the rectangles in
 // existing_rects, then return true. Otherwise, return false.
-absl::StatusOr<bool> DoesRectOverlap(
-    const mediapipe::NormalizedRect& new_rect,
-    absl::Span<const mediapipe::NormalizedRect> existing_rects,
-    float min_similarity_threshold);
+absl::StatusOr<bool> DoesRectOverlap(const mediapipe::NormalizedRect&            new_rect,
+                                     absl::Span<const mediapipe::NormalizedRect> existing_rects,
+                                     float                                       min_similarity_threshold);
 
 // Computes the Intersection over Union (IoU) between two rectangles.
 float CalculateIou(const Rectangle_f& rect1, const Rectangle_f& rect2);
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_RECTANGLE_UTIL_H_
+#endif // MEDIAPIPE_RECTANGLE_UTIL_H_

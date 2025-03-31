@@ -15,9 +15,9 @@
 #ifndef MEDIAPIPE_UTIL_RESOURCE_UTIL_H_
 #define MEDIAPIPE_UTIL_RESOURCE_UTIL_H_
 
-#include <string>
-
 #include "mediapipe/framework/port/statusor.h"
+
+#include <string>
 
 namespace mediapipe {
 
@@ -42,9 +42,8 @@ absl::StatusOr<std::string> PathToResourceAsFile(const std::string& path);
 
 // Reads the entire contents of a resource. The search path is as in
 // PathToResourceAsFile.
-absl::Status GetResourceContents(const std::string& path, std::string* output,
-                                 bool read_as_binary = true);
+absl::Status GetResourceContents(const std::string& path, std::string* output, bool read_as_binary = true);
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_UTIL_RESOURCE_UTIL_H_
+#endif // MEDIAPIPE_UTIL_RESOURCE_UTIL_H_

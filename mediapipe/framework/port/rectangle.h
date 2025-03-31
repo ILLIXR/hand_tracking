@@ -17,4 +17,4 @@
 
 #include "mediapipe/framework/deps/rectangle.h"
 
-#endif  // MEDIAPIPE_PORT_RECTANGLE_H_
+#endif // MEDIAPIPE_PORT_RECTANGLE_H_

@@ -20,11 +20,11 @@
 namespace mediapipe {
 namespace tflite_operations {
 
-TfLiteRegistration* RegisterLandmarksToTransformMatrixV1();
+    TfLiteRegistration* RegisterLandmarksToTransformMatrixV1();
 
-TfLiteRegistration* RegisterLandmarksToTransformMatrixV2();
+    TfLiteRegistration* RegisterLandmarksToTransformMatrixV2();
 
-}  // namespace tflite_operations
-}  // namespace mediapipe
+} // namespace tflite_operations
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_UTIL_TFLITE_OPERATIONS_LANDMARKS_TO_TRANSFORM_MATRIX_H_
+#endif // MEDIAPIPE_UTIL_TFLITE_OPERATIONS_LANDMARKS_TO_TRANSFORM_MATRIX_H_

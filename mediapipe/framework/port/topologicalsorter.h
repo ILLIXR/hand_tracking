@@ -17,4 +17,4 @@
 
 #include "mediapipe/framework/deps/topologicalsorter.h"
 
-#endif  // MEDIAPIPE_PORT_TOPOLOGICALSORTER_H_
+#endif // MEDIAPIPE_PORT_TOPOLOGICALSORTER_H_

@@ -17,4 +17,4 @@
 
 #include "mediapipe/framework/deps/threadpool.h"
 
-#endif  // MEDIAPIPE_PORT_THREADPOOL_H_
+#endif // MEDIAPIPE_PORT_THREADPOOL_H_

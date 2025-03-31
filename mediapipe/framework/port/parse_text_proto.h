@@ -22,18 +22,18 @@
 
 namespace mediapipe {
 
-template <typename T>
+template<typename T>
 bool ParseTextProto(const std::string& input, T* proto) {
-  return proto_ns::TextFormat::ParseFromString(input, proto);
+    return proto_ns::TextFormat::ParseFromString(input, proto);
 }
 
-template <typename T>
+template<typename T>
 T ParseTextProtoOrDie(const std::string& input) {
-  T result;
-  ABSL_CHECK(ParseTextProto(input, &result));
-  return result;
+    T result;
+    ABSL_CHECK(ParseTextProto(input, &result));
+    return result;
 }
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_PORT_PARSE_TEXT_PROTO_H_
+#endif // MEDIAPIPE_PORT_PARSE_TEXT_PROTO_H_

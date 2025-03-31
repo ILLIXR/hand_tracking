@@ -26,8 +26,8 @@
 #include "mediapipe/framework/port/proto_ns.h"
 
 namespace mediapipe {
-using proto_int64 = google::protobuf::int64;
+using proto_int64  = google::protobuf::int64;
 using proto_uint64 = google::protobuf::uint64;
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_PORT_ADVANCED_PROTO_LITE_INC_H_
+#endif // MEDIAPIPE_PORT_ADVANCED_PROTO_LITE_INC_H_

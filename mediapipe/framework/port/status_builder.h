@@ -17,4 +17,4 @@
 
 #include "mediapipe/framework/deps/status_builder.h"
 
-#endif  // MEDIAPIPE_PORT_STATUS_BUILDER_H_
+#endif // MEDIAPIPE_PORT_STATUS_BUILDER_H_

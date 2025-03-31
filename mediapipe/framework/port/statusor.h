@@ -19,10 +19,9 @@
 
 namespace mediapipe {
 
-template <typename T>
-using StatusOr ABSL_DEPRECATED("Use absl::StatusOr directly") =
-    absl::StatusOr<T>;
+template<typename T>
+using StatusOr ABSL_DEPRECATED("Use absl::StatusOr directly") = absl::StatusOr<T>;
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_PORT_STATUSOR_H_
+#endif // MEDIAPIPE_PORT_STATUSOR_H_

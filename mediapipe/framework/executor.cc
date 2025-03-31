@@ -16,8 +16,8 @@
 
 namespace mediapipe {
 
-TaskQueue::~TaskQueue() {}
+TaskQueue::~TaskQueue() { }
 
-Executor::~Executor() {}
+Executor::~Executor() { }
 
-}  // namespace mediapipe
+} // namespace mediapipe

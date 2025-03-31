@@ -19,16 +19,15 @@
 #ifndef MEDIAPIPE_DEPS_MAP_UTIL_H_
 #define MEDIAPIPE_DEPS_MAP_UTIL_H_
 
-#include <stddef.h>
+#include "absl/log/absl_check.h"
+#include "mediapipe/framework/port/logging.h"
 
 #include <iterator>
 #include <memory>
+#include <stddef.h>
 #include <string>
 #include <type_traits>
 #include <utility>
-
-#include "absl/log/absl_check.h"
-#include "mediapipe/framework/port/logging.h"
 
 namespace mediapipe {
 
@@ -50,22 +49,20 @@ namespace mediapipe {
 //
 // This version assumes the key is printable, and includes it in the fatal log
 // message.
-template <typename M>
-const typename M::value_type::second_type& FindOrDie(
-    const M& m, const typename M::value_type::first_type& key) {
-  auto it = m.find(key);
-  ABSL_CHECK(it != m.end()) << "Map key not found: " << key;
-  return it->second;
+template<typename M>
+const typename M::value_type::second_type& FindOrDie(const M& m, const typename M::value_type::first_type& key) {
+    auto it = m.find(key);
+    ABSL_CHECK(it != m.end()) << "Map key not found: " << key;
+    return it->second;
 }
 
 // Same as above, but returns a non-const reference.
-template <typename M>
-typename M::value_type::second_type& FindOrDie(
-    M& m,  // NOLINT
-    const typename M::value_type::first_type& key) {
-  auto it = m.find(key);
-  ABSL_CHECK(it != m.end()) << "Map key not found: " << key;
-  return it->second;
+template<typename M>
+typename M::value_type::second_type& FindOrDie(M&                                        m, // NOLINT
+                                               const typename M::value_type::first_type& key) {
+    auto it = m.find(key);
+    ABSL_CHECK(it != m.end()) << "Map key not found: " << key;
+    return it->second;
 }
 
 // Returns a const reference to the value associated with the given key if it
@@ -77,77 +74,73 @@ typename M::value_type::second_type& FindOrDie(
 // example: if you have a map with std::string values, and you pass a char*
 // as the default "value," either use the returned value immediately
 // or store it in a std::string (not std::string&).
-template <typename M>
-const typename M::value_type::second_type& FindWithDefault(
-    const M& m, const typename M::value_type::first_type& key,
-    const typename M::value_type::second_type& value) {
-  auto it = m.find(key);
-  if (it != m.end()) {
-    return it->second;
-  }
-  return value;
+template<typename M>
+const typename M::value_type::second_type& FindWithDefault(const M& m, const typename M::value_type::first_type& key,
+                                                           const typename M::value_type::second_type& value) {
+    auto it = m.find(key);
+    if (it != m.end()) {
+        return it->second;
+    }
+    return value;
 }
 
 // Returns a pointer to the const value associated with the given key if it
 // exists, or null otherwise.
-template <typename M>
-const typename M::value_type::second_type* FindOrNull(
-    const M& m, const typename M::value_type::first_type& key) {
-  auto it = m.find(key);
-  if (it == m.end()) {
-    return nullptr;
-  }
-  return &it->second;
+template<typename M>
+const typename M::value_type::second_type* FindOrNull(const M& m, const typename M::value_type::first_type& key) {
+    auto it = m.find(key);
+    if (it == m.end()) {
+        return nullptr;
+    }
+    return &it->second;
 }
 
 // Returns a pointer to the non-const value associated with the given key if it
 // exists, or null otherwise.
-template <typename M>
-typename M::value_type::second_type* FindOrNull(
-    M& m,  // NOLINT
-    const typename M::value_type::first_type& key) {
-  auto it = m.find(key);
-  if (it == m.end()) {
-    return nullptr;
-  }
-  return &it->second;
+template<typename M>
+typename M::value_type::second_type* FindOrNull(M&                                        m, // NOLINT
+                                                const typename M::value_type::first_type& key) {
+    auto it = m.find(key);
+    if (it == m.end()) {
+        return nullptr;
+    }
+    return &it->second;
 }
 
 // Returns true if and only if the given m contains the given key.
-template <typename M, typename Key>
+template<typename M, typename Key>
 bool ContainsKey(const M& m, const Key& key) {
-  return m.find(key) != m.end();
+    return m.find(key) != m.end();
 }
 
 // Inserts the given key and value into the given m if and only if the
 // given key did NOT already exist in the m. If the key previously
 // existed in the m, the value is not changed. Returns true if the
 // key-value pair was inserted; returns false if the key was already present.
-template <typename M>
+template<typename M>
 bool InsertIfNotPresent(M* m, const typename M::value_type& vt) {
-  return m->insert(vt).second;
+    return m->insert(vt).second;
 }
 
 // Same as above except the key and value are passed separately.
-template <typename M>
-bool InsertIfNotPresent(M* m, const typename M::value_type::first_type& key,
-                        const typename M::value_type::second_type& value) {
-  return InsertIfNotPresent(m, {key, value});
+template<typename M>
+bool InsertIfNotPresent(M* m, const typename M::value_type::first_type& key, const typename M::value_type::second_type& value) {
+    return InsertIfNotPresent(m, {key, value});
 }
 
 // Saves the reverse mapping into reverse. Returns true if values could all be
 // inserted.
-template <typename M, typename ReverseM>
+template<typename M, typename ReverseM>
 bool ReverseMap(const M& m, ReverseM* reverse) {
-  ABSL_CHECK(reverse != nullptr);
-  for (const auto& kv : m) {
-    if (!InsertIfNotPresent(reverse, kv.second, kv.first)) {
-      return false;
+    ABSL_CHECK(reverse != nullptr);
+    for (const auto& kv : m) {
+        if (!InsertIfNotPresent(reverse, kv.second, kv.first)) {
+            return false;
+        }
     }
-  }
-  return true;
+    return true;
 }
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_DEPS_MAP_UTIL_H_
+#endif // MEDIAPIPE_DEPS_MAP_UTIL_H_

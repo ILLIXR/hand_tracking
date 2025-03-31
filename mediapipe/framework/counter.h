@@ -22,15 +22,16 @@
 namespace mediapipe {
 
 class Counter {
- public:
-  Counter() {}
-  virtual ~Counter() {}
+public:
+    Counter() { }
 
-  virtual void Increment() = 0;
-  virtual void IncrementBy(int amount) = 0;
-  virtual int64_t Get() = 0;
+    virtual ~Counter() { }
+
+    virtual void    Increment()             = 0;
+    virtual void    IncrementBy(int amount) = 0;
+    virtual int64_t Get()                   = 0;
 };
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_FRAMEWORK_COUNTER_H_
+#endif // MEDIAPIPE_FRAMEWORK_COUNTER_H_

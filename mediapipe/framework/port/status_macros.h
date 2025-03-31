@@ -17,4 +17,4 @@
 
 #include "mediapipe/framework/deps/status_macros.h"
 
-#endif  // MEDIAPIPE_PORT_STATUS_MACROS_H_
+#endif // MEDIAPIPE_PORT_STATUS_MACROS_H_

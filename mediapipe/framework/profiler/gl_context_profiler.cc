@@ -12,8 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include <memory>
-
 #include "absl/log/absl_check.h"
 #include "absl/log/absl_log.h"
 #include "absl/memory/memory.h"
@@ -22,4 +20,6 @@
 #include "absl/types/optional.h"
 #include "mediapipe/framework/profiler/graph_profiler.h"
 
-namespace mediapipe {}  // namespace mediapipe
+#include <memory>
+
+namespace mediapipe { } // namespace mediapipe

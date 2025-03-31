@@ -31,107 +31,145 @@
 #ifndef MEDIAPIPE_DEPS_POINT2_H_
 #define MEDIAPIPE_DEPS_POINT2_H_
 
+#include "mediapipe/framework/deps/mathutil.h"
+#include "mediapipe/framework/deps/vector.h"
+#include "mediapipe/framework/port/logging.h"
+
 #include <cmath>
 #include <cstdint>
 #include <cstdlib>
 #include <iosfwd>
 
-#include "mediapipe/framework/deps/mathutil.h"
-#include "mediapipe/framework/deps/vector.h"
-#include "mediapipe/framework/port/logging.h"
-
 // Template class for 2D points
-template <typename T>
+template<typename T>
 class Point2 {
- public:
-  typedef T ElementType;
-  typedef Vector2<T> Coords;
+public:
+    typedef T          ElementType;
+    typedef Vector2<T> Coords;
 
-  Point2() {}
-  Point2(const T& x, const T& y) : c_(x, y) {}
-  explicit Point2(const Coords& v) : c_(v) {}
+    Point2() { }
 
-  Coords ToVector() const { return c_; }
+    Point2(const T& x, const T& y)
+        : c_(x, y) { }
 
-  void Set(const T& x, const T& y) { *this = Point2(x, y); }
+    explicit Point2(const Coords& v)
+        : c_(v) { }
 
-  T* Data() { return c_.Data(); }
-  const T* Data() const { return c_.Data(); }
+    Coords ToVector() const {
+        return c_;
+    }
 
-  void Clear() { *this = Point2(); }
+    void Set(const T& x, const T& y) {
+        *this = Point2(x, y);
+    }
 
-  Point2& operator+=(const Coords& v) {
-    c_ += v;
-    return *this;
-  }
-  Point2& operator-=(const Coords& v) {
-    c_ -= v;
-    return *this;
-  }
+    T* Data() {
+        return c_.Data();
+    }
 
-  const T& operator[](std::size_t b) const { return Data()[b]; }
-  T& operator[](std::size_t b) { return Data()[b]; }
+    const T* Data() const {
+        return c_.Data();
+    }
 
-  const T& x() const { return (*this)[0]; }
-  const T& y() const { return (*this)[1]; }
-  void set_x(const T& x) { (*this)[0] = x; }
-  void set_y(const T& y) { (*this)[1] = y; }
+    void Clear() {
+        *this = Point2();
+    }
 
-  // Compares two points, returns true if all their components are within
-  // a difference of a tolerance.
-  bool aequal(const Point2& p, double tolerance) const {
-    using std::abs;
-    return (abs(c_[0] - p.c_[0]) <= tolerance) &&
-           (abs(c_[1] - p.c_[1]) <= tolerance);
-  }
+    Point2& operator+=(const Coords& v) {
+        c_ += v;
+        return *this;
+    }
 
- private:
-  // Friend arithmetic operators.
-  friend Point2 operator+(const Point2& p, const Coords& v) {
-    return Point2(p.c_ + v);
-  }
-  friend Point2 operator+(const Coords& v, const Point2& p) {
-    return Point2(v + p.c_);
-  }
-  friend Point2 operator-(const Point2& p, const Coords& v) {
-    return Point2(p.c_ - v);
-  }
-  friend Coords operator-(const Point2& p1, const Point2& p2) {
-    return p1.c_ - p2.c_;
-  }
+    Point2& operator-=(const Coords& v) {
+        c_ -= v;
+        return *this;
+    }
 
-  // Friend relational nonmember operators.
-  friend bool operator==(const Point2& a, const Point2& b) {
-    return a.c_ == b.c_;
-  }
-  friend bool operator!=(const Point2& a, const Point2& b) {
-    return a.c_ != b.c_;
-  }
-  friend bool operator<(const Point2& a, const Point2& b) {
-    return a.c_ < b.c_;
-  }
-  friend bool operator>(const Point2& a, const Point2& b) {
-    return a.c_ > b.c_;
-  }
-  friend bool operator<=(const Point2& a, const Point2& b) {
-    return a.c_ <= b.c_;
-  }
-  friend bool operator>=(const Point2& a, const Point2& b) {
-    return a.c_ >= b.c_;
-  }
+    const T& operator[](std::size_t b) const {
+        return Data()[b];
+    }
 
-  // Streaming operator.
-  friend std::ostream& operator<<(std::ostream& out, const Point2& p) {
-    return out << "Point with coordinates: (" << p.c_[0] << ", " << p.c_[1]
-               << ")";
-  }
+    T& operator[](std::size_t b) {
+        return Data()[b];
+    }
 
-  Coords c_;  // coordinates
+    const T& x() const {
+        return (*this)[0];
+    }
+
+    const T& y() const {
+        return (*this)[1];
+    }
+
+    void set_x(const T& x) {
+        (*this)[0] = x;
+    }
+
+    void set_y(const T& y) {
+        (*this)[1] = y;
+    }
+
+    // Compares two points, returns true if all their components are within
+    // a difference of a tolerance.
+    bool aequal(const Point2& p, double tolerance) const {
+        using std::abs;
+        return (abs(c_[0] - p.c_[0]) <= tolerance) && (abs(c_[1] - p.c_[1]) <= tolerance);
+    }
+
+private:
+    // Friend arithmetic operators.
+    friend Point2 operator+(const Point2& p, const Coords& v) {
+        return Point2(p.c_ + v);
+    }
+
+    friend Point2 operator+(const Coords& v, const Point2& p) {
+        return Point2(v + p.c_);
+    }
+
+    friend Point2 operator-(const Point2& p, const Coords& v) {
+        return Point2(p.c_ - v);
+    }
+
+    friend Coords operator-(const Point2& p1, const Point2& p2) {
+        return p1.c_ - p2.c_;
+    }
+
+    // Friend relational nonmember operators.
+    friend bool operator==(const Point2& a, const Point2& b) {
+        return a.c_ == b.c_;
+    }
+
+    friend bool operator!=(const Point2& a, const Point2& b) {
+        return a.c_ != b.c_;
+    }
+
+    friend bool operator<(const Point2& a, const Point2& b) {
+        return a.c_ < b.c_;
+    }
+
+    friend bool operator>(const Point2& a, const Point2& b) {
+        return a.c_ > b.c_;
+    }
+
+    friend bool operator<=(const Point2& a, const Point2& b) {
+        return a.c_ <= b.c_;
+    }
+
+    friend bool operator>=(const Point2& a, const Point2& b) {
+        return a.c_ >= b.c_;
+    }
+
+    // Streaming operator.
+    friend std::ostream& operator<<(std::ostream& out, const Point2& p) {
+        return out << "Point with coordinates: (" << p.c_[0] << ", " << p.c_[1] << ")";
+    }
+
+    Coords c_; // coordinates
 };
 
 typedef Point2<uint8_t> Point2_b;
-typedef Point2<int> Point2_i;
-typedef Point2<float> Point2_f;
-typedef Point2<double> Point2_d;
+typedef Point2<int>     Point2_i;
+typedef Point2<float>   Point2_f;
+typedef Point2<double>  Point2_d;
 
-#endif  // MEDIAPIPE_DEPS_POINT2_H_
+#endif // MEDIAPIPE_DEPS_POINT2_H_

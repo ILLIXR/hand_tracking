@@ -20,10 +20,10 @@
 namespace mediapipe {
 namespace tflite_operations {
 
-// Register tfa.image.resampler custom operator implementation.
-TfLiteRegistration* RegisterResampler();
+    // Register tfa.image.resampler custom operator implementation.
+    TfLiteRegistration* RegisterResampler();
 
-}  // namespace tflite_operations
-}  // namespace mediapipe
+} // namespace tflite_operations
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_UTIL_TFLITE_OPERATIONS_RESAMPLER_H_
+#endif // MEDIAPIPE_UTIL_TFLITE_OPERATIONS_RESAMPLER_H_

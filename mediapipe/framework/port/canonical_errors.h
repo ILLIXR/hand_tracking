@@ -17,4 +17,4 @@
 
 #include "mediapipe/framework/deps/canonical_errors.h"
 
-#endif  // MEDIAPIPE_PORT_CANONICAL_ERRORS_H_
+#endif // MEDIAPIPE_PORT_CANONICAL_ERRORS_H_

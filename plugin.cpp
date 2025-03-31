@@ -64,7 +64,7 @@ ht::cam_type hand_tracking::get_cam_type() {
     if (cam_type_ == ht::WEBCAM) {
         input_type_   = ht::RGB;
         first_person_ = false;
-    } else if (const char *in_type = switchboard_->get_env_char("HT_INPUT_TYPE")) {
+    } else if (const char* in_type = switchboard_->get_env_char("HT_INPUT_TYPE")) {
         if (strcmp(in_type, "LEFT") == 0 || strcmp(in_type, "SINGLE") == 0) {
             input_type_ = ht::LEFT;
         } else if (strcmp(in_type, "RIGHT") == 0) {

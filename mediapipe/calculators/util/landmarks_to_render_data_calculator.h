@@ -25,6 +25,7 @@
 #include "mediapipe/framework/port/ret_check.h"
 #include "mediapipe/util/color.pb.h"
 #include "mediapipe/util/render_data.pb.h"
+
 namespace mediapipe {
 
 // A calculator that converts Landmark proto to RenderData proto for
@@ -46,24 +47,24 @@ namespace mediapipe {
 //   }
 // }
 class LandmarksToRenderDataCalculator : public CalculatorBase {
- public:
-  LandmarksToRenderDataCalculator() {}
-  ~LandmarksToRenderDataCalculator() override {}
-  LandmarksToRenderDataCalculator(const LandmarksToRenderDataCalculator&) =
-      delete;
-  LandmarksToRenderDataCalculator& operator=(
-      const LandmarksToRenderDataCalculator&) = delete;
+public:
+    LandmarksToRenderDataCalculator() { }
 
-  static absl::Status GetContract(CalculatorContract* cc);
+    ~LandmarksToRenderDataCalculator() override { }
 
-  absl::Status Open(CalculatorContext* cc) override;
+    LandmarksToRenderDataCalculator(const LandmarksToRenderDataCalculator&)            = delete;
+    LandmarksToRenderDataCalculator& operator=(const LandmarksToRenderDataCalculator&) = delete;
 
-  absl::Status Process(CalculatorContext* cc) override;
+    static absl::Status GetContract(CalculatorContract* cc);
 
- protected:
-  ::mediapipe::LandmarksToRenderDataCalculatorOptions options_;
-  std::vector<int> landmark_connections_;
+    absl::Status Open(CalculatorContext* cc) override;
+
+    absl::Status Process(CalculatorContext* cc) override;
+
+protected:
+    ::mediapipe::LandmarksToRenderDataCalculatorOptions options_;
+    std::vector<int>                                    landmark_connections_;
 };
 
-}  // namespace mediapipe
-#endif  // MEDIAPIPE_CALCULATORS_UTIL_LANDMARKS_TO_RENDER_DATA_CALCULATOR_H_
+} // namespace mediapipe
+#endif // MEDIAPIPE_CALCULATORS_UTIL_LANDMARKS_TO_RENDER_DATA_CALCULATOR_H_

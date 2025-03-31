@@ -32,10 +32,9 @@ extern "C" {
  */
 
 /*!
-* A wrapper around a native mutex.
-*/
-struct os_mutex
-{
+ * A wrapper around a native mutex.
+ */
+struct os_mutex {
     pthread_mutex_t mutex;
 
 #ifndef NDEBUG
@@ -49,8 +48,7 @@ struct os_mutex
  *
  * @ingroup oxr_main
  */
-enum oxr_space_type
-{
+enum oxr_space_type {
     OXR_SPACE_TYPE_REFERENCE_VIEW,
     OXR_SPACE_TYPE_REFERENCE_LOCAL,
     OXR_SPACE_TYPE_REFERENCE_LOCAL_FLOOR,
@@ -63,24 +61,22 @@ enum oxr_space_type
     OXR_SPACE_TYPE_XDEV_POSE,
 };
 
-static inline bool
-oxr_space_type_is_reference(enum oxr_space_type space_type)
-{
+static inline bool oxr_space_type_is_reference(enum oxr_space_type space_type) {
     switch (space_type) {
-        case OXR_SPACE_TYPE_REFERENCE_VIEW:
-        case OXR_SPACE_TYPE_REFERENCE_LOCAL:
-        case OXR_SPACE_TYPE_REFERENCE_LOCAL_FLOOR:
-        case OXR_SPACE_TYPE_REFERENCE_STAGE:
-        case OXR_SPACE_TYPE_REFERENCE_UNBOUNDED_MSFT:
-        case OXR_SPACE_TYPE_REFERENCE_COMBINED_EYE_VARJO:
-        case OXR_SPACE_TYPE_REFERENCE_LOCALIZATION_MAP_ML:
-            // These are reference spaces.
-            return true;
+    case OXR_SPACE_TYPE_REFERENCE_VIEW:
+    case OXR_SPACE_TYPE_REFERENCE_LOCAL:
+    case OXR_SPACE_TYPE_REFERENCE_LOCAL_FLOOR:
+    case OXR_SPACE_TYPE_REFERENCE_STAGE:
+    case OXR_SPACE_TYPE_REFERENCE_UNBOUNDED_MSFT:
+    case OXR_SPACE_TYPE_REFERENCE_COMBINED_EYE_VARJO:
+    case OXR_SPACE_TYPE_REFERENCE_LOCALIZATION_MAP_ML:
+        // These are reference spaces.
+        return true;
 
-        case OXR_SPACE_TYPE_ACTION:
-        case OXR_SPACE_TYPE_XDEV_POSE:
-            // These are not reference spaces.
-            return false;
+    case OXR_SPACE_TYPE_ACTION:
+    case OXR_SPACE_TYPE_XDEV_POSE:
+        // These are not reference spaces.
+        return false;
     }
 
     // Handles invalid value.
@@ -106,16 +102,14 @@ oxr_space_type_is_reference(enum oxr_space_type space_type)
  * @see xrt_input_name
  * @ingroup xrt_iface
  */
-#define XRT_INPUT_NAME(id, type) ((UINT32_C(id) << XRT_INPUT_TYPE_BITWIDTH) | (uint32_t)XRT_INPUT_TYPE_##type)
-
+#define XRT_INPUT_NAME(id, type) ((UINT32_C(id) << XRT_INPUT_TYPE_BITWIDTH) | (uint32_t) XRT_INPUT_TYPE_##type)
 
 /*!
  * Base type of this inputs.
  *
  * @ingroup xrt_iface
  */
-enum xrt_input_type
-{
+enum xrt_input_type {
     // clang-format off
     //! Float input in [0, 1]
     XRT_INPUT_TYPE_VEC1_ZERO_TO_ONE      = 0x00,
@@ -144,8 +138,7 @@ enum xrt_input_type
  * @see xrt_input_type
  * @ingroup xrt_iface
  */
-enum xrt_input_name
-{
+enum xrt_input_name {
     // clang-format off
     //! Standard pose used for rendering
     XRT_INPUT_GENERIC_HEAD_POSE                       = XRT_INPUT_NAME(0x0000, POSE),
@@ -159,26 +152,24 @@ enum xrt_input_name
     // clang-format on
 };
 
-
 /*!
  * A quaternion with single floats.
  *
  * @ingroup xrt_iface math
  */
-struct xrt_quat
-{
+struct xrt_quat {
     float x;
     float y;
     float z;
     float w;
 };
+
 /*!
  * A 3 element vector with single floats.
  *
  * @ingroup xrt_iface math
  */
-struct xrt_vec3
-{
+struct xrt_vec3 {
     float x;
     float y;
     float z;
@@ -191,8 +182,7 @@ struct xrt_vec3
  * @see xrt_vec3
  * @ingroup xrt_iface math
  */
-struct xrt_pose
-{
+struct xrt_pose {
     struct xrt_quat orientation;
     struct xrt_vec3 position;
 };
@@ -203,8 +193,7 @@ struct xrt_pose
  *
  * @ingroup oxr_main
  */
-enum oxr_handle_state
-{
+enum oxr_handle_state {
     /*! State during/before oxr_handle_init, or after failure */
     OXR_HANDLE_STATE_UNINITIALIZED = 0,
 
@@ -220,8 +209,7 @@ enum oxr_handle_state
  *
  * @relates oxr_handle_base
  */
-typedef XrResult (*oxr_handle_destroyer)(struct oxr_logger *log, struct oxr_handle_base *hb);
-
+typedef XrResult (*oxr_handle_destroyer)(struct oxr_logger* log, struct oxr_handle_base* hb);
 
 /*!
  * Used to hold diverse child handles and ensure orderly destruction.
@@ -229,20 +217,19 @@ typedef XrResult (*oxr_handle_destroyer)(struct oxr_logger *log, struct oxr_hand
  * Each object referenced by an OpenXR handle should have one of these as its
  * first element, thus "extending" this class.
  */
-struct oxr_handle_base
-{
+struct oxr_handle_base {
     //! Magic (per-handle-type) value for debugging.
     uint64_t debug;
 
     /*!
      * Pointer to this object's parent handle holder, if any.
      */
-    struct oxr_handle_base *parent;
+    struct oxr_handle_base* parent;
 
     /*!
      * Array of children, if any.
      */
-    struct oxr_handle_base *children[XRT_MAX_HANDLE_CHILDREN];
+    struct oxr_handle_base* children[XRT_MAX_HANDLE_CHILDREN];
 
     /*!
      * Current handle state.
@@ -266,12 +253,12 @@ struct oxr_handle_base
  *
  * @note Keep this synchronized with OXR_ACTION_GET_FILLER!
  */
-#define OXR_FOR_EACH_VALID_SUBACTION_PATH(_)                                                                           \
-	_(left)                                                                                                        \
-	_(right)                                                                                                       \
-	_(head)                                                                                                        \
-	_(gamepad)                                                                                                     \
-	_(eyes)
+#define OXR_FOR_EACH_VALID_SUBACTION_PATH(_) \
+    _(left)                                  \
+    _(right)                                 \
+    _(head)                                  \
+    _(gamepad)                               \
+    _(eyes)
 
 /*!
  * Expansion macro (x-macro) that calls the macro you pass with the shorthand
@@ -281,9 +268,9 @@ struct oxr_handle_base
  *
  * @note Keep this synchronized with OXR_ACTION_GET_FILLER!
  */
-#define OXR_FOR_EACH_SUBACTION_PATH(_)                                                                                 \
-	OXR_FOR_EACH_VALID_SUBACTION_PATH(_)                                                                           \
-	_(user)
+#define OXR_FOR_EACH_SUBACTION_PATH(_)   \
+    OXR_FOR_EACH_VALID_SUBACTION_PATH(_) \
+    _(user)
 
 /*!
  * A parsed equivalent of a list of sub-action paths.
@@ -294,8 +281,7 @@ struct oxr_handle_base
  * @ingroup oxr_main
  * @ingroup oxr_input
  */
-struct oxr_subaction_paths
-{
+struct oxr_subaction_paths {
     bool any;
 #define OXR_SUBPATH_MEMBER(X) bool X;
     OXR_FOR_EACH_SUBACTION_PATH(OXR_SUBPATH_MEMBER)
@@ -311,13 +297,12 @@ struct oxr_subaction_paths
  * @obj{XrSpace}
  * @extends oxr_handle_base
  */
-struct oxr_space
-{
+struct oxr_space {
     //! Common structure for things referred to by OpenXR handles.
     struct oxr_handle_base handle;
 
     //! Owner of this space.
-    struct oxr_session *sess;
+    struct oxr_session* sess;
 
     //! Pose that was given during creation.
     struct xrt_pose pose;
@@ -331,27 +316,22 @@ struct oxr_space
     //! Which sub action path is this?
     struct oxr_subaction_paths subaction_paths;
 
-    struct
-    {
-        struct xrt_space *xs;
-        struct xrt_device *xdev;
+    struct {
+        struct xrt_space*   xs;
+        struct xrt_device*  xdev;
         enum xrt_input_name name;
     } action;
 
-    struct
-    {
-        struct xrt_space *xs;
+    struct {
+        struct xrt_space* xs;
     } xdev_pose;
 };
-
-
 
 /*!
  * A enum that is used to name devices so that the
  * state trackers can reason about the devices easier.
  */
-enum xrt_device_name
-{
+enum xrt_device_name {
     XRT_DEVICE_INVALID = 0,
 
     XRT_DEVICE_GENERIC_HMD = 1,
@@ -433,8 +413,7 @@ enum xrt_device_name
  * @see xrt_system_devices
  * @ingroup xrt_iface
  */
-struct xrt_system_roles
-{
+struct xrt_system_roles {
     /*!
      * Monotonically increasing generation counter for the association
      * between role and index.
@@ -472,15 +451,14 @@ struct xrt_system_roles
     enum xrt_device_name gamepad_profile;
 };
 
-
 #define MAKE_EXT_STATUS(mixed_case, all_caps) bool mixed_case;
+
 /*!
  * Structure tracking which extensions are enabled for a given instance.
  *
  * Names are systematic: the extension name with the XR_ prefix removed.
  */
-struct oxr_extension_status
-{
+struct oxr_extension_status {
     bool KHR_binding_modification;
     bool KHR_composition_layer_cylinder;
     bool KHR_composition_layer_depth;
@@ -522,9 +500,8 @@ struct oxr_extension_status
     bool MNDX_system_buttons;
     bool MNDX_xdev_space;
 };
+
 #undef MAKE_EXT_STATUS
-
-
 
 /*!
  * Single or multiple devices grouped together to form a system that sessions
@@ -537,41 +514,40 @@ struct oxr_extension_status
  *
  * @obj{XrSystemId}
  */
-struct oxr_system
-{
-    struct oxr_instance *inst;
+struct oxr_system {
+    struct oxr_instance* inst;
 
     //! The @ref xrt_iface level system.
-    struct xrt_system *xsys;
+    struct xrt_system* xsys;
 
     //! System devices used in all session types.
-    struct xrt_system_devices *xsysd;
+    struct xrt_system_devices* xsysd;
 
     //! Space overseer used in all session types.
-    struct xrt_space_overseer *xso;
+    struct xrt_space_overseer* xso;
 
     //! System compositor, used to create session compositors.
-    struct xrt_system_compositor *xsysc;
+    struct xrt_system_compositor* xsysc;
 
     XrSystemId systemId;
 
     //! Have the client application called the gfx api requirements func?
     bool gotten_requirements;
 
-    XrFormFactor form_factor;
+    XrFormFactor            form_factor;
     XrViewConfigurationType view_config_type;
     XrViewConfigurationView views[2];
-    uint32_t blend_mode_count;
-    XrEnvironmentBlendMode blend_modes[3];
+    uint32_t                blend_mode_count;
+    XrEnvironmentBlendMode  blend_modes[3];
 
     XrReferenceSpaceType reference_spaces[5];
-    uint32_t reference_space_count;
+    uint32_t             reference_space_count;
 
     //! Cache of the last known system roles, see @ref xrt_system_roles::generation_id
     struct xrt_system_roles dynamic_roles_cache;
-    struct os_mutex sync_actions_mutex;
+    struct os_mutex         sync_actions_mutex;
 
-    struct xrt_visibility_mask *visibility_mask[2];
+    struct xrt_visibility_mask* visibility_mask[2];
 
 #ifdef OXR_HAVE_MNDX_xdev_space
     bool supports_xdev_space;
@@ -579,20 +555,19 @@ struct oxr_system
 
 #ifdef XR_USE_GRAPHICS_API_VULKAN
     //! The instance/device we create when vulkan_enable2 is used
-	VkInstance vulkan_enable2_instance;
-	//! The device returned with the last xrGetVulkanGraphicsDeviceKHR or xrGetVulkanGraphicsDevice2KHR call.
-	//! XR_NULL_HANDLE if neither has been called.
-	VkPhysicalDevice suggested_vulkan_physical_device;
+    VkInstance vulkan_enable2_instance;
+    //! The device returned with the last xrGetVulkanGraphicsDeviceKHR or xrGetVulkanGraphicsDevice2KHR call.
+    //! XR_NULL_HANDLE if neither has been called.
+    VkPhysicalDevice suggested_vulkan_physical_device;
 
-	struct
-	{
-		// No better place to keep this state.
-		bool external_fence_fd_enabled;
-		bool external_semaphore_fd_enabled;
-		bool timeline_semaphore_enabled;
-		bool debug_utils_enabled;
-		bool image_format_list_enabled;
-	} vk;
+    struct {
+        // No better place to keep this state.
+        bool external_fence_fd_enabled;
+        bool external_semaphore_fd_enabled;
+        bool timeline_semaphore_enabled;
+        bool debug_utils_enabled;
+        bool image_format_list_enabled;
+    } vk;
 
 #endif
 };
@@ -605,21 +580,19 @@ struct oxr_system
  * @obj{XrInstance}
  * @extends oxr_handle_base
  */
-struct oxr_instance
-{
+struct oxr_instance {
     //! Common structure for things referred to by OpenXR handles.
     struct oxr_handle_base handle;
 
-    struct u_debug_gui *debug_ui;
+    struct u_debug_gui* debug_ui;
 
-    struct xrt_instance *xinst;
+    struct xrt_instance* xinst;
 
     //! Enabled extensions
     struct oxr_extension_status extensions;
 
     //! The OpenXR version requested in the app info. It determines the instance's OpenXR version.
-    struct
-    {
+    struct {
         //! Stores only major.minor version. Simplifies comparisons for e.g. "at least OpenXR 1.1".
         XrVersion major_minor;
     } openxr_version;
@@ -627,62 +600,54 @@ struct oxr_instance
     // Hardcoded single system.
     struct oxr_system system;
 
-    struct time_state *timekeeping;
+    struct time_state* timekeeping;
 
-    struct
-    {
-        struct u_hashset *name_store;
-        struct u_hashset *loc_store;
+    struct {
+        struct u_hashset* name_store;
+        struct u_hashset* loc_store;
     } action_sets;
 
     //! Path store, for looking up paths.
-    struct u_hashset *path_store;
+    struct u_hashset* path_store;
     //! Mapping from ID to path.
-    struct oxr_path **path_array;
+    struct oxr_path** path_array;
     //! Total length of path array.
     size_t path_array_length;
     //! Number of paths in the array (0 is always null).
     size_t path_num;
 
     // Event queue.
-    struct
-    {
-        struct os_mutex mutex;
-        struct oxr_event *last;
-        struct oxr_event *next;
+    struct {
+        struct os_mutex   mutex;
+        struct oxr_event* last;
+        struct oxr_event* next;
     } event;
 
     //! Interaction profile bindings that have been suggested by the client.
-    struct oxr_interaction_profile **profiles;
-    size_t profile_count;
+    struct oxr_interaction_profile** profiles;
+    size_t                           profile_count;
 
-    struct oxr_session *sessions;
+    struct oxr_session* sessions;
 
-    struct
-    {
-
+    struct {
 #define SUBACTION_PATH_MEMBER(X) XrPath X;
         OXR_FOR_EACH_SUBACTION_PATH(SUBACTION_PATH_MEMBER)
 
 #undef SUBACTION_PATH_MEMBER
     } path_cache;
 
-    struct
-    {
-        struct
-        {
-            struct
-            {
-                uint32_t major;
-                uint32_t minor;
-                uint32_t patch;
-                const char *name; //< Engine name, not freed.
+    struct {
+        struct {
+            struct {
+                uint32_t    major;
+                uint32_t    minor;
+                uint32_t    patch;
+                const char* name; //< Engine name, not freed.
             } engine;
         } detected;
     } appinfo;
 
-    struct
-    {
+    struct {
         //! Unreal has a bug in the VulkanRHI backend.
         bool disable_vulkan_format_depth_stencil;
         //! Unreal 4 has a bug calling xrEndSession; the function should just exit
@@ -699,17 +664,15 @@ struct oxr_instance
     } quirks;
 
     //! Debug messengers
-    struct oxr_debug_messenger *messengers[XRT_MAX_HANDLE_CHILDREN];
+    struct oxr_debug_messenger* messengers[XRT_MAX_HANDLE_CHILDREN];
 
     bool lifecycle_verbose;
     bool debug_views;
     bool debug_spaces;
     bool debug_bindings;
-
 };
 
-static const XrExtensionProperties extension_props = {XR_TYPE_EXTENSION_PROPERTIES, ((void *) 0), "XR_EXT_hand_tracking", 4};
-
+static const XrExtensionProperties extension_props = {XR_TYPE_EXTENSION_PROPERTIES, ((void*) 0), "XR_EXT_hand_tracking", 4};
 
 #ifdef __cplusplus
 }

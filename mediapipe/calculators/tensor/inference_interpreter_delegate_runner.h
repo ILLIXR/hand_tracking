@@ -15,9 +15,6 @@
 #ifndef MEDIAPIPE_CALCULATORS_TENSOR_INFERENCE_INTERPRETER_DELEGATE_RUNNER_H_
 #define MEDIAPIPE_CALCULATORS_TENSOR_INFERENCE_INTERPRETER_DELEGATE_RUNNER_H_
 
-#include <memory>
-#include <vector>
-
 #include "absl/status/statusor.h"
 #include "mediapipe/calculators/tensor/inference_runner.h"
 #include "mediapipe/calculators/tensor/tflite_delegate_ptr.h"
@@ -25,6 +22,9 @@
 #include "mediapipe/util/tflite/tflite_model_loader.h"
 #include "tensorflow/lite/c/c_api_types.h"
 #include "tensorflow/lite/core/api/op_resolver.h"
+
+#include <memory>
+#include <vector>
 
 namespace mediapipe {
 
@@ -34,14 +34,10 @@ namespace mediapipe {
 // `delegate` can be nullptr, in that case newly initialized interpreter will
 // use what is available by default.
 // `input_output_config` optional config to enable feedback tensors.
-absl::StatusOr<std::unique_ptr<InferenceRunner>>
-CreateInferenceInterpreterDelegateRunner(
-    api2::Packet<TfLiteModelPtr> model,
-    api2::Packet<tflite::OpResolver> op_resolver, TfLiteDelegatePtr delegate,
-    int interpreter_num_threads,
-    const mediapipe::InferenceCalculatorOptions::InputOutputConfig*
-        input_output_config = nullptr);
+absl::StatusOr<std::unique_ptr<InferenceRunner>> CreateInferenceInterpreterDelegateRunner(
+    api2::Packet<TfLiteModelPtr> model, api2::Packet<tflite::OpResolver> op_resolver, TfLiteDelegatePtr delegate,
+    int interpreter_num_threads, const mediapipe::InferenceCalculatorOptions::InputOutputConfig* input_output_config = nullptr);
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_CALCULATORS_TENSOR_INFERENCE_INTERPRETER_DELEGATE_RUNNER_H_
+#endif // MEDIAPIPE_CALCULATORS_TENSOR_INFERENCE_INTERPRETER_DELEGATE_RUNNER_H_

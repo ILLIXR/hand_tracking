@@ -21,12 +21,12 @@
 namespace mediapipe {
 
 class PacketGeneratorWrapperCalculator : public CalculatorBase {
- public:
-  static absl::Status GetContract(CalculatorContract* cc);
-  absl::Status Open(CalculatorContext* cc) override;
-  absl::Status Process(CalculatorContext* cc) override;
+public:
+    static absl::Status GetContract(CalculatorContract* cc);
+    absl::Status        Open(CalculatorContext* cc) override;
+    absl::Status        Process(CalculatorContext* cc) override;
 };
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_FRAMEWORK_TOOL_PACKET_GENERATOR_WRAPPER_CALCULATOR_H_
+#endif // MEDIAPIPE_FRAMEWORK_TOOL_PACKET_GENERATOR_WRAPPER_CALCULATOR_H_

@@ -21,26 +21,33 @@ namespace mediapipe {
 namespace protobuf {
 
 #if !defined(MEDIAPIPE_PROTO_LITE) || !defined(MEDIAPIPE_PROTO_THIRD_PARTY)
-// The full definition of protobuf::Any for most platforms.
-using Any = google::protobuf::Any;
+    // The full definition of protobuf::Any for most platforms.
+    using Any = google::protobuf::Any;
 #else
-// A dummy definition of protobuf::Any for third_party/protobuf:protobuf-lite.
-class Any {
- public:
-  bool UnpackTo(proto_ns::Message* message) const { return false; }
-  template <typename T>
-  bool Is() const {
-    return false;
-  }
-  absl::string_view type_url() const { return ""; }
-  static const Any& default_instance() {
-    static Any _Any_default_instance_;
-    return _Any_default_instance_;
-  }
-};
+    // A dummy definition of protobuf::Any for third_party/protobuf:protobuf-lite.
+    class Any {
+    public:
+        bool UnpackTo(proto_ns::Message* message) const {
+            return false;
+        }
+
+        template<typename T>
+        bool Is() const {
+            return false;
+        }
+
+        absl::string_view type_url() const {
+            return "";
+        }
+
+        static const Any& default_instance() {
+            static Any _Any_default_instance_;
+            return _Any_default_instance_;
+        }
+    };
 #endif
 
-}  // namespace protobuf
-}  // namespace mediapipe
+} // namespace protobuf
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_PORT_ANY_PROTO_H_
+#endif // MEDIAPIPE_PORT_ANY_PROTO_H_

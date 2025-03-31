@@ -15,14 +15,14 @@
 #ifndef MEDIAPIPE_FRAMEWORK_PORT_OPENCV_HIGHGUI_INC_H_
 #define MEDIAPIPE_FRAMEWORK_PORT_OPENCV_HIGHGUI_INC_H_
 
-#include <opencv2/core/version.hpp>
-
 #include "mediapipe/framework/port/opencv_core_inc.h"
 
-#ifdef CV_VERSION_EPOCH  // for OpenCV 2.x
-#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/core/version.hpp>
+
+#ifdef CV_VERSION_EPOCH // for OpenCV 2.x
+    #include <opencv2/highgui/highgui.hpp>
 #else
-#include <opencv2/highgui.hpp>
+    #include <opencv2/highgui.hpp>
 #endif
 
-#endif  // MEDIAPIPE_FRAMEWORK_PORT_OPENCV_HIGHGUI_INC_H_
+#endif // MEDIAPIPE_FRAMEWORK_PORT_OPENCV_HIGHGUI_INC_H_

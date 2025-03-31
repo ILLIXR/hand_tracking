@@ -15,20 +15,20 @@
 #ifndef MEDIAPIPE_DEPS_NUMBERS_H_
 #define MEDIAPIPE_DEPS_NUMBERS_H_
 
-#include <cstdint>
-#include <string>
-
 #include "absl/strings/numbers.h"
 #include "absl/strings/str_cat.h"
 
+#include <cstdint>
+#include <string>
+
 namespace mediapipe {
 ABSL_MUST_USE_RESULT inline std::string SimpleDtoa(double d) {
-  if (static_cast<double>(static_cast<int64_t>(d)) == d) {
-    return absl::StrCat(static_cast<int64_t>(d));
-  } else {
-    return absl::StrCat(d);
-  }
+    if (static_cast<double>(static_cast<int64_t>(d)) == d) {
+        return absl::StrCat(static_cast<int64_t>(d));
+    } else {
+        return absl::StrCat(d);
+    }
 }
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_DEPS_NUMBERS_H_
+#endif // MEDIAPIPE_DEPS_NUMBERS_H_

@@ -24,6 +24,6 @@ int NumCPUCores();
 std::set<int> InferLowerCoreIds();
 // Returns a set of inferred CPU ids of higher cores.
 std::set<int> InferHigherCoreIds();
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_UTIL_CPU_UTIL_H_
+#endif // MEDIAPIPE_UTIL_CPU_UTIL_H_

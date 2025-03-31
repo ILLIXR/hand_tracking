@@ -22,15 +22,15 @@
 namespace mediapipe {
 namespace formats {
 
-// ImageFrame to OpenCV helper conversion function.
-// A view into existing data is created (zero copy).
-// When converting a const ImageFrame into a cv::Mat,
-// the const modifier is lost.  The caller must be careful
-// not to use the returned object to modify the data in a const ImageFrame,
-// even though the returned data is mutable.
-cv::Mat MatView(const ImageFrame* image);
+    // ImageFrame to OpenCV helper conversion function.
+    // A view into existing data is created (zero copy).
+    // When converting a const ImageFrame into a cv::Mat,
+    // the const modifier is lost.  The caller must be careful
+    // not to use the returned object to modify the data in a const ImageFrame,
+    // even though the returned data is mutable.
+    cv::Mat MatView(const ImageFrame* image);
 
-}  // namespace formats
-}  // namespace mediapipe
+} // namespace formats
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_FRAMEWORK_FORMATS_IMAGE_FRAME_OPENCV_H_
+#endif // MEDIAPIPE_FRAMEWORK_FORMATS_IMAGE_FRAME_OPENCV_H_

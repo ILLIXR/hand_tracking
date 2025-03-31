@@ -17,4 +17,4 @@
 
 #include "mediapipe/framework/deps/ret_check.h"
 
-#endif  // MEDIAPIPE_PORT_RET_CHECK_H_
+#endif // MEDIAPIPE_PORT_RET_CHECK_H_

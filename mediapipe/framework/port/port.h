@@ -17,4 +17,4 @@
 
 #include "absl/base/port.h"
 
-#endif  // MEDIAPIPE_PORT_PORT_H_
+#endif // MEDIAPIPE_PORT_PORT_H_

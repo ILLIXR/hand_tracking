@@ -17,4 +17,4 @@
 
 #include "mediapipe/framework/deps/vector.h"
 
-#endif  // MEDIAPIPE_PORT_VECTOR_H_
+#endif // MEDIAPIPE_PORT_VECTOR_H_
