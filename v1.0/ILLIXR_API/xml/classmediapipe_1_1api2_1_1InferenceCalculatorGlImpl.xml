@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::api2::InferenceCalculatorGlImpl</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">mediapipe::api2::InferenceCalculatorNodeImpl&lt; InferenceCalculatorGl, InferenceCalculatorGlImpl &gt;</basecompoundref>
+    <innerclass refid="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner" prot="private">mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner</innerclass>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1a26f92aac16064ab5ed42bddba8f8290f" prot="private" static="no" mutable="no">
+        <type>mediapipe::GlCalculatorHelper</type>
+        <definition>mediapipe::GlCalculatorHelper mediapipe::api2::InferenceCalculatorGlImpl::gpu_helper_</definition>
+        <argsstring></argsstring>
+        <name>gpu_helper_</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorGlImpl::gpu_helper_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" line="95" column="33" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1a771416eef16b6afe1ead29cf3b425747" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; GpuInferenceRunner &gt;</type>
+        <definition>std::unique_ptr&lt;GpuInferenceRunner&gt; mediapipe::api2::InferenceCalculatorGlImpl::gpu_inference_runner_</definition>
+        <argsstring></argsstring>
+        <name>gpu_inference_runner_</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorGlImpl::gpu_inference_runner_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" line="96" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" bodystart="96" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1ab07d3dc948b34b5df2f0bb886a493f40" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::InferenceCalculatorGlImpl::UpdateContract</definition>
+        <argsstring>(CalculatorContract *cc)</argsstring>
+        <name>UpdateContract</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorGlImpl::UpdateContract</qualifiedname>
+        <param>
+          <type>CalculatorContract *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" line="51" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" bodystart="279" bodyend="288"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1a69b69b72ecc3a5027f3fb4f61a1ee188" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::InferenceCalculatorGlImpl::Open</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Open</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorGlImpl::Open</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" line="53" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" bodystart="290" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1abd80f786a68bb56bf7906f66b0210368" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::InferenceCalculatorGlImpl::Close</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Close</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorGlImpl::Close</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" line="54" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" bodystart="306" bodyend="309"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1a15d5b95aae7eeada0653a355a8c44f53" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::StatusOr&lt; std::vector&lt; Tensor &gt; &gt;</type>
+        <definition>absl::StatusOr&lt; std::vector&lt; Tensor &gt; &gt; mediapipe::api2::InferenceCalculatorGlImpl::Process</definition>
+        <argsstring>(CalculatorContext *cc, const TensorSpan &amp;tensor_span) override</argsstring>
+        <name>Process</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorGlImpl::Process</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <param>
+          <type>const TensorSpan &amp;</type>
+          <declname>tensor_span</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" line="90" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" bodystart="298" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1ad088dd4ecbc52c3b8df001b037ffc6f5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::StatusOr&lt; std::unique_ptr&lt; GpuInferenceRunner &gt; &gt;</type>
+        <definition>absl::StatusOr&lt; std::unique_ptr&lt; InferenceCalculatorGlImpl::GpuInferenceRunner &gt; &gt; mediapipe::api2::InferenceCalculatorGlImpl::CreateInferenceRunner</definition>
+        <argsstring>(CalculatorContext *cc)</argsstring>
+        <name>CreateInferenceRunner</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorGlImpl::CreateInferenceRunner</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" line="92" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" bodystart="312" bodyend="317"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" line="47" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" bodystart="49" bodyend="97"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1CalculatorBase_1a586aedabbf1f8f9d14e07a7251cc5936" prot="public" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl</scope><name>CalculatorBase</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1abd80f786a68bb56bf7906f66b0210368" prot="public" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl</scope><name>Close</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1ad088dd4ecbc52c3b8df001b037ffc6f5" prot="private" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl</scope><name>CreateInferenceRunner</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1a26f92aac16064ab5ed42bddba8f8290f" prot="private" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl</scope><name>gpu_helper_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1a771416eef16b6afe1ead29cf3b425747" prot="private" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl</scope><name>gpu_inference_runner_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1NodeImpl_1a61b15de17fb484b31714943f611a20e6" prot="protected" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl</scope><name>In</name></member>
+      <member refid="classmediapipe_1_1api2_1_1NodeImpl_1af7248b639443e46a9b63e291bc092544" prot="protected" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl</scope><name>In</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1a69b69b72ecc3a5027f3fb4f61a1ee188" prot="public" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl</scope><name>Open</name></member>
+      <member refid="classmediapipe_1_1api2_1_1NodeImpl_1acb6eae9acf8bfbe0e618b6a8a3085946" prot="protected" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl</scope><name>Out</name></member>
+      <member refid="classmediapipe_1_1api2_1_1NodeImpl_1aa62c61b33331d05802ae33031bcddbad" prot="protected" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl</scope><name>Out</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1a15d5b95aae7eeada0653a355a8c44f53" prot="private" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl</scope><name>Process</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorNodeImpl_1aa948fa09618507ce376b30806420fc7c" prot="public" virt="non-virtual" ambiguityscope="mediapipe::api2::InferenceCalculatorNodeImpl::"><scope>mediapipe::api2::InferenceCalculatorGlImpl</scope><name>Process</name></member>
+      <member refid="classmediapipe_1_1api2_1_1NodeImpl_1afe1072c1c754784eda290a4df6cbfb5b" prot="protected" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl</scope><name>SideIn</name></member>
+      <member refid="classmediapipe_1_1api2_1_1NodeImpl_1a3e6961e3c0dae912781f2ec49dfa06fe" prot="protected" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl</scope><name>SideIn</name></member>
+      <member refid="classmediapipe_1_1api2_1_1NodeImpl_1a697c2deaec23b21b764e377a968fb291" prot="protected" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl</scope><name>SideOut</name></member>
+      <member refid="classmediapipe_1_1api2_1_1NodeImpl_1af6592ff75f617f2b84ab09272ce69ff3" prot="protected" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl</scope><name>SideOut</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a0cf70172f342c2cc0314af8e76ae982b" prot="public" virt="virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl</scope><name>SourceProcessOrder</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1ab07d3dc948b34b5df2f0bb886a493f40" prot="public" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl</scope><name>UpdateContract</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorNodeImpl_1a824bb0b91895948683f43ed8da4f70b8" prot="protected" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl</scope><name>UpdateIoMapping</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a9ced1ccc8a3f7ad59e54a317f4054c90" prot="public" virt="virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl</scope><name>~CalculatorBase</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorNodeImpl_1a7a2312059e489d9af1905f909e5f227f" prot="public" virt="virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl</scope><name>~InferenceCalculatorNodeImpl</name></member>
+      <member refid="classmediapipe_1_1api2_1_1Node_1acd6b394427fbcc78008356f4f3c0a827" prot="public" virt="virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl</scope><name>~Node</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

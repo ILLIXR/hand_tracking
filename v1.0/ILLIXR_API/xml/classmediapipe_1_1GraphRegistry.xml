@@ -1,0 +1,218 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1GraphRegistry" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::GraphRegistry</compoundname>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1GraphRegistry_1afdc36d810f4ad6cbc96f6af822c15c0b" prot="public" static="yes" mutable="no">
+        <type>GraphRegistry</type>
+        <definition>GraphRegistry mediapipe::GraphRegistry::global_graph_registry</definition>
+        <argsstring></argsstring>
+        <name>global_graph_registry</name>
+        <qualifiedname>mediapipe::GraphRegistry::global_graph_registry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/subgraph.h" line="206" column="24" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/subgraph.h" bodystart="206" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1GraphRegistry_1a8b8351ee881066144fee4574ca9de18e" prot="private" static="no" mutable="yes">
+        <type>FunctionRegistry&lt; std::unique_ptr&lt; Subgraph &gt; &gt;</type>
+        <definition>FunctionRegistry&lt;std::unique_ptr&lt;Subgraph&gt; &gt; mediapipe::GraphRegistry::local_factories_</definition>
+        <argsstring></argsstring>
+        <name>local_factories_</name>
+        <qualifiedname>mediapipe::GraphRegistry::local_factories_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/subgraph.h" line="210" column="28" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/subgraph.h" bodystart="210" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GraphRegistry_1a2fa8955cd46a556f880c2d08f475268d" prot="private" static="no" mutable="yes">
+        <type>FunctionRegistry&lt; std::unique_ptr&lt; Subgraph &gt; &gt; *</type>
+        <definition>FunctionRegistry&lt;std::unique_ptr&lt;Subgraph&gt; &gt;* mediapipe::GraphRegistry::global_factories_</definition>
+        <argsstring></argsstring>
+        <name>global_factories_</name>
+        <qualifiedname>mediapipe::GraphRegistry::global_factories_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/subgraph.h" line="213" column="28" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/subgraph.h" bodystart="213" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1GraphRegistry_1ab20ccd9e9f547d81ea6a5484e33bbf9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::GraphRegistry::GraphRegistry</definition>
+        <argsstring>()</argsstring>
+        <name>GraphRegistry</name>
+        <qualifiedname>mediapipe::GraphRegistry::GraphRegistry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/subgraph.h" line="179" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/subgraph.cc" bodystart="58" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GraphRegistry_1a67e4b2496803246149313a434e221e93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::GraphRegistry::GraphRegistry</definition>
+        <argsstring>(FunctionRegistry&lt; std::unique_ptr&lt; Subgraph &gt; &gt; *factories)</argsstring>
+        <name>GraphRegistry</name>
+        <qualifiedname>mediapipe::GraphRegistry::GraphRegistry</qualifiedname>
+        <param>
+          <type>FunctionRegistry&lt; std::unique_ptr&lt; Subgraph &gt; &gt; *</type>
+          <declname>factories</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/subgraph.h" line="184" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/subgraph.cc" bodystart="61" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GraphRegistry_1ae4ab16692e96355f718b37e666ab0d51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GraphRegistry::Register</definition>
+        <argsstring>(const std::string &amp;type_name, std::function&lt; std::unique_ptr&lt; Subgraph &gt;()&gt; factory)</argsstring>
+        <name>Register</name>
+        <qualifiedname>mediapipe::GraphRegistry::Register</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>type_name</declname>
+        </param>
+        <param>
+          <type>std::function&lt; std::unique_ptr&lt; Subgraph &gt;()&gt;</type>
+          <declname>factory</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/subgraph.h" line="187" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/subgraph.cc" bodystart="65" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GraphRegistry_1a1cd90ced036bdd17f8f2e62cdf099780" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GraphRegistry::Register</definition>
+        <argsstring>(const std::string &amp;type_name, const CalculatorGraphConfig &amp;config)</argsstring>
+        <name>Register</name>
+        <qualifiedname>mediapipe::GraphRegistry::Register</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>type_name</declname>
+        </param>
+        <param>
+          <type>const CalculatorGraphConfig &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/subgraph.h" line="191" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/subgraph.cc" bodystart="72" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GraphRegistry_1adab0e4517cd6e99641efc74f21fdbeb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GraphRegistry::Register</definition>
+        <argsstring>(const std::string &amp;type_name, const CalculatorGraphTemplate &amp;templ)</argsstring>
+        <name>Register</name>
+        <qualifiedname>mediapipe::GraphRegistry::Register</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>type_name</declname>
+        </param>
+        <param>
+          <type>const CalculatorGraphTemplate &amp;</type>
+          <declname>templ</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/subgraph.h" line="195" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/subgraph.cc" bodystart="81" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GraphRegistry_1af0c7dacdb5c1e11a37c1011281814fd1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::GraphRegistry::IsRegistered</definition>
+        <argsstring>(const std::string &amp;ns, const std::string &amp;type_name) const</argsstring>
+        <name>IsRegistered</name>
+        <qualifiedname>mediapipe::GraphRegistry::IsRegistered</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>ns</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>type_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/subgraph.h" line="199" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/subgraph.cc" bodystart="89" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GraphRegistry_1a7c6fff15a9bebf7e59d33c9a214294de" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::StatusOr&lt; CalculatorGraphConfig &gt;</type>
+        <definition>absl::StatusOr&lt; CalculatorGraphConfig &gt; mediapipe::GraphRegistry::CreateByName</definition>
+        <argsstring>(absl::string_view ns, absl::string_view type_name, SubgraphContext *context=nullptr) const</argsstring>
+        <name>CreateByName</name>
+        <qualifiedname>mediapipe::GraphRegistry::CreateByName</qualifiedname>
+        <param>
+          <type>absl::string_view</type>
+          <declname>ns</declname>
+        </param>
+        <param>
+          <type>absl::string_view</type>
+          <declname>type_name</declname>
+        </param>
+        <param>
+          <type>SubgraphContext *</type>
+          <declname>context</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/subgraph.h" line="202" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/subgraph.cc" bodystart="95" bodyend="108"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/subgraph.h" line="175" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/subgraph.h" bodystart="175" bodyend="214"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1GraphRegistry_1a7c6fff15a9bebf7e59d33c9a214294de" prot="public" virt="non-virtual"><scope>mediapipe::GraphRegistry</scope><name>CreateByName</name></member>
+      <member refid="classmediapipe_1_1GraphRegistry_1a2fa8955cd46a556f880c2d08f475268d" prot="private" virt="non-virtual"><scope>mediapipe::GraphRegistry</scope><name>global_factories_</name></member>
+      <member refid="classmediapipe_1_1GraphRegistry_1afdc36d810f4ad6cbc96f6af822c15c0b" prot="public" virt="non-virtual"><scope>mediapipe::GraphRegistry</scope><name>global_graph_registry</name></member>
+      <member refid="classmediapipe_1_1GraphRegistry_1ab20ccd9e9f547d81ea6a5484e33bbf9d" prot="public" virt="non-virtual"><scope>mediapipe::GraphRegistry</scope><name>GraphRegistry</name></member>
+      <member refid="classmediapipe_1_1GraphRegistry_1a67e4b2496803246149313a434e221e93" prot="public" virt="non-virtual"><scope>mediapipe::GraphRegistry</scope><name>GraphRegistry</name></member>
+      <member refid="classmediapipe_1_1GraphRegistry_1af0c7dacdb5c1e11a37c1011281814fd1" prot="public" virt="non-virtual"><scope>mediapipe::GraphRegistry</scope><name>IsRegistered</name></member>
+      <member refid="classmediapipe_1_1GraphRegistry_1a8b8351ee881066144fee4574ca9de18e" prot="private" virt="non-virtual"><scope>mediapipe::GraphRegistry</scope><name>local_factories_</name></member>
+      <member refid="classmediapipe_1_1GraphRegistry_1ae4ab16692e96355f718b37e666ab0d51" prot="public" virt="non-virtual"><scope>mediapipe::GraphRegistry</scope><name>Register</name></member>
+      <member refid="classmediapipe_1_1GraphRegistry_1a1cd90ced036bdd17f8f2e62cdf099780" prot="public" virt="non-virtual"><scope>mediapipe::GraphRegistry</scope><name>Register</name></member>
+      <member refid="classmediapipe_1_1GraphRegistry_1adab0e4517cd6e99641efc74f21fdbeb5" prot="public" virt="non-virtual"><scope>mediapipe::GraphRegistry</scope><name>Register</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

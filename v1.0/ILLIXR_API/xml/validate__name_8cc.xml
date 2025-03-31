@@ -1,0 +1,656 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="validate__name_8cc" kind="file" language="C++">
+    <compoundname>validate_name.cc</compoundname>
+    <includes refid="validate__name_8h" local="yes">mediapipe/framework/tool/validate_name.h</includes>
+    <includes local="no">cstdint</includes>
+    <includes local="yes">absl/strings/escaping.h</includes>
+    <includes local="yes">absl/strings/str_cat.h</includes>
+    <includes local="yes">absl/strings/str_join.h</includes>
+    <includes local="yes">absl/strings/str_split.h</includes>
+    <includes refid="port_2canonical__errors_8h" local="yes">mediapipe/framework/port/canonical_errors.h</includes>
+    <includes refid="core__proto__inc_8h" local="yes">mediapipe/framework/port/core_proto_inc.h</includes>
+    <includes refid="logging_8h" local="yes">mediapipe/framework/port/logging.h</includes>
+    <includes refid="port_2ret__check_8h" local="yes">mediapipe/framework/port/ret_check.h</includes>
+    <includes refid="port_2source__location_8h" local="yes">mediapipe/framework/port/source_location.h</includes>
+    <includes refid="port_2status__builder_8h" local="yes">mediapipe/framework/port/status_builder.h</includes>
+    <includes refid="port_2status__macros_8h" local="yes">mediapipe/framework/port/status_macros.h</includes>
+    <incdepgraph>
+      <node id="26">
+        <label>mediapipe/framework/deps/canonical_errors.h</label>
+        <link refid="deps_2canonical__errors_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>mediapipe/framework/deps/ret_check.h</label>
+        <link refid="deps_2ret__check_8h_source"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>mediapipe/framework/deps/source_location.h</label>
+        <link refid="deps_2source__location_8h_source"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>mediapipe/framework/deps/status.h</label>
+        <link refid="deps_2status_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>mediapipe/framework/deps/status_builder.h</label>
+        <link refid="deps_2status__builder_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>mediapipe/framework/deps/status_macros.h</label>
+        <link refid="deps_2status__macros_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>mediapipe/framework/port.h</label>
+        <link refid="port_8h_source"/>
+      </node>
+      <node id="25">
+        <label>mediapipe/framework/port/canonical_errors.h</label>
+        <link refid="port_2canonical__errors_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>mediapipe/framework/port/core_proto_inc.h</label>
+        <link refid="core__proto__inc_8h_source"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>mediapipe/framework/port/logging.h</label>
+        <link refid="logging_8h_source"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>mediapipe/framework/port/proto_ns.h</label>
+        <link refid="proto__ns_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>mediapipe/framework/port/ret_check.h</label>
+        <link refid="port_2ret__check_8h_source"/>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>mediapipe/framework/port/source_location.h</label>
+        <link refid="port_2source__location_8h_source"/>
+        <childnode refid="45" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>mediapipe/framework/port/status.h</label>
+        <link refid="port_2status_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>mediapipe/framework/port/status_builder.h</label>
+        <link refid="port_2status__builder_8h_source"/>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>mediapipe/framework/port/status_macros.h</label>
+        <link refid="port_2status__macros_8h_source"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc</label>
+        <link refid="validate__name_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>mediapipe/framework/tool/validate_name.h</label>
+        <link refid="validate__name_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>mediapipe/util/unused.hpp</label>
+        <link refid="unused_8hpp_source"/>
+      </node>
+      <node id="17">
+        <label>absl/base/attributes.h</label>
+      </node>
+      <node id="5">
+        <label>absl/base/macros.h</label>
+      </node>
+      <node id="40">
+        <label>absl/base/optimization.h</label>
+      </node>
+      <node id="18">
+        <label>absl/log/absl_log.h</label>
+      </node>
+      <node id="44">
+        <label>absl/memory/memory.h</label>
+      </node>
+      <node id="19">
+        <label>absl/status/status.h</label>
+      </node>
+      <node id="21">
+        <label>absl/strings/escaping.h</label>
+      </node>
+      <node id="35">
+        <label>absl/strings/has_ostream_operator.h</label>
+      </node>
+      <node id="22">
+        <label>absl/strings/str_cat.h</label>
+      </node>
+      <node id="23">
+        <label>absl/strings/str_join.h</label>
+      </node>
+      <node id="24">
+        <label>absl/strings/str_split.h</label>
+      </node>
+      <node id="6">
+        <label>absl/strings/string_view.h</label>
+      </node>
+      <node id="31">
+        <label>absl/time/time.h</label>
+      </node>
+      <node id="32">
+        <label>cstddef</label>
+      </node>
+      <node id="20">
+        <label>cstdint</label>
+      </node>
+      <node id="14">
+        <label>functional</label>
+      </node>
+      <node id="36">
+        <label>glog/logging.h</label>
+      </node>
+      <node id="28">
+        <label>google/protobuf/io/tokenizer.h</label>
+      </node>
+      <node id="8">
+        <label>google/protobuf/message.h</label>
+      </node>
+      <node id="9">
+        <label>google/protobuf/message_lite.h</label>
+      </node>
+      <node id="10">
+        <label>google/protobuf/repeated_field.h</label>
+      </node>
+      <node id="29">
+        <label>google/protobuf/text_format.h</label>
+      </node>
+      <node id="15">
+        <label>iosfwd</label>
+      </node>
+      <node id="16">
+        <label>memory</label>
+      </node>
+      <node id="33">
+        <label>ostream</label>
+      </node>
+      <node id="42">
+        <label>sstream</label>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+      <node id="34">
+        <label>type_traits</label>
+      </node>
+      <node id="43">
+        <label>utility</label>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacemediapipe">mediapipe</innernamespace>
+    <innernamespace refid="namespacemediapipe_1_1tool">mediapipe::tool</innernamespace>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="validate__name_8cc_1aabe0dc556aac5d556eba574b191067f8" prot="public" static="no">
+        <name>MEDIAPIPE_NAME_REGEX</name>
+        <initializer>&quot;[a-z_][a-z0-9_]*&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" line="34" column="9" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="validate__name_8cc_1a125ffbc40bbbab7e6bab0d8f178c95f8" prot="public" static="no">
+        <name>MEDIAPIPE_NUMBER_REGEX</name>
+        <initializer>&quot;(0|[1-9][0-9]*)&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" line="35" column="9" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="validate__name_8cc_1a8157d01dd2f37e7f85b1cf3d0c33feb0" prot="public" static="no">
+        <name>MEDIAPIPE_TAG_REGEX</name>
+        <initializer>&quot;[A-Z_][A-Z0-9_]*&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" line="36" column="9" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="validate__name_8cc_1a0dddd51a404b0053bc35124199d6839b" prot="public" static="no">
+        <name>MEDIAPIPE_TAG_AND_NAME_REGEX</name>
+        <initializer>  &quot;(&quot; MEDIAPIPE_TAG_REGEX &quot;:)?&quot; MEDIAPIPE_NAME_REGEX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" line="37" column="9" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" bodystart="37" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="define" id="validate__name_8cc_1a5d9440b08ef09ec7f9d3a6bf2f5a8bde" prot="public" static="no">
+        <name>MEDIAPIPE_TAG_INDEX_NAME_REGEX</name>
+        <initializer>  &quot;(&quot; MEDIAPIPE_TAG_REGEX &quot;:(&quot; MEDIAPIPE_NUMBER_REGEX \
+  &quot;:)?)?&quot; MEDIAPIPE_NAME_REGEX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" line="39" column="9" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" bodystart="39" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="define" id="validate__name_8cc_1a05da4837102274feccc4097bd501b8cd" prot="public" static="no">
+        <name>MEDIAPIPE_TAG_INDEX_REGEX</name>
+        <initializer>  &quot;(&quot; MEDIAPIPE_TAG_REGEX &quot;)?(:&quot; MEDIAPIPE_NUMBER_REGEX &quot;)?&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" line="42" column="9" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" bodystart="42" bodyend="43"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Copyright<sp/>2019<sp/>The<sp/>MediaPipe<sp/>Authors.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Definition<sp/>of<sp/>helper<sp/>functions.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/tool/validate_name.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/strings/escaping.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/strings/str_cat.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/strings/str_join.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/strings/str_split.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/port/canonical_errors.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/port/core_proto_inc.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/port/logging.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/port/ret_check.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/port/source_location.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/port/status_builder.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/port/status_macros.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mediapipe<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">tool<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MEDIAPIPE_NAME_REGEX<sp/>&quot;[a-z_][a-z0-9_]*&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MEDIAPIPE_NUMBER_REGEX<sp/>&quot;(0|[1-9][0-9]*)&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MEDIAPIPE_TAG_REGEX<sp/>&quot;[A-Z_][A-Z0-9_]*&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MEDIAPIPE_TAG_AND_NAME_REGEX<sp/>\</highlight></codeline>
+<codeline lineno="38"><highlight class="preprocessor"><sp/><sp/>&quot;(&quot;<sp/>MEDIAPIPE_TAG_REGEX<sp/>&quot;:)?&quot;<sp/>MEDIAPIPE_NAME_REGEX</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MEDIAPIPE_TAG_INDEX_NAME_REGEX<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="40"><highlight class="preprocessor"><sp/><sp/>&quot;(&quot;<sp/>MEDIAPIPE_TAG_REGEX<sp/>&quot;:(&quot;<sp/>MEDIAPIPE_NUMBER_REGEX<sp/>\</highlight></codeline>
+<codeline lineno="41"><highlight class="preprocessor"><sp/><sp/>&quot;:)?)?&quot;<sp/>MEDIAPIPE_NAME_REGEX</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MEDIAPIPE_TAG_INDEX_REGEX<sp/>\</highlight></codeline>
+<codeline lineno="43"><highlight class="preprocessor"><sp/><sp/>&quot;(&quot;<sp/>MEDIAPIPE_TAG_REGEX<sp/>&quot;)?(:&quot;<sp/>MEDIAPIPE_NUMBER_REGEX<sp/>&quot;)?&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal">absl::Status<sp/>GetTagAndNameInfo(</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>proto_ns::RepeatedPtrField&lt;ProtoString&gt;&amp;<sp/>tags_and_names,</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>TagAndNameInfo*<sp/>info)<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>RET_CHECK(info);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>info-&gt;tags.clear();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>info-&gt;names.clear();</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>tag_and_name<sp/>:<sp/>tags_and_names)<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>tag;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>name;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>MP_RETURN_IF_ERROR(ParseTagAndName(tag_and_name,<sp/>&amp;tag,<sp/>&amp;name));</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!tag.empty())<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>info-&gt;tags.push_back(tag);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>info-&gt;names.push_back(name);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!info-&gt;tags.empty()<sp/>&amp;&amp;<sp/>info-&gt;names.size()<sp/>!=<sp/>info-&gt;tags.size())<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>info-&gt;tags.clear();</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>info-&gt;names.clear();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::InvalidArgumentError(absl::StrCat(</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Each<sp/>set<sp/>of<sp/>names<sp/>must<sp/>use<sp/>exclusively<sp/>either<sp/>tags<sp/>or<sp/>indexes.<sp/><sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Encountered:<sp/>\&quot;&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>absl::StrJoin(tags_and_names,<sp/></highlight><highlight class="stringliteral">&quot;\&quot;,<sp/>\&quot;&quot;</highlight><highlight class="normal">),<sp/></highlight><highlight class="stringliteral">&quot;\&quot;&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::OkStatus();</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal">absl::Status<sp/>SetFromTagAndNameInfo(</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>TagAndNameInfo&amp;<sp/>info,</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>proto_ns::RepeatedPtrField&lt;ProtoString&gt;*<sp/>tags_and_names)<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>tags_and_names-&gt;Clear();</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(info.tags.empty())<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>name<sp/>:<sp/>info.names)<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>MP_RETURN_IF_ERROR(ValidateName(name));</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>*tags_and_names-&gt;Add()<sp/>=<sp/>name;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(info.names.size()<sp/>!=<sp/>info.tags.size())<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mediapipe::InvalidArgumentErrorBuilder(MEDIAPIPE_LOC)</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Number<sp/>of<sp/>tags<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>info.names.size()</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>does<sp/>not<sp/>match<sp/>the<sp/>number<sp/>of<sp/>tags<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>info.tags.size();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>(int)info.tags.size();<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>MP_RETURN_IF_ERROR(ValidateTag(info.tags[i]));</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>MP_RETURN_IF_ERROR(ValidateName(info.names[i]));</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>*tags_and_names-&gt;Add()<sp/>=<sp/>absl::StrCat(info.tags[i],<sp/></highlight><highlight class="stringliteral">&quot;:&quot;</highlight><highlight class="normal">,<sp/>info.names[i]);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::OkStatus();</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal">absl::Status<sp/>ValidateName(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>name)<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>name.length()<sp/>&gt;<sp/>0<sp/>&amp;&amp;<sp/>(name[0]<sp/>==<sp/></highlight><highlight class="charliteral">&apos;_&apos;</highlight><highlight class="normal"><sp/>||<sp/>islower(name[0]))<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::all_of(name.begin()<sp/>+<sp/>1,<sp/>name.end(),</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>c<sp/>==<sp/></highlight><highlight class="charliteral">&apos;_&apos;</highlight><highlight class="normal"><sp/>||<sp/>isdigit(c)<sp/>||<sp/>islower(c);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>})</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>absl::OkStatus()</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>absl::InvalidArgumentError(absl::StrCat(</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Name<sp/>\&quot;&quot;</highlight><highlight class="normal">,<sp/>absl::CEscape(name),</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\&quot;<sp/>does<sp/>not<sp/>match<sp/>\&quot;&quot;</highlight><highlight class="normal"><sp/>MEDIAPIPE_NAME_REGEX<sp/></highlight><highlight class="stringliteral">&quot;\&quot;.&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal">absl::Status<sp/>ValidateNumber(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>number)<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(number.length()<sp/>==<sp/>1<sp/>&amp;&amp;<sp/>isdigit(number[0]))<sp/>||</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(number.length()<sp/>&gt;<sp/>1<sp/>&amp;&amp;<sp/>isdigit(number[0])<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>number[0]<sp/>!=<sp/></highlight><highlight class="charliteral">&apos;0&apos;</highlight><highlight class="normal"><sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::all_of(number.begin()<sp/>+<sp/>1,<sp/>number.end(),</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>c)<sp/>{<sp/>return<sp/>isdigit(c);<sp/>}))</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>absl::OkStatus()</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>absl::InvalidArgumentError(absl::StrCat(</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Number<sp/>\&quot;&quot;</highlight><highlight class="normal">,<sp/>absl::CEscape(number),</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\&quot;<sp/>does<sp/>not<sp/>match<sp/>\&quot;&quot;</highlight><highlight class="normal"><sp/>MEDIAPIPE_NUMBER_REGEX<sp/></highlight><highlight class="stringliteral">&quot;\&quot;.&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal">absl::Status<sp/>ValidateTag(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>tag)<sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tag.length()<sp/>&gt;<sp/>0<sp/>&amp;&amp;<sp/>(tag[0]<sp/>==<sp/></highlight><highlight class="charliteral">&apos;_&apos;</highlight><highlight class="normal"><sp/>||<sp/>isupper(tag[0]))<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::all_of(tag.begin()<sp/>+<sp/>1,<sp/>tag.end(),</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>c)<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>c<sp/>==<sp/></highlight><highlight class="charliteral">&apos;_&apos;</highlight><highlight class="normal"><sp/>||<sp/>isdigit(c)<sp/>||<sp/>isupper(c);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>})</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>absl::OkStatus()</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>absl::InvalidArgumentError(absl::StrCat(</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Tag<sp/>\&quot;&quot;</highlight><highlight class="normal">,<sp/>absl::CEscape(tag),</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\&quot;<sp/>does<sp/>not<sp/>match<sp/>\&quot;&quot;</highlight><highlight class="normal"><sp/>MEDIAPIPE_TAG_REGEX<sp/></highlight><highlight class="stringliteral">&quot;\&quot;.&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="129"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal">absl::Status<sp/>ParseTagAndName(absl::string_view<sp/>tag_and_name,<sp/>std::string*<sp/>tag,</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string*<sp/>name)<sp/>{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>An<sp/>optional<sp/>tag<sp/>and<sp/>colon,<sp/>followed<sp/>by<sp/>a<sp/>name.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>RET_CHECK(tag);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/>RET_CHECK(name);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>absl::Status<sp/>tag_status<sp/>=<sp/>absl::OkStatus();</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/>absl::Status<sp/>name_status<sp/>=<sp/>absl::UnknownError(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>name_index<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>std::vector&lt;std::string&gt;<sp/>v<sp/>=<sp/>absl::StrSplit(tag_and_name,<sp/></highlight><highlight class="charliteral">&apos;:&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(v.size()<sp/>==<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>name_status<sp/>=<sp/>ValidateName(v[0]);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>name_index<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(v.size()<sp/>==<sp/>2)<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>tag_status<sp/>=<sp/>ValidateTag(v[0]);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>name_status<sp/>=<sp/>ValidateName(v[1]);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>name_index<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/>}<sp/><sp/></highlight><highlight class="comment">//<sp/>else<sp/>omitted,<sp/>name_index<sp/>==<sp/>-1,<sp/>triggering<sp/>error.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(name_index<sp/>==<sp/>-1<sp/>||<sp/>tag_status<sp/>!=<sp/>absl::OkStatus()<sp/>||</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>name_status<sp/>!=<sp/>absl::OkStatus())<sp/>{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/>tag-&gt;clear();</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>name-&gt;clear();</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::InvalidArgumentError(</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>absl::StrCat(</highlight><highlight class="stringliteral">&quot;\&quot;tag<sp/>and<sp/>name\&quot;<sp/>is<sp/>invalid,<sp/>\&quot;&quot;</highlight><highlight class="normal">,<sp/>tag_and_name,</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\&quot;<sp/>does<sp/>not<sp/>match<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\&quot;&quot;</highlight><highlight class="normal"><sp/>MEDIAPIPE_TAG_AND_NAME_REGEX</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\&quot;<sp/>(examples:<sp/>\&quot;TAG:name\&quot;,<sp/>\&quot;longer_name\&quot;).&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/>*tag<sp/>=<sp/>name_index<sp/>==<sp/>1<sp/>?<sp/>v[0]<sp/>:<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/>*name<sp/>=<sp/>v[name_index];</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::OkStatus();</highlight></codeline>
+<codeline lineno="161"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal">absl::Status<sp/>ParseTagIndexName(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>tag_index_name,</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string*<sp/>tag,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>index,</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string*<sp/>name)<sp/>{</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>An<sp/>optional<sp/>tag<sp/>and<sp/>colon,<sp/>an<sp/>optional<sp/>index<sp/>and<sp/>color,<sp/>followed<sp/>by<sp/>a<sp/>name.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/>RET_CHECK(tag);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/>RET_CHECK(index);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/>RET_CHECK(name);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/>absl::Status<sp/>tag_status<sp/>=<sp/>absl::OkStatus();</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/>absl::Status<sp/>number_status<sp/>=<sp/>absl::OkStatus();</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/>absl::Status<sp/>name_status<sp/>=<sp/>absl::UnknownError(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>name_index<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>the_index<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/>std::vector&lt;std::string&gt;<sp/>v<sp/>=<sp/>absl::StrSplit(tag_index_name,<sp/></highlight><highlight class="charliteral">&apos;:&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(v.size()<sp/>==<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>name_status<sp/>=<sp/>ValidateName(v[0]);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>the_index<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>name_index<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(v.size()<sp/>==<sp/>2)<sp/>{</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>tag_status<sp/>=<sp/>ValidateTag(v[0]);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>name_status<sp/>=<sp/>ValidateName(v[1]);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>name_index<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(v.size()<sp/>==<sp/>3)<sp/>{</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>tag_status<sp/>=<sp/>ValidateTag(v[0]);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>number_status<sp/>=<sp/>ValidateNumber(v[1]);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(number_status.ok())<sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>int64_t<sp/>index64;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>RET_CHECK(absl::SimpleAtoi(v[1],<sp/>&amp;index64));</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>RET_CHECK_LE(index64,<sp/>internal::kMaxCollectionItemId);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>the_index<sp/>=<sp/>(int)index64;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>name_status<sp/>=<sp/>ValidateName(v[2]);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>name_index<sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/>}<sp/><sp/></highlight><highlight class="comment">//<sp/>else<sp/>omitted,<sp/>name_index<sp/>==<sp/>-1,<sp/>triggering<sp/>error.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(name_index<sp/>==<sp/>-1<sp/>||<sp/>!tag_status.ok()<sp/>||<sp/>!number_status.ok()<sp/>||</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>!name_status.ok())<sp/>{</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::InvalidArgumentError(absl::StrCat(</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;TAG:index:name<sp/>is<sp/>invalid,<sp/>\&quot;&quot;</highlight><highlight class="normal">,<sp/>tag_index_name,</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\&quot;<sp/>does<sp/>not<sp/>match<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\&quot;&quot;</highlight><highlight class="normal"><sp/>MEDIAPIPE_TAG_INDEX_NAME_REGEX</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\&quot;<sp/>(examples:<sp/>\&quot;TAG:name\&quot;<sp/>\&quot;VIDEO:2:name_b\&quot;,<sp/>\&quot;longer_name\&quot;).&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/>*tag<sp/>=<sp/>name_index<sp/>!=<sp/>0<sp/>?<sp/>v[0]<sp/>:<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/>*index<sp/>=<sp/>the_index;</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/>*name<sp/>=<sp/>v[name_index];</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::OkStatus();</highlight></codeline>
+<codeline lineno="209"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal">absl::Status<sp/>ParseTagIndex(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>tag_index,<sp/>std::string*<sp/>tag,</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>index)<sp/>{</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/>RET_CHECK(tag);</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/>RET_CHECK(index);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/>absl::Status<sp/>tag_status<sp/>=<sp/>absl::OkStatus();</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/>absl::Status<sp/>number_status<sp/>=<sp/>absl::OkStatus();</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>the_index<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/>std::vector&lt;std::string&gt;<sp/>v<sp/>=<sp/>absl::StrSplit(tag_index,<sp/></highlight><highlight class="charliteral">&apos;:&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(v.size()<sp/>==<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!v[0].empty())<sp/>{</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>tag_status<sp/>=<sp/>ValidateTag(v[0]);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/>the_index<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(v.size()<sp/>==<sp/>2)<sp/>{</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!v[0].empty())<sp/>{</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>tag_status<sp/>=<sp/>ValidateTag(v[0]);</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/>number_status<sp/>=<sp/>ValidateNumber(v[1]);</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(number_status.ok())<sp/>{</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>int64_t<sp/>index64;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>RET_CHECK(absl::SimpleAtoi(v[1],<sp/>&amp;index64));</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>RET_CHECK_LE(index64,<sp/>internal::kMaxCollectionItemId);</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>the_index<sp/>=<sp/>(int)index64;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/>}<sp/><sp/></highlight><highlight class="comment">//<sp/>else<sp/>omitted,<sp/>the_index<sp/>==<sp/>-1,<sp/>triggering<sp/>error.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(the_index<sp/>==<sp/>-1<sp/>||<sp/>!tag_status.ok()<sp/>||<sp/>!number_status.ok())<sp/>{</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::InvalidArgumentError(absl::StrCat(</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;TAG:index<sp/>is<sp/>invalid,<sp/>\&quot;&quot;</highlight><highlight class="normal">,<sp/>tag_index,</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\&quot;<sp/>does<sp/>not<sp/>match<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;\&quot;&quot;</highlight><highlight class="normal"><sp/>MEDIAPIPE_TAG_INDEX_REGEX<sp/></highlight><highlight class="stringliteral">&quot;\&quot;<sp/>(examples:<sp/>\&quot;TAG\&quot;<sp/>\&quot;VIDEO:2\&quot;).&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/>*tag<sp/>=<sp/>v[0];</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/>*index<sp/>=<sp/>the_index;</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::OkStatus();</highlight></codeline>
+<codeline lineno="246"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>MEDIAPIPE_NAME_REGEX</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>MEDIAPIPE_TAG_REGEX</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>MEDIAPIPE_TAG_AND_NAME_REGEX</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>MEDIAPIPE_TAG_INDEX_NAME_REGEX</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>MEDIAPIPE_TAG_INDEX_REGEX</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>tool</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>mediapipe</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1SubRectExtractorGl" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::SubRectExtractorGl</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1SubRectExtractorGl_1ad2cd743344c1fa3ddf50044207c9858c" prot="private" static="no" mutable="no">
+        <type>tflite::gpu::gl::GlProgram</type>
+        <definition>tflite::gpu::gl::GlProgram mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::SubRectExtractorGl::program_</definition>
+        <argsstring></argsstring>
+        <name>program_</name>
+        <qualifiedname>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::SubRectExtractorGl::program_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" line="79" column="30" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1SubRectExtractorGl_1a71f81384f661199a0a6d94478ce2011d" prot="private" static="no" mutable="no">
+        <type>tflite::gpu::uint3</type>
+        <definition>tflite::gpu::uint3 mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::SubRectExtractorGl::workgroup_size_</definition>
+        <argsstring></argsstring>
+        <name>workgroup_size_</name>
+        <qualifiedname>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::SubRectExtractorGl::workgroup_size_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" line="80" column="22" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1SubRectExtractorGl_1a143bf990af798236a6f2b84a66f05e16" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::SubRectExtractorGl::use_custom_zero_border_</definition>
+        <argsstring></argsstring>
+        <name>use_custom_zero_border_</name>
+        <qualifiedname>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::SubRectExtractorGl::use_custom_zero_border_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" line="81" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1SubRectExtractorGl_1abdb9a1947937f9eacc30cdc0ac525fd5" prot="private" static="no" mutable="no">
+        <type>BorderMode</type>
+        <definition>BorderMode mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::SubRectExtractorGl::border_mode_</definition>
+        <argsstring></argsstring>
+        <name>border_mode_</name>
+        <qualifiedname>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::SubRectExtractorGl::border_mode_</qualifiedname>
+        <initializer>= BorderMode::kReplicate</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" line="82" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" bodystart="82" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1SubRectExtractorGl_1a51ef49ccd82b342ce9c2509ec31e747b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::SubRectExtractorGl::ExtractSubRectToBuffer</definition>
+        <argsstring>(const tflite::gpu::gl::GlTexture &amp;texture, const tflite::gpu::HW &amp;texture_size, const RotatedRect &amp;sub_rect, bool flip_horizontally, float alpha, float beta, const tflite::gpu::HW &amp;destination_size, tflite::gpu::gl::CommandQueue *command_queue, tflite::gpu::gl::GlBuffer *destination)</argsstring>
+        <name>ExtractSubRectToBuffer</name>
+        <qualifiedname>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::SubRectExtractorGl::ExtractSubRectToBuffer</qualifiedname>
+        <param>
+          <type>const tflite::gpu::gl::GlTexture &amp;</type>
+          <declname>texture</declname>
+        </param>
+        <param>
+          <type>const tflite::gpu::HW &amp;</type>
+          <declname>texture_size</declname>
+        </param>
+        <param>
+          <type>const RotatedRect &amp;</type>
+          <declname>sub_rect</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>flip_horizontally</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>alpha</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>beta</declname>
+        </param>
+        <param>
+          <type>const tflite::gpu::HW &amp;</type>
+          <declname>destination_size</declname>
+        </param>
+        <param>
+          <type>tflite::gpu::gl::CommandQueue *</type>
+          <declname>command_queue</declname>
+        </param>
+        <param>
+          <type>tflite::gpu::gl::GlBuffer *</type>
+          <declname>destination</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" line="57" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" bodystart="154" bodyend="209"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1SubRectExtractorGl_1ad99ae6f04febff16d651b06dc8a96330" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::StatusOr&lt; SubRectExtractorGl &gt;</type>
+        <definition>absl::StatusOr&lt; SubRectExtractorGl &gt; mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::SubRectExtractorGl::Create</definition>
+        <argsstring>(const mediapipe::GlContext &amp;gl_context, bool input_starts_at_bottom, BorderMode border_mode)</argsstring>
+        <name>Create</name>
+        <qualifiedname>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::SubRectExtractorGl::Create</qualifiedname>
+        <param>
+          <type>const mediapipe::GlContext &amp;</type>
+          <declname>gl_context</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>input_starts_at_bottom</declname>
+        </param>
+        <param>
+          <type>BorderMode</type>
+          <declname>border_mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" line="65" column="25" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" bodystart="211" bodyend="241"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1SubRectExtractorGl_1a5876f2e6cf4ba6fc30cd6f303c32fd2c" prot="private" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::SubRectExtractorGl::SubRectExtractorGl</definition>
+        <argsstring>(tflite::gpu::gl::GlProgram program, tflite::gpu::uint3 workgroup_size, bool use_custom_zero_border, BorderMode border_mode)</argsstring>
+        <name>SubRectExtractorGl</name>
+        <qualifiedname>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::SubRectExtractorGl::SubRectExtractorGl</qualifiedname>
+        <param>
+          <type>tflite::gpu::gl::GlProgram</type>
+          <declname>program</declname>
+        </param>
+        <param>
+          <type>tflite::gpu::uint3</type>
+          <declname>workgroup_size</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>use_custom_zero_border</declname>
+        </param>
+        <param>
+          <type>BorderMode</type>
+          <declname>border_mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" line="70" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" bodystart="70" bodyend="77"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" line="53" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" bodystart="53" bodyend="83"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1SubRectExtractorGl_1abdb9a1947937f9eacc30cdc0ac525fd5" prot="private" virt="non-virtual"><scope>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::SubRectExtractorGl</scope><name>border_mode_</name></member>
+      <member refid="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1SubRectExtractorGl_1ad99ae6f04febff16d651b06dc8a96330" prot="public" virt="non-virtual"><scope>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::SubRectExtractorGl</scope><name>Create</name></member>
+      <member refid="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1SubRectExtractorGl_1a51ef49ccd82b342ce9c2509ec31e747b" prot="public" virt="non-virtual"><scope>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::SubRectExtractorGl</scope><name>ExtractSubRectToBuffer</name></member>
+      <member refid="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1SubRectExtractorGl_1ad2cd743344c1fa3ddf50044207c9858c" prot="private" virt="non-virtual"><scope>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::SubRectExtractorGl</scope><name>program_</name></member>
+      <member refid="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1SubRectExtractorGl_1a5876f2e6cf4ba6fc30cd6f303c32fd2c" prot="private" virt="non-virtual"><scope>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::SubRectExtractorGl</scope><name>SubRectExtractorGl</name></member>
+      <member refid="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1SubRectExtractorGl_1a143bf990af798236a6f2b84a66f05e16" prot="private" virt="non-virtual"><scope>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::SubRectExtractorGl</scope><name>use_custom_zero_border_</name></member>
+      <member refid="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1SubRectExtractorGl_1a71f81384f661199a0a6d94478ce2011d" prot="private" virt="non-virtual"><scope>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::SubRectExtractorGl</scope><name>workgroup_size_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

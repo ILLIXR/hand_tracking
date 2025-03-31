@@ -1,0 +1,1162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1Tensor" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::Tensor</compoundname>
+    <innerclass refid="classmediapipe_1_1Tensor_1_1CpuView" prot="public">mediapipe::Tensor::CpuView</innerclass>
+    <innerclass refid="classmediapipe_1_1Tensor_1_1OpenGlBufferView" prot="public">mediapipe::Tensor::OpenGlBufferView</innerclass>
+    <innerclass refid="classmediapipe_1_1Tensor_1_1OpenGlTexture2dView" prot="public">mediapipe::Tensor::OpenGlTexture2dView</innerclass>
+    <innerclass refid="structmediapipe_1_1Tensor_1_1QuantizationParameters" prot="public">mediapipe::Tensor::QuantizationParameters</innerclass>
+    <innerclass refid="structmediapipe_1_1Tensor_1_1Shape" prot="public">mediapipe::Tensor::Shape</innerclass>
+    <innerclass refid="classmediapipe_1_1Tensor_1_1View" prot="private">mediapipe::Tensor::View</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classmediapipe_1_1Tensor_1a6dee1201e641a59e0f897bc90ce10e01" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ElementType</name>
+        <qualifiedname>mediapipe::Tensor::ElementType</qualifiedname>
+        <enumvalue id="classmediapipe_1_1Tensor_1a6dee1201e641a59e0f897bc90ce10e01a35c3ace1970663a16e5c65baa5941b13" prot="public">
+          <name>kNone</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1Tensor_1a6dee1201e641a59e0f897bc90ce10e01a907b19d7a9943987059cdc540f11e440" prot="public">
+          <name>kFloat16</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1Tensor_1a6dee1201e641a59e0f897bc90ce10e01a9a78d6a569d086b524c3caf8c2522f96" prot="public">
+          <name>kFloat32</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1Tensor_1a6dee1201e641a59e0f897bc90ce10e01a03b6a6936bd3f59a6831d44621f2ce20" prot="public">
+          <name>kUInt8</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1Tensor_1a6dee1201e641a59e0f897bc90ce10e01af112965031ccac10c07073b4e7430107" prot="public">
+          <name>kInt8</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1Tensor_1a6dee1201e641a59e0f897bc90ce10e01a10c09f8bff3c372f21cd8a13e01ae941" prot="public">
+          <name>kInt32</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1Tensor_1a6dee1201e641a59e0f897bc90ce10e01a22c776007533004e22da8e6bdd888b33" prot="public">
+          <name>kInt64</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1Tensor_1a6dee1201e641a59e0f897bc90ce10e01af5e6c1b4f03d321b82fafadb7a3c2d47" prot="public">
+          <name>kChar</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1Tensor_1a6dee1201e641a59e0f897bc90ce10e01a18268c9f691ba5a5f650049d9d0da8dc" prot="public">
+          <name>kBool</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="107" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="107" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmediapipe_1_1Tensor_1a9ef62d534666c8a3517d9eb821699f77" prot="public" static="no">
+        <type>CpuView&lt; const void &gt;</type>
+        <definition>using mediapipe::Tensor::CpuReadView =  CpuView&lt;const void&gt;</definition>
+        <argsstring></argsstring>
+        <name>CpuReadView</name>
+        <qualifiedname>mediapipe::Tensor::CpuReadView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="191" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmediapipe_1_1Tensor_1a59f4d8166673a7a0bbfd6750d1590b81" prot="public" static="no">
+        <type>CpuView&lt; void &gt;</type>
+        <definition>using mediapipe::Tensor::CpuWriteView =  CpuView&lt;void&gt;</definition>
+        <argsstring></argsstring>
+        <name>CpuWriteView</name>
+        <qualifiedname>mediapipe::Tensor::CpuWriteView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="193" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="193" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-type">
+      <memberdef kind="enum" id="classmediapipe_1_1Tensor_1a545b66bb5a9fce250e971845415b5b71" prot="private" static="no" strong="no">
+        <type></type>
+        <name></name>
+        <qualifiedname>mediapipe::Tensor</qualifiedname>
+        <enumvalue id="classmediapipe_1_1Tensor_1a545b66bb5a9fce250e971845415b5b71a83c112ad32ab13adab0e5dfb9eeda408" prot="private">
+          <name>kValidNone</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1Tensor_1a545b66bb5a9fce250e971845415b5b71a69fa16f3c75b4e3b705ea2bd2665f7e3" prot="private">
+          <name>kValidCpu</name>
+          <initializer>= 1 &lt;&lt; 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1Tensor_1a545b66bb5a9fce250e971845415b5b71ada46fb692dfc243747e1851103711cb1" prot="private">
+          <name>kValidMetalBuffer</name>
+          <initializer>= 1 &lt;&lt; 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1Tensor_1a545b66bb5a9fce250e971845415b5b71af4f001d65a7f4899d6bfef5cc65dbf7c" prot="private">
+          <name>kValidOpenGlBuffer</name>
+          <initializer>= 1 &lt;&lt; 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1Tensor_1a545b66bb5a9fce250e971845415b5b71aa4af994740cbf16b8a83800e4d51f0de" prot="private">
+          <name>kValidOpenGlTexture2d</name>
+          <initializer>= 1 &lt;&lt; 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1Tensor_1a545b66bb5a9fce250e971845415b5b71a94714d4a9f5928efe29a726a0c9b4d88" prot="private">
+          <name>kValidAHardwareBuffer</name>
+          <initializer>= 1 &lt;&lt; 5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="388" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="388" bodyend="395"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classmediapipe_1_1Tensor_1a6e1d256d191fde13927819b93d937574" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class MtlBufferView</definition>
+        <argsstring></argsstring>
+        <name>MtlBufferView</name>
+        <qualifiedname>mediapipe::Tensor::MtlBufferView</qualifiedname>
+        <param>
+          <type>MtlBufferView</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="377" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="377" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1Tensor_1aee3c8be04d483c4b6f13d9d18b3364f1" prot="private" static="no" mutable="no">
+        <type>ElementType</type>
+        <definition>ElementType mediapipe::Tensor::element_type_</definition>
+        <argsstring></argsstring>
+        <name>element_type_</name>
+        <qualifiedname>mediapipe::Tensor::element_type_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="382" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="382" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1Tensor_1a77f5d37d9a4a3bbec971574cac3f864f" prot="private" static="no" mutable="no">
+        <type>Shape</type>
+        <definition>Shape mediapipe::Tensor::shape_</definition>
+        <argsstring></argsstring>
+        <name>shape_</name>
+        <qualifiedname>mediapipe::Tensor::shape_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="383" column="9" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="383" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1Tensor_1a5e98575d7045aca31ce8f7d18fa5fe0c" prot="private" static="no" mutable="no">
+        <type>QuantizationParameters</type>
+        <definition>QuantizationParameters mediapipe::Tensor::quantization_parameters_</definition>
+        <argsstring></argsstring>
+        <name>quantization_parameters_</name>
+        <qualifiedname>mediapipe::Tensor::quantization_parameters_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="384" column="26" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="384" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1Tensor_1aaa18252e034d575f487f321adba8fdd8" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::Tensor::memory_alignment_</definition>
+        <argsstring></argsstring>
+        <name>memory_alignment_</name>
+        <qualifiedname>mediapipe::Tensor::memory_alignment_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="385" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="385" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1Tensor_1afe1dbbf1af1fab982044cf35ad193006" prot="private" static="no" mutable="yes">
+        <type>int</type>
+        <definition>int mediapipe::Tensor::valid_</definition>
+        <argsstring></argsstring>
+        <name>valid_</name>
+        <qualifiedname>mediapipe::Tensor::valid_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="398" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="398" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1Tensor_1a9b66718cc6bad56ed61ac435c5e8623e" prot="private" static="no" mutable="yes">
+        <type>absl::Mutex</type>
+        <definition>absl::Mutex mediapipe::Tensor::view_mutex_</definition>
+        <argsstring></argsstring>
+        <name>view_mutex_</name>
+        <qualifiedname>mediapipe::Tensor::view_mutex_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="400" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="400" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1Tensor_1a8d099701b5d0a26cec2e770edb0e4a1f" prot="private" static="no" mutable="yes">
+        <type>void *</type>
+        <definition>void* mediapipe::Tensor::cpu_buffer_</definition>
+        <argsstring></argsstring>
+        <name>cpu_buffer_</name>
+        <qualifiedname>mediapipe::Tensor::cpu_buffer_</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="402" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="402" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1Tensor_1a2a89546e703015004279156ac0256685" prot="private" static="no" mutable="yes">
+        <type>std::unique_ptr&lt; MtlResources &gt;</type>
+        <definition>std::unique_ptr&lt;MtlResources&gt; mediapipe::Tensor::mtl_resources_</definition>
+        <argsstring></argsstring>
+        <name>mtl_resources_</name>
+        <qualifiedname>mediapipe::Tensor::mtl_resources_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="407" column="27" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="407" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1Tensor_1a5522b53daf0cd9cdc0c1565043033a94" prot="private" static="no" mutable="yes">
+        <type>bool</type>
+        <definition>bool mediapipe::Tensor::use_ahwb_</definition>
+        <argsstring></argsstring>
+        <name>use_ahwb_</name>
+        <qualifiedname>mediapipe::Tensor::use_ahwb_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="446" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="446" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1Tensor_1a3c6b2f40bce0d4c1d751ae6453392cb3" prot="private" static="no" mutable="yes">
+        <type>uint64_t</type>
+        <definition>uint64_t mediapipe::Tensor::ahwb_tracking_key_</definition>
+        <argsstring></argsstring>
+        <name>ahwb_tracking_key_</name>
+        <qualifiedname>mediapipe::Tensor::ahwb_tracking_key_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="447" column="20" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="447" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1Tensor_1ab5ad92dec4595111b2148071d083579c" prot="private" static="no" mutable="yes">
+        <type>std::shared_ptr&lt; mediapipe::GlContext &gt;</type>
+        <definition>std::shared_ptr&lt;mediapipe::GlContext&gt; mediapipe::Tensor::gl_context_</definition>
+        <argsstring></argsstring>
+        <name>gl_context_</name>
+        <qualifiedname>mediapipe::Tensor::gl_context_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="463" column="27" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="463" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1Tensor_1a6cdad2ea2b16d40e83176797b4553992" prot="private" static="no" mutable="yes">
+        <type>GLuint</type>
+        <definition>GLuint mediapipe::Tensor::opengl_texture2d_</definition>
+        <argsstring></argsstring>
+        <name>opengl_texture2d_</name>
+        <qualifiedname>mediapipe::Tensor::opengl_texture2d_</qualifiedname>
+        <initializer>= GL_INVALID_INDEX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="464" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="464" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1Tensor_1ad273cd6703687fc6016e33944721f83a" prot="private" static="no" mutable="yes">
+        <type>GLuint</type>
+        <definition>GLuint mediapipe::Tensor::frame_buffer_</definition>
+        <argsstring></argsstring>
+        <name>frame_buffer_</name>
+        <qualifiedname>mediapipe::Tensor::frame_buffer_</qualifiedname>
+        <initializer>= GL_INVALID_INDEX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="465" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="465" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1Tensor_1a10b65ed9dee7700dab2a52c4a7a09c07" prot="private" static="no" mutable="yes">
+        <type>int</type>
+        <definition>int mediapipe::Tensor::texture_width_</definition>
+        <argsstring></argsstring>
+        <name>texture_width_</name>
+        <qualifiedname>mediapipe::Tensor::texture_width_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="466" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="466" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1Tensor_1a549742847a35da8611b8088a652ca31d" prot="private" static="no" mutable="yes">
+        <type>int</type>
+        <definition>int mediapipe::Tensor::texture_height_</definition>
+        <argsstring></argsstring>
+        <name>texture_height_</name>
+        <qualifiedname>mediapipe::Tensor::texture_height_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="467" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="467" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1Tensor_1af0a384525d7ace5fe103b4034a974028" prot="private" static="no" mutable="yes">
+        <type>GLuint</type>
+        <definition>GLuint mediapipe::Tensor::opengl_buffer_</definition>
+        <argsstring></argsstring>
+        <name>opengl_buffer_</name>
+        <qualifiedname>mediapipe::Tensor::opengl_buffer_</qualifiedname>
+        <initializer>= GL_INVALID_INDEX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="473" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="473" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1Tensor_1a5bf58a9dc1bce5dfae18310816d01e8d" prot="private" static="yes" mutable="no">
+        <type>absl::flat_hash_set&lt; uint64_t &gt;</type>
+        <definition>absl::flat_hash_set&lt;uint64_t&gt; mediapipe::Tensor::ahwb_usage_track_</definition>
+        <argsstring></argsstring>
+        <name>ahwb_usage_track_</name>
+        <qualifiedname>mediapipe::Tensor::ahwb_usage_track_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="450" column="37" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="450" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1aa6ce0dc64ee1c9c316abde1f5c69afee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::Tensor::Tensor</definition>
+        <argsstring>(ElementType element_type, const Shape &amp;shape, MemoryManager *memory_manager=nullptr, int memory_alignment=0)</argsstring>
+        <name>Tensor</name>
+        <qualifiedname>mediapipe::Tensor::Tensor</qualifiedname>
+        <param>
+          <type>ElementType</type>
+          <declname>element_type</declname>
+        </param>
+        <param>
+          <type>const Shape &amp;</type>
+          <declname>shape</declname>
+        </param>
+        <param>
+          <type>MemoryManager *</type>
+          <declname>memory_manager</declname>
+          <defval>nullptr</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>memory_alignment</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="150" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.cc" bodystart="462" bodyend="475"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1a0481d86e51117cc18766a8d907e3e7bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::Tensor::Tensor</definition>
+        <argsstring>(ElementType element_type, const Shape &amp;shape, const QuantizationParameters &amp;quantization_parameters, MemoryManager *memory_manager=nullptr, int memory_alignment=0)</argsstring>
+        <name>Tensor</name>
+        <qualifiedname>mediapipe::Tensor::Tensor</qualifiedname>
+        <param>
+          <type>ElementType</type>
+          <declname>element_type</declname>
+        </param>
+        <param>
+          <type>const Shape &amp;</type>
+          <declname>shape</declname>
+        </param>
+        <param>
+          <type>const QuantizationParameters &amp;</type>
+          <declname>quantization_parameters</declname>
+        </param>
+        <param>
+          <type>MemoryManager *</type>
+          <declname>memory_manager</declname>
+          <defval>nullptr</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>memory_alignment</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="152" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.cc" bodystart="476" bodyend="491"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1a5692286b013b9a2e2460b1a1f8818491" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::Tensor::Tensor</definition>
+        <argsstring>(const Tensor &amp;)=delete</argsstring>
+        <name>Tensor</name>
+        <qualifiedname>mediapipe::Tensor::Tensor</qualifiedname>
+        <param>
+          <type>const Tensor &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="157" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1ad221b48f0b305a71a31dae5e4ef72bcf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Tensor &amp;</type>
+        <definition>Tensor &amp; mediapipe::Tensor::operator=</definition>
+        <argsstring>(const Tensor &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>mediapipe::Tensor::operator=</qualifiedname>
+        <param>
+          <type>const Tensor &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="158" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1a30a6295bf78d4477639dccb874d71511" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::Tensor::Tensor</definition>
+        <argsstring>(Tensor &amp;&amp;src)</argsstring>
+        <name>Tensor</name>
+        <qualifiedname>mediapipe::Tensor::Tensor</qualifiedname>
+        <param>
+          <type>Tensor &amp;&amp;</type>
+          <declname>src</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="160" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.cc" bodystart="431" bodyend="431"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1a4d0d29b4b7142dfec080dca6732e2054" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Tensor &amp;</type>
+        <definition>Tensor &amp; mediapipe::Tensor::operator=</definition>
+        <argsstring>(Tensor &amp;&amp;)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>mediapipe::Tensor::operator=</qualifiedname>
+        <param>
+          <type>Tensor &amp;&amp;</type>
+          <defname>src</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="161" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.cc" bodystart="423" bodyend="429"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1a67153997d95d286d3d6c67c655ff0204" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::Tensor::~Tensor</definition>
+        <argsstring>()</argsstring>
+        <name>~Tensor</name>
+        <qualifiedname>mediapipe::Tensor::~Tensor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="162" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.cc" bodystart="432" bodyend="432"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1ac2b42cba5ddd1785621b226eeb4ef9dd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>CpuReadView</type>
+        <definition>Tensor::CpuReadView mediapipe::Tensor::GetCpuReadView</definition>
+        <argsstring>() const</argsstring>
+        <name>GetCpuReadView</name>
+        <qualifiedname>mediapipe::Tensor::GetCpuReadView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="192" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.cc" bodystart="646" bodyend="668"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1ae09c2412f993bce7341626dbf9dc23e8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>CpuWriteView</type>
+        <definition>Tensor::CpuWriteView mediapipe::Tensor::GetCpuWriteView</definition>
+        <argsstring>(uint64_t source_location_hash=tensor_internal::FnvHash64(builtin_FILE(), builtin_LINE())) const</argsstring>
+        <name>GetCpuWriteView</name>
+        <qualifiedname>mediapipe::Tensor::GetCpuWriteView</qualifiedname>
+        <param>
+          <type>uint64_t</type>
+          <declname>source_location_hash</declname>
+          <defval>tensor_internal::FnvHash64(builtin_FILE(), builtin_LINE())</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="194" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.cc" bodystart="670" bodyend="690"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1afcea7c09cf85d0ee0be29facc1d8c584" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>OpenGlTexture2dView</type>
+        <definition>Tensor::OpenGlTexture2dView mediapipe::Tensor::GetOpenGlTexture2dReadView</definition>
+        <argsstring>() const</argsstring>
+        <name>GetOpenGlTexture2dReadView</name>
+        <qualifiedname>mediapipe::Tensor::GetOpenGlTexture2dReadView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="291" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.cc" bodystart="176" bodyend="228"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1a6c31d7013c04ac97c83df10af24bc492" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>OpenGlTexture2dView</type>
+        <definition>Tensor::OpenGlTexture2dView mediapipe::Tensor::GetOpenGlTexture2dWriteView</definition>
+        <argsstring>() const</argsstring>
+        <name>GetOpenGlTexture2dWriteView</name>
+        <qualifiedname>mediapipe::Tensor::GetOpenGlTexture2dWriteView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="292" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.cc" bodystart="230" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1ad64c4407e2a99b9171caa6ac5c6ab385" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>OpenGlBufferView</type>
+        <definition>Tensor::OpenGlBufferView mediapipe::Tensor::GetOpenGlBufferReadView</definition>
+        <argsstring>() const</argsstring>
+        <name>GetOpenGlBufferReadView</name>
+        <qualifiedname>mediapipe::Tensor::GetOpenGlBufferReadView</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="323" column="20" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.cc" bodystart="343" bodyend="390"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1af067fba91cbc51814e865a7dc0a73063" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>OpenGlBufferView</type>
+        <definition>Tensor::OpenGlBufferView mediapipe::Tensor::GetOpenGlBufferWriteView</definition>
+        <argsstring>(uint64_t source_location_hash=tensor_internal::FnvHash64(builtin_FILE(), builtin_LINE())) const</argsstring>
+        <name>GetOpenGlBufferWriteView</name>
+        <qualifiedname>mediapipe::Tensor::GetOpenGlBufferWriteView</qualifiedname>
+        <param>
+          <type>uint64_t</type>
+          <declname>source_location_hash</declname>
+          <defval>tensor_internal::FnvHash64(builtin_FILE(), builtin_LINE())</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="324" column="20" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.cc" bodystart="392" bodyend="407"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1a4533142321c42ec24e0820d5fcd450a5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const Shape &amp;</type>
+        <definition>const Shape &amp; mediapipe::Tensor::shape</definition>
+        <argsstring>() const</argsstring>
+        <name>shape</name>
+        <qualifiedname>mediapipe::Tensor::shape</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="329" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="329" bodyend="329"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1ae638ac7adb9b4ca62895b0e4bbf3cde4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>ElementType</type>
+        <definition>ElementType mediapipe::Tensor::element_type</definition>
+        <argsstring>() const</argsstring>
+        <name>element_type</name>
+        <qualifiedname>mediapipe::Tensor::element_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="330" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="330" bodyend="330"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1abe516cc25fe93a67435a9fccc415b000" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const QuantizationParameters &amp;</type>
+        <definition>const QuantizationParameters &amp; mediapipe::Tensor::quantization_parameters</definition>
+        <argsstring>() const</argsstring>
+        <name>quantization_parameters</name>
+        <qualifiedname>mediapipe::Tensor::quantization_parameters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="331" column="32" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="331" bodyend="333"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1aec2582d96c352cc973ba0c16cfede0fe" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::Tensor::element_size</definition>
+        <argsstring>() const</argsstring>
+        <name>element_size</name>
+        <qualifiedname>mediapipe::Tensor::element_size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="334" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="334" bodyend="357"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1af4fb496a309ff0a9cdc7317cb842b78a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::Tensor::bytes</definition>
+        <argsstring>() const</argsstring>
+        <name>bytes</name>
+        <qualifiedname>mediapipe::Tensor::bytes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="358" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="358" bodyend="358"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1ac35f7a651abae031c2a058363b5884e5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::Tensor::ready_on_cpu</definition>
+        <argsstring>() const</argsstring>
+        <name>ready_on_cpu</name>
+        <qualifiedname>mediapipe::Tensor::ready_on_cpu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="360" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="360" bodyend="362"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1a3dbea081b1abb7e1bab3c13b9405cfc2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::Tensor::ready_on_gpu</definition>
+        <argsstring>() const</argsstring>
+        <name>ready_on_gpu</name>
+        <qualifiedname>mediapipe::Tensor::ready_on_gpu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="363" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="363" bodyend="366"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1abf1a7af56aae28880d72297277ebde5e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::Tensor::ready_as_metal_buffer</definition>
+        <argsstring>() const</argsstring>
+        <name>ready_as_metal_buffer</name>
+        <qualifiedname>mediapipe::Tensor::ready_as_metal_buffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="367" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="367" bodyend="367"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1a11a25a6ac2fc6eb870c7e52614b2bbb4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::Tensor::ready_as_opengl_buffer</definition>
+        <argsstring>() const</argsstring>
+        <name>ready_as_opengl_buffer</name>
+        <qualifiedname>mediapipe::Tensor::ready_as_opengl_buffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="368" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="368" bodyend="370"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1a0916dcf06799a5311e4b4868a51553ba" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::Tensor::ready_as_opengl_texture_2d</definition>
+        <argsstring>() const</argsstring>
+        <name>ready_as_opengl_texture_2d</name>
+        <qualifiedname>mediapipe::Tensor::ready_as_opengl_texture_2d</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="371" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="371" bodyend="373"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1a6dd4cf50686c6aacedf804174185315d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::Tensor::ready_as_ahwb</definition>
+        <argsstring>() const</argsstring>
+        <name>ready_as_ahwb</name>
+        <qualifiedname>mediapipe::Tensor::ready_as_ahwb</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="374" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="374" bodyend="374"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1a10928002cd4a7a3892597f2f33c2f602" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::Tensor::Move</definition>
+        <argsstring>(Tensor *)</argsstring>
+        <name>Move</name>
+        <qualifiedname>mediapipe::Tensor::Move</qualifiedname>
+        <param>
+          <type>Tensor *</type>
+          <defname>src</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="378" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.cc" bodystart="434" bodyend="460"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1a2db48ea945ad4b4ea9973b3878611f9c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::Tensor::Invalidate</definition>
+        <argsstring>()</argsstring>
+        <name>Invalidate</name>
+        <qualifiedname>mediapipe::Tensor::Invalidate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="379" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.cc" bodystart="534" bodyend="578"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1aab0134fc689113c696567fecd1511f6d" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::Tensor::ReadBackGpuToCpu</definition>
+        <argsstring>() const</argsstring>
+        <name>ReadBackGpuToCpu</name>
+        <qualifiedname>mediapipe::Tensor::ReadBackGpuToCpu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="380" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.cc" bodystart="581" bodyend="644"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1a63cdbbe90390e09dfd14087f7b592cce" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::Tensor::AllocateCpuBuffer</definition>
+        <argsstring>() const</argsstring>
+        <name>AllocateCpuBuffer</name>
+        <qualifiedname>mediapipe::Tensor::AllocateCpuBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="403" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.cc" bodystart="692" bodyend="715"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1a9f43fe4adc66a49878f62172ddfe4b2b" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::Tensor::FreeCpuBuffer</definition>
+        <argsstring>() const</argsstring>
+        <name>FreeCpuBuffer</name>
+        <qualifiedname>mediapipe::Tensor::FreeCpuBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="404" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.cc" bodystart="717" bodyend="731"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1a49fcb359db0bc2a28d903fa472ca9362" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::Tensor::AllocateAhwbMapToSsbo</definition>
+        <argsstring>() const</argsstring>
+        <name>AllocateAhwbMapToSsbo</name>
+        <qualifiedname>mediapipe::Tensor::AllocateAhwbMapToSsbo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="452" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor_ahwb.cc" bodystart="469" bodyend="469"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1ab6d8c70dc4bfd48669ef530ba31282c4" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::Tensor::InsertAhwbToSsboFence</definition>
+        <argsstring>() const</argsstring>
+        <name>InsertAhwbToSsboFence</name>
+        <qualifiedname>mediapipe::Tensor::InsertAhwbToSsboFence</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="453" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor_ahwb.cc" bodystart="470" bodyend="470"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1ac783bacd3001560718b15023e8c7b081" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::Tensor::MoveAhwbStuff</definition>
+        <argsstring>(Tensor *src)</argsstring>
+        <name>MoveAhwbStuff</name>
+        <qualifiedname>mediapipe::Tensor::MoveAhwbStuff</qualifiedname>
+        <param>
+          <type>Tensor *</type>
+          <declname>src</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="454" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor_ahwb.cc" bodystart="471" bodyend="471"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1afcafd2c91ea2cdfead6d6a5cda1b9270" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::Tensor::ReleaseAhwbStuff</definition>
+        <argsstring>()</argsstring>
+        <name>ReleaseAhwbStuff</name>
+        <qualifiedname>mediapipe::Tensor::ReleaseAhwbStuff</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="455" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor_ahwb.cc" bodystart="472" bodyend="472"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1a6bc69ab7dba2a8d41548b168b03e7cbf" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * mediapipe::Tensor::MapAhwbToCpuRead</definition>
+        <argsstring>() const</argsstring>
+        <name>MapAhwbToCpuRead</name>
+        <qualifiedname>mediapipe::Tensor::MapAhwbToCpuRead</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="456" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor_ahwb.cc" bodystart="473" bodyend="473"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1a6246d2001e2356387c3fd1642107001b" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * mediapipe::Tensor::MapAhwbToCpuWrite</definition>
+        <argsstring>() const</argsstring>
+        <name>MapAhwbToCpuWrite</name>
+        <qualifiedname>mediapipe::Tensor::MapAhwbToCpuWrite</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="457" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor_ahwb.cc" bodystart="474" bodyend="474"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1a6e7c3af5dfc3f8a7978d189579ae4b09" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::Tensor::MoveCpuOrSsboToAhwb</definition>
+        <argsstring>() const</argsstring>
+        <name>MoveCpuOrSsboToAhwb</name>
+        <qualifiedname>mediapipe::Tensor::MoveCpuOrSsboToAhwb</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="458" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1a2020b2a2e6735d02898525fff6245964" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::Tensor::TrackAhwbUsage</definition>
+        <argsstring>(uint64_t key) const</argsstring>
+        <name>TrackAhwbUsage</name>
+        <qualifiedname>mediapipe::Tensor::TrackAhwbUsage</qualifiedname>
+        <param>
+          <type>uint64_t</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="460" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor_ahwb.cc" bodystart="475" bodyend="475"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1a8cfc87e2ca0c2d395a173b39149ab417" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::Tensor::AllocateOpenGlTexture2d</definition>
+        <argsstring>() const</argsstring>
+        <name>AllocateOpenGlTexture2d</name>
+        <qualifiedname>mediapipe::Tensor::AllocateOpenGlTexture2d</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="471" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.cc" bodystart="289" bodyend="339"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1aabbeb33b53e851a59b02255652ca1193" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::Tensor::AllocateOpenGlBuffer</definition>
+        <argsstring>() const</argsstring>
+        <name>AllocateOpenGlBuffer</name>
+        <qualifiedname>mediapipe::Tensor::AllocateOpenGlBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="474" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.cc" bodystart="409" bodyend="420"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Tensor_1aa22f1f56ec3387424f2eb93f0c28c9eb" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::Tensor::NeedsHalfFloatRenderTarget</definition>
+        <argsstring>() const</argsstring>
+        <name>NeedsHalfFloatRenderTarget</name>
+        <qualifiedname>mediapipe::Tensor::NeedsHalfFloatRenderTarget</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="476" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.cc" bodystart="161" bodyend="174"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" line="92" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h" bodystart="92" bodyend="478"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1Tensor_1a3c6b2f40bce0d4c1d751ae6453392cb3" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>ahwb_tracking_key_</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a5bf58a9dc1bce5dfae18310816d01e8d" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>ahwb_usage_track_</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a49fcb359db0bc2a28d903fa472ca9362" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>AllocateAhwbMapToSsbo</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a63cdbbe90390e09dfd14087f7b592cce" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>AllocateCpuBuffer</name></member>
+      <member refid="classmediapipe_1_1Tensor_1aabbeb33b53e851a59b02255652ca1193" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>AllocateOpenGlBuffer</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a8cfc87e2ca0c2d395a173b39149ab417" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>AllocateOpenGlTexture2d</name></member>
+      <member refid="classmediapipe_1_1Tensor_1af4fb496a309ff0a9cdc7317cb842b78a" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>bytes</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a8d099701b5d0a26cec2e770edb0e4a1f" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>cpu_buffer_</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a9ef62d534666c8a3517d9eb821699f77" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>CpuReadView</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a59f4d8166673a7a0bbfd6750d1590b81" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>CpuWriteView</name></member>
+      <member refid="classmediapipe_1_1Tensor_1aec2582d96c352cc973ba0c16cfede0fe" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>element_size</name></member>
+      <member refid="classmediapipe_1_1Tensor_1ae638ac7adb9b4ca62895b0e4bbf3cde4" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>element_type</name></member>
+      <member refid="classmediapipe_1_1Tensor_1aee3c8be04d483c4b6f13d9d18b3364f1" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>element_type_</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a6dee1201e641a59e0f897bc90ce10e01" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>ElementType</name></member>
+      <member refid="classmediapipe_1_1Tensor_1ad273cd6703687fc6016e33944721f83a" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>frame_buffer_</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a9f43fe4adc66a49878f62172ddfe4b2b" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>FreeCpuBuffer</name></member>
+      <member refid="classmediapipe_1_1Tensor_1ac2b42cba5ddd1785621b226eeb4ef9dd" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>GetCpuReadView</name></member>
+      <member refid="classmediapipe_1_1Tensor_1ae09c2412f993bce7341626dbf9dc23e8" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>GetCpuWriteView</name></member>
+      <member refid="classmediapipe_1_1Tensor_1ad64c4407e2a99b9171caa6ac5c6ab385" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>GetOpenGlBufferReadView</name></member>
+      <member refid="classmediapipe_1_1Tensor_1af067fba91cbc51814e865a7dc0a73063" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>GetOpenGlBufferWriteView</name></member>
+      <member refid="classmediapipe_1_1Tensor_1afcea7c09cf85d0ee0be29facc1d8c584" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>GetOpenGlTexture2dReadView</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a6c31d7013c04ac97c83df10af24bc492" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>GetOpenGlTexture2dWriteView</name></member>
+      <member refid="classmediapipe_1_1Tensor_1ab5ad92dec4595111b2148071d083579c" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>gl_context_</name></member>
+      <member refid="classmediapipe_1_1Tensor_1ab6d8c70dc4bfd48669ef530ba31282c4" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>InsertAhwbToSsboFence</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a2db48ea945ad4b4ea9973b3878611f9c" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>Invalidate</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a545b66bb5a9fce250e971845415b5b71a94714d4a9f5928efe29a726a0c9b4d88" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>kValidAHardwareBuffer</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a545b66bb5a9fce250e971845415b5b71a69fa16f3c75b4e3b705ea2bd2665f7e3" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>kValidCpu</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a545b66bb5a9fce250e971845415b5b71ada46fb692dfc243747e1851103711cb1" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>kValidMetalBuffer</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a545b66bb5a9fce250e971845415b5b71a83c112ad32ab13adab0e5dfb9eeda408" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>kValidNone</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a545b66bb5a9fce250e971845415b5b71af4f001d65a7f4899d6bfef5cc65dbf7c" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>kValidOpenGlBuffer</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a545b66bb5a9fce250e971845415b5b71aa4af994740cbf16b8a83800e4d51f0de" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>kValidOpenGlTexture2d</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a6bc69ab7dba2a8d41548b168b03e7cbf" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>MapAhwbToCpuRead</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a6246d2001e2356387c3fd1642107001b" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>MapAhwbToCpuWrite</name></member>
+      <member refid="classmediapipe_1_1Tensor_1aaa18252e034d575f487f321adba8fdd8" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>memory_alignment_</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a10928002cd4a7a3892597f2f33c2f602" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>Move</name></member>
+      <member refid="classmediapipe_1_1Tensor_1ac783bacd3001560718b15023e8c7b081" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>MoveAhwbStuff</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a6e7c3af5dfc3f8a7978d189579ae4b09" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>MoveCpuOrSsboToAhwb</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a2a89546e703015004279156ac0256685" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>mtl_resources_</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a6e1d256d191fde13927819b93d937574" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>MtlBufferView</name></member>
+      <member refid="classmediapipe_1_1Tensor_1aa22f1f56ec3387424f2eb93f0c28c9eb" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>NeedsHalfFloatRenderTarget</name></member>
+      <member refid="classmediapipe_1_1Tensor_1af0a384525d7ace5fe103b4034a974028" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>opengl_buffer_</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a6cdad2ea2b16d40e83176797b4553992" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>opengl_texture2d_</name></member>
+      <member refid="classmediapipe_1_1Tensor_1ad221b48f0b305a71a31dae5e4ef72bcf" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>operator=</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a4d0d29b4b7142dfec080dca6732e2054" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>operator=</name></member>
+      <member refid="classmediapipe_1_1Tensor_1abe516cc25fe93a67435a9fccc415b000" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>quantization_parameters</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a5e98575d7045aca31ce8f7d18fa5fe0c" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>quantization_parameters_</name></member>
+      <member refid="classmediapipe_1_1Tensor_1aab0134fc689113c696567fecd1511f6d" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>ReadBackGpuToCpu</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a6dd4cf50686c6aacedf804174185315d" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>ready_as_ahwb</name></member>
+      <member refid="classmediapipe_1_1Tensor_1abf1a7af56aae28880d72297277ebde5e" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>ready_as_metal_buffer</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a11a25a6ac2fc6eb870c7e52614b2bbb4" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>ready_as_opengl_buffer</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a0916dcf06799a5311e4b4868a51553ba" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>ready_as_opengl_texture_2d</name></member>
+      <member refid="classmediapipe_1_1Tensor_1ac35f7a651abae031c2a058363b5884e5" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>ready_on_cpu</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a3dbea081b1abb7e1bab3c13b9405cfc2" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>ready_on_gpu</name></member>
+      <member refid="classmediapipe_1_1Tensor_1afcafd2c91ea2cdfead6d6a5cda1b9270" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>ReleaseAhwbStuff</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a4533142321c42ec24e0820d5fcd450a5" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>shape</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a77f5d37d9a4a3bbec971574cac3f864f" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>shape_</name></member>
+      <member refid="classmediapipe_1_1Tensor_1aa6ce0dc64ee1c9c316abde1f5c69afee" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>Tensor</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a0481d86e51117cc18766a8d907e3e7bc" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>Tensor</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a5692286b013b9a2e2460b1a1f8818491" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>Tensor</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a30a6295bf78d4477639dccb874d71511" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>Tensor</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a549742847a35da8611b8088a652ca31d" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>texture_height_</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a10b65ed9dee7700dab2a52c4a7a09c07" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>texture_width_</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a2020b2a2e6735d02898525fff6245964" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>TrackAhwbUsage</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a5522b53daf0cd9cdc0c1565043033a94" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>use_ahwb_</name></member>
+      <member refid="classmediapipe_1_1Tensor_1afe1dbbf1af1fab982044cf35ad193006" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>valid_</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a9b66718cc6bad56ed61ac435c5e8623e" prot="private" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>view_mutex_</name></member>
+      <member refid="classmediapipe_1_1Tensor_1a67153997d95d286d3d6c67c655ff0204" prot="public" virt="non-virtual"><scope>mediapipe::Tensor</scope><name>~Tensor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

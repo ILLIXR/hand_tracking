@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structixr__hand__tracker" kind="struct" language="C++" prot="public">
+    <compoundname>ixr_hand_tracker</compoundname>
+    <includes refid="interface_8h" local="no">interface.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structixr__hand__tracker_1ab5187490641649f00906cfb352313616" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structixr__session" kindref="compound">ixr_session</ref> *</type>
+        <definition>struct ixr_session* ixr_hand_tracker::session</definition>
+        <argsstring></argsstring>
+        <name>session</name>
+        <qualifiedname>ixr_hand_tracker::session</qualifiedname>
+        <briefdescription>
+<para>the session associated with this instance </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.h" line="28" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structixr__hand__tracker_1aff6484ae45352104a81df5759c26b49b" prot="public" static="no" mutable="no">
+        <type><ref refid="structht__illixr__handle__t" kindref="compound">ht_illixr_handle</ref></type>
+        <definition>ht_illixr_handle ixr_hand_tracker::ht_handle</definition>
+        <argsstring></argsstring>
+        <name>ht_handle</name>
+        <qualifiedname>ixr_hand_tracker::ht_handle</qualifiedname>
+        <briefdescription>
+<para>handle to the hand tracker </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.h" line="30" column="40" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structixr__hand__tracker_1a913d0c042f18e446515964694bb62590" prot="public" static="no" mutable="no">
+        <type>XrHandEXT</type>
+        <definition>XrHandEXT ixr_hand_tracker::hand</definition>
+        <argsstring></argsstring>
+        <name>hand</name>
+        <qualifiedname>ixr_hand_tracker::hand</qualifiedname>
+        <briefdescription>
+<para>th hand this instance is associated with </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.h" line="31" column="40" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structixr__hand__tracker_1aaa013be856968b407637e2ad1216156b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ixr_hand_tracker::ixr_hand</definition>
+        <argsstring></argsstring>
+        <name>ixr_hand</name>
+        <qualifiedname>ixr_hand_tracker::ixr_hand</qualifiedname>
+        <briefdescription>
+<para>illixr enumeration of <computeroutput>hand</computeroutput> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.h" line="32" column="40" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structixr__hand__tracker_1acd56b8cc19c3f244ff668d4d6c72c841" prot="public" static="no" mutable="no">
+        <type>XrHandJointSetEXT</type>
+        <definition>XrHandJointSetEXT ixr_hand_tracker::hand_joints</definition>
+        <argsstring></argsstring>
+        <name>hand_joints</name>
+        <qualifiedname>ixr_hand_tracker::hand_joints</qualifiedname>
+        <briefdescription>
+<para>holds the actual joint positions for the hand </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.h" line="33" column="24" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Struct for holdingdata on a hand tracking instance </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>ht_illixr_handle_t</label>
+        <link refid="structht__illixr__handle__t"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>last_valid_frame</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>ixr_hand_tracker</label>
+        <link refid="structixr__hand__tracker"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>session</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>ht_handle</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ixr_session</label>
+        <link refid="structixr__session"/>
+      </node>
+      <node id="4">
+        <label>valid_points</label>
+        <link refid="structvalid__points"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.h" line="27" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.h" bodystart="27" bodyend="34"/>
+    <listofallmembers>
+      <member refid="structixr__hand__tracker_1a913d0c042f18e446515964694bb62590" prot="public" virt="non-virtual"><scope>ixr_hand_tracker</scope><name>hand</name></member>
+      <member refid="structixr__hand__tracker_1acd56b8cc19c3f244ff668d4d6c72c841" prot="public" virt="non-virtual"><scope>ixr_hand_tracker</scope><name>hand_joints</name></member>
+      <member refid="structixr__hand__tracker_1aff6484ae45352104a81df5759c26b49b" prot="public" virt="non-virtual"><scope>ixr_hand_tracker</scope><name>ht_handle</name></member>
+      <member refid="structixr__hand__tracker_1aaa013be856968b407637e2ad1216156b" prot="public" virt="non-virtual"><scope>ixr_hand_tracker</scope><name>ixr_hand</name></member>
+      <member refid="structixr__hand__tracker_1ab5187490641649f00906cfb352313616" prot="public" virt="non-virtual"><scope>ixr_hand_tracker</scope><name>session</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

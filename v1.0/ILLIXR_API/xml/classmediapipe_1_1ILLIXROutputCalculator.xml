@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1ILLIXROutputCalculator" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::ILLIXROutputCalculator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">mediapipe::CalculatorBase</basecompoundref>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1ILLIXROutputCalculator_1ae2f3436dc7459824f5698f12119ec7a6" prot="protected" static="no" mutable="no">
+        <type>::mediapipe::ILLIXROutputCalculatorOptions</type>
+        <definition>::mediapipe::ILLIXROutputCalculatorOptions mediapipe::ILLIXROutputCalculator::options_</definition>
+        <argsstring></argsstring>
+        <name>options_</name>
+        <qualifiedname>mediapipe::ILLIXROutputCalculator::options_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.h" line="45" column="48" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1ILLIXROutputCalculator_1ac11b9965fe4e66a8afce39051d20e907" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::ILLIXROutputCalculator::image_frame_available_</definition>
+        <argsstring></argsstring>
+        <name>image_frame_available_</name>
+        <qualifiedname>mediapipe::ILLIXROutputCalculator::image_frame_available_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.h" line="49" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1ILLIXROutputCalculator_1a61a171d7fd407122cf411276f6eb8122" prot="private" static="no" mutable="no">
+        <type>mediapipe::ImageData</type>
+        <definition>mediapipe::ImageData mediapipe::ILLIXROutputCalculator::img_data_</definition>
+        <argsstring></argsstring>
+        <name>img_data_</name>
+        <qualifiedname>mediapipe::ILLIXROutputCalculator::img_data_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.h" line="50" column="26" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1ILLIXROutputCalculator_1ae122a67796b4cb3a332ac42b1579bcb6" prot="private" static="no" mutable="no">
+        <type>input_image_type</type>
+        <definition>input_image_type mediapipe::ILLIXROutputCalculator::image_type</definition>
+        <argsstring></argsstring>
+        <name>image_type</name>
+        <qualifiedname>mediapipe::ILLIXROutputCalculator::image_type</qualifiedname>
+        <initializer>= input_image_type::NONE</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.h" line="52" column="22" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1ILLIXROutputCalculator_1a3e147421f9ae489b482443f80a87816a" prot="private" static="no" mutable="no">
+        <type>palm_input_type</type>
+        <definition>palm_input_type mediapipe::ILLIXROutputCalculator::palm_input</definition>
+        <argsstring></argsstring>
+        <name>palm_input</name>
+        <qualifiedname>mediapipe::ILLIXROutputCalculator::palm_input</qualifiedname>
+        <initializer>= palm_input_type::NONE</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.h" line="53" column="21" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1ILLIXROutputCalculator_1aa534bfb5fd60dcd7c5e272e68fa3f58f" prot="private" static="no" mutable="no">
+        <type>hand_input_type</type>
+        <definition>hand_input_type mediapipe::ILLIXROutputCalculator::hand_input</definition>
+        <argsstring></argsstring>
+        <name>hand_input</name>
+        <qualifiedname>mediapipe::ILLIXROutputCalculator::hand_input</qualifiedname>
+        <initializer>= hand_input_type::NONE</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.h" line="54" column="21" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1ILLIXROutputCalculator_1ab57883f8fffe7a5ce0dc5508fbcf5404" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::ILLIXROutputCalculator::ILLIXROutputCalculator</definition>
+        <argsstring>()=default</argsstring>
+        <name>ILLIXROutputCalculator</name>
+        <qualifiedname>mediapipe::ILLIXROutputCalculator::ILLIXROutputCalculator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.h" line="34" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ILLIXROutputCalculator_1a6c9883191fed11746c090c12b4b1eba8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::ILLIXROutputCalculator::~ILLIXROutputCalculator</definition>
+        <argsstring>() override=default</argsstring>
+        <name>~ILLIXROutputCalculator</name>
+        <qualifiedname>mediapipe::ILLIXROutputCalculator::~ILLIXROutputCalculator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.h" line="36" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ILLIXROutputCalculator_1a21b9e874b64d8648b4cb3a77ae3f32f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::ILLIXROutputCalculator::ILLIXROutputCalculator</definition>
+        <argsstring>(const ILLIXROutputCalculator &amp;)=delete</argsstring>
+        <name>ILLIXROutputCalculator</name>
+        <qualifiedname>mediapipe::ILLIXROutputCalculator::ILLIXROutputCalculator</qualifiedname>
+        <param>
+          <type>const ILLIXROutputCalculator &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.h" line="38" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ILLIXROutputCalculator_1ab67159b3a16b43ca49d495d966d3dd94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ILLIXROutputCalculator &amp;</type>
+        <definition>ILLIXROutputCalculator &amp; mediapipe::ILLIXROutputCalculator::operator=</definition>
+        <argsstring>(const ILLIXROutputCalculator &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>mediapipe::ILLIXROutputCalculator::operator=</qualifiedname>
+        <param>
+          <type>const ILLIXROutputCalculator &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.h" line="39" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ILLIXROutputCalculator_1ab9e2b143431aee369261a287e89049d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::ILLIXROutputCalculator::Open</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Open</name>
+        <qualifiedname>mediapipe::ILLIXROutputCalculator::Open</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.h" line="41" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.cc" bodystart="113" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ILLIXROutputCalculator_1a4d3061a1d59ad531cdb90ef8507ed895" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::ILLIXROutputCalculator::Process</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Process</name>
+        <qualifiedname>mediapipe::ILLIXROutputCalculator::Process</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.h" line="42" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.cc" bodystart="154" bodyend="338"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1ILLIXROutputCalculator_1a684b44997e008f13f969d4c994a89355" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::ILLIXROutputCalculator::GetContract</definition>
+        <argsstring>(CalculatorContract *cc)</argsstring>
+        <name>GetContract</name>
+        <qualifiedname>mediapipe::ILLIXROutputCalculator::GetContract</qualifiedname>
+        <param>
+          <type>CalculatorContract *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.h" line="40" column="25" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.cc" bodystart="51" bodyend="111"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.h" line="32" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.h" bodystart="32" bodyend="55"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1CalculatorBase_1a586aedabbf1f8f9d14e07a7251cc5936" prot="public" virt="non-virtual"><scope>mediapipe::ILLIXROutputCalculator</scope><name>CalculatorBase</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a4c90b3bb22ad29984bf0e1436f629f1d" prot="public" virt="virtual"><scope>mediapipe::ILLIXROutputCalculator</scope><name>Close</name></member>
+      <member refid="classmediapipe_1_1ILLIXROutputCalculator_1a684b44997e008f13f969d4c994a89355" prot="public" virt="non-virtual"><scope>mediapipe::ILLIXROutputCalculator</scope><name>GetContract</name></member>
+      <member refid="classmediapipe_1_1ILLIXROutputCalculator_1aa534bfb5fd60dcd7c5e272e68fa3f58f" prot="private" virt="non-virtual"><scope>mediapipe::ILLIXROutputCalculator</scope><name>hand_input</name></member>
+      <member refid="classmediapipe_1_1ILLIXROutputCalculator_1ab57883f8fffe7a5ce0dc5508fbcf5404" prot="public" virt="non-virtual"><scope>mediapipe::ILLIXROutputCalculator</scope><name>ILLIXROutputCalculator</name></member>
+      <member refid="classmediapipe_1_1ILLIXROutputCalculator_1a21b9e874b64d8648b4cb3a77ae3f32f0" prot="public" virt="non-virtual"><scope>mediapipe::ILLIXROutputCalculator</scope><name>ILLIXROutputCalculator</name></member>
+      <member refid="classmediapipe_1_1ILLIXROutputCalculator_1ac11b9965fe4e66a8afce39051d20e907" prot="private" virt="non-virtual"><scope>mediapipe::ILLIXROutputCalculator</scope><name>image_frame_available_</name></member>
+      <member refid="classmediapipe_1_1ILLIXROutputCalculator_1ae122a67796b4cb3a332ac42b1579bcb6" prot="private" virt="non-virtual"><scope>mediapipe::ILLIXROutputCalculator</scope><name>image_type</name></member>
+      <member refid="classmediapipe_1_1ILLIXROutputCalculator_1a61a171d7fd407122cf411276f6eb8122" prot="private" virt="non-virtual"><scope>mediapipe::ILLIXROutputCalculator</scope><name>img_data_</name></member>
+      <member refid="classmediapipe_1_1ILLIXROutputCalculator_1ab9e2b143431aee369261a287e89049d2" prot="public" virt="non-virtual"><scope>mediapipe::ILLIXROutputCalculator</scope><name>Open</name></member>
+      <member refid="classmediapipe_1_1ILLIXROutputCalculator_1ab67159b3a16b43ca49d495d966d3dd94" prot="public" virt="non-virtual"><scope>mediapipe::ILLIXROutputCalculator</scope><name>operator=</name></member>
+      <member refid="classmediapipe_1_1ILLIXROutputCalculator_1ae2f3436dc7459824f5698f12119ec7a6" prot="protected" virt="non-virtual"><scope>mediapipe::ILLIXROutputCalculator</scope><name>options_</name></member>
+      <member refid="classmediapipe_1_1ILLIXROutputCalculator_1a3e147421f9ae489b482443f80a87816a" prot="private" virt="non-virtual"><scope>mediapipe::ILLIXROutputCalculator</scope><name>palm_input</name></member>
+      <member refid="classmediapipe_1_1ILLIXROutputCalculator_1a4d3061a1d59ad531cdb90ef8507ed895" prot="public" virt="non-virtual"><scope>mediapipe::ILLIXROutputCalculator</scope><name>Process</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a0cf70172f342c2cc0314af8e76ae982b" prot="public" virt="virtual"><scope>mediapipe::ILLIXROutputCalculator</scope><name>SourceProcessOrder</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a9ced1ccc8a3f7ad59e54a317f4054c90" prot="public" virt="virtual"><scope>mediapipe::ILLIXROutputCalculator</scope><name>~CalculatorBase</name></member>
+      <member refid="classmediapipe_1_1ILLIXROutputCalculator_1a6c9883191fed11746c090c12b4b1eba8" prot="public" virt="non-virtual"><scope>mediapipe::ILLIXROutputCalculator</scope><name>~ILLIXROutputCalculator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

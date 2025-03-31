@@ -1,0 +1,384 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="tflite__gpu__runner_8h" kind="file" language="C++">
+    <compoundname>tflite_gpu_runner.h</compoundname>
+    <includes local="no">cstdint</includes>
+    <includes local="no">memory</includes>
+    <includes local="no">vector</includes>
+    <includes local="yes">absl/status/status.h</includes>
+    <includes local="yes">absl/status/statusor.h</includes>
+    <includes refid="port_8h" local="yes">mediapipe/framework/port.h</includes>
+    <includes refid="port_2ret__check_8h" local="yes">mediapipe/framework/port/ret_check.h</includes>
+    <includes refid="gl__base_8h" local="yes">mediapipe/gpu/gl_base.h</includes>
+    <includes local="yes">tensorflow/lite/core/api/op_resolver.h</includes>
+    <includes local="yes">tensorflow/lite/delegates/gpu/api.h</includes>
+    <includes local="yes">tensorflow/lite/delegates/gpu/common/model.h</includes>
+    <includes local="yes">tensorflow/lite/delegates/gpu/common/shape.h</includes>
+    <includes local="yes">tensorflow/lite/delegates/gpu/gl/api2.h</includes>
+    <includes local="yes">tensorflow/lite/model.h</includes>
+    <includes local="yes">tensorflow/lite/model_builder.h</includes>
+    <includedby refid="inference__calculator__gl__advanced_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl_advanced.cc</includedby>
+    <includedby refid="tflite__gpu__runner_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.cc</includedby>
+    <incdepgraph>
+      <node id="9">
+        <label>mediapipe/framework/deps/ret_check.h</label>
+        <link refid="deps_2ret__check_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>mediapipe/framework/deps/source_location.h</label>
+        <link refid="deps_2source__location_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>mediapipe/framework/deps/status.h</label>
+        <link refid="deps_2status_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>mediapipe/framework/deps/status_builder.h</label>
+        <link refid="deps_2status__builder_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>mediapipe/framework/deps/status_macros.h</label>
+        <link refid="deps_2status__macros_8h_source"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>mediapipe/framework/port.h</label>
+        <link refid="port_8h_source"/>
+      </node>
+      <node id="8">
+        <label>mediapipe/framework/port/ret_check.h</label>
+        <link refid="port_2ret__check_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>mediapipe/gpu/gl_base.h</label>
+        <link refid="gl__base_8h_source"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h</label>
+        <link refid="tflite__gpu__runner_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>EGL/egl.h</label>
+      </node>
+      <node id="26">
+        <label>GLES2/gl2.h</label>
+      </node>
+      <node id="27">
+        <label>GLES2/gl2ext.h</label>
+      </node>
+      <node id="28">
+        <label>GLES3/gl32.h</label>
+      </node>
+      <node id="14">
+        <label>absl/base/attributes.h</label>
+      </node>
+      <node id="10">
+        <label>absl/base/optimization.h</label>
+      </node>
+      <node id="22">
+        <label>absl/log/absl_log.h</label>
+      </node>
+      <node id="15">
+        <label>absl/memory/memory.h</label>
+      </node>
+      <node id="5">
+        <label>absl/status/status.h</label>
+      </node>
+      <node id="6">
+        <label>absl/status/statusor.h</label>
+      </node>
+      <node id="16">
+        <label>absl/strings/string_view.h</label>
+      </node>
+      <node id="2">
+        <label>cstdint</label>
+      </node>
+      <node id="19">
+        <label>functional</label>
+      </node>
+      <node id="20">
+        <label>iosfwd</label>
+      </node>
+      <node id="3">
+        <label>memory</label>
+      </node>
+      <node id="12">
+        <label>sstream</label>
+      </node>
+      <node id="21">
+        <label>string</label>
+      </node>
+      <node id="29">
+        <label>tensorflow/lite/core/api/op_resolver.h</label>
+      </node>
+      <node id="30">
+        <label>tensorflow/lite/delegates/gpu/api.h</label>
+      </node>
+      <node id="31">
+        <label>tensorflow/lite/delegates/gpu/common/model.h</label>
+      </node>
+      <node id="32">
+        <label>tensorflow/lite/delegates/gpu/common/shape.h</label>
+      </node>
+      <node id="33">
+        <label>tensorflow/lite/delegates/gpu/gl/api2.h</label>
+      </node>
+      <node id="34">
+        <label>tensorflow/lite/model.h</label>
+      </node>
+      <node id="35">
+        <label>tensorflow/lite/model_builder.h</label>
+      </node>
+      <node id="13">
+        <label>utility</label>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classtflite_1_1gpu_1_1TFLiteGPURunner" prot="public">tflite::gpu::TFLiteGPURunner</innerclass>
+    <innernamespace refid="namespacetflite">tflite</innernamespace>
+    <innernamespace refid="namespacetflite_1_1gpu">tflite::gpu</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Copyright<sp/>2020<sp/>The<sp/>MediaPipe<sp/>Authors.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>MEDIAPIPE_CALCULATORS_TFLITE_TFLITE_GPU_RUNNER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MEDIAPIPE_CALCULATORS_TFLITE_TFLITE_GPU_RUNNER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/status/status.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/status/statusor.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/port.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/port/ret_check.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/gpu/gl_base.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/core/api/op_resolver.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/delegates/gpu/api.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/delegates/gpu/common/model.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/delegates/gpu/common/shape.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/delegates/gpu/gl/api2.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/model.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/model_builder.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__ANDROID__)<sp/>||<sp/>defined(MEDIAPIPE_CHROMIUMOS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/delegates/gpu/cl/api.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>defined(__ANDROID__)<sp/>||<sp/>defined(MEDIAPIPE_CHROMIUMOS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">tflite<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">gpu<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Executes<sp/>GPU<sp/>based<sp/>inference<sp/>using<sp/>the<sp/>TFLite<sp/>GPU<sp/>delegate<sp/>api2.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Currently<sp/>supports<sp/>only<sp/>GPU<sp/>inputs/outputs.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Typical<sp/>order<sp/>of<sp/>execution:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">//<sp/>1.<sp/>Initialize<sp/>with<sp/>the<sp/>flatbuffer<sp/>model<sp/>using<sp/>InitializeWithModel().</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">//<sp/>2.<sp/>Bind<sp/>OpenGL<sp/>SSBO<sp/>objects<sp/>as<sp/>inputs<sp/>and<sp/>outputs<sp/>using</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment">//<sp/>BindSSBOToInputTensor()<sp/>and<sp/>BindSSBOToOutputTensor().</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">//<sp/>3.<sp/>Build<sp/>the<sp/>inference<sp/>runner<sp/>with<sp/>Build()<sp/>method.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">//<sp/>4.<sp/>Invoke()<sp/>executes<sp/>the<sp/>inference,<sp/>where<sp/>inputs<sp/>and<sp/>outputs<sp/>are<sp/>those<sp/>which</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment">//<sp/>were<sp/>specified<sp/>earlier.<sp/>Invoke()<sp/>may<sp/>be<sp/>called<sp/>in<sp/>the<sp/>loop.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Note:<sp/>All<sp/>of<sp/>these<sp/>need<sp/>to<sp/>happen<sp/>inside<sp/>MediaPipe&apos;s<sp/>RunInGlContext<sp/>to<sp/>make</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">//<sp/>sure<sp/>that<sp/>all<sp/>steps<sp/>from<sp/>inference<sp/>construction<sp/>to<sp/>execution<sp/>are<sp/>made<sp/>using</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">//<sp/>same<sp/>OpenGL<sp/>context.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">TFLiteGPURunner<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/>TFLiteGPURunner(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>InferenceOptions&amp;<sp/>options)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>options_(options)<sp/>{}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>absl::Status<sp/>InitializeWithModel(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>tflite::FlatBufferModel&amp;<sp/>flatbuffer,</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>tflite::OpResolver&amp;<sp/>op_resolver,</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>allow_quant_ops<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ForceOpenGL()<sp/>{<sp/>opengl_is_forced_<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ForceOpenCL()<sp/>{<sp/>opencl_is_forced_<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ForceOpenCLInitFromSerializedModel()<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>opencl_init_from_serialized_model_is_forced_<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>absl::Status<sp/>BindSSBOToInputTensor(GLuint<sp/>ssbo_id,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>input_id);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>absl::Status<sp/>BindSSBOToOutputTensor(GLuint<sp/>ssbo_id,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>output_id);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>inputs_size()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>input_shapes_.size();<sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>outputs_size()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>output_shapes_.size();<sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>absl::StatusOr&lt;int64_t&gt;<sp/>GetInputElements(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>absl::StatusOr&lt;int64_t&gt;<sp/>GetOutputElements(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>absl::Status<sp/>Build();</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>absl::Status<sp/>Invoke();</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>std::vector&lt;BHWC&gt;<sp/>GetInputShapes()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>input_shapes_;<sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>std::vector&lt;BHWC&gt;<sp/>GetOutputShapes()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>output_shapes_;<sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>std::vector&lt;std::vector&lt;int&gt;&gt;<sp/>GetTFLiteInputShapes()<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>input_shape_from_model_;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>std::vector&lt;std::vector&lt;int&gt;&gt;<sp/>GetTFLiteOutputShapes()<sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>output_shape_from_model_;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Must<sp/>be<sp/>invoked<sp/>after<sp/>`Build`<sp/>invocation.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>CanGenerateSerializedBinaryCache()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>is_cl_used_;<sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>absl::StatusOr&lt;std::vector&lt;uint8_t&gt;&gt;<sp/>GetSerializedBinaryCache();</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Must<sp/>be<sp/>invoked<sp/>before<sp/>`Build`<sp/>invocation.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SetSerializedBinaryCache(std::vector&lt;uint8_t&gt;&amp;&amp;<sp/>cache);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Must<sp/>be<sp/>invoked<sp/>after<sp/>`Build`<sp/>invocation.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>CanGenerateSerializedModel()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>is_cl_used_;<sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>absl::StatusOr&lt;std::vector&lt;uint8_t&gt;&gt;<sp/>GetSerializedModel();</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Must<sp/>be<sp/>invoked<sp/>before<sp/>`Build`<sp/>invocation.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SetSerializedModel(std::vector&lt;uint8_t&gt;&amp;&amp;<sp/>serialized_model);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>absl::Status<sp/>InitializeOpenGL(std::unique_ptr&lt;InferenceBuilder&gt;*<sp/>builder);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/>absl::Status<sp/>InitializeOpenCL(std::unique_ptr&lt;InferenceBuilder&gt;*<sp/>builder);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>absl::Status<sp/>InitializeOpenCLFromSerializedModel(</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::unique_ptr&lt;InferenceBuilder&gt;*<sp/>builder);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/>InferenceOptions<sp/>options_;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;gl::InferenceEnvironment&gt;<sp/>gl_environment_;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__ANDROID__)<sp/>||<sp/>defined(MEDIAPIPE_CHROMIUMOS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;cl::InferenceEnvironment&gt;<sp/>cl_environment_;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/>std::vector&lt;uint8_t&gt;<sp/>serialized_binary_cache_;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>std::vector&lt;uint8_t&gt;<sp/>serialized_model_;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>serialized_model_used_<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>defined(__ANDROID__)<sp/>||<sp/>defined(MEDIAPIPE_CHROMIUMOS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>graph_gl_<sp/>is<sp/>maintained<sp/>temporarily<sp/>and<sp/>becomes<sp/>invalid<sp/>after<sp/>runner_<sp/>is</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>ready</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;GraphFloat32&gt;<sp/>graph_gl_;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;GraphFloat32&gt;<sp/>graph_cl_;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;InferenceRunner&gt;<sp/>runner_;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_cl_used_<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>We<sp/>keep<sp/>information<sp/>about<sp/>input/output<sp/>shapes,<sp/>because<sp/>they<sp/>are<sp/>needed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>after<sp/>graph_<sp/>becomes<sp/>&quot;converted&quot;<sp/>into<sp/>runner_.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>std::vector&lt;BHWC&gt;<sp/>input_shapes_;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/>std::vector&lt;BHWC&gt;<sp/>output_shapes_;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Input/output<sp/>shapes<sp/>above<sp/>belong<sp/>to<sp/>the<sp/>internal<sp/>graph<sp/>representation.<sp/>It</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>is<sp/>handy<sp/>in<sp/>certain<sp/>situations<sp/>to<sp/>have<sp/>the<sp/>original<sp/>tflite<sp/>model&apos;s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>input/output<sp/>shapes,<sp/>which<sp/>differ<sp/>conceptually.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/>std::vector&lt;std::vector&lt;int&gt;&gt;<sp/>input_shape_from_model_;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>std::vector&lt;std::vector&lt;int&gt;&gt;<sp/>output_shape_from_model_;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>opencl_is_forced_<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>opengl_is_forced_<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>opencl_init_from_serialized_model_is_forced_<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>gpu</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>tflite</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MEDIAPIPE_CALCULATORS_TFLITE_TFLITE_GPU_RUNNER_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h"/>
+  </compounddef>
+</doxygen>

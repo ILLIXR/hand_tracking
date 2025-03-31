@@ -1,0 +1,249 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1SwitchMuxCalculator" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::SwitchMuxCalculator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">mediapipe::CalculatorBase</basecompoundref>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1SwitchMuxCalculator_1abd016db52b26eb4b899aa4f738283e70" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr char</type>
+        <definition>constexpr char mediapipe::SwitchMuxCalculator::kSelectTag[]</definition>
+        <argsstring>[]</argsstring>
+        <name>kSelectTag</name>
+        <qualifiedname>mediapipe::SwitchMuxCalculator::kSelectTag</qualifiedname>
+        <initializer>= &quot;SELECT&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" line="63" column="25" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1SwitchMuxCalculator_1ab7726b7339063a484e5a85f9bb69a4f2" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr char</type>
+        <definition>constexpr char mediapipe::SwitchMuxCalculator::kEnableTag[]</definition>
+        <argsstring>[]</argsstring>
+        <name>kEnableTag</name>
+        <qualifiedname>mediapipe::SwitchMuxCalculator::kEnableTag</qualifiedname>
+        <initializer>= &quot;ENABLE&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" line="64" column="25" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" bodystart="64" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1SwitchMuxCalculator_1aac4c48f9e9c9fb37c3d95f38785fd2fc" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::SwitchMuxCalculator::channel_index_</definition>
+        <argsstring></argsstring>
+        <name>channel_index_</name>
+        <qualifiedname>mediapipe::SwitchMuxCalculator::channel_index_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" line="83" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1SwitchMuxCalculator_1a2bfe686af8389b6d9de9d12f3202e453" prot="private" static="no" mutable="no">
+        <type>std::set&lt; std::string &gt;</type>
+        <definition>std::set&lt;std::string&gt; mediapipe::SwitchMuxCalculator::channel_tags_</definition>
+        <argsstring></argsstring>
+        <name>channel_tags_</name>
+        <qualifiedname>mediapipe::SwitchMuxCalculator::channel_tags_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" line="84" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1SwitchMuxCalculator_1a69e7235ac0e6d35c9b11fcf13db40fc9" prot="private" static="no" mutable="no">
+        <type>mediapipe::SwitchContainerOptions</type>
+        <definition>mediapipe::SwitchContainerOptions mediapipe::SwitchMuxCalculator::options_</definition>
+        <argsstring></argsstring>
+        <name>options_</name>
+        <qualifiedname>mediapipe::SwitchMuxCalculator::options_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" line="85" column="37" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1SwitchMuxCalculator_1a0d4f677b5c0b35b87f07b886be734fbb" prot="private" static="no" mutable="no">
+        <type>std::map&lt; CollectionItemId, std::queue&lt; Packet &gt; &gt;</type>
+        <definition>std::map&lt;CollectionItemId, std::queue&lt;Packet&gt; &gt; mediapipe::SwitchMuxCalculator::packet_queue_</definition>
+        <argsstring></argsstring>
+        <name>packet_queue_</name>
+        <qualifiedname>mediapipe::SwitchMuxCalculator::packet_queue_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" line="88" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1SwitchMuxCalculator_1a6c546b8316eb3625dae2ca1d74e7b5e2" prot="private" static="no" mutable="no">
+        <type>std::map&lt; Timestamp, int &gt;</type>
+        <definition>std::map&lt;Timestamp, int&gt; mediapipe::SwitchMuxCalculator::channel_history_</definition>
+        <argsstring></argsstring>
+        <name>channel_history_</name>
+        <qualifiedname>mediapipe::SwitchMuxCalculator::channel_history_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" line="91" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" bodystart="91" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1SwitchMuxCalculator_1a62581039f9baf9422150e2b912b86346" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::SwitchMuxCalculator::GetContract</definition>
+        <argsstring>(CalculatorContract *cc)</argsstring>
+        <name>GetContract</name>
+        <qualifiedname>mediapipe::SwitchMuxCalculator::GetContract</qualifiedname>
+        <param>
+          <type>CalculatorContract *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" line="67" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" bodystart="95" bodyend="143"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1SwitchMuxCalculator_1a5a6139e0286ee25021d0e08dbb37d0a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::SwitchMuxCalculator::Open</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Open</name>
+        <qualifiedname>mediapipe::SwitchMuxCalculator::Open</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" line="69" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" bodystart="161" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1SwitchMuxCalculator_1a7862d48b9aa1b03dd043ee0aa439451a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::SwitchMuxCalculator::Process</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Process</name>
+        <qualifiedname>mediapipe::SwitchMuxCalculator::Process</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" line="70" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" bodystart="257" bodyend="266"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1SwitchMuxCalculator_1ad3af0863a961d03806b975ee6a2721cd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::SwitchMuxCalculator::RecordChannel</definition>
+        <argsstring>(CalculatorContext *cc)</argsstring>
+        <name>RecordChannel</name>
+        <qualifiedname>mediapipe::SwitchMuxCalculator::RecordChannel</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" line="74" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" bodystart="180" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1SwitchMuxCalculator_1a887fd56ddae012c76f68f5272d7d17d8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::SwitchMuxCalculator::RecordPackets</definition>
+        <argsstring>(CalculatorContext *cc)</argsstring>
+        <name>RecordPackets</name>
+        <qualifiedname>mediapipe::SwitchMuxCalculator::RecordPackets</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" line="77" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" bodystart="192" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1SwitchMuxCalculator_1a6de50343d3e84db4d2e4f6bddb4ddcfc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::SwitchMuxCalculator::SendActivePackets</definition>
+        <argsstring>(CalculatorContext *cc)</argsstring>
+        <name>SendActivePackets</name>
+        <qualifiedname>mediapipe::SwitchMuxCalculator::SendActivePackets</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" line="80" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" bodystart="205" bodyend="255"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" line="62" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc" bodystart="62" bodyend="92"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1CalculatorBase_1a586aedabbf1f8f9d14e07a7251cc5936" prot="public" virt="non-virtual"><scope>mediapipe::SwitchMuxCalculator</scope><name>CalculatorBase</name></member>
+      <member refid="classmediapipe_1_1SwitchMuxCalculator_1a6c546b8316eb3625dae2ca1d74e7b5e2" prot="private" virt="non-virtual"><scope>mediapipe::SwitchMuxCalculator</scope><name>channel_history_</name></member>
+      <member refid="classmediapipe_1_1SwitchMuxCalculator_1aac4c48f9e9c9fb37c3d95f38785fd2fc" prot="private" virt="non-virtual"><scope>mediapipe::SwitchMuxCalculator</scope><name>channel_index_</name></member>
+      <member refid="classmediapipe_1_1SwitchMuxCalculator_1a2bfe686af8389b6d9de9d12f3202e453" prot="private" virt="non-virtual"><scope>mediapipe::SwitchMuxCalculator</scope><name>channel_tags_</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a4c90b3bb22ad29984bf0e1436f629f1d" prot="public" virt="virtual"><scope>mediapipe::SwitchMuxCalculator</scope><name>Close</name></member>
+      <member refid="classmediapipe_1_1SwitchMuxCalculator_1a62581039f9baf9422150e2b912b86346" prot="public" virt="non-virtual"><scope>mediapipe::SwitchMuxCalculator</scope><name>GetContract</name></member>
+      <member refid="classmediapipe_1_1SwitchMuxCalculator_1ab7726b7339063a484e5a85f9bb69a4f2" prot="private" virt="non-virtual"><scope>mediapipe::SwitchMuxCalculator</scope><name>kEnableTag</name></member>
+      <member refid="classmediapipe_1_1SwitchMuxCalculator_1abd016db52b26eb4b899aa4f738283e70" prot="private" virt="non-virtual"><scope>mediapipe::SwitchMuxCalculator</scope><name>kSelectTag</name></member>
+      <member refid="classmediapipe_1_1SwitchMuxCalculator_1a5a6139e0286ee25021d0e08dbb37d0a9" prot="public" virt="non-virtual"><scope>mediapipe::SwitchMuxCalculator</scope><name>Open</name></member>
+      <member refid="classmediapipe_1_1SwitchMuxCalculator_1a69e7235ac0e6d35c9b11fcf13db40fc9" prot="private" virt="non-virtual"><scope>mediapipe::SwitchMuxCalculator</scope><name>options_</name></member>
+      <member refid="classmediapipe_1_1SwitchMuxCalculator_1a0d4f677b5c0b35b87f07b886be734fbb" prot="private" virt="non-virtual"><scope>mediapipe::SwitchMuxCalculator</scope><name>packet_queue_</name></member>
+      <member refid="classmediapipe_1_1SwitchMuxCalculator_1a7862d48b9aa1b03dd043ee0aa439451a" prot="public" virt="non-virtual"><scope>mediapipe::SwitchMuxCalculator</scope><name>Process</name></member>
+      <member refid="classmediapipe_1_1SwitchMuxCalculator_1ad3af0863a961d03806b975ee6a2721cd" prot="private" virt="non-virtual"><scope>mediapipe::SwitchMuxCalculator</scope><name>RecordChannel</name></member>
+      <member refid="classmediapipe_1_1SwitchMuxCalculator_1a887fd56ddae012c76f68f5272d7d17d8" prot="private" virt="non-virtual"><scope>mediapipe::SwitchMuxCalculator</scope><name>RecordPackets</name></member>
+      <member refid="classmediapipe_1_1SwitchMuxCalculator_1a6de50343d3e84db4d2e4f6bddb4ddcfc" prot="private" virt="non-virtual"><scope>mediapipe::SwitchMuxCalculator</scope><name>SendActivePackets</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a0cf70172f342c2cc0314af8e76ae982b" prot="public" virt="virtual"><scope>mediapipe::SwitchMuxCalculator</scope><name>SourceProcessOrder</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a9ced1ccc8a3f7ad59e54a317f4054c90" prot="public" virt="virtual"><scope>mediapipe::SwitchMuxCalculator</scope><name>~CalculatorBase</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

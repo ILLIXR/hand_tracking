@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1InferenceRunner" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>mediapipe::InferenceRunner</compoundname>
+    <derivedcompoundref refid="classmediapipe_1_1InferenceInterpreterDelegateRunner" prot="public" virt="non-virtual">mediapipe::InferenceInterpreterDelegateRunner</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1InferenceRunner_1a675f980a177bf8870be2d18503593b14" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual mediapipe::InferenceRunner::~InferenceRunner</definition>
+        <argsstring>()=default</argsstring>
+        <name>~InferenceRunner</name>
+        <qualifiedname>mediapipe::InferenceRunner::~InferenceRunner</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_runner.h" line="17" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceRunner_1afed9d4d796e9a61d561acc50edd3d8ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>absl::StatusOr&lt; std::vector&lt; Tensor &gt; &gt;</type>
+        <definition>virtual absl::StatusOr&lt; std::vector&lt; Tensor &gt; &gt; mediapipe::InferenceRunner::Run</definition>
+        <argsstring>(CalculatorContext *cc, const TensorSpan &amp;tensor_span)=0</argsstring>
+        <name>Run</name>
+        <qualifiedname>mediapipe::InferenceRunner::Run</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <param>
+          <type>const TensorSpan &amp;</type>
+          <declname>tensor_span</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_runner.h" line="18" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceRunner_1ab85ca03bcc9c92d60c75322c588cb7e6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const InputOutputTensorNames &amp;</type>
+        <definition>virtual const InputOutputTensorNames &amp; mediapipe::InferenceRunner::GetInputOutputTensorNames</definition>
+        <argsstring>() const =0</argsstring>
+        <name>GetInputOutputTensorNames</name>
+        <qualifiedname>mediapipe::InferenceRunner::GetInputOutputTensorNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_runner.h" line="23" column="40"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_runner.h" line="15" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_runner.h" bodystart="15" bodyend="24"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1InferenceRunner_1ab85ca03bcc9c92d60c75322c588cb7e6" prot="public" virt="pure-virtual"><scope>mediapipe::InferenceRunner</scope><name>GetInputOutputTensorNames</name></member>
+      <member refid="classmediapipe_1_1InferenceRunner_1afed9d4d796e9a61d561acc50edd3d8ed" prot="public" virt="pure-virtual"><scope>mediapipe::InferenceRunner</scope><name>Run</name></member>
+      <member refid="classmediapipe_1_1InferenceRunner_1a675f980a177bf8870be2d18503593b14" prot="public" virt="virtual"><scope>mediapipe::InferenceRunner</scope><name>~InferenceRunner</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

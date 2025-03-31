@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1ImageToTensorGlBufferConverter" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::ImageToTensorGlBufferConverter</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">mediapipe::ImageToTensorConverter</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1ImageToTensorGlBufferConverter_1a9ff30f5271c651ba016e0a071fe9a960" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; tflite::gpu::gl::CommandQueue &gt;</type>
+        <definition>std::unique_ptr&lt;tflite::gpu::gl::CommandQueue&gt; mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::ImageToTensorGlBufferConverter::command_queue_</definition>
+        <argsstring></argsstring>
+        <name>command_queue_</name>
+        <qualifiedname>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::ImageToTensorGlBufferConverter::command_queue_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" line="338" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" bodystart="338" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1ImageToTensorGlBufferConverter_1a9ff15004a81e76daba1803418b2b1e71" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; SubRectExtractorGl &gt;</type>
+        <definition>std::unique_ptr&lt;SubRectExtractorGl&gt; mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::ImageToTensorGlBufferConverter::extractor_</definition>
+        <argsstring></argsstring>
+        <name>extractor_</name>
+        <qualifiedname>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::ImageToTensorGlBufferConverter::extractor_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" line="339" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" bodystart="339" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1ImageToTensorGlBufferConverter_1a1731787fbd3852806f2879a175d0a444" prot="private" static="no" mutable="no">
+        <type>mediapipe::GlCalculatorHelper</type>
+        <definition>mediapipe::GlCalculatorHelper mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::ImageToTensorGlBufferConverter::gl_helper_</definition>
+        <argsstring></argsstring>
+        <name>gl_helper_</name>
+        <qualifiedname>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::ImageToTensorGlBufferConverter::gl_helper_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" line="340" column="33" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" bodystart="340" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1ImageToTensorGlBufferConverter_1ae7c2a1743cc3a63462c18ad7292b4af3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::ImageToTensorGlBufferConverter::Init</definition>
+        <argsstring>(CalculatorContext *cc, bool input_starts_at_bottom, BorderMode border_mode)</argsstring>
+        <name>Init</name>
+        <qualifiedname>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::ImageToTensorGlBufferConverter::Init</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>input_starts_at_bottom</declname>
+        </param>
+        <param>
+          <type>BorderMode</type>
+          <declname>border_mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" line="245" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" bodystart="245" bodyend="263"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1ImageToTensorGlBufferConverter_1a2c3f30f9a8845b6bdacb4c0569aec006" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::ImageToTensorGlBufferConverter::Convert</definition>
+        <argsstring>(const mediapipe::Image &amp;input, const RotatedRect &amp;roi, float range_min, float range_max, int tensor_buffer_offset, Tensor &amp;output_tensor) override</argsstring>
+        <name>Convert</name>
+        <qualifiedname>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::ImageToTensorGlBufferConverter::Convert</qualifiedname>
+        <param>
+          <type>const mediapipe::Image &amp;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>const RotatedRect &amp;</type>
+          <declname>roi</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>range_min</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>range_max</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>tensor_buffer_offset</declname>
+        </param>
+        <param>
+          <type>Tensor &amp;</type>
+          <declname>output_tensor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" line="265" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" bodystart="265" bodyend="317"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1ImageToTensorGlBufferConverter_1a63f8cbbf55f7b8685a0bc82f58ba6175" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::ImageToTensorGlBufferConverter::~ImageToTensorGlBufferConverter</definition>
+        <argsstring>() override</argsstring>
+        <name>~ImageToTensorGlBufferConverter</name>
+        <qualifiedname>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::ImageToTensorGlBufferConverter::~ImageToTensorGlBufferConverter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" line="319" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" bodystart="319" bodyend="325"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1ImageToTensorGlBufferConverter_1a7899111031a28718ca05d4cb264537dc" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::ImageToTensorGlBufferConverter::ValidateTensorShape</definition>
+        <argsstring>(const Tensor::Shape &amp;output_shape)</argsstring>
+        <name>ValidateTensorShape</name>
+        <qualifiedname>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::ImageToTensorGlBufferConverter::ValidateTensorShape</qualifiedname>
+        <param>
+          <type>const Tensor::Shape &amp;</type>
+          <declname>output_shape</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" line="328" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" bodystart="328" bodyend="336"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" line="243" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.cc" bodystart="243" bodyend="341"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1ImageToTensorGlBufferConverter_1a9ff30f5271c651ba016e0a071fe9a960" prot="private" virt="non-virtual"><scope>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::ImageToTensorGlBufferConverter</scope><name>command_queue_</name></member>
+      <member refid="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1ImageToTensorGlBufferConverter_1a2c3f30f9a8845b6bdacb4c0569aec006" prot="public" virt="non-virtual"><scope>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::ImageToTensorGlBufferConverter</scope><name>Convert</name></member>
+      <member refid="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1ImageToTensorGlBufferConverter_1a9ff15004a81e76daba1803418b2b1e71" prot="private" virt="non-virtual"><scope>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::ImageToTensorGlBufferConverter</scope><name>extractor_</name></member>
+      <member refid="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1ImageToTensorGlBufferConverter_1a1731787fbd3852806f2879a175d0a444" prot="private" virt="non-virtual"><scope>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::ImageToTensorGlBufferConverter</scope><name>gl_helper_</name></member>
+      <member refid="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1ImageToTensorGlBufferConverter_1ae7c2a1743cc3a63462c18ad7292b4af3" prot="public" virt="non-virtual"><scope>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::ImageToTensorGlBufferConverter</scope><name>Init</name></member>
+      <member refid="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1ImageToTensorGlBufferConverter_1a7899111031a28718ca05d4cb264537dc" prot="private" virt="non-virtual"><scope>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::ImageToTensorGlBufferConverter</scope><name>ValidateTensorShape</name></member>
+      <member refid="classmediapipe_1_1ImageToTensorConverter_1aab0e1b699703c2e1a15f9586880f75ad" prot="public" virt="virtual"><scope>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::ImageToTensorGlBufferConverter</scope><name>~ImageToTensorConverter</name></member>
+      <member refid="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1ImageToTensorGlBufferConverter_1a63f8cbbf55f7b8685a0bc82f58ba6175" prot="public" virt="non-virtual"><scope>mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::ImageToTensorGlBufferConverter</scope><name>~ImageToTensorGlBufferConverter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

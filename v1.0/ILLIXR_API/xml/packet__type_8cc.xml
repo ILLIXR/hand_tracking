@@ -1,0 +1,1143 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="packet__type_8cc" kind="file" language="C++">
+    <compoundname>packet_type.cc</compoundname>
+    <includes refid="packet__type_8h" local="yes">mediapipe/framework/packet_type.h</includes>
+    <includes local="no">unordered_set</includes>
+    <includes local="no">utility</includes>
+    <includes local="yes">absl/status/status.h</includes>
+    <includes local="yes">absl/strings/str_cat.h</includes>
+    <includes local="yes">absl/strings/str_join.h</includes>
+    <includes local="yes">absl/types/span.h</includes>
+    <includes local="yes">absl/types/variant.h</includes>
+    <includes refid="port_2canonical__errors_8h" local="yes">mediapipe/framework/port/canonical_errors.h</includes>
+    <includes refid="logging_8h" local="yes">mediapipe/framework/port/logging.h</includes>
+    <includes refid="port_2map__util_8h" local="yes">mediapipe/framework/port/map_util.h</includes>
+    <includes refid="port_2source__location_8h" local="yes">mediapipe/framework/port/source_location.h</includes>
+    <includes refid="port_2status__builder_8h" local="yes">mediapipe/framework/port/status_builder.h</includes>
+    <includes refid="status__util_8h" local="yes">mediapipe/framework/tool/status_util.h</includes>
+    <includes refid="type__util_8h" local="yes">mediapipe/framework/tool/type_util.h</includes>
+    <includes refid="validate__name_8h" local="yes">mediapipe/framework/tool/validate_name.h</includes>
+    <includes refid="type__map_8h" local="yes">mediapipe/framework/type_map.h</includes>
+    <incdepgraph>
+      <node id="16">
+        <label>mediapipe/framework/collection.h</label>
+        <link refid="collection_8h_source"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>mediapipe/framework/collection_item_id.h</label>
+        <link refid="collection__item__id_8h_source"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="64">
+        <label>mediapipe/framework/demangle.h</label>
+        <link refid="demangle_8h_source"/>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>mediapipe/framework/deps/canonical_errors.h</label>
+        <link refid="deps_2canonical__errors_8h_source"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="89">
+        <label>mediapipe/framework/deps/map_util.h</label>
+        <link refid="deps_2map__util_8h_source"/>
+        <childnode refid="90" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="68">
+        <label>mediapipe/framework/deps/no_destructor.h</label>
+        <link refid="no__destructor_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+      </node>
+      <node id="70">
+        <label>mediapipe/framework/deps/registration.h</label>
+        <link refid="registration_8h_source"/>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+      </node>
+      <node id="80">
+        <label>mediapipe/framework/deps/registration_token.h</label>
+        <link refid="registration__token_8h_source"/>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="84">
+        <label>mediapipe/framework/deps/safe_int.h</label>
+        <link refid="safe__int_8h_source"/>
+        <childnode refid="85" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="57">
+        <label>mediapipe/framework/deps/source_location.h</label>
+        <link refid="deps_2source__location_8h_source"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>mediapipe/framework/deps/status.h</label>
+        <link refid="deps_2status_8h_source"/>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>mediapipe/framework/deps/status_builder.h</label>
+        <link refid="deps_2status__builder_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="53">
+        <label>mediapipe/framework/deps/status_macros.h</label>
+        <link refid="deps_2status__macros_8h_source"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>mediapipe/framework/deps/strong_int.h</label>
+        <link refid="strong__int_8h_source"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="69">
+        <label>mediapipe/framework/packet.h</label>
+        <link refid="packet_8h_source"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="86">
+        <label>mediapipe/framework/packet_set.h</label>
+        <link refid="packet__set_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.cc</label>
+        <link refid="packet__type_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="87" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="88" relation="include">
+        </childnode>
+        <childnode refid="91" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>mediapipe/framework/packet_type.h</label>
+        <link refid="packet__type_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>mediapipe/framework/port.h</label>
+        <link refid="port_8h_source"/>
+      </node>
+      <node id="33">
+        <label>mediapipe/framework/port/canonical_errors.h</label>
+        <link refid="port_2canonical__errors_8h_source"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>mediapipe/framework/port/core_proto_inc.h</label>
+        <link refid="core__proto__inc_8h_source"/>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>mediapipe/framework/port/logging.h</label>
+        <link refid="logging_8h_source"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="88">
+        <label>mediapipe/framework/port/map_util.h</label>
+        <link refid="port_2map__util_8h_source"/>
+        <childnode refid="89" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>mediapipe/framework/port/port.h</label>
+        <link refid="port_2port_8h_source"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>mediapipe/framework/port/proto_ns.h</label>
+        <link refid="proto__ns_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="91">
+        <label>mediapipe/framework/port/source_location.h</label>
+        <link refid="port_2source__location_8h_source"/>
+        <childnode refid="57" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>mediapipe/framework/port/status.h</label>
+        <link refid="port_2status_8h_source"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="81">
+        <label>mediapipe/framework/port/status_builder.h</label>
+        <link refid="port_2status__builder_8h_source"/>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>mediapipe/framework/port/status_macros.h</label>
+        <link refid="port_2status__macros_8h_source"/>
+        <childnode refid="53" relation="include">
+        </childnode>
+      </node>
+      <node id="58">
+        <label>mediapipe/framework/port/statusor.h</label>
+        <link refid="statusor_8h_source"/>
+        <childnode refid="59" relation="include">
+        </childnode>
+      </node>
+      <node id="82">
+        <label>mediapipe/framework/timestamp.h</label>
+        <link refid="timestamp_8h_source"/>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="84" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="66">
+        <label>mediapipe/framework/tool/status_util.h</label>
+        <link refid="status__util_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>mediapipe/framework/tool/tag_map.h</label>
+        <link refid="tag__map_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+      </node>
+      <node id="61">
+        <label>mediapipe/framework/tool/tag_map_helper.h</label>
+        <link refid="tag__map__helper_8h_source"/>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="67">
+        <label>mediapipe/framework/tool/type_util.h</label>
+        <link refid="type__util_8h_source"/>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>mediapipe/framework/tool/validate_name.h</label>
+        <link refid="validate__name_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+      </node>
+      <node id="62">
+        <label>mediapipe/framework/type_map.h</label>
+        <link refid="type__map_8h_source"/>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>mediapipe/util/unused.hpp</label>
+        <link refid="unused_8hpp_source"/>
+      </node>
+      <node id="37">
+        <label>absl/base/attributes.h</label>
+      </node>
+      <node id="9">
+        <label>absl/base/macros.h</label>
+      </node>
+      <node id="29">
+        <label>absl/base/port.h</label>
+      </node>
+      <node id="75">
+        <label>absl/base/thread_annotations.h</label>
+      </node>
+      <node id="32">
+        <label>absl/container/btree_map.h</label>
+      </node>
+      <node id="76">
+        <label>absl/container/flat_hash_map.h</label>
+      </node>
+      <node id="77">
+        <label>absl/container/flat_hash_set.h</label>
+      </node>
+      <node id="10">
+        <label>absl/log/absl_check.h</label>
+      </node>
+      <node id="11">
+        <label>absl/log/absl_log.h</label>
+      </node>
+      <node id="19">
+        <label>absl/memory/memory.h</label>
+      </node>
+      <node id="78">
+        <label>absl/meta/type_traits.h</label>
+      </node>
+      <node id="12">
+        <label>absl/status/status.h</label>
+      </node>
+      <node id="59">
+        <label>absl/status/statusor.h</label>
+      </node>
+      <node id="49">
+        <label>absl/strings/has_ostream_operator.h</label>
+      </node>
+      <node id="20">
+        <label>absl/strings/str_cat.h</label>
+      </node>
+      <node id="79">
+        <label>absl/strings/str_join.h</label>
+      </node>
+      <node id="13">
+        <label>absl/strings/str_split.h</label>
+      </node>
+      <node id="14">
+        <label>absl/strings/string_view.h</label>
+      </node>
+      <node id="63">
+        <label>absl/synchronization/mutex.h</label>
+      </node>
+      <node id="47">
+        <label>absl/time/time.h</label>
+      </node>
+      <node id="15">
+        <label>absl/types/span.h</label>
+      </node>
+      <node id="87">
+        <label>absl/types/variant.h</label>
+      </node>
+      <node id="71">
+        <label>algorithm</label>
+      </node>
+      <node id="83">
+        <label>cmath</label>
+      </node>
+      <node id="48">
+        <label>cstddef</label>
+      </node>
+      <node id="23">
+        <label>cstdint</label>
+      </node>
+      <node id="17">
+        <label>cstdlib</label>
+      </node>
+      <node id="36">
+        <label>functional</label>
+      </node>
+      <node id="50">
+        <label>glog/logging.h</label>
+      </node>
+      <node id="39">
+        <label>google/protobuf/io/tokenizer.h</label>
+      </node>
+      <node id="44">
+        <label>google/protobuf/message.h</label>
+      </node>
+      <node id="40">
+        <label>google/protobuf/message_lite.h</label>
+      </node>
+      <node id="41">
+        <label>google/protobuf/repeated_field.h</label>
+      </node>
+      <node id="45">
+        <label>google/protobuf/text_format.h</label>
+      </node>
+      <node id="24">
+        <label>iosfwd</label>
+      </node>
+      <node id="18">
+        <label>iterator</label>
+      </node>
+      <node id="25">
+        <label>limits</label>
+      </node>
+      <node id="85">
+        <label>limits.h</label>
+      </node>
+      <node id="3">
+        <label>map</label>
+      </node>
+      <node id="4">
+        <label>memory</label>
+      </node>
+      <node id="26">
+        <label>ostream</label>
+      </node>
+      <node id="5">
+        <label>set</label>
+      </node>
+      <node id="55">
+        <label>sstream</label>
+      </node>
+      <node id="90">
+        <label>stddef.h</label>
+      </node>
+      <node id="65">
+        <label>stdlib.h</label>
+      </node>
+      <node id="6">
+        <label>string</label>
+      </node>
+      <node id="72">
+        <label>tuple</label>
+      </node>
+      <node id="27">
+        <label>type_traits</label>
+      </node>
+      <node id="7">
+        <label>typeinfo</label>
+      </node>
+      <node id="73">
+        <label>unordered_map</label>
+      </node>
+      <node id="74">
+        <label>unordered_set</label>
+      </node>
+      <node id="56">
+        <label>utility</label>
+      </node>
+      <node id="8">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structmediapipe_1_1internal_1_1TypeIdFormatter" prot="public">mediapipe::internal::TypeIdFormatter</innerclass>
+    <innerclass refid="classmediapipe_1_1internal_1_1QuoteFormatter" prot="public">mediapipe::internal::QuoteFormatter</innerclass>
+    <innernamespace refid="namespacemediapipe">mediapipe</innernamespace>
+    <innernamespace refid="namespacemediapipe_1_1internal">mediapipe::internal</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Copyright<sp/>2019<sp/>The<sp/>MediaPipe<sp/>Authors.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Definitions<sp/>for<sp/>PacketType<sp/>and<sp/>PacketTypeSet.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/packet_type.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unordered_set&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;utility&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/status/status.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/strings/str_cat.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/strings/str_join.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/types/span.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/types/variant.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/port/canonical_errors.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/port/logging.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/port/map_util.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/port/source_location.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/port/status_builder.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/tool/status_util.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/tool/type_util.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/tool/validate_name.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/type_map.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mediapipe<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal">absl::Status<sp/>PacketType::AcceptAny(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>TypeSpec&amp;<sp/>type)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>UNUSED(type);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::OkStatus();</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">absl::Status<sp/>PacketType::AcceptNone(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>TypeSpec&amp;<sp/>type)<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>special<sp/>=<sp/>absl::get_if&lt;SpecialType&gt;(&amp;type);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(special<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>(special-&gt;accept_fn_<sp/>==<sp/>AcceptNone<sp/>||<sp/>special-&gt;accept_fn_<sp/>==<sp/>AcceptAny))</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::OkStatus();</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mediapipe::InvalidArgumentErrorBuilder(MEDIAPIPE_LOC)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;No<sp/>packets<sp/>are<sp/>allowed<sp/>for<sp/>type:<sp/>[No<sp/>Type]&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal">PacketType&amp;<sp/>PacketType::SetAny()<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>type_spec_<sp/>=<sp/>SpecialType{</highlight><highlight class="stringliteral">&quot;[Any<sp/>Type]&quot;</highlight><highlight class="normal">,<sp/>&amp;AcceptAny};</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal">PacketType&amp;<sp/>PacketType::SetNone()<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>type_spec_<sp/>=<sp/>SpecialType{</highlight><highlight class="stringliteral">&quot;[No<sp/>Type]&quot;</highlight><highlight class="normal">,<sp/>&amp;AcceptNone};</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal">PacketType&amp;<sp/>PacketType::SetSameAs(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>PacketType*<sp/>type)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>Union<sp/>sets<sp/>together<sp/>when<sp/>SetSameAs<sp/>is<sp/>called<sp/>multiple<sp/>times.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>same_as<sp/>=<sp/>type-&gt;GetSameAs();</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(same_as<sp/>==<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>We&apos;re<sp/>the<sp/>root<sp/>of<sp/>the<sp/>union-find<sp/>tree.<sp/><sp/>There&apos;s<sp/>a<sp/>cycle,<sp/>which</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>means<sp/>we<sp/>might<sp/>as<sp/>well<sp/>be<sp/>an<sp/>&quot;Any&quot;<sp/>type.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>SetAny();</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>type_spec_<sp/>=<sp/>SameAs{same_as};</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal">PacketType&amp;<sp/>PacketType::Optional()<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>optional_<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>PacketType::IsInitialized()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!absl::holds_alternative&lt;absl::monostate&gt;(type_spec_);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>PacketType*<sp/>PacketType::SameAsPtr()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>same_as<sp/>=<sp/>absl::get_if&lt;SameAs&gt;(&amp;type_spec_);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(same_as)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>same_as-&gt;other;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal">PacketType*<sp/>PacketType::GetSameAs()<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>same_as<sp/>=<sp/>SameAsPtr();</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!same_as)<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Don&apos;t<sp/>optimize<sp/>the<sp/>union-find<sp/>algorithm,<sp/>since<sp/>updating<sp/>the<sp/>pointer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>here<sp/>would<sp/>require<sp/>a<sp/>mutex<sp/>lock.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>same_as_<sp/>=<sp/>same_as_-&gt;GetSameAs();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Note,<sp/>we<sp/>also<sp/>don&apos;t<sp/>do<sp/>the<sp/>&quot;Union<sp/>by<sp/>rank&quot;<sp/>optimization.<sp/><sp/>We<sp/>always</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>make<sp/>the<sp/>current<sp/>set<sp/>point<sp/>to<sp/>the<sp/>root<sp/>of<sp/>the<sp/>other<sp/>tree.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>Remove<sp/>const_cast<sp/>by<sp/>making<sp/>SetSameAs<sp/>take<sp/>a<sp/>non-const</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>PacketType*.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const_cast&lt;</highlight><highlight class="normal">PacketType*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(same_as-&gt;GetSameAs());</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>PacketType*<sp/>PacketType::GetSameAs()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>same_as<sp/>=<sp/>SameAsPtr();</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!same_as)<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>See<sp/>comments<sp/>in<sp/>non-const<sp/>variant.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>same_as-&gt;GetSameAs();</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>PacketType::IsAny()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>special<sp/>=<sp/>absl::get_if&lt;SpecialType&gt;(&amp;type_spec_);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>special<sp/>&amp;&amp;<sp/>special-&gt;accept_fn_<sp/>==<sp/>AcceptAny;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>PacketType::IsNone()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>special<sp/>=<sp/>absl::get_if&lt;SpecialType&gt;(&amp;type_spec_);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>tests<sp/>currently<sp/>require<sp/>that<sp/>an<sp/>uninitialized<sp/>PacketType<sp/>return<sp/>true</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>for<sp/>IsNone.<sp/>TODO:<sp/>change<sp/>it?</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!IsInitialized()<sp/>||<sp/>(special<sp/>&amp;&amp;<sp/>special-&gt;accept_fn_<sp/>==<sp/>AcceptNone);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>PacketType::IsOneOf()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::holds_alternative&lt;MultiType&gt;(type_spec_);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>PacketType::IsExactType()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::holds_alternative&lt;TypeId&gt;(type_spec_);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string*<sp/>PacketType::RegisteredTypeName()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>same_as<sp/>=<sp/>SameAsPtr())<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>same_as-&gt;RegisteredTypeName();</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>type_id<sp/>=<sp/>absl::get_if&lt;TypeId&gt;(&amp;type_spec_))</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>MediaPipeTypeStringFromTypeId(*type_id);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>multi_type<sp/>=<sp/>absl::get_if&lt;MultiType&gt;(&amp;type_spec_))</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>multi_type-&gt;registered_type_name;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">internal<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">TypeIdFormatter<sp/>{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>operator()(std::string*<sp/>out,<sp/>TypeId<sp/>t)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>absl::StrAppend(out,<sp/>MediaPipeTypeStringOrDemangled(t));</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Formatter&gt;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">QuoteFormatter<sp/>{</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/>QuoteFormatter(Formatter&amp;&amp;<sp/>f)<sp/>:<sp/>f_(<ref refid="namespacestd" kindref="compound">std</ref>::forward&lt;Formatter&gt;(f))<sp/>{}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>operator()(std::string*<sp/>out,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>T&amp;<sp/>t)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>absl::StrAppend(out,<sp/></highlight><highlight class="stringliteral">&quot;\&quot;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>f_(out,<sp/>t);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>absl::StrAppend(out,<sp/></highlight><highlight class="stringliteral">&quot;\&quot;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/>Formatter<sp/>f_;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Formatter&gt;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/>QuoteFormatter(Formatter<sp/>f)<sp/>-&gt;<sp/>QuoteFormatter&lt;Formatter&gt;;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>internal</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal">std::string<sp/>PacketType::TypeNameForOneOf(TypeIdSpan<sp/>types)<sp/>{</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::StrCat(</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;OneOf&lt;&quot;</highlight><highlight class="normal">,<sp/>absl::StrJoin(types,<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal">,<sp/>internal::TypeIdFormatter()),<sp/></highlight><highlight class="stringliteral">&quot;&gt;&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal">std::string<sp/>PacketType::DebugTypeName()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>same_as<sp/>=<sp/>absl::get_if&lt;SameAs&gt;(&amp;type_spec_))<sp/>{</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Construct<sp/>a<sp/>name<sp/>based<sp/>on<sp/>the<sp/>current<sp/>chain<sp/>of<sp/>same_as_<sp/>links</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>(which<sp/>may<sp/>change<sp/>when<sp/>the<sp/>framework<sp/>expands<sp/>out<sp/>Any-type).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::StrCat(</highlight><highlight class="stringliteral">&quot;[Same<sp/>Type<sp/>As<sp/>&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>same_as-&gt;other-&gt;GetSameAs()-&gt;DebugTypeName(),<sp/></highlight><highlight class="stringliteral">&quot;]&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>special<sp/>=<sp/>absl::get_if&lt;SpecialType&gt;(&amp;type_spec_))<sp/>{</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>special-&gt;name_;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>type_id<sp/>=<sp/>absl::get_if&lt;TypeId&gt;(&amp;type_spec_))<sp/>{</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>MediaPipeTypeStringOrDemangled(*type_id);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>multi_type<sp/>=<sp/>absl::get_if&lt;MultiType&gt;(&amp;type_spec_))<sp/>{</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>TypeNameForOneOf(multi_type-&gt;types);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;[Undefined<sp/>Type]&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>HaveCommonType(absl::Span&lt;const<sp/>TypeId&gt;<sp/>types1,</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>absl::Span&lt;const<sp/>TypeId&gt;<sp/>types2)<sp/>{</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>first<sp/>:<sp/>types1)<sp/>{</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>second<sp/>:<sp/>types2)<sp/>{</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(first<sp/>==<sp/>second)<sp/>{</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal">absl::Status<sp/>PacketType::Validate(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Packet&amp;<sp/>packet)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!IsInitialized())<sp/>{</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::InvalidArgumentError(</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;Uninitialized<sp/>PacketType<sp/>was<sp/>used<sp/>for<sp/>validation.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(SameAsPtr())<sp/>{</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Cycles<sp/>are<sp/>impossible<sp/>at<sp/>this<sp/>stage<sp/>due<sp/>to<sp/>being<sp/>checked<sp/>for</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>in<sp/>SetSameAs().</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>GetSameAs()-&gt;Validate(packet);</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>type_id<sp/>=<sp/>absl::get_if&lt;TypeId&gt;(&amp;type_spec_))<sp/>{</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>packet.ValidateAsType(*type_id);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(packet.IsEmpty())<sp/>{</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mediapipe::InvalidArgumentErrorBuilder(MEDIAPIPE_LOC)</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Empty<sp/>packets<sp/>are<sp/>not<sp/>allowed<sp/>for<sp/>type:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>DebugTypeName();</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>multi_type<sp/>=<sp/>absl::get_if&lt;MultiType&gt;(&amp;type_spec_))<sp/>{</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>packet_type<sp/>=<sp/>packet.GetTypeId();</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(HaveCommonType(multi_type-&gt;types,<sp/>absl::MakeSpan(&amp;packet_type,<sp/>1)))<sp/>{</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::OkStatus();</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::InvalidArgumentError(absl::StrCat(</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;The<sp/>Packet<sp/>stores<sp/>\&quot;&quot;</highlight><highlight class="normal">,<sp/>packet.DebugTypeName(),<sp/></highlight><highlight class="stringliteral">&quot;\&quot;,<sp/>but<sp/>one<sp/>of<sp/>&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>absl::StrJoin(multi_type-&gt;types,<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>internal::QuoteFormatter(internal::TypeIdFormatter())),</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;<sp/>was<sp/>requested.&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>special<sp/>=<sp/>absl::get_if&lt;SpecialType&gt;(&amp;type_spec_))<sp/>{</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>special-&gt;accept_fn_(packet.GetTypeId());</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::OkStatus();</highlight></codeline>
+<codeline lineno="240"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal">PacketType::TypeIdSpan<sp/>PacketType::GetTypeSpan(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>TypeSpec&amp;<sp/>type_spec)<sp/>{</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>type_id<sp/>=<sp/>absl::get_if&lt;TypeId&gt;(&amp;type_spec))</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::MakeSpan(type_id,<sp/>1);</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>multi_type<sp/>=<sp/>absl::get_if&lt;MultiType&gt;(&amp;type_spec))</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>multi_type-&gt;types;</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>{};</highlight></codeline>
+<codeline lineno="248"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>PacketType::IsConsistentWith(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>PacketType&amp;<sp/>other)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>PacketType*<sp/>type1<sp/>=<sp/>GetSameAs();</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>PacketType*<sp/>type2<sp/>=<sp/>other.GetSameAs();</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/>TypeIdSpan<sp/>types1<sp/>=<sp/>GetTypeSpan(type1-&gt;type_spec_);</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/>TypeIdSpan<sp/>types2<sp/>=<sp/>GetTypeSpan(type2-&gt;type_spec_);</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!types1.empty()<sp/>&amp;&amp;<sp/>!types2.empty())<sp/>{</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>HaveCommonType(types1,<sp/>types2);</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>special1<sp/>=<sp/>absl::get_if&lt;SpecialType&gt;(&amp;type1-&gt;type_spec_))<sp/>{</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>special1-&gt;accept_fn_(type2-&gt;type_spec_).ok();</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>special2<sp/>=<sp/>absl::get_if&lt;SpecialType&gt;(&amp;type2-&gt;type_spec_))<sp/>{</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>special2-&gt;accept_fn_(type1-&gt;type_spec_).ok();</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="266"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal">absl::Status<sp/>ValidatePacketTypeSet(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>PacketTypeSet&amp;<sp/>packet_type_set)<sp/>{</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/>std::vector&lt;std::string&gt;<sp/>errors;</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(packet_type_set.GetErrorHandler().HasError())<sp/>{</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/>errors<sp/>=<sp/>packet_type_set.GetErrorHandler().ErrorMessages();</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(CollectionItemId<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>packet_type_set.BeginId();</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>&lt;<sp/>packet_type_set.EndId();<sp/>++id)<sp/>{</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!packet_type_set.Get(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">).IsInitialized())<sp/>{</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>item<sp/>=<sp/>packet_type_set.TagAndIndexFromId(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>errors.push_back(absl::StrCat(</highlight><highlight class="stringliteral">&quot;Tag<sp/>\&quot;&quot;</highlight><highlight class="normal">,<sp/>item.first,<sp/></highlight><highlight class="stringliteral">&quot;\&quot;<sp/>index<sp/>&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>item.second,<sp/></highlight><highlight class="stringliteral">&quot;<sp/>was<sp/>not<sp/>expected.&quot;</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!errors.empty())<sp/>{</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::InvalidArgumentError(absl::StrCat(</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;ValidatePacketTypeSet<sp/>failed:\n&quot;</highlight><highlight class="normal">,<sp/>absl::StrJoin(errors,<sp/></highlight><highlight class="stringliteral">&quot;\n&quot;</highlight><highlight class="normal">)));</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::OkStatus();</highlight></codeline>
+<codeline lineno="286"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"></highlight></codeline>
+<codeline lineno="288"><highlight class="normal">absl::Status<sp/>ValidatePacketSet(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>PacketTypeSet&amp;<sp/>packet_type_set,</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>PacketSet&amp;<sp/>packet_set)<sp/>{</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/>std::vector&lt;absl::Status&gt;<sp/>errors;</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!packet_type_set.TagMap()-&gt;SameAs(*packet_set.TagMap()))<sp/>{</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::InvalidArgumentError(absl::StrCat(</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;TagMaps<sp/>do<sp/>not<sp/>match.<sp/><sp/>PacketTypeSet<sp/>TagMap:\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>packet_type_set.TagMap()-&gt;DebugString(),<sp/></highlight><highlight class="stringliteral">&quot;\n\nPacketSet<sp/>TagMap:\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>packet_set.TagMap()-&gt;DebugString()));</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(CollectionItemId<sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>packet_type_set.BeginId();</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>&lt;<sp/>packet_type_set.EndId();<sp/>++id)<sp/>{</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/>absl::Status<sp/>status<sp/>=<sp/>packet_type_set.Get(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">).Validate(packet_set.Get(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">));</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!status.ok())<sp/>{</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::pair&lt;std::string,<sp/>int&gt;<sp/>tag_index<sp/>=</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>packet_type_set.TagAndIndexFromId(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>errors.push_back(</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mediapipe::StatusBuilder(status,<sp/>MEDIAPIPE_LOC).SetPrepend()</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Packet<sp/>\&quot;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>packet_type_set.TagMap()-&gt;Names()[</highlight><highlight class="keywordtype">id</highlight><highlight class="normal">.value()]</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\&quot;<sp/>with<sp/>tag<sp/>\&quot;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>tag_index.first<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\&quot;<sp/>and<sp/>index<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>tag_index.second<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>failed<sp/>validation.<sp/><sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!errors.empty())<sp/>{</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tool::CombinedStatus(</highlight><highlight class="stringliteral">&quot;ValidatePacketSet<sp/>failed:&quot;</highlight><highlight class="normal">,<sp/>errors);</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::OkStatus();</highlight></codeline>
+<codeline lineno="314"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="315"><highlight class="normal"></highlight></codeline>
+<codeline lineno="316"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>mediapipe</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.cc"/>
+  </compounddef>
+</doxygen>

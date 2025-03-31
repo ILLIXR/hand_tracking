@@ -1,0 +1,306 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="monotonic__clock_8cc" kind="file" language="C++">
+    <compoundname>monotonic_clock.cc</compoundname>
+    <includes refid="monotonic__clock_8h" local="yes">mediapipe/framework/deps/monotonic_clock.h</includes>
+    <includes local="yes">absl/base/macros.h</includes>
+    <includes local="yes">absl/base/thread_annotations.h</includes>
+    <includes local="yes">absl/log/absl_check.h</includes>
+    <includes local="yes">absl/log/absl_log.h</includes>
+    <includes local="yes">absl/synchronization/mutex.h</includes>
+    <includes local="yes">absl/time/time.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>mediapipe/framework/deps/clock.h</label>
+        <link refid="clock_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/monotonic_clock.cc</label>
+        <link refid="monotonic__clock_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>mediapipe/framework/deps/monotonic_clock.h</label>
+        <link refid="monotonic__clock_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>absl/base/macros.h</label>
+      </node>
+      <node id="6">
+        <label>absl/base/thread_annotations.h</label>
+      </node>
+      <node id="7">
+        <label>absl/log/absl_check.h</label>
+      </node>
+      <node id="8">
+        <label>absl/log/absl_log.h</label>
+      </node>
+      <node id="9">
+        <label>absl/synchronization/mutex.h</label>
+      </node>
+      <node id="3">
+        <label>absl/time/time.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structmediapipe_1_1MonotonicClock_1_1State" prot="public">mediapipe::MonotonicClock::State</innerclass>
+    <innerclass refid="classmediapipe_1_1MonotonicClockImpl" prot="public">mediapipe::MonotonicClockImpl</innerclass>
+    <innernamespace refid="namespacemediapipe">mediapipe</innernamespace>
+    <innernamespace refid="namespacemediapipe_1_1anonymous__namespace_02monotonic__clock_8cc_03">mediapipe::anonymous_namespace{monotonic_clock.cc}</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Copyright<sp/>2019<sp/>The<sp/>MediaPipe<sp/>Authors.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/deps/monotonic_clock.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/base/macros.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/base/thread_annotations.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/log/absl_check.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/log/absl_log.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/synchronization/mutex.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/time/time.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mediapipe<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">//<sp/>This<sp/>state,<sp/>which<sp/>contains<sp/>the<sp/>&quot;guts&quot;<sp/>of<sp/>MonotonicClockImpl,<sp/>is<sp/>separate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment">//<sp/>from<sp/>the<sp/>class<sp/>instance<sp/>so<sp/>that<sp/>it<sp/>can<sp/>be<sp/>shared<sp/>to<sp/>implement<sp/>a</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">//<sp/>SynchronizedMonotonicClock.<sp/><sp/>(The<sp/>per-instance<sp/>state<sp/>of<sp/>MonotonicClock<sp/>is</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">//<sp/>just<sp/>for<sp/>frills<sp/>like<sp/>the<sp/>correction<sp/>metrics<sp/>and<sp/>callback.)<sp/><sp/>It<sp/>lives<sp/>in<sp/>this</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//<sp/>private<sp/>namespace<sp/>so<sp/>that<sp/>test<sp/>code<sp/>can<sp/>use<sp/>it<sp/>without<sp/>exposing<sp/>it<sp/>to<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">//<sp/>world.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">MonotonicClock::State<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>clock<sp/>whose<sp/>time<sp/>is<sp/>being<sp/>corrected.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>Clock*<sp/>raw_clock;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>absl::Mutex<sp/>lock;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>largest<sp/>time<sp/>ever<sp/>returned<sp/>by<sp/>Now().</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>absl::Time<sp/>max_time<sp/>ABSL_GUARDED_BY(lock);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/>State(Clock*<sp/>clock)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>raw_clock(clock),<sp/>max_time(absl::UnixEpoch())<sp/>{}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">State<sp/>=<sp/>MonotonicClock::State;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">MonotonicClockImpl<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>MonotonicClock<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>By<sp/>default,<sp/>MonotonicClockImpl<sp/>owns<sp/>the<sp/>state_.<sp/><sp/>ReleaseState(),<sp/>below,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>can<sp/>be<sp/>used<sp/>to<sp/>prevent<sp/>the<sp/>MCI<sp/>destructor<sp/>from<sp/>deleting<sp/>a<sp/>shared<sp/>state_.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/>MonotonicClockImpl(State*<sp/>state)</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>state_(state),</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state_owned_(true),</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>last_raw_time_(absl::UnixEpoch()),</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>correction_count_(0),</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>max_correction_(absl::ZeroDuration())<sp/>{}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>MonotonicClockImpl(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>MonotonicClockImpl&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>MonotonicClockImpl&amp;<sp/>operator=(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>MonotonicClockImpl&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~MonotonicClockImpl()<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(state_owned_)<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>state_;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Absolve<sp/>this<sp/>object<sp/>of<sp/>responsibility<sp/>for<sp/>state_.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ReleaseState()<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>ABSL_CHECK(state_owned_);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>state_owned_<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>Clock<sp/>interface<sp/>(see<sp/>util/time/clock.h).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>logic<sp/>in<sp/>TimeNow()<sp/>is<sp/>based<sp/>on<sp/>GFS_NowMS().</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>absl::Time<sp/>TimeNow()<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>These<sp/>variables<sp/>save<sp/>some<sp/>state<sp/>from<sp/>the<sp/>critical<sp/>section<sp/>below.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>absl::Time<sp/>raw_time;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>absl::Time<sp/>local_max_time;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>absl::Time<sp/>local_last_raw_time;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>As<sp/>there<sp/>are<sp/>several<sp/>early<sp/>exits<sp/>from<sp/>this<sp/>function,<sp/>use<sp/>absl::MutexLock.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>absl::MutexLock<sp/>m(&amp;state_-&gt;lock);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>consistency<sp/>of<sp/>internal<sp/>data<sp/>with<sp/>state_.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ABSL_CHECK_LE(last_raw_time_,<sp/>state_-&gt;max_time)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;non-monotonic<sp/>behavior:<sp/>last_raw_time_=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>last_raw_time_</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>max_time=&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>state_-&gt;max_time;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>raw_time<sp/>=<sp/>state_-&gt;raw_clock-&gt;TimeNow();</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Normal<sp/>case:<sp/>time<sp/>is<sp/>advancing.<sp/><sp/>Update<sp/>state<sp/>and<sp/>return<sp/>the<sp/>raw<sp/>time.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(raw_time<sp/>&gt;=<sp/>state_-&gt;max_time)<sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>last_raw_time_<sp/>=<sp/>raw_time;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state_-&gt;max_time<sp/>=<sp/>raw_time;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>raw_time;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Exceptional<sp/>case:<sp/>Raw<sp/>time<sp/>is<sp/>within<sp/>a<sp/>window<sp/>of<sp/>a<sp/>previous<sp/>backward</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>jump.<sp/><sp/>We<sp/>do<sp/>not<sp/>run<sp/>any<sp/>callbacks<sp/>or<sp/>update<sp/>metrics<sp/>here<sp/>since<sp/>we</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>already<sp/>did<sp/>that<sp/>when<sp/>the<sp/>backward<sp/>jump<sp/>was<sp/>detected.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(raw_time<sp/>&gt;=<sp/>last_raw_time_)<sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>last_raw_time_<sp/>=<sp/>raw_time;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>state_-&gt;max_time;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Exceptional<sp/>case:<sp/>Raw<sp/>time<sp/>jumped<sp/>backward.<sp/><sp/>Remainder<sp/>of<sp/>function</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>handles<sp/>this<sp/>case.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>First,<sp/>update<sp/>correction<sp/>metrics.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>++correction_count_;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>absl::Duration<sp/>delta<sp/>=<sp/>state_-&gt;max_time<sp/>-<sp/>raw_time;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ABSL_CHECK_LT(absl::ZeroDuration(),<sp/>delta);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(delta<sp/>&gt;<sp/>max_correction_)<sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>max_correction_<sp/>=<sp/>delta;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Copy<sp/>state<sp/>into<sp/>local<sp/>vars<sp/>before<sp/>updating<sp/>last_raw_time_<sp/>and<sp/>leaving</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>critical<sp/>section.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>local_max_time<sp/>=<sp/>state_-&gt;max_time;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>local_last_raw_time<sp/>=<sp/>last_raw_time_;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>last_raw_time_<sp/>=<sp/>raw_time;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight><highlight class="comment">//<sp/>absl::MutexLock</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Return<sp/>the<sp/>saved<sp/>maximum<sp/>time.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>local_max_time;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>strategy<sp/>of<sp/>Sleep<sp/>and<sp/>SleepUntil<sp/>is<sp/>K.I.S.S.:<sp/>set<sp/>an<sp/>alarm<sp/>on<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>raw_clock<sp/>for<sp/>the<sp/>desired<sp/>wakeup_time,<sp/>and<sp/>then<sp/>snooze<sp/>the<sp/>alarm<sp/>if<sp/>we<sp/>wake</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>up<sp/>too<sp/>soon.<sp/><sp/>This<sp/>guarantees<sp/>that<sp/>the<sp/>caller<sp/>won&apos;t<sp/>wake<sp/>up<sp/>too<sp/>soon<sp/>(which</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>would<sp/>require<sp/>us<sp/>to<sp/>advance<sp/>monotonic<sp/>time<sp/>simply<sp/>by<sp/>the<sp/>act<sp/>of<sp/>waking<sp/>up),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>however<sp/>the<sp/>caller<sp/>may<sp/>sleep<sp/>for<sp/>much<sp/>longer<sp/>(in<sp/>monotonic<sp/>time)<sp/>if</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>monotonic<sp/>time<sp/>jumps<sp/>far<sp/>into<sp/>the<sp/>future.<sp/><sp/>Whether<sp/>or<sp/>not<sp/>this<sp/>happens</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>depends<sp/>on<sp/>the<sp/>behavior<sp/>of<sp/>the<sp/>raw<sp/>clock.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Sleep(absl::Duration<sp/>d)<sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>absl::Time<sp/>wakeup_time<sp/>=<sp/>TimeNow()<sp/>+<sp/>d;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>SleepUntil(wakeup_time);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SleepUntil(absl::Time<sp/>wakeup_time)<sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(TimeNow()<sp/>&lt;<sp/>wakeup_time)<sp/>{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>state_-&gt;raw_clock-&gt;SleepUntil(wakeup_time);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>End<sp/>of<sp/>Clock<sp/>interface.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>metrics<sp/>about<sp/>time<sp/>corrections.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>GetCorrectionMetrics(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>correction_count,</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">*<sp/>max_correction)<sp/>{</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>absl::MutexLock<sp/>l(&amp;state_-&gt;lock);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(correction_count<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)<sp/>*correction_count<sp/>=<sp/>correction_count_;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(max_correction<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>*max_correction<sp/>=<sp/>absl::FDivDuration(max_correction_,<sp/>absl::Seconds(1));</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Reset<sp/>values<sp/>returned<sp/>by<sp/>GetCorrectionMetrics().</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ResetCorrectionMetrics()<sp/>{</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>absl::MutexLock<sp/>l(&amp;state_-&gt;lock);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>correction_count_<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>max_correction_<sp/>=<sp/>absl::ZeroDuration();</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>guts<sp/>of<sp/>the<sp/>monotonic<sp/>clock.<sp/><sp/>Caution:<sp/>this<sp/>may<sp/>point<sp/>to<sp/>a<sp/>static</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>object.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/>State*<sp/>state_;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>true,<sp/>this<sp/>object<sp/>owns<sp/>state_<sp/>and<sp/>is<sp/>responsible<sp/>for<sp/>deallocating<sp/>it.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>state_owned_;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>last_raw_time_<sp/>remembers<sp/>the<sp/>last<sp/>value<sp/>obtained<sp/>from<sp/>raw_clock_.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>It<sp/>prevents<sp/>spurious<sp/>calls<sp/>to<sp/>ReportCorrection<sp/>when<sp/>time<sp/>moves</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>forward<sp/>by<sp/>a<sp/>smaller<sp/>amount<sp/>than<sp/>a<sp/>prior<sp/>backward<sp/>jump.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/>absl::Time<sp/>last_raw_time_<sp/>ABSL_GUARDED_BY(state_-&gt;lock);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Variables<sp/>that<sp/>keep<sp/>track<sp/>of<sp/>time<sp/>corrections<sp/>made<sp/>by<sp/>this<sp/>instance<sp/>of</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>MonotonicClock.<sp/><sp/>(All<sp/>such<sp/>metrics<sp/>are<sp/>instance-local<sp/>for<sp/>reasons</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>described<sp/>earlier.)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>correction_count_<sp/>ABSL_GUARDED_BY(state_-&gt;lock);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/>absl::Duration<sp/>max_correction_<sp/>ABSL_GUARDED_BY(state_-&gt;lock);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Factory<sp/>methods.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal">MonotonicClock*<sp/>MonotonicClock::CreateMonotonicClock(Clock*<sp/>clock)<sp/>{</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/>State*<sp/>state<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>State(clock);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>MonotonicClockImpl<sp/>takes<sp/>ownership<sp/>of<sp/>state.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>MonotonicClockImpl(state);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191" refid="namespacemediapipe_1_1anonymous__namespace_02monotonic__clock_8cc_03" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal">State*<sp/>GlobalSyncState()<sp/>{</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>State*<sp/>sync_state<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>State(Clock::RealClock());</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sync_state;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight><highlight class="comment">//<sp/>The<sp/>reason<sp/>that<sp/>SynchronizedMonotonicClock<sp/>is<sp/>not<sp/>implemented<sp/>as<sp/>a<sp/>singleton</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight><highlight class="comment">//<sp/>is<sp/>so<sp/>that<sp/>different<sp/>code<sp/>bases<sp/>can<sp/>handle<sp/>clock<sp/>corrections<sp/>their<sp/>own<sp/>way.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal">MonotonicClock*<sp/>MonotonicClock::CreateSynchronizedMonotonicClock()<sp/>{</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/>MonotonicClockImpl*<sp/>clock<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>MonotonicClockImpl(GlobalSyncState());</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Release<sp/>ownership<sp/>of<sp/>sync_state.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/>clock-&gt;ReleaseState();</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>clock;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Test<sp/>access<sp/>methods.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>MonotonicClockAccess::SynchronizedMonotonicClockReset()<sp/>{</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/>ABSL_LOG(INFO)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Resetting<sp/>SynchronizedMonotonicClock&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/>State*<sp/>sync_state<sp/>=<sp/>GlobalSyncState();</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/>absl::MutexLock<sp/>m(&amp;sync_state-&gt;lock);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/>sync_state-&gt;max_time<sp/>=<sp/>absl::UnixEpoch();</highlight></codeline>
+<codeline lineno="213"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal">State*<sp/>MonotonicClockAccess::CreateMonotonicClockState(Clock*<sp/>raw_clock)<sp/>{</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>State(raw_clock);</highlight></codeline>
+<codeline lineno="217"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>MonotonicClockAccess::DeleteMonotonicClockState(State*<sp/>state)<sp/>{</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>state;</highlight></codeline>
+<codeline lineno="221"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal">MonotonicClock*<sp/>MonotonicClockAccess::CreateMonotonicClock(State*<sp/>state)<sp/>{</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/>MonotonicClockImpl*<sp/>clock<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>MonotonicClockImpl(state);</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Release<sp/>ownership<sp/>of<sp/>sync_state.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/>clock-&gt;ReleaseState();</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>clock;</highlight></codeline>
+<codeline lineno="228"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>mediapipe</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/monotonic_clock.cc"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1Executor" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>mediapipe::Executor</compoundname>
+    <derivedcompoundref refid="classmediapipe_1_1GlContextExecutor" prot="public" virt="non-virtual">mediapipe::GlContextExecutor</derivedcompoundref>
+    <derivedcompoundref refid="classmediapipe_1_1ThreadPoolExecutor" prot="public" virt="non-virtual">mediapipe::ThreadPoolExecutor</derivedcompoundref>
+    <derivedcompoundref refid="classmediapipe_1_1internal_1_1DelegatingExecutor" prot="public" virt="non-virtual">mediapipe::internal::DelegatingExecutor</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1Executor_1a2a91bf0fcfb701b26c3099d54b5cc627" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>mediapipe::Executor::~Executor</definition>
+        <argsstring>()</argsstring>
+        <name>~Executor</name>
+        <qualifiedname>mediapipe::Executor::~Executor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/executor.h" line="45" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/executor.cc" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Executor_1a65d32854b4e6b242dbc424312d273a7c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mediapipe::Executor::AddTask</definition>
+        <argsstring>(TaskQueue *task_queue)</argsstring>
+        <name>AddTask</name>
+        <qualifiedname>mediapipe::Executor::AddTask</qualifiedname>
+        <param>
+          <type>TaskQueue *</type>
+          <declname>task_queue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/executor.h" line="59" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/executor.h" bodystart="59" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1Executor_1a68ea723038dd96e520db87a2293f1c48" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void mediapipe::Executor::Schedule</definition>
+        <argsstring>(std::function&lt; void()&gt; task)=0</argsstring>
+        <name>Schedule</name>
+        <qualifiedname>mediapipe::Executor::Schedule</qualifiedname>
+        <param>
+          <type>std::function&lt; void()&gt;</type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/executor.h" line="64" column="16"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/executor.h" line="43" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/executor.h" bodystart="43" bodyend="65"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1Executor_1a65d32854b4e6b242dbc424312d273a7c" prot="public" virt="virtual"><scope>mediapipe::Executor</scope><name>AddTask</name></member>
+      <member refid="classmediapipe_1_1Executor_1a68ea723038dd96e520db87a2293f1c48" prot="public" virt="pure-virtual"><scope>mediapipe::Executor</scope><name>Schedule</name></member>
+      <member refid="classmediapipe_1_1Executor_1a2a91bf0fcfb701b26c3099d54b5cc627" prot="public" virt="virtual"><scope>mediapipe::Executor</scope><name>~Executor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

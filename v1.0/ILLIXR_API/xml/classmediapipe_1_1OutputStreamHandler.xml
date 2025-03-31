@@ -1,0 +1,566 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1OutputStreamHandler" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>mediapipe::OutputStreamHandler</compoundname>
+    <derivedcompoundref refid="classmediapipe_1_1InOrderOutputStreamHandler" prot="public" virt="non-virtual">mediapipe::InOrderOutputStreamHandler</derivedcompoundref>
+    <sectiondef kind="protected-type">
+      <memberdef kind="enum" id="classmediapipe_1_1OutputStreamHandler_1ab9cba08c0dc264d131a387bfde78dbcd" prot="protected" static="no" strong="no">
+        <type></type>
+        <name>PropagationState</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::PropagationState</qualifiedname>
+        <enumvalue id="classmediapipe_1_1OutputStreamHandler_1ab9cba08c0dc264d131a387bfde78dbcdad159b59997a64225dbcdc24817c89093" prot="protected">
+          <name>kIdle</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1OutputStreamHandler_1ab9cba08c0dc264d131a387bfde78dbcda30ad94d82970956abd8b6b6a4052f5bb" prot="protected">
+          <name>kPropagatingPackets</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1OutputStreamHandler_1ab9cba08c0dc264d131a387bfde78dbcdad71fbac9fb6a819d03639f73d62a546e" prot="protected">
+          <name>kPropagatingBound</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1OutputStreamHandler_1ab9cba08c0dc264d131a387bfde78dbcda672d95ee50bc3adf6ab314600f76657b" prot="protected">
+          <name>kPropagationPending</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="190" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" bodystart="190" bodyend="195"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classmediapipe_1_1OutputStreamHandler_1aeb2419673d66a80fbc267ac241b69913" prot="public" static="no">
+        <type>std::unordered_map&lt; std::string, std::unordered_set&lt; int &gt; &gt;</type>
+        <definition>typedef std::unordered_map&lt;std::string, std::unordered_set&lt;int&gt; &gt; mediapipe::OutputStreamHandler::OutputStreamToSourcesMap</definition>
+        <argsstring></argsstring>
+        <name>OutputStreamToSourcesMap</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::OutputStreamToSourcesMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="49" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmediapipe_1_1OutputStreamHandler_1ad5174d1bf4ea0ca66ac0db2cabc8be62" prot="public" static="no">
+        <type>internal::Collection&lt; OutputStreamManager * &gt;</type>
+        <definition>typedef internal::Collection&lt;OutputStreamManager*&gt; mediapipe::OutputStreamHandler::OutputStreamManagerSet</definition>
+        <argsstring></argsstring>
+        <name>OutputStreamManagerSet</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::OutputStreamManagerSet</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="50" column="32" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1OutputStreamHandler_1a65b3cda509442dfd8eba4889d2693707" prot="protected" static="no" mutable="no">
+        <type>OutputStreamManagerSet</type>
+        <definition>OutputStreamManagerSet mediapipe::OutputStreamHandler::output_stream_managers_</definition>
+        <argsstring></argsstring>
+        <name>output_stream_managers_</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::output_stream_managers_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="144" column="26" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1OutputStreamHandler_1a0e9c114bc6c086109b59b400962f4b2d" prot="protected" static="no" mutable="no">
+        <type>CalculatorContextManager *const</type>
+        <definition>CalculatorContextManager* const mediapipe::OutputStreamHandler::calculator_context_manager_</definition>
+        <argsstring></argsstring>
+        <name>calculator_context_manager_</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::calculator_context_manager_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="146" column="34" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1OutputStreamHandler_1a04b03e06f6e75b69128361c889ed6b52" prot="protected" static="no" mutable="no">
+        <type>MediaPipeOptions</type>
+        <definition>MediaPipeOptions mediapipe::OutputStreamHandler::options_</definition>
+        <argsstring></argsstring>
+        <name>options_</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::options_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="147" column="20" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1OutputStreamHandler_1af0ba33787061af428f9ed373409e1fd6" prot="protected" static="no" mutable="no">
+        <type>const bool</type>
+        <definition>const bool mediapipe::OutputStreamHandler::calculator_run_in_parallel_</definition>
+        <argsstring></argsstring>
+        <name>calculator_run_in_parallel_</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::calculator_run_in_parallel_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="148" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1OutputStreamHandler_1af8f34b048f07948010829ab45a5fd15b" prot="protected" static="no" mutable="no">
+        <type>absl::Mutex</type>
+        <definition>absl::Mutex mediapipe::OutputStreamHandler::timestamp_mutex_</definition>
+        <argsstring></argsstring>
+        <name>timestamp_mutex_</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::timestamp_mutex_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="150" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1OutputStreamHandler_1a031c5cbfd7bff03f9bacc40df5edd07a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::OutputStreamHandler::OutputStreamHandler</definition>
+        <argsstring>(std::shared_ptr&lt; tool::TagMap &gt; tag_map, CalculatorContextManager *calculator_context_manager, const MediaPipeOptions &amp;options, bool calculator_run_in_parallel)</argsstring>
+        <name>OutputStreamHandler</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::OutputStreamHandler</qualifiedname>
+        <param>
+          <type>std::shared_ptr&lt; tool::TagMap &gt;</type>
+          <declname>tag_map</declname>
+        </param>
+        <param>
+          <type>CalculatorContextManager *</type>
+          <declname>calculator_context_manager</declname>
+        </param>
+        <param>
+          <type>const MediaPipeOptions &amp;</type>
+          <declname>options</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>calculator_run_in_parallel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="59" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" bodystart="59" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStreamHandler_1a6278c06426640b9bc2c1a66304ecde22" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual mediapipe::OutputStreamHandler::~OutputStreamHandler</definition>
+        <argsstring>()=default</argsstring>
+        <name>~OutputStreamHandler</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::~OutputStreamHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="70" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStreamHandler_1a1c94ccfddcf65133bdc7254ef1a046f0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const MediaPipeOptions &amp;</type>
+        <definition>const MediaPipeOptions &amp; mediapipe::OutputStreamHandler::Options</definition>
+        <argsstring>() const</argsstring>
+        <name>Options</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::Options</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="72" column="26" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" bodystart="72" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStreamHandler_1a1ed472c32613a208239dd32883b0466c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::OutputStreamHandler::InitializeOutputStreamManagers</definition>
+        <argsstring>(OutputStreamManager *flat_output_stream_managers)</argsstring>
+        <name>InitializeOutputStreamManagers</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::InitializeOutputStreamManagers</qualifiedname>
+        <param>
+          <type>OutputStreamManager *</type>
+          <declname>flat_output_stream_managers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="80" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.cc" bodystart="24" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStreamHandler_1aaf62c5fab7c15651ce779962d3e35d0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::OutputStreamHandler::SetupOutputShards</definition>
+        <argsstring>(OutputStreamShardSet *output_shards)</argsstring>
+        <name>SetupOutputShards</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::SetupOutputShards</qualifiedname>
+        <param>
+          <type>OutputStreamShardSet *</type>
+          <declname>output_shards</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="84" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.cc" bodystart="33" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStreamHandler_1a943b165fd1ed010e3b1b641c93dff1e3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::OutputStreamHandler::NumOutputStreams</definition>
+        <argsstring>() const</argsstring>
+        <name>NumOutputStreams</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::NumOutputStreams</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="86" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" bodystart="86" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStreamHandler_1a637dab187cfbf65d863c221a2770b740" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::shared_ptr&lt; tool::TagMap &gt; &amp;</type>
+        <definition>const std::shared_ptr&lt; tool::TagMap &gt; &amp; mediapipe::OutputStreamHandler::OutputTagMap</definition>
+        <argsstring>() const</argsstring>
+        <name>OutputTagMap</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::OutputTagMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="89" column="25" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" bodystart="89" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStreamHandler_1adfc116fd345d3a9d9628b92f891a5b21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::OutputStreamHandler::PrepareForRun</definition>
+        <argsstring>(const std::function&lt; void(absl::Status)&gt; &amp;error_callback) ABSL_LOCKS_EXCLUDED(timestamp_mutex_)</argsstring>
+        <name>PrepareForRun</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::PrepareForRun</qualifiedname>
+        <param>
+          <type>const std::function&lt; void(absl::Status)&gt; &amp;</type>
+          <declname>error_callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="95" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.cc" bodystart="44" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStreamHandler_1a27ced50d0e5f646077544241e985ab44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::OutputStreamHandler::Open</definition>
+        <argsstring>(OutputStreamShardSet *output_shards)</argsstring>
+        <name>Open</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::Open</qualifiedname>
+        <param>
+          <type>OutputStreamShardSet *</type>
+          <declname>output_shards</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="100" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.cc" bodystart="55" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStreamHandler_1ad942804847e8c4afe56786de4818ca55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::OutputStreamHandler::PrepareOutputs</definition>
+        <argsstring>(Timestamp input_timestamp, OutputStreamShardSet *output_shards)</argsstring>
+        <name>PrepareOutputs</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::PrepareOutputs</qualifiedname>
+        <param>
+          <type>Timestamp</type>
+          <declname>input_timestamp</declname>
+        </param>
+        <param>
+          <type>OutputStreamShardSet *</type>
+          <declname>output_shards</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="104" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.cc" bodystart="64" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStreamHandler_1a7f1ed79820aa9ec2c9acf341bd27282d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::OutputStreamHandler::UpdateTaskTimestampBound</definition>
+        <argsstring>(Timestamp timestamp) ABSL_LOCKS_EXCLUDED(timestamp_mutex_)</argsstring>
+        <name>UpdateTaskTimestampBound</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::UpdateTaskTimestampBound</qualifiedname>
+        <param>
+          <type>Timestamp</type>
+          <declname>timestamp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="109" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.cc" bodystart="74" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStreamHandler_1a2b011c09a1e00af162dd418fdf7f1bb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::OutputStreamHandler::PostProcess</definition>
+        <argsstring>(Timestamp input_timestamp) ABSL_LOCKS_EXCLUDED(timestamp_mutex_)</argsstring>
+        <name>PostProcess</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::PostProcess</qualifiedname>
+        <param>
+          <type>Timestamp</type>
+          <declname>input_timestamp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="113" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.cc" bodystart="97" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStreamHandler_1acb6b641891392aa376c7ede681ab1d19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::OutputStreamHandler::Close</definition>
+        <argsstring>(OutputStreamShardSet *output_shards)</argsstring>
+        <name>Close</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::Close</qualifiedname>
+        <param>
+          <type>OutputStreamShardSet *</type>
+          <declname>output_shards</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="117" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.cc" bodystart="141" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStreamHandler_1a232fc1ee14625e90242d2ac09bf37b16" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string mediapipe::OutputStreamHandler::FirstStreamName</definition>
+        <argsstring>() const</argsstring>
+        <name>FirstStreamName</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::FirstStreamName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="121" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.cc" bodystart="118" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStreamHandler_1a4dac6010d2224e3a847e66839cf0c40d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const OutputStreamManagerSet &amp;</type>
+        <definition>const OutputStreamManagerSet &amp; mediapipe::OutputStreamHandler::OutputStreams</definition>
+        <argsstring>()</argsstring>
+        <name>OutputStreams</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::OutputStreams</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="123" column="32" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" bodystart="123" bodyend="125"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classmediapipe_1_1OutputStreamHandler_1a85676eaf40865a1044f796f78950e7be" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::OutputStreamHandler::TryPropagateTimestampBound</definition>
+        <argsstring>(Timestamp input_bound)</argsstring>
+        <name>TryPropagateTimestampBound</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::TryPropagateTimestampBound</qualifiedname>
+        <param>
+          <type>Timestamp</type>
+          <declname>input_bound</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="132" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.cc" bodystart="125" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStreamHandler_1a85722109fbfc69ba2ba99b6711624a52" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::OutputStreamHandler::PropagateOutputPackets</definition>
+        <argsstring>(Timestamp input_timestamp, OutputStreamShardSet *output_shards)</argsstring>
+        <name>PropagateOutputPackets</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::PropagateOutputPackets</qualifiedname>
+        <param>
+          <type>Timestamp</type>
+          <declname>input_timestamp</declname>
+        </param>
+        <param>
+          <type>OutputStreamShardSet *</type>
+          <declname>output_shards</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="136" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.cc" bodystart="152" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStreamHandler_1a0fa27e3ef0eb12b1d21108c7ddfe953e" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void mediapipe::OutputStreamHandler::PropagationLoop</definition>
+        <argsstring>() ABSL_EXCLUSIVE_LOCKS_REQUIRED(timestamp_mutex_)=0</argsstring>
+        <name>PropagationLoop</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::PropagationLoop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="140" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStreamHandler_1a792c65e284575c1c2fa67015319eb07a" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::set&lt; Timestamp &gt; completed_input_timestamps_</type>
+        <definition>std::set&lt; Timestamp &gt; completed_input_timestamps_ mediapipe::OutputStreamHandler::ABSL_GUARDED_BY</definition>
+        <argsstring>(timestamp_mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>timestamp_mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="153" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStreamHandler_1aa5fc89c4c5963ff6ece494ca5d4796c3" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Timestamp task_timestamp_bound_</type>
+        <definition>Timestamp task_timestamp_bound_ mediapipe::OutputStreamHandler::ABSL_GUARDED_BY</definition>
+        <argsstring>(timestamp_mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>timestamp_mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="156" column="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStreamHandler_1a5624741c7a6f53e667c3de2bd23c164e" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>PropagationState propagation_state_</type>
+        <definition>PropagationState propagation_state_ mediapipe::OutputStreamHandler::ABSL_GUARDED_BY</definition>
+        <argsstring>(timestamp_mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::OutputStreamHandler::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>timestamp_mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="196" column="39"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" line="44" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h" bodystart="44" bodyend="197"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1a792c65e284575c1c2fa67015319eb07a" prot="protected" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1aa5fc89c4c5963ff6ece494ca5d4796c3" prot="protected" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1a5624741c7a6f53e667c3de2bd23c164e" prot="protected" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1a0e9c114bc6c086109b59b400962f4b2d" prot="protected" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>calculator_context_manager_</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1af0ba33787061af428f9ed373409e1fd6" prot="protected" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>calculator_run_in_parallel_</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1acb6b641891392aa376c7ede681ab1d19" prot="public" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>Close</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1a232fc1ee14625e90242d2ac09bf37b16" prot="public" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>FirstStreamName</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1a1ed472c32613a208239dd32883b0466c" prot="public" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>InitializeOutputStreamManagers</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1ab9cba08c0dc264d131a387bfde78dbcdad159b59997a64225dbcdc24817c89093" prot="protected" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>kIdle</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1ab9cba08c0dc264d131a387bfde78dbcdad71fbac9fb6a819d03639f73d62a546e" prot="protected" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>kPropagatingBound</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1ab9cba08c0dc264d131a387bfde78dbcda30ad94d82970956abd8b6b6a4052f5bb" prot="protected" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>kPropagatingPackets</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1ab9cba08c0dc264d131a387bfde78dbcda672d95ee50bc3adf6ab314600f76657b" prot="protected" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>kPropagationPending</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1a943b165fd1ed010e3b1b641c93dff1e3" prot="public" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>NumOutputStreams</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1a27ced50d0e5f646077544241e985ab44" prot="public" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>Open</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1a1c94ccfddcf65133bdc7254ef1a046f0" prot="public" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>Options</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1a04b03e06f6e75b69128361c889ed6b52" prot="protected" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>options_</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1a65b3cda509442dfd8eba4889d2693707" prot="protected" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>output_stream_managers_</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1a031c5cbfd7bff03f9bacc40df5edd07a" prot="public" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>OutputStreamHandler</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1ad5174d1bf4ea0ca66ac0db2cabc8be62" prot="public" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>OutputStreamManagerSet</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1a4dac6010d2224e3a847e66839cf0c40d" prot="public" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>OutputStreams</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1aeb2419673d66a80fbc267ac241b69913" prot="public" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>OutputStreamToSourcesMap</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1a637dab187cfbf65d863c221a2770b740" prot="public" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>OutputTagMap</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1a2b011c09a1e00af162dd418fdf7f1bb0" prot="public" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>PostProcess</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1adfc116fd345d3a9d9628b92f891a5b21" prot="public" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>PrepareForRun</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1ad942804847e8c4afe56786de4818ca55" prot="public" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>PrepareOutputs</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1a85722109fbfc69ba2ba99b6711624a52" prot="protected" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>PropagateOutputPackets</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1a0fa27e3ef0eb12b1d21108c7ddfe953e" prot="protected" virt="pure-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>PropagationLoop</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1ab9cba08c0dc264d131a387bfde78dbcd" prot="protected" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>PropagationState</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1aaf62c5fab7c15651ce779962d3e35d0b" prot="public" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>SetupOutputShards</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1af8f34b048f07948010829ab45a5fd15b" prot="protected" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>timestamp_mutex_</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1a85676eaf40865a1044f796f78950e7be" prot="protected" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>TryPropagateTimestampBound</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1a7f1ed79820aa9ec2c9acf341bd27282d" prot="public" virt="non-virtual"><scope>mediapipe::OutputStreamHandler</scope><name>UpdateTaskTimestampBound</name></member>
+      <member refid="classmediapipe_1_1OutputStreamHandler_1a6278c06426640b9bc2c1a66304ecde22" prot="public" virt="virtual"><scope>mediapipe::OutputStreamHandler</scope><name>~OutputStreamHandler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

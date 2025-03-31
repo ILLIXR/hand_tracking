@@ -1,0 +1,195 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1ThreadPoolExecutor" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::ThreadPoolExecutor</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">mediapipe::Executor</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1ThreadPoolExecutor_1a3d3725cce2b78b76d76c276c260bc50e" prot="private" static="no" mutable="no">
+        <type>mediapipe::ThreadPool</type>
+        <definition>mediapipe::ThreadPool mediapipe::ThreadPoolExecutor::thread_pool_</definition>
+        <argsstring></argsstring>
+        <name>thread_pool_</name>
+        <qualifiedname>mediapipe::ThreadPoolExecutor::thread_pool_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/thread_pool_executor.h" line="46" column="25" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/thread_pool_executor.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1ThreadPoolExecutor_1a353a2ce59306241805eabd6b67e4f7fd" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t mediapipe::ThreadPoolExecutor::stack_size_</definition>
+        <argsstring></argsstring>
+        <name>stack_size_</name>
+        <qualifiedname>mediapipe::ThreadPoolExecutor::stack_size_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/thread_pool_executor.h" line="58" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/thread_pool_executor.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1ThreadPoolExecutor_1a6cd43060993995fe9a7c5ef174b2d07a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::StatusOr&lt; Executor * &gt;</type>
+        <definition>absl::StatusOr&lt; Executor * &gt; mediapipe::ThreadPoolExecutor::Create</definition>
+        <argsstring>(const MediaPipeOptions &amp;extendable_options)</argsstring>
+        <name>Create</name>
+        <qualifiedname>mediapipe::ThreadPoolExecutor::Create</qualifiedname>
+        <param>
+          <type>const MediaPipeOptions &amp;</type>
+          <declname>extendable_options</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/thread_pool_executor.h" line="28" column="25" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/thread_pool_executor.cc" bodystart="28" bodyend="75"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1ThreadPoolExecutor_1acfdd991834bb93ddd334cd88b3c0281a" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::ThreadPoolExecutor::ThreadPoolExecutor</definition>
+        <argsstring>(int num_threads)</argsstring>
+        <name>ThreadPoolExecutor</name>
+        <qualifiedname>mediapipe::ThreadPoolExecutor::ThreadPoolExecutor</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>num_threads</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/thread_pool_executor.h" line="31" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/thread_pool_executor.cc" bodystart="77" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ThreadPoolExecutor_1a59ce0457a05ce12001f98362f36d274e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::ThreadPoolExecutor::~ThreadPoolExecutor</definition>
+        <argsstring>() override</argsstring>
+        <name>~ThreadPoolExecutor</name>
+        <qualifiedname>mediapipe::ThreadPoolExecutor::~ThreadPoolExecutor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/thread_pool_executor.h" line="32" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/thread_pool_executor.cc" bodystart="92" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ThreadPoolExecutor_1a0142a4a0c78020d8745eb526031876fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::ThreadPoolExecutor::Schedule</definition>
+        <argsstring>(std::function&lt; void()&gt; task) override</argsstring>
+        <name>Schedule</name>
+        <qualifiedname>mediapipe::ThreadPoolExecutor::Schedule</qualifiedname>
+        <param>
+          <type>std::function&lt; void()&gt;</type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/thread_pool_executor.h" line="33" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/thread_pool_executor.cc" bodystart="96" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ThreadPoolExecutor_1a0f5aac21e843cf117f5820d11bad4c3a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::ThreadPoolExecutor::num_threads</definition>
+        <argsstring>() const</argsstring>
+        <name>num_threads</name>
+        <qualifiedname>mediapipe::ThreadPoolExecutor::num_threads</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/thread_pool_executor.h" line="36" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/thread_pool_executor.h" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ThreadPoolExecutor_1a4067e6b938b315a76220f76b97e04a39" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t mediapipe::ThreadPoolExecutor::stack_size</definition>
+        <argsstring>() const</argsstring>
+        <name>stack_size</name>
+        <qualifiedname>mediapipe::ThreadPoolExecutor::stack_size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/thread_pool_executor.h" line="38" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/thread_pool_executor.h" bodystart="38" bodyend="38"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1ThreadPoolExecutor_1ac8b9d3e889b37788d03e41bc7d3d7f6c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::ThreadPoolExecutor::ThreadPoolExecutor</definition>
+        <argsstring>(const ThreadOptions &amp;thread_options, int num_threads)</argsstring>
+        <name>ThreadPoolExecutor</name>
+        <qualifiedname>mediapipe::ThreadPoolExecutor::ThreadPoolExecutor</qualifiedname>
+        <param>
+          <type>const ThreadOptions &amp;</type>
+          <declname>thread_options</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>num_threads</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/thread_pool_executor.h" line="41" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/thread_pool_executor.cc" bodystart="82" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ThreadPoolExecutor_1a6a96b1b61962d35620db51a5355a80b8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::ThreadPoolExecutor::Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <qualifiedname>mediapipe::ThreadPoolExecutor::Start</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/thread_pool_executor.h" line="44" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/thread_pool_executor.cc" bodystart="100" bodyend="105"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/thread_pool_executor.h" line="26" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/thread_pool_executor.h" bodystart="26" bodyend="59"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1Executor_1a65d32854b4e6b242dbc424312d273a7c" prot="public" virt="virtual"><scope>mediapipe::ThreadPoolExecutor</scope><name>AddTask</name></member>
+      <member refid="classmediapipe_1_1ThreadPoolExecutor_1a6cd43060993995fe9a7c5ef174b2d07a" prot="public" virt="non-virtual"><scope>mediapipe::ThreadPoolExecutor</scope><name>Create</name></member>
+      <member refid="classmediapipe_1_1ThreadPoolExecutor_1a0f5aac21e843cf117f5820d11bad4c3a" prot="public" virt="non-virtual"><scope>mediapipe::ThreadPoolExecutor</scope><name>num_threads</name></member>
+      <member refid="classmediapipe_1_1ThreadPoolExecutor_1a0142a4a0c78020d8745eb526031876fc" prot="public" virt="non-virtual"><scope>mediapipe::ThreadPoolExecutor</scope><name>Schedule</name></member>
+      <member refid="classmediapipe_1_1ThreadPoolExecutor_1a4067e6b938b315a76220f76b97e04a39" prot="public" virt="non-virtual"><scope>mediapipe::ThreadPoolExecutor</scope><name>stack_size</name></member>
+      <member refid="classmediapipe_1_1ThreadPoolExecutor_1a353a2ce59306241805eabd6b67e4f7fd" prot="private" virt="non-virtual"><scope>mediapipe::ThreadPoolExecutor</scope><name>stack_size_</name></member>
+      <member refid="classmediapipe_1_1ThreadPoolExecutor_1a6a96b1b61962d35620db51a5355a80b8" prot="private" virt="non-virtual"><scope>mediapipe::ThreadPoolExecutor</scope><name>Start</name></member>
+      <member refid="classmediapipe_1_1ThreadPoolExecutor_1a3d3725cce2b78b76d76c276c260bc50e" prot="private" virt="non-virtual"><scope>mediapipe::ThreadPoolExecutor</scope><name>thread_pool_</name></member>
+      <member refid="classmediapipe_1_1ThreadPoolExecutor_1acfdd991834bb93ddd334cd88b3c0281a" prot="public" virt="non-virtual"><scope>mediapipe::ThreadPoolExecutor</scope><name>ThreadPoolExecutor</name></member>
+      <member refid="classmediapipe_1_1ThreadPoolExecutor_1ac8b9d3e889b37788d03e41bc7d3d7f6c" prot="private" virt="non-virtual"><scope>mediapipe::ThreadPoolExecutor</scope><name>ThreadPoolExecutor</name></member>
+      <member refid="classmediapipe_1_1Executor_1a2a91bf0fcfb701b26c3099d54b5cc627" prot="public" virt="virtual"><scope>mediapipe::ThreadPoolExecutor</scope><name>~Executor</name></member>
+      <member refid="classmediapipe_1_1ThreadPoolExecutor_1a59ce0457a05ce12001f98362f36d274e" prot="public" virt="non-virtual"><scope>mediapipe::ThreadPoolExecutor</scope><name>~ThreadPoolExecutor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

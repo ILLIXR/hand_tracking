@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1api2_1_1InferenceCalculatorNodeImpl" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>mediapipe::api2::InferenceCalculatorNodeImpl</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">mediapipe::api2::NodeImpl&lt; Intf, void &gt;</basecompoundref>
+    <derivedcompoundref refid="classmediapipe_1_1api2_1_1InferenceCalculatorCpuImpl" prot="public" virt="non-virtual">mediapipe::api2::InferenceCalculatorCpuImpl</derivedcompoundref>
+    <derivedcompoundref refid="classmediapipe_1_1api2_1_1InferenceCalculatorGlAdvancedImpl" prot="public" virt="non-virtual">mediapipe::api2::InferenceCalculatorGlAdvancedImpl</derivedcompoundref>
+    <derivedcompoundref refid="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl" prot="public" virt="non-virtual">mediapipe::api2::InferenceCalculatorGlImpl</derivedcompoundref>
+    <templateparamlist>
+      <param>
+        <type>class Intf</type>
+      </param>
+      <param>
+        <type>class Impl</type>
+        <defval>void</defval>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1InferenceCalculatorNodeImpl_1ae7d703c31f60ddc6f4e9ce4913f96589" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; InferenceIoMapper &gt;</type>
+        <definition>std::unique_ptr&lt;InferenceIoMapper&gt; mediapipe::api2::InferenceCalculatorNodeImpl&lt; Intf, Impl &gt;::io_mapper_</definition>
+        <argsstring></argsstring>
+        <name>io_mapper_</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorNodeImpl::io_mapper_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator.h" line="290" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator.h" bodystart="290" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1InferenceCalculatorNodeImpl_1a7a2312059e489d9af1905f909e5f227f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual mediapipe::api2::InferenceCalculatorNodeImpl&lt; Intf, Impl &gt;::~InferenceCalculatorNodeImpl</definition>
+        <argsstring>()=default</argsstring>
+        <name>~InferenceCalculatorNodeImpl</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorNodeImpl::~InferenceCalculatorNodeImpl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator.h" line="194" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1InferenceCalculatorNodeImpl_1aa948fa09618507ce376b30806420fc7c" prot="public" static="no" const="no" explicit="no" inline="yes" final="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::InferenceCalculatorNodeImpl&lt; Intf, Impl &gt;::Process</definition>
+        <argsstring>(CalculatorContext *cc) final</argsstring>
+        <name>Process</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorNodeImpl::Process</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator.h" line="197" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator.h" bodystart="197" bodyend="223"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1InferenceCalculatorNodeImpl_1a824bb0b91895948683f43ed8da4f70b8" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::InferenceCalculatorNodeImpl&lt; Intf, Impl &gt;::UpdateIoMapping</definition>
+        <argsstring>(CalculatorContext *cc, const InputOutputTensorNames &amp;tensor_names)</argsstring>
+        <name>UpdateIoMapping</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorNodeImpl::UpdateIoMapping</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <param>
+          <type>const InputOutputTensorNames &amp;</type>
+          <declname>tensor_names</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator.h" line="227" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator.h" bodystart="227" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1InferenceCalculatorNodeImpl_1aee5074e54e5aad7ac2cc255b7b79988f" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>absl::StatusOr&lt; std::vector&lt; Tensor &gt; &gt;</type>
+        <definition>virtual absl::StatusOr&lt; std::vector&lt; Tensor &gt; &gt; mediapipe::api2::InferenceCalculatorNodeImpl&lt; Intf, Impl &gt;::Process</definition>
+        <argsstring>(CalculatorContext *cc, const TensorSpan &amp;tensor_span)=0</argsstring>
+        <name>Process</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorNodeImpl::Process</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <param>
+          <type>const TensorSpan &amp;</type>
+          <declname>tensor_span</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator.h" line="236" column="26"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1InferenceCalculatorNodeImpl_1acc989e8886efe8f4c70ee7f19751d6e6" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::StatusOr&lt; std::vector&lt; Tensor &gt; &gt;</type>
+        <definition>absl::StatusOr&lt; std::vector&lt; Tensor &gt; &gt; mediapipe::api2::InferenceCalculatorNodeImpl&lt; Intf, Impl &gt;::RemapAndProcessTensors</definition>
+        <argsstring>(CalculatorContext *cc, const TensorSpan &amp;input_tensors)</argsstring>
+        <name>RemapAndProcessTensors</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorNodeImpl::RemapAndProcessTensors</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <param>
+          <type>const TensorSpan &amp;</type>
+          <declname>input_tensors</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator.h" line="242" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator.h" bodystart="242" bodyend="252"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1InferenceCalculatorNodeImpl_1addfac7f1477dc0e2dccd56ab764d5123" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>static absl::Status mediapipe::api2::InferenceCalculatorNodeImpl&lt; Intf, Impl &gt;::SendOutputTensors</definition>
+        <argsstring>(CalculatorContext *cc, std::vector&lt; Tensor &gt; &amp;&amp;output_tensors)</argsstring>
+        <name>SendOutputTensors</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorNodeImpl::SendOutputTensors</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; Tensor &gt; &amp;&amp;</type>
+          <declname>output_tensors</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator.h" line="257" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator.h" bodystart="257" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1InferenceCalculatorNodeImpl_1ae627f3ba63e50c4af2ba924e20ff4771" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>mediapipe::InferenceCalculatorOptions::InputOutputConfig</type>
+        <definition>static mediapipe::InferenceCalculatorOptions::InputOutputConfig mediapipe::api2::InferenceCalculatorNodeImpl&lt; Intf, Impl &gt;::GetInputOutputConfig</definition>
+        <argsstring>(CalculatorContext *cc)</argsstring>
+        <name>GetInputOutputConfig</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorNodeImpl::GetInputOutputConfig</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator.h" line="276" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator.h" bodystart="276" bodyend="288"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator.h" line="192" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator.h" bodystart="192" bodyend="291"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1CalculatorBase_1a586aedabbf1f8f9d14e07a7251cc5936" prot="public" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorNodeImpl</scope><name>CalculatorBase</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a4c90b3bb22ad29984bf0e1436f629f1d" prot="public" virt="virtual"><scope>mediapipe::api2::InferenceCalculatorNodeImpl</scope><name>Close</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorNodeImpl_1ae627f3ba63e50c4af2ba924e20ff4771" prot="private" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorNodeImpl</scope><name>GetInputOutputConfig</name></member>
+      <member refid="classmediapipe_1_1api2_1_1NodeImpl_1a61b15de17fb484b31714943f611a20e6" prot="protected" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorNodeImpl</scope><name>In</name></member>
+      <member refid="classmediapipe_1_1api2_1_1NodeImpl_1af7248b639443e46a9b63e291bc092544" prot="protected" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorNodeImpl</scope><name>In</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorNodeImpl_1ae7d703c31f60ddc6f4e9ce4913f96589" prot="private" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorNodeImpl</scope><name>io_mapper_</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1aec886845dd3fd43c6f64d8d2ca5dbfea" prot="public" virt="virtual"><scope>mediapipe::api2::InferenceCalculatorNodeImpl</scope><name>Open</name></member>
+      <member refid="classmediapipe_1_1api2_1_1NodeImpl_1acb6eae9acf8bfbe0e618b6a8a3085946" prot="protected" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorNodeImpl</scope><name>Out</name></member>
+      <member refid="classmediapipe_1_1api2_1_1NodeImpl_1aa62c61b33331d05802ae33031bcddbad" prot="protected" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorNodeImpl</scope><name>Out</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorNodeImpl_1aa948fa09618507ce376b30806420fc7c" prot="public" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorNodeImpl</scope><name>Process</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorNodeImpl_1aee5074e54e5aad7ac2cc255b7b79988f" prot="protected" virt="pure-virtual"><scope>mediapipe::api2::InferenceCalculatorNodeImpl</scope><name>Process</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorNodeImpl_1acc989e8886efe8f4c70ee7f19751d6e6" prot="private" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorNodeImpl</scope><name>RemapAndProcessTensors</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorNodeImpl_1addfac7f1477dc0e2dccd56ab764d5123" prot="private" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorNodeImpl</scope><name>SendOutputTensors</name></member>
+      <member refid="classmediapipe_1_1api2_1_1NodeImpl_1afe1072c1c754784eda290a4df6cbfb5b" prot="protected" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorNodeImpl</scope><name>SideIn</name></member>
+      <member refid="classmediapipe_1_1api2_1_1NodeImpl_1a3e6961e3c0dae912781f2ec49dfa06fe" prot="protected" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorNodeImpl</scope><name>SideIn</name></member>
+      <member refid="classmediapipe_1_1api2_1_1NodeImpl_1a697c2deaec23b21b764e377a968fb291" prot="protected" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorNodeImpl</scope><name>SideOut</name></member>
+      <member refid="classmediapipe_1_1api2_1_1NodeImpl_1af6592ff75f617f2b84ab09272ce69ff3" prot="protected" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorNodeImpl</scope><name>SideOut</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a0cf70172f342c2cc0314af8e76ae982b" prot="public" virt="virtual"><scope>mediapipe::api2::InferenceCalculatorNodeImpl</scope><name>SourceProcessOrder</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorNodeImpl_1a824bb0b91895948683f43ed8da4f70b8" prot="protected" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorNodeImpl</scope><name>UpdateIoMapping</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a9ced1ccc8a3f7ad59e54a317f4054c90" prot="public" virt="virtual"><scope>mediapipe::api2::InferenceCalculatorNodeImpl</scope><name>~CalculatorBase</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorNodeImpl_1a7a2312059e489d9af1905f909e5f227f" prot="public" virt="virtual"><scope>mediapipe::api2::InferenceCalculatorNodeImpl</scope><name>~InferenceCalculatorNodeImpl</name></member>
+      <member refid="classmediapipe_1_1api2_1_1Node_1acd6b394427fbcc78008356f4f3c0a827" prot="public" virt="virtual"><scope>mediapipe::api2::InferenceCalculatorNodeImpl</scope><name>~Node</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

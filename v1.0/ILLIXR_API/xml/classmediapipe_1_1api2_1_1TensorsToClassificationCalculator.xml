@@ -1,0 +1,286 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::api2::TensorsToClassificationCalculator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">mediapipe::api2::Node</basecompoundref>
+    <innerclass refid="structmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1_1ClassIndexSet" prot="private">mediapipe::api2::TensorsToClassificationCalculator::ClassIndexSet</innerclass>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1a3c393738dcda9c8456a94f1103c6e9a0" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr Input&lt; std::vector&lt; Tensor &gt; &gt;</type>
+        <definition>constexpr Input&lt;std::vector&lt;Tensor&gt; &gt; mediapipe::api2::TensorsToClassificationCalculator::kInTensors</definition>
+        <argsstring></argsstring>
+        <name>kInTensors</name>
+        <qualifiedname>mediapipe::api2::TensorsToClassificationCalculator::kInTensors</qualifiedname>
+        <initializer>{&quot;TENSORS&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" line="75" column="26" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" bodystart="75" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1ab879c631ba0fa5490d41fb5ef5c132d0" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr Output&lt; ClassificationList &gt;</type>
+        <definition>constexpr Output&lt;ClassificationList&gt; mediapipe::api2::TensorsToClassificationCalculator::kOutClassificationList</definition>
+        <argsstring></argsstring>
+        <name>kOutClassificationList</name>
+        <qualifiedname>mediapipe::api2::TensorsToClassificationCalculator::kOutClassificationList</qualifiedname>
+        <initializer>{
+      &quot;CLASSIFICATIONS&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" line="76" column="27" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" bodystart="76" bodyend="77"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1a63197e5506947349e06a4b958bd8fb72" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::api2::TensorsToClassificationCalculator::top_k_</definition>
+        <argsstring></argsstring>
+        <name>top_k_</name>
+        <qualifiedname>mediapipe::api2::TensorsToClassificationCalculator::top_k_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" line="85" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1ac6177cc05f333b9f4102cc5f2953d476" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::api2::TensorsToClassificationCalculator::sort_by_descending_score_</definition>
+        <argsstring></argsstring>
+        <name>sort_by_descending_score_</name>
+        <qualifiedname>mediapipe::api2::TensorsToClassificationCalculator::sort_by_descending_score_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" line="86" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1aaf8311f40dc41cdd82a661ba198cebf7" prot="private" static="no" mutable="no">
+        <type>proto_ns::Map&lt; int64_t, LabelMapItem &gt;</type>
+        <definition>proto_ns::Map&lt;int64_t, LabelMapItem&gt; mediapipe::api2::TensorsToClassificationCalculator::local_label_map_</definition>
+        <argsstring></argsstring>
+        <name>local_label_map_</name>
+        <qualifiedname>mediapipe::api2::TensorsToClassificationCalculator::local_label_map_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" line="87" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1a13d7a86362ee4a7e4d8940cad5b8634e" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::api2::TensorsToClassificationCalculator::label_map_loaded_</definition>
+        <argsstring></argsstring>
+        <name>label_map_loaded_</name>
+        <qualifiedname>mediapipe::api2::TensorsToClassificationCalculator::label_map_loaded_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" line="88" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1a5b8316bf48d46c1bac0e160e7e65393e" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::api2::TensorsToClassificationCalculator::is_binary_classification_</definition>
+        <argsstring></argsstring>
+        <name>is_binary_classification_</name>
+        <qualifiedname>mediapipe::api2::TensorsToClassificationCalculator::is_binary_classification_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" line="89" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1a200739a1aa8df2da85337dcce6f0452d" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float mediapipe::api2::TensorsToClassificationCalculator::min_score_threshold_</definition>
+        <argsstring></argsstring>
+        <name>min_score_threshold_</name>
+        <qualifiedname>mediapipe::api2::TensorsToClassificationCalculator::min_score_threshold_</qualifiedname>
+        <initializer>= std::numeric_limits&lt;float&gt;::lowest()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" line="90" column="9" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1ad9f97e90fcaf698d8b9b767c317736de" prot="private" static="no" mutable="no">
+        <type>ClassIndexSet</type>
+        <definition>ClassIndexSet mediapipe::api2::TensorsToClassificationCalculator::class_index_set_</definition>
+        <argsstring></argsstring>
+        <name>class_index_set_</name>
+        <qualifiedname>mediapipe::api2::TensorsToClassificationCalculator::class_index_set_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" line="99" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" bodystart="99" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1ac402ee66d063809f8f5952188bae696d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::api2::TensorsToClassificationCalculator::MEDIAPIPE_NODE_CONTRACT</definition>
+        <argsstring>(kInTensors, kOutClassificationList)</argsstring>
+        <name>MEDIAPIPE_NODE_CONTRACT</name>
+        <qualifiedname>mediapipe::api2::TensorsToClassificationCalculator::MEDIAPIPE_NODE_CONTRACT</qualifiedname>
+        <param>
+          <type>kInTensors</type>
+        </param>
+        <param>
+          <type>kOutClassificationList</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" line="78" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1a4c036f5330b8e48aa84faa5003e25189" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::TensorsToClassificationCalculator::Open</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Open</name>
+        <qualifiedname>mediapipe::api2::TensorsToClassificationCalculator::Open</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" line="80" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" bodystart="106" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1ac9a31a0edd66e07e72f78282762c9afa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::TensorsToClassificationCalculator::Process</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Process</name>
+        <qualifiedname>mediapipe::api2::TensorsToClassificationCalculator::Process</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" line="81" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" bodystart="166" bodyend="239"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1a1833d899410b8ca103473ebca2d262c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::TensorsToClassificationCalculator::Close</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Close</name>
+        <qualifiedname>mediapipe::api2::TensorsToClassificationCalculator::Close</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" line="82" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" bodystart="241" bodyend="244"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1a127fb471902a16e16443b2a321f48c34" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::api2::TensorsToClassificationCalculator::IsClassIndexAllowed</definition>
+        <argsstring>(int class_index)</argsstring>
+        <name>IsClassIndexAllowed</name>
+        <qualifiedname>mediapipe::api2::TensorsToClassificationCalculator::IsClassIndexAllowed</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>class_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" line="100" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" bodystart="246" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1aa6347049b5803959164e609b9593e705" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const proto_ns::Map&lt; int64_t, LabelMapItem &gt; &amp;</type>
+        <definition>const proto_ns::Map&lt; int64_t, LabelMapItem &gt; &amp; mediapipe::api2::TensorsToClassificationCalculator::GetLabelMap</definition>
+        <argsstring>(CalculatorContext *cc)</argsstring>
+        <name>GetLabelMap</name>
+        <qualifiedname>mediapipe::api2::TensorsToClassificationCalculator::GetLabelMap</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" line="101" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" bodystart="258" bodyend="263"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" line="73" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_classification_calculator.cc" bodystart="73" bodyend="103"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1CalculatorBase_1a586aedabbf1f8f9d14e07a7251cc5936" prot="public" virt="non-virtual"><scope>mediapipe::api2::TensorsToClassificationCalculator</scope><name>CalculatorBase</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1ad9f97e90fcaf698d8b9b767c317736de" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToClassificationCalculator</scope><name>class_index_set_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1a1833d899410b8ca103473ebca2d262c7" prot="public" virt="non-virtual"><scope>mediapipe::api2::TensorsToClassificationCalculator</scope><name>Close</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1aa6347049b5803959164e609b9593e705" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToClassificationCalculator</scope><name>GetLabelMap</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1a5b8316bf48d46c1bac0e160e7e65393e" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToClassificationCalculator</scope><name>is_binary_classification_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1a127fb471902a16e16443b2a321f48c34" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToClassificationCalculator</scope><name>IsClassIndexAllowed</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1a3c393738dcda9c8456a94f1103c6e9a0" prot="public" virt="non-virtual"><scope>mediapipe::api2::TensorsToClassificationCalculator</scope><name>kInTensors</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1ab879c631ba0fa5490d41fb5ef5c132d0" prot="public" virt="non-virtual"><scope>mediapipe::api2::TensorsToClassificationCalculator</scope><name>kOutClassificationList</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1a13d7a86362ee4a7e4d8940cad5b8634e" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToClassificationCalculator</scope><name>label_map_loaded_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1aaf8311f40dc41cdd82a661ba198cebf7" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToClassificationCalculator</scope><name>local_label_map_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1ac402ee66d063809f8f5952188bae696d" prot="public" virt="non-virtual"><scope>mediapipe::api2::TensorsToClassificationCalculator</scope><name>MEDIAPIPE_NODE_CONTRACT</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1a200739a1aa8df2da85337dcce6f0452d" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToClassificationCalculator</scope><name>min_score_threshold_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1a4c036f5330b8e48aa84faa5003e25189" prot="public" virt="non-virtual"><scope>mediapipe::api2::TensorsToClassificationCalculator</scope><name>Open</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1ac9a31a0edd66e07e72f78282762c9afa" prot="public" virt="non-virtual"><scope>mediapipe::api2::TensorsToClassificationCalculator</scope><name>Process</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1ac6177cc05f333b9f4102cc5f2953d476" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToClassificationCalculator</scope><name>sort_by_descending_score_</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a0cf70172f342c2cc0314af8e76ae982b" prot="public" virt="virtual"><scope>mediapipe::api2::TensorsToClassificationCalculator</scope><name>SourceProcessOrder</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToClassificationCalculator_1a63197e5506947349e06a4b958bd8fb72" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToClassificationCalculator</scope><name>top_k_</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a9ced1ccc8a3f7ad59e54a317f4054c90" prot="public" virt="virtual"><scope>mediapipe::api2::TensorsToClassificationCalculator</scope><name>~CalculatorBase</name></member>
+      <member refid="classmediapipe_1_1api2_1_1Node_1acd6b394427fbcc78008356f4f3c0a827" prot="public" virt="virtual"><scope>mediapipe::api2::TensorsToClassificationCalculator</scope><name>~Node</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

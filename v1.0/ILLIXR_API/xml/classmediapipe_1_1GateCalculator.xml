@@ -1,0 +1,224 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1GateCalculator" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::GateCalculator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">mediapipe::CalculatorBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1GateCalculator_1a13498f94be9f0bad434f1f6e07b33df6" prot="private" static="no" mutable="no">
+        <type>GateCalculatorOptions::GateState</type>
+        <definition>GateCalculatorOptions::GateState mediapipe::GateCalculator::last_gate_state_</definition>
+        <argsstring></argsstring>
+        <name>last_gate_state_</name>
+        <qualifiedname>mediapipe::GateCalculator::last_gate_state_</qualifiedname>
+        <initializer>=
+      GateCalculatorOptions::GATE_UNINITIALIZED</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" line="226" column="36" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" bodystart="226" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GateCalculator_1a8c98fce8344ecb0fdd94c23152a1d462" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::GateCalculator::num_data_streams_</definition>
+        <argsstring></argsstring>
+        <name>num_data_streams_</name>
+        <qualifiedname>mediapipe::GateCalculator::num_data_streams_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" line="228" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" bodystart="228" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GateCalculator_1a774450f91ece034e32b183b22228fe5c" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::GateCalculator::empty_packets_as_allow_</definition>
+        <argsstring></argsstring>
+        <name>empty_packets_as_allow_</name>
+        <qualifiedname>mediapipe::GateCalculator::empty_packets_as_allow_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" line="229" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" bodystart="229" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GateCalculator_1ae524fd48e1c1ac7592badd16db47110b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::GateCalculator::use_side_packet_for_allow_disallow_</definition>
+        <argsstring></argsstring>
+        <name>use_side_packet_for_allow_disallow_</name>
+        <qualifiedname>mediapipe::GateCalculator::use_side_packet_for_allow_disallow_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" line="230" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GateCalculator_1a2e6ae53536ecccfa15b1889bd023f358" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::GateCalculator::allow_by_side_packet_decision_</definition>
+        <argsstring></argsstring>
+        <name>allow_by_side_packet_decision_</name>
+        <qualifiedname>mediapipe::GateCalculator::allow_by_side_packet_decision_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" line="231" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" bodystart="231" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GateCalculator_1a0f037bb757210533e43c2f46f64d09ef" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::GateCalculator::use_option_for_allow_disallow_</definition>
+        <argsstring></argsstring>
+        <name>use_option_for_allow_disallow_</name>
+        <qualifiedname>mediapipe::GateCalculator::use_option_for_allow_disallow_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" line="232" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GateCalculator_1a5a6940812004658fac9fb9e4355b638c" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::GateCalculator::allow_by_option_decision_</definition>
+        <argsstring></argsstring>
+        <name>allow_by_option_decision_</name>
+        <qualifiedname>mediapipe::GateCalculator::allow_by_option_decision_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" line="233" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" bodystart="233" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1GateCalculator_1a4080ef978bfc470e7e070e4ee1f3e35a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::GateCalculator::GateCalculator</definition>
+        <argsstring>()</argsstring>
+        <name>GateCalculator</name>
+        <qualifiedname>mediapipe::GateCalculator::GateCalculator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" line="85" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" bodystart="85" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GateCalculator_1a3ac92eefccf5fc7ea99719a3c802c969" prot="public" static="no" const="no" explicit="no" inline="yes" final="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::GateCalculator::Open</definition>
+        <argsstring>(CalculatorContext *cc) final</argsstring>
+        <name>Open</name>
+        <qualifiedname>mediapipe::GateCalculator::Open</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" line="139" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" bodystart="139" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GateCalculator_1a7f930171a5ae75a86e94a6df585b9dbf" prot="public" static="no" const="no" explicit="no" inline="yes" final="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::GateCalculator::Process</definition>
+        <argsstring>(CalculatorContext *cc) final</argsstring>
+        <name>Process</name>
+        <qualifiedname>mediapipe::GateCalculator::Process</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" line="169" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" bodystart="169" bodyend="223"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1GateCalculator_1a150685ea5a8e3eb1d27355dd85787e7c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>static absl::Status mediapipe::GateCalculator::CheckAndInitAllowDisallowInputs</definition>
+        <argsstring>(CalculatorContract *cc)</argsstring>
+        <name>CheckAndInitAllowDisallowInputs</name>
+        <qualifiedname>mediapipe::GateCalculator::CheckAndInitAllowDisallowInputs</qualifiedname>
+        <param>
+          <type>CalculatorContract *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" line="87" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" bodystart="87" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GateCalculator_1a9e42c8a9d1117372bc57bd11b89e8bf0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>static absl::Status mediapipe::GateCalculator::GetContract</definition>
+        <argsstring>(CalculatorContract *cc)</argsstring>
+        <name>GetContract</name>
+        <qualifiedname>mediapipe::GateCalculator::GetContract</qualifiedname>
+        <param>
+          <type>CalculatorContract *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" line="120" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" bodystart="120" bodyend="137"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" line="83" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/gate_calculator.cc" bodystart="83" bodyend="234"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1GateCalculator_1a5a6940812004658fac9fb9e4355b638c" prot="private" virt="non-virtual"><scope>mediapipe::GateCalculator</scope><name>allow_by_option_decision_</name></member>
+      <member refid="classmediapipe_1_1GateCalculator_1a2e6ae53536ecccfa15b1889bd023f358" prot="private" virt="non-virtual"><scope>mediapipe::GateCalculator</scope><name>allow_by_side_packet_decision_</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a586aedabbf1f8f9d14e07a7251cc5936" prot="public" virt="non-virtual"><scope>mediapipe::GateCalculator</scope><name>CalculatorBase</name></member>
+      <member refid="classmediapipe_1_1GateCalculator_1a150685ea5a8e3eb1d27355dd85787e7c" prot="public" virt="non-virtual"><scope>mediapipe::GateCalculator</scope><name>CheckAndInitAllowDisallowInputs</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a4c90b3bb22ad29984bf0e1436f629f1d" prot="public" virt="virtual"><scope>mediapipe::GateCalculator</scope><name>Close</name></member>
+      <member refid="classmediapipe_1_1GateCalculator_1a774450f91ece034e32b183b22228fe5c" prot="private" virt="non-virtual"><scope>mediapipe::GateCalculator</scope><name>empty_packets_as_allow_</name></member>
+      <member refid="classmediapipe_1_1GateCalculator_1a4080ef978bfc470e7e070e4ee1f3e35a" prot="public" virt="non-virtual"><scope>mediapipe::GateCalculator</scope><name>GateCalculator</name></member>
+      <member refid="classmediapipe_1_1GateCalculator_1a9e42c8a9d1117372bc57bd11b89e8bf0" prot="public" virt="non-virtual"><scope>mediapipe::GateCalculator</scope><name>GetContract</name></member>
+      <member refid="classmediapipe_1_1GateCalculator_1a13498f94be9f0bad434f1f6e07b33df6" prot="private" virt="non-virtual"><scope>mediapipe::GateCalculator</scope><name>last_gate_state_</name></member>
+      <member refid="classmediapipe_1_1GateCalculator_1a8c98fce8344ecb0fdd94c23152a1d462" prot="private" virt="non-virtual"><scope>mediapipe::GateCalculator</scope><name>num_data_streams_</name></member>
+      <member refid="classmediapipe_1_1GateCalculator_1a3ac92eefccf5fc7ea99719a3c802c969" prot="public" virt="non-virtual"><scope>mediapipe::GateCalculator</scope><name>Open</name></member>
+      <member refid="classmediapipe_1_1GateCalculator_1a7f930171a5ae75a86e94a6df585b9dbf" prot="public" virt="non-virtual"><scope>mediapipe::GateCalculator</scope><name>Process</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a0cf70172f342c2cc0314af8e76ae982b" prot="public" virt="virtual"><scope>mediapipe::GateCalculator</scope><name>SourceProcessOrder</name></member>
+      <member refid="classmediapipe_1_1GateCalculator_1a0f037bb757210533e43c2f46f64d09ef" prot="private" virt="non-virtual"><scope>mediapipe::GateCalculator</scope><name>use_option_for_allow_disallow_</name></member>
+      <member refid="classmediapipe_1_1GateCalculator_1ae524fd48e1c1ac7592badd16db47110b" prot="private" virt="non-virtual"><scope>mediapipe::GateCalculator</scope><name>use_side_packet_for_allow_disallow_</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a9ced1ccc8a3f7ad59e54a317f4054c90" prot="public" virt="virtual"><scope>mediapipe::GateCalculator</scope><name>~CalculatorBase</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

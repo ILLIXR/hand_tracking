@@ -1,0 +1,538 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1PacketType" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::PacketType</compoundname>
+    <innerclass refid="structmediapipe_1_1PacketType_1_1MultiType" prot="private">mediapipe::PacketType::MultiType</innerclass>
+    <innerclass refid="structmediapipe_1_1PacketType_1_1SameAs" prot="private">mediapipe::PacketType::SameAs</innerclass>
+    <innerclass refid="structmediapipe_1_1PacketType_1_1SpecialType" prot="private">mediapipe::PacketType::SpecialType</innerclass>
+    <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classmediapipe_1_1PacketType_1aedab38d8c126def26a2fceac164b26d4" prot="private" static="no">
+        <type>absl::Span&lt; const TypeId &gt;</type>
+        <definition>using mediapipe::PacketType::TypeIdSpan =  absl::Span&lt;const TypeId&gt;</definition>
+        <argsstring></argsstring>
+        <name>TypeIdSpan</name>
+        <qualifiedname>mediapipe::PacketType::TypeIdSpan</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="126" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmediapipe_1_1PacketType_1ad9e56df7058087546a8028c06c478aa0" prot="private" static="no">
+        <type>absl::variant&lt; absl::monostate, TypeId, MultiType, SameAs, SpecialType &gt;</type>
+        <definition>using mediapipe::PacketType::TypeSpec =  absl::variant&lt;absl::monostate, TypeId, MultiType, SameAs, SpecialType&gt;</definition>
+        <argsstring></argsstring>
+        <name>TypeSpec</name>
+        <qualifiedname>mediapipe::PacketType::TypeSpec</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="133" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmediapipe_1_1PacketType_1ace9fde90b8b7b59e5c2bd36d6dade308" prot="private" static="no">
+        <type>absl::Status(*</type>
+        <definition>typedef absl::Status(* mediapipe::PacketType::AcceptsTypeFn) (const TypeSpec &amp;type)</definition>
+        <argsstring>)(const TypeSpec &amp;type)</argsstring>
+        <name>AcceptsTypeFn</name>
+        <qualifiedname>mediapipe::PacketType::AcceptsTypeFn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="135" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1PacketType_1a940a1f9b228736dda9bf8b9b83f439c4" prot="private" static="no" mutable="no">
+        <type>TypeSpec</type>
+        <definition>TypeSpec mediapipe::PacketType::type_spec_</definition>
+        <argsstring></argsstring>
+        <name>type_spec_</name>
+        <qualifiedname>mediapipe::PacketType::type_spec_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="148" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1PacketType_1ae355834e147fd0f5eaed851cf45a2bfe" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::PacketType::optional_</definition>
+        <argsstring></argsstring>
+        <name>optional_</name>
+        <qualifiedname>mediapipe::PacketType::optional_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="151" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1a786ef2d2dde585c5cbac39105ac1e1bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::PacketType::PacketType</definition>
+        <argsstring>()=default</argsstring>
+        <name>PacketType</name>
+        <qualifiedname>mediapipe::PacketType::PacketType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="50" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1aa348d9b099a78e8d0d975392a5ee22ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::PacketType::PacketType</definition>
+        <argsstring>(const PacketType &amp;)=default</argsstring>
+        <name>PacketType</name>
+        <qualifiedname>mediapipe::PacketType::PacketType</qualifiedname>
+        <param>
+          <type>const PacketType &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="53" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1a17fe5f65ef6a440206b72b962e5e1e75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>PacketType &amp;</type>
+        <definition>PacketType &amp; mediapipe::PacketType::operator=</definition>
+        <argsstring>(const PacketType &amp;)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>mediapipe::PacketType::operator=</qualifiedname>
+        <param>
+          <type>const PacketType &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="54" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1ab44306075a19e0f977e48350b2549b59" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::PacketType::IsInitialized</definition>
+        <argsstring>() const</argsstring>
+        <name>IsInitialized</name>
+        <qualifiedname>mediapipe::PacketType::IsInitialized</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="57" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.cc" bodystart="80" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1aeef588b5fdc2a7d6cba4aa150982a009" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>PacketType &amp;</type>
+        <definition>PacketType &amp; mediapipe::PacketType::Set</definition>
+        <argsstring>()</argsstring>
+        <name>Set</name>
+        <qualifiedname>mediapipe::PacketType::Set</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="65" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" bodystart="263" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1a9b21d9b29ef8b0b3f743969ebbc55f17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>PacketType &amp;</type>
+        <definition>PacketType &amp; mediapipe::PacketType::SetAny</definition>
+        <argsstring>()</argsstring>
+        <name>SetAny</name>
+        <qualifiedname>mediapipe::PacketType::SetAny</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="71" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.cc" bodystart="53" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1a4bed05b6c7d9138bc6f72ba880415233" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>T</declname>
+            <defname>T</defname>
+          </param>
+        </templateparamlist>
+        <type>PacketType &amp;</type>
+        <definition>PacketType &amp; mediapipe::PacketType::SetOneOf</definition>
+        <argsstring>()</argsstring>
+        <name>SetOneOf</name>
+        <qualifiedname>mediapipe::PacketType::SetOneOf</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="74" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" bodystart="269" bodyend="274"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1abab6b863ca0ea09b751ba2f9f57afe5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>PacketType &amp;</type>
+        <definition>PacketType &amp; mediapipe::PacketType::SetNone</definition>
+        <argsstring>()</argsstring>
+        <name>SetNone</name>
+        <qualifiedname>mediapipe::PacketType::SetNone</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="76" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.cc" bodystart="58" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1a8b0813bba6d930393b20eff0e57f8301" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>PacketType &amp;</type>
+        <definition>PacketType &amp; mediapipe::PacketType::SetSameAs</definition>
+        <argsstring>(const PacketType *type)</argsstring>
+        <name>SetSameAs</name>
+        <qualifiedname>mediapipe::PacketType::SetSameAs</qualifiedname>
+        <param>
+          <type>const PacketType *</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="80" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.cc" bodystart="63" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1a5d12c939c600266ca1d9dd58c04e5e99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>PacketType &amp;</type>
+        <definition>PacketType &amp; mediapipe::PacketType::Optional</definition>
+        <argsstring>()</argsstring>
+        <name>Optional</name>
+        <qualifiedname>mediapipe::PacketType::Optional</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="82" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.cc" bodystart="75" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1a3d1e6c4fb9a3a6c3625006bf90536fe5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const PacketType *</type>
+        <definition>const PacketType * mediapipe::PacketType::GetSameAs</definition>
+        <argsstring>() const</argsstring>
+        <name>GetSameAs</name>
+        <qualifiedname>mediapipe::PacketType::GetSameAs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="86" column="20" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.cc" bodystart="105" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1ae1840c2bcfb57798ed64bb4651973307" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>PacketType *</type>
+        <definition>PacketType * mediapipe::PacketType::GetSameAs</definition>
+        <argsstring>()</argsstring>
+        <name>GetSameAs</name>
+        <qualifiedname>mediapipe::PacketType::GetSameAs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="87" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.cc" bodystart="90" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1a2eefe730f3ce05cbb238c3ed22b4e554" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::PacketType::IsAny</definition>
+        <argsstring>() const</argsstring>
+        <name>IsAny</name>
+        <qualifiedname>mediapipe::PacketType::IsAny</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="89" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.cc" bodystart="114" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1a71ed1652f53042f14b1353ac012dfd11" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::PacketType::IsNone</definition>
+        <argsstring>() const</argsstring>
+        <name>IsNone</name>
+        <qualifiedname>mediapipe::PacketType::IsNone</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="91" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.cc" bodystart="119" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1ab23eb0766d1411ccf16546dbfeb2d289" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::PacketType::IsOneOf</definition>
+        <argsstring>() const</argsstring>
+        <name>IsOneOf</name>
+        <qualifiedname>mediapipe::PacketType::IsOneOf</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="93" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.cc" bodystart="126" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1a18fefbbf87ccba798a303fa26d5b2a5f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::PacketType::IsExactType</definition>
+        <argsstring>() const</argsstring>
+        <name>IsExactType</name>
+        <qualifiedname>mediapipe::PacketType::IsExactType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="95" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.cc" bodystart="130" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1a0cf38ed554e73cd6bb7dc72599f8ecf6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::PacketType::IsOptional</definition>
+        <argsstring>() const</argsstring>
+        <name>IsOptional</name>
+        <qualifiedname>mediapipe::PacketType::IsOptional</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="97" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" bodystart="97" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1a2d43311200b67e905bdfd0496456132c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::PacketType::IsConsistentWith</definition>
+        <argsstring>(const PacketType &amp;other) const</argsstring>
+        <name>IsConsistentWith</name>
+        <qualifiedname>mediapipe::PacketType::IsConsistentWith</qualifiedname>
+        <param>
+          <type>const PacketType &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="107" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.cc" bodystart="250" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1a2aab9f9b16b21feb9a4795b6028e3af3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::PacketType::Validate</definition>
+        <argsstring>(const Packet &amp;packet) const</argsstring>
+        <name>Validate</name>
+        <qualifiedname>mediapipe::PacketType::Validate</qualifiedname>
+        <param>
+          <type>const Packet &amp;</type>
+          <declname>packet</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="110" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.cc" bodystart="207" bodyend="240"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1a289d114ae7a076262362093ae8a3c3ac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string *</type>
+        <definition>const std::string * mediapipe::PacketType::RegisteredTypeName</definition>
+        <argsstring>() const</argsstring>
+        <name>RegisteredTypeName</name>
+        <qualifiedname>mediapipe::PacketType::RegisteredTypeName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="115" column="21" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.cc" bodystart="134" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1a4e8ef83a2af32bd1b24edb03e5e857c0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string mediapipe::PacketType::DebugTypeName</definition>
+        <argsstring>() const</argsstring>
+        <name>DebugTypeName</name>
+        <qualifiedname>mediapipe::PacketType::DebugTypeName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="118" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.cc" bodystart="176" bodyend="193"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1ae184c0de9895126791eae981c2be0bd8" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::PacketType::AcceptAny</definition>
+        <argsstring>(const TypeSpec &amp;type)</argsstring>
+        <name>AcceptAny</name>
+        <qualifiedname>mediapipe::PacketType::AcceptAny</qualifiedname>
+        <param>
+          <type>const TypeSpec &amp;</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="141" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.cc" bodystart="39" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1adbeb0ddd33544b2ee82bf2e95a6ca772" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::PacketType::AcceptNone</definition>
+        <argsstring>(const TypeSpec &amp;type)</argsstring>
+        <name>AcceptNone</name>
+        <qualifiedname>mediapipe::PacketType::AcceptNone</qualifiedname>
+        <param>
+          <type>const TypeSpec &amp;</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="142" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.cc" bodystart="44" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1a20ee0b9776df9d6a3e44d6b2d6822908" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>TypeIdSpan</type>
+        <definition>PacketType::TypeIdSpan mediapipe::PacketType::GetTypeSpan</definition>
+        <argsstring>(const TypeSpec &amp;type_spec)</argsstring>
+        <name>GetTypeSpan</name>
+        <qualifiedname>mediapipe::PacketType::GetTypeSpan</qualifiedname>
+        <param>
+          <type>const TypeSpec &amp;</type>
+          <declname>type_spec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="145" column="21" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.cc" bodystart="242" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1a46b0332877bcac2e5263c2cae79e3103" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string mediapipe::PacketType::TypeNameForOneOf</definition>
+        <argsstring>(TypeIdSpan types)</argsstring>
+        <name>TypeNameForOneOf</name>
+        <qualifiedname>mediapipe::PacketType::TypeNameForOneOf</qualifiedname>
+        <param>
+          <type>TypeIdSpan</type>
+          <declname>types</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="146" column="22" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.cc" bodystart="171" bodyend="174"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1PacketType_1a114ee7a3605a7214d931c930a00d4c0f" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const PacketType *</type>
+        <definition>const PacketType * mediapipe::PacketType::SameAsPtr</definition>
+        <argsstring>() const</argsstring>
+        <name>SameAsPtr</name>
+        <qualifiedname>mediapipe::PacketType::SameAsPtr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="144" column="20" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.cc" bodystart="84" bodyend="88"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" line="47" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h" bodystart="47" bodyend="152"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1PacketType_1ae184c0de9895126791eae981c2be0bd8" prot="private" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>AcceptAny</name></member>
+      <member refid="classmediapipe_1_1PacketType_1adbeb0ddd33544b2ee82bf2e95a6ca772" prot="private" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>AcceptNone</name></member>
+      <member refid="classmediapipe_1_1PacketType_1ace9fde90b8b7b59e5c2bd36d6dade308" prot="private" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>AcceptsTypeFn</name></member>
+      <member refid="classmediapipe_1_1PacketType_1a4e8ef83a2af32bd1b24edb03e5e857c0" prot="public" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>DebugTypeName</name></member>
+      <member refid="classmediapipe_1_1PacketType_1a3d1e6c4fb9a3a6c3625006bf90536fe5" prot="public" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>GetSameAs</name></member>
+      <member refid="classmediapipe_1_1PacketType_1ae1840c2bcfb57798ed64bb4651973307" prot="public" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>GetSameAs</name></member>
+      <member refid="classmediapipe_1_1PacketType_1a20ee0b9776df9d6a3e44d6b2d6822908" prot="private" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>GetTypeSpan</name></member>
+      <member refid="classmediapipe_1_1PacketType_1a2eefe730f3ce05cbb238c3ed22b4e554" prot="public" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>IsAny</name></member>
+      <member refid="classmediapipe_1_1PacketType_1a2d43311200b67e905bdfd0496456132c" prot="public" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>IsConsistentWith</name></member>
+      <member refid="classmediapipe_1_1PacketType_1a18fefbbf87ccba798a303fa26d5b2a5f" prot="public" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>IsExactType</name></member>
+      <member refid="classmediapipe_1_1PacketType_1ab44306075a19e0f977e48350b2549b59" prot="public" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>IsInitialized</name></member>
+      <member refid="classmediapipe_1_1PacketType_1a71ed1652f53042f14b1353ac012dfd11" prot="public" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>IsNone</name></member>
+      <member refid="classmediapipe_1_1PacketType_1ab23eb0766d1411ccf16546dbfeb2d289" prot="public" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>IsOneOf</name></member>
+      <member refid="classmediapipe_1_1PacketType_1a0cf38ed554e73cd6bb7dc72599f8ecf6" prot="public" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>IsOptional</name></member>
+      <member refid="classmediapipe_1_1PacketType_1a17fe5f65ef6a440206b72b962e5e1e75" prot="public" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>operator=</name></member>
+      <member refid="classmediapipe_1_1PacketType_1a5d12c939c600266ca1d9dd58c04e5e99" prot="public" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>Optional</name></member>
+      <member refid="classmediapipe_1_1PacketType_1ae355834e147fd0f5eaed851cf45a2bfe" prot="private" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>optional_</name></member>
+      <member refid="classmediapipe_1_1PacketType_1a786ef2d2dde585c5cbac39105ac1e1bf" prot="public" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>PacketType</name></member>
+      <member refid="classmediapipe_1_1PacketType_1aa348d9b099a78e8d0d975392a5ee22ba" prot="public" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>PacketType</name></member>
+      <member refid="classmediapipe_1_1PacketType_1a289d114ae7a076262362093ae8a3c3ac" prot="public" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>RegisteredTypeName</name></member>
+      <member refid="classmediapipe_1_1PacketType_1a114ee7a3605a7214d931c930a00d4c0f" prot="private" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>SameAsPtr</name></member>
+      <member refid="classmediapipe_1_1PacketType_1aeef588b5fdc2a7d6cba4aa150982a009" prot="public" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>Set</name></member>
+      <member refid="classmediapipe_1_1PacketType_1a9b21d9b29ef8b0b3f743969ebbc55f17" prot="public" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>SetAny</name></member>
+      <member refid="classmediapipe_1_1PacketType_1abab6b863ca0ea09b751ba2f9f57afe5c" prot="public" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>SetNone</name></member>
+      <member refid="classmediapipe_1_1PacketType_1a4bed05b6c7d9138bc6f72ba880415233" prot="public" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>SetOneOf</name></member>
+      <member refid="classmediapipe_1_1PacketType_1a8b0813bba6d930393b20eff0e57f8301" prot="public" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>SetSameAs</name></member>
+      <member refid="classmediapipe_1_1PacketType_1a940a1f9b228736dda9bf8b9b83f439c4" prot="private" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>type_spec_</name></member>
+      <member refid="classmediapipe_1_1PacketType_1aedab38d8c126def26a2fceac164b26d4" prot="private" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>TypeIdSpan</name></member>
+      <member refid="classmediapipe_1_1PacketType_1a46b0332877bcac2e5263c2cae79e3103" prot="private" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>TypeNameForOneOf</name></member>
+      <member refid="classmediapipe_1_1PacketType_1ad9e56df7058087546a8028c06c478aa0" prot="private" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>TypeSpec</name></member>
+      <member refid="classmediapipe_1_1PacketType_1a2aab9f9b16b21feb9a4795b6028e3af3" prot="public" virt="non-virtual"><scope>mediapipe::PacketType</scope><name>Validate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

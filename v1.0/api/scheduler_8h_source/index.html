@@ -1,0 +1,1305 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://illixr.github.io/hand_tracking/v1.0/api/scheduler_8h_source/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>File scheduler.h - ILLIXR Hand Tracking Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/mkd-extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: none; }
+    .glightbox-clean .gslide-media {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-schedulerh" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+
+
+<header class="md-header md-header--shadow" data-md-component="header" style="background-color: #11284b">
+    <nav class="md-header__inner md-grid" aria-label="Header">
+        <a href="../.." title="ILLIXR Hand Tracking Documentation" class="md-header__button md-logo" aria-label="ILLIXR Hand Tracking Documentation" data-md-component="logo">
+            <img src="../../images/icon.png" alt="logo">
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+            <div class="md-header__ellipsis">
+                <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ILLIXR Hand Tracking Documentation
+          </span>
+                </div>
+                <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File scheduler.h
+            
+          </span>
+                </div>
+            </div>
+        </div>
+        
+        
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+        
+        
+        
+        <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+        
+        
+        
+        <label class="md-header__button md-icon" for="__search">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+        
+    </nav>
+    
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+    <label class="md-nav__title" for="__drawer" style="background-color:var(--md-nav-hdr-color);color:var(--md-nav-hdr-fg-color);">
+        <a href="../.." title="ILLIXR Hand Tracking Documentation" class="md-nav__button md-logo" aria-label="ILLIXR Hand Tracking Documentation" data-md-component="logo">
+            <img src="../../images/icon.png" alt="logo">
+        </a>
+        ILLIXR Hand Tracking Documentation
+    </label>
+    
+    <ul class="md-nav__list" data-md-scrollfix style="background-color:var(--md-nav-list-color)">
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+    
+    
+    
+    <div class="md-nav__link md-nav__container" style="color:black;">
+        <a href="../.." class="md-nav__link ">
+            
+
+<span class="md-ellipsis">
+    Latest Documentation
+    
+  </span>
+
+
+        </a>
+        
+        
+        <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+            <span class="md-nav__icon md-icon"></span>
+        </label>
+        
+    </div>
+    
+    <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Latest Documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    API
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1" id="__nav_1_2_1_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Hand Tracking
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Hand Tracking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classILLIXR_1_1hand__tracking/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Plugin
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classILLIXR_1_1hand__tracking__publisher/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Publisher
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1_3" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1_3" id="__nav_1_2_1_3_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Data Types
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_2_1_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Data Types
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structht__illixr__handle__t/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    illixr_handle_t
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structmediapipe_1_1ILLIXR_1_1illixr__ht__frame/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    illixr_ht_frame
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structILLIXR_1_1pose__image/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    pose_image
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classmediapipe_1_1ILLIXROutputCalculator/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    ILLIXR Calculator
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1_5" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1_5" id="__nav_1_2_1_5_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    OpenXR
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_2_1_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            OpenXR
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../interface_8h/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Interface
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../ixr__openxr_8hpp/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Func. Implementations
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1_5_3" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1_5_3" id="__nav_1_2_1_5_3_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Structs
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_2_1_5_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Structs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structixr__hand__tracker/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    ixr_hand+tracker
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structixr__session/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    ixr_session
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classes/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Classes
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../namespacemediapipe/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Namespaces
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../../LICENSE/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    License
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+        
+    </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+    
+    
+    
+    
+    
+    
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-schedulerh">File scheduler.h</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_eb2b6c49887aebc07904ba22fd97ad51/"><strong>framework</strong></a> <strong>&gt;</strong> <a href="../scheduler_8h/"><strong>scheduler.h</strong></a></p>
+<p><a href="../scheduler_8h/">Go to the documentation of this file</a></p>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-0-1"><span class="c1">// Copyright 2019 The MediaPipe Authors.</span>
+</span><span id="__span-0-2"><span class="c1">//</span>
+</span><span id="__span-0-3"><span class="c1">// Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+</span><span id="__span-0-4"><span class="c1">// you may not use this file except in compliance with the License.</span>
+</span><span id="__span-0-5"><span class="c1">// You may obtain a copy of the License at</span>
+</span><span id="__span-0-6"><span class="c1">//</span>
+</span><span id="__span-0-7"><span class="c1">//      http://www.apache.org/licenses/LICENSE-2.0</span>
+</span><span id="__span-0-8"><span class="c1">//</span>
+</span><span id="__span-0-9"><span class="c1">// Unless required by applicable law or agreed to in writing, software</span>
+</span><span id="__span-0-10"><span class="c1">// distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+</span><span id="__span-0-11"><span class="c1">// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+</span><span id="__span-0-12"><span class="c1">// See the License for the specific language governing permissions and</span>
+</span><span id="__span-0-13"><span class="c1">// limitations under the License.</span>
+</span><span id="__span-0-14">
+</span><span id="__span-0-15"><span class="cp">#ifndef MEDIAPIPE_FRAMEWORK_SCHEDULER_H_</span>
+</span><span id="__span-0-16"><span class="cp">#define MEDIAPIPE_FRAMEWORK_SCHEDULER_H_</span>
+</span><span id="__span-0-17">
+</span><span id="__span-0-18"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;atomic&gt;</span>
+</span><span id="__span-0-19"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;functional&gt;</span>
+</span><span id="__span-0-20"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;map&gt;</span>
+</span><span id="__span-0-21"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;memory&gt;</span>
+</span><span id="__span-0-22"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;queue&gt;</span>
+</span><span id="__span-0-23"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;set&gt;</span>
+</span><span id="__span-0-24"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;utility&gt;</span>
+</span><span id="__span-0-25"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+</span><span id="__span-0-26">
+</span><span id="__span-0-27"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;absl/base/macros.h&quot;</span>
+</span><span id="__span-0-28"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;absl/synchronization/mutex.h&quot;</span>
+</span><span id="__span-0-29"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/calculator_node.h&quot;</span>
+</span><span id="__span-0-30"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/port/status.h&quot;</span>
+</span><span id="__span-0-31"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/scheduler_queue.h&quot;</span>
+</span><span id="__span-0-32"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/scheduler_shared.h&quot;</span>
+</span><span id="__span-0-33">
+</span><span id="__span-0-34"><span class="k">namespace</span><span class="w"> </span><span class="nn">mediapipe</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-35">
+</span><span id="__span-0-36"><span class="k">class</span><span class="w"> </span><span class="nc">CalculatorGraph</span><span class="p">;</span>
+</span><span id="__span-0-37"><span class="k">class</span><span class="w"> </span><span class="nc">Executor</span><span class="p">;</span>
+</span><span id="__span-0-38">
+</span><span id="__span-0-39"><span class="k">namespace</span><span class="w"> </span><span class="nn">internal</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-40">
+</span><span id="__span-0-41"><span class="c1">// The class scheduling a calculator graph.</span>
+</span><span id="__span-0-42"><span class="k">class</span><span class="w"> </span><span class="nc">Scheduler</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-43"><span class="w"> </span><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-0-44"><span class="w">  </span><span class="n">Scheduler</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Scheduler</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+</span><span id="__span-0-45"><span class="w">  </span><span class="n">Scheduler</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Scheduler</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+</span><span id="__span-0-46">
+</span><span id="__span-0-47"><span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">Scheduler</span><span class="p">(</span><span class="n">CalculatorGraph</span><span class="o">*</span><span class="w"> </span><span class="n">graph</span><span class="p">);</span>
+</span><span id="__span-0-48">
+</span><span id="__span-0-49"><span class="w">  </span><span class="o">~</span><span class="n">Scheduler</span><span class="p">();</span>
+</span><span id="__span-0-50">
+</span><span id="__span-0-51"><span class="w">  </span><span class="c1">// Sets the executor that will run the nodes. Must be called before the</span>
+</span><span id="__span-0-52"><span class="w">  </span><span class="c1">// scheduler is started. This is the normal executor used for nodes that</span>
+</span><span id="__span-0-53"><span class="w">  </span><span class="c1">// do not use a special one.</span>
+</span><span id="__span-0-54"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">SetExecutor</span><span class="p">(</span><span class="n">Executor</span><span class="o">*</span><span class="w"> </span><span class="n">executor</span><span class="p">);</span>
+</span><span id="__span-0-55">
+</span><span id="__span-0-56"><span class="w">  </span><span class="c1">// Sets the executor that will run the nodes assigned to the executor</span>
+</span><span id="__span-0-57"><span class="w">  </span><span class="c1">// named |name|. Must be called before the scheduler is started.</span>
+</span><span id="__span-0-58"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">SetNonDefaultExecutor</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+</span><span id="__span-0-59"><span class="w">                                     </span><span class="n">Executor</span><span class="o">*</span><span class="w"> </span><span class="n">executor</span><span class="p">);</span>
+</span><span id="__span-0-60">
+</span><span id="__span-0-61"><span class="w">  </span><span class="c1">// Resets the data members at the beginning of each graph run.</span>
+</span><span id="__span-0-62"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">Reset</span><span class="p">();</span>
+</span><span id="__span-0-63">
+</span><span id="__span-0-64"><span class="w">  </span><span class="c1">// Starts scheduling nodes.</span>
+</span><span id="__span-0-65"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">();</span>
+</span><span id="__span-0-66">
+</span><span id="__span-0-67"><span class="w">  </span><span class="c1">// Wait for the current run to finish (block the current thread until all</span>
+</span><span id="__span-0-68"><span class="w">  </span><span class="c1">// source calculators have returned StatusStop(), all graph input streams</span>
+</span><span id="__span-0-69"><span class="w">  </span><span class="c1">// have been closed, and no more calculators can be run).</span>
+</span><span id="__span-0-70"><span class="w">  </span><span class="c1">// This function can be called only after Start().</span>
+</span><span id="__span-0-71"><span class="w">  </span><span class="c1">// Runs application thread tasks while waiting.</span>
+</span><span id="__span-0-72"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">WaitUntilDone</span><span class="p">()</span><span class="w"> </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-73">
+</span><span id="__span-0-74"><span class="w">  </span><span class="c1">// Wait until the running graph is in the idle mode, which is when nothing can</span>
+</span><span id="__span-0-75"><span class="w">  </span><span class="c1">// be scheduled and nothing is running in the worker threads.  This function</span>
+</span><span id="__span-0-76"><span class="w">  </span><span class="c1">// can be called only after Start().</span>
+</span><span id="__span-0-77"><span class="w">  </span><span class="c1">// Runs application thread tasks while waiting.</span>
+</span><span id="__span-0-78"><span class="w">  </span><span class="c1">//</span>
+</span><span id="__span-0-79"><span class="w">  </span><span class="c1">// Idleness requires:</span>
+</span><span id="__span-0-80"><span class="w">  </span><span class="c1">// 1. either the graph has no source nodes or all source nodes are closed, and</span>
+</span><span id="__span-0-81"><span class="w">  </span><span class="c1">// 2. no packets are added to graph input streams.</span>
+</span><span id="__span-0-82"><span class="w">  </span><span class="c1">//</span>
+</span><span id="__span-0-83"><span class="w">  </span><span class="c1">// For simplicity, we only fully support WaitUntilIdle() to be called on a</span>
+</span><span id="__span-0-84"><span class="w">  </span><span class="c1">// graph with no source nodes.</span>
+</span><span id="__span-0-85"><span class="w">  </span><span class="c1">//</span>
+</span><span id="__span-0-86"><span class="w">  </span><span class="c1">// The application must ensure no other threads are adding packets to graph</span>
+</span><span id="__span-0-87"><span class="w">  </span><span class="c1">// input streams while a WaitUntilIdle() call is in progress.</span>
+</span><span id="__span-0-88"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">WaitUntilIdle</span><span class="p">()</span><span class="w"> </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-89">
+</span><span id="__span-0-90"><span class="w">  </span><span class="c1">// Wait until any graph input stream has been unthrottled.</span>
+</span><span id="__span-0-91"><span class="w">  </span><span class="c1">// This is meant to be used by CalculatorGraph::AddPacketToInputStream, which</span>
+</span><span id="__span-0-92"><span class="w">  </span><span class="c1">// needs to check a status protected by its own mutex. That mutex, which</span>
+</span><span id="__span-0-93"><span class="w">  </span><span class="c1">// protects throttle changes on graph input streams, should be passed as the</span>
+</span><span id="__span-0-94"><span class="w">  </span><span class="c1">// secondary_mutex argument.</span>
+</span><span id="__span-0-95"><span class="w">  </span><span class="c1">// This function can be called by multiple threads concurrently.</span>
+</span><span id="__span-0-96"><span class="w">  </span><span class="c1">// Runs application thread tasks while waiting.</span>
+</span><span id="__span-0-97"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">WaitUntilGraphInputStreamUnthrottled</span><span class="p">(</span><span class="n">absl</span><span class="o">::</span><span class="n">Mutex</span><span class="o">*</span><span class="w"> </span><span class="n">secondary_mutex</span><span class="p">)</span>
+</span><span id="__span-0-98"><span class="w">      </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">)</span>
+</span><span id="__span-0-99"><span class="w">          </span><span class="n">ABSL_EXCLUSIVE_LOCKS_REQUIRED</span><span class="p">(</span><span class="n">secondary_mutex</span><span class="p">);</span>
+</span><span id="__span-0-100">
+</span><span id="__span-0-101"><span class="w">  </span><span class="c1">// Wait until any observed output emits a packet. Like a semaphore,</span>
+</span><span id="__span-0-102"><span class="w">  </span><span class="c1">// this function returns immediately if an observed packet has already been</span>
+</span><span id="__span-0-103"><span class="w">  </span><span class="c1">// emitted since the previous call. This relies on the fact that the calls are</span>
+</span><span id="__span-0-104"><span class="w">  </span><span class="c1">// in sequence. Runs application thread tasks while waiting.</span>
+</span><span id="__span-0-105"><span class="w">  </span><span class="c1">// Returns absl::OutOfRangeError if the graph terminated.</span>
+</span><span id="__span-0-106"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">WaitForObservedOutput</span><span class="p">()</span><span class="w"> </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-107">
+</span><span id="__span-0-108"><span class="w">  </span><span class="c1">// Callback that is invoked by a node when it wants to be scheduled.</span>
+</span><span id="__span-0-109"><span class="w">  </span><span class="c1">// If the node is throttled, the call is ignored.</span>
+</span><span id="__span-0-110"><span class="w">  </span><span class="c1">// This method is thread-safe.</span>
+</span><span id="__span-0-111"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">ScheduleNodeIfNotThrottled</span><span class="p">(</span><span class="n">CalculatorNode</span><span class="o">*</span><span class="w"> </span><span class="n">node</span><span class="p">,</span><span class="w"> </span><span class="n">CalculatorContext</span><span class="o">*</span><span class="w"> </span><span class="n">cc</span><span class="p">);</span>
+</span><span id="__span-0-112">
+</span><span id="__span-0-113"><span class="w">  </span><span class="c1">// Schedules an OpenNode() call for |node|.</span>
+</span><span id="__span-0-114"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">ScheduleNodeForOpen</span><span class="p">(</span><span class="n">CalculatorNode</span><span class="o">*</span><span class="w"> </span><span class="n">node</span><span class="p">);</span>
+</span><span id="__span-0-115">
+</span><span id="__span-0-116"><span class="w">  </span><span class="c1">// Adds all the nodes in |nodes_to_schedule| to the scheduler queue, without</span>
+</span><span id="__span-0-117"><span class="w">  </span><span class="c1">// checking if they are ready. Called by the graph when unthrottling nodes.</span>
+</span><span id="__span-0-118"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">ScheduleUnthrottledReadyNodes</span><span class="p">(</span>
+</span><span id="__span-0-119"><span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">CalculatorNode</span><span class="o">*&gt;&amp;</span><span class="w"> </span><span class="n">nodes_to_schedule</span><span class="p">);</span>
+</span><span id="__span-0-120">
+</span><span id="__span-0-121"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">QueueIdleStateChanged</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">idle</span><span class="p">);</span>
+</span><span id="__span-0-122">
+</span><span id="__span-0-123"><span class="w">  </span><span class="c1">// Called by DelegatingExecutor to add an application thread task.</span>
+</span><span id="__span-0-124"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">AddApplicationThreadTask</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">task</span><span class="p">);</span>
+</span><span id="__span-0-125">
+</span><span id="__span-0-126"><span class="w">  </span><span class="c1">// Adds |node| to |unopened_sources_|.</span>
+</span><span id="__span-0-127"><span class="w">  </span><span class="c1">// This can only be called before the scheduler is started.</span>
+</span><span id="__span-0-128"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">AddUnopenedSourceNode</span><span class="p">(</span><span class="n">CalculatorNode</span><span class="o">*</span><span class="w"> </span><span class="n">node</span><span class="p">);</span>
+</span><span id="__span-0-129">
+</span><span id="__span-0-130"><span class="w">  </span><span class="c1">// Adds |node| to |sources_queue_|.</span>
+</span><span id="__span-0-131"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">AddNodeToSourcesQueue</span><span class="p">(</span><span class="n">CalculatorNode</span><span class="o">*</span><span class="w"> </span><span class="n">node</span><span class="p">)</span>
+</span><span id="__span-0-132"><span class="w">      </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-133">
+</span><span id="__span-0-134"><span class="w">  </span><span class="c1">// Assigns node to a scheduler queue.</span>
+</span><span id="__span-0-135"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">AssignNodeToSchedulerQueue</span><span class="p">(</span><span class="n">CalculatorNode</span><span class="o">*</span><span class="w"> </span><span class="n">node</span><span class="p">);</span>
+</span><span id="__span-0-136">
+</span><span id="__span-0-137"><span class="w">  </span><span class="c1">// Pauses the scheduler.  Does nothing if Cancel has been called.</span>
+</span><span id="__span-0-138"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">Pause</span><span class="p">()</span><span class="w"> </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-139">
+</span><span id="__span-0-140"><span class="w">  </span><span class="c1">// Resumes the scheduler.</span>
+</span><span id="__span-0-141"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">Resume</span><span class="p">()</span><span class="w"> </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-142">
+</span><span id="__span-0-143"><span class="w">  </span><span class="c1">// Aborts the scheduler if the graph is started but is not terminated; no-op</span>
+</span><span id="__span-0-144"><span class="w">  </span><span class="c1">// otherwise.  For the graph to properly be cancelled, graph_-&gt;HasError()</span>
+</span><span id="__span-0-145"><span class="w">  </span><span class="c1">// must also return true.</span>
+</span><span id="__span-0-146"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">Cancel</span><span class="p">()</span><span class="w"> </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-147">
+</span><span id="__span-0-148"><span class="w">  </span><span class="c1">// Returns true if scheduler is paused.</span>
+</span><span id="__span-0-149"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">IsPaused</span><span class="p">()</span><span class="w"> </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-150">
+</span><span id="__span-0-151"><span class="w">  </span><span class="c1">// Returns true if scheduler is terminated.</span>
+</span><span id="__span-0-152"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">IsTerminated</span><span class="p">()</span><span class="w"> </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-153">
+</span><span id="__span-0-154"><span class="w">  </span><span class="c1">// Cleanup any remaining state after the run.</span>
+</span><span id="__span-0-155"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">CleanupAfterRun</span><span class="p">();</span>
+</span><span id="__span-0-156">
+</span><span id="__span-0-157"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">SetHasError</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">shared_</span><span class="p">.</span><span class="n">has_error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">error</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-158">
+</span><span id="__span-0-159"><span class="w">  </span><span class="c1">// Notifies the scheduler that a packet was added to a graph input stream.</span>
+</span><span id="__span-0-160"><span class="w">  </span><span class="c1">// The scheduler needs to check whether it is still deadlocked, and</span>
+</span><span id="__span-0-161"><span class="w">  </span><span class="c1">// unthrottle again if so.</span>
+</span><span id="__span-0-162"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">AddedPacketToGraphInputStream</span><span class="p">()</span><span class="w"> </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-163">
+</span><span id="__span-0-164"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">ThrottledGraphInputStream</span><span class="p">()</span><span class="w"> </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-165"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">UnthrottledGraphInputStream</span><span class="p">()</span><span class="w"> </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-166"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">EmittedObservedOutput</span><span class="p">()</span><span class="w"> </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-167">
+</span><span id="__span-0-168"><span class="w">  </span><span class="c1">// Closes all source nodes at the next scheduling opportunity.</span>
+</span><span id="__span-0-169"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">CloseAllSourceNodes</span><span class="p">();</span>
+</span><span id="__span-0-170">
+</span><span id="__span-0-171"><span class="w">  </span><span class="c1">// Notifies the scheduler that all graph input streams have been closed.</span>
+</span><span id="__span-0-172"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">ClosedAllGraphInputStreams</span><span class="p">();</span>
+</span><span id="__span-0-173">
+</span><span id="__span-0-174"><span class="w">  </span><span class="c1">// Returns the scheduler&#39;s runtime measures for overhead measurement.</span>
+</span><span id="__span-0-175"><span class="w">  </span><span class="c1">// Only meant for test purposes. See SchedulerTimer for details.</span>
+</span><span id="__span-0-176"><span class="w">  </span><span class="n">internal</span><span class="o">::</span><span class="n">SchedulerTimes</span><span class="w"> </span><span class="nf">GetSchedulerTimes</span><span class="p">();</span>
+</span><span id="__span-0-177">
+</span><span id="__span-0-178"><span class="w"> </span><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-0-179"><span class="w">  </span><span class="c1">// State of the scheduler. The figure shows the allowed state transitons.</span>
+</span><span id="__span-0-180"><span class="w">  </span><span class="c1">//</span>
+</span><span id="__span-0-181"><span class="w">  </span><span class="c1">//   NOT_STARTED</span>
+</span><span id="__span-0-182"><span class="w">  </span><span class="c1">//        |</span>
+</span><span id="__span-0-183"><span class="w">  </span><span class="c1">//        v</span>
+</span><span id="__span-0-184"><span class="w">  </span><span class="c1">//     RUNNING--+</span>
+</span><span id="__span-0-185"><span class="w">  </span><span class="c1">//     | | ^    |</span>
+</span><span id="__span-0-186"><span class="w">  </span><span class="c1">//     | |  \   |</span>
+</span><span id="__span-0-187"><span class="w">  </span><span class="c1">//     | |   \  v</span>
+</span><span id="__span-0-188"><span class="w">  </span><span class="c1">//     | |  PAUSED</span>
+</span><span id="__span-0-189"><span class="w">  </span><span class="c1">//     | |    |</span>
+</span><span id="__span-0-190"><span class="w">  </span><span class="c1">//     | v    v</span>
+</span><span id="__span-0-191"><span class="w">  </span><span class="c1">//     | CANCELLING</span>
+</span><span id="__span-0-192"><span class="w">  </span><span class="c1">//     |     |</span>
+</span><span id="__span-0-193"><span class="w">  </span><span class="c1">//     v     v</span>
+</span><span id="__span-0-194"><span class="w">  </span><span class="c1">//   TERMINATING</span>
+</span><span id="__span-0-195"><span class="w">  </span><span class="c1">//        |</span>
+</span><span id="__span-0-196"><span class="w">  </span><span class="c1">//        v</span>
+</span><span id="__span-0-197"><span class="w">  </span><span class="c1">//    TERMINATED</span>
+</span><span id="__span-0-198"><span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="nc">State</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-199"><span class="w">    </span><span class="n">STATE_NOT_STARTED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span><span class="c1">// The initial state.</span>
+</span><span id="__span-0-200"><span class="w">    </span><span class="n">STATE_RUNNING</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">      </span><span class="c1">// The scheduler is running and scheduling nodes.</span>
+</span><span id="__span-0-201"><span class="w">    </span><span class="n">STATE_PAUSED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">       </span><span class="c1">// The scheduler is not scheduling nodes.</span>
+</span><span id="__span-0-202"><span class="w">    </span><span class="n">STATE_CANCELLING</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">   </span><span class="c1">// The scheduler is being cancelled. The scheduler</span>
+</span><span id="__span-0-203"><span class="w">                            </span><span class="c1">// cannot be paused in this state so that</span>
+</span><span id="__span-0-204"><span class="w">                            </span><span class="c1">// scheduler_queue_ can be drained.</span>
+</span><span id="__span-0-205"><span class="w">    </span><span class="n">STATE_TERMINATED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">   </span><span class="c1">// The scheduler has terminated.</span>
+</span><span id="__span-0-206"><span class="w">  </span><span class="p">};</span>
+</span><span id="__span-0-207">
+</span><span id="__span-0-208"><span class="w">  </span><span class="c1">// Sorts the source nodes in unopened_sources_ by source layer.</span>
+</span><span id="__span-0-209"><span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">SourceLayerCompare</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-210"><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="n">CalculatorNode</span><span class="o">*</span><span class="w"> </span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="n">CalculatorNode</span><span class="o">*</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-211"><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lhs</span><span class="o">-&gt;</span><span class="n">source_layer</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">rhs</span><span class="o">-&gt;</span><span class="n">source_layer</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-212"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">lhs</span><span class="o">-&gt;</span><span class="n">source_layer</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">rhs</span><span class="o">-&gt;</span><span class="n">source_layer</span><span class="p">();</span>
+</span><span id="__span-0-213"><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-0-214"><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">lhs</span><span class="o">-&gt;</span><span class="n">Id</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">rhs</span><span class="o">-&gt;</span><span class="n">Id</span><span class="p">();</span>
+</span><span id="__span-0-215"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-216"><span class="w">  </span><span class="p">};</span>
+</span><span id="__span-0-217">
+</span><span id="__span-0-218"><span class="w">  </span><span class="c1">// Start (or resume) or stop all queues.</span>
+</span><span id="__span-0-219"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">SetQueuesRunning</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">running</span><span class="p">);</span>
+</span><span id="__span-0-220">
+</span><span id="__span-0-221"><span class="w">  </span><span class="c1">// Submit waiting tasks on all queues after resuming.</span>
+</span><span id="__span-0-222"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">SubmitWaitingTasksOnQueues</span><span class="p">();</span>
+</span><span id="__span-0-223">
+</span><span id="__span-0-224"><span class="w">  </span><span class="c1">// Returns true if nothing can be scheduled and no tasks are running or</span>
+</span><span id="__span-0-225"><span class="w">  </span><span class="c1">// scheduled to run on the Executor.</span>
+</span><span id="__span-0-226"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">IsIdle</span><span class="p">()</span><span class="w"> </span><span class="n">ABSL_EXCLUSIVE_LOCKS_REQUIRED</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-227">
+</span><span id="__span-0-228"><span class="w">  </span><span class="c1">// Clean up active_sources_ by removing closed sources. If all the active</span>
+</span><span id="__span-0-229"><span class="w">  </span><span class="c1">// sources are closed, this will leave active_sources_ empty. If not, some</span>
+</span><span id="__span-0-230"><span class="w">  </span><span class="c1">// closed sources may be left in there.</span>
+</span><span id="__span-0-231"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">CleanupActiveSources</span><span class="p">();</span>
+</span><span id="__span-0-232">
+</span><span id="__span-0-233"><span class="w">  </span><span class="c1">// Adds the next layer of sources to the scheduler queue if the previous layer</span>
+</span><span id="__span-0-234"><span class="w">  </span><span class="c1">// has finished running.</span>
+</span><span id="__span-0-235"><span class="w">  </span><span class="c1">// Returns true if it scheduled any sources.</span>
+</span><span id="__span-0-236"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">TryToScheduleNextSourceLayer</span><span class="p">()</span>
+</span><span id="__span-0-237"><span class="w">      </span><span class="n">ABSL_EXCLUSIVE_LOCKS_REQUIRED</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-238">
+</span><span id="__span-0-239"><span class="w">  </span><span class="c1">// Takes care of three different operations, as needed:</span>
+</span><span id="__span-0-240"><span class="w">  </span><span class="c1">// - activating sources;</span>
+</span><span id="__span-0-241"><span class="w">  </span><span class="c1">// - unthrottling sources or graph input streams to resolve a deadlock.</span>
+</span><span id="__span-0-242"><span class="w">  </span><span class="c1">// - terminating the scheduler.</span>
+</span><span id="__span-0-243"><span class="w">  </span><span class="c1">// Thread-safe and reentrant.</span>
+</span><span id="__span-0-244"><span class="w">  </span><span class="c1">// TODO: analyze call sites, split it up further.</span>
+</span><span id="__span-0-245"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">HandleIdle</span><span class="p">()</span><span class="w"> </span><span class="n">ABSL_EXCLUSIVE_LOCKS_REQUIRED</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-246">
+</span><span id="__span-0-247"><span class="w">  </span><span class="c1">// Terminates the scheduler. Should only be called by HandleIdle.</span>
+</span><span id="__span-0-248"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">Quit</span><span class="p">()</span><span class="w"> </span><span class="n">ABSL_EXCLUSIVE_LOCKS_REQUIRED</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-249">
+</span><span id="__span-0-250"><span class="w">  </span><span class="c1">// Helper for the various Wait methods. Waits for the given condition,</span>
+</span><span id="__span-0-251"><span class="w">  </span><span class="c1">// running application thread tasks in the meantime.</span>
+</span><span id="__span-0-252"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">ApplicationThreadAwait</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">()</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">stop_condition</span><span class="p">);</span>
+</span><span id="__span-0-253">
+</span><span id="__span-0-254"><span class="w">  </span><span class="c1">// The calculator graph to run.</span>
+</span><span id="__span-0-255"><span class="w">  </span><span class="n">CalculatorGraph</span><span class="o">*</span><span class="w"> </span><span class="n">graph_</span><span class="p">;</span>
+</span><span id="__span-0-256">
+</span><span id="__span-0-257"><span class="w">  </span><span class="c1">// Data accessed by all SchedulerQueues.</span>
+</span><span id="__span-0-258"><span class="w">  </span><span class="n">SchedulerShared</span><span class="w"> </span><span class="n">shared_</span><span class="p">;</span>
+</span><span id="__span-0-259">
+</span><span id="__span-0-260"><span class="w">  </span><span class="c1">// Queue of nodes that need to be run.</span>
+</span><span id="__span-0-261"><span class="w">  </span><span class="n">SchedulerQueue</span><span class="w"> </span><span class="n">default_queue_</span><span class="p">;</span>
+</span><span id="__span-0-262">
+</span><span id="__span-0-263"><span class="w">  </span><span class="c1">// Non-default scheduler queues, keyed by their executor names.</span>
+</span><span id="__span-0-264"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">SchedulerQueue</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">non_default_queues_</span><span class="p">;</span>
+</span><span id="__span-0-265">
+</span><span id="__span-0-266"><span class="w">  </span><span class="c1">// Holds pointers to all queues used by the scheduler, for convenience.</span>
+</span><span id="__span-0-267"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">SchedulerQueue</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">scheduler_queues_</span><span class="p">;</span>
+</span><span id="__span-0-268">
+</span><span id="__span-0-269"><span class="w">  </span><span class="c1">// Priority queue of source nodes ordered by layer and then source process</span>
+</span><span id="__span-0-270"><span class="w">  </span><span class="c1">// order. This stores the set of sources that are yet to be run.</span>
+</span><span id="__span-0-271"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">SchedulerQueue</span><span class="o">::</span><span class="n">Item</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sources_queue_</span>
+</span><span id="__span-0-272"><span class="w">      </span><span class="n">ABSL_GUARDED_BY</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-273">
+</span><span id="__span-0-274"><span class="w">  </span><span class="c1">// Source nodes with the smallest source layer are at the beginning of</span>
+</span><span id="__span-0-275"><span class="w">  </span><span class="c1">// unopened_sources_. Before the scheduler is started, all source nodes are</span>
+</span><span id="__span-0-276"><span class="w">  </span><span class="c1">// added to unopened_sources_. Once the scheduler starts running,</span>
+</span><span id="__span-0-277"><span class="w">  </span><span class="c1">// unopened_sources_ should only be accessed under the protection of</span>
+</span><span id="__span-0-278"><span class="w">  </span><span class="c1">// state_mutex_. A source node is removed from unopened_sources_ after it is</span>
+</span><span id="__span-0-279"><span class="w">  </span><span class="c1">// opened.</span>
+</span><span id="__span-0-280"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">CalculatorNode</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">SourceLayerCompare</span><span class="o">&gt;</span><span class="w"> </span><span class="n">unopened_sources_</span><span class="p">;</span>
+</span><span id="__span-0-281">
+</span><span id="__span-0-282"><span class="w">  </span><span class="c1">// Keeps track of sources that can be considered for scheduling. Sources are</span>
+</span><span id="__span-0-283"><span class="w">  </span><span class="c1">// scheduled in layers, and those that are not currently active will not be</span>
+</span><span id="__span-0-284"><span class="w">  </span><span class="c1">// scheduled even if ready. Sources are removed once they are closed.</span>
+</span><span id="__span-0-285"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">CalculatorNode</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">active_sources_</span><span class="p">;</span>
+</span><span id="__span-0-286">
+</span><span id="__span-0-287"><span class="w">  </span><span class="c1">// Condition variable used to wait for some changes to the scheduler state.</span>
+</span><span id="__span-0-288"><span class="w">  </span><span class="c1">// These correspond to the Wait* methods in this class.</span>
+</span><span id="__span-0-289"><span class="w">  </span><span class="c1">// Not all state changes need to signal this, only those that enter one of</span>
+</span><span id="__span-0-290"><span class="w">  </span><span class="c1">// the waitable states.</span>
+</span><span id="__span-0-291"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">CondVar</span><span class="w"> </span><span class="n">state_cond_var_</span><span class="w"> </span><span class="n">ABSL_GUARDED_BY</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-292">
+</span><span id="__span-0-293"><span class="w">  </span><span class="c1">// Number of queues which are not idle.</span>
+</span><span id="__span-0-294"><span class="w">  </span><span class="c1">// Note: this indicates two slightly different things:</span>
+</span><span id="__span-0-295"><span class="w">  </span><span class="c1">//  a. the number of queues which still have nodes running;</span>
+</span><span id="__span-0-296"><span class="w">  </span><span class="c1">//  b. the number of queues whose executors may still access the scheduler.</span>
+</span><span id="__span-0-297"><span class="w">  </span><span class="c1">// When a queue becomes idle, it has stopped running nodes, and the scheduler</span>
+</span><span id="__span-0-298"><span class="w">  </span><span class="c1">// decrements the count. However, it is not done accessing the scheduler</span>
+</span><span id="__span-0-299"><span class="w">  </span><span class="c1">// until HandleIdle returns. Therefore, a and b are briefly out of sync.</span>
+</span><span id="__span-0-300"><span class="w">  </span><span class="c1">// This is ok, because it happens within a single critical section, which is</span>
+</span><span id="__span-0-301"><span class="w">  </span><span class="c1">// guarded by state_mutex_. If we wanted to split this critical section, we</span>
+</span><span id="__span-0-302"><span class="w">  </span><span class="c1">// would have to separate a and b into two variables.</span>
+</span><span id="__span-0-303"><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">non_idle_queue_count_</span><span class="w"> </span><span class="nf">ABSL_GUARDED_BY</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-304">
+</span><span id="__span-0-305"><span class="w">  </span><span class="c1">// Tasks to be executed on the application thread.</span>
+</span><span id="__span-0-306"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">deque</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">()</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">app_thread_tasks_</span>
+</span><span id="__span-0-307"><span class="w">      </span><span class="n">ABSL_GUARDED_BY</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-308">
+</span><span id="__span-0-309"><span class="w">  </span><span class="c1">// Used by HandleIdle to avoid multiple concurrent executions.</span>
+</span><span id="__span-0-310"><span class="w">  </span><span class="c1">// We cannot simply hold a mutex throughout it, for two reasons:</span>
+</span><span id="__span-0-311"><span class="w">  </span><span class="c1">// - We need it to be reentrant, which Mutex does not support.</span>
+</span><span id="__span-0-312"><span class="w">  </span><span class="c1">// - We want simultaneous calls to return immediately instead of waiting,</span>
+</span><span id="__span-0-313"><span class="w">  </span><span class="c1">//   and Mutex&#39;s TryLock is not guaranteed to work.</span>
+</span><span id="__span-0-314"><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">handling_idle_</span><span class="w"> </span><span class="nf">ABSL_GUARDED_BY</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-315">
+</span><span id="__span-0-316"><span class="w">  </span><span class="c1">// Mutex for the scheduler state and related things.</span>
+</span><span id="__span-0-317"><span class="w">  </span><span class="c1">// Note: state_ is declared as atomic so that its getter methods don&#39;t need</span>
+</span><span id="__span-0-318"><span class="w">  </span><span class="c1">// to acquire state_mutex_.</span>
+</span><span id="__span-0-319"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Mutex</span><span class="w"> </span><span class="n">state_mutex_</span><span class="p">;</span>
+</span><span id="__span-0-320">
+</span><span id="__span-0-321"><span class="w">  </span><span class="c1">// Current state of the scheduler.</span>
+</span><span id="__span-0-322"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">atomic</span><span class="o">&lt;</span><span class="n">State</span><span class="o">&gt;</span><span class="w"> </span><span class="n">state_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">STATE_NOT_STARTED</span><span class="p">;</span>
+</span><span id="__span-0-323">
+</span><span id="__span-0-324"><span class="w">  </span><span class="c1">// True if all graph input streams are closed.</span>
+</span><span id="__span-0-325"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">graph_input_streams_closed_</span><span class="w"> </span><span class="nf">ABSL_GUARDED_BY</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-0-326">
+</span><span id="__span-0-327"><span class="w">  </span><span class="c1">// Number of throttled graph input streams.</span>
+</span><span id="__span-0-328"><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">throttled_graph_input_stream_count_</span><span class="w"> </span><span class="nf">ABSL_GUARDED_BY</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-329">
+</span><span id="__span-0-330"><span class="w">  </span><span class="c1">// Used to stop WaitUntilGraphInputStreamUnthrottled.</span>
+</span><span id="__span-0-331"><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">unthrottle_seq_num_</span><span class="w"> </span><span class="nf">ABSL_GUARDED_BY</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-332">
+</span><span id="__span-0-333"><span class="w">  </span><span class="c1">// Used to stop WaitForObservedOutput.</span>
+</span><span id="__span-0-334"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">observed_output_signal_</span><span class="w"> </span><span class="nf">ABSL_GUARDED_BY</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-0-335">
+</span><span id="__span-0-336"><span class="w">  </span><span class="c1">// True if an application thread is waiting in WaitForObservedOutput.</span>
+</span><span id="__span-0-337"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">waiting_for_observed_output_</span><span class="w"> </span><span class="nf">ABSL_GUARDED_BY</span><span class="p">(</span><span class="n">state_mutex_</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-0-338"><span class="p">};</span>
+</span><span id="__span-0-339">
+</span><span id="__span-0-340"><span class="p">}</span><span class="w">  </span><span class="c1">// namespace internal</span>
+</span><span id="__span-0-341"><span class="p">}</span><span class="w">  </span><span class="c1">// namespace mediapipe</span>
+</span><span id="__span-0-342">
+</span><span id="__span-0-343"><span class="cp">#endif  </span><span class="c1">// MEDIAPIPE_FRAMEWORK_SCHEDULER_H_</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "content.code.annotate", "content.footnote.tooltips", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../js/jquery.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "zoom"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

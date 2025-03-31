@@ -1,0 +1,381 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::internal::GpuBufferStorageRegistry</compoundname>
+    <innerclass refid="structmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1_1RegistryToken" prot="public">mediapipe::internal::GpuBufferStorageRegistry::RegistryToken</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1abbd070ff82a3749bd99ec4485c5270a3" prot="public" static="no">
+        <type>std::function&lt; std::shared_ptr&lt; GpuBufferStorage &gt;(int, int, GpuBufferFormat)&gt;</type>
+        <definition>using mediapipe::internal::GpuBufferStorageRegistry::StorageFactory =  std::function&lt;std::shared_ptr&lt;GpuBufferStorage&gt;( int, int, GpuBufferFormat)&gt;</definition>
+        <argsstring></argsstring>
+        <name>StorageFactory</name>
+        <qualifiedname>mediapipe::internal::GpuBufferStorageRegistry::StorageFactory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" line="101" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1a776d633a0fbade5081168ffb4d19b57e" prot="public" static="no">
+        <type>std::function&lt; std::shared_ptr&lt; GpuBufferStorage &gt;(std::shared_ptr&lt; GpuBufferStorage &gt;)&gt;</type>
+        <definition>using mediapipe::internal::GpuBufferStorageRegistry::StorageConverter =  std::function&lt;std::shared_ptr&lt;GpuBufferStorage&gt;( std::shared_ptr&lt;GpuBufferStorage&gt;)&gt;</definition>
+        <argsstring></argsstring>
+        <name>StorageConverter</name>
+        <qualifiedname>mediapipe::internal::GpuBufferStorageRegistry::StorageConverter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" line="103" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1ae90910817985049b44f632b97eac8a80" prot="private" static="yes" constexpr="yes" mutable="no">
+        <templateparamlist>
+          <param>
+            <type>class Storage</type>
+          </param>
+          <param>
+            <type>typename</type>
+            <defval>void</defval>
+          </param>
+        </templateparamlist>
+        <type>constexpr bool</type>
+        <definition>constexpr bool mediapipe::internal::GpuBufferStorageRegistry::kDisableRegistration</definition>
+        <argsstring></argsstring>
+        <name>kDisableRegistration</name>
+        <qualifiedname>mediapipe::internal::GpuBufferStorageRegistry::kDisableRegistration</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" line="173" column="25" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1af02bbae4d79ab742ba46d16a4b3e6e85" prot="private" static="no" mutable="no">
+        <type>absl::flat_hash_map&lt; TypeId, StorageFactory &gt;</type>
+        <definition>absl::flat_hash_map&lt;TypeId, StorageFactory&gt; mediapipe::internal::GpuBufferStorageRegistry::factory_for_view_provider_</definition>
+        <argsstring></argsstring>
+        <name>factory_for_view_provider_</name>
+        <qualifiedname>mediapipe::internal::GpuBufferStorageRegistry::factory_for_view_provider_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" line="181" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1a9aba6805bcbc74b67d4ce7522e48c662" prot="private" static="no" mutable="no">
+        <type>absl::flat_hash_map&lt; std::pair&lt; TypeId, TypeId &gt;, StorageConverter &gt;</type>
+        <definition>absl::flat_hash_map&lt;std::pair&lt;TypeId, TypeId&gt;, StorageConverter&gt; mediapipe::internal::GpuBufferStorageRegistry::converter_for_view_provider_and_existing_storage_</definition>
+        <argsstring></argsstring>
+        <name>converter_for_view_provider_and_existing_storage_</name>
+        <qualifiedname>mediapipe::internal::GpuBufferStorageRegistry::converter_for_view_provider_and_existing_storage_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" line="183" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1a9eed7d767094fee7ffc77087e0ce158c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>GpuBufferStorageRegistry &amp;</type>
+        <definition>static GpuBufferStorageRegistry &amp; mediapipe::internal::GpuBufferStorageRegistry::Get</definition>
+        <argsstring>()</argsstring>
+        <name>Get</name>
+        <qualifiedname>mediapipe::internal::GpuBufferStorageRegistry::Get</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" line="106" column="35" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" bodystart="106" bodyend="109"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1a3d7a46178573ce3a45654b0145622149" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Storage</type>
+          </param>
+        </templateparamlist>
+        <type>RegistryToken</type>
+        <definition>RegistryToken mediapipe::internal::GpuBufferStorageRegistry::Register</definition>
+        <argsstring>()</argsstring>
+        <name>Register</name>
+        <qualifiedname>mediapipe::internal::GpuBufferStorageRegistry::Register</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" line="114" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" bodystart="114" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1a71353f63d3de60c3eb1f6ded0c10dfe3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Storage</type>
+          </param>
+          <param>
+            <type>class F</type>
+          </param>
+        </templateparamlist>
+        <type>RegistryToken</type>
+        <definition>RegistryToken mediapipe::internal::GpuBufferStorageRegistry::RegisterFactory</definition>
+        <argsstring>(F &amp;&amp;factory)</argsstring>
+        <name>RegisterFactory</name>
+        <qualifiedname>mediapipe::internal::GpuBufferStorageRegistry::RegisterFactory</qualifiedname>
+        <param>
+          <type>F &amp;&amp;</type>
+          <declname>factory</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" line="125" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" bodystart="125" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1a52cb95ca5bfed020806dd8cee62790c5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class StorageFrom</type>
+          </param>
+          <param>
+            <type>class StorageTo</type>
+          </param>
+          <param>
+            <type>class F</type>
+          </param>
+        </templateparamlist>
+        <type>RegistryToken</type>
+        <definition>RegistryToken mediapipe::internal::GpuBufferStorageRegistry::RegisterConverter</definition>
+        <argsstring>(F &amp;&amp;converter)</argsstring>
+        <name>RegisterConverter</name>
+        <qualifiedname>mediapipe::internal::GpuBufferStorageRegistry::RegisterConverter</qualifiedname>
+        <param>
+          <type>F &amp;&amp;</type>
+          <declname>converter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" line="134" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" bodystart="134" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1aa1adcadd0f3f11b8a790a11e4105803c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>StorageFactory</type>
+        <definition>StorageFactory mediapipe::internal::GpuBufferStorageRegistry::StorageFactoryForViewProvider</definition>
+        <argsstring>(TypeId view_provider_type)</argsstring>
+        <name>StorageFactoryForViewProvider</name>
+        <qualifiedname>mediapipe::internal::GpuBufferStorageRegistry::StorageFactoryForViewProvider</qualifiedname>
+        <param>
+          <type>TypeId</type>
+          <declname>view_provider_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" line="148" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.cc" bodystart="10" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1a9c645826c628452d5d225fd57501cb33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>StorageConverter</type>
+        <definition>StorageConverter mediapipe::internal::GpuBufferStorageRegistry::StorageConverterForViewProvider</definition>
+        <argsstring>(TypeId view_provider_type, TypeId existing_storage_type)</argsstring>
+        <name>StorageConverterForViewProvider</name>
+        <qualifiedname>mediapipe::internal::GpuBufferStorageRegistry::StorageConverterForViewProvider</qualifiedname>
+        <param>
+          <type>TypeId</type>
+          <declname>view_provider_type</declname>
+        </param>
+        <param>
+          <type>TypeId</type>
+          <declname>existing_storage_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" line="153" column="20" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.cc" bodystart="17" bodyend="24"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1aaf513e19c354f22f0e894ac03bcd71a3" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Storage</type>
+          </param>
+          <param>
+            <type>class...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>static auto mediapipe::internal::GpuBufferStorageRegistry::CreateStorage</definition>
+        <argsstring>(overload_priority&lt; 1 &gt;, Args... args) -&gt; decltype(Storage::Create(args...))</argsstring>
+        <name>CreateStorage</name>
+        <qualifiedname>mediapipe::internal::GpuBufferStorageRegistry::CreateStorage</qualifiedname>
+        <param>
+          <type>overload_priority&lt; 1 &gt;</type>
+        </param>
+        <param>
+          <type>Args...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" line="158" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" bodystart="158" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1a2e8d309b213fe756ddf41295026b73c6" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Storage</type>
+          </param>
+          <param>
+            <type>class...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>static auto mediapipe::internal::GpuBufferStorageRegistry::CreateStorage</definition>
+        <argsstring>(overload_priority&lt; 0 &gt;, Args... args)</argsstring>
+        <name>CreateStorage</name>
+        <qualifiedname>mediapipe::internal::GpuBufferStorageRegistry::CreateStorage</qualifiedname>
+        <param>
+          <type>overload_priority&lt; 0 &gt;</type>
+        </param>
+        <param>
+          <type>Args...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" line="164" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" bodystart="164" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1aedbe823748a91333a5c054a19e62732a" prot="private" static="yes" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Storage</type>
+          </param>
+        </templateparamlist>
+        <type>constexpr bool</type>
+        <definition>constexpr bool mediapipe::internal::GpuBufferStorageRegistry::kDisableRegistration</definition>
+        <argsstring></argsstring>
+        <name>kDisableRegistration</name>
+        <qualifiedname>mediapipe::internal::GpuBufferStorageRegistry::kDisableRegistration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" line="189" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1a0876fac821b56396c354ff6d5d919e3e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>RegistryToken</type>
+        <definition>RegistryToken mediapipe::internal::GpuBufferStorageRegistry::Register</definition>
+        <argsstring>(StorageFactory factory, std::vector&lt; TypeId &gt; provider_hashes)</argsstring>
+        <name>Register</name>
+        <qualifiedname>mediapipe::internal::GpuBufferStorageRegistry::Register</qualifiedname>
+        <param>
+          <type>StorageFactory</type>
+          <declname>factory</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; TypeId &gt;</type>
+          <declname>provider_hashes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" line="175" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.cc" bodystart="26" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1a7412d27ae6179503b799020371f4d2ca" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>RegistryToken</type>
+        <definition>RegistryToken mediapipe::internal::GpuBufferStorageRegistry::Register</definition>
+        <argsstring>(StorageConverter converter, std::vector&lt; TypeId &gt; provider_hashes, TypeId source_storage)</argsstring>
+        <name>Register</name>
+        <qualifiedname>mediapipe::internal::GpuBufferStorageRegistry::Register</qualifiedname>
+        <param>
+          <type>StorageConverter</type>
+          <declname>converter</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; TypeId &gt;</type>
+          <declname>provider_hashes</declname>
+        </param>
+        <param>
+          <type>TypeId</type>
+          <declname>source_storage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" line="177" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.cc" bodystart="35" bodyend="44"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" line="97" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h" bodystart="97" bodyend="184"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1a9aba6805bcbc74b67d4ce7522e48c662" prot="private" virt="non-virtual"><scope>mediapipe::internal::GpuBufferStorageRegistry</scope><name>converter_for_view_provider_and_existing_storage_</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1aaf513e19c354f22f0e894ac03bcd71a3" prot="private" virt="non-virtual"><scope>mediapipe::internal::GpuBufferStorageRegistry</scope><name>CreateStorage</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1a2e8d309b213fe756ddf41295026b73c6" prot="private" virt="non-virtual"><scope>mediapipe::internal::GpuBufferStorageRegistry</scope><name>CreateStorage</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1af02bbae4d79ab742ba46d16a4b3e6e85" prot="private" virt="non-virtual"><scope>mediapipe::internal::GpuBufferStorageRegistry</scope><name>factory_for_view_provider_</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1a9eed7d767094fee7ffc77087e0ce158c" prot="public" virt="non-virtual"><scope>mediapipe::internal::GpuBufferStorageRegistry</scope><name>Get</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1ae90910817985049b44f632b97eac8a80" prot="private" virt="non-virtual"><scope>mediapipe::internal::GpuBufferStorageRegistry</scope><name>kDisableRegistration</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1aedbe823748a91333a5c054a19e62732a" prot="private" virt="non-virtual"><scope>mediapipe::internal::GpuBufferStorageRegistry</scope><name>kDisableRegistration</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1a3d7a46178573ce3a45654b0145622149" prot="public" virt="non-virtual"><scope>mediapipe::internal::GpuBufferStorageRegistry</scope><name>Register</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1a0876fac821b56396c354ff6d5d919e3e" prot="private" virt="non-virtual"><scope>mediapipe::internal::GpuBufferStorageRegistry</scope><name>Register</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1a7412d27ae6179503b799020371f4d2ca" prot="private" virt="non-virtual"><scope>mediapipe::internal::GpuBufferStorageRegistry</scope><name>Register</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1a52cb95ca5bfed020806dd8cee62790c5" prot="public" virt="non-virtual"><scope>mediapipe::internal::GpuBufferStorageRegistry</scope><name>RegisterConverter</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1a71353f63d3de60c3eb1f6ded0c10dfe3" prot="public" virt="non-virtual"><scope>mediapipe::internal::GpuBufferStorageRegistry</scope><name>RegisterFactory</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1a776d633a0fbade5081168ffb4d19b57e" prot="public" virt="non-virtual"><scope>mediapipe::internal::GpuBufferStorageRegistry</scope><name>StorageConverter</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1a9c645826c628452d5d225fd57501cb33" prot="public" virt="non-virtual"><scope>mediapipe::internal::GpuBufferStorageRegistry</scope><name>StorageConverterForViewProvider</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1abbd070ff82a3749bd99ec4485c5270a3" prot="public" virt="non-virtual"><scope>mediapipe::internal::GpuBufferStorageRegistry</scope><name>StorageFactory</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1aa1adcadd0f3f11b8a790a11e4105803c" prot="public" virt="non-virtual"><scope>mediapipe::internal::GpuBufferStorageRegistry</scope><name>StorageFactoryForViewProvider</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

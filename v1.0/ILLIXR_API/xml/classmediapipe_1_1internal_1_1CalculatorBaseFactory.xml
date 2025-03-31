@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1internal_1_1CalculatorBaseFactory" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>mediapipe::internal::CalculatorBaseFactory</compoundname>
+    <derivedcompoundref refid="classmediapipe_1_1internal_1_1CalculatorBaseFactoryFor" prot="public" virt="non-virtual">mediapipe::internal::CalculatorBaseFactoryFor&lt; T, Enable &gt;</derivedcompoundref>
+    <derivedcompoundref refid="classmediapipe_1_1internal_1_1CalculatorBaseFactoryFor_3_01T_00_01typename_01std_1_1enable__if_3978b5a77015ad3a9f375a285ae88013f" prot="public" virt="non-virtual">mediapipe::internal::CalculatorBaseFactoryFor&lt; T, typename std::enable_if&lt; std::is_base_of&lt; mediapipe::CalculatorBase, T &gt;{} &amp;&amp;!std::is_base_of&lt; mediapipe::api2::Node, T &gt;{}&gt;::type &gt;</derivedcompoundref>
+    <derivedcompoundref refid="classmediapipe_1_1internal_1_1CalculatorBaseFactoryFor_3_01T_00_01typename_01std_1_1enable__if_342464ce782e07bc5f12f1e473166b19f" prot="public" virt="non-virtual">mediapipe::internal::CalculatorBaseFactoryFor&lt; T, typename std::enable_if&lt; std::is_base_of&lt; mediapipe::api2::Node, T &gt;{}&gt;::type &gt;</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1CalculatorBaseFactory_1ae4fac883aa7244042aec911199c407f9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual mediapipe::internal::CalculatorBaseFactory::~CalculatorBaseFactory</definition>
+        <argsstring>()</argsstring>
+        <name>~CalculatorBaseFactory</name>
+        <qualifiedname>mediapipe::internal::CalculatorBaseFactory::~CalculatorBaseFactory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_base.h" line="182" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_base.h" bodystart="182" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1CalculatorBaseFactory_1a110efa90a8516d7ff18db210ee60b760" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>absl::Status</type>
+        <definition>virtual absl::Status mediapipe::internal::CalculatorBaseFactory::GetContract</definition>
+        <argsstring>(CalculatorContract *cc)=0</argsstring>
+        <name>GetContract</name>
+        <qualifiedname>mediapipe::internal::CalculatorBaseFactory::GetContract</qualifiedname>
+        <param>
+          <type>CalculatorContract *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_base.h" line="183" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1CalculatorBaseFactory_1a28a54fbdf14a0fb95a4a3299a4931b39" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::unique_ptr&lt; CalculatorBase &gt;</type>
+        <definition>virtual std::unique_ptr&lt; CalculatorBase &gt; mediapipe::internal::CalculatorBaseFactory::CreateCalculator</definition>
+        <argsstring>(CalculatorContext *calculator_context)=0</argsstring>
+        <name>CreateCalculator</name>
+        <qualifiedname>mediapipe::internal::CalculatorBaseFactory::CreateCalculator</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>calculator_context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_base.h" line="184" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1CalculatorBaseFactory_1a844197138f075285241fb4e9939e6dae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string mediapipe::internal::CalculatorBaseFactory::ContractMethodName</definition>
+        <argsstring>()</argsstring>
+        <name>ContractMethodName</name>
+        <qualifiedname>mediapipe::internal::CalculatorBaseFactory::ContractMethodName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_base.h" line="186" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_base.h" bodystart="186" bodyend="186"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_base.h" line="180" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_base.h" bodystart="180" bodyend="187"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1internal_1_1CalculatorBaseFactory_1a844197138f075285241fb4e9939e6dae" prot="public" virt="virtual"><scope>mediapipe::internal::CalculatorBaseFactory</scope><name>ContractMethodName</name></member>
+      <member refid="classmediapipe_1_1internal_1_1CalculatorBaseFactory_1a28a54fbdf14a0fb95a4a3299a4931b39" prot="public" virt="pure-virtual"><scope>mediapipe::internal::CalculatorBaseFactory</scope><name>CreateCalculator</name></member>
+      <member refid="classmediapipe_1_1internal_1_1CalculatorBaseFactory_1a110efa90a8516d7ff18db210ee60b760" prot="public" virt="pure-virtual"><scope>mediapipe::internal::CalculatorBaseFactory</scope><name>GetContract</name></member>
+      <member refid="classmediapipe_1_1internal_1_1CalculatorBaseFactory_1ae4fac883aa7244042aec911199c407f9" prot="public" virt="virtual"><scope>mediapipe::internal::CalculatorBaseFactory</scope><name>~CalculatorBaseFactory</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

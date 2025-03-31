@@ -1,0 +1,528 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="interface_8cpp" kind="file" language="C++">
+    <compoundname>interface.cpp</compoundname>
+    <includes refid="interface_8h" local="yes">interface.h</includes>
+    <includes local="yes">illixr/data_format/hand_tracking_data.hpp</includes>
+    <includes local="yes">illixr/math_util.hpp</includes>
+    <includes local="yes">illixr/phonebook.hpp</includes>
+    <includes local="yes">illixr/switchboard.hpp</includes>
+    <includes refid="ixr__openxr_8hpp" local="yes">ixr_openxr.hpp</includes>
+    <includes local="yes">oxr_objects.h</includes>
+    <includes local="no">boost/interprocess/managed_shared_memory.hpp</includes>
+    <includes local="no">boost/interprocess/sync/named_mutex.hpp</includes>
+    <includes local="no">boost/interprocess/sync/scoped_lock.hpp</includes>
+    <includes local="no">sstream</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp</label>
+        <link refid="interface_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>interface.h</label>
+        <link refid="interface_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>ixr_openxr.hpp</label>
+        <link refid="ixr__openxr_8hpp_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>boost/interprocess/managed_shared_memory.hpp</label>
+      </node>
+      <node id="12">
+        <label>boost/interprocess/sync/named_mutex.hpp</label>
+      </node>
+      <node id="13">
+        <label>boost/interprocess/sync/scoped_lock.hpp</label>
+      </node>
+      <node id="4">
+        <label>illixr/data_format/hand_tracking_data.hpp</label>
+      </node>
+      <node id="5">
+        <label>illixr/math_util.hpp</label>
+      </node>
+      <node id="6">
+        <label>illixr/phonebook.hpp</label>
+      </node>
+      <node id="7">
+        <label>illixr/switchboard.hpp</label>
+      </node>
+      <node id="3">
+        <label>openxr/openxr.h</label>
+      </node>
+      <node id="9">
+        <label>openxr/openxr_loader_negotiation.h</label>
+      </node>
+      <node id="10">
+        <label>oxr_objects.h</label>
+      </node>
+      <node id="14">
+        <label>sstream</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structvalid__points" prot="public">valid_points</innerclass>
+    <innerclass refid="structht__illixr__handle__t" prot="public">ht_illixr_handle_t</innerclass>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="interface_8cpp_1ace5e8401ad657e5f03cff4c178b704b9" prot="public" static="no" mutable="no">
+        <type>const std::map&lt; int, int &gt;</type>
+        <definition>const std::map&lt;int, int&gt; oxr_to_ixr_points</definition>
+        <argsstring></argsstring>
+        <name>oxr_to_ixr_points</name>
+        <initializer>= {
+    {XR_HAND_JOINT_WRIST_EXT, ILLIXR::data_format::ht::WRIST},
+    {XR_HAND_JOINT_THUMB_METACARPAL_EXT, ILLIXR::data_format::ht::THUMB_CMC},
+    {XR_HAND_JOINT_THUMB_PROXIMAL_EXT, ILLIXR::data_format::ht::THUMB_MCP},
+    {XR_HAND_JOINT_THUMB_DISTAL_EXT, ILLIXR::data_format::ht::THUMB_IP},
+    {XR_HAND_JOINT_THUMB_TIP_EXT, ILLIXR::data_format::ht::THUMB_TIP},
+    {XR_HAND_JOINT_INDEX_PROXIMAL_EXT, ILLIXR::data_format::ht::INDEX_FINGER_MCP},
+    {XR_HAND_JOINT_INDEX_INTERMEDIATE_EXT, ILLIXR::data_format::ht::INDEX_FINGER_PIP},
+    {XR_HAND_JOINT_INDEX_DISTAL_EXT, ILLIXR::data_format::ht::INDEX_FINGER_DIP},
+    {XR_HAND_JOINT_INDEX_TIP_EXT, ILLIXR::data_format::ht::INDEX_FINGER_TIP},
+    {XR_HAND_JOINT_MIDDLE_PROXIMAL_EXT, ILLIXR::data_format::ht::MIDDLE_FINGER_MCP},
+    {XR_HAND_JOINT_MIDDLE_INTERMEDIATE_EXT, ILLIXR::data_format::ht::MIDDLE_FINGER_PIP},
+    {XR_HAND_JOINT_MIDDLE_DISTAL_EXT, ILLIXR::data_format::ht::MIDDLE_FINGER_DIP},
+    {XR_HAND_JOINT_MIDDLE_TIP_EXT, ILLIXR::data_format::ht::MIDDLE_FINGER_TIP},
+    {XR_HAND_JOINT_RING_PROXIMAL_EXT, ILLIXR::data_format::ht::RING_FINGER_MCP},
+    {XR_HAND_JOINT_RING_INTERMEDIATE_EXT, ILLIXR::data_format::ht::RING_FINGER_PIP},
+    {XR_HAND_JOINT_RING_DISTAL_EXT, ILLIXR::data_format::ht::RING_FINGER_DIP},
+    {XR_HAND_JOINT_RING_TIP_EXT, ILLIXR::data_format::ht::RING_FINGER_TIP},
+    {XR_HAND_JOINT_LITTLE_PROXIMAL_EXT, ILLIXR::data_format::ht::PINKY_MCP},
+    {XR_HAND_JOINT_LITTLE_INTERMEDIATE_EXT, ILLIXR::data_format::ht::PINKY_PIP},
+    {XR_HAND_JOINT_LITTLE_DISTAL_EXT, ILLIXR::data_format::ht::PINKY_DIP},
+    {XR_HAND_JOINT_LITTLE_TIP_EXT, ILLIXR::data_format::ht::PINKY_TIP}}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Mapping of OpenXR hand points to ILLIXR hand points. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" line="20" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" bodystart="20" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="variable" id="interface_8cpp_1a83855ce2ba6adb140755a4501afbfe3c" prot="public" static="no" mutable="no">
+        <type>const std::vector&lt; int &gt;</type>
+        <definition>const std::vector&lt;int&gt; invalid</definition>
+        <argsstring></argsstring>
+        <name>invalid</name>
+        <initializer>= {XR_HAND_JOINT_PALM_EXT, XR_HAND_JOINT_INDEX_METACARPAL_EXT,
+                                  XR_HAND_JOINT_MIDDLE_METACARPAL_EXT, XR_HAND_JOINT_RING_METACARPAL_EXT,
+                                  XR_HAND_JOINT_LITTLE_METACARPAL_EXT}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The OpenXR standard has 25 hand points, while the medipipe code has only 21. This list gives the OpenXR hand points which have no equivalent in mediapipe. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" line="47" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" bodystart="47" bodyend="49"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="interface_8cpp_1aef4b9612d1494731568ba894de650326" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>XrResult</type>
+        <definition>XrResult illixr_xrCreateHandTrackerEXT</definition>
+        <argsstring>(XrSession session, const XrHandTrackerCreateInfoEXT *createInfo, XrHandTrackerEXT *handTracker)</argsstring>
+        <name>illixr_xrCreateHandTrackerEXT</name>
+        <param>
+          <type>XrSession</type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>const XrHandTrackerCreateInfoEXT *</type>
+          <declname>createInfo</declname>
+        </param>
+        <param>
+          <type>XrHandTrackerEXT *</type>
+          <declname>handTracker</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a hand joints handle. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An XrSession in which the hand tracker will be active. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>createInfo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The XrHandTrackerCreateInfoEXT used to specify the hand tracker. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>handTracker</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The returned XrHandTrackerEXT handle. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>XrResult instance. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" line="107" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" bodystart="107" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_8cpp_1a1531045f6e0cdbd6ee69b9f060d903cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>XrResult XRAPI_CALL</type>
+        <definition>XrResult XRAPI_CALL illixr_xrDestroyHandTrackerEXT</definition>
+        <argsstring>(XrHandTrackerEXT handTracker)</argsstring>
+        <name>illixr_xrDestroyHandTrackerEXT</name>
+        <param>
+          <type>XrHandTrackerEXT</type>
+          <declname>handTracker</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy a hand joints handle <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handTracker</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An XrHandTrackerEXT previously created by illixr_xrCreateHandTrackerEXT. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>XrResult instance. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" line="143" column="21" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" bodystart="143" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_8cpp_1a743b5fd2474e3dfa3ee2f9b80645bd8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>XrResult XRAPI_CALL</type>
+        <definition>XrResult XRAPI_CALL illixr_xrLocateHandJointsEXT</definition>
+        <argsstring>(XrHandTrackerEXT handTracker, const XrHandJointsLocateInfoEXT *locateInfo, XrHandJointLocationsEXT *locations)</argsstring>
+        <name>illixr_xrLocateHandJointsEXT</name>
+        <param>
+          <type>XrHandTrackerEXT</type>
+          <declname>handTracker</declname>
+        </param>
+        <param>
+          <type>const XrHandJointsLocateInfoEXT *</type>
+          <declname>locateInfo</declname>
+        </param>
+        <param>
+          <type>XrHandJointLocationsEXT *</type>
+          <declname>locations</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Locate hand joint locations <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handTracker</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An XrHandTrackerEXT previously created by illixr_xrCreateHandTrackerEXT. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>locateInfo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to XrHandJointsLocateInfoEXT describing information to locate hand joints. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>locations</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to XrHandJointLocationsEXT receiving the returned hand joint locations. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>XrResult instance. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" line="157" column="21" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" bodystart="157" bodyend="261"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;interface.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;illixr/data_format/hand_tracking_data.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;illixr/math_util.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;illixr/phonebook.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;illixr/switchboard.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;ixr_openxr.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;oxr_objects.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;boost/interprocess/managed_shared_memory.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;boost/interprocess/sync/named_mutex.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;boost/interprocess/sync/scoped_lock.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">b_intp<sp/>=<sp/>boost::interprocess;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::map&lt;int,<sp/>int&gt;<sp/>oxr_to_ixr_points<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>{XR_HAND_JOINT_WRIST_EXT,<sp/>ILLIXR::data_format::ht::WRIST},</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>{XR_HAND_JOINT_THUMB_METACARPAL_EXT,<sp/>ILLIXR::data_format::ht::THUMB_CMC},</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>{XR_HAND_JOINT_THUMB_PROXIMAL_EXT,<sp/>ILLIXR::data_format::ht::THUMB_MCP},</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>{XR_HAND_JOINT_THUMB_DISTAL_EXT,<sp/>ILLIXR::data_format::ht::THUMB_IP},</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>{XR_HAND_JOINT_THUMB_TIP_EXT,<sp/>ILLIXR::data_format::ht::THUMB_TIP},</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>{XR_HAND_JOINT_INDEX_PROXIMAL_EXT,<sp/>ILLIXR::data_format::ht::INDEX_FINGER_MCP},</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>{XR_HAND_JOINT_INDEX_INTERMEDIATE_EXT,<sp/>ILLIXR::data_format::ht::INDEX_FINGER_PIP},</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>{XR_HAND_JOINT_INDEX_DISTAL_EXT,<sp/>ILLIXR::data_format::ht::INDEX_FINGER_DIP},</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>{XR_HAND_JOINT_INDEX_TIP_EXT,<sp/>ILLIXR::data_format::ht::INDEX_FINGER_TIP},</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>{XR_HAND_JOINT_MIDDLE_PROXIMAL_EXT,<sp/>ILLIXR::data_format::ht::MIDDLE_FINGER_MCP},</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>{XR_HAND_JOINT_MIDDLE_INTERMEDIATE_EXT,<sp/>ILLIXR::data_format::ht::MIDDLE_FINGER_PIP},</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>{XR_HAND_JOINT_MIDDLE_DISTAL_EXT,<sp/>ILLIXR::data_format::ht::MIDDLE_FINGER_DIP},</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>{XR_HAND_JOINT_MIDDLE_TIP_EXT,<sp/>ILLIXR::data_format::ht::MIDDLE_FINGER_TIP},</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>{XR_HAND_JOINT_RING_PROXIMAL_EXT,<sp/>ILLIXR::data_format::ht::RING_FINGER_MCP},</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>{XR_HAND_JOINT_RING_INTERMEDIATE_EXT,<sp/>ILLIXR::data_format::ht::RING_FINGER_PIP},</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>{XR_HAND_JOINT_RING_DISTAL_EXT,<sp/>ILLIXR::data_format::ht::RING_FINGER_DIP},</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>{XR_HAND_JOINT_RING_TIP_EXT,<sp/>ILLIXR::data_format::ht::RING_FINGER_TIP},</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>{XR_HAND_JOINT_LITTLE_PROXIMAL_EXT,<sp/>ILLIXR::data_format::ht::PINKY_MCP},</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>{XR_HAND_JOINT_LITTLE_INTERMEDIATE_EXT,<sp/>ILLIXR::data_format::ht::PINKY_PIP},</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>{XR_HAND_JOINT_LITTLE_DISTAL_EXT,<sp/>ILLIXR::data_format::ht::PINKY_DIP},</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>{XR_HAND_JOINT_LITTLE_TIP_EXT,<sp/>ILLIXR::data_format::ht::PINKY_TIP}};</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;<sp/>invalid<sp/>=<sp/>{XR_HAND_JOINT_PALM_EXT,<sp/>XR_HAND_JOINT_INDEX_METACARPAL_EXT,</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XR_HAND_JOINT_MIDDLE_METACARPAL_EXT,<sp/>XR_HAND_JOINT_RING_METACARPAL_EXT,</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XR_HAND_JOINT_LITTLE_METACARPAL_EXT};</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="structvalid__points" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structvalid__points" kindref="compound">valid_points</ref><sp/>{</highlight></codeline>
+<codeline lineno="55" refid="structvalid__points_1affe9bb8a8bbca7c432139400793c9b3b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>ILLIXR::data_format::raw_point<sp/><ref refid="structvalid__points_1affe9bb8a8bbca7c432139400793c9b3b" kindref="member">points</ref>[ILLIXR::data_format::ht::NUM_LANDMARKS];<sp/></highlight></codeline>
+<codeline lineno="56" refid="structvalid__points_1a08591a33d7eb5b5711a7b4ddf43e8e75" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structvalid__points_1a08591a33d7eb5b5711a7b4ddf43e8e75" kindref="member">valid</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="structvalid__points_1a6b63de1c3ef5ffe9f6282118ff46d695" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structvalid__points_1a6b63de1c3ef5ffe9f6282118ff46d695" kindref="member">valid_points</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="structvalid__points_1a17ec8756c27629249406defa58bd425d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structvalid__points_1a17ec8756c27629249406defa58bd425d" kindref="member">valid_points</ref>(ILLIXR::data_format::raw_point<sp/>pnts[ILLIXR::data_format::ht::NUM_LANDMARKS],<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_valid)<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>ILLIXR::data_format::ht::NUM_LANDMARKS;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structvalid__points_1affe9bb8a8bbca7c432139400793c9b3b" kindref="member">points</ref>[i]<sp/>=<sp/>pnts[i];</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structvalid__points_1a08591a33d7eb5b5711a7b4ddf43e8e75" kindref="member">valid</ref><sp/>=<sp/>is_valid;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="structht__illixr__handle__t" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structht__illixr__handle__t" kindref="compound">ht_illixr_handle_t</ref><sp/>{</highlight></codeline>
+<codeline lineno="80" refid="structht__illixr__handle__t_1a473db7c00614497bcfc29b1f3114678b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>boost::interprocess::named_mutex*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structht__illixr__handle__t_1a473db7c00614497bcfc29b1f3114678b" kindref="member">m_swap</ref>[2]{</highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">};<sp/><sp/></highlight></codeline>
+<codeline lineno="81" refid="structht__illixr__handle__t_1a9ba7aea312e897d31217593a0a35441e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>boost::interprocess::named_mutex*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structht__illixr__handle__t_1a9ba7aea312e897d31217593a0a35441e" kindref="member">m_current_swap_idx</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;<sp/></highlight></codeline>
+<codeline lineno="82" refid="structht__illixr__handle__t_1a7064e61047aa1a1f14d0ed9a08955500" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>boost::interprocess::managed_shared_memory<sp/><ref refid="structht__illixr__handle__t_1a7064e61047aa1a1f14d0ed9a08955500" kindref="member">managed_shm</ref>;<sp/></highlight></codeline>
+<codeline lineno="83" refid="structht__illixr__handle__t_1a80030bef351e83dca13a476d9f1f535a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>ILLIXR::data_format::coordinates::frame<sp/><sp/><sp/><sp/><ref refid="structht__illixr__handle__t_1a80030bef351e83dca13a476d9f1f535a" kindref="member">ref</ref><sp/>=<sp/>ILLIXR::data_format::coordinates::RIGHT_HANDED_Y_UP;<sp/></highlight></codeline>
+<codeline lineno="84" refid="structht__illixr__handle__t_1af27e428ae35ecbd77b4e24a700b3f3ef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structvalid__points" kindref="compound">valid_points</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structht__illixr__handle__t_1af27e428ae35ecbd77b4e24a700b3f3ef" kindref="member">last_valid_frame</ref>[2];<sp/></highlight></codeline>
+<codeline lineno="85" refid="structht__illixr__handle__t_1aa096166f0691cc0ebe159b72b80840b7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Eigen::Matrix3f<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structht__illixr__handle__t_1aa096166f0691cc0ebe159b72b80840b7" kindref="member">convert</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="86" refid="structht__illixr__handle__t_1af20f1d46a8426a43b798cea0e3c246fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structht__illixr__handle__t_1af20f1d46a8426a43b798cea0e3c246fd" kindref="member">do_convert</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91" refid="structht__illixr__handle__t_1ad3e7b17e52ac0e259525abe50ad46f74" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="structht__illixr__handle__t_1ad3e7b17e52ac0e259525abe50ad46f74" kindref="member">ht_illixr_handle_t</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structht__illixr__handle__t_1a7064e61047aa1a1f14d0ed9a08955500" kindref="member">managed_shm</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>b_intp::managed_shared_memory(b_intp::open_only,<sp/>illixr_shm_name);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structht__illixr__handle__t_1a9ba7aea312e897d31217593a0a35441e" kindref="member">m_current_swap_idx</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>b_intp::named_mutex(b_intp::open_only,<sp/>illixr_shm_mutex_latest);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structht__illixr__handle__t_1a473db7c00614497bcfc29b1f3114678b" kindref="member">m_swap</ref>[0]<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>b_intp::named_mutex(b_intp::open_only,<sp/>illixr_shm_mutex_swap[0]);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structht__illixr__handle__t_1a473db7c00614497bcfc29b1f3114678b" kindref="member">m_swap</ref>[1]<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>b_intp::named_mutex(b_intp::open_only,<sp/>illixr_shm_mutex_swap[1]);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="structht__illixr__handle__t_1a80030bef351e83dca13a476d9f1f535a" kindref="member">ref</ref><sp/>==<sp/>ILLIXR::data_format::coordinates::RIGHT_HANDED_Y_UP)<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structht__illixr__handle__t_1aa096166f0691cc0ebe159b72b80840b7" kindref="member">convert</ref><sp/><sp/><sp/><sp/>=<sp/>ILLIXR::math_util::identity;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structht__illixr__handle__t_1af20f1d46a8426a43b798cea0e3c246fd" kindref="member">do_convert</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structht__illixr__handle__t_1aa096166f0691cc0ebe159b72b80840b7" kindref="member">convert</ref><sp/><sp/><sp/><sp/>=<sp/>ILLIXR::math_util::conversion[<ref refid="structht__illixr__handle__t_1a80030bef351e83dca13a476d9f1f535a" kindref="member">ref</ref>][ILLIXR::data_format::coordinates::RIGHT_HANDED_Y_UP];</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structht__illixr__handle__t_1af20f1d46a8426a43b798cea0e3c246fd" kindref="member">do_convert</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal">XrResult<sp/>illixr_xrCreateHandTrackerEXT(XrSession<sp/>session,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>XrHandTrackerCreateInfoEXT*<sp/>createInfo,</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XrHandTrackerEXT*<sp/>handTracker)<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structixr__hand__tracker" kindref="compound">ixr_hand_tracker</ref>*<sp/>tracker_handle<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structixr__session" kindref="compound">ixr_session</ref>*<sp/><sp/><sp/><sp/><sp/><sp/>sess<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>we<sp/>must<sp/>have<sp/>a<sp/>valid<sp/>session</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!session)</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>XR_ERROR_HANDLE_INVALID;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>some<sp/>error<sp/>checking</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>sess<sp/>=<sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="normal"><ref refid="structixr__session" kindref="compound">ixr_session</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(session);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(createInfo<sp/>==<sp/>((</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)<sp/>0)<sp/>||<sp/>createInfo-&gt;type<sp/>!=<sp/>XR_TYPE_HAND_TRACKER_CREATE_INFO_EXT<sp/>||<sp/>handTracker<sp/>==<sp/>((</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)<sp/>0)<sp/>||</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(createInfo-&gt;hand<sp/>!=<sp/>XR_HAND_LEFT_EXT<sp/>&amp;&amp;<sp/>createInfo-&gt;hand<sp/>!=<sp/>XR_HAND_RIGHT_EXT))<sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>XR_ERROR_VALIDATION_FAILURE;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>create<sp/>a<sp/>handle<sp/>to<sp/>the<sp/>hand<sp/>tracker</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>tracker_handle<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="structixr__hand__tracker" kindref="compound">ixr_hand_tracker</ref>();</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>set<sp/>up<sp/>some<sp/>initial<sp/>values</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">try</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tracker_handle-&gt;<ref refid="structixr__hand__tracker_1ab5187490641649f00906cfb352313616" kindref="member">session</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>sess;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tracker_handle-&gt;<ref refid="structixr__hand__tracker_1a913d0c042f18e446515964694bb62590" kindref="member">hand</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>createInfo-&gt;hand;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tracker_handle-&gt;<ref refid="structixr__hand__tracker_1aaa013be856968b407637e2ad1216156b" kindref="member">ixr_hand</ref><sp/><sp/><sp/><sp/>=<sp/>(tracker_handle-&gt;<ref refid="structixr__hand__tracker_1a913d0c042f18e446515964694bb62590" kindref="member">hand</ref><sp/>==<sp/>XR_HAND_LEFT_EXT)<sp/>?<sp/>ILLIXR::data_format::ht::LEFT_HAND</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>ILLIXR::data_format::ht::RIGHT_HAND;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tracker_handle-&gt;<ref refid="structixr__hand__tracker_1acd56b8cc19c3f244ff668d4d6c72c841" kindref="member">hand_joints</ref><sp/>=<sp/>createInfo-&gt;handJointSet;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tracker_handle-&gt;<ref refid="structixr__hand__tracker_1aff6484ae45352104a81df5759c26b49b" kindref="member">ht_handle</ref><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="structht__illixr__handle__t" kindref="compound">ht_illixr_handle_t</ref>();</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">catch</highlight><highlight class="normal"><sp/>(std::exception&amp;<sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>XR_ERROR_HANDLE_INVALID;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>recast<sp/>the<sp/>pointer<sp/>to<sp/>the<sp/>proper<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>*handTracker<sp/>=<sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="normal">XrHandTrackerEXT</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(tracker_handle);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>XR_SUCCESS;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal">XrResult<sp/>XRAPI_CALL<sp/>illixr_xrDestroyHandTrackerEXT(XrHandTrackerEXT<sp/>handTracker)<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structixr__hand__tracker" kindref="compound">ixr_hand_tracker</ref>*<sp/>hand_tracker;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(handTracker<sp/>==<sp/>NULL)</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>XR_ERROR_HANDLE_INVALID;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>hand_tracker<sp/>=<sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="normal"><ref refid="structixr__hand__tracker" kindref="compound">ixr_hand_tracker</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(handTracker);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>hand_tracker-&gt;<ref refid="structixr__hand__tracker_1aff6484ae45352104a81df5759c26b49b" kindref="member">ht_handle</ref>;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>hand_tracker;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>hand_tracker<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>XR_SUCCESS;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal">XrResult<sp/>XRAPI_CALL<sp/>illixr_xrLocateHandJointsEXT(XrHandTrackerEXT<sp/>handTracker,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>XrHandJointsLocateInfoEXT*<sp/>locateInfo,</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XrHandJointLocationsEXT*<sp/>locations)<sp/>{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structixr__hand__tracker" kindref="compound">ixr_hand_tracker</ref>*<sp/>hand_tracker;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(handTracker<sp/>==<sp/>((</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)<sp/>0))</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>XR_ERROR_HANDLE_INVALID;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>do<sp/>some<sp/>error<sp/>checking</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>hand_tracker<sp/>=<sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="normal"><ref refid="structixr__hand__tracker" kindref="compound">ixr_hand_tracker</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(handTracker);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(locateInfo<sp/>==<sp/>((</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)<sp/>0)<sp/>||<sp/>locateInfo-&gt;type<sp/>!=<sp/>XR_TYPE_HAND_JOINTS_LOCATE_INFO_EXT<sp/>||<sp/>locations<sp/>==<sp/>((</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*)<sp/>0)<sp/>||</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>locations-&gt;type<sp/>!=<sp/>XR_TYPE_HAND_JOINT_LOCATIONS_EXT<sp/>||<sp/>(locations-&gt;jointCount<sp/>!=<sp/>26<sp/>&amp;&amp;<sp/>locations-&gt;jointCount<sp/>!=<sp/>21))<sp/>{</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>XR_ERROR_VALIDATION_FAILURE;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>ILLIXR::data_format::ht::raw_ht_data*<sp/>data;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>idx;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>connect<sp/>to<sp/>the<sp/>shared<sp/>memory<sp/>areas<sp/>created<sp/>by<sp/>the<sp/>hand<sp/>tracking<sp/>plugin</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b_intp::scoped_lock&lt;b_intp::named_mutex&gt;<sp/>lock(*hand_tracker-&gt;<ref refid="structixr__hand__tracker_1aff6484ae45352104a81df5759c26b49b" kindref="member">ht_handle</ref>-&gt;<ref refid="structht__illixr__handle__t_1a9ba7aea312e897d31217593a0a35441e" kindref="member">m_current_swap_idx</ref>);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>idx<sp/>=<sp/>*hand_tracker-&gt;<ref refid="structixr__hand__tracker_1aff6484ae45352104a81df5759c26b49b" kindref="member">ht_handle</ref>-&gt;<ref refid="structht__illixr__handle__t_1a7064e61047aa1a1f14d0ed9a08955500" kindref="member">managed_shm</ref>.find&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">&gt;(illixr_shm_current).first;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b_intp::scoped_lock&lt;b_intp::named_mutex&gt;<sp/>d_lock(*hand_tracker-&gt;<ref refid="structixr__hand__tracker_1aff6484ae45352104a81df5759c26b49b" kindref="member">ht_handle</ref>-&gt;<ref refid="structht__illixr__handle__t_1a473db7c00614497bcfc29b1f3114678b" kindref="member">m_swap</ref>[idx]);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data<sp/>=<sp/>hand_tracker-&gt;<ref refid="structixr__hand__tracker_1aff6484ae45352104a81df5759c26b49b" kindref="member">ht_handle</ref>-&gt;<ref refid="structht__illixr__handle__t_1a7064e61047aa1a1f14d0ed9a08955500" kindref="member">managed_shm</ref>.find&lt;ILLIXR::data_format::ht::raw_ht_data&gt;(illixr_shm_swap[idx]).first;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>flags<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(data<sp/>==<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>locations-&gt;isActive<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>XR_SUCCESS;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_valid;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>get<sp/>the<sp/>hand<sp/>tracking<sp/>data<sp/>from<sp/>shared<sp/>memory</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structvalid__points" kindref="compound">valid_points</ref><sp/>h_pts{&amp;data-&gt;h_points[hand_tracker-&gt;<ref refid="structixr__hand__tracker_1aaa013be856968b407637e2ad1216156b" kindref="member">ixr_hand</ref>][0],<sp/>data-&gt;hp_valid[hand_tracker-&gt;<ref refid="structixr__hand__tracker_1aaa013be856968b407637e2ad1216156b" kindref="member">ixr_hand</ref>]};</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>is_valid<sp/>=<sp/>data-&gt;hp_valid[hand_tracker-&gt;<ref refid="structixr__hand__tracker_1aaa013be856968b407637e2ad1216156b" kindref="member">ixr_hand</ref>];</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!is_valid)<sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hand_tracker-&gt;<ref refid="structixr__hand__tracker_1aff6484ae45352104a81df5759c26b49b" kindref="member">ht_handle</ref>-&gt;<ref refid="structht__illixr__handle__t_1af27e428ae35ecbd77b4e24a700b3f3ef" kindref="member">last_valid_frame</ref>[hand_tracker-&gt;<ref refid="structixr__hand__tracker_1aaa013be856968b407637e2ad1216156b" kindref="member">ixr_hand</ref>].<ref refid="structvalid__points_1a08591a33d7eb5b5711a7b4ddf43e8e75" kindref="member">valid</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>h_pts<sp/>=<sp/>hand_tracker-&gt;<ref refid="structixr__hand__tracker_1aff6484ae45352104a81df5759c26b49b" kindref="member">ht_handle</ref>-&gt;<ref refid="structht__illixr__handle__t_1af27e428ae35ecbd77b4e24a700b3f3ef" kindref="member">last_valid_frame</ref>[hand_tracker-&gt;<ref refid="structixr__hand__tracker_1aaa013be856968b407637e2ad1216156b" kindref="member">ixr_hand</ref>];</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>locations-&gt;isActive<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>XR_SUCCESS;</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>the<sp/>coordinate<sp/>system<sp/>needs<sp/>to<sp/>be<sp/>rotated,<sp/>then<sp/>rotate<sp/>it</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hand_tracker-&gt;<ref refid="structixr__hand__tracker_1aff6484ae45352104a81df5759c26b49b" kindref="member">ht_handle</ref>-&gt;<ref refid="structht__illixr__handle__t_1af20f1d46a8426a43b798cea0e3c246fd" kindref="member">do_convert</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>ILLIXR::data_format::ht::NUM_LANDMARKS;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>h_pts.<ref refid="structvalid__points_1affe9bb8a8bbca7c432139400793c9b3b" kindref="member">points</ref>[i].mult(hand_tracker-&gt;<ref refid="structixr__hand__tracker_1aff6484ae45352104a81df5759c26b49b" kindref="member">ht_handle</ref>-&gt;<ref refid="structht__illixr__handle__t_1aa096166f0691cc0ebe159b72b80840b7" kindref="member">convert</ref>);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>hand<sp/>tracker<sp/>reports<sp/>positions<sp/>in<sp/>world<sp/>coordinates,<sp/>if<sp/>the<sp/>space_type<sp/>is<sp/>VIEWER,<sp/>then<sp/>the<sp/>points<sp/>need<sp/>to<sp/>be</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>transformed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>space<sp/>=<sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="normal">oxr_space*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(locateInfo-&gt;baseSpace);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(space-&gt;space_type<sp/>==<sp/>OXR_SPACE_TYPE_REFERENCE_VIEW)<sp/>{</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ILLIXR::data_format::pose_data<sp/>wcs_offset{</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{data-&gt;wcs_origin.x,<sp/>data-&gt;wcs_origin.y,<sp/>data-&gt;wcs_origin.z},</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{data-&gt;wcs_origin.w,<sp/>data-&gt;wcs_origin.wx,<sp/>data-&gt;wcs_origin.wy,<sp/>data-&gt;wcs_origin.wz},</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data-&gt;unit};</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>ILLIXR::data_format::ht::NUM_LANDMARKS;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>h_pts.points[i].transform(wcs_offset);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hand_tracker-&gt;<ref refid="structixr__hand__tracker_1aff6484ae45352104a81df5759c26b49b" kindref="member">ht_handle</ref>-&gt;<ref refid="structht__illixr__handle__t_1af27e428ae35ecbd77b4e24a700b3f3ef" kindref="member">last_valid_frame</ref>[hand_tracker-&gt;<ref refid="structixr__hand__tracker_1aaa013be856968b407637e2ad1216156b" kindref="member">ixr_hand</ref>]<sp/>=<sp/>h_pts;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>set<sp/>the<sp/>necessary<sp/>flags</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>flags<sp/>|=<sp/>XR_SPACE_LOCATION_POSITION_TRACKED_BIT;</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>associate<sp/>the<sp/>given<sp/>points<sp/>with<sp/>their<sp/>OpenXR<sp/>positions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(locations-&gt;jointCount<sp/>==<sp/>21)<sp/>{</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>ILLIXR::data_format::ht::WRIST;<sp/>i<sp/>&lt;=<sp/>ILLIXR::data_format::ht::PINKY_TIP;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>locations-&gt;jointLocations[i].locationFlags<sp/>=</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(h_pts.points[i].valid)<sp/>?<sp/>(XR_SPACE_LOCATION_POSITION_VALID_BIT<sp/>|<sp/>flags)<sp/>:<sp/>0;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>locations-&gt;jointLocations[i].pose.position<sp/><sp/><sp/><sp/>=<sp/>{h_pts.<ref refid="structvalid__points_1affe9bb8a8bbca7c432139400793c9b3b" kindref="member">points</ref>[i].x,<sp/>h_pts.points[i].y,<sp/>h_pts.points[i].z};</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>locations-&gt;jointLocations[i].pose.orientation<sp/>=<sp/>{0.,<sp/>0.,<sp/>0.,<sp/>0.};</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>m<sp/>:<sp/>oxr_to_ixr_points)<sp/>{</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>locations-&gt;jointLocations[m.first].locationFlags<sp/>=</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(h_pts.points[m.second].valid)<sp/>?<sp/>(XR_SPACE_LOCATION_POSITION_VALID_BIT<sp/>|<sp/>flags)<sp/>:<sp/>0;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>locations-&gt;jointLocations[m.first].pose.position<sp/><sp/><sp/><sp/>=<sp/>{h_pts.points[m.second].x,<sp/>h_pts.points[m.second].y,</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>h_pts.points[m.second].z};</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>locations-&gt;jointLocations[m.first].pose.orientation<sp/>=<sp/>{0.,<sp/>0.,<sp/>0.,<sp/>0.};</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>pnt<sp/>:<sp/>invalid)<sp/>{</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>locations-&gt;jointLocations[pnt].locationFlags<sp/><sp/><sp/><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>locations-&gt;jointLocations[pnt].pose.position<sp/><sp/><sp/><sp/>=<sp/>{0.,<sp/>0.,<sp/>0.};</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>locations-&gt;jointLocations[pnt].pose.orientation<sp/>=<sp/>{0.,<sp/>0.,<sp/>0.,<sp/>0.};</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>we<sp/>are<sp/>building<sp/>the<sp/>openXR<sp/>interface<sp/>tests</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>ENABLE_OXR_TEST</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/>std::ostringstream<sp/>oss;</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/>oss<sp/>&lt;&lt;<sp/>std::setprecision(6)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;HT<sp/>Data&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>Time:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>data-&gt;time<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(hand_tracker-&gt;<ref refid="structixr__hand__tracker_1aaa013be856968b407637e2ad1216156b" kindref="member">ixr_hand</ref><sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>oss<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>Left<sp/>Hand:&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>oss<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>Right<sp/>Hand:&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(uint32_t<sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>locations-&gt;jointCount;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>oss<sp/>&lt;&lt;<sp/>std::endl</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/><sp/><sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>i<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>locations-&gt;jointLocations[i].pose.position.x<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>locations-&gt;jointLocations[i].pose.position.y<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>locations-&gt;jointLocations[i].pose.position.z<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/><sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>locations-&gt;jointLocations[i].locationFlags;</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/>oss<sp/>&lt;&lt;<sp/>std::endl<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;%s&quot;</highlight><highlight class="normal">,<sp/>oss.str().c_str());</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>XR_SUCCESS;</highlight></codeline>
+<codeline lineno="261"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp"/>
+  </compounddef>
+</doxygen>

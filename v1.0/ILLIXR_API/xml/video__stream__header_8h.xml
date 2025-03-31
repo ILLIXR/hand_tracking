@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="video__stream__header_8h" kind="file" language="C++">
+    <compoundname>video_stream_header.h</compoundname>
+    <includes refid="image__format_8pb_8h" local="yes">mediapipe/framework/formats/image_format.pb.h</includes>
+    <includedby refid="annotation__overlay__calculator_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc</includedby>
+    <includedby refid="labels__to__render__data__calculator_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/labels_to_render_data_calculator.cc</includedby>
+    <includedby refid="opencv__video__decoder__calculator_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc</includedby>
+    <includedby refid="opencv__video__encoder__calculator_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_encoder_calculator.cc</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>mediapipe/framework/formats/image_format.pb.h</label>
+        <link refid="image__format_8pb_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/video_stream_header.h</label>
+        <link refid="video__stream__header_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>google/protobuf/arena.h</label>
+      </node>
+      <node id="9">
+        <label>google/protobuf/arenastring.h</label>
+      </node>
+      <node id="17">
+        <label>google/protobuf/extension_set.h</label>
+      </node>
+      <node id="18">
+        <label>google/protobuf/generated_enum_reflection.h</label>
+      </node>
+      <node id="10">
+        <label>google/protobuf/generated_message_bases.h</label>
+      </node>
+      <node id="14">
+        <label>google/protobuf/generated_message_reflection.h</label>
+      </node>
+      <node id="11">
+        <label>google/protobuf/generated_message_table_driven.h</label>
+      </node>
+      <node id="12">
+        <label>google/protobuf/generated_message_util.h</label>
+      </node>
+      <node id="7">
+        <label>google/protobuf/io/coded_stream.h</label>
+      </node>
+      <node id="15">
+        <label>google/protobuf/message.h</label>
+      </node>
+      <node id="13">
+        <label>google/protobuf/metadata_lite.h</label>
+      </node>
+      <node id="5">
+        <label>google/protobuf/port_def.inc</label>
+      </node>
+      <node id="6">
+        <label>google/protobuf/port_undef.inc</label>
+      </node>
+      <node id="16">
+        <label>google/protobuf/repeated_field.h</label>
+      </node>
+      <node id="19">
+        <label>google/protobuf/unknown_field_set.h</label>
+      </node>
+      <node id="3">
+        <label>limits</label>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structmediapipe_1_1VideoHeader" prot="public">mediapipe::VideoHeader</innerclass>
+    <innernamespace refid="namespacemediapipe">mediapipe</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Copyright<sp/>2019<sp/>The<sp/>MediaPipe<sp/>Authors.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//<sp/>The<sp/>Video<sp/>stream<sp/>header.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>MEDIAPIPE_FRAMEWORK_FORMATS_VIDEO_STREAM_HEADER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MEDIAPIPE_FRAMEWORK_FORMATS_VIDEO_STREAM_HEADER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/formats/image_format.pb.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mediapipe<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//<sp/>This<sp/>defines<sp/>the<sp/>format<sp/>of<sp/>a<sp/>video<sp/>stream<sp/>header.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VideoHeader<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Video<sp/>frame<sp/>format.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>ImageFormat::Format<sp/>format<sp/>=<sp/>ImageFormat::UNKNOWN;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Dimensions<sp/>of<sp/>the<sp/>video<sp/>in<sp/>pixels.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Video<sp/>duration<sp/>in<sp/>seconds.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>NOTE:<sp/>This<sp/>field<sp/>was<sp/>introduced<sp/>after<sp/>the<sp/>others,<sp/>so<sp/>it<sp/>is<sp/>not<sp/>widely</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>supported.<sp/>If<sp/>you<sp/>use<sp/>it,<sp/>make<sp/>sure<sp/>that<sp/>all<sp/>intermediate<sp/>calculators<sp/>pass</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>it<sp/>through.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>duration<sp/>=<sp/>0.0f;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>frame<sp/>rate<sp/>in<sp/>Hz<sp/>at<sp/>which<sp/>the<sp/>video<sp/>frames<sp/>are<sp/>output.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>frame_rate<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>mediapipe</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MEDIAPIPE_FRAMEWORK_FORMATS_VIDEO_STREAM_HEADER_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/video_stream_header.h"/>
+  </compounddef>
+</doxygen>

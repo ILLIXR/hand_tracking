@@ -1,0 +1,1701 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="options__util_8cc" kind="file" language="C++">
+    <compoundname>options_util.cc</compoundname>
+    <includes refid="options__util_8h" local="yes">mediapipe/framework/tool/options_util.h</includes>
+    <includes local="no">memory</includes>
+    <includes local="no">string</includes>
+    <includes local="no">variant</includes>
+    <includes local="yes">absl/strings/ascii.h</includes>
+    <includes local="yes">absl/strings/str_cat.h</includes>
+    <includes local="yes">absl/strings/string_view.h</includes>
+    <includes refid="calculator__context_8h" local="yes">mediapipe/framework/calculator_context.h</includes>
+    <includes refid="input__stream__shard_8h" local="yes">mediapipe/framework/input_stream_shard.h</includes>
+    <includes refid="output__side__packet_8h" local="yes">mediapipe/framework/output_side_packet.h</includes>
+    <includes refid="packet_8h" local="yes">mediapipe/framework/packet.h</includes>
+    <includes refid="packet__set_8h" local="yes">mediapipe/framework/packet_set.h</includes>
+    <includes refid="packet__type_8h" local="yes">mediapipe/framework/packet_type.h</includes>
+    <includes refid="advanced__proto__inc_8h" local="yes">mediapipe/framework/port/advanced_proto_inc.h</includes>
+    <includes refid="port_2status_8h" local="yes">mediapipe/framework/port/status.h</includes>
+    <includes refid="name__util_8h" local="yes">mediapipe/framework/tool/name_util.h</includes>
+    <includes refid="options__field__util_8h" local="yes">mediapipe/framework/tool/options_field_util.h</includes>
+    <includes refid="options__registry_8h" local="yes">mediapipe/framework/tool/options_registry.h</includes>
+    <includes refid="options__syntax__util_8h" local="yes">mediapipe/framework/tool/options_syntax_util.h</includes>
+    <includes refid="proto__util__lite_8h" local="yes">mediapipe/framework/tool/proto_util_lite.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>mediapipe/framework/calculator.pb.h</label>
+        <link refid="calculator_8pb_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>mediapipe/framework/calculator_options.pb.h</label>
+        <link refid="calculator__options_8pb_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>mediapipe/framework/mediapipe_options.pb.h</label>
+        <link refid="mediapipe__options_8pb_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>mediapipe/framework/packet_factory.pb.h</label>
+        <link refid="packet__factory_8pb_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>mediapipe/framework/packet_generator.pb.h</label>
+        <link refid="packet__generator_8pb_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>mediapipe/framework/status_handler.pb.h</label>
+        <link refid="status__handler_8pb_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>mediapipe/framework/stream_handler.pb.h</label>
+        <link refid="stream__handler_8pb_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="141">
+        <label>mediapipe/framework/tool/field_data.pb.h</label>
+        <link refid="field__data_8pb_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="113">
+        <label>mediapipe/framework/calculator_context.h</label>
+        <link refid="calculator__context_8h_source"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="120" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="122" relation="include">
+        </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+      </node>
+      <node id="114">
+        <label>mediapipe/framework/calculator_state.h</label>
+        <link refid="calculator__state_8h_source"/>
+        <childnode refid="94" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="116" relation="include">
+        </childnode>
+        <childnode refid="120" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="110" relation="include">
+        </childnode>
+      </node>
+      <node id="97">
+        <label>mediapipe/framework/collection.h</label>
+        <link refid="collection_8h_source"/>
+        <childnode refid="98" relation="include">
+        </childnode>
+        <childnode refid="99" relation="include">
+        </childnode>
+        <childnode refid="94" relation="include">
+        </childnode>
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="90" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="101" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="108" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+        <childnode refid="93" relation="include">
+        </childnode>
+      </node>
+      <node id="101">
+        <label>mediapipe/framework/collection_item_id.h</label>
+        <link refid="collection__item__id_8h_source"/>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+      </node>
+      <node id="115">
+        <label>mediapipe/framework/counter.h</label>
+        <link refid="counter_8h_source"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="116">
+        <label>mediapipe/framework/counter_factory.h</label>
+        <link refid="counter__factory_8h_source"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="94" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="117" relation="include">
+        </childnode>
+      </node>
+      <node id="91">
+        <label>mediapipe/framework/demangle.h</label>
+        <link refid="demangle_8h_source"/>
+        <childnode refid="92" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="61">
+        <label>mediapipe/framework/deps/canonical_errors.h</label>
+        <link refid="deps_2canonical__errors_8h_source"/>
+        <childnode refid="62" relation="include">
+        </childnode>
+      </node>
+      <node id="118">
+        <label>mediapipe/framework/deps/map_util.h</label>
+        <link refid="deps_2map__util_8h_source"/>
+        <childnode refid="119" relation="include">
+        </childnode>
+        <childnode refid="99" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>mediapipe/framework/deps/no_destructor.h</label>
+        <link refid="no__destructor_8h_source"/>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>mediapipe/framework/deps/registration.h</label>
+        <link refid="registration_8h_source"/>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+      </node>
+      <node id="58">
+        <label>mediapipe/framework/deps/registration_token.h</label>
+        <link refid="registration__token_8h_source"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+      </node>
+      <node id="84">
+        <label>mediapipe/framework/deps/safe_int.h</label>
+        <link refid="safe__int_8h_source"/>
+        <childnode refid="85" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="86" relation="include">
+        </childnode>
+      </node>
+      <node id="79">
+        <label>mediapipe/framework/deps/source_location.h</label>
+        <link refid="deps_2source__location_8h_source"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="62">
+        <label>mediapipe/framework/deps/status.h</label>
+        <link refid="deps_2status_8h_source"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+      </node>
+      <node id="77">
+        <label>mediapipe/framework/deps/status_builder.h</label>
+        <link refid="deps_2status__builder_8h_source"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+      </node>
+      <node id="81">
+        <label>mediapipe/framework/deps/status_macros.h</label>
+        <link refid="deps_2status__macros_8h_source"/>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+      </node>
+      <node id="86">
+        <label>mediapipe/framework/deps/strong_int.h</label>
+        <link refid="strong__int_8h_source"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="87" relation="include">
+        </childnode>
+      </node>
+      <node id="120">
+        <label>mediapipe/framework/graph_service.h</label>
+        <link refid="graph__service_8h_source"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+      </node>
+      <node id="121">
+        <label>mediapipe/framework/graph_service_manager.h</label>
+        <link refid="graph__service__manager_8h_source"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="120" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>mediapipe/framework/input_stream.h</label>
+        <link refid="input__stream_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>mediapipe/framework/input_stream_shard.h</label>
+        <link refid="input__stream__shard_8h_source"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="127">
+        <label>mediapipe/framework/output_side_packet.h</label>
+        <link refid="output__side__packet_8h_source"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="124">
+        <label>mediapipe/framework/output_stream.h</label>
+        <link refid="output__stream_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+      </node>
+      <node id="122">
+        <label>mediapipe/framework/output_stream_shard.h</label>
+        <link refid="output__stream__shard_8h_source"/>
+        <childnode refid="123" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="125" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>mediapipe/framework/packet.h</label>
+        <link refid="packet_8h_source"/>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+        <childnode refid="89" relation="include">
+        </childnode>
+        <childnode refid="93" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+      </node>
+      <node id="96">
+        <label>mediapipe/framework/packet_set.h</label>
+        <link refid="packet__set_8h_source"/>
+        <childnode refid="97" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="125">
+        <label>mediapipe/framework/packet_type.h</label>
+        <link refid="packet__type_8h_source"/>
+        <childnode refid="94" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="90" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="126" relation="include">
+        </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="89" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+        <childnode refid="93" relation="include">
+        </childnode>
+      </node>
+      <node id="67">
+        <label>mediapipe/framework/port.h</label>
+        <link refid="port_8h_source"/>
+      </node>
+      <node id="128">
+        <label>mediapipe/framework/port/advanced_proto_inc.h</label>
+        <link refid="advanced__proto__inc_8h_source"/>
+        <childnode refid="129" relation="include">
+        </childnode>
+        <childnode refid="130" relation="include">
+        </childnode>
+        <childnode refid="131" relation="include">
+        </childnode>
+        <childnode refid="132" relation="include">
+        </childnode>
+        <childnode refid="133" relation="include">
+        </childnode>
+        <childnode refid="134" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="135" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+      </node>
+      <node id="135">
+        <label>mediapipe/framework/port/advanced_proto_lite_inc.h</label>
+        <link refid="advanced__proto__lite__inc_8h_source"/>
+        <childnode refid="136" relation="include">
+        </childnode>
+        <childnode refid="137" relation="include">
+        </childnode>
+        <childnode refid="138" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+      </node>
+      <node id="109">
+        <label>mediapipe/framework/port/any_proto.h</label>
+        <link refid="any__proto_8h_source"/>
+        <childnode refid="104" relation="include">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>mediapipe/framework/port/canonical_errors.h</label>
+        <link refid="port_2canonical__errors_8h_source"/>
+        <childnode refid="61" relation="include">
+        </childnode>
+      </node>
+      <node id="104">
+        <label>mediapipe/framework/port/core_proto_inc.h</label>
+        <link refid="core__proto__inc_8h_source"/>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+      </node>
+      <node id="68">
+        <label>mediapipe/framework/port/logging.h</label>
+        <link refid="logging_8h_source"/>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+      </node>
+      <node id="117">
+        <label>mediapipe/framework/port/map_util.h</label>
+        <link refid="port_2map__util_8h_source"/>
+        <childnode refid="118" relation="include">
+        </childnode>
+      </node>
+      <node id="87">
+        <label>mediapipe/framework/port/port.h</label>
+        <link refid="port_2port_8h_source"/>
+        <childnode refid="88" relation="include">
+        </childnode>
+      </node>
+      <node id="73">
+        <label>mediapipe/framework/port/proto_ns.h</label>
+        <link refid="proto__ns_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+      </node>
+      <node id="75">
+        <label>mediapipe/framework/port/status.h</label>
+        <link refid="port_2status_8h_source"/>
+        <childnode refid="62" relation="include">
+        </childnode>
+      </node>
+      <node id="76">
+        <label>mediapipe/framework/port/status_builder.h</label>
+        <link refid="port_2status__builder_8h_source"/>
+        <childnode refid="77" relation="include">
+        </childnode>
+      </node>
+      <node id="80">
+        <label>mediapipe/framework/port/status_macros.h</label>
+        <link refid="port_2status__macros_8h_source"/>
+        <childnode refid="81" relation="include">
+        </childnode>
+      </node>
+      <node id="66">
+        <label>mediapipe/framework/port/statusor.h</label>
+        <link refid="statusor_8h_source"/>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="82">
+        <label>mediapipe/framework/timestamp.h</label>
+        <link refid="timestamp_8h_source"/>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="84" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+      </node>
+      <node id="139">
+        <label>mediapipe/framework/tool/name_util.h</label>
+        <link refid="name__util_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="140">
+        <label>mediapipe/framework/tool/options_field_util.h</label>
+        <link refid="options__field__util_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="125" relation="include">
+        </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="141" relation="include">
+        </childnode>
+        <childnode refid="142" relation="include">
+        </childnode>
+      </node>
+      <node id="110">
+        <label>mediapipe/framework/tool/options_map.h</label>
+        <link refid="options__map_8h_source"/>
+        <childnode refid="94" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="89" relation="include">
+        </childnode>
+      </node>
+      <node id="142">
+        <label>mediapipe/framework/tool/options_registry.h</label>
+        <link refid="options__registry_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
+        <childnode refid="141" relation="include">
+        </childnode>
+      </node>
+      <node id="143">
+        <label>mediapipe/framework/tool/options_syntax_util.h</label>
+        <link refid="options__syntax__util_8h_source"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="125" relation="include">
+        </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="140" relation="include">
+        </childnode>
+        <childnode refid="142" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_util.cc</label>
+        <link refid="options__util_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="111" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="113" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="127" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="125" relation="include">
+        </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="139" relation="include">
+        </childnode>
+        <childnode refid="140" relation="include">
+        </childnode>
+        <childnode refid="142" relation="include">
+        </childnode>
+        <childnode refid="143" relation="include">
+        </childnode>
+        <childnode refid="144" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>mediapipe/framework/tool/options_util.h</label>
+        <link refid="options__util_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="110" relation="include">
+        </childnode>
+      </node>
+      <node id="144">
+        <label>mediapipe/framework/tool/proto_util_lite.h</label>
+        <link refid="proto__util__lite_8h_source"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="135" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="141" relation="include">
+        </childnode>
+      </node>
+      <node id="95">
+        <label>mediapipe/framework/tool/status_util.h</label>
+        <link refid="status__util_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+      </node>
+      <node id="102">
+        <label>mediapipe/framework/tool/tag_map.h</label>
+        <link refid="tag__map_8h_source"/>
+        <childnode refid="94" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="101" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+      </node>
+      <node id="108">
+        <label>mediapipe/framework/tool/tag_map_helper.h</label>
+        <link refid="tag__map__helper_8h_source"/>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+      </node>
+      <node id="89">
+        <label>mediapipe/framework/tool/type_util.h</label>
+        <link refid="type__util_8h_source"/>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="90" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="91" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+      </node>
+      <node id="107">
+        <label>mediapipe/framework/tool/validate_name.h</label>
+        <link refid="validate__name_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+      </node>
+      <node id="93">
+        <label>mediapipe/framework/type_map.h</label>
+        <link refid="type__map_8h_source"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="94" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="91" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+        <childnode refid="89" relation="include">
+        </childnode>
+      </node>
+      <node id="72">
+        <label>mediapipe/util/unused.hpp</label>
+        <link refid="unused_8hpp_source"/>
+      </node>
+      <node id="64">
+        <label>absl/base/attributes.h</label>
+      </node>
+      <node id="31">
+        <label>absl/base/macros.h</label>
+      </node>
+      <node id="88">
+        <label>absl/base/port.h</label>
+      </node>
+      <node id="51">
+        <label>absl/base/thread_annotations.h</label>
+      </node>
+      <node id="103">
+        <label>absl/container/btree_map.h</label>
+      </node>
+      <node id="52">
+        <label>absl/container/flat_hash_map.h</label>
+      </node>
+      <node id="53">
+        <label>absl/container/flat_hash_set.h</label>
+      </node>
+      <node id="38">
+        <label>absl/log/absl_check.h</label>
+      </node>
+      <node id="39">
+        <label>absl/log/absl_log.h</label>
+      </node>
+      <node id="40">
+        <label>absl/memory/memory.h</label>
+      </node>
+      <node id="54">
+        <label>absl/meta/type_traits.h</label>
+      </node>
+      <node id="65">
+        <label>absl/status/status.h</label>
+      </node>
+      <node id="41">
+        <label>absl/status/statusor.h</label>
+      </node>
+      <node id="112">
+        <label>absl/strings/ascii.h</label>
+      </node>
+      <node id="70">
+        <label>absl/strings/has_ostream_operator.h</label>
+      </node>
+      <node id="42">
+        <label>absl/strings/str_cat.h</label>
+      </node>
+      <node id="55">
+        <label>absl/strings/str_join.h</label>
+      </node>
+      <node id="56">
+        <label>absl/strings/str_split.h</label>
+      </node>
+      <node id="57">
+        <label>absl/strings/string_view.h</label>
+      </node>
+      <node id="43">
+        <label>absl/synchronization/mutex.h</label>
+      </node>
+      <node id="69">
+        <label>absl/time/time.h</label>
+      </node>
+      <node id="126">
+        <label>absl/types/span.h</label>
+      </node>
+      <node id="46">
+        <label>algorithm</label>
+      </node>
+      <node id="83">
+        <label>cmath</label>
+      </node>
+      <node id="33">
+        <label>cstddef</label>
+      </node>
+      <node id="34">
+        <label>cstdint</label>
+      </node>
+      <node id="98">
+        <label>cstdlib</label>
+      </node>
+      <node id="47">
+        <label>functional</label>
+      </node>
+      <node id="71">
+        <label>glog/logging.h</label>
+      </node>
+      <node id="21">
+        <label>google/protobuf/any.pb.h</label>
+      </node>
+      <node id="9">
+        <label>google/protobuf/arena.h</label>
+      </node>
+      <node id="10">
+        <label>google/protobuf/arenastring.h</label>
+      </node>
+      <node id="129">
+        <label>google/protobuf/descriptor.h</label>
+      </node>
+      <node id="130">
+        <label>google/protobuf/descriptor.pb.h</label>
+      </node>
+      <node id="131">
+        <label>google/protobuf/descriptor_database.h</label>
+      </node>
+      <node id="132">
+        <label>google/protobuf/dynamic_message.h</label>
+      </node>
+      <node id="17">
+        <label>google/protobuf/extension_set.h</label>
+      </node>
+      <node id="18">
+        <label>google/protobuf/generated_enum_reflection.h</label>
+      </node>
+      <node id="14">
+        <label>google/protobuf/generated_message_reflection.h</label>
+      </node>
+      <node id="11">
+        <label>google/protobuf/generated_message_table_driven.h</label>
+      </node>
+      <node id="12">
+        <label>google/protobuf/generated_message_util.h</label>
+      </node>
+      <node id="8">
+        <label>google/protobuf/io/coded_stream.h</label>
+      </node>
+      <node id="133">
+        <label>google/protobuf/io/gzip_stream.h</label>
+      </node>
+      <node id="105">
+        <label>google/protobuf/io/tokenizer.h</label>
+      </node>
+      <node id="136">
+        <label>google/protobuf/io/zero_copy_stream.h</label>
+      </node>
+      <node id="134">
+        <label>google/protobuf/io/zero_copy_stream_impl.h</label>
+      </node>
+      <node id="137">
+        <label>google/protobuf/io/zero_copy_stream_impl_lite.h</label>
+      </node>
+      <node id="15">
+        <label>google/protobuf/message.h</label>
+      </node>
+      <node id="74">
+        <label>google/protobuf/message_lite.h</label>
+      </node>
+      <node id="13">
+        <label>google/protobuf/metadata_lite.h</label>
+      </node>
+      <node id="6">
+        <label>google/protobuf/port_def.inc</label>
+      </node>
+      <node id="7">
+        <label>google/protobuf/port_undef.inc</label>
+      </node>
+      <node id="16">
+        <label>google/protobuf/repeated_field.h</label>
+      </node>
+      <node id="106">
+        <label>google/protobuf/text_format.h</label>
+      </node>
+      <node id="19">
+        <label>google/protobuf/unknown_field_set.h</label>
+      </node>
+      <node id="138">
+        <label>google/protobuf/wire_format_lite.h</label>
+      </node>
+      <node id="63">
+        <label>iosfwd</label>
+      </node>
+      <node id="99">
+        <label>iterator</label>
+      </node>
+      <node id="4">
+        <label>limits</label>
+      </node>
+      <node id="85">
+        <label>limits.h</label>
+      </node>
+      <node id="123">
+        <label>list</label>
+      </node>
+      <node id="94">
+        <label>map</label>
+      </node>
+      <node id="35">
+        <label>memory</label>
+      </node>
+      <node id="36">
+        <label>ostream</label>
+      </node>
+      <node id="28">
+        <label>queue</label>
+      </node>
+      <node id="100">
+        <label>set</label>
+      </node>
+      <node id="78">
+        <label>sstream</label>
+      </node>
+      <node id="119">
+        <label>stddef.h</label>
+      </node>
+      <node id="92">
+        <label>stdlib.h</label>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+      <node id="48">
+        <label>tuple</label>
+      </node>
+      <node id="37">
+        <label>type_traits</label>
+      </node>
+      <node id="90">
+        <label>typeinfo</label>
+      </node>
+      <node id="49">
+        <label>unordered_map</label>
+      </node>
+      <node id="50">
+        <label>unordered_set</label>
+      </node>
+      <node id="29">
+        <label>utility</label>
+      </node>
+      <node id="111">
+        <label>variant</label>
+      </node>
+      <node id="59">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacemediapipe">mediapipe</innernamespace>
+    <innernamespace refid="namespacemediapipe_1_1tool">mediapipe::tool</innernamespace>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="options__util_8cc_1a1b4af4ff8f4e74c0ef689fde40e409d7" prot="public" static="no">
+        <name>ASSIGN_IF_OK</name>
+        <param><defname>lhs</defname></param>
+        <param><defname>rexpr</defname></param>
+        <initializer>  {                              \
+    auto statusor = (rexpr);     \
+    if (statusor.ok()) {         \
+      lhs = statusor.value();    \
+    }                            \
+  }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_util.cc" line="59" column="9" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_util.cc" bodystart="59" bodyend="65"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/tool/options_util.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;variant&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/strings/ascii.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/strings/str_cat.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/strings/string_view.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/calculator_context.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/input_stream_shard.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/output_side_packet.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/packet.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/packet_set.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/packet_type.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/port/advanced_proto_inc.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/port/status.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/tool/name_util.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/tool/options_field_util.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/tool/options_registry.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/tool/options_syntax_util.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/tool/proto_util_lite.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mediapipe<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">tool<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">options_field_util::FieldPath;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">options_field_util::GetGraphOptions;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">options_field_util::GetNodeOptions;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">options_field_util::MergeFieldValues;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">options_field_util::MergeMessages;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Returns<sp/>the<sp/>type<sp/>for<sp/>the<sp/>root<sp/>options<sp/>message<sp/>if<sp/>specified.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal">std::string<sp/>ExtensionType(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>option_fields_tag)<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>OptionsSyntaxUtil<sp/>syntax_util;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>options_field_util::FieldPath<sp/>field_path<sp/>=</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>syntax_util.OptionFieldPath(option_fields_tag,<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>std::string<sp/>result<sp/>=<sp/>!field_path.empty()<sp/>?<sp/>field_path[0].extension_type<sp/>:<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!result.empty()<sp/>?<sp/>result<sp/>:<sp/></highlight><highlight class="stringliteral">&quot;*&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Constructs<sp/>a<sp/>FieldPath<sp/>for<sp/>field<sp/>names<sp/>starting<sp/>at<sp/>a<sp/>message<sp/>type.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">FieldPath<sp/>GetPath(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>path_tag,</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>message_type)<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/>OptionsSyntaxUtil<sp/>syntax_util;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Descriptor*<sp/>descriptor<sp/>=</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>OptionsRegistry::GetProtobufDescriptor(message_type);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>syntax_util.OptionFieldPath(path_tag,<sp/>descriptor);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Returns<sp/>the<sp/>message<sp/>type<sp/>for<sp/>a<sp/>FieldData.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal">std::string<sp/>MessageType(FieldData<sp/>message)<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>options_field_util::ParseTypeUrl(</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string(message.message_value().type_url()));</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Assigns<sp/>the<sp/>value<sp/>from<sp/>a<sp/>StatusOr<sp/>if<sp/>avialable.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ASSIGN_IF_OK(lhs,<sp/>rexpr)<sp/>\</highlight></codeline>
+<codeline lineno="60"><highlight class="preprocessor"><sp/><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="61"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>auto<sp/>statusor<sp/>=<sp/>(rexpr);<sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="62"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>if<sp/>(statusor.ok())<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="63"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/>lhs<sp/>=<sp/>statusor.value();<sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="64"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="65"><highlight class="preprocessor"><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Copy<sp/>literal<sp/>options<sp/>from<sp/>graph_options<sp/>to<sp/>node_options.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal">absl::Status<sp/>CopyLiteralOptions(CalculatorGraphConfig::Node<sp/>parent_node,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CalculatorGraphConfig*<sp/>config)<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>absl::Status<sp/>status;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>FieldData<sp/>graph_data<sp/>=<sp/>options_field_util::AsFieldData(*config);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/>FieldData<sp/>parent_data<sp/>=<sp/>options_field_util::AsFieldData(parent_node);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>OptionsSyntaxUtil<sp/>syntax_util;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>node<sp/>:<sp/>*config-&gt;mutable_node())<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>option_def<sp/>:<sp/>node.option_value())<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>FieldData<sp/>node_data<sp/>=<sp/>options_field_util::AsFieldData(node);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;absl::string_view&gt;<sp/>tag_and_name<sp/>=</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>syntax_util.StrSplitTags(option_def);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>graph_tag<sp/>=<sp/>syntax_util.OptionFieldsTag(tag_and_name[1]);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>graph_extension_type<sp/>=<sp/>ExtensionType(graph_tag);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>node_tag<sp/>=<sp/>syntax_util.OptionFieldsTag(tag_and_name[0]);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>node_extension_type<sp/>=<sp/>ExtensionType(node_tag);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>FieldData<sp/>graph_options;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ASSIGN_IF_OK(graph_options,</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GetGraphOptions(graph_data,<sp/>graph_extension_type));</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>FieldData<sp/>parent_options;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ASSIGN_IF_OK(parent_options,</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GetNodeOptions(parent_data,<sp/>graph_extension_type));</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>MP_ASSIGN_OR_RETURN(graph_options,</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MergeMessages(graph_options,<sp/>parent_options));</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>FieldData<sp/>node_options;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>MP_ASSIGN_OR_RETURN(node_options,</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GetNodeOptions(node_data,<sp/>node_extension_type));</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!node_options.has_message_value()<sp/>||</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>!graph_options.has_message_value())<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">continue</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>FieldPath<sp/>graph_path<sp/>=<sp/>GetPath(graph_tag,<sp/>MessageType(graph_options));</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>FieldPath<sp/>node_path<sp/>=<sp/>GetPath(node_tag,<sp/>MessageType(node_options));</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;FieldData&gt;<sp/>packet_data;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>MP_ASSIGN_OR_RETURN(packet_data,</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GetFieldValues(graph_options,<sp/>graph_path));</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>MP_RETURN_IF_ERROR(</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MergeFieldValues(node_options,<sp/>node_path,<sp/>packet_data));</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>options_field_util::SetOptionsMessage(node_options,<sp/>&amp;node);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>node.clear_option_value();</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>status;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Makes<sp/>all<sp/>configuration<sp/>modifications<sp/>needed<sp/>for<sp/>graph<sp/>options.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal">absl::Status<sp/>DefineGraphOptions(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>CalculatorGraphConfig::Node&amp;<sp/>parent_node,</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CalculatorGraphConfig*<sp/>config)<sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>MP_RETURN_IF_ERROR(CopyLiteralOptions(parent_node,<sp/>config));</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::OkStatus();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>tool</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>mediapipe</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_util.cc"/>
+  </compounddef>
+</doxygen>

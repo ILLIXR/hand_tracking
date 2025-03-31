@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="deps_2topologicalsorter_8h" kind="file" language="C++">
+    <compoundname>topologicalsorter.h</compoundname>
+    <includes local="no">functional</includes>
+    <includes local="no">queue</includes>
+    <includes local="no">vector</includes>
+    <includedby refid="topologicalsorter_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.cc</includedby>
+    <includedby refid="port_2topologicalsorter_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/port/topologicalsorter.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.h</label>
+        <link refid="deps_2topologicalsorter_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>functional</label>
+      </node>
+      <node id="3">
+        <label>queue</label>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.h</label>
+        <link refid="deps_2topologicalsorter_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/port/topologicalsorter.h</label>
+        <link refid="port_2topologicalsorter_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classmediapipe_1_1TopologicalSorter" prot="public">mediapipe::TopologicalSorter</innerclass>
+    <innernamespace refid="namespacemediapipe">mediapipe</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Copyright<sp/>2019<sp/>The<sp/>MediaPipe<sp/>Authors.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>MEDIAPIPE_DEPS_TOPOLOGICALSORTER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MEDIAPIPE_DEPS_TOPOLOGICALSORTER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;functional&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;queue&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mediapipe<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TopologicalSorter<sp/>provides<sp/>topologically<sp/>sorted<sp/>traversal<sp/>of<sp/>the<sp/>nodes<sp/>of<sp/>a</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">//<sp/>directed<sp/>acyclic<sp/>graph<sp/>(DAG)<sp/>with<sp/>up<sp/>to<sp/>INT_MAX<sp/>nodes.<sp/>The<sp/>sorter<sp/>requires</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">//<sp/>that<sp/>all<sp/>nodes<sp/>and<sp/>edges<sp/>be<sp/>added<sp/>before<sp/>traversing<sp/>the<sp/>nodes,<sp/>otherwise<sp/>it</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment">//<sp/>will<sp/>die<sp/>with<sp/>a<sp/>fatal<sp/>error.<sp/>If<sp/>a<sp/>cycle<sp/>is<sp/>detected<sp/>during<sp/>the<sp/>traversal,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">//<sp/>the<sp/>sorter<sp/>will<sp/>stop<sp/>the<sp/>traversal,<sp/>and<sp/>set<sp/>the<sp/>cycle_nodes<sp/>vector.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Sample<sp/>usage:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>TopologicalSorter<sp/>sorter(num_nodes);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>sorter.AddEdge(ObjToIndex(obj_a),<sp/>ObjToIndex(obj_b));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>sorter.AddEdge(ObjToIndex(obj_a),<sp/>ObjToIndex(obj_c));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>sorter.AddEdge(ObjToIndex(obj_b),<sp/>ObjToIndex(obj_c));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>int<sp/>idx;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>bool<sp/>cyclic<sp/>=<sp/>false;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>std::vector&lt;int&gt;<sp/>cycle_nodes;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>while<sp/>(sorter.GetNext(&amp;idx,<sp/>&amp;cyclic,<sp/>&amp;cycle_nodes))<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>if<sp/>(cyclic)<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>PrintCycleNodes(cycle_nodes);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>}<sp/>else<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>ABSL_LOG(INFO)<sp/>&lt;&lt;<sp/>idx;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">TopologicalSorter<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/>TopologicalSorter(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_nodes);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>TopologicalSorter(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>TopologicalSorter&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/>TopologicalSorter&amp;<sp/>operator=(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>TopologicalSorter&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Adds<sp/>a<sp/>directed<sp/>edge<sp/>with<sp/>the<sp/>given<sp/>endpoints<sp/>to<sp/>the<sp/>graph.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>AddEdge(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>from,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>to);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Visits<sp/>the<sp/>least<sp/>node<sp/>in<sp/>topological<sp/>order<sp/>over<sp/>the<sp/>current<sp/>set<sp/>of</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>nodes<sp/>and<sp/>edges,<sp/>and<sp/>marks<sp/>that<sp/>node<sp/>as<sp/>visited.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>repeated<sp/>calls<sp/>to<sp/>GetNext()<sp/>will<sp/>visit<sp/>all<sp/>nodes<sp/>in<sp/>order.<sp/><sp/>Writes<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>newly<sp/>visited<sp/>node<sp/>into<sp/>*node_index<sp/>and<sp/>returns<sp/>true<sp/>with<sp/>*cyclic<sp/>set<sp/>to</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>false<sp/>(assuming<sp/>the<sp/>graph<sp/>has<sp/>not<sp/>yet<sp/>been<sp/>discovered<sp/>to<sp/>be<sp/>cyclic).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>false<sp/>if<sp/>all<sp/>nodes<sp/>have<sp/>been<sp/>visited,<sp/>or<sp/>if<sp/>the<sp/>graph<sp/>is</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>discovered<sp/>to<sp/>be<sp/>cyclic,<sp/>in<sp/>which<sp/>case<sp/>*cyclic<sp/>is<sp/>also<sp/>set<sp/>to<sp/>true.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>GetNext(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/>node_index,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal">*<sp/>cyclic,</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;int&gt;*<sp/>output_cycle_nodes);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Finds<sp/>the<sp/>cycle.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>FindCycle(std::vector&lt;int&gt;*<sp/>cycle_nodes);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_nodes_;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Outoging<sp/>adjacency<sp/>lists.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>std::vector&lt;std::vector&lt;int&gt;&gt;<sp/>adjacency_lists_;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>true,<sp/>no<sp/>more<sp/>AddEdge()<sp/>can<sp/>be<sp/>called.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>traversal_started_<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_nodes_left_;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>std::priority_queue&lt;int,<sp/>std::vector&lt;int&gt;,<sp/>std::greater&lt;int&gt;&gt;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>nodes_with_zero_indegree_;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/>std::vector&lt;int&gt;<sp/>indegree_;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>mediapipe</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MEDIAPIPE_DEPS_TOPOLOGICALSORTER_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.h"/>
+  </compounddef>
+</doxygen>

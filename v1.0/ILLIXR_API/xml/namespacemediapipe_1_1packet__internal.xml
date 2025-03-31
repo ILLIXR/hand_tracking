@@ -1,0 +1,328 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespacemediapipe_1_1packet__internal" kind="namespace" language="C++">
+    <compoundname>mediapipe::packet_internal</compoundname>
+    <innerclass refid="classmediapipe_1_1packet__internal_1_1ForeignHolder" prot="private">mediapipe::packet_internal::ForeignHolder</innerclass>
+    <innerclass refid="classmediapipe_1_1packet__internal_1_1Holder" prot="private">mediapipe::packet_internal::Holder</innerclass>
+    <innerclass refid="classmediapipe_1_1packet__internal_1_1HolderBase" prot="private">mediapipe::packet_internal::HolderBase</innerclass>
+    <innerclass refid="structmediapipe_1_1packet__internal_1_1HolderPayloadRegistrator_3_01T_00_01typename_01std_1_1enacfc53d7d7c640e28d7a13a49f3458433" prot="private">mediapipe::packet_internal::HolderPayloadRegistrator&lt; T, typename std::enable_if&lt; is_concrete_proto_t&lt; T &gt;{}&gt;::type &gt;</innerclass>
+    <innerclass refid="structmediapipe_1_1packet__internal_1_1is__concrete__proto__t" prot="private">mediapipe::packet_internal::is_concrete_proto_t</innerclass>
+    <innerclass refid="structmediapipe_1_1packet__internal_1_1is__proto__vector" prot="private">mediapipe::packet_internal::is_proto_vector</innerclass>
+    <innerclass refid="structmediapipe_1_1packet__internal_1_1is__proto__vector_3_01std_1_1vector_3_01ItemT_00_01Allocator_01_4_01_4" prot="private">mediapipe::packet_internal::is_proto_vector&lt; std::vector&lt; ItemT, Allocator &gt; &gt;</innerclass>
+    <innerclass refid="classmediapipe_1_1packet__internal_1_1MessageHolderRegistry" prot="private">mediapipe::packet_internal::MessageHolderRegistry</innerclass>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="packet_8h_1a3dc35a6ddd1118218eda9312aa2809d9" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>mediapipe::packet_internal::Enable</definition>
+        <argsstring></argsstring>
+        <name>Enable</name>
+        <qualifiedname>mediapipe::packet_internal::Enable</qualifiedname>
+        <initializer>= void&gt;
+struct HolderPayloadRegistrator {}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h" line="495" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h" bodystart="495" bodyend="496"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="packet_8cc_1aed14dad09ed44b7bfba176fcf875a2b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Packet</type>
+        <definition>Packet mediapipe::packet_internal::Create</definition>
+        <argsstring>(HolderBase *holder)</argsstring>
+        <name>Create</name>
+        <qualifiedname>mediapipe::packet_internal::Create</qualifiedname>
+        <param>
+          <type>HolderBase *</type>
+          <declname>holder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.cc" line="31" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.cc" bodystart="31" bodyend="35" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h" declline="56" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="packet_8cc_1a019e7481b7df04fa01c3e8761ddf50fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Packet</type>
+        <definition>Packet mediapipe::packet_internal::Create</definition>
+        <argsstring>(HolderBase *holder, Timestamp timestamp)</argsstring>
+        <name>Create</name>
+        <qualifiedname>mediapipe::packet_internal::Create</qualifiedname>
+        <param>
+          <type>HolderBase *</type>
+          <declname>holder</declname>
+        </param>
+        <param>
+          <type>Timestamp</type>
+          <declname>timestamp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.cc" line="37" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.cc" bodystart="37" bodyend="42" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h" declline="57" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="packet_8cc_1a01cac7753af9367ce0699d1e31f1bcbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Packet</type>
+        <definition>Packet mediapipe::packet_internal::Create</definition>
+        <argsstring>(std::shared_ptr&lt; HolderBase &gt; holder, Timestamp timestamp)</argsstring>
+        <name>Create</name>
+        <qualifiedname>mediapipe::packet_internal::Create</qualifiedname>
+        <param>
+          <type>std::shared_ptr&lt; HolderBase &gt;</type>
+          <declname>holder</declname>
+        </param>
+        <param>
+          <type>Timestamp</type>
+          <declname>timestamp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.cc" line="44" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.cc" bodystart="44" bodyend="49" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h" declline="58" declcolumn="8"/>
+      </memberdef>
+      <memberdef kind="function" id="packet_8cc_1a0a2842f883fe246afc39b21641cf24de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const HolderBase *</type>
+        <definition>const HolderBase * mediapipe::packet_internal::GetHolder</definition>
+        <argsstring>(const Packet &amp;packet)</argsstring>
+        <name>GetHolder</name>
+        <qualifiedname>mediapipe::packet_internal::GetHolder</qualifiedname>
+        <param>
+          <type>const Packet &amp;</type>
+          <declname>packet</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.cc" line="51" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.cc" bodystart="51" bodyend="53" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h" declline="59" declcolumn="18"/>
+      </memberdef>
+      <memberdef kind="function" id="packet_8cc_1afe31f5b1d78bd247268eff74be7ea78f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::StatusOr&lt; Packet &gt;</type>
+        <definition>absl::StatusOr&lt; Packet &gt; mediapipe::packet_internal::PacketFromDynamicProto</definition>
+        <argsstring>(const std::string &amp;type_name, const std::string &amp;serialized)</argsstring>
+        <name>PacketFromDynamicProto</name>
+        <qualifiedname>mediapipe::packet_internal::PacketFromDynamicProto</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>type_name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>serialized</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.cc" line="55" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.cc" bodystart="55" bodyend="65" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h" declline="62" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="packet_8h_1acc11f23cfa8c111affda3621d3454ef0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::shared_ptr&lt; HolderBase &gt; &amp;</type>
+        <definition>const std::shared_ptr&lt; HolderBase &gt; &amp; mediapipe::packet_internal::GetHolderShared</definition>
+        <argsstring>(const Packet &amp;packet)</argsstring>
+        <name>GetHolderShared</name>
+        <qualifiedname>mediapipe::packet_internal::GetHolderShared</qualifiedname>
+        <param>
+          <type>const Packet &amp;</type>
+          <declname>packet</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h" line="794" column="30" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h" bodystart="794" bodyend="797" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h" declline="60" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="packet_8h_1a41f81f0d10584ebc0855a20158efc38c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::shared_ptr&lt; HolderBase &gt;</type>
+        <definition>std::shared_ptr&lt; HolderBase &gt; mediapipe::packet_internal::GetHolderShared</definition>
+        <argsstring>(Packet &amp;&amp;packet)</argsstring>
+        <name>GetHolderShared</name>
+        <qualifiedname>mediapipe::packet_internal::GetHolderShared</qualifiedname>
+        <param>
+          <type>Packet &amp;&amp;</type>
+          <declname>packet</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h" line="799" column="24" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h" bodystart="799" bodyend="801" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h" declline="61" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="packet_8h_1ae4a15f66a34c3cf7da080260b803d3cb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>const proto_ns::MessageLite *</type>
+        <definition>const proto_ns::MessageLite * mediapipe::packet_internal::ConvertToProtoMessageLite</definition>
+        <argsstring>(const T *data, std::false_type)</argsstring>
+        <name>ConvertToProtoMessageLite</name>
+        <qualifiedname>mediapipe::packet_internal::ConvertToProtoMessageLite</qualifiedname>
+        <param>
+          <type>const T *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>std::false_type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h" line="429" column="29" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h" bodystart="429" bodyend="433"/>
+      </memberdef>
+      <memberdef kind="function" id="packet_8h_1a330595ce1588fbcb0e922b7084a4978c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>const proto_ns::MessageLite *</type>
+        <definition>const proto_ns::MessageLite * mediapipe::packet_internal::ConvertToProtoMessageLite</definition>
+        <argsstring>(const T *data, std::true_type)</argsstring>
+        <name>ConvertToProtoMessageLite</name>
+        <qualifiedname>mediapipe::packet_internal::ConvertToProtoMessageLite</qualifiedname>
+        <param>
+          <type>const T *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>std::true_type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h" line="436" column="29" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h" bodystart="436" bodyend="439"/>
+      </memberdef>
+      <memberdef kind="function" id="packet_8h_1abe4b1c18d686a9a90a63e0a5b5d69173" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>StatusOr&lt; std::vector&lt; const proto_ns::MessageLite * &gt; &gt;</type>
+        <definition>StatusOr&lt; std::vector&lt; const proto_ns::MessageLite * &gt; &gt; mediapipe::packet_internal::ConvertToVectorOfProtoMessageLitePtrs</definition>
+        <argsstring>(const T *data, std::false_type)</argsstring>
+        <name>ConvertToVectorOfProtoMessageLitePtrs</name>
+        <qualifiedname>mediapipe::packet_internal::ConvertToVectorOfProtoMessageLitePtrs</qualifiedname>
+        <param>
+          <type>const T *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>std::false_type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h" line="453" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h" bodystart="453" bodyend="459"/>
+      </memberdef>
+      <memberdef kind="function" id="packet_8h_1a1b75b4597042db961f57f1e9c10972cd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>StatusOr&lt; std::vector&lt; const proto_ns::MessageLite * &gt; &gt;</type>
+        <definition>StatusOr&lt; std::vector&lt; const proto_ns::MessageLite * &gt; &gt; mediapipe::packet_internal::ConvertToVectorOfProtoMessageLitePtrs</definition>
+        <argsstring>(const T *data, std::true_type)</argsstring>
+        <name>ConvertToVectorOfProtoMessageLitePtrs</name>
+        <qualifiedname>mediapipe::packet_internal::ConvertToVectorOfProtoMessageLitePtrs</qualifiedname>
+        <param>
+          <type>const T *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>std::true_type</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h" line="463" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h" bodystart="463" bodyend="471"/>
+      </memberdef>
+      <memberdef kind="function" id="packet_8h_1aa38dbc3e6b1c767f8a8357f9c399e883" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::unique_ptr&lt; HolderBase &gt;</type>
+        <definition>std::unique_ptr&lt; HolderBase &gt; mediapipe::packet_internal::CreateMessageHolder</definition>
+        <argsstring>()</argsstring>
+        <name>CreateMessageHolder</name>
+        <qualifiedname>mediapipe::packet_internal::CreateMessageHolder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h" line="486" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h" bodystart="486" bodyend="488"/>
+      </memberdef>
+      <memberdef kind="function" id="packet_8h_1a7045537d829176d6b7d2b4020ff9216d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::packet_internal::MEDIAPIPE_STATIC_REGISTRATOR_TEMPLATE</definition>
+        <argsstring>(MessageRegistrator, MessageHolderRegistry, T{}.GetTypeName(), CreateMessageHolder&lt; T &gt;) template&lt; typename T</argsstring>
+        <name>MEDIAPIPE_STATIC_REGISTRATOR_TEMPLATE</name>
+        <qualifiedname>mediapipe::packet_internal::MEDIAPIPE_STATIC_REGISTRATOR_TEMPLATE</qualifiedname>
+        <param>
+          <type>MessageRegistrator</type>
+        </param>
+        <param>
+          <type>MessageHolderRegistry</type>
+        </param>
+        <param>
+          <type>T{}.</type>
+          <declname>GetTypeName</declname>
+          <array>()</array>
+        </param>
+        <param>
+          <type>CreateMessageHolder&lt; T &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h" line="491" column="1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.cc" line="27" column="1"/>
+  </compounddef>
+</doxygen>

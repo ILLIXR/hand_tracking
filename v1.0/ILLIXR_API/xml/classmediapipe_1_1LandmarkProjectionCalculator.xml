@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1LandmarkProjectionCalculator" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::LandmarkProjectionCalculator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">mediapipe::CalculatorBase</basecompoundref>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1LandmarkProjectionCalculator_1a2bc19dac673af2d494c58800b064b3ea" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>static absl::Status mediapipe::LandmarkProjectionCalculator::GetContract</definition>
+        <argsstring>(CalculatorContract *cc)</argsstring>
+        <name>GetContract</name>
+        <qualifiedname>mediapipe::LandmarkProjectionCalculator::GetContract</qualifiedname>
+        <param>
+          <type>CalculatorContract *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/landmark_projection_calculator.cc" line="94" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/landmark_projection_calculator.cc" bodystart="94" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LandmarkProjectionCalculator_1a0903bc1863814fce9b45a991dcfe034d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void mediapipe::LandmarkProjectionCalculator::ProjectXY</definition>
+        <argsstring>(const NormalizedLandmark &amp;lm, const std::array&lt; float, 16 &gt; &amp;matrix, NormalizedLandmark *out)</argsstring>
+        <name>ProjectXY</name>
+        <qualifiedname>mediapipe::LandmarkProjectionCalculator::ProjectXY</qualifiedname>
+        <param>
+          <type>const NormalizedLandmark &amp;</type>
+          <declname>lm</declname>
+        </param>
+        <param>
+          <type>const std::array&lt; float, 16 &gt; &amp;</type>
+          <declname>matrix</declname>
+        </param>
+        <param>
+          <type>NormalizedLandmark *</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/landmark_projection_calculator.cc" line="129" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/landmark_projection_calculator.cc" bodystart="129" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LandmarkProjectionCalculator_1a1c321775bff1b21de836d0b5a35ebaec" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>static float mediapipe::LandmarkProjectionCalculator::CalculateZScale</definition>
+        <argsstring>(const std::array&lt; float, 16 &gt; &amp;matrix)</argsstring>
+        <name>CalculateZScale</name>
+        <qualifiedname>mediapipe::LandmarkProjectionCalculator::CalculateZScale</qualifiedname>
+        <param>
+          <type>const std::array&lt; float, 16 &gt; &amp;</type>
+          <declname>matrix</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Landmark&apos;s Z scale is equal to a relative (to image) width of region of interest used during detection. To calculate based on matrix:<orderedlist>
+<listitem><para>Project (0,0) <mdash/> (1,0) segment using matrix.</para>
+</listitem><listitem><para>Calculate length of the projected segment. </para>
+</listitem></orderedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/landmark_projection_calculator.cc" line="144" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/landmark_projection_calculator.cc" bodystart="144" bodyend="157"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1LandmarkProjectionCalculator_1a32f4c6956c907f165557bfa56e382d63" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::LandmarkProjectionCalculator::Open</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Open</name>
+        <qualifiedname>mediapipe::LandmarkProjectionCalculator::Open</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/landmark_projection_calculator.cc" line="123" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/landmark_projection_calculator.cc" bodystart="123" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LandmarkProjectionCalculator_1a2a233e75ef44e947387ecef2512e5713" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::LandmarkProjectionCalculator::Process</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Process</name>
+        <qualifiedname>mediapipe::LandmarkProjectionCalculator::Process</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/landmark_projection_calculator.cc" line="159" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/landmark_projection_calculator.cc" bodystart="159" bodyend="230"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/landmark_projection_calculator.cc" line="92" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/landmark_projection_calculator.cc" bodystart="92" bodyend="231"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1LandmarkProjectionCalculator_1a1c321775bff1b21de836d0b5a35ebaec" prot="public" virt="non-virtual"><scope>mediapipe::LandmarkProjectionCalculator</scope><name>CalculateZScale</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a586aedabbf1f8f9d14e07a7251cc5936" prot="public" virt="non-virtual"><scope>mediapipe::LandmarkProjectionCalculator</scope><name>CalculatorBase</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a4c90b3bb22ad29984bf0e1436f629f1d" prot="public" virt="virtual"><scope>mediapipe::LandmarkProjectionCalculator</scope><name>Close</name></member>
+      <member refid="classmediapipe_1_1LandmarkProjectionCalculator_1a2bc19dac673af2d494c58800b064b3ea" prot="public" virt="non-virtual"><scope>mediapipe::LandmarkProjectionCalculator</scope><name>GetContract</name></member>
+      <member refid="classmediapipe_1_1LandmarkProjectionCalculator_1a32f4c6956c907f165557bfa56e382d63" prot="public" virt="non-virtual"><scope>mediapipe::LandmarkProjectionCalculator</scope><name>Open</name></member>
+      <member refid="classmediapipe_1_1LandmarkProjectionCalculator_1a2a233e75ef44e947387ecef2512e5713" prot="public" virt="non-virtual"><scope>mediapipe::LandmarkProjectionCalculator</scope><name>Process</name></member>
+      <member refid="classmediapipe_1_1LandmarkProjectionCalculator_1a0903bc1863814fce9b45a991dcfe034d" prot="public" virt="non-virtual"><scope>mediapipe::LandmarkProjectionCalculator</scope><name>ProjectXY</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a0cf70172f342c2cc0314af8e76ae982b" prot="public" virt="virtual"><scope>mediapipe::LandmarkProjectionCalculator</scope><name>SourceProcessOrder</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a9ced1ccc8a3f7ad59e54a317f4054c90" prot="public" virt="virtual"><scope>mediapipe::LandmarkProjectionCalculator</scope><name>~CalculatorBase</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

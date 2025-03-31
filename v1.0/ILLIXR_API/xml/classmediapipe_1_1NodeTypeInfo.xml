@@ -1,0 +1,740 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1NodeTypeInfo" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::NodeTypeInfo</compoundname>
+    <innerclass refid="structmediapipe_1_1NodeTypeInfo_1_1NodeRef" prot="public">mediapipe::NodeTypeInfo::NodeRef</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classmediapipe_1_1NodeTypeInfo_1a9f891240acdc47570fe2c8c44c7e08fb" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>NodeType</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::NodeType</qualifiedname>
+        <enumvalue id="classmediapipe_1_1NodeTypeInfo_1a9f891240acdc47570fe2c8c44c7e08fba696b031073e74bf2cb98e5ef201d4aa3" prot="public">
+          <name>UNKNOWN</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1NodeTypeInfo_1a9f891240acdc47570fe2c8c44c7e08fba7e5d085a2217f55cc9ec1ffddc19a676" prot="public">
+          <name>CALCULATOR</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1NodeTypeInfo_1a9f891240acdc47570fe2c8c44c7e08fba56bed22f43a3548e10e36867c766e266" prot="public">
+          <name>PACKET_GENERATOR</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1NodeTypeInfo_1a9f891240acdc47570fe2c8c44c7e08fbac8026978cdf08176061951cf23d5fe25" prot="public">
+          <name>GRAPH_INPUT_STREAM</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1NodeTypeInfo_1a9f891240acdc47570fe2c8c44c7e08fbaa4cbc6b21ddb265fd2d575898af2a8a5" prot="public">
+          <name>STATUS_HANDLER</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="49" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="49" bodyend="55"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1NodeTypeInfo_1a4f77efb86ca65850e6e7d71fc5a993cc" prot="private" static="no" mutable="no">
+        <type>CalculatorContract</type>
+        <definition>CalculatorContract mediapipe::NodeTypeInfo::contract_</definition>
+        <argsstring></argsstring>
+        <name>contract_</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::contract_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="162" column="22" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1NodeTypeInfo_1a9efb8bec055344d6baac1548d0a32991" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::NodeTypeInfo::input_side_packet_base_index_</definition>
+        <argsstring></argsstring>
+        <name>input_side_packet_base_index_</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::input_side_packet_base_index_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="172" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1NodeTypeInfo_1ae394f0c53ea8b2d78affc2aafdf17cd2" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::NodeTypeInfo::output_side_packet_base_index_</definition>
+        <argsstring></argsstring>
+        <name>output_side_packet_base_index_</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::output_side_packet_base_index_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="173" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1NodeTypeInfo_1ae5be134d14e43979636a17914cf63965" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::NodeTypeInfo::input_stream_base_index_</definition>
+        <argsstring></argsstring>
+        <name>input_stream_base_index_</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::input_stream_base_index_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="174" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1NodeTypeInfo_1a20b4c9287b2785c7458ba8c419dec097" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::NodeTypeInfo::output_stream_base_index_</definition>
+        <argsstring></argsstring>
+        <name>output_stream_base_index_</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::output_stream_base_index_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="175" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1NodeTypeInfo_1a261c1fce0183a8dab3d60879c328f549" prot="private" static="no" mutable="no">
+        <type>NodeRef</type>
+        <definition>NodeRef mediapipe::NodeTypeInfo::node_</definition>
+        <argsstring></argsstring>
+        <name>node_</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::node_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="178" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1NodeTypeInfo_1a0f77f5b914f3708d8f27ef9582b10321" prot="private" static="no" mutable="no">
+        <type>absl::flat_hash_set&lt; int &gt;</type>
+        <definition>absl::flat_hash_set&lt;int&gt; mediapipe::NodeTypeInfo::ancestor_sources_</definition>
+        <argsstring></argsstring>
+        <name>ancestor_sources_</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::ancestor_sources_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="181" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1a4d4eab221f0ac62b3e01277f54682b03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::NodeTypeInfo::NodeTypeInfo</definition>
+        <argsstring>()=default</argsstring>
+        <name>NodeTypeInfo</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::NodeTypeInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="68" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1aee05e50c9aa5ef453759c70961ad099c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::NodeTypeInfo::~NodeTypeInfo</definition>
+        <argsstring>()=default</argsstring>
+        <name>~NodeTypeInfo</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::~NodeTypeInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="69" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1ab55128cb9ac203a21930f4f8ced4c766" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::NodeTypeInfo::NodeTypeInfo</definition>
+        <argsstring>(const NodeTypeInfo &amp;other)=delete</argsstring>
+        <name>NodeTypeInfo</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::NodeTypeInfo</qualifiedname>
+        <param>
+          <type>const NodeTypeInfo &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="71" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1a52f0b9e7f0e0eb7ce33379caac93fc63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>NodeTypeInfo &amp;</type>
+        <definition>NodeTypeInfo &amp; mediapipe::NodeTypeInfo::operator=</definition>
+        <argsstring>(const NodeTypeInfo &amp;other)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::operator=</qualifiedname>
+        <param>
+          <type>const NodeTypeInfo &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="72" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1ad44885b9a03472f9f326cf93ebb9aa98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::NodeTypeInfo::NodeTypeInfo</definition>
+        <argsstring>(NodeTypeInfo &amp;&amp;other)=default</argsstring>
+        <name>NodeTypeInfo</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::NodeTypeInfo</qualifiedname>
+        <param>
+          <type>NodeTypeInfo &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="74" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1a90acbbc7de694dd34f84d68c2f586f2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::NodeTypeInfo::Initialize</definition>
+        <argsstring>(const ValidatedGraphConfig &amp;validated_graph, const CalculatorGraphConfig::Node &amp;node, int node_index)</argsstring>
+        <name>Initialize</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::Initialize</qualifiedname>
+        <param>
+          <type>const ValidatedGraphConfig &amp;</type>
+          <declname>validated_graph</declname>
+        </param>
+        <param>
+          <type>const CalculatorGraphConfig::Node &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>node_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="78" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.cc" bodystart="168" bodyend="253"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1a4ee43185447fd9f59ccd29bd2b728b97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::NodeTypeInfo::Initialize</definition>
+        <argsstring>(const ValidatedGraphConfig &amp;validated_graph, const PacketGeneratorConfig &amp;node, int node_index)</argsstring>
+        <name>Initialize</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::Initialize</qualifiedname>
+        <param>
+          <type>const ValidatedGraphConfig &amp;</type>
+          <declname>validated_graph</declname>
+        </param>
+        <param>
+          <type>const PacketGeneratorConfig &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>node_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="81" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.cc" bodystart="255" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1a499b65dc81a5ada62efb7d331df96f0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::NodeTypeInfo::Initialize</definition>
+        <argsstring>(const ValidatedGraphConfig &amp;validated_graph, const StatusHandlerConfig &amp;node, int node_index)</argsstring>
+        <name>Initialize</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::Initialize</qualifiedname>
+        <param>
+          <type>const ValidatedGraphConfig &amp;</type>
+          <declname>validated_graph</declname>
+        </param>
+        <param>
+          <type>const StatusHandlerConfig &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>node_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="83" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.cc" bodystart="296" bodyend="323"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1a280319122fd13139e239c32cc944579a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const PacketTypeSet &amp;</type>
+        <definition>const PacketTypeSet &amp; mediapipe::NodeTypeInfo::InputSidePacketTypes</definition>
+        <argsstring>() const</argsstring>
+        <name>InputSidePacketTypes</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::InputSidePacketTypes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="87" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="87" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1a163279e6a11d658c2c460f9b405eda1e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const PacketTypeSet &amp;</type>
+        <definition>const PacketTypeSet &amp; mediapipe::NodeTypeInfo::OutputSidePacketTypes</definition>
+        <argsstring>() const</argsstring>
+        <name>OutputSidePacketTypes</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::OutputSidePacketTypes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="90" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="90" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1a60ddb12ddbc710a190b0a6e16c077175" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const PacketTypeSet &amp;</type>
+        <definition>const PacketTypeSet &amp; mediapipe::NodeTypeInfo::InputStreamTypes</definition>
+        <argsstring>() const</argsstring>
+        <name>InputStreamTypes</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::InputStreamTypes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="93" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="93" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1a2efad8c6c44cdf023d3071a10439e85e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const PacketTypeSet &amp;</type>
+        <definition>const PacketTypeSet &amp; mediapipe::NodeTypeInfo::OutputStreamTypes</definition>
+        <argsstring>() const</argsstring>
+        <name>OutputStreamTypes</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::OutputStreamTypes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="94" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="94" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1a752d12d338a6fbc4a6dcffcff643e6cc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const CalculatorContract &amp;</type>
+        <definition>const CalculatorContract &amp; mediapipe::NodeTypeInfo::Contract</definition>
+        <argsstring>() const</argsstring>
+        <name>Contract</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::Contract</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="96" column="28" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="96" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1a1bcef6552c86b5c7cee796596731dd4b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PacketTypeSet &amp;</type>
+        <definition>PacketTypeSet &amp; mediapipe::NodeTypeInfo::InputSidePacketTypes</definition>
+        <argsstring>()</argsstring>
+        <name>InputSidePacketTypes</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::InputSidePacketTypes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="99" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="99" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1a38cbd22d7eb39fcceb0bcc4cba345bc4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PacketTypeSet &amp;</type>
+        <definition>PacketTypeSet &amp; mediapipe::NodeTypeInfo::OutputSidePacketTypes</definition>
+        <argsstring>()</argsstring>
+        <name>OutputSidePacketTypes</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::OutputSidePacketTypes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="100" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="100" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1a7cea526e0bcf5acd91de27c544385393" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PacketTypeSet &amp;</type>
+        <definition>PacketTypeSet &amp; mediapipe::NodeTypeInfo::InputStreamTypes</definition>
+        <argsstring>()</argsstring>
+        <name>InputStreamTypes</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::InputStreamTypes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="103" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="103" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1a1b49a78f109b7c7b7f8d025d96b10fb0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PacketTypeSet &amp;</type>
+        <definition>PacketTypeSet &amp; mediapipe::NodeTypeInfo::OutputStreamTypes</definition>
+        <argsstring>()</argsstring>
+        <name>OutputStreamTypes</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::OutputStreamTypes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="104" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="104" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1a3e5c83fd0868a867018966b0f5682583" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::NodeTypeInfo::InputSidePacketBaseIndex</definition>
+        <argsstring>() const</argsstring>
+        <name>InputSidePacketBaseIndex</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::InputSidePacketBaseIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="109" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="109" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1a0db1754c19fc9ce5f390e9ff0a0bc37d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::NodeTypeInfo::OutputSidePacketBaseIndex</definition>
+        <argsstring>() const</argsstring>
+        <name>OutputSidePacketBaseIndex</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::OutputSidePacketBaseIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="110" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="110" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1a2370445daca4a63dea33864877db1d5b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::NodeTypeInfo::InputStreamBaseIndex</definition>
+        <argsstring>() const</argsstring>
+        <name>InputStreamBaseIndex</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::InputStreamBaseIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="113" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="113" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1af09026aaa7bff06cac5d1a39ac4f5e52" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::NodeTypeInfo::OutputStreamBaseIndex</definition>
+        <argsstring>() const</argsstring>
+        <name>OutputStreamBaseIndex</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::OutputStreamBaseIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="114" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="114" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1ac1a41f8e7e01ec25bba18e8cc2b7fcd5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const NodeRef &amp;</type>
+        <definition>const NodeRef &amp; mediapipe::NodeTypeInfo::Node</definition>
+        <argsstring>() const</argsstring>
+        <name>Node</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::Node</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="117" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="117" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1ad09b9f17a33cfeb8a46cf6731aa89845" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::NodeTypeInfo::SetInputSidePacketBaseIndex</definition>
+        <argsstring>(int index)</argsstring>
+        <name>SetInputSidePacketBaseIndex</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::SetInputSidePacketBaseIndex</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="121" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="121" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1adaa1df5d3bcfa864ab2976cbbc5d0f7a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::NodeTypeInfo::SetOutputSidePacketBaseIndex</definition>
+        <argsstring>(int index)</argsstring>
+        <name>SetOutputSidePacketBaseIndex</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::SetOutputSidePacketBaseIndex</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="124" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="124" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1a586e38cd87d259903288c78bae06cf96" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::NodeTypeInfo::SetInputStreamBaseIndex</definition>
+        <argsstring>(int index)</argsstring>
+        <name>SetInputStreamBaseIndex</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::SetInputStreamBaseIndex</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="127" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="127" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1a97cbf42bb419f4035d71797bbc187351" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::NodeTypeInfo::SetOutputStreamBaseIndex</definition>
+        <argsstring>(int index)</argsstring>
+        <name>SetOutputStreamBaseIndex</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::SetOutputStreamBaseIndex</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="128" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="128" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1a4b75463507dd6968f949e96d38d5c2f7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::NodeTypeInfo::SetNodeIndex</definition>
+        <argsstring>(int index)</argsstring>
+        <name>SetNodeIndex</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::SetNodeIndex</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="131" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="131" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1aec5b407bcf6e0a84eb01a0b3ff82feaa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const absl::flat_hash_set&lt; int &gt; &amp;</type>
+        <definition>const absl::flat_hash_set&lt; int &gt; &amp; mediapipe::NodeTypeInfo::AncestorSources</definition>
+        <argsstring>() const</argsstring>
+        <name>AncestorSources</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::AncestorSources</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="138" column="29" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="138" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1a3f07813a8c52df370ca851f4f09b231e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::NodeTypeInfo::AddSource</definition>
+        <argsstring>(int index)</argsstring>
+        <name>AddSource</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::AddSource</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="143" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="143" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1aeeee29b87c14b52cf605b78a4d36921b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string mediapipe::NodeTypeInfo::GetInputStreamHandler</definition>
+        <argsstring>() const</argsstring>
+        <name>GetInputStreamHandler</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::GetInputStreamHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="150" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="150" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1a51a465e0fc2a701d2fa6feff1f4ce1cf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>MediaPipeOptions</type>
+        <definition>MediaPipeOptions mediapipe::NodeTypeInfo::GetInputStreamHandlerOptions</definition>
+        <argsstring>() const</argsstring>
+        <name>GetInputStreamHandlerOptions</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::GetInputStreamHandlerOptions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="155" column="20" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="155" bodyend="157"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1NodeTypeInfo_1a81be3929b364d126635fb60d8a20d0e1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string mediapipe::NodeTypeInfo::NodeTypeToString</definition>
+        <argsstring>(NodeType node_type)</argsstring>
+        <name>NodeTypeToString</name>
+        <qualifiedname>mediapipe::NodeTypeInfo::NodeTypeToString</qualifiedname>
+        <param>
+          <type>NodeType</type>
+          <declname>node_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="146" column="22" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.cc" bodystart="151" bodyend="166"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" line="47" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h" bodystart="47" bodyend="182"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a3f07813a8c52df370ca851f4f09b231e" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>AddSource</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a0f77f5b914f3708d8f27ef9582b10321" prot="private" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>ancestor_sources_</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1aec5b407bcf6e0a84eb01a0b3ff82feaa" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>AncestorSources</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a752d12d338a6fbc4a6dcffcff643e6cc" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>Contract</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a4f77efb86ca65850e6e7d71fc5a993cc" prot="private" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>contract_</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1aeeee29b87c14b52cf605b78a4d36921b" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>GetInputStreamHandler</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a51a465e0fc2a701d2fa6feff1f4ce1cf" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>GetInputStreamHandlerOptions</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a90acbbc7de694dd34f84d68c2f586f2d" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>Initialize</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a4ee43185447fd9f59ccd29bd2b728b97" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>Initialize</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a499b65dc81a5ada62efb7d331df96f0e" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>Initialize</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a9efb8bec055344d6baac1548d0a32991" prot="private" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>input_side_packet_base_index_</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1ae5be134d14e43979636a17914cf63965" prot="private" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>input_stream_base_index_</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a3e5c83fd0868a867018966b0f5682583" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>InputSidePacketBaseIndex</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a280319122fd13139e239c32cc944579a" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>InputSidePacketTypes</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a1bcef6552c86b5c7cee796596731dd4b" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>InputSidePacketTypes</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a2370445daca4a63dea33864877db1d5b" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>InputStreamBaseIndex</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a60ddb12ddbc710a190b0a6e16c077175" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>InputStreamTypes</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a7cea526e0bcf5acd91de27c544385393" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>InputStreamTypes</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1ac1a41f8e7e01ec25bba18e8cc2b7fcd5" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>Node</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a261c1fce0183a8dab3d60879c328f549" prot="private" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>node_</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a9f891240acdc47570fe2c8c44c7e08fb" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>NodeType</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a4d4eab221f0ac62b3e01277f54682b03" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>NodeTypeInfo</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1ab55128cb9ac203a21930f4f8ced4c766" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>NodeTypeInfo</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1ad44885b9a03472f9f326cf93ebb9aa98" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>NodeTypeInfo</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a81be3929b364d126635fb60d8a20d0e1" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>NodeTypeToString</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a52f0b9e7f0e0eb7ce33379caac93fc63" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>operator=</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1ae394f0c53ea8b2d78affc2aafdf17cd2" prot="private" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>output_side_packet_base_index_</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a20b4c9287b2785c7458ba8c419dec097" prot="private" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>output_stream_base_index_</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a0db1754c19fc9ce5f390e9ff0a0bc37d" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>OutputSidePacketBaseIndex</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a163279e6a11d658c2c460f9b405eda1e" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>OutputSidePacketTypes</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a38cbd22d7eb39fcceb0bcc4cba345bc4" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>OutputSidePacketTypes</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1af09026aaa7bff06cac5d1a39ac4f5e52" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>OutputStreamBaseIndex</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a2efad8c6c44cdf023d3071a10439e85e" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>OutputStreamTypes</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a1b49a78f109b7c7b7f8d025d96b10fb0" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>OutputStreamTypes</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1ad09b9f17a33cfeb8a46cf6731aa89845" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>SetInputSidePacketBaseIndex</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a586e38cd87d259903288c78bae06cf96" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>SetInputStreamBaseIndex</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a4b75463507dd6968f949e96d38d5c2f7" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>SetNodeIndex</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1adaa1df5d3bcfa864ab2976cbbc5d0f7a" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>SetOutputSidePacketBaseIndex</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1a97cbf42bb419f4035d71797bbc187351" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>SetOutputStreamBaseIndex</name></member>
+      <member refid="classmediapipe_1_1NodeTypeInfo_1aee05e50c9aa5ef453759c70961ad099c" prot="public" virt="non-virtual"><scope>mediapipe::NodeTypeInfo</scope><name>~NodeTypeInfo</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

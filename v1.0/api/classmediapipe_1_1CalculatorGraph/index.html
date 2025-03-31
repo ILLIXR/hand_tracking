@@ -1,0 +1,2081 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://illixr.github.io/hand_tracking/v1.0/api/classmediapipe_1_1CalculatorGraph/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>Class mediapipe::CalculatorGraph - ILLIXR Hand Tracking Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/mkd-extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: none; }
+    .glightbox-clean .gslide-media {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#class-mediapipecalculatorgraph" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+
+
+<header class="md-header md-header--shadow" data-md-component="header" style="background-color: #11284b">
+    <nav class="md-header__inner md-grid" aria-label="Header">
+        <a href="../.." title="ILLIXR Hand Tracking Documentation" class="md-header__button md-logo" aria-label="ILLIXR Hand Tracking Documentation" data-md-component="logo">
+            <img src="../../images/icon.png" alt="logo">
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+            <div class="md-header__ellipsis">
+                <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ILLIXR Hand Tracking Documentation
+          </span>
+                </div>
+                <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Class mediapipe::CalculatorGraph
+            
+          </span>
+                </div>
+            </div>
+        </div>
+        
+        
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+        
+        
+        
+        <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+        
+        
+        
+        <label class="md-header__button md-icon" for="__search">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+        
+    </nav>
+    
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+    <label class="md-nav__title" for="__drawer" style="background-color:var(--md-nav-hdr-color);color:var(--md-nav-hdr-fg-color);">
+        <a href="../.." title="ILLIXR Hand Tracking Documentation" class="md-nav__button md-logo" aria-label="ILLIXR Hand Tracking Documentation" data-md-component="logo">
+            <img src="../../images/icon.png" alt="logo">
+        </a>
+        ILLIXR Hand Tracking Documentation
+    </label>
+    
+    <ul class="md-nav__list" data-md-scrollfix style="background-color:var(--md-nav-list-color)">
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+    
+    
+    
+    <div class="md-nav__link md-nav__container" style="color:black;">
+        <a href="../.." class="md-nav__link ">
+            
+
+<span class="md-ellipsis">
+    Latest Documentation
+    
+  </span>
+
+
+        </a>
+        
+        
+        <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+            <span class="md-nav__icon md-icon"></span>
+        </label>
+        
+    </div>
+    
+    <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Latest Documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    API
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1" id="__nav_1_2_1_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Hand Tracking
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Hand Tracking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classILLIXR_1_1hand__tracking/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Plugin
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classILLIXR_1_1hand__tracking__publisher/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Publisher
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1_3" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1_3" id="__nav_1_2_1_3_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Data Types
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_2_1_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Data Types
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structht__illixr__handle__t/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    illixr_handle_t
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structmediapipe_1_1ILLIXR_1_1illixr__ht__frame/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    illixr_ht_frame
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structILLIXR_1_1pose__image/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    pose_image
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classmediapipe_1_1ILLIXROutputCalculator/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    ILLIXR Calculator
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1_5" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1_5" id="__nav_1_2_1_5_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    OpenXR
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_2_1_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            OpenXR
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../interface_8h/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Interface
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../ixr__openxr_8hpp/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Func. Implementations
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1_5_3" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1_5_3" id="__nav_1_2_1_5_3_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Structs
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_2_1_5_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Structs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structixr__hand__tracker/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    ixr_hand+tracker
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structixr__session/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    ixr_session
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classes/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Classes
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../namespacemediapipe/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Namespaces
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../../LICENSE/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    License
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+        
+    </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+    
+    
+    
+    
+    
+    
+    <label class="md-nav__title" for="__toc" style="background-color:var(--md-nav-hdr-color);color:var(--md-nav-hdr-fg-color);">
+        <span class="md-nav__icon md-icon"></span>
+        Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix  style="background-color:var(--md-nav-list-color)">
+        
+        <li class="md-nav__item">
+    <a href="#public-types" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      Public Types
+    </span>
+    </a>
+    
+</li>
+        
+        <li class="md-nav__item">
+    <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      Public Functions
+    </span>
+    </a>
+    
+</li>
+        
+        <li class="md-nav__item">
+    <a href="#public-types-documentation" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      Public Types Documentation
+    </span>
+    </a>
+    
+    <nav class="md-nav" aria-label="Public Types Documentation">
+        <ul class="md-nav__list">
+            
+            <li class="md-nav__item">
+    <a href="#enum-graphinputstreamaddmode" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      enum GraphInputStreamAddMode
+    </span>
+    </a>
+    
+</li>
+            
+        </ul>
+    </nav>
+    
+</li>
+        
+        <li class="md-nav__item">
+    <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      Public Functions Documentation
+    </span>
+    </a>
+    
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+        <ul class="md-nav__list">
+            
+            <li class="md-nav__item">
+    <a href="#function-absl_deprecated-12" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function ABSL_DEPRECATED [1/2]
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-absl_deprecated-22" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function ABSL_DEPRECATED [2/2]
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-addoutputstreampoller" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function AddOutputStreamPoller
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-addpackettoinputstream-12" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function AddPacketToInputStream [1/2]
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-addpackettoinputstream-22" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function AddPacketToInputStream [2/2]
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-calculatorgraph-13" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function CalculatorGraph [1/3]
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-calculatorgraph-23" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function CalculatorGraph [2/3]
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-calculatorgraph-33" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function CalculatorGraph [3/3]
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-cancel" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function Cancel
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-closeallinputstreams" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function CloseAllInputStreams
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-closeallpacketsources" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function CloseAllPacketSources
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-closeinputstream" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function CloseInputStream
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-config" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function Config
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-disallowservicedefaultinitialization" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function DisallowServiceDefaultInitialization
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-getcombinederrors-12" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function GetCombinedErrors [1/2]
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-getcombinederrors-22" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function GetCombinedErrors [2/2]
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-getcounterfactory" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function GetCounterFactory
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-getgpuresources" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function GetGpuResources
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-getgraphinputstreamaddmode" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function GetGraphInputStreamAddMode
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-getmaxinputstreamqueuesize" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function GetMaxInputStreamQueueSize
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-getoutputsidepacket" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function GetOutputSidePacket
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-getschedulertimes" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function GetSchedulerTimes
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-getserviceobject" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function GetServiceObject
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-graphinputstreamsclosed" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function GraphInputStreamsClosed
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-haserror" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function HasError
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-hasinputstream" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function HasInputStream
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-initialize-14" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function Initialize [1/4]
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-initialize-24" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function Initialize [2/4]
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-initialize-34" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function Initialize [3/4]
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-isnodethrottled" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function IsNodeThrottled
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-observeoutputstream" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function ObserveOutputStream
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-recorderror" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function RecordError
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-run-12" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function Run [1/2]
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-run-22" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function Run [2/2]
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-setcounterfactory" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function SetCounterFactory
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-seterrorcallback" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function SetErrorCallback
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-setexecutor" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function SetExecutor
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-setgpuresources" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function SetGpuResources
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-setgraphinputstreamaddmode" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function SetGraphInputStreamAddMode
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-setinputstreammaxqueuesize" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function SetInputStreamMaxQueueSize
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-setinputstreamtimestampbound" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function SetInputStreamTimestampBound
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-setserviceobject" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function SetServiceObject
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-setservicepacket" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function SetServicePacket
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-startrun-12" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function StartRun [1/2]
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-startrun-22" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function StartRun [2/2]
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-unthrottlesources" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function UnthrottleSources
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-waitforobservedoutput" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function WaitForObservedOutput
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-waituntildone" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function WaitUntilDone
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-waituntilidle" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function WaitUntilIdle
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-operator" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function operator=
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-profiler" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function profiler
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-calculatorgraph" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function ~CalculatorGraph
+    </span>
+    </a>
+    
+</li>
+            
+        </ul>
+    </nav>
+    
+</li>
+        
+    </ul>
+    
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="class-mediapipecalculatorgraph">Class mediapipe::CalculatorGraph</h1>
+<p><a href="../annotated/"><strong>ClassList</strong></a> <strong>&gt;</strong> <a href="../namespacemediapipe/"><strong>mediapipe</strong></a> <strong>&gt;</strong> <a href="./"><strong>CalculatorGraph</strong></a></p>
+<h2 id="public-types">Public Types</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">enum</td>
+<td style="text-align: left;"><a href="#enum-graphinputstreamaddmode"><strong>GraphInputStreamAddMode</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-absl_deprecated-12"><strong>ABSL_DEPRECATED</strong></a> ("CalculatorGraph will not allow external callers to explictly pause and " "resume a graph.") <br></td>
+</tr>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-absl_deprecated-22"><strong>ABSL_DEPRECATED</strong></a> ("CalculatorGraph will not allow external callers to explictly pause and " "resume a graph.") <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">StatusOrPoller</td>
+<td style="text-align: left;"><a href="#function-addoutputstreampoller"><strong>AddOutputStreamPoller</strong></a> (const std::string &amp; stream_name, bool observe_timestamp_bounds=false) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">absl::Status</td>
+<td style="text-align: left;"><a href="#function-addpackettoinputstream-12"><strong>AddPacketToInputStream</strong></a> (absl::string_view stream_name, const Packet &amp; packet) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">absl::Status</td>
+<td style="text-align: left;"><a href="#function-addpackettoinputstream-22"><strong>AddPacketToInputStream</strong></a> (absl::string_view stream_name, Packet &amp;&amp; packet) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-calculatorgraph-13"><strong>CalculatorGraph</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-calculatorgraph-23"><strong>CalculatorGraph</strong></a> (const CalculatorGraph &amp;) = delete<br></td>
+</tr>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;"><a href="#function-calculatorgraph-33"><strong>CalculatorGraph</strong></a> (CalculatorGraphConfig config) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-cancel"><strong>Cancel</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">absl::Status</td>
+<td style="text-align: left;"><a href="#function-closeallinputstreams"><strong>CloseAllInputStreams</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">absl::Status</td>
+<td style="text-align: left;"><a href="#function-closeallpacketsources"><strong>CloseAllPacketSources</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">absl::Status</td>
+<td style="text-align: left;"><a href="#function-closeinputstream"><strong>CloseInputStream</strong></a> (const std::string &amp; stream_name) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">const CalculatorGraphConfig &amp;</td>
+<td style="text-align: left;"><a href="#function-config"><strong>Config</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">absl::Status</td>
+<td style="text-align: left;"><a href="#function-disallowservicedefaultinitialization"><strong>DisallowServiceDefaultInitialization</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-getcombinederrors-12"><strong>GetCombinedErrors</strong></a> (const std::string &amp; error_prefix, absl::Status * error_status) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-getcombinederrors-22"><strong>GetCombinedErrors</strong></a> (absl::Status * error_status) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">CounterFactory *</td>
+<td style="text-align: left;"><a href="#function-getcounterfactory"><strong>GetCounterFactory</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">std::shared_ptr&lt; GpuResources &gt;</td>
+<td style="text-align: left;"><a href="#function-getgpuresources"><strong>GetGpuResources</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">GraphInputStreamAddMode</td>
+<td style="text-align: left;"><a href="#function-getgraphinputstreamaddmode"><strong>GetGraphInputStreamAddMode</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">int</td>
+<td style="text-align: left;"><a href="#function-getmaxinputstreamqueuesize"><strong>GetMaxInputStreamQueueSize</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">absl::StatusOr&lt; Packet &gt;</td>
+<td style="text-align: left;"><a href="#function-getoutputsidepacket"><strong>GetOutputSidePacket</strong></a> (const std::string &amp; packet_name) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">internal::SchedulerTimes</td>
+<td style="text-align: left;"><a href="#function-getschedulertimes"><strong>GetSchedulerTimes</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">std::shared_ptr&lt; T &gt;</td>
+<td style="text-align: left;"><a href="#function-getserviceobject"><strong>GetServiceObject</strong></a> (const GraphService&lt; T &gt; &amp; service) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-graphinputstreamsclosed"><strong>GraphInputStreamsClosed</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-haserror"><strong>HasError</strong></a> () const<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-hasinputstream"><strong>HasInputStream</strong></a> (const std::string &amp; name) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">absl::Status</td>
+<td style="text-align: left;"><a href="#function-initialize-14"><strong>Initialize</strong></a> (CalculatorGraphConfig config, const std::map&lt; std::string, Packet &gt; &amp; side_packets) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">absl::Status</td>
+<td style="text-align: left;"><a href="#function-initialize-24"><strong>Initialize</strong></a> (CalculatorGraphConfig config) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">absl::Status</td>
+<td style="text-align: left;"><a href="#function-initialize-34"><strong>Initialize</strong></a> (const std::vector&lt; CalculatorGraphConfig &gt; &amp; configs, const std::vector&lt; CalculatorGraphTemplate &gt; &amp; templates, const std::map&lt; std::string, Packet &gt; &amp; side_packets={}, const std::string &amp; graph_type="", const Subgraph::SubgraphOptions * options=nullptr) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-isnodethrottled"><strong>IsNodeThrottled</strong></a> (int node_id) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">absl::Status</td>
+<td style="text-align: left;"><a href="#function-observeoutputstream"><strong>ObserveOutputStream</strong></a> (const std::string &amp; stream_name, std::function&lt; absl::Status(const Packet &amp;)&gt; packet_callback, bool observe_timestamp_bounds=false) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-recorderror"><strong>RecordError</strong></a> (const absl::Status &amp; error) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual absl::Status</td>
+<td style="text-align: left;"><a href="#function-run-12"><strong>Run</strong></a> (const std::map&lt; std::string, Packet &gt; &amp; extra_side_packets) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">absl::Status</td>
+<td style="text-align: left;"><a href="#function-run-22"><strong>Run</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">ABSL_DEPRECATED("Use profiler()-&gt;GetCalculatorProfiles() instead") absl void</td>
+<td style="text-align: left;"><a href="#function-setcounterfactory"><strong>SetCounterFactory</strong></a> (CounterFactory * factory) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">absl::Status</td>
+<td style="text-align: left;"><a href="#function-seterrorcallback"><strong>SetErrorCallback</strong></a> (std::function&lt; void(const absl::Status &amp;)&gt; error_callback) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">absl::Status</td>
+<td style="text-align: left;"><a href="#function-setexecutor"><strong>SetExecutor</strong></a> (const std::string &amp; name, std::shared_ptr&lt; Executor &gt; executor) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">absl::Status</td>
+<td style="text-align: left;"><a href="#function-setgpuresources"><strong>SetGpuResources</strong></a> (std::shared_ptr&lt; GpuResources &gt; resources) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-setgraphinputstreamaddmode"><strong>SetGraphInputStreamAddMode</strong></a> (GraphInputStreamAddMode mode) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">absl::Status</td>
+<td style="text-align: left;"><a href="#function-setinputstreammaxqueuesize"><strong>SetInputStreamMaxQueueSize</strong></a> (const std::string &amp; stream_name, int max_queue_size) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">absl::Status</td>
+<td style="text-align: left;"><a href="#function-setinputstreamtimestampbound"><strong>SetInputStreamTimestampBound</strong></a> (const std::string &amp; stream_name, Timestamp timestamp) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">absl::Status</td>
+<td style="text-align: left;"><a href="#function-setserviceobject"><strong>SetServiceObject</strong></a> (const GraphService&lt; T &gt; &amp; service, std::shared_ptr&lt; T &gt; object) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">absl::Status</td>
+<td style="text-align: left;"><a href="#function-setservicepacket"><strong>SetServicePacket</strong></a> (const GraphServiceBase &amp; service, Packet p) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">absl::Status</td>
+<td style="text-align: left;"><a href="#function-startrun-12"><strong>StartRun</strong></a> (const std::map&lt; std::string, Packet &gt; &amp; extra_side_packets) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">absl::Status</td>
+<td style="text-align: left;"><a href="#function-startrun-22"><strong>StartRun</strong></a> (const std::map&lt; std::string, Packet &gt; &amp; extra_side_packets, const std::map&lt; std::string, Packet &gt; &amp; stream_headers) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">bool</td>
+<td style="text-align: left;"><a href="#function-unthrottlesources"><strong>UnthrottleSources</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">absl::Status</td>
+<td style="text-align: left;"><a href="#function-waitforobservedoutput"><strong>WaitForObservedOutput</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">absl::Status</td>
+<td style="text-align: left;"><a href="#function-waituntildone"><strong>WaitUntilDone</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">absl::Status</td>
+<td style="text-align: left;"><a href="#function-waituntilidle"><strong>WaitUntilIdle</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">CalculatorGraph &amp;</td>
+<td style="text-align: left;"><a href="#function-operator"><strong>operator=</strong></a> (const CalculatorGraph &amp;) = delete<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">ABSL_DEPRECATED("Prefer using a Calculator to get information of all sorts out of the " "graph.") const OutputStreamManager *FindOutputStreamManager(const std ProfilingContext *</td>
+<td style="text-align: left;"><a href="#function-profiler"><strong>profiler</strong></a> () <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">virtual</td>
+<td style="text-align: left;"><a href="#function-calculatorgraph"><strong>~CalculatorGraph</strong></a> () <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-types-documentation">Public Types Documentation</h2>
+<h3 id="enum-graphinputstreamaddmode">enum GraphInputStreamAddMode</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">enum</span><span class="w"> </span><span class="nc">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">GraphInputStreamAddMode</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><span class="w">    </span><span class="n">WAIT_TILL_NOT_FULL</span><span class="p">,</span>
+</span><span id="__span-0-3"><span class="w">    </span><span class="n">ADD_IF_NOT_FULL</span>
+</span><span id="__span-0-4"><span class="p">};</span>
+</span></code></pre></div>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-absl_deprecated-12">function ABSL_DEPRECATED [1/2]</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-1-1"><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">ABSL_DEPRECATED</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-1-2"><span class="w">    </span><span class="s">&quot;CalculatorGraph will not allow external callers to explictly pause and &quot;</span><span class="w"> </span><span class="s">&quot;resume a graph.&quot;</span>
+</span><span id="__span-1-3"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-absl_deprecated-22">function ABSL_DEPRECATED [2/2]</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-2-1"><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">ABSL_DEPRECATED</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-2-2"><span class="w">    </span><span class="s">&quot;CalculatorGraph will not allow external callers to explictly pause and &quot;</span><span class="w"> </span><span class="s">&quot;resume a graph.&quot;</span>
+</span><span id="__span-2-3"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-addoutputstreampoller">function AddOutputStreamPoller</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-3-1"><span class="n">StatusOrPoller</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">AddOutputStreamPoller</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-3-2"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">stream_name</span><span class="p">,</span>
+</span><span id="__span-3-3"><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">observe_timestamp_bounds</span><span class="o">=</span><span class="nb">false</span>
+</span><span id="__span-3-4"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-addpackettoinputstream-12">function AddPacketToInputStream [1/2]</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-4-1"><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">AddPacketToInputStream</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-4-2"><span class="w">    </span><span class="n">absl</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">stream_name</span><span class="p">,</span>
+</span><span id="__span-4-3"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Packet</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">packet</span>
+</span><span id="__span-4-4"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-addpackettoinputstream-22">function AddPacketToInputStream [2/2]</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-5-1"><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">AddPacketToInputStream</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-5-2"><span class="w">    </span><span class="n">absl</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">stream_name</span><span class="p">,</span>
+</span><span id="__span-5-3"><span class="w">    </span><span class="n">Packet</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">packet</span>
+</span><span id="__span-5-4"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-calculatorgraph-13">function CalculatorGraph [1/3]</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-6-1"><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="w"> </span><span class="p">()</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-calculatorgraph-23">function CalculatorGraph [2/3]</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-7-1"><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-7-2"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">CalculatorGraph</span><span class="w"> </span><span class="o">&amp;</span>
+</span><span id="__span-7-3"><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-calculatorgraph-33">function CalculatorGraph [3/3]</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-8-1"><span class="k">explicit</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-8-2"><span class="w">    </span><span class="n">CalculatorGraphConfig</span><span class="w"> </span><span class="n">config</span>
+</span><span id="__span-8-3"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-cancel">function Cancel</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-9-1"><span class="kt">void</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">Cancel</span><span class="w"> </span><span class="p">()</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-closeallinputstreams">function CloseAllInputStreams</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-10-1"><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">CloseAllInputStreams</span><span class="w"> </span><span class="p">()</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-closeallpacketsources">function CloseAllPacketSources</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-11-1"><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">CloseAllPacketSources</span><span class="w"> </span><span class="p">()</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-closeinputstream">function CloseInputStream</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-12-1"><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">CloseInputStream</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-12-2"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">stream_name</span>
+</span><span id="__span-12-3"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-config">function Config</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-13-1"><span class="kr">inline</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">CalculatorGraphConfig</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">Config</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-disallowservicedefaultinitialization">function DisallowServiceDefaultInitialization</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-14-1"><span class="kr">inline</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">DisallowServiceDefaultInitialization</span><span class="w"> </span><span class="p">()</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-getcombinederrors-12">function GetCombinedErrors [1/2]</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-15-1"><span class="kt">bool</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">GetCombinedErrors</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-15-2"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">error_prefix</span><span class="p">,</span>
+</span><span id="__span-15-3"><span class="w">    </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">error_status</span>
+</span><span id="__span-15-4"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-getcombinederrors-22">function GetCombinedErrors [2/2]</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-16-1"><span class="kt">bool</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">GetCombinedErrors</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-16-2"><span class="w">    </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">error_status</span>
+</span><span id="__span-16-3"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-getcounterfactory">function GetCounterFactory</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-17-1"><span class="kr">inline</span><span class="w"> </span><span class="n">CounterFactory</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">GetCounterFactory</span><span class="w"> </span><span class="p">()</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-getgpuresources">function GetGpuResources</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-18-1"><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">GpuResources</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">GetGpuResources</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-getgraphinputstreamaddmode">function GetGraphInputStreamAddMode</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-19-1"><span class="n">GraphInputStreamAddMode</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">GetGraphInputStreamAddMode</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-getmaxinputstreamqueuesize">function GetMaxInputStreamQueueSize</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-20-1"><span class="kt">int</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">GetMaxInputStreamQueueSize</span><span class="w"> </span><span class="p">()</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-getoutputsidepacket">function GetOutputSidePacket</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-21-1"><span class="n">absl</span><span class="o">::</span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Packet</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">GetOutputSidePacket</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-21-2"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">packet_name</span>
+</span><span id="__span-21-3"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-getschedulertimes">function GetSchedulerTimes</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-22-1"><span class="kr">inline</span><span class="w"> </span><span class="n">internal</span><span class="o">::</span><span class="n">SchedulerTimes</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">GetSchedulerTimes</span><span class="w"> </span><span class="p">()</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-getserviceobject">function GetServiceObject</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-23-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+</span><span id="__span-23-2"><span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">GetServiceObject</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-23-3"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">GraphService</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">service</span>
+</span><span id="__span-23-4"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-graphinputstreamsclosed">function GraphInputStreamsClosed</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-24-1"><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">GraphInputStreamsClosed</span><span class="w"> </span><span class="p">()</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-haserror">function HasError</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-25-1"><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">HasError</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-hasinputstream">function HasInputStream</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-26-1"><span class="kt">bool</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">HasInputStream</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-26-2"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span>
+</span><span id="__span-26-3"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-initialize-14">function Initialize [1/4]</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-27-1"><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">Initialize</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-27-2"><span class="w">    </span><span class="n">CalculatorGraphConfig</span><span class="w"> </span><span class="n">config</span><span class="p">,</span>
+</span><span id="__span-27-3"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">Packet</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">side_packets</span>
+</span><span id="__span-27-4"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-initialize-24">function Initialize [2/4]</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-28-1"><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">Initialize</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-28-2"><span class="w">    </span><span class="n">CalculatorGraphConfig</span><span class="w"> </span><span class="n">config</span>
+</span><span id="__span-28-3"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-initialize-34">function Initialize [3/4]</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-29-1"><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">Initialize</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-29-2"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="w"> </span><span class="n">CalculatorGraphConfig</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">configs</span><span class="p">,</span>
+</span><span id="__span-29-3"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="w"> </span><span class="n">CalculatorGraphTemplate</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">templates</span><span class="p">,</span>
+</span><span id="__span-29-4"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">Packet</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">side_packets</span><span class="o">=</span><span class="p">{},</span>
+</span><span id="__span-29-5"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">graph_type</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-29-6"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Subgraph</span><span class="o">::</span><span class="n">SubgraphOptions</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">options</span><span class="o">=</span><span class="k">nullptr</span>
+</span><span id="__span-29-7"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-isnodethrottled">function IsNodeThrottled</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-30-1"><span class="kt">bool</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">IsNodeThrottled</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-30-2"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">node_id</span>
+</span><span id="__span-30-3"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-observeoutputstream">function ObserveOutputStream</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-31-1"><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">ObserveOutputStream</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-31-2"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">stream_name</span><span class="p">,</span>
+</span><span id="__span-31-3"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Packet</span><span class="w"> </span><span class="o">&amp;</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">packet_callback</span><span class="p">,</span>
+</span><span id="__span-31-4"><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">observe_timestamp_bounds</span><span class="o">=</span><span class="nb">false</span>
+</span><span id="__span-31-5"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-recorderror">function RecordError</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-32-1"><span class="kt">void</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">RecordError</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-32-2"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">error</span>
+</span><span id="__span-32-3"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-run-12">function Run [1/2]</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-33-1"><span class="k">virtual</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">Run</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-33-2"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">Packet</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">extra_side_packets</span>
+</span><span id="__span-33-3"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-run-22">function Run [2/2]</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-34-1"><span class="kr">inline</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">Run</span><span class="w"> </span><span class="p">()</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-setcounterfactory">function SetCounterFactory</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-35-1"><span class="kr">inline</span><span class="w"> </span><span class="n">ABSL_DEPRECATED</span><span class="p">(</span><span class="s">&quot;Use profiler()-&gt;GetCalculatorProfiles() instead&quot;</span><span class="p">)</span><span class="w"> </span><span class="n">absl</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">SetCounterFactory</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-35-2"><span class="w">    </span><span class="n">CounterFactory</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">factory</span>
+</span><span id="__span-35-3"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-seterrorcallback">function SetErrorCallback</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-36-1"><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">SetErrorCallback</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-36-2"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">void</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="o">&amp;</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">error_callback</span>
+</span><span id="__span-36-3"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-setexecutor">function SetExecutor</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-37-1"><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">SetExecutor</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-37-2"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+</span><span id="__span-37-3"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Executor</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">executor</span>
+</span><span id="__span-37-4"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-setgpuresources">function SetGpuResources</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-38-1"><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">SetGpuResources</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-38-2"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">GpuResources</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">resources</span>
+</span><span id="__span-38-3"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-setgraphinputstreamaddmode">function SetGraphInputStreamAddMode</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-39-1"><span class="kt">void</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">SetGraphInputStreamAddMode</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-39-2"><span class="w">    </span><span class="n">GraphInputStreamAddMode</span><span class="w"> </span><span class="n">mode</span>
+</span><span id="__span-39-3"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-setinputstreammaxqueuesize">function SetInputStreamMaxQueueSize</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-40-1"><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">SetInputStreamMaxQueueSize</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-40-2"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">stream_name</span><span class="p">,</span>
+</span><span id="__span-40-3"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">max_queue_size</span>
+</span><span id="__span-40-4"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-setinputstreamtimestampbound">function SetInputStreamTimestampBound</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-41-1"><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">SetInputStreamTimestampBound</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-41-2"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">stream_name</span><span class="p">,</span>
+</span><span id="__span-41-3"><span class="w">    </span><span class="n">Timestamp</span><span class="w"> </span><span class="n">timestamp</span>
+</span><span id="__span-41-4"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-setserviceobject">function SetServiceObject</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-42-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+</span><span id="__span-42-2"><span class="kr">inline</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">SetServiceObject</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-42-3"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">GraphService</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">service</span><span class="p">,</span>
+</span><span id="__span-42-4"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">object</span>
+</span><span id="__span-42-5"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-setservicepacket">function SetServicePacket</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-43-1"><span class="kr">inline</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">SetServicePacket</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-43-2"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">GraphServiceBase</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">service</span><span class="p">,</span>
+</span><span id="__span-43-3"><span class="w">    </span><span class="n">Packet</span><span class="w"> </span><span class="n">p</span>
+</span><span id="__span-43-4"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-startrun-12">function StartRun [1/2]</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-44-1"><span class="kr">inline</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">StartRun</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-44-2"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">Packet</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">extra_side_packets</span>
+</span><span id="__span-44-3"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-startrun-22">function StartRun [2/2]</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-45-1"><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">StartRun</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-45-2"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">Packet</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">extra_side_packets</span><span class="p">,</span>
+</span><span id="__span-45-3"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">Packet</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">stream_headers</span>
+</span><span id="__span-45-4"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-unthrottlesources">function UnthrottleSources</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-46-1"><span class="kt">bool</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">UnthrottleSources</span><span class="w"> </span><span class="p">()</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-waitforobservedoutput">function WaitForObservedOutput</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-47-1"><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">WaitForObservedOutput</span><span class="w"> </span><span class="p">()</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-waituntildone">function WaitUntilDone</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-48-1"><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">WaitUntilDone</span><span class="w"> </span><span class="p">()</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-waituntilidle">function WaitUntilIdle</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-49-1"><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">WaitUntilIdle</span><span class="w"> </span><span class="p">()</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-operator">function operator=</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-50-1"><span class="n">CalculatorGraph</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="k">operator</span><span class="o">=</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-50-2"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">CalculatorGraph</span><span class="w"> </span><span class="o">&amp;</span>
+</span><span id="__span-50-3"><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-profiler">function profiler</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-51-1"><span class="kr">inline</span><span class="w"> </span><span class="n">ABSL_DEPRECATED</span><span class="p">(</span><span class="s">&quot;Prefer using a Calculator to get information of all sorts out of the &quot;</span><span class="w"> </span><span class="s">&quot;graph.&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">OutputStreamManager</span><span class="w"> </span><span class="o">*</span><span class="n">FindOutputStreamManager</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="w"> </span><span class="n">ProfilingContext</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::</span><span class="n">profiler</span><span class="w"> </span><span class="p">()</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-calculatorgraph">function ~CalculatorGraph</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-52-1"><span class="k">virtual</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorGraph</span><span class="o">::~</span><span class="n">CalculatorGraph</span><span class="w"> </span><span class="p">()</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "content.code.annotate", "content.footnote.tooltips", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../js/jquery.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "zoom"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

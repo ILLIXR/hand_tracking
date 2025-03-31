@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="gl__simple__shaders_8h" kind="file" language="C++">
+    <compoundname>gl_simple_shaders.h</compoundname>
+    <includes refid="gl__base_8h" local="yes">mediapipe/gpu/gl_base.h</includes>
+    <includedby refid="image__to__tensor__converter__gl__texture_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_texture.cc</includedby>
+    <includedby refid="annotation__overlay__calculator_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc</includedby>
+    <includedby refid="gl__simple__shaders_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_simple_shaders.cc</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>mediapipe/gpu/gl_base.h</label>
+        <link refid="gl__base_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_simple_shaders.h</label>
+        <link refid="gl__simple__shaders_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>EGL/egl.h</label>
+      </node>
+      <node id="4">
+        <label>GLES2/gl2.h</label>
+      </node>
+      <node id="5">
+        <label>GLES2/gl2ext.h</label>
+      </node>
+      <node id="6">
+        <label>GLES3/gl32.h</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacemediapipe">mediapipe</innernamespace>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="gl__simple__shaders_8h_1a4fa011e9aee70cc8e52e8b5f54f6f444" prot="public" static="no">
+        <name>V</name>
+        <param><defname>source</defname></param>
+        <param><defname>n</defname></param>
+        <initializer>source[2 * (n)], source[2 * (n) + 1]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_simple_shaders.h" line="91" column="9" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_simple_shaders.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gl__simple__shaders_8h_1a874dba8bc7e672aaf4a069c90b5067d5" prot="public" static="no">
+        <name>V4</name>
+        <param><defname>source</defname></param>
+        <param><defname>a</defname></param>
+        <param><defname>b</defname></param>
+        <param><defname>c</defname></param>
+        <param><defname>d</defname></param>
+        <initializer>  V(source, a), V(source, b), V(source, c), V(source, d)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_simple_shaders.h" line="92" column="9" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_simple_shaders.h" bodystart="92" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="define" id="gl__simple__shaders_8h_1addb9f12ae151b214354d8e98b0a8b8af" prot="public" static="no">
+        <name>GLES_VERSION_COMPAT</name>
+        <initializer>&quot;#version 330 \n&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_simple_shaders.h" line="130" column="9" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_simple_shaders.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Copyright<sp/>2019<sp/>The<sp/>MediaPipe<sp/>Authors.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>MEDIAPIPE_GPU_GL_SIMPLE_SHADERS_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MEDIAPIPE_GPU_GL_SIMPLE_SHADERS_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/gpu/gl_base.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mediapipe<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Leaves<sp/>vertex<sp/>and<sp/>texture<sp/>coordinates<sp/>as<sp/>they<sp/>are.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Input<sp/>attributes:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>vec4<sp/>position<sp/>-<sp/>vertex<sp/>position<sp/>in<sp/>clip<sp/>space<sp/>(-1..1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>vec4<sp/>texture_coordinate<sp/>-<sp/>texture<sp/>coordinate<sp/>for<sp/>each<sp/>vertex<sp/>in</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>normalized<sp/>texture<sp/>space<sp/>(0..1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Output<sp/>varying:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>vec2<sp/>sample_coordinate<sp/>-<sp/>texture<sp/>coordinate<sp/>for<sp/>shader</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLchar*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>kBasicVertexShader;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Leaves<sp/>vertex<sp/>and<sp/>texture<sp/>coordinates<sp/>as<sp/>they<sp/>are.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Input<sp/>attributes:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>vec4<sp/>position<sp/>-<sp/>vertex<sp/>position</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>vec4<sp/>texture_coordinate<sp/>-<sp/>texture<sp/>coordinate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Input<sp/>uniform:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>vec4<sp/>scale<sp/>-<sp/>scale<sp/>factor<sp/>for<sp/>vertices</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Output<sp/>varying:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>vec2<sp/>sample_coordinate<sp/>-<sp/>texture<sp/>coordinate<sp/>for<sp/>shader</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLchar*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>kScaledVertexShader;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Applies<sp/>an<sp/>affine<sp/>transformation<sp/>to<sp/>the<sp/>vertex<sp/>and<sp/>leaves<sp/>texture<sp/>coordinates</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//<sp/>as<sp/>is.<sp/>Input<sp/>attributes:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>vec4<sp/>position<sp/>-<sp/>vertex<sp/>position</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>vec4<sp/>texture_coordinate<sp/>-<sp/>texture<sp/>coordinate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Input<sp/>uniform:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>mat3<sp/>homogeneous<sp/>affine<sp/>transform<sp/>-<sp/>transformation<sp/>matrix<sp/>for<sp/>vertices</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>vec2<sp/>viewport_size<sp/>-<sp/>size<sp/>of<sp/>the<sp/>viewport</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Output<sp/>varying:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>vec2<sp/>sample_coordinate<sp/>-<sp/>texture<sp/>coordinate<sp/>for<sp/>shader</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLchar*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>kTransformedVertexShader;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Outputs<sp/>the<sp/>texture<sp/>as<sp/>it<sp/>is.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Input<sp/>varying:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>vec2<sp/>sample_coordinate<sp/>-<sp/>texture<sp/>coordinate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Input<sp/>uniform:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>sampler2d<sp/>video_frame<sp/>-<sp/>texture</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLchar*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>kBasicTexturedFragmentShader;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Same<sp/>as<sp/>kBasicTexturedFragmentShader</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="comment">//<sp/>except<sp/>using<sp/>OES<sp/>textures.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLchar*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>kBasicTexturedFragmentShaderOES;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Paints<sp/>the<sp/>fragment<sp/>with<sp/>a<sp/>flat<sp/>color.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Input<sp/>uniform:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>vec3<sp/>color<sp/>-<sp/>the<sp/>RGB<sp/>color.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLchar*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>kFlatColorFragmentShader;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Multiplies<sp/>each<sp/>R,<sp/>G,<sp/>B<sp/>value<sp/>for<sp/>a<sp/>weight.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Input<sp/>varying:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>vec2<sp/>sample_coordinate<sp/>-<sp/>texture<sp/>coordinate</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Input<sp/>uniform:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>sampler2d<sp/>video_frame<sp/>-<sp/>texture</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>vec3<sp/>weights<sp/>-<sp/>r,g,b<sp/>weights</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLchar*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>kRgbWeightFragmentShader;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Converts<sp/>a<sp/>YUV<sp/>input<sp/>into<sp/>RGB.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Input<sp/>uniform:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>sampler2D<sp/>video_frame_y<sp/>-<sp/>Y<sp/>texture</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>sampler2D<sp/>video_frame_uv<sp/>-<sp/>UV<sp/>texture</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLchar*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>kYUV2TexToRGBFragmentShader;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="comment">//<sp/>A<sp/>square<sp/>covering<sp/>the<sp/>full<sp/>clip<sp/>space.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLfloat<sp/>kBasicSquareVertices[]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>-1.0f,<sp/>-1.0f,<sp/><sp/></highlight><highlight class="comment">//<sp/>bottom<sp/>left</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>1.0f,<sp/><sp/>-1.0f,<sp/><sp/></highlight><highlight class="comment">//<sp/>bottom<sp/>right</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>-1.0f,<sp/>1.0f,<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>top<sp/>left</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>1.0f,<sp/><sp/>1.0f,<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>top<sp/>right</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Temporary<sp/>macros<sp/>to<sp/>copy<sp/>vertices.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>V(source,<sp/>n)<sp/>source[2<sp/>*<sp/>(n)],<sp/>source[2<sp/>*<sp/>(n)<sp/>+<sp/>1]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>V4(source,<sp/>a,<sp/>b,<sp/>c,<sp/>d)<sp/>\</highlight></codeline>
+<codeline lineno="93"><highlight class="preprocessor"><sp/><sp/>V(source,<sp/>a),<sp/>V(source,<sp/>b),<sp/>V(source,<sp/>c),<sp/>V(source,<sp/>d)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="comment">//<sp/>A<sp/>square<sp/>covering<sp/>the<sp/>full<sp/>clip<sp/>space,<sp/>rotated<sp/>90<sp/>degrees<sp/>counterclockwise.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLfloat<sp/>kBasicSquareVertices90[]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>V4(kBasicSquareVertices,<sp/>2,<sp/>0,<sp/>3,<sp/>1)};</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="comment">//<sp/>A<sp/>square<sp/>covering<sp/>the<sp/>full<sp/>clip<sp/>space,<sp/>rotated<sp/>180<sp/>degrees<sp/>counterclockwise.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLfloat<sp/>kBasicSquareVertices180[]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>V4(kBasicSquareVertices,<sp/>3,<sp/>2,<sp/>1,<sp/>0)};</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="comment">//<sp/>A<sp/>square<sp/>covering<sp/>the<sp/>full<sp/>clip<sp/>space,<sp/>rotated<sp/>270<sp/>degrees<sp/>counterclockwise.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLfloat<sp/>kBasicSquareVertices270[]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>V4(kBasicSquareVertices,<sp/>1,<sp/>3,<sp/>0,<sp/>2)};</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Places<sp/>a<sp/>texture<sp/>on<sp/>kBasicSquareVertices<sp/>with<sp/>normal<sp/>alignment.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLfloat<sp/>kBasicTextureVertices[]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>0.0f,<sp/>0.0f,<sp/><sp/></highlight><highlight class="comment">//<sp/>bottom<sp/>left</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>1.0f,<sp/>0.0f,<sp/><sp/></highlight><highlight class="comment">//<sp/>bottom<sp/>right</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>0.0f,<sp/>1.0f,<sp/><sp/></highlight><highlight class="comment">//<sp/>top<sp/>left</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>1.0f,<sp/>1.0f,<sp/><sp/></highlight><highlight class="comment">//<sp/>top<sp/>right</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Places<sp/>a<sp/>texture<sp/>on<sp/>kBasicSquareVertices,<sp/>flipped<sp/>horizontally.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLfloat<sp/>kBasicTextureVerticesFlipX[]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>V4(kBasicTextureVertices,<sp/>1,<sp/>0,<sp/>3,<sp/>2)};</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Places<sp/>a<sp/>texture<sp/>on<sp/>kBasicSquareVertices,<sp/>flipped<sp/>vertically.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLfloat<sp/>kBasicTextureVerticesFlipY[]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>V4(kBasicTextureVertices,<sp/>2,<sp/>3,<sp/>0,<sp/>1)};</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>V4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>V</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Used<sp/>in<sp/>shaders<sp/>to<sp/>differentiate<sp/>desktop<sp/>OpenGL<sp/>vs<sp/>OpenGL<sp/>ES.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="comment">//<sp/>The<sp/>newer<sp/>spec<sp/>requires<sp/>this<sp/>to<sp/>be<sp/>the<sp/>first<sp/>line<sp/>of<sp/>a<sp/>shader.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Desktop<sp/>OpenGL<sp/>3.3+<sp/>=<sp/>#version<sp/>330</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>GL_ES_VERSION_2_0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GLES_VERSION_COMPAT<sp/>&quot;#version<sp/>330<sp/>\n&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GLES_VERSION_COMPAT<sp/>&quot;\n&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>GL_ES_VERSION_2_0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Used<sp/>in<sp/>vertex<sp/>shaders<sp/>to<sp/>differentiate<sp/>different<sp/>versions<sp/>of<sp/>OpenGL.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLchar*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>kMediaPipeVertexShaderPreamble;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Used<sp/>in<sp/>fragment<sp/>shaders<sp/>to<sp/>differentiate<sp/>different<sp/>versions<sp/>of<sp/>OpenGL.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLchar*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>kMediaPipeFragmentShaderPreamble;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>mediapipe</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MEDIAPIPE_GPU_GL_SIMPLE_SHADERS_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_simple_shaders.h"/>
+  </compounddef>
+</doxygen>

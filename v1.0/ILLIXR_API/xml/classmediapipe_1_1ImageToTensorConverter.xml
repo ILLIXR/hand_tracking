@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1ImageToTensorConverter" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>mediapipe::ImageToTensorConverter</compoundname>
+    <derivedcompoundref refid="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__buffer_8cc_03_1_1ImageToTensorGlBufferConverter" prot="public" virt="non-virtual">mediapipe::anonymous_namespace{image_to_tensor_converter_gl_buffer.cc}::ImageToTensorGlBufferConverter</derivedcompoundref>
+    <derivedcompoundref refid="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__gl__texture_8cc_03_1_1ImageToTensorGlTextureConverter" prot="public" virt="non-virtual">mediapipe::anonymous_namespace{image_to_tensor_converter_gl_texture.cc}::ImageToTensorGlTextureConverter</derivedcompoundref>
+    <derivedcompoundref refid="classmediapipe_1_1anonymous__namespace_02image__to__tensor__converter__opencv_8cc_03_1_1ImageToTensorOpenCvConverter" prot="public" virt="non-virtual">mediapipe::anonymous_namespace{image_to_tensor_converter_opencv.cc}::ImageToTensorOpenCvConverter</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1ImageToTensorConverter_1aab0e1b699703c2e1a15f9586880f75ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual mediapipe::ImageToTensorConverter::~ImageToTensorConverter</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ImageToTensorConverter</name>
+        <qualifiedname>mediapipe::ImageToTensorConverter::~ImageToTensorConverter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter.h" line="33" column="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageToTensorConverter_1a186176cc1dfd80ca44f06d13f305d44e" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>absl::Status</type>
+        <definition>virtual absl::Status mediapipe::ImageToTensorConverter::Convert</definition>
+        <argsstring>(const mediapipe::Image &amp;input, const RotatedRect &amp;roi, float range_min, float range_max, int tensor_buffer_offset, Tensor &amp;output_tensor)=0</argsstring>
+        <name>Convert</name>
+        <qualifiedname>mediapipe::ImageToTensorConverter::Convert</qualifiedname>
+        <param>
+          <type>const mediapipe::Image &amp;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>const RotatedRect &amp;</type>
+          <declname>roi</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>range_min</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>range_max</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>tensor_buffer_offset</declname>
+        </param>
+        <param>
+          <type>Tensor &amp;</type>
+          <declname>output_tensor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter.h" line="45" column="24"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter.h" line="31" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter.h" bodystart="31" bodyend="49"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1ImageToTensorConverter_1a186176cc1dfd80ca44f06d13f305d44e" prot="public" virt="pure-virtual"><scope>mediapipe::ImageToTensorConverter</scope><name>Convert</name></member>
+      <member refid="classmediapipe_1_1ImageToTensorConverter_1aab0e1b699703c2e1a15f9586880f75ad" prot="public" virt="virtual"><scope>mediapipe::ImageToTensorConverter</scope><name>~ImageToTensorConverter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

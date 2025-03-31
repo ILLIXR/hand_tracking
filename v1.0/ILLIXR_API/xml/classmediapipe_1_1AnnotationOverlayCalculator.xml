@@ -1,0 +1,469 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1AnnotationOverlayCalculator" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::AnnotationOverlayCalculator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">mediapipe::CalculatorBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1AnnotationOverlayCalculator_1a457dd6556b5244d340f854e1f0e5b035" prot="private" static="no" mutable="no">
+        <type>AnnotationOverlayCalculatorOptions</type>
+        <definition>AnnotationOverlayCalculatorOptions mediapipe::AnnotationOverlayCalculator::options_</definition>
+        <argsstring></argsstring>
+        <name>options_</name>
+        <qualifiedname>mediapipe::AnnotationOverlayCalculator::options_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" line="166" column="44" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1AnnotationOverlayCalculator_1a6ea1fbea7764d0306814d1312fdd391e" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; AnnotationRenderer &gt;</type>
+        <definition>std::unique_ptr&lt;AnnotationRenderer&gt; mediapipe::AnnotationOverlayCalculator::renderer_</definition>
+        <argsstring></argsstring>
+        <name>renderer_</name>
+        <qualifiedname>mediapipe::AnnotationOverlayCalculator::renderer_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" line="169" column="25" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1AnnotationOverlayCalculator_1a561a19d74105962fc3380037c3f61297" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::AnnotationOverlayCalculator::image_frame_available_</definition>
+        <argsstring></argsstring>
+        <name>image_frame_available_</name>
+        <qualifiedname>mediapipe::AnnotationOverlayCalculator::image_frame_available_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" line="172" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1AnnotationOverlayCalculator_1a635d608f5666543ed7102e4eb8a36327" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::AnnotationOverlayCalculator::use_gpu_</definition>
+        <argsstring></argsstring>
+        <name>use_gpu_</name>
+        <qualifiedname>mediapipe::AnnotationOverlayCalculator::use_gpu_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" line="174" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1AnnotationOverlayCalculator_1ad43f751a2a877a1311221236218b1c1e" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::AnnotationOverlayCalculator::gpu_initialized_</definition>
+        <argsstring></argsstring>
+        <name>gpu_initialized_</name>
+        <qualifiedname>mediapipe::AnnotationOverlayCalculator::gpu_initialized_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" line="175" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1AnnotationOverlayCalculator_1ab42085b4092148eaaafe7ec6147f26c7" prot="private" static="no" mutable="no">
+        <type>mediapipe::GlCalculatorHelper</type>
+        <definition>mediapipe::GlCalculatorHelper mediapipe::AnnotationOverlayCalculator::gpu_helper_</definition>
+        <argsstring></argsstring>
+        <name>gpu_helper_</name>
+        <qualifiedname>mediapipe::AnnotationOverlayCalculator::gpu_helper_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" line="177" column="39" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" bodystart="177" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1AnnotationOverlayCalculator_1a000c075a99af0b76998953631161f2e8" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint mediapipe::AnnotationOverlayCalculator::program_</definition>
+        <argsstring></argsstring>
+        <name>program_</name>
+        <qualifiedname>mediapipe::AnnotationOverlayCalculator::program_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" line="178" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1AnnotationOverlayCalculator_1af8a6d7f07b1a71e10a2f23b5d8bda57d" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint mediapipe::AnnotationOverlayCalculator::image_mat_tex_</definition>
+        <argsstring></argsstring>
+        <name>image_mat_tex_</name>
+        <qualifiedname>mediapipe::AnnotationOverlayCalculator::image_mat_tex_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" line="179" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1AnnotationOverlayCalculator_1adbb11d53ae1c0a7c684ce64d3da823f8" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::AnnotationOverlayCalculator::width_</definition>
+        <argsstring></argsstring>
+        <name>width_</name>
+        <qualifiedname>mediapipe::AnnotationOverlayCalculator::width_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" line="180" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1AnnotationOverlayCalculator_1ab9d346ad58653d3019eb6ddc0b01e8f3" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::AnnotationOverlayCalculator::height_</definition>
+        <argsstring></argsstring>
+        <name>height_</name>
+        <qualifiedname>mediapipe::AnnotationOverlayCalculator::height_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" line="181" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1AnnotationOverlayCalculator_1a07b7a3a6d06497599c7e6175b72626db" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::AnnotationOverlayCalculator::width_canvas_</definition>
+        <argsstring></argsstring>
+        <name>width_canvas_</name>
+        <qualifiedname>mediapipe::AnnotationOverlayCalculator::width_canvas_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" line="182" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1AnnotationOverlayCalculator_1ab1b0c5faae426f5a39404446268fa05c" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::AnnotationOverlayCalculator::height_canvas_</definition>
+        <argsstring></argsstring>
+        <name>height_canvas_</name>
+        <qualifiedname>mediapipe::AnnotationOverlayCalculator::height_canvas_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" line="183" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" bodystart="183" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1AnnotationOverlayCalculator_1a314ea67f873c16c4dcb79c5a36c77817" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::AnnotationOverlayCalculator::AnnotationOverlayCalculator</definition>
+        <argsstring>()=default</argsstring>
+        <name>AnnotationOverlayCalculator</name>
+        <qualifiedname>mediapipe::AnnotationOverlayCalculator::AnnotationOverlayCalculator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" line="136" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1AnnotationOverlayCalculator_1a74b5ba908b58287706009a74db67239c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::AnnotationOverlayCalculator::~AnnotationOverlayCalculator</definition>
+        <argsstring>() override=default</argsstring>
+        <name>~AnnotationOverlayCalculator</name>
+        <qualifiedname>mediapipe::AnnotationOverlayCalculator::~AnnotationOverlayCalculator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" line="137" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1AnnotationOverlayCalculator_1a560723f46ab1185aac4366866c84bc15" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::AnnotationOverlayCalculator::Open</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Open</name>
+        <qualifiedname>mediapipe::AnnotationOverlayCalculator::Open</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" line="142" column="22" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" bodystart="256" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1AnnotationOverlayCalculator_1a6d9535645b2eacefc9e40aa4c1746324" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::AnnotationOverlayCalculator::Process</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Process</name>
+        <qualifiedname>mediapipe::AnnotationOverlayCalculator::Process</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" line="143" column="22" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" bodystart="302" bodyend="385"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1AnnotationOverlayCalculator_1a73de59b68bb0b021c7d394b7ca444542" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::AnnotationOverlayCalculator::Close</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Close</name>
+        <qualifiedname>mediapipe::AnnotationOverlayCalculator::Close</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" line="144" column="22" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" bodystart="387" bodyend="399"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1AnnotationOverlayCalculator_1ace6e8dc45e99a9030fd902d5318fee49" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::AnnotationOverlayCalculator::GetContract</definition>
+        <argsstring>(CalculatorContract *cc)</argsstring>
+        <name>GetContract</name>
+        <qualifiedname>mediapipe::AnnotationOverlayCalculator::GetContract</qualifiedname>
+        <param>
+          <type>CalculatorContract *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" line="139" column="29" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" bodystart="188" bodyend="254"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1AnnotationOverlayCalculator_1aac5c93e6c7402064b2b7411f304857af" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Type</type>
+          </param>
+          <param>
+            <type>const char *</type>
+            <declname>Tag</declname>
+            <defname>Tag</defname>
+          </param>
+        </templateparamlist>
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::AnnotationOverlayCalculator::CreateRenderTargetCpu</definition>
+        <argsstring>(CalculatorContext *cc, std::unique_ptr&lt; cv::Mat &gt; &amp;image_mat, ImageFormat::Format *target_format)</argsstring>
+        <name>CreateRenderTargetCpu</name>
+        <qualifiedname>mediapipe::AnnotationOverlayCalculator::CreateRenderTargetCpu</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; cv::Mat &gt; &amp;</type>
+          <declname>image_mat</declname>
+        </param>
+        <param>
+          <type>ImageFormat::Format *</type>
+          <declname>target_format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" line="148" column="22" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" bodystart="432" bodyend="451"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1AnnotationOverlayCalculator_1a943d58c304fcf86a5d3642e8a5bcb83d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Type</type>
+          </param>
+          <param>
+            <type>const char *</type>
+            <declname>Tag</declname>
+            <defname>Tag</defname>
+          </param>
+        </templateparamlist>
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::AnnotationOverlayCalculator::CreateRenderTargetCpuFromGpu</definition>
+        <argsstring>(CalculatorContext *cc, std::unique_ptr&lt; cv::Mat &gt; &amp;image_mat, ImageFormat::Format *target_format)</argsstring>
+        <name>CreateRenderTargetCpuFromGpu</name>
+        <qualifiedname>mediapipe::AnnotationOverlayCalculator::CreateRenderTargetCpuFromGpu</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; cv::Mat &gt; &amp;</type>
+          <declname>image_mat</declname>
+        </param>
+        <param>
+          <type>ImageFormat::Format *</type>
+          <declname>target_format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" line="153" column="22" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" bodystart="454" bodyend="478"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1AnnotationOverlayCalculator_1ae23250d27fa83f4790fd80a2a48828e6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::AnnotationOverlayCalculator::RenderToCpu</definition>
+        <argsstring>(CalculatorContext *cc, const ImageFormat::Format &amp;target_format, uchar *data_image)</argsstring>
+        <name>RenderToCpu</name>
+        <qualifiedname>mediapipe::AnnotationOverlayCalculator::RenderToCpu</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <param>
+          <type>const ImageFormat::Format &amp;</type>
+          <declname>target_format</declname>
+        </param>
+        <param>
+          <type>uchar *</type>
+          <declname>data_image</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" line="157" column="22" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" bodystart="401" bodyend="429"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1AnnotationOverlayCalculator_1a54f96da4aaca0579cc0694ffd13d74aa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::AnnotationOverlayCalculator::GlRender</definition>
+        <argsstring>(CalculatorContext *cc)</argsstring>
+        <name>GlRender</name>
+        <qualifiedname>mediapipe::AnnotationOverlayCalculator::GlRender</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" line="161" column="22" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" bodystart="480" bodyend="533"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1AnnotationOverlayCalculator_1ac302fadf574f700755f82cde231ce86e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Type</type>
+          </param>
+          <param>
+            <type>const char *</type>
+            <declname>Tag</declname>
+            <defname>Tag</defname>
+          </param>
+        </templateparamlist>
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::AnnotationOverlayCalculator::GlSetup</definition>
+        <argsstring>(CalculatorContext *cc)</argsstring>
+        <name>GlSetup</name>
+        <qualifiedname>mediapipe::AnnotationOverlayCalculator::GlSetup</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" line="163" column="22" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" bodystart="536" bodyend="622"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" line="134" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/annotation_overlay_calculator.cc" bodystart="134" bodyend="185"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1AnnotationOverlayCalculator_1a314ea67f873c16c4dcb79c5a36c77817" prot="public" virt="non-virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>AnnotationOverlayCalculator</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a586aedabbf1f8f9d14e07a7251cc5936" prot="public" virt="non-virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>CalculatorBase</name></member>
+      <member refid="classmediapipe_1_1AnnotationOverlayCalculator_1a73de59b68bb0b021c7d394b7ca444542" prot="public" virt="non-virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>Close</name></member>
+      <member refid="classmediapipe_1_1AnnotationOverlayCalculator_1aac5c93e6c7402064b2b7411f304857af" prot="private" virt="non-virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>CreateRenderTargetCpu</name></member>
+      <member refid="classmediapipe_1_1AnnotationOverlayCalculator_1a943d58c304fcf86a5d3642e8a5bcb83d" prot="private" virt="non-virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>CreateRenderTargetCpuFromGpu</name></member>
+      <member refid="classmediapipe_1_1AnnotationOverlayCalculator_1ace6e8dc45e99a9030fd902d5318fee49" prot="public" virt="non-virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>GetContract</name></member>
+      <member refid="classmediapipe_1_1AnnotationOverlayCalculator_1a54f96da4aaca0579cc0694ffd13d74aa" prot="private" virt="non-virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>GlRender</name></member>
+      <member refid="classmediapipe_1_1AnnotationOverlayCalculator_1ac302fadf574f700755f82cde231ce86e" prot="private" virt="non-virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>GlSetup</name></member>
+      <member refid="classmediapipe_1_1AnnotationOverlayCalculator_1ab42085b4092148eaaafe7ec6147f26c7" prot="private" virt="non-virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>gpu_helper_</name></member>
+      <member refid="classmediapipe_1_1AnnotationOverlayCalculator_1ad43f751a2a877a1311221236218b1c1e" prot="private" virt="non-virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>gpu_initialized_</name></member>
+      <member refid="classmediapipe_1_1AnnotationOverlayCalculator_1ab9d346ad58653d3019eb6ddc0b01e8f3" prot="private" virt="non-virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>height_</name></member>
+      <member refid="classmediapipe_1_1AnnotationOverlayCalculator_1ab1b0c5faae426f5a39404446268fa05c" prot="private" virt="non-virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>height_canvas_</name></member>
+      <member refid="classmediapipe_1_1AnnotationOverlayCalculator_1a561a19d74105962fc3380037c3f61297" prot="private" virt="non-virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>image_frame_available_</name></member>
+      <member refid="classmediapipe_1_1AnnotationOverlayCalculator_1af8a6d7f07b1a71e10a2f23b5d8bda57d" prot="private" virt="non-virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>image_mat_tex_</name></member>
+      <member refid="classmediapipe_1_1AnnotationOverlayCalculator_1a560723f46ab1185aac4366866c84bc15" prot="public" virt="non-virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>Open</name></member>
+      <member refid="classmediapipe_1_1AnnotationOverlayCalculator_1a457dd6556b5244d340f854e1f0e5b035" prot="private" virt="non-virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>options_</name></member>
+      <member refid="classmediapipe_1_1AnnotationOverlayCalculator_1a6d9535645b2eacefc9e40aa4c1746324" prot="public" virt="non-virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>Process</name></member>
+      <member refid="classmediapipe_1_1AnnotationOverlayCalculator_1a000c075a99af0b76998953631161f2e8" prot="private" virt="non-virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>program_</name></member>
+      <member refid="classmediapipe_1_1AnnotationOverlayCalculator_1a6ea1fbea7764d0306814d1312fdd391e" prot="private" virt="non-virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>renderer_</name></member>
+      <member refid="classmediapipe_1_1AnnotationOverlayCalculator_1ae23250d27fa83f4790fd80a2a48828e6" prot="private" virt="non-virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>RenderToCpu</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a0cf70172f342c2cc0314af8e76ae982b" prot="public" virt="virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>SourceProcessOrder</name></member>
+      <member refid="classmediapipe_1_1AnnotationOverlayCalculator_1a635d608f5666543ed7102e4eb8a36327" prot="private" virt="non-virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>use_gpu_</name></member>
+      <member refid="classmediapipe_1_1AnnotationOverlayCalculator_1adbb11d53ae1c0a7c684ce64d3da823f8" prot="private" virt="non-virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>width_</name></member>
+      <member refid="classmediapipe_1_1AnnotationOverlayCalculator_1a07b7a3a6d06497599c7e6175b72626db" prot="private" virt="non-virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>width_canvas_</name></member>
+      <member refid="classmediapipe_1_1AnnotationOverlayCalculator_1a74b5ba908b58287706009a74db67239c" prot="public" virt="non-virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>~AnnotationOverlayCalculator</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a9ced1ccc8a3f7ad59e54a317f4054c90" prot="public" virt="virtual"><scope>mediapipe::AnnotationOverlayCalculator</scope><name>~CalculatorBase</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

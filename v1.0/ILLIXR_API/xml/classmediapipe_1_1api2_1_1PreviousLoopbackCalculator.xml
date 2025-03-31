@@ -1,0 +1,241 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1api2_1_1PreviousLoopbackCalculator" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::api2::PreviousLoopbackCalculator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">mediapipe::api2::Node</basecompoundref>
+    <innerclass refid="structmediapipe_1_1api2_1_1PreviousLoopbackCalculator_1_1MainPacketSpec" prot="private">mediapipe::api2::PreviousLoopbackCalculator::MainPacketSpec</innerclass>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1PreviousLoopbackCalculator_1a0fc3b4f2d0f84087d12074f22bf9427a" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr Input&lt; AnyType &gt;</type>
+        <definition>constexpr Input&lt;AnyType&gt; mediapipe::api2::PreviousLoopbackCalculator::kMain</definition>
+        <argsstring></argsstring>
+        <name>kMain</name>
+        <qualifiedname>mediapipe::api2::PreviousLoopbackCalculator::kMain</qualifiedname>
+        <initializer>{&quot;MAIN&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/previous_loopback_calculator.cc" line="58" column="26" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/previous_loopback_calculator.cc" bodystart="58" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1PreviousLoopbackCalculator_1a2035dc53dd778766427327573a9a53df" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr Input&lt; AnyType &gt;</type>
+        <definition>constexpr Input&lt;AnyType&gt; mediapipe::api2::PreviousLoopbackCalculator::kLoop</definition>
+        <argsstring></argsstring>
+        <name>kLoop</name>
+        <qualifiedname>mediapipe::api2::PreviousLoopbackCalculator::kLoop</qualifiedname>
+        <initializer>{&quot;LOOP&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/previous_loopback_calculator.cc" line="59" column="26" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/previous_loopback_calculator.cc" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1PreviousLoopbackCalculator_1a014ea9e114a8a84df06ab38629371918" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr Output&lt; SameType&lt; kLoop &gt; &gt;</type>
+        <definition>constexpr Output&lt;SameType&lt;kLoop&gt; &gt; mediapipe::api2::PreviousLoopbackCalculator::kPrevLoop</definition>
+        <argsstring></argsstring>
+        <name>kPrevLoop</name>
+        <qualifiedname>mediapipe::api2::PreviousLoopbackCalculator::kPrevLoop</qualifiedname>
+        <initializer>{&quot;PREV_LOOP&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/previous_loopback_calculator.cc" line="60" column="27" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/previous_loopback_calculator.cc" bodystart="60" bodyend="60"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1PreviousLoopbackCalculator_1a431a649b8740e0d7f07ee8cc3f55b605" prot="private" static="no" mutable="no">
+        <type>std::deque&lt; MainPacketSpec &gt;</type>
+        <definition>std::deque&lt;MainPacketSpec&gt; mediapipe::api2::PreviousLoopbackCalculator::main_packet_specs_</definition>
+        <argsstring></argsstring>
+        <name>main_packet_specs_</name>
+        <qualifiedname>mediapipe::api2::PreviousLoopbackCalculator::main_packet_specs_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/previous_loopback_calculator.cc" line="161" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/previous_loopback_calculator.cc" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1PreviousLoopbackCalculator_1a84d84f85da0031b72b6037b2e3785305" prot="private" static="no" mutable="no">
+        <type>Timestamp</type>
+        <definition>Timestamp mediapipe::api2::PreviousLoopbackCalculator::prev_main_ts_</definition>
+        <argsstring></argsstring>
+        <name>prev_main_ts_</name>
+        <qualifiedname>mediapipe::api2::PreviousLoopbackCalculator::prev_main_ts_</qualifiedname>
+        <initializer>= Timestamp::Unstarted()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/previous_loopback_calculator.cc" line="162" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/previous_loopback_calculator.cc" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1PreviousLoopbackCalculator_1adf80d36a079842ef56a57a51e4025761" prot="private" static="no" mutable="no">
+        <type>Timestamp</type>
+        <definition>Timestamp mediapipe::api2::PreviousLoopbackCalculator::prev_non_empty_main_ts_</definition>
+        <argsstring></argsstring>
+        <name>prev_non_empty_main_ts_</name>
+        <qualifiedname>mediapipe::api2::PreviousLoopbackCalculator::prev_non_empty_main_ts_</qualifiedname>
+        <initializer>= Timestamp::Unstarted()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/previous_loopback_calculator.cc" line="163" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/previous_loopback_calculator.cc" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1PreviousLoopbackCalculator_1a90246ba4e7584afb5ea97900390f3b9c" prot="private" static="no" mutable="no">
+        <type>std::deque&lt; PacketBase &gt;</type>
+        <definition>std::deque&lt;PacketBase&gt; mediapipe::api2::PreviousLoopbackCalculator::loop_packets_</definition>
+        <argsstring></argsstring>
+        <name>loop_packets_</name>
+        <qualifiedname>mediapipe::api2::PreviousLoopbackCalculator::loop_packets_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/previous_loopback_calculator.cc" line="171" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/previous_loopback_calculator.cc" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1PreviousLoopbackCalculator_1ab86cdb9fe737aed3467853291d4201dd" prot="private" static="no" mutable="no">
+        <type>Timestamp</type>
+        <definition>Timestamp mediapipe::api2::PreviousLoopbackCalculator::prev_loop_ts_</definition>
+        <argsstring></argsstring>
+        <name>prev_loop_ts_</name>
+        <qualifiedname>mediapipe::api2::PreviousLoopbackCalculator::prev_loop_ts_</qualifiedname>
+        <initializer>= Timestamp::Unset()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/previous_loopback_calculator.cc" line="175" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/previous_loopback_calculator.cc" bodystart="175" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1PreviousLoopbackCalculator_1a7eb55bb24e54fe789dd79bd6df58fd49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::api2::PreviousLoopbackCalculator::MEDIAPIPE_NODE_CONTRACT</definition>
+        <argsstring>(kMain, kLoop, kPrevLoop, StreamHandler(&quot;ImmediateInputStreamHandler&quot;), TimestampChange::Arbitrary())</argsstring>
+        <name>MEDIAPIPE_NODE_CONTRACT</name>
+        <qualifiedname>mediapipe::api2::PreviousLoopbackCalculator::MEDIAPIPE_NODE_CONTRACT</qualifiedname>
+        <param>
+          <type>kMain</type>
+        </param>
+        <param>
+          <type>kLoop</type>
+        </param>
+        <param>
+          <type>kPrevLoop</type>
+        </param>
+        <param>
+          <type>StreamHandler(&quot;ImmediateInputStreamHandler&quot;)</type>
+        </param>
+        <param>
+          <type>TimestampChange::Arbitrary()</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/previous_loopback_calculator.cc" line="64" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1PreviousLoopbackCalculator_1a5cded8d25a83428a54423b01caabb602" prot="public" static="no" const="no" explicit="no" inline="yes" final="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::PreviousLoopbackCalculator::Open</definition>
+        <argsstring>(CalculatorContext *cc) final</argsstring>
+        <name>Open</name>
+        <qualifiedname>mediapipe::api2::PreviousLoopbackCalculator::Open</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/previous_loopback_calculator.cc" line="75" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/previous_loopback_calculator.cc" bodystart="75" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1PreviousLoopbackCalculator_1abeeacfa97012c54dc68f6093bb418a70" prot="public" static="no" const="no" explicit="no" inline="yes" final="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::PreviousLoopbackCalculator::Process</definition>
+        <argsstring>(CalculatorContext *cc) final</argsstring>
+        <name>Process</name>
+        <qualifiedname>mediapipe::api2::PreviousLoopbackCalculator::Process</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/previous_loopback_calculator.cc" line="80" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/previous_loopback_calculator.cc" bodystart="80" bodyend="146"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1PreviousLoopbackCalculator_1a10d10b2b370a7934846eb39e7ac9735e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>static absl::Status mediapipe::api2::PreviousLoopbackCalculator::UpdateContract</definition>
+        <argsstring>(CalculatorContract *cc)</argsstring>
+        <name>UpdateContract</name>
+        <qualifiedname>mediapipe::api2::PreviousLoopbackCalculator::UpdateContract</qualifiedname>
+        <param>
+          <type>CalculatorContract *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/previous_loopback_calculator.cc" line="68" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/previous_loopback_calculator.cc" bodystart="68" bodyend="73"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/previous_loopback_calculator.cc" line="56" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/previous_loopback_calculator.cc" bodystart="56" bodyend="176"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1CalculatorBase_1a586aedabbf1f8f9d14e07a7251cc5936" prot="public" virt="non-virtual"><scope>mediapipe::api2::PreviousLoopbackCalculator</scope><name>CalculatorBase</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a4c90b3bb22ad29984bf0e1436f629f1d" prot="public" virt="virtual"><scope>mediapipe::api2::PreviousLoopbackCalculator</scope><name>Close</name></member>
+      <member refid="classmediapipe_1_1api2_1_1PreviousLoopbackCalculator_1a2035dc53dd778766427327573a9a53df" prot="public" virt="non-virtual"><scope>mediapipe::api2::PreviousLoopbackCalculator</scope><name>kLoop</name></member>
+      <member refid="classmediapipe_1_1api2_1_1PreviousLoopbackCalculator_1a0fc3b4f2d0f84087d12074f22bf9427a" prot="public" virt="non-virtual"><scope>mediapipe::api2::PreviousLoopbackCalculator</scope><name>kMain</name></member>
+      <member refid="classmediapipe_1_1api2_1_1PreviousLoopbackCalculator_1a014ea9e114a8a84df06ab38629371918" prot="public" virt="non-virtual"><scope>mediapipe::api2::PreviousLoopbackCalculator</scope><name>kPrevLoop</name></member>
+      <member refid="classmediapipe_1_1api2_1_1PreviousLoopbackCalculator_1a90246ba4e7584afb5ea97900390f3b9c" prot="private" virt="non-virtual"><scope>mediapipe::api2::PreviousLoopbackCalculator</scope><name>loop_packets_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1PreviousLoopbackCalculator_1a431a649b8740e0d7f07ee8cc3f55b605" prot="private" virt="non-virtual"><scope>mediapipe::api2::PreviousLoopbackCalculator</scope><name>main_packet_specs_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1PreviousLoopbackCalculator_1a7eb55bb24e54fe789dd79bd6df58fd49" prot="public" virt="non-virtual"><scope>mediapipe::api2::PreviousLoopbackCalculator</scope><name>MEDIAPIPE_NODE_CONTRACT</name></member>
+      <member refid="classmediapipe_1_1api2_1_1PreviousLoopbackCalculator_1a5cded8d25a83428a54423b01caabb602" prot="public" virt="non-virtual"><scope>mediapipe::api2::PreviousLoopbackCalculator</scope><name>Open</name></member>
+      <member refid="classmediapipe_1_1api2_1_1PreviousLoopbackCalculator_1ab86cdb9fe737aed3467853291d4201dd" prot="private" virt="non-virtual"><scope>mediapipe::api2::PreviousLoopbackCalculator</scope><name>prev_loop_ts_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1PreviousLoopbackCalculator_1a84d84f85da0031b72b6037b2e3785305" prot="private" virt="non-virtual"><scope>mediapipe::api2::PreviousLoopbackCalculator</scope><name>prev_main_ts_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1PreviousLoopbackCalculator_1adf80d36a079842ef56a57a51e4025761" prot="private" virt="non-virtual"><scope>mediapipe::api2::PreviousLoopbackCalculator</scope><name>prev_non_empty_main_ts_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1PreviousLoopbackCalculator_1abeeacfa97012c54dc68f6093bb418a70" prot="public" virt="non-virtual"><scope>mediapipe::api2::PreviousLoopbackCalculator</scope><name>Process</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a0cf70172f342c2cc0314af8e76ae982b" prot="public" virt="virtual"><scope>mediapipe::api2::PreviousLoopbackCalculator</scope><name>SourceProcessOrder</name></member>
+      <member refid="classmediapipe_1_1api2_1_1PreviousLoopbackCalculator_1a10d10b2b370a7934846eb39e7ac9735e" prot="public" virt="non-virtual"><scope>mediapipe::api2::PreviousLoopbackCalculator</scope><name>UpdateContract</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a9ced1ccc8a3f7ad59e54a317f4054c90" prot="public" virt="virtual"><scope>mediapipe::api2::PreviousLoopbackCalculator</scope><name>~CalculatorBase</name></member>
+      <member refid="classmediapipe_1_1api2_1_1Node_1acd6b394427fbcc78008356f4f3c0a827" prot="public" virt="virtual"><scope>mediapipe::api2::PreviousLoopbackCalculator</scope><name>~Node</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

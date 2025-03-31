@@ -1,0 +1,420 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1TraceBuilder_1_1Impl" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::TraceBuilder::Impl</compoundname>
+    <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classmediapipe_1_1TraceBuilder_1_1Impl_1a2648b08732efc459e8a44086729b5b8f" prot="private" static="no">
+        <type>std::vector&lt; const TraceEvent * &gt;</type>
+        <definition>using mediapipe::TraceBuilder::Impl::EventList =  std::vector&lt;const TraceEvent*&gt;</definition>
+        <argsstring></argsstring>
+        <name>EventList</name>
+        <qualifiedname>mediapipe::TraceBuilder::Impl::EventList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" line="165" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" bodystart="165" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1TraceBuilder_1_1Impl_1a00d85a7f1f753b87fb7077667fe78082" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; TaskId, EventList &gt;</type>
+        <definition>std::unordered_map&lt;TaskId, EventList&gt; mediapipe::TraceBuilder::Impl::task_events_</definition>
+        <argsstring></argsstring>
+        <name>task_events_</name>
+        <qualifiedname>mediapipe::TraceBuilder::Impl::task_events_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" line="389" column="22" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" bodystart="389" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1TraceBuilder_1_1Impl_1a1795e96b8a59df614d9f10b0ae69b994" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; TaskId, const TraceEvent * &gt;</type>
+        <definition>std::unordered_map&lt;TaskId, const TraceEvent*&gt; mediapipe::TraceBuilder::Impl::hop_events_</definition>
+        <argsstring></argsstring>
+        <name>hop_events_</name>
+        <qualifiedname>mediapipe::TraceBuilder::Impl::hop_events_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" line="391" column="22" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" bodystart="391" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1TraceBuilder_1_1Impl_1ade26b9309f7e6cc481d046a513adc5ef" prot="private" static="no" mutable="no">
+        <type>StringIdMap</type>
+        <definition>StringIdMap mediapipe::TraceBuilder::Impl::stream_id_map_</definition>
+        <argsstring></argsstring>
+        <name>stream_id_map_</name>
+        <qualifiedname>mediapipe::TraceBuilder::Impl::stream_id_map_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" line="393" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" bodystart="393" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1TraceBuilder_1_1Impl_1ab4258dc5e4d6f4878dd4b89bc71b9296" prot="private" static="no" mutable="no">
+        <type>AddressIdMap</type>
+        <definition>AddressIdMap mediapipe::TraceBuilder::Impl::packet_data_id_map_</definition>
+        <argsstring></argsstring>
+        <name>packet_data_id_map_</name>
+        <qualifiedname>mediapipe::TraceBuilder::Impl::packet_data_id_map_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" line="395" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" bodystart="395" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1TraceBuilder_1_1Impl_1a26d0a31bec8258710700b7da9ed060f5" prot="private" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t mediapipe::TraceBuilder::Impl::base_ts_</definition>
+        <argsstring></argsstring>
+        <name>base_ts_</name>
+        <qualifiedname>mediapipe::TraceBuilder::Impl::base_ts_</qualifiedname>
+        <initializer>= std::numeric_limits&lt;int64_t&gt;::max()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" line="397" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" bodystart="397" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1TraceBuilder_1_1Impl_1ade889f90c6d238452eeaa58f2b4a80c5" prot="private" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t mediapipe::TraceBuilder::Impl::base_time_</definition>
+        <argsstring></argsstring>
+        <name>base_time_</name>
+        <qualifiedname>mediapipe::TraceBuilder::Impl::base_time_</qualifiedname>
+        <initializer>= std::numeric_limits&lt;int64_t&gt;::max()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" line="399" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" bodystart="399" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1TraceBuilder_1_1Impl_1aa355bb746066028c7816393a4ed24a06" prot="private" static="no" mutable="no">
+        <type>TraceEventRegistry</type>
+        <definition>TraceEventRegistry mediapipe::TraceBuilder::Impl::trace_event_registry_</definition>
+        <argsstring></argsstring>
+        <name>trace_event_registry_</name>
+        <qualifiedname>mediapipe::TraceBuilder::Impl::trace_event_registry_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" line="401" column="22" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" bodystart="401" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1TraceBuilder_1_1Impl_1a86770e8f2dc01ae0982e9846a83c1101" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::TraceBuilder::Impl::Impl</definition>
+        <argsstring>()</argsstring>
+        <name>Impl</name>
+        <qualifiedname>mediapipe::TraceBuilder::Impl::Impl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" line="168" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" bodystart="168" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1TraceBuilder_1_1Impl_1a2fa7f38fea473c0ee365f9769c0cbd59" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>TraceEventRegistry *</type>
+        <definition>TraceEventRegistry * mediapipe::TraceBuilder::Impl::trace_event_registry</definition>
+        <argsstring>()</argsstring>
+        <name>trace_event_registry</name>
+        <qualifiedname>mediapipe::TraceBuilder::Impl::trace_event_registry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" line="179" column="22" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" bodystart="179" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1TraceBuilder_1_1Impl_1ad1cad41e842e3475eeb008ed5d30ccb2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::TraceBuilder::Impl::CreateTrace</definition>
+        <argsstring>(const TraceBuffer &amp;buffer, absl::Time begin_time, absl::Time end_time, GraphTrace *result)</argsstring>
+        <name>CreateTrace</name>
+        <qualifiedname>mediapipe::TraceBuilder::Impl::CreateTrace</qualifiedname>
+        <param>
+          <type>const TraceBuffer &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>absl::Time</type>
+          <declname>begin_time</declname>
+        </param>
+        <param>
+          <type>absl::Time</type>
+          <declname>end_time</declname>
+        </param>
+        <param>
+          <type>GraphTrace *</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" line="192" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" bodystart="192" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1TraceBuilder_1_1Impl_1a4f1fe402fc12e82417c34ac4f7ff476c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::TraceBuilder::Impl::CreateLog</definition>
+        <argsstring>(const TraceBuffer &amp;buffer, absl::Time begin_time, absl::Time end_time, GraphTrace *result)</argsstring>
+        <name>CreateLog</name>
+        <qualifiedname>mediapipe::TraceBuilder::Impl::CreateLog</qualifiedname>
+        <param>
+          <type>const TraceBuffer &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>absl::Time</type>
+          <declname>begin_time</declname>
+        </param>
+        <param>
+          <type>absl::Time</type>
+          <declname>end_time</declname>
+        </param>
+        <param>
+          <type>GraphTrace *</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" line="243" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" bodystart="243" bodyend="267"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1TraceBuilder_1_1Impl_1ab101fbb3856cd8d1fc0cb381c4890d32" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::TraceBuilder::Impl::Clear</definition>
+        <argsstring>()</argsstring>
+        <name>Clear</name>
+        <qualifiedname>mediapipe::TraceBuilder::Impl::Clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" line="269" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" bodystart="269" bodyend="272"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1TraceBuilder_1_1Impl_1a4996a69ee015e56946470ecaaedd4ca4" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Timestamp</type>
+        <definition>static Timestamp mediapipe::TraceBuilder::Impl::TimestampAfter</definition>
+        <argsstring>(const TraceBuffer &amp;buffer, absl::Time begin_time)</argsstring>
+        <name>TimestampAfter</name>
+        <qualifiedname>mediapipe::TraceBuilder::Impl::TimestampAfter</qualifiedname>
+        <param>
+          <type>const TraceBuffer &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>absl::Time</type>
+          <declname>begin_time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" line="181" column="20" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" bodystart="181" bodyend="190"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1TraceBuilder_1_1Impl_1adf5275ba314cb6731a373b9233b1b5e1" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::TraceBuilder::Impl::SetBaseTime</definition>
+        <argsstring>(const std::vector&lt; TraceEvent &gt; &amp;snapshot)</argsstring>
+        <name>SetBaseTime</name>
+        <qualifiedname>mediapipe::TraceBuilder::Impl::SetBaseTime</qualifiedname>
+        <param>
+          <type>const std::vector&lt; TraceEvent &gt; &amp;</type>
+          <declname>snapshot</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" line="276" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" bodystart="276" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1TraceBuilder_1_1Impl_1ab53916a85d407df3ac879cd34025e7aa" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t mediapipe::TraceBuilder::Impl::LogTimestamp</definition>
+        <argsstring>(Timestamp ts)</argsstring>
+        <name>LogTimestamp</name>
+        <qualifiedname>mediapipe::TraceBuilder::Impl::LogTimestamp</qualifiedname>
+        <param>
+          <type>Timestamp</type>
+          <declname>ts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" line="297" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" bodystart="297" bodyend="297"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1TraceBuilder_1_1Impl_1a2acb38ae51039402f0ef4fee1dcc2ec2" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t mediapipe::TraceBuilder::Impl::LogTime</definition>
+        <argsstring>(absl::Time time)</argsstring>
+        <name>LogTime</name>
+        <qualifiedname>mediapipe::TraceBuilder::Impl::LogTime</qualifiedname>
+        <param>
+          <type>absl::Time</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" line="300" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" bodystart="300" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1TraceBuilder_1_1Impl_1ad55cc72d5dbaf76edf03ecc35a85b66a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const TraceEvent *</type>
+        <definition>const TraceEvent * mediapipe::TraceBuilder::Impl::FindOutputEvent</definition>
+        <argsstring>(const TraceEvent &amp;event)</argsstring>
+        <name>FindOutputEvent</name>
+        <qualifiedname>mediapipe::TraceBuilder::Impl::FindOutputEvent</qualifiedname>
+        <param>
+          <type>const TraceEvent &amp;</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" line="303" column="20" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" bodystart="303" bodyend="307"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1TraceBuilder_1_1Impl_1a46013572028749295a6a44d193ba8b42" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::TraceBuilder::Impl::BuildStreamTrace</definition>
+        <argsstring>(const TraceEvent &amp;event, GraphTrace::StreamTrace *result)</argsstring>
+        <name>BuildStreamTrace</name>
+        <qualifiedname>mediapipe::TraceBuilder::Impl::BuildStreamTrace</qualifiedname>
+        <param>
+          <type>const TraceEvent &amp;</type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>GraphTrace::StreamTrace *</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" line="310" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" bodystart="310" bodyend="319"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1TraceBuilder_1_1Impl_1afa735890660f26633f32d59944b7271c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::TraceBuilder::Impl::BuildCalculatorTrace</definition>
+        <argsstring>(const EventList &amp;task_events, GraphTrace::CalculatorTrace *result)</argsstring>
+        <name>BuildCalculatorTrace</name>
+        <qualifiedname>mediapipe::TraceBuilder::Impl::BuildCalculatorTrace</qualifiedname>
+        <param>
+          <type>const EventList &amp;</type>
+          <declname>task_events</declname>
+        </param>
+        <param>
+          <type>GraphTrace::CalculatorTrace *</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" line="322" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" bodystart="322" bodyend="363"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1TraceBuilder_1_1Impl_1af2d88fd262bb87588f37ee57f557e85a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::TraceBuilder::Impl::BuildEventLog</definition>
+        <argsstring>(const TraceEvent &amp;event, GraphTrace::CalculatorTrace *result)</argsstring>
+        <name>BuildEventLog</name>
+        <qualifiedname>mediapipe::TraceBuilder::Impl::BuildEventLog</qualifiedname>
+        <param>
+          <type>const TraceEvent &amp;</type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>GraphTrace::CalculatorTrace *</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" line="366" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" bodystart="366" bodyend="386"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" line="164" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.cc" bodystart="164" bodyend="402"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1TraceBuilder_1_1Impl_1ade889f90c6d238452eeaa58f2b4a80c5" prot="private" virt="non-virtual"><scope>mediapipe::TraceBuilder::Impl</scope><name>base_time_</name></member>
+      <member refid="classmediapipe_1_1TraceBuilder_1_1Impl_1a26d0a31bec8258710700b7da9ed060f5" prot="private" virt="non-virtual"><scope>mediapipe::TraceBuilder::Impl</scope><name>base_ts_</name></member>
+      <member refid="classmediapipe_1_1TraceBuilder_1_1Impl_1afa735890660f26633f32d59944b7271c" prot="private" virt="non-virtual"><scope>mediapipe::TraceBuilder::Impl</scope><name>BuildCalculatorTrace</name></member>
+      <member refid="classmediapipe_1_1TraceBuilder_1_1Impl_1af2d88fd262bb87588f37ee57f557e85a" prot="private" virt="non-virtual"><scope>mediapipe::TraceBuilder::Impl</scope><name>BuildEventLog</name></member>
+      <member refid="classmediapipe_1_1TraceBuilder_1_1Impl_1a46013572028749295a6a44d193ba8b42" prot="private" virt="non-virtual"><scope>mediapipe::TraceBuilder::Impl</scope><name>BuildStreamTrace</name></member>
+      <member refid="classmediapipe_1_1TraceBuilder_1_1Impl_1ab101fbb3856cd8d1fc0cb381c4890d32" prot="public" virt="non-virtual"><scope>mediapipe::TraceBuilder::Impl</scope><name>Clear</name></member>
+      <member refid="classmediapipe_1_1TraceBuilder_1_1Impl_1a4f1fe402fc12e82417c34ac4f7ff476c" prot="public" virt="non-virtual"><scope>mediapipe::TraceBuilder::Impl</scope><name>CreateLog</name></member>
+      <member refid="classmediapipe_1_1TraceBuilder_1_1Impl_1ad1cad41e842e3475eeb008ed5d30ccb2" prot="public" virt="non-virtual"><scope>mediapipe::TraceBuilder::Impl</scope><name>CreateTrace</name></member>
+      <member refid="classmediapipe_1_1TraceBuilder_1_1Impl_1a2648b08732efc459e8a44086729b5b8f" prot="private" virt="non-virtual"><scope>mediapipe::TraceBuilder::Impl</scope><name>EventList</name></member>
+      <member refid="classmediapipe_1_1TraceBuilder_1_1Impl_1ad55cc72d5dbaf76edf03ecc35a85b66a" prot="private" virt="non-virtual"><scope>mediapipe::TraceBuilder::Impl</scope><name>FindOutputEvent</name></member>
+      <member refid="classmediapipe_1_1TraceBuilder_1_1Impl_1a1795e96b8a59df614d9f10b0ae69b994" prot="private" virt="non-virtual"><scope>mediapipe::TraceBuilder::Impl</scope><name>hop_events_</name></member>
+      <member refid="classmediapipe_1_1TraceBuilder_1_1Impl_1a86770e8f2dc01ae0982e9846a83c1101" prot="public" virt="non-virtual"><scope>mediapipe::TraceBuilder::Impl</scope><name>Impl</name></member>
+      <member refid="classmediapipe_1_1TraceBuilder_1_1Impl_1a2acb38ae51039402f0ef4fee1dcc2ec2" prot="private" virt="non-virtual"><scope>mediapipe::TraceBuilder::Impl</scope><name>LogTime</name></member>
+      <member refid="classmediapipe_1_1TraceBuilder_1_1Impl_1ab53916a85d407df3ac879cd34025e7aa" prot="private" virt="non-virtual"><scope>mediapipe::TraceBuilder::Impl</scope><name>LogTimestamp</name></member>
+      <member refid="classmediapipe_1_1TraceBuilder_1_1Impl_1ab4258dc5e4d6f4878dd4b89bc71b9296" prot="private" virt="non-virtual"><scope>mediapipe::TraceBuilder::Impl</scope><name>packet_data_id_map_</name></member>
+      <member refid="classmediapipe_1_1TraceBuilder_1_1Impl_1adf5275ba314cb6731a373b9233b1b5e1" prot="private" virt="non-virtual"><scope>mediapipe::TraceBuilder::Impl</scope><name>SetBaseTime</name></member>
+      <member refid="classmediapipe_1_1TraceBuilder_1_1Impl_1ade26b9309f7e6cc481d046a513adc5ef" prot="private" virt="non-virtual"><scope>mediapipe::TraceBuilder::Impl</scope><name>stream_id_map_</name></member>
+      <member refid="classmediapipe_1_1TraceBuilder_1_1Impl_1a00d85a7f1f753b87fb7077667fe78082" prot="private" virt="non-virtual"><scope>mediapipe::TraceBuilder::Impl</scope><name>task_events_</name></member>
+      <member refid="classmediapipe_1_1TraceBuilder_1_1Impl_1a4996a69ee015e56946470ecaaedd4ca4" prot="public" virt="non-virtual"><scope>mediapipe::TraceBuilder::Impl</scope><name>TimestampAfter</name></member>
+      <member refid="classmediapipe_1_1TraceBuilder_1_1Impl_1a2fa7f38fea473c0ee365f9769c0cbd59" prot="public" virt="non-virtual"><scope>mediapipe::TraceBuilder::Impl</scope><name>trace_event_registry</name></member>
+      <member refid="classmediapipe_1_1TraceBuilder_1_1Impl_1aa355bb746066028c7816393a4ed24a06" prot="private" virt="non-virtual"><scope>mediapipe::TraceBuilder::Impl</scope><name>trace_event_registry_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

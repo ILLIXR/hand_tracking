@@ -1,0 +1,2043 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1LocationData" kind="class" language="C++" prot="public" final="yes">
+    <compoundname>mediapipe::LocationData</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">PROTOBUF_NAMESPACE_ID::Message</basecompoundref>
+    <innerclass refid="classmediapipe_1_1LocationData_1_1__Internal" prot="public">mediapipe::LocationData::_Internal</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classmediapipe_1_1LocationData_1a89fe5743be04ad7795cb6740ecead729" prot="public" static="no" strong="no">
+        <type>int</type>
+        <name></name>
+        <qualifiedname>mediapipe::LocationData</qualifiedname>
+        <enumvalue id="classmediapipe_1_1LocationData_1a89fe5743be04ad7795cb6740ecead729a18e08ca9259b7ab79132e2f4d04dd9e3" prot="public">
+          <name>kRelativeKeypointsFieldNumber</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1LocationData_1a89fe5743be04ad7795cb6740ecead729a36d9c4f38bab70c67015bc7d6279cd5b" prot="public">
+          <name>kBoundingBoxFieldNumber</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1LocationData_1a89fe5743be04ad7795cb6740ecead729a7d344ae9ca2dad257584811fde883890" prot="public">
+          <name>kRelativeBoundingBoxFieldNumber</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1LocationData_1a89fe5743be04ad7795cb6740ecead729ab86507e35692c7aed8170b1213e325b9" prot="public">
+          <name>kMaskFieldNumber</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1LocationData_1a89fe5743be04ad7795cb6740ecead729a1f58ab2d213a1a24a705035b123c7dae" prot="public">
+          <name>kFormatFieldNumber</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1085" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1085" bodyend="1091"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmediapipe_1_1LocationData_1a6926595476b3579aa2ad7e1f1680b1ae" prot="public" static="no">
+        <type>LocationData_BoundingBox</type>
+        <definition>typedef LocationData_BoundingBox mediapipe::LocationData::BoundingBox</definition>
+        <argsstring></argsstring>
+        <name>BoundingBox</name>
+        <qualifiedname>mediapipe::LocationData::BoundingBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1044" column="36" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1044" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmediapipe_1_1LocationData_1aa5882b54072493a911eab6518a8d7638" prot="public" static="no">
+        <type>LocationData_RelativeBoundingBox</type>
+        <definition>typedef LocationData_RelativeBoundingBox mediapipe::LocationData::RelativeBoundingBox</definition>
+        <argsstring></argsstring>
+        <name>RelativeBoundingBox</name>
+        <qualifiedname>mediapipe::LocationData::RelativeBoundingBox</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1045" column="44" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1045" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmediapipe_1_1LocationData_1a0cb83ab2d8fd3e7cf3c3edc53c7ce275" prot="public" static="no">
+        <type>LocationData_BinaryMask</type>
+        <definition>typedef LocationData_BinaryMask mediapipe::LocationData::BinaryMask</definition>
+        <argsstring></argsstring>
+        <name>BinaryMask</name>
+        <qualifiedname>mediapipe::LocationData::BinaryMask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1046" column="35" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1046" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmediapipe_1_1LocationData_1af321922c2fd78d09b8a1e8123c46a72d" prot="public" static="no">
+        <type>LocationData_RelativeKeypoint</type>
+        <definition>typedef LocationData_RelativeKeypoint mediapipe::LocationData::RelativeKeypoint</definition>
+        <argsstring></argsstring>
+        <name>RelativeKeypoint</name>
+        <qualifiedname>mediapipe::LocationData::RelativeKeypoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1047" column="41" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1047" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmediapipe_1_1LocationData_1a1a5388813dd7db71f870e5004f0155ae" prot="public" static="no">
+        <type>LocationData_Format</type>
+        <definition>typedef LocationData_Format mediapipe::LocationData::Format</definition>
+        <argsstring></argsstring>
+        <name>Format</name>
+        <qualifiedname>mediapipe::LocationData::Format</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1049" column="31" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1049" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classmediapipe_1_1LocationData_1a07b3f0e5c58f0694b49eb3a439464405" prot="private" static="no">
+        <type>void</type>
+        <definition>typedef void mediapipe::LocationData::InternalArenaConstructable_</definition>
+        <argsstring></argsstring>
+        <name>InternalArenaConstructable_</name>
+        <qualifiedname>mediapipe::LocationData::InternalArenaConstructable_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1182" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmediapipe_1_1LocationData_1a43141b2088c48ebdcf67a5e6fe7316db" prot="private" static="no">
+        <type>void</type>
+        <definition>typedef void mediapipe::LocationData::DestructorSkippable_</definition>
+        <argsstring></argsstring>
+        <name>DestructorSkippable_</name>
+        <qualifiedname>mediapipe::LocationData::DestructorSkippable_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1183" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1183" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1LocationData_1a54b6379e3a5cd58f075a9b6d9b614944" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int mediapipe::LocationData::kIndexInFileMessages</definition>
+        <argsstring></argsstring>
+        <name>kIndexInFileMessages</name>
+        <qualifiedname>mediapipe::LocationData::kIndexInFileMessages</qualifiedname>
+        <initializer>=
+    4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="972" column="24" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="972" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1LocationData_1a92121394b2f7030b05dcaf9067997131" prot="public" static="yes" mutable="no">
+        <type>const ClassData</type>
+        <definition>const ::PROTOBUF_NAMESPACE_ID::Message::ClassData mediapipe::LocationData::_class_data_</definition>
+        <argsstring></argsstring>
+        <name>_class_data_</name>
+        <qualifiedname>mediapipe::LocationData::_class_data_</qualifiedname>
+        <initializer>= {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    LocationData::MergeImpl
+}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1037" column="26" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1037" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1LocationData_1a796932049f0660afb442be7c104e3adb" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr Format</type>
+        <definition>constexpr LocationData_Format mediapipe::LocationData::GLOBAL</definition>
+        <argsstring></argsstring>
+        <name>GLOBAL</name>
+        <qualifiedname>mediapipe::LocationData::GLOBAL</qualifiedname>
+        <initializer>=
+    LocationData_Format_GLOBAL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1050" column="27" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1050" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1LocationData_1afcf71c372ae81d9db47de0b80089bbf7" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr Format</type>
+        <definition>constexpr LocationData_Format mediapipe::LocationData::BOUNDING_BOX</definition>
+        <argsstring></argsstring>
+        <name>BOUNDING_BOX</name>
+        <qualifiedname>mediapipe::LocationData::BOUNDING_BOX</qualifiedname>
+        <initializer>=
+    LocationData_Format_BOUNDING_BOX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1052" column="27" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1052" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1LocationData_1ad50f34e8f2044b2ad0410de7bc49ada4" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr Format</type>
+        <definition>constexpr LocationData_Format mediapipe::LocationData::RELATIVE_BOUNDING_BOX</definition>
+        <argsstring></argsstring>
+        <name>RELATIVE_BOUNDING_BOX</name>
+        <qualifiedname>mediapipe::LocationData::RELATIVE_BOUNDING_BOX</qualifiedname>
+        <initializer>=
+    LocationData_Format_RELATIVE_BOUNDING_BOX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1054" column="27" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1054" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1LocationData_1a63324ed084a860106655b4593df29e99" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr Format</type>
+        <definition>constexpr LocationData_Format mediapipe::LocationData::MASK</definition>
+        <argsstring></argsstring>
+        <name>MASK</name>
+        <qualifiedname>mediapipe::LocationData::MASK</qualifiedname>
+        <initializer>=
+    LocationData_Format_MASK</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1056" column="27" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1056" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1LocationData_1a18fd106085360f9e188796269ef514db" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr Format</type>
+        <definition>constexpr LocationData_Format mediapipe::LocationData::Format_MIN</definition>
+        <argsstring></argsstring>
+        <name>Format_MIN</name>
+        <qualifiedname>mediapipe::LocationData::Format_MIN</qualifiedname>
+        <initializer>=
+    LocationData_Format_Format_MIN</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1061" column="27" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1061" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1LocationData_1ad9f968d3b2502f8419df15b0c9798932" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr Format</type>
+        <definition>constexpr LocationData_Format mediapipe::LocationData::Format_MAX</definition>
+        <argsstring></argsstring>
+        <name>Format_MAX</name>
+        <qualifiedname>mediapipe::LocationData::Format_MAX</qualifiedname>
+        <initializer>=
+    LocationData_Format_Format_MAX</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1063" column="27" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1063" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1LocationData_1abd351ae07c65f172a4adfa0cacd5d9ad" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int mediapipe::LocationData::Format_ARRAYSIZE</definition>
+        <argsstring></argsstring>
+        <name>Format_ARRAYSIZE</name>
+        <qualifiedname>mediapipe::LocationData::Format_ARRAYSIZE</qualifiedname>
+        <initializer>=
+    LocationData_Format_Format_ARRAYSIZE</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1065" column="24" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1065" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classmediapipe_1_1LocationData_1a9b35d94da3444084fc3673b7717b6cfe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata</definition>
+        <argsstring></argsstring>
+        <name>::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata</name>
+        <qualifiedname>mediapipe::LocationData::AnyMetadata</qualifiedname>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1025" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1025" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classmediapipe_1_1LocationData_1ab618dbbac4a8d749da0d85c32932df36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>class</type>
+        <definition>friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper</definition>
+        <argsstring></argsstring>
+        <name>::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper</name>
+        <qualifiedname>mediapipe::LocationData::InternalHelper</qualifiedname>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1181" column="28" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classmediapipe_1_1LocationData_1a505685906dd8e9ed93272838fb883ef7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>struct</type>
+        <definition>friend struct ::TableStruct_mediapipe_2fframework_2fformats_2flocation_5fdata_2eproto</definition>
+        <argsstring></argsstring>
+        <name>::TableStruct_mediapipe_2fframework_2fformats_2flocation_5fdata_2eproto</name>
+        <qualifiedname>mediapipe::LocationData::TableStruct_mediapipe_2fframework_2fformats_2flocation_5fdata_2eproto</qualifiedname>
+        <param>
+          <type>::TableStruct_mediapipe_2fframework_2fformats_2flocation_5fdata_2eproto</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1191" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classmediapipe_1_1LocationData_1a59876d9a43499ae17a8b76c098d6d090" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void swap</definition>
+        <argsstring>(LocationData &amp;a, LocationData &amp;b)</argsstring>
+        <name>swap</name>
+        <qualifiedname>mediapipe::LocationData::swap</qualifiedname>
+        <param>
+          <type>LocationData &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>LocationData &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="975" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="975" bodyend="977"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1LocationData_1a1c19e48f859d51dab101f78038344f9e" prot="private" static="no" mutable="no">
+        <type>::PROTOBUF_NAMESPACE_ID::internal::HasBits&lt; 1 &gt;</type>
+        <definition>::PROTOBUF_NAMESPACE_ID::internal::HasBits&lt;1&gt; mediapipe::LocationData::_has_bits_</definition>
+        <argsstring></argsstring>
+        <name>_has_bits_</name>
+        <qualifiedname>mediapipe::LocationData::_has_bits_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1184" column="46" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1LocationData_1a291c70c60c8cecc3f71f3a727b975598" prot="private" static="no" mutable="no">
+        <type>mutable::PROTOBUF_NAMESPACE_ID::internal::CachedSize</type>
+        <definition>mutable::PROTOBUF_NAMESPACE_ID::internal::CachedSize mediapipe::LocationData::_cached_size_</definition>
+        <argsstring></argsstring>
+        <name>_cached_size_</name>
+        <qualifiedname>mediapipe::LocationData::_cached_size_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1185" column="57" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1LocationData_1af041fa9fd1159f07e20efb1dd0e6c582" prot="private" static="no" mutable="no">
+        <type>::PROTOBUF_NAMESPACE_ID::RepeatedPtrField&lt; ::mediapipe::LocationData_RelativeKeypoint &gt;</type>
+        <definition>::PROTOBUF_NAMESPACE_ID::RepeatedPtrField&lt; ::mediapipe::LocationData_RelativeKeypoint &gt; mediapipe::LocationData::relative_keypoints_</definition>
+        <argsstring></argsstring>
+        <name>relative_keypoints_</name>
+        <qualifiedname>mediapipe::LocationData::relative_keypoints_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1186" column="45" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1186" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1LocationData_1a90544369c57c9c0ae160156707e6380d" prot="private" static="no" mutable="no">
+        <type>::mediapipe::LocationData_BoundingBox *</type>
+        <definition>::mediapipe::LocationData_BoundingBox* mediapipe::LocationData::bounding_box_</definition>
+        <argsstring></argsstring>
+        <name>bounding_box_</name>
+        <qualifiedname>mediapipe::LocationData::bounding_box_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1187" column="41" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1187" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1LocationData_1afe729f8dc610c865b320ee03e9d3599c" prot="private" static="no" mutable="no">
+        <type>::mediapipe::LocationData_RelativeBoundingBox *</type>
+        <definition>::mediapipe::LocationData_RelativeBoundingBox* mediapipe::LocationData::relative_bounding_box_</definition>
+        <argsstring></argsstring>
+        <name>relative_bounding_box_</name>
+        <qualifiedname>mediapipe::LocationData::relative_bounding_box_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1188" column="49" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1188" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1LocationData_1ae98f9a7064bbbe91137d3b90eb6d2d52" prot="private" static="no" mutable="no">
+        <type>::mediapipe::LocationData_BinaryMask *</type>
+        <definition>::mediapipe::LocationData_BinaryMask* mediapipe::LocationData::mask_</definition>
+        <argsstring></argsstring>
+        <name>mask_</name>
+        <qualifiedname>mediapipe::LocationData::mask_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1189" column="40" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1189" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1LocationData_1a94b9ce4c06ef6efc59ab7631290a2b27" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::LocationData::format_</definition>
+        <argsstring></argsstring>
+        <name>format_</name>
+        <qualifiedname>mediapipe::LocationData::format_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1190" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1190" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1aa0c0eca8c9f491cd3bf656010189696a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::LocationData::LocationData</definition>
+        <argsstring>()</argsstring>
+        <name>LocationData</name>
+        <qualifiedname>mediapipe::LocationData::LocationData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="921" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="921" bodyend="921"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a98ba822654b65241588b6fa81d94f920" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::LocationData::~LocationData</definition>
+        <argsstring>() override</argsstring>
+        <name>~LocationData</name>
+        <qualifiedname>mediapipe::LocationData::~LocationData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="922" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.cc" bodystart="1519" bodyend="1524"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1ac5d0c93315540ccdc3ab29a1cd356ba0" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr mediapipe::LocationData::LocationData</definition>
+        <argsstring>(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)</argsstring>
+        <name>LocationData</name>
+        <qualifiedname>mediapipe::LocationData::LocationData</qualifiedname>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="923" column="22" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.cc" bodystart="79" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a81c3549c605ea06d9bc5e3e0e77d2f32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::LocationData::LocationData</definition>
+        <argsstring>(const LocationData &amp;from)</argsstring>
+        <name>LocationData</name>
+        <qualifiedname>mediapipe::LocationData::LocationData</qualifiedname>
+        <param>
+          <type>const LocationData &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="925" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.cc" bodystart="1488" bodyend="1510"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a1dd9412d44134a3f2ebe0d69d14a01c1" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::LocationData::LocationData</definition>
+        <argsstring>(LocationData &amp;&amp;from) noexcept</argsstring>
+        <name>LocationData</name>
+        <qualifiedname>mediapipe::LocationData::LocationData</qualifiedname>
+        <param>
+          <type>LocationData &amp;&amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="926" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="926" bodyend="929"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a401a62794c7dc2082c285936b10195f3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>LocationData &amp;</type>
+        <definition>LocationData &amp; mediapipe::LocationData::operator=</definition>
+        <argsstring>(const LocationData &amp;from)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>mediapipe::LocationData::operator=</qualifiedname>
+        <param>
+          <type>const LocationData &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="931" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="931" bodyend="934"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a6c9370779e339acd679e0a06da4f0fa7" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>LocationData &amp;</type>
+        <definition>LocationData &amp; mediapipe::LocationData::operator=</definition>
+        <argsstring>(LocationData &amp;&amp;from) noexcept</argsstring>
+        <name>operator=</name>
+        <qualifiedname>mediapipe::LocationData::operator=</qualifiedname>
+        <param>
+          <type>LocationData &amp;&amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="935" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="935" bodyend="947"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a84559c64bedec2b1f5aa478a3e9d23bd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &amp;</type>
+        <definition>const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &amp; mediapipe::LocationData::unknown_fields</definition>
+        <argsstring>() const</argsstring>
+        <name>unknown_fields</name>
+        <qualifiedname>mediapipe::LocationData::unknown_fields</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="949" column="57" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="949" bodyend="951"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a803d0fb5923c9cae3bbf569ecc0af34c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *</type>
+        <definition>inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet * mediapipe::LocationData::mutable_unknown_fields</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_unknown_fields</name>
+        <qualifiedname>mediapipe::LocationData::mutable_unknown_fields</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="952" column="51" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="952" bodyend="954"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1af5b013b326ecc2af007ea471eb11aa0f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::LocationData::Swap</definition>
+        <argsstring>(LocationData *other)</argsstring>
+        <name>Swap</name>
+        <qualifiedname>mediapipe::LocationData::Swap</qualifiedname>
+        <param>
+          <type>LocationData *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="978" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="978" bodyend="990"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a70aa596e156e204be95f419b8c798dc3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::LocationData::UnsafeArenaSwap</definition>
+        <argsstring>(LocationData *other)</argsstring>
+        <name>UnsafeArenaSwap</name>
+        <qualifiedname>mediapipe::LocationData::UnsafeArenaSwap</qualifiedname>
+        <param>
+          <type>LocationData *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="991" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="991" bodyend="995"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a6bf5b74089636fd025fc39307390e2af" prot="public" static="no" const="yes" explicit="no" inline="yes" final="yes" virt="non-virtual">
+        <type>LocationData *</type>
+        <definition>LocationData * mediapipe::LocationData::New</definition>
+        <argsstring>(::PROTOBUF_NAMESPACE_ID::Arena *arena=nullptr) const final</argsstring>
+        <name>New</name>
+        <qualifiedname>mediapipe::LocationData::New</qualifiedname>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::Arena *</type>
+          <declname>arena</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="999" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="999" bodyend="1001"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a6fa4cbd935342906b397575cf70e90c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::LocationData::CopyFrom</definition>
+        <argsstring>(const LocationData &amp;from)</argsstring>
+        <name>CopyFrom</name>
+        <qualifiedname>mediapipe::LocationData::CopyFrom</qualifiedname>
+        <param>
+          <type>const LocationData &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1003" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.cc" bodystart="1792" bodyend="1797"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a29cb1251e75ae89c2ba613e28bc5400b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::LocationData::MergeFrom</definition>
+        <argsstring>(const LocationData &amp;from)</argsstring>
+        <name>MergeFrom</name>
+        <qualifiedname>mediapipe::LocationData::MergeFrom</qualifiedname>
+        <param>
+          <type>const LocationData &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1005" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.cc" bodystart="1766" bodyend="1790"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a3312b0a3409d9fb281e41dbdb3ca841e" prot="public" static="no" const="no" explicit="no" inline="no" final="yes" virt="non-virtual">
+        <type>PROTOBUF_ATTRIBUTE_REINITIALIZES void</type>
+        <definition>void mediapipe::LocationData::Clear</definition>
+        <argsstring>() final</argsstring>
+        <name>Clear</name>
+        <qualifiedname>mediapipe::LocationData::Clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1009" column="41" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.cc" bodystart="1543" bodyend="1568"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1ac3cc300189f16cfbba11f8694331fa94" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::LocationData::IsInitialized</definition>
+        <argsstring>() const final</argsstring>
+        <name>IsInitialized</name>
+        <qualifiedname>mediapipe::LocationData::IsInitialized</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1010" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.cc" bodystart="1799" bodyend="1804"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1aa9576bf261e37d8dd45dfb4452747c1c" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t mediapipe::LocationData::ByteSizeLong</definition>
+        <argsstring>() const final</argsstring>
+        <name>ByteSizeLong</name>
+        <qualifiedname>mediapipe::LocationData::ByteSizeLong</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1012" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.cc" bodystart="1705" bodyend="1751"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1ae09e7a9747a798e2df83ecfe6894e60c" prot="public" static="no" const="no" explicit="no" inline="no" final="yes" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * mediapipe::LocationData::_InternalParse</definition>
+        <argsstring>(const char *ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final</argsstring>
+        <name>_InternalParse</name>
+        <qualifiedname>mediapipe::LocationData::_InternalParse</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>ptr</declname>
+        </param>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::internal::ParseContext *</type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1013" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.cc" bodystart="1570" bodyend="1649"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a12f405919b96c54df2fe46e421b210a5" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="non-virtual">
+        <type>uint8_t *</type>
+        <definition>uint8_t * mediapipe::LocationData::_InternalSerialize</definition>
+        <argsstring>(uint8_t *target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final</argsstring>
+        <name>_InternalSerialize</name>
+        <qualifiedname>mediapipe::LocationData::_InternalSerialize</qualifiedname>
+        <param>
+          <type>uint8_t *</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1014" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.cc" bodystart="1651" bodyend="1703"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a94e4f924dac03b5a536acbff5c154aae" prot="public" static="no" const="yes" explicit="no" inline="yes" final="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::LocationData::GetCachedSize</definition>
+        <argsstring>() const final</argsstring>
+        <name>GetCachedSize</name>
+        <qualifiedname>mediapipe::LocationData::GetCachedSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1016" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1016" bodyend="1016"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1aafe831ce21d726294ca64ecb943c0939" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="non-virtual">
+        <type>const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *</type>
+        <definition>const ::PROTOBUF_NAMESPACE_ID::Message::ClassData * mediapipe::LocationData::GetClassData</definition>
+        <argsstring>() const final</argsstring>
+        <name>GetClassData</name>
+        <qualifiedname>mediapipe::LocationData::GetClassData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1038" column="52" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.cc" bodystart="1757" bodyend="1757"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a39e09a5ea4a4aea52492c0d0723bb3e9" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="non-virtual">
+        <type>::PROTOBUF_NAMESPACE_ID::Metadata</type>
+        <definition>PROTOBUF_NAMESPACE_ID::Metadata mediapipe::LocationData::GetMetadata</definition>
+        <argsstring>() const final</argsstring>
+        <name>GetMetadata</name>
+        <qualifiedname>mediapipe::LocationData::GetMetadata</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1040" column="37" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.cc" bodystart="1819" bodyend="1823"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a463cf2bd21e2b22a86ab02754ad64852" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::LocationData::relative_keypoints_size</definition>
+        <argsstring>() const</argsstring>
+        <name>relative_keypoints_size</name>
+        <qualifiedname>mediapipe::LocationData::relative_keypoints_size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1093" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="2044" bodyend="2046"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a870633267ffeff1e8c9f5b0635f3bd0a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::LocationData::clear_relative_keypoints</definition>
+        <argsstring>()</argsstring>
+        <name>clear_relative_keypoints</name>
+        <qualifiedname>mediapipe::LocationData::clear_relative_keypoints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1097" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="2047" bodyend="2049"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a345a4dc0dc556346b784f1745d07154b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::LocationData_RelativeKeypoint *</type>
+        <definition>mediapipe::LocationData_RelativeKeypoint * mediapipe::LocationData::mutable_relative_keypoints</definition>
+        <argsstring>(int index)</argsstring>
+        <name>mutable_relative_keypoints</name>
+        <qualifiedname>mediapipe::LocationData::mutable_relative_keypoints</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1098" column="46" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="2050" bodyend="2053"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1ab63e0085449ead66afdc483ab6d0e87d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::PROTOBUF_NAMESPACE_ID::RepeatedPtrField&lt; ::mediapipe::LocationData_RelativeKeypoint &gt; *</type>
+        <definition>PROTOBUF_NAMESPACE_ID::RepeatedPtrField&lt;::mediapipe::LocationData_RelativeKeypoint &gt; * mediapipe::LocationData::mutable_relative_keypoints</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_relative_keypoints</name>
+        <qualifiedname>mediapipe::LocationData::mutable_relative_keypoints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1100" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="2055" bodyend="2058"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a78fb8931260fe98ba37c3fa7ce5487c8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::mediapipe::LocationData_RelativeKeypoint &amp;</type>
+        <definition>const ::mediapipe::LocationData_RelativeKeypoint &amp; mediapipe::LocationData::relative_keypoints</definition>
+        <argsstring>(int index) const</argsstring>
+        <name>relative_keypoints</name>
+        <qualifiedname>mediapipe::LocationData::relative_keypoints</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1105" column="52" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="2062" bodyend="2065"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a496317f8922016d10412ae216b61b788" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::LocationData_RelativeKeypoint *</type>
+        <definition>mediapipe::LocationData_RelativeKeypoint * mediapipe::LocationData::add_relative_keypoints</definition>
+        <argsstring>()</argsstring>
+        <name>add_relative_keypoints</name>
+        <qualifiedname>mediapipe::LocationData::add_relative_keypoints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1106" column="46" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="2069" bodyend="2073"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1aa0da198b77201c68ccf922c51a1acd1e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField&lt; ::mediapipe::LocationData_RelativeKeypoint &gt; &amp;</type>
+        <definition>const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField&lt;::mediapipe::LocationData_RelativeKeypoint &gt; &amp; mediapipe::LocationData::relative_keypoints</definition>
+        <argsstring>() const</argsstring>
+        <name>relative_keypoints</name>
+        <qualifiedname>mediapipe::LocationData::relative_keypoints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1108" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="2075" bodyend="2078"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1aabe837dfd32925ff521f66eb389df87b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::LocationData::has_bounding_box</definition>
+        <argsstring>() const</argsstring>
+        <name>has_bounding_box</name>
+        <qualifiedname>mediapipe::LocationData::has_bounding_box</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1111" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1776" bodyend="1778"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a93b30aaf13edee9efd0b092641eeba6c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::LocationData::clear_bounding_box</definition>
+        <argsstring>()</argsstring>
+        <name>clear_bounding_box</name>
+        <qualifiedname>mediapipe::LocationData::clear_bounding_box</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1115" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1779" bodyend="1782"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a38e2d5b72e311c07ec9782c4d8fbaad6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::mediapipe::LocationData_BoundingBox &amp;</type>
+        <definition>const ::mediapipe::LocationData_BoundingBox &amp; mediapipe::LocationData::bounding_box</definition>
+        <argsstring>() const</argsstring>
+        <name>bounding_box</name>
+        <qualifiedname>mediapipe::LocationData::bounding_box</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1116" column="47" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1788" bodyend="1791"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a9c41ecaa86de801836945901bf865b94" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PROTOBUF_NODISCARD::mediapipe::LocationData_BoundingBox *</type>
+        <definition>mediapipe::LocationData_BoundingBox * mediapipe::LocationData::release_bounding_box</definition>
+        <argsstring>()</argsstring>
+        <name>release_bounding_box</name>
+        <qualifiedname>mediapipe::LocationData::release_bounding_box</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1117" column="60" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1805" bodyend="1819"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1aa9221c283cbabc2d6035af9278c6b274" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::LocationData_BoundingBox *</type>
+        <definition>mediapipe::LocationData_BoundingBox * mediapipe::LocationData::mutable_bounding_box</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_bounding_box</name>
+        <qualifiedname>mediapipe::LocationData::mutable_bounding_box</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1118" column="41" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1835" bodyend="1839"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a6b66f7fc3c2a8787bcef4cc361232560" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::LocationData::set_allocated_bounding_box</definition>
+        <argsstring>(::mediapipe::LocationData_BoundingBox *bounding_box)</argsstring>
+        <name>set_allocated_bounding_box</name>
+        <qualifiedname>mediapipe::LocationData::set_allocated_bounding_box</qualifiedname>
+        <param>
+          <type>::mediapipe::LocationData_BoundingBox *</type>
+          <declname>bounding_box</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1119" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1840" bodyend="1858"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1aa8157c4aa7f085341ddfa92039fdd736" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::LocationData::unsafe_arena_set_allocated_bounding_box</definition>
+        <argsstring>(::mediapipe::LocationData_BoundingBox *bounding_box)</argsstring>
+        <name>unsafe_arena_set_allocated_bounding_box</name>
+        <qualifiedname>mediapipe::LocationData::unsafe_arena_set_allocated_bounding_box</qualifiedname>
+        <param>
+          <type>::mediapipe::LocationData_BoundingBox *</type>
+          <declname>bounding_box</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1124" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1792" bodyend="1804"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a2c71760385944669e01fde8db3e50849" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::LocationData_BoundingBox *</type>
+        <definition>mediapipe::LocationData_BoundingBox * mediapipe::LocationData::unsafe_arena_release_bounding_box</definition>
+        <argsstring>()</argsstring>
+        <name>unsafe_arena_release_bounding_box</name>
+        <qualifiedname>mediapipe::LocationData::unsafe_arena_release_bounding_box</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1126" column="41" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1820" bodyend="1826"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a8aa260164bdaed5e8d5f281f30adcc7d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::LocationData::has_relative_bounding_box</definition>
+        <argsstring>() const</argsstring>
+        <name>has_relative_bounding_box</name>
+        <qualifiedname>mediapipe::LocationData::has_relative_bounding_box</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1129" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1866" bodyend="1868"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1aca1323e23b6fa8b4ccd992696771243c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::LocationData::clear_relative_bounding_box</definition>
+        <argsstring>()</argsstring>
+        <name>clear_relative_bounding_box</name>
+        <qualifiedname>mediapipe::LocationData::clear_relative_bounding_box</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1133" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1869" bodyend="1872"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1ae9118b7e739a6ea5a21d92491808414c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::mediapipe::LocationData_RelativeBoundingBox &amp;</type>
+        <definition>const ::mediapipe::LocationData_RelativeBoundingBox &amp; mediapipe::LocationData::relative_bounding_box</definition>
+        <argsstring>() const</argsstring>
+        <name>relative_bounding_box</name>
+        <qualifiedname>mediapipe::LocationData::relative_bounding_box</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1134" column="55" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1878" bodyend="1881"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1adb5cc1429f381b414e6da9bef66df64a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PROTOBUF_NODISCARD::mediapipe::LocationData_RelativeBoundingBox *</type>
+        <definition>mediapipe::LocationData_RelativeBoundingBox * mediapipe::LocationData::release_relative_bounding_box</definition>
+        <argsstring>()</argsstring>
+        <name>release_relative_bounding_box</name>
+        <qualifiedname>mediapipe::LocationData::release_relative_bounding_box</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1135" column="68" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1895" bodyend="1909"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1aff6f0b7e31e159ca9946ff1a71958b5e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::LocationData_RelativeBoundingBox *</type>
+        <definition>mediapipe::LocationData_RelativeBoundingBox * mediapipe::LocationData::mutable_relative_bounding_box</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_relative_bounding_box</name>
+        <qualifiedname>mediapipe::LocationData::mutable_relative_bounding_box</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1136" column="49" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1925" bodyend="1929"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a59111cb2e45c7c405be0ba175fd8785d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::LocationData::set_allocated_relative_bounding_box</definition>
+        <argsstring>(::mediapipe::LocationData_RelativeBoundingBox *relative_bounding_box)</argsstring>
+        <name>set_allocated_relative_bounding_box</name>
+        <qualifiedname>mediapipe::LocationData::set_allocated_relative_bounding_box</qualifiedname>
+        <param>
+          <type>::mediapipe::LocationData_RelativeBoundingBox *</type>
+          <declname>relative_bounding_box</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1137" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1930" bodyend="1948"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a3250590af79df3cfcdbb71c653f59a8b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::LocationData::unsafe_arena_set_allocated_relative_bounding_box</definition>
+        <argsstring>(::mediapipe::LocationData_RelativeBoundingBox *relative_bounding_box)</argsstring>
+        <name>unsafe_arena_set_allocated_relative_bounding_box</name>
+        <qualifiedname>mediapipe::LocationData::unsafe_arena_set_allocated_relative_bounding_box</qualifiedname>
+        <param>
+          <type>::mediapipe::LocationData_RelativeBoundingBox *</type>
+          <declname>relative_bounding_box</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1142" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1882" bodyend="1894"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a0d831c60f44b014aec45a598a15e84cb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::LocationData_RelativeBoundingBox *</type>
+        <definition>mediapipe::LocationData_RelativeBoundingBox * mediapipe::LocationData::unsafe_arena_release_relative_bounding_box</definition>
+        <argsstring>()</argsstring>
+        <name>unsafe_arena_release_relative_bounding_box</name>
+        <qualifiedname>mediapipe::LocationData::unsafe_arena_release_relative_bounding_box</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1144" column="49" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1910" bodyend="1916"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1af4cc05dab6dc105ca8b86a0b0ddc6405" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::LocationData::has_mask</definition>
+        <argsstring>() const</argsstring>
+        <name>has_mask</name>
+        <qualifiedname>mediapipe::LocationData::has_mask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1147" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1956" bodyend="1958"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a001a8e66c16702b3a5eb9d622c4aa0c9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::LocationData::clear_mask</definition>
+        <argsstring>()</argsstring>
+        <name>clear_mask</name>
+        <qualifiedname>mediapipe::LocationData::clear_mask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1151" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1959" bodyend="1962"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1ab875d6cbeb24a1e347ce93f8cf41dc1e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::mediapipe::LocationData_BinaryMask &amp;</type>
+        <definition>const ::mediapipe::LocationData_BinaryMask &amp; mediapipe::LocationData::mask</definition>
+        <argsstring>() const</argsstring>
+        <name>mask</name>
+        <qualifiedname>mediapipe::LocationData::mask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1152" column="46" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1968" bodyend="1971"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1ac772ac07a9ef0c4d04a4aa8a571c575f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PROTOBUF_NODISCARD::mediapipe::LocationData_BinaryMask *</type>
+        <definition>mediapipe::LocationData_BinaryMask * mediapipe::LocationData::release_mask</definition>
+        <argsstring>()</argsstring>
+        <name>release_mask</name>
+        <qualifiedname>mediapipe::LocationData::release_mask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1153" column="59" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1985" bodyend="1999"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a32390f4d00e7a723984f7d327397d3cc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::LocationData_BinaryMask *</type>
+        <definition>mediapipe::LocationData_BinaryMask * mediapipe::LocationData::mutable_mask</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_mask</name>
+        <qualifiedname>mediapipe::LocationData::mutable_mask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1154" column="40" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="2015" bodyend="2019"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a48e3522702ead2643386f3af7f25b980" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::LocationData::set_allocated_mask</definition>
+        <argsstring>(::mediapipe::LocationData_BinaryMask *mask)</argsstring>
+        <name>set_allocated_mask</name>
+        <qualifiedname>mediapipe::LocationData::set_allocated_mask</qualifiedname>
+        <param>
+          <type>::mediapipe::LocationData_BinaryMask *</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1155" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="2020" bodyend="2038"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a82c5ca296656f55fdafb634f6e262804" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::LocationData::unsafe_arena_set_allocated_mask</definition>
+        <argsstring>(::mediapipe::LocationData_BinaryMask *mask)</argsstring>
+        <name>unsafe_arena_set_allocated_mask</name>
+        <qualifiedname>mediapipe::LocationData::unsafe_arena_set_allocated_mask</qualifiedname>
+        <param>
+          <type>::mediapipe::LocationData_BinaryMask *</type>
+          <declname>mask</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1160" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1972" bodyend="1984"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1ad3054313ee705696620391898673e62b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::LocationData_BinaryMask *</type>
+        <definition>mediapipe::LocationData_BinaryMask * mediapipe::LocationData::unsafe_arena_release_mask</definition>
+        <argsstring>()</argsstring>
+        <name>unsafe_arena_release_mask</name>
+        <qualifiedname>mediapipe::LocationData::unsafe_arena_release_mask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1162" column="40" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="2000" bodyend="2006"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a292fdc938b0fcbfee1454e73a5f3a431" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::LocationData::has_format</definition>
+        <argsstring>() const</argsstring>
+        <name>has_format</name>
+        <qualifiedname>mediapipe::LocationData::has_format</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1165" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1746" bodyend="1748"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1acffb29d93065adf860a2cbebf92ddb3d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::LocationData::clear_format</definition>
+        <argsstring>()</argsstring>
+        <name>clear_format</name>
+        <qualifiedname>mediapipe::LocationData::clear_format</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1169" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1749" bodyend="1752"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a40a912f9f73f5fb9dbffc957231b5c58" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::LocationData_Format</type>
+        <definition>mediapipe::LocationData_Format mediapipe::LocationData::format</definition>
+        <argsstring>() const</argsstring>
+        <name>format</name>
+        <qualifiedname>mediapipe::LocationData::format</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1170" column="36" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1756" bodyend="1759"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1ab32d3c73ec7a9b3219d46f295ba830a9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::LocationData::set_format</definition>
+        <argsstring>(::mediapipe::LocationData_Format value)</argsstring>
+        <name>set_format</name>
+        <qualifiedname>mediapipe::LocationData::set_format</qualifiedname>
+        <param>
+          <type>::mediapipe::LocationData_Format</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1171" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1765" bodyend="1768"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a2432d0d05e50cdab27bb2254ce3c7ea7" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::PROTOBUF_NAMESPACE_ID::Descriptor *</type>
+        <definition>static const ::PROTOBUF_NAMESPACE_ID::Descriptor * mediapipe::LocationData::descriptor</definition>
+        <argsstring>()</argsstring>
+        <name>descriptor</name>
+        <qualifiedname>mediapipe::LocationData::descriptor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="956" column="52" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="956" bodyend="958"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a299a59e89416e26e9ac2788e727500db" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::PROTOBUF_NAMESPACE_ID::Descriptor *</type>
+        <definition>static const ::PROTOBUF_NAMESPACE_ID::Descriptor * mediapipe::LocationData::GetDescriptor</definition>
+        <argsstring>()</argsstring>
+        <name>GetDescriptor</name>
+        <qualifiedname>mediapipe::LocationData::GetDescriptor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="959" column="52" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="959" bodyend="961"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a39dab6b3e95530f551c11f0b63efe894" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::PROTOBUF_NAMESPACE_ID::Reflection *</type>
+        <definition>static const ::PROTOBUF_NAMESPACE_ID::Reflection * mediapipe::LocationData::GetReflection</definition>
+        <argsstring>()</argsstring>
+        <name>GetReflection</name>
+        <qualifiedname>mediapipe::LocationData::GetReflection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="962" column="52" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="962" bodyend="964"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a8805414067acc0614876db31181bc1a4" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const LocationData &amp;</type>
+        <definition>static const LocationData &amp; mediapipe::LocationData::default_instance</definition>
+        <argsstring>()</argsstring>
+        <name>default_instance</name>
+        <qualifiedname>mediapipe::LocationData::default_instance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="965" column="29" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="965" bodyend="967"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a75e652454be15cb680c68cb09299681c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const LocationData *</type>
+        <definition>static const LocationData * mediapipe::LocationData::internal_default_instance</definition>
+        <argsstring>()</argsstring>
+        <name>internal_default_instance</name>
+        <qualifiedname>mediapipe::LocationData::internal_default_instance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="968" column="36" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="968" bodyend="971"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a9708a208935d7ff966eb723c154f4ec7" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool mediapipe::LocationData::Format_IsValid</definition>
+        <argsstring>(int value)</argsstring>
+        <name>Format_IsValid</name>
+        <qualifiedname>mediapipe::LocationData::Format_IsValid</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1058" column="22" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1058" bodyend="1060"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a8dea978b0bd03e86a6e9894cd71eafea" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor *</type>
+        <definition>static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor * mediapipe::LocationData::Format_descriptor</definition>
+        <argsstring>()</argsstring>
+        <name>Format_descriptor</name>
+        <qualifiedname>mediapipe::LocationData::Format_descriptor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1068" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1068" bodyend="1070"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a0d0840fb4d14bbab7d58a28aaa80fc37" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>const std::string &amp;</type>
+        <definition>static const std::string &amp; mediapipe::LocationData::Format_Name</definition>
+        <argsstring>(T enum_t_value)</argsstring>
+        <name>Format_Name</name>
+        <qualifiedname>mediapipe::LocationData::Format_Name</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>enum_t_value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1072" column="35" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1072" bodyend="1077"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a0b7a604b503e43bdcb6a36b379d3aa0d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool mediapipe::LocationData::Format_Parse</definition>
+        <argsstring>(::PROTOBUF_NAMESPACE_ID::ConstStringParam name, Format *value)</argsstring>
+        <name>Format_Parse</name>
+        <qualifiedname>mediapipe::LocationData::Format_Parse</qualifiedname>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::ConstStringParam</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>Format *</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1078" column="22" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1078" bodyend="1081"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1af1496761f851bc762f82a4b3ad9b64ef" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::LocationData::MergeImpl</definition>
+        <argsstring>(::PROTOBUF_NAMESPACE_ID::Message *to, const ::PROTOBUF_NAMESPACE_ID::Message &amp;from)</argsstring>
+        <name>MergeImpl</name>
+        <qualifiedname>mediapipe::LocationData::MergeImpl</qualifiedname>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::Message *</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>const ::PROTOBUF_NAMESPACE_ID::Message &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1007" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.cc" bodystart="1759" bodyend="1763"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a4199dbbd6dfb66c32816ca0cb9640368" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::PROTOBUF_NAMESPACE_ID::StringPiece</type>
+        <definition>::PROTOBUF_NAMESPACE_ID::StringPiece mediapipe::LocationData::FullMessageName</definition>
+        <argsstring>()</argsstring>
+        <name>FullMessageName</name>
+        <qualifiedname>mediapipe::LocationData::FullMessageName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1026" column="47" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1026" bodyend="1028"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a3ea8629b89082fc8b28b35dd502592da" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::LocationData::ArenaDtor</definition>
+        <argsstring>(void *object)</argsstring>
+        <name>ArenaDtor</name>
+        <qualifiedname>mediapipe::LocationData::ArenaDtor</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>object</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1033" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.cc" bodystart="1533" bodyend="1536"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1aee3ae437689f098a30ef7693ce96d1dc" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::LocationData::SharedCtor</definition>
+        <argsstring>()</argsstring>
+        <name>SharedCtor</name>
+        <qualifiedname>mediapipe::LocationData::SharedCtor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1019" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.cc" bodystart="1512" bodyend="1517"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a370a5506307b91b0c46819ee55a1848f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::LocationData::SharedDtor</definition>
+        <argsstring>()</argsstring>
+        <name>SharedDtor</name>
+        <qualifiedname>mediapipe::LocationData::SharedDtor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1020" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.cc" bodystart="1526" bodyend="1531"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1afed420b56858a58ba07edd2a1042aead" prot="private" static="no" const="yes" explicit="no" inline="no" final="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::LocationData::SetCachedSize</definition>
+        <argsstring>(int size) const final</argsstring>
+        <name>SetCachedSize</name>
+        <qualifiedname>mediapipe::LocationData::SetCachedSize</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1021" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.cc" bodystart="1539" bodyend="1541"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1aa9495754ee24604903c453b649b19a56" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::LocationData::InternalSwap</definition>
+        <argsstring>(LocationData *other)</argsstring>
+        <name>InternalSwap</name>
+        <qualifiedname>mediapipe::LocationData::InternalSwap</qualifiedname>
+        <param>
+          <type>LocationData *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1022" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.cc" bodystart="1806" bodyend="1817"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1ad6cc47bc915066aca69ae49513152b1a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::LocationData::RegisterArenaDtor</definition>
+        <argsstring>(::PROTOBUF_NAMESPACE_ID::Arena *arena)</argsstring>
+        <name>RegisterArenaDtor</name>
+        <qualifiedname>mediapipe::LocationData::RegisterArenaDtor</qualifiedname>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::Arena *</type>
+          <declname>arena</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1034" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.cc" bodystart="1537" bodyend="1538"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1ad07e234e45b218db4c168cac91d5ab8a" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::LocationData::_internal_relative_keypoints_size</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_relative_keypoints_size</name>
+        <qualifiedname>mediapipe::LocationData::_internal_relative_keypoints_size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1095" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="2041" bodyend="2043"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a23951b18a100bfbb8e14333034438571" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::mediapipe::LocationData_RelativeKeypoint &amp;</type>
+        <definition>const ::mediapipe::LocationData_RelativeKeypoint &amp; mediapipe::LocationData::_internal_relative_keypoints</definition>
+        <argsstring>(int index) const</argsstring>
+        <name>_internal_relative_keypoints</name>
+        <qualifiedname>mediapipe::LocationData::_internal_relative_keypoints</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1102" column="52" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="2059" bodyend="2061"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a2cbe11f0f5a43132a1683a797a5490de" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::LocationData_RelativeKeypoint *</type>
+        <definition>mediapipe::LocationData_RelativeKeypoint * mediapipe::LocationData::_internal_add_relative_keypoints</definition>
+        <argsstring>()</argsstring>
+        <name>_internal_add_relative_keypoints</name>
+        <qualifiedname>mediapipe::LocationData::_internal_add_relative_keypoints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1103" column="46" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="2066" bodyend="2068"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a9d1a746e5e2567fe9dacd3339d0a12ad" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::LocationData::_internal_has_bounding_box</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_has_bounding_box</name>
+        <qualifiedname>mediapipe::LocationData::_internal_has_bounding_box</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1113" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1771" bodyend="1775"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a608ed451f544d5de018bdaef5c610bdd" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::mediapipe::LocationData_BoundingBox &amp;</type>
+        <definition>const ::mediapipe::LocationData_BoundingBox &amp; mediapipe::LocationData::_internal_bounding_box</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_bounding_box</name>
+        <qualifiedname>mediapipe::LocationData::_internal_bounding_box</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1121" column="47" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1783" bodyend="1787"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a21962fff929e5fe7ac66603efad3a7ec" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::LocationData_BoundingBox *</type>
+        <definition>mediapipe::LocationData_BoundingBox * mediapipe::LocationData::_internal_mutable_bounding_box</definition>
+        <argsstring>()</argsstring>
+        <name>_internal_mutable_bounding_box</name>
+        <qualifiedname>mediapipe::LocationData::_internal_mutable_bounding_box</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1122" column="41" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1827" bodyend="1834"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1acce28fbac01b74514ac864b41846e7f2" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::LocationData::_internal_has_relative_bounding_box</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_has_relative_bounding_box</name>
+        <qualifiedname>mediapipe::LocationData::_internal_has_relative_bounding_box</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1131" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1861" bodyend="1865"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a50f0d29e43ffc9915509a5ae7cdbe79e" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::mediapipe::LocationData_RelativeBoundingBox &amp;</type>
+        <definition>const ::mediapipe::LocationData_RelativeBoundingBox &amp; mediapipe::LocationData::_internal_relative_bounding_box</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_relative_bounding_box</name>
+        <qualifiedname>mediapipe::LocationData::_internal_relative_bounding_box</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1139" column="55" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1873" bodyend="1877"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a83f930642b210e72a7757aab1b2ee6db" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::LocationData_RelativeBoundingBox *</type>
+        <definition>mediapipe::LocationData_RelativeBoundingBox * mediapipe::LocationData::_internal_mutable_relative_bounding_box</definition>
+        <argsstring>()</argsstring>
+        <name>_internal_mutable_relative_bounding_box</name>
+        <qualifiedname>mediapipe::LocationData::_internal_mutable_relative_bounding_box</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1140" column="49" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1917" bodyend="1924"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a641fc419d978a66e9fa1d24e88ef47f2" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::LocationData::_internal_has_mask</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_has_mask</name>
+        <qualifiedname>mediapipe::LocationData::_internal_has_mask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1149" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1951" bodyend="1955"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a02a961a730c5127f7be39dddf68d6033" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::mediapipe::LocationData_BinaryMask &amp;</type>
+        <definition>const ::mediapipe::LocationData_BinaryMask &amp; mediapipe::LocationData::_internal_mask</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_mask</name>
+        <qualifiedname>mediapipe::LocationData::_internal_mask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1157" column="46" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1963" bodyend="1967"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a065a075b13d2a792a1fe92b1c44f3a67" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::LocationData_BinaryMask *</type>
+        <definition>mediapipe::LocationData_BinaryMask * mediapipe::LocationData::_internal_mutable_mask</definition>
+        <argsstring>()</argsstring>
+        <name>_internal_mutable_mask</name>
+        <qualifiedname>mediapipe::LocationData::_internal_mutable_mask</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1158" column="40" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="2007" bodyend="2014"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1abd8f10b3e8b879b468e0f105293afb03" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::LocationData::_internal_has_format</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_has_format</name>
+        <qualifiedname>mediapipe::LocationData::_internal_has_format</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1167" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1742" bodyend="1745"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a88360567b694f7cd403d22b81f7ff46c" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::LocationData_Format</type>
+        <definition>mediapipe::LocationData_Format mediapipe::LocationData::_internal_format</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_format</name>
+        <qualifiedname>mediapipe::LocationData::_internal_format</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1173" column="36" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1753" bodyend="1755"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1aace45d9bfbcab0a8ae64502765221e68" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::LocationData::_internal_set_format</definition>
+        <argsstring>(::mediapipe::LocationData_Format value)</argsstring>
+        <name>_internal_set_format</name>
+        <qualifiedname>mediapipe::LocationData::_internal_set_format</qualifiedname>
+        <param>
+          <type>::mediapipe::LocationData_Format</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1174" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="1760" bodyend="1764"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classmediapipe_1_1LocationData_1a59861d56f1745c6998321ae39dae4b96" prot="protected" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::LocationData::LocationData</definition>
+        <argsstring>(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned=false)</argsstring>
+        <name>LocationData</name>
+        <qualifiedname>mediapipe::LocationData::LocationData</qualifiedname>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::Arena *</type>
+          <declname>arena</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>is_message_owned</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="1030" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.cc" bodystart="1478" bodyend="1487"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" line="918" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/formats/location_data.pb.h" bodystart="919" bodyend="1192"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1LocationData_1ab618dbbac4a8d749da0d85c32932df36" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a9b35d94da3444084fc3673b7717b6cfe" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a505685906dd8e9ed93272838fb883ef7" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>::TableStruct_mediapipe_2fframework_2fformats_2flocation_5fdata_2eproto</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a291c70c60c8cecc3f71f3a727b975598" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>_cached_size_</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a92121394b2f7030b05dcaf9067997131" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>_class_data_</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a1c19e48f859d51dab101f78038344f9e" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>_has_bits_</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a2cbe11f0f5a43132a1683a797a5490de" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>_internal_add_relative_keypoints</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a608ed451f544d5de018bdaef5c610bdd" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>_internal_bounding_box</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a88360567b694f7cd403d22b81f7ff46c" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>_internal_format</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a9d1a746e5e2567fe9dacd3339d0a12ad" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>_internal_has_bounding_box</name></member>
+      <member refid="classmediapipe_1_1LocationData_1abd8f10b3e8b879b468e0f105293afb03" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>_internal_has_format</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a641fc419d978a66e9fa1d24e88ef47f2" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>_internal_has_mask</name></member>
+      <member refid="classmediapipe_1_1LocationData_1acce28fbac01b74514ac864b41846e7f2" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>_internal_has_relative_bounding_box</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a02a961a730c5127f7be39dddf68d6033" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>_internal_mask</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a21962fff929e5fe7ac66603efad3a7ec" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>_internal_mutable_bounding_box</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a065a075b13d2a792a1fe92b1c44f3a67" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>_internal_mutable_mask</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a83f930642b210e72a7757aab1b2ee6db" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>_internal_mutable_relative_bounding_box</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a50f0d29e43ffc9915509a5ae7cdbe79e" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>_internal_relative_bounding_box</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a23951b18a100bfbb8e14333034438571" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>_internal_relative_keypoints</name></member>
+      <member refid="classmediapipe_1_1LocationData_1ad07e234e45b218db4c168cac91d5ab8a" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>_internal_relative_keypoints_size</name></member>
+      <member refid="classmediapipe_1_1LocationData_1aace45d9bfbcab0a8ae64502765221e68" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>_internal_set_format</name></member>
+      <member refid="classmediapipe_1_1LocationData_1ae09e7a9747a798e2df83ecfe6894e60c" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>_InternalParse</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a12f405919b96c54df2fe46e421b210a5" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>_InternalSerialize</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a496317f8922016d10412ae216b61b788" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>add_relative_keypoints</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a3ea8629b89082fc8b28b35dd502592da" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>ArenaDtor</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a0cb83ab2d8fd3e7cf3c3edc53c7ce275" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>BinaryMask</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a38e2d5b72e311c07ec9782c4d8fbaad6" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>bounding_box</name></member>
+      <member refid="classmediapipe_1_1LocationData_1afcf71c372ae81d9db47de0b80089bbf7" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>BOUNDING_BOX</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a90544369c57c9c0ae160156707e6380d" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>bounding_box_</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a6926595476b3579aa2ad7e1f1680b1ae" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>BoundingBox</name></member>
+      <member refid="classmediapipe_1_1LocationData_1aa9576bf261e37d8dd45dfb4452747c1c" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>ByteSizeLong</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a3312b0a3409d9fb281e41dbdb3ca841e" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>Clear</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a93b30aaf13edee9efd0b092641eeba6c" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>clear_bounding_box</name></member>
+      <member refid="classmediapipe_1_1LocationData_1acffb29d93065adf860a2cbebf92ddb3d" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>clear_format</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a001a8e66c16702b3a5eb9d622c4aa0c9" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>clear_mask</name></member>
+      <member refid="classmediapipe_1_1LocationData_1aca1323e23b6fa8b4ccd992696771243c" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>clear_relative_bounding_box</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a870633267ffeff1e8c9f5b0635f3bd0a" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>clear_relative_keypoints</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a6fa4cbd935342906b397575cf70e90c5" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>CopyFrom</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a8805414067acc0614876db31181bc1a4" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>default_instance</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a2432d0d05e50cdab27bb2254ce3c7ea7" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>descriptor</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a43141b2088c48ebdcf67a5e6fe7316db" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>DestructorSkippable_</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a1a5388813dd7db71f870e5004f0155ae" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>Format</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a40a912f9f73f5fb9dbffc957231b5c58" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>format</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a94b9ce4c06ef6efc59ab7631290a2b27" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>format_</name></member>
+      <member refid="classmediapipe_1_1LocationData_1abd351ae07c65f172a4adfa0cacd5d9ad" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>Format_ARRAYSIZE</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a8dea978b0bd03e86a6e9894cd71eafea" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>Format_descriptor</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a9708a208935d7ff966eb723c154f4ec7" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>Format_IsValid</name></member>
+      <member refid="classmediapipe_1_1LocationData_1ad9f968d3b2502f8419df15b0c9798932" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>Format_MAX</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a18fd106085360f9e188796269ef514db" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>Format_MIN</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a0d0840fb4d14bbab7d58a28aaa80fc37" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>Format_Name</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a0b7a604b503e43bdcb6a36b379d3aa0d" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>Format_Parse</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a4199dbbd6dfb66c32816ca0cb9640368" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>FullMessageName</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a94e4f924dac03b5a536acbff5c154aae" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>GetCachedSize</name></member>
+      <member refid="classmediapipe_1_1LocationData_1aafe831ce21d726294ca64ecb943c0939" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>GetClassData</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a299a59e89416e26e9ac2788e727500db" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>GetDescriptor</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a39e09a5ea4a4aea52492c0d0723bb3e9" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>GetMetadata</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a39dab6b3e95530f551c11f0b63efe894" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>GetReflection</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a796932049f0660afb442be7c104e3adb" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>GLOBAL</name></member>
+      <member refid="classmediapipe_1_1LocationData_1aabe837dfd32925ff521f66eb389df87b" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>has_bounding_box</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a292fdc938b0fcbfee1454e73a5f3a431" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>has_format</name></member>
+      <member refid="classmediapipe_1_1LocationData_1af4cc05dab6dc105ca8b86a0b0ddc6405" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>has_mask</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a8aa260164bdaed5e8d5f281f30adcc7d" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>has_relative_bounding_box</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a75e652454be15cb680c68cb09299681c" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>internal_default_instance</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a07b3f0e5c58f0694b49eb3a439464405" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>InternalArenaConstructable_</name></member>
+      <member refid="classmediapipe_1_1LocationData_1aa9495754ee24604903c453b649b19a56" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>InternalSwap</name></member>
+      <member refid="classmediapipe_1_1LocationData_1ac3cc300189f16cfbba11f8694331fa94" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>IsInitialized</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a89fe5743be04ad7795cb6740ecead729a36d9c4f38bab70c67015bc7d6279cd5b" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>kBoundingBoxFieldNumber</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a89fe5743be04ad7795cb6740ecead729a1f58ab2d213a1a24a705035b123c7dae" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>kFormatFieldNumber</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a54b6379e3a5cd58f075a9b6d9b614944" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>kIndexInFileMessages</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a89fe5743be04ad7795cb6740ecead729ab86507e35692c7aed8170b1213e325b9" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>kMaskFieldNumber</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a89fe5743be04ad7795cb6740ecead729a7d344ae9ca2dad257584811fde883890" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>kRelativeBoundingBoxFieldNumber</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a89fe5743be04ad7795cb6740ecead729a18e08ca9259b7ab79132e2f4d04dd9e3" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>kRelativeKeypointsFieldNumber</name></member>
+      <member refid="classmediapipe_1_1LocationData_1aa0c0eca8c9f491cd3bf656010189696a" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>LocationData</name></member>
+      <member refid="classmediapipe_1_1LocationData_1ac5d0c93315540ccdc3ab29a1cd356ba0" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>LocationData</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a81c3549c605ea06d9bc5e3e0e77d2f32" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>LocationData</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a1dd9412d44134a3f2ebe0d69d14a01c1" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>LocationData</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a59861d56f1745c6998321ae39dae4b96" prot="protected" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>LocationData</name></member>
+      <member refid="classmediapipe_1_1LocationData_1ab875d6cbeb24a1e347ce93f8cf41dc1e" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>mask</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a63324ed084a860106655b4593df29e99" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>MASK</name></member>
+      <member refid="classmediapipe_1_1LocationData_1ae98f9a7064bbbe91137d3b90eb6d2d52" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>mask_</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a29cb1251e75ae89c2ba613e28bc5400b" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>MergeFrom</name></member>
+      <member refid="classmediapipe_1_1LocationData_1af1496761f851bc762f82a4b3ad9b64ef" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>MergeImpl</name></member>
+      <member refid="classmediapipe_1_1LocationData_1aa9221c283cbabc2d6035af9278c6b274" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>mutable_bounding_box</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a32390f4d00e7a723984f7d327397d3cc" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>mutable_mask</name></member>
+      <member refid="classmediapipe_1_1LocationData_1aff6f0b7e31e159ca9946ff1a71958b5e" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>mutable_relative_bounding_box</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a345a4dc0dc556346b784f1745d07154b" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>mutable_relative_keypoints</name></member>
+      <member refid="classmediapipe_1_1LocationData_1ab63e0085449ead66afdc483ab6d0e87d" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>mutable_relative_keypoints</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a803d0fb5923c9cae3bbf569ecc0af34c" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>mutable_unknown_fields</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a6bf5b74089636fd025fc39307390e2af" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>New</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a401a62794c7dc2082c285936b10195f3" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>operator=</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a6c9370779e339acd679e0a06da4f0fa7" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>operator=</name></member>
+      <member refid="classmediapipe_1_1LocationData_1ad6cc47bc915066aca69ae49513152b1a" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>RegisterArenaDtor</name></member>
+      <member refid="classmediapipe_1_1LocationData_1ad50f34e8f2044b2ad0410de7bc49ada4" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>RELATIVE_BOUNDING_BOX</name></member>
+      <member refid="classmediapipe_1_1LocationData_1ae9118b7e739a6ea5a21d92491808414c" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>relative_bounding_box</name></member>
+      <member refid="classmediapipe_1_1LocationData_1afe729f8dc610c865b320ee03e9d3599c" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>relative_bounding_box_</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a78fb8931260fe98ba37c3fa7ce5487c8" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>relative_keypoints</name></member>
+      <member refid="classmediapipe_1_1LocationData_1aa0da198b77201c68ccf922c51a1acd1e" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>relative_keypoints</name></member>
+      <member refid="classmediapipe_1_1LocationData_1af041fa9fd1159f07e20efb1dd0e6c582" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>relative_keypoints_</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a463cf2bd21e2b22a86ab02754ad64852" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>relative_keypoints_size</name></member>
+      <member refid="classmediapipe_1_1LocationData_1aa5882b54072493a911eab6518a8d7638" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>RelativeBoundingBox</name></member>
+      <member refid="classmediapipe_1_1LocationData_1af321922c2fd78d09b8a1e8123c46a72d" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>RelativeKeypoint</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a9c41ecaa86de801836945901bf865b94" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>release_bounding_box</name></member>
+      <member refid="classmediapipe_1_1LocationData_1ac772ac07a9ef0c4d04a4aa8a571c575f" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>release_mask</name></member>
+      <member refid="classmediapipe_1_1LocationData_1adb5cc1429f381b414e6da9bef66df64a" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>release_relative_bounding_box</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a6b66f7fc3c2a8787bcef4cc361232560" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>set_allocated_bounding_box</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a48e3522702ead2643386f3af7f25b980" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>set_allocated_mask</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a59111cb2e45c7c405be0ba175fd8785d" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>set_allocated_relative_bounding_box</name></member>
+      <member refid="classmediapipe_1_1LocationData_1ab32d3c73ec7a9b3219d46f295ba830a9" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>set_format</name></member>
+      <member refid="classmediapipe_1_1LocationData_1afed420b56858a58ba07edd2a1042aead" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>SetCachedSize</name></member>
+      <member refid="classmediapipe_1_1LocationData_1aee3ae437689f098a30ef7693ce96d1dc" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>SharedCtor</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a370a5506307b91b0c46819ee55a1848f" prot="private" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>SharedDtor</name></member>
+      <member refid="classmediapipe_1_1LocationData_1af5b013b326ecc2af007ea471eb11aa0f" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>Swap</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a59876d9a43499ae17a8b76c098d6d090" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>swap</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a84559c64bedec2b1f5aa478a3e9d23bd" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>unknown_fields</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a2c71760385944669e01fde8db3e50849" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>unsafe_arena_release_bounding_box</name></member>
+      <member refid="classmediapipe_1_1LocationData_1ad3054313ee705696620391898673e62b" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>unsafe_arena_release_mask</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a0d831c60f44b014aec45a598a15e84cb" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>unsafe_arena_release_relative_bounding_box</name></member>
+      <member refid="classmediapipe_1_1LocationData_1aa8157c4aa7f085341ddfa92039fdd736" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>unsafe_arena_set_allocated_bounding_box</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a82c5ca296656f55fdafb634f6e262804" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>unsafe_arena_set_allocated_mask</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a3250590af79df3cfcdbb71c653f59a8b" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>unsafe_arena_set_allocated_relative_bounding_box</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a70aa596e156e204be95f419b8c798dc3" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>UnsafeArenaSwap</name></member>
+      <member refid="classmediapipe_1_1LocationData_1a98ba822654b65241588b6fa81d94f920" prot="public" virt="non-virtual"><scope>mediapipe::LocationData</scope><name>~LocationData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

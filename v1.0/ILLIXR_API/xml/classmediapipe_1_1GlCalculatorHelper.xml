@@ -1,0 +1,634 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1GlCalculatorHelper" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::GlCalculatorHelper</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1GlCalculatorHelper_1add8f797933a1cf982ce4782aafd0e20b" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; GlContext &gt;</type>
+        <definition>std::shared_ptr&lt;GlContext&gt; mediapipe::GlCalculatorHelper::gl_context_</definition>
+        <argsstring></argsstring>
+        <name>gl_context_</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::gl_context_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="206" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GlCalculatorHelper_1abc80a520f7bfb537e8980856a0e2d5e9" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint mediapipe::GlCalculatorHelper::framebuffer_</definition>
+        <argsstring></argsstring>
+        <name>framebuffer_</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::framebuffer_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="208" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GlCalculatorHelper_1aaade7a30ef9f2c9ac6172480ccbc99b6" prot="private" static="no" mutable="no">
+        <type>GpuResources *</type>
+        <definition>GpuResources* mediapipe::GlCalculatorHelper::gpu_resources_</definition>
+        <argsstring></argsstring>
+        <name>gpu_resources_</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::gpu_resources_</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="210" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" bodystart="210" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1a868e40412ffc5910f02fc1e30e684cbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::GlCalculatorHelper::GlCalculatorHelper</definition>
+        <argsstring>()</argsstring>
+        <name>GlCalculatorHelper</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::GlCalculatorHelper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="56" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.cc" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1abc1d6d705c47180bbfea00537cf485fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::GlCalculatorHelper::~GlCalculatorHelper</definition>
+        <argsstring>()</argsstring>
+        <name>~GlCalculatorHelper</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::~GlCalculatorHelper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="57" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.cc" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1a3d2a1133391ce88ecdeff26bdf4b9216" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::GlCalculatorHelper::Open</definition>
+        <argsstring>(CalculatorContext *cc)</argsstring>
+        <name>Open</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::Open</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="60" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.cc" bodystart="41" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1a0d130e4a604f20ffacf29d98782155a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlCalculatorHelper::InitializeForTest</definition>
+        <argsstring>(GpuResources *gpu_resources)</argsstring>
+        <name>InitializeForTest</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::InitializeForTest</qualifiedname>
+        <param>
+          <type>GpuResources *</type>
+          <declname>gpu_resources</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="64" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.cc" bodystart="55" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1a90b108931e5c4636161c422ba2ab3b75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlCalculatorHelper::InitializeForTest</definition>
+        <argsstring>(GpuSharedData *gpu_shared)</argsstring>
+        <name>InitializeForTest</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::InitializeForTest</qualifiedname>
+        <param>
+          <type>GpuSharedData *</type>
+          <declname>gpu_shared</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="66" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.cc" bodystart="51" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1aac44ad619c2cb3a6bf0d95ff89871014" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::GlCalculatorHelper::RunInGlContext</definition>
+        <argsstring>(std::function&lt; absl::Status(void)&gt; gl_func)</argsstring>
+        <name>RunInGlContext</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::RunInGlContext</qualifiedname>
+        <param>
+          <type>std::function&lt; absl::Status(void)&gt;</type>
+          <declname>gl_func</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="82" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.cc" bodystart="109" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1a65beede2d08770c0adcac2f2df2aaa39" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename</type>
+            <defval>typename std::enable_if&lt;std::is_void&lt;                            typename std::result_of&lt;T()&gt;::type&gt;::value&gt;::type</defval>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void mediapipe::GlCalculatorHelper::RunInGlContext</definition>
+        <argsstring>(T f)</argsstring>
+        <name>RunInGlContext</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::RunInGlContext</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="103" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" bodystart="103" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1a96b484b3feb1ef0a9a7c1212d5e505f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GlTexture</type>
+        <definition>GlTexture mediapipe::GlCalculatorHelper::CreateSourceTexture</definition>
+        <argsstring>(const GpuBuffer &amp;pixel_buffer)</argsstring>
+        <name>CreateSourceTexture</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::CreateSourceTexture</qualifiedname>
+        <param>
+          <type>const GpuBuffer &amp;</type>
+          <declname>pixel_buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="125" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.cc" bodystart="169" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1a407dd61f136acb49764967e4ea79990d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GlTexture</type>
+        <definition>GlTexture mediapipe::GlCalculatorHelper::CreateSourceTexture</definition>
+        <argsstring>(const mediapipe::Image &amp;image)</argsstring>
+        <name>CreateSourceTexture</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::CreateSourceTexture</qualifiedname>
+        <param>
+          <type>const mediapipe::Image &amp;</type>
+          <declname>image</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="126" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.cc" bodystart="235" bodyend="238"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1a0e0391c0c9e711e5bb756ecfe5ad0eb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GlTexture</type>
+        <definition>GlTexture mediapipe::GlCalculatorHelper::CreateSourceTexture</definition>
+        <argsstring>(const GpuBuffer &amp;pixel_buffer, int plane)</argsstring>
+        <name>CreateSourceTexture</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::CreateSourceTexture</qualifiedname>
+        <param>
+          <type>const GpuBuffer &amp;</type>
+          <declname>pixel_buffer</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>plane</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="132" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.cc" bodystart="173" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1a93b281ed47ea602bf2c7b08efd82051b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GlTexture</type>
+        <definition>GlTexture mediapipe::GlCalculatorHelper::CreateSourceTexture</definition>
+        <argsstring>(const ImageFrame &amp;image_frame)</argsstring>
+        <name>CreateSourceTexture</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::CreateSourceTexture</qualifiedname>
+        <param>
+          <type>const ImageFrame &amp;</type>
+          <declname>image_frame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="146" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.cc" bodystart="178" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1a8f29992b69d94f1a16d85650457d79d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GpuBuffer</type>
+        <definition>GpuBuffer mediapipe::GlCalculatorHelper::GpuBufferWithImageFrame</definition>
+        <argsstring>(std::shared_ptr&lt; ImageFrame &gt; image_frame)</argsstring>
+        <name>GpuBufferWithImageFrame</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::GpuBufferWithImageFrame</qualifiedname>
+        <param>
+          <type>std::shared_ptr&lt; ImageFrame &gt;</type>
+          <declname>image_frame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="150" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.cc" bodystart="184" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1a6a7486e66d80346859b47edd6aa51ac3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GpuBuffer</type>
+        <definition>GpuBuffer mediapipe::GlCalculatorHelper::GpuBufferCopyingImageFrame</definition>
+        <argsstring>(const ImageFrame &amp;image_frame)</argsstring>
+        <name>GpuBufferCopyingImageFrame</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::GpuBufferCopyingImageFrame</qualifiedname>
+        <param>
+          <type>const ImageFrame &amp;</type>
+          <declname>image_frame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="153" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.cc" bodystart="190" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1a083e98f06152ab1580e753f9c41de00f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlCalculatorHelper::GetGpuBufferDimensions</definition>
+        <argsstring>(const GpuBuffer &amp;pixel_buffer, int *width, int *height)</argsstring>
+        <name>GetGpuBufferDimensions</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::GetGpuBufferDimensions</qualifiedname>
+        <param>
+          <type>const GpuBuffer &amp;</type>
+          <declname>pixel_buffer</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="157" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.cc" bodystart="203" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1a6c6cf0f20ca9b3de58369285322979fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GlTexture</type>
+        <definition>GlTexture mediapipe::GlCalculatorHelper::CreateDestinationTexture</definition>
+        <argsstring>(int output_width, int output_height, GpuBufferFormat format=GpuBufferFormat::kBGRA32)</argsstring>
+        <name>CreateDestinationTexture</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::CreateDestinationTexture</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>output_width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>output_height</declname>
+        </param>
+        <param>
+          <type>GpuBufferFormat</type>
+          <declname>format</declname>
+          <defval>GpuBufferFormat::kBGRA32</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="162" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.cc" bodystart="211" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1a4f64ea914358df590bd177b019e81353" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GlTexture</type>
+        <definition>GlTexture mediapipe::GlCalculatorHelper::CreateDestinationTexture</definition>
+        <argsstring>(GpuBuffer &amp;buffer)</argsstring>
+        <name>CreateDestinationTexture</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::CreateDestinationTexture</qualifiedname>
+        <param>
+          <type>GpuBuffer &amp;</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="167" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.cc" bodystart="231" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1af25f91525fdb230a4ed38c2c76c84de6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GlTexture</type>
+        <definition>GlTexture mediapipe::GlCalculatorHelper::CreateDestinationTexture</definition>
+        <argsstring>(const ImageFrame &amp;image_frame)</argsstring>
+        <name>CreateDestinationTexture</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::CreateDestinationTexture</qualifiedname>
+        <param>
+          <type>const ImageFrame &amp;</type>
+          <declname>image_frame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="175" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.cc" bodystart="223" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1a1b7b2a06ed2c848f35c0da16b2ebad20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlCalculatorHelper::CreateFramebuffer</definition>
+        <argsstring>()</argsstring>
+        <name>CreateFramebuffer</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::CreateFramebuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="179" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.cc" bodystart="120" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1aeca1e9c665f0954861a57914224f3166" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>GLuint</type>
+        <definition>GLuint mediapipe::GlCalculatorHelper::framebuffer</definition>
+        <argsstring>() const</argsstring>
+        <name>framebuffer</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::framebuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="182" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.cc" bodystart="118" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1a7441db5e1468e09dd8ac5a229b631f25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlCalculatorHelper::BindFramebuffer</definition>
+        <argsstring>(const GlTexture &amp;dst)</argsstring>
+        <name>BindFramebuffer</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::BindFramebuffer</qualifiedname>
+        <param>
+          <type>const GlTexture &amp;</type>
+          <declname>dst</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="186" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.cc" bodystart="129" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1a06ea69efff95d34b2aff2538731f2076" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>GlContext &amp;</type>
+        <definition>GlContext &amp; mediapipe::GlCalculatorHelper::GetGlContext</definition>
+        <argsstring>() const</argsstring>
+        <name>GetGlContext</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::GetGlContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="188" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" bodystart="188" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1a3f2beed4db843a0fc9a355512fe4243f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::shared_ptr&lt; GlContext &gt;</type>
+        <definition>std::shared_ptr&lt; GlContext &gt; mediapipe::GlCalculatorHelper::GetSharedGlContext</definition>
+        <argsstring>() const</argsstring>
+        <name>GetSharedGlContext</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::GetSharedGlContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="190" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" bodystart="190" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1ac07e5eec03d9f5ca184cafc024c1c04c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>GlVersion</type>
+        <definition>GlVersion mediapipe::GlCalculatorHelper::GetGlVersion</definition>
+        <argsstring>() const</argsstring>
+        <name>GetGlVersion</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::GetGlVersion</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="192" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" bodystart="192" bodyend="192"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1a99c8b22ee82aad3b721e38fdb67f0231" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::GlCalculatorHelper::Initialized</definition>
+        <argsstring>()</argsstring>
+        <name>Initialized</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::Initialized</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="195" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" bodystart="195" bodyend="195"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1a994ed00ec4a38182fdba2a8dc86eae82" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::GlCalculatorHelper::UpdateContract</definition>
+        <argsstring>(CalculatorContract *cc, bool request_gpu_as_optional=false)</argsstring>
+        <name>UpdateContract</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::UpdateContract</qualifiedname>
+        <param>
+          <type>CalculatorContract *</type>
+          <declname>cc</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>request_gpu_as_optional</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="70" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.cc" bodystart="60" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1aea619d3e7843c2a821cf2362f98f8276" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::GlCalculatorHelper::SetupInputSidePackets</definition>
+        <argsstring>(PacketTypeSet *input_side_packets)</argsstring>
+        <name>SetupInputSidePackets</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::SetupInputSidePackets</qualifiedname>
+        <param>
+          <type>PacketTypeSet *</type>
+          <declname>input_side_packets</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="76" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.cc" bodystart="78" bodyend="96"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1afb34839a1dae28787c179ad030b7db91" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlCalculatorHelper::InitializeInternal</definition>
+        <argsstring>(CalculatorContext *cc, GpuResources *gpu_resources)</argsstring>
+        <name>InitializeInternal</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::InitializeInternal</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <param>
+          <type>GpuResources *</type>
+          <declname>gpu_resources</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="198" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.cc" bodystart="35" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1a134ffe519dc47d33b967e1c6d5688013" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::GlCalculatorHelper::RunInGlContext</definition>
+        <argsstring>(std::function&lt; absl::Status(void)&gt; gl_func, CalculatorContext *calculator_context)</argsstring>
+        <name>RunInGlContext</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::RunInGlContext</qualifiedname>
+        <param>
+          <type>std::function&lt; absl::Status(void)&gt;</type>
+          <declname>gl_func</declname>
+        </param>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>calculator_context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="200" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.cc" bodystart="98" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlCalculatorHelper_1a2e552a022ad1ff1a198f0154e204e3ee" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GlTexture</type>
+        <definition>GlTexture mediapipe::GlCalculatorHelper::MapGpuBuffer</definition>
+        <argsstring>(const GpuBuffer &amp;gpu_buffer, GlTextureView view)</argsstring>
+        <name>MapGpuBuffer</name>
+        <qualifiedname>mediapipe::GlCalculatorHelper::MapGpuBuffer</qualifiedname>
+        <param>
+          <type>const GpuBuffer &amp;</type>
+          <declname>gpu_buffer</declname>
+        </param>
+        <param>
+          <type>GlTextureView</type>
+          <declname>view</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="204" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.cc" bodystart="154" bodyend="167"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" line="54" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h" bodystart="54" bodyend="211"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1a7441db5e1468e09dd8ac5a229b631f25" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>BindFramebuffer</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1a6c6cf0f20ca9b3de58369285322979fe" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>CreateDestinationTexture</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1a4f64ea914358df590bd177b019e81353" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>CreateDestinationTexture</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1af25f91525fdb230a4ed38c2c76c84de6" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>CreateDestinationTexture</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1a1b7b2a06ed2c848f35c0da16b2ebad20" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>CreateFramebuffer</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1a96b484b3feb1ef0a9a7c1212d5e505f2" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>CreateSourceTexture</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1a407dd61f136acb49764967e4ea79990d" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>CreateSourceTexture</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1a0e0391c0c9e711e5bb756ecfe5ad0eb3" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>CreateSourceTexture</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1a93b281ed47ea602bf2c7b08efd82051b" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>CreateSourceTexture</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1aeca1e9c665f0954861a57914224f3166" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>framebuffer</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1abc80a520f7bfb537e8980856a0e2d5e9" prot="private" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>framebuffer_</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1a06ea69efff95d34b2aff2538731f2076" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>GetGlContext</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1ac07e5eec03d9f5ca184cafc024c1c04c" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>GetGlVersion</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1a083e98f06152ab1580e753f9c41de00f" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>GetGpuBufferDimensions</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1a3f2beed4db843a0fc9a355512fe4243f" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>GetSharedGlContext</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1add8f797933a1cf982ce4782aafd0e20b" prot="private" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>gl_context_</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1a868e40412ffc5910f02fc1e30e684cbd" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>GlCalculatorHelper</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1aaade7a30ef9f2c9ac6172480ccbc99b6" prot="private" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>gpu_resources_</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1a6a7486e66d80346859b47edd6aa51ac3" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>GpuBufferCopyingImageFrame</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1a8f29992b69d94f1a16d85650457d79d8" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>GpuBufferWithImageFrame</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1a99c8b22ee82aad3b721e38fdb67f0231" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>Initialized</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1a0d130e4a604f20ffacf29d98782155a7" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>InitializeForTest</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1a90b108931e5c4636161c422ba2ab3b75" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>InitializeForTest</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1afb34839a1dae28787c179ad030b7db91" prot="private" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>InitializeInternal</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1a2e552a022ad1ff1a198f0154e204e3ee" prot="private" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>MapGpuBuffer</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1a3d2a1133391ce88ecdeff26bdf4b9216" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>Open</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1aac44ad619c2cb3a6bf0d95ff89871014" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>RunInGlContext</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1a65beede2d08770c0adcac2f2df2aaa39" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>RunInGlContext</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1a134ffe519dc47d33b967e1c6d5688013" prot="private" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>RunInGlContext</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1aea619d3e7843c2a821cf2362f98f8276" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>SetupInputSidePackets</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1a994ed00ec4a38182fdba2a8dc86eae82" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>UpdateContract</name></member>
+      <member refid="classmediapipe_1_1GlCalculatorHelper_1abc1d6d705c47180bbfea00537cf485fd" prot="public" virt="non-virtual"><scope>mediapipe::GlCalculatorHelper</scope><name>~GlCalculatorHelper</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,730 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1GlTextureBuffer" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::GlTextureBuffer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">mediapipe::internal::GpuBufferStorageImpl&lt; GlTextureBuffer, internal::ViewProvider&lt; GlTextureView &gt; &gt;</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">std::enable_shared_from_this&lt; GlTextureBuffer &gt;</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classmediapipe_1_1GlTextureBuffer_1a7dbfc8dac186113202ab5a04d06b2ab5" prot="public" static="no">
+        <type>std::function&lt; void(std::shared_ptr&lt; GlSyncPoint &gt; sync_token)&gt;</type>
+        <definition>using mediapipe::GlTextureBuffer::DeletionCallback =  std::function&lt;void(std::shared_ptr&lt;GlSyncPoint&gt; sync_token)&gt;</definition>
+        <argsstring></argsstring>
+        <name>DeletionCallback</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::DeletionCallback</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="48" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classmediapipe_1_1GlTextureBuffer_1ac1e0123843b3c6fba58882d51e7e8f36" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class GlCalculatorHelperImpl</definition>
+        <argsstring></argsstring>
+        <name>GlCalculatorHelperImpl</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::GlCalculatorHelperImpl</qualifiedname>
+        <param>
+          <type>GlCalculatorHelperImpl</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="159" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" bodystart="159" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1GlTextureBuffer_1ae60717c7c5b44185b38fb3b1d288d801" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint mediapipe::GlTextureBuffer::name_</definition>
+        <argsstring></argsstring>
+        <name>name_</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::name_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="161" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GlTextureBuffer_1a5613952ba5cf325e439acba638dfc532" prot="private" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int mediapipe::GlTextureBuffer::width_</definition>
+        <argsstring></argsstring>
+        <name>width_</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::width_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="162" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GlTextureBuffer_1a05d2d6c9f243384862c99d901bcec58d" prot="private" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int mediapipe::GlTextureBuffer::height_</definition>
+        <argsstring></argsstring>
+        <name>height_</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::height_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="163" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GlTextureBuffer_1a00f779f54e514727b4005cf1104dc18d" prot="private" static="no" mutable="no">
+        <type>const GpuBufferFormat</type>
+        <definition>const GpuBufferFormat mediapipe::GlTextureBuffer::format_</definition>
+        <argsstring></argsstring>
+        <name>format_</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::format_</qualifiedname>
+        <initializer>= GpuBufferFormat::kUnknown</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="164" column="25" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GlTextureBuffer_1a2358c74b2d0e43ae9e6f5ea8fd5eee43" prot="private" static="no" mutable="no">
+        <type>const GLenum</type>
+        <definition>const GLenum mediapipe::GlTextureBuffer::target_</definition>
+        <argsstring></argsstring>
+        <name>target_</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::target_</qualifiedname>
+        <initializer>= GL_TEXTURE_2D</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="165" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GlTextureBuffer_1a6c9f56c09e99f1f8aef6a9965f1aea2a" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; GlSyncPoint &gt;</type>
+        <definition>std::shared_ptr&lt;GlSyncPoint&gt; mediapipe::GlTextureBuffer::producer_sync_</definition>
+        <argsstring></argsstring>
+        <name>producer_sync_</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::producer_sync_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="167" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GlTextureBuffer_1aefde9988cc2c55d44af1a87320fa8138" prot="private" static="no" mutable="yes">
+        <type>absl::Mutex</type>
+        <definition>absl::Mutex mediapipe::GlTextureBuffer::consumer_sync_mutex_</definition>
+        <argsstring></argsstring>
+        <name>consumer_sync_mutex_</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::consumer_sync_mutex_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="168" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GlTextureBuffer_1a7e8339e115dd1cef5a13c3828bc0fd56" prot="private" static="no" mutable="no">
+        <type>DeletionCallback</type>
+        <definition>DeletionCallback mediapipe::GlTextureBuffer::deletion_callback_</definition>
+        <argsstring></argsstring>
+        <name>deletion_callback_</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::deletion_callback_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="173" column="20" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GlTextureBuffer_1aac918b879a4bc1e1485d90243a5782e7" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; GlContext &gt;</type>
+        <definition>std::shared_ptr&lt;GlContext&gt; mediapipe::GlTextureBuffer::producer_context_</definition>
+        <argsstring></argsstring>
+        <name>producer_context_</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::producer_context_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="174" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1GlTextureBuffer_1af40d472db3bbe47045fb73dae28802c6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::unique_ptr&lt; GlTextureBuffer &gt;</type>
+        <definition>std::unique_ptr&lt; GlTextureBuffer &gt; mediapipe::GlTextureBuffer::Wrap</definition>
+        <argsstring>(GLenum target, GLuint name, int width, int height, GpuBufferFormat format, DeletionCallback deletion_callback)</argsstring>
+        <name>Wrap</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::Wrap</qualifiedname>
+        <param>
+          <type>GLenum</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>GLuint</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>GpuBufferFormat</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>DeletionCallback</type>
+          <declname>deletion_callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="56" column="26" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.cc" bodystart="33" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlTextureBuffer_1a7038fd3bc51ff25b0f893fb7362dbaa7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::unique_ptr&lt; GlTextureBuffer &gt;</type>
+        <definition>std::unique_ptr&lt; GlTextureBuffer &gt; mediapipe::GlTextureBuffer::Wrap</definition>
+        <argsstring>(GLenum target, GLuint name, int width, int height, GpuBufferFormat format, std::shared_ptr&lt; GlContext &gt; context, DeletionCallback deletion_callback)</argsstring>
+        <name>Wrap</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::Wrap</qualifiedname>
+        <param>
+          <type>GLenum</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>GLuint</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>GpuBufferFormat</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; GlContext &gt;</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>DeletionCallback</type>
+          <declname>deletion_callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="61" column="26" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.cc" bodystart="40" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlTextureBuffer_1aca416835b39f89e578fc80927845e9d1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::unique_ptr&lt; GlTextureBuffer &gt;</type>
+        <definition>std::unique_ptr&lt; GlTextureBuffer &gt; mediapipe::GlTextureBuffer::Create</definition>
+        <argsstring>(int width, int height, GpuBufferFormat format, const void *data=nullptr, int alignment=4)</argsstring>
+        <name>Create</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::Create</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>GpuBufferFormat</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>const void *</type>
+          <declname>data</declname>
+          <defval>nullptr</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>alignment</declname>
+          <defval>4</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="68" column="26" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.cc" bodystart="47" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlTextureBuffer_1ac0e57cf08a3303212f1df203a5ba02b5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::unique_ptr&lt; GlTextureBuffer &gt;</type>
+        <definition>std::unique_ptr&lt; GlTextureBuffer &gt; mediapipe::GlTextureBuffer::Create</definition>
+        <argsstring>(const ImageFrame &amp;image_frame)</argsstring>
+        <name>Create</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::Create</qualifiedname>
+        <param>
+          <type>const ImageFrame &amp;</type>
+          <declname>image_frame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="74" column="26" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.cc" bodystart="65" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlTextureBuffer_1a5b6ce885d083d19e7823449b5656038e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::unique_ptr&lt; GlTextureBuffer &gt;</type>
+        <definition>static std::unique_ptr&lt; GlTextureBuffer &gt; mediapipe::GlTextureBuffer::Create</definition>
+        <argsstring>(const internal::GpuBufferSpec &amp;spec)</argsstring>
+        <name>Create</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::Create</qualifiedname>
+        <param>
+          <type>const internal::GpuBufferSpec &amp;</type>
+          <declname>spec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="76" column="26" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" bodystart="76" bodyend="79"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1GlTextureBuffer_1a999102d10de82a72539e3fe93c45c744" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::GlTextureBuffer::GlTextureBuffer</definition>
+        <argsstring>(GLenum target, GLuint name, int width, int height, GpuBufferFormat format, DeletionCallback deletion_callback, std::shared_ptr&lt; GlContext &gt; producer_context=nullptr)</argsstring>
+        <name>GlTextureBuffer</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::GlTextureBuffer</qualifiedname>
+        <param>
+          <type>GLenum</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>GLuint</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>GpuBufferFormat</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>DeletionCallback</type>
+          <declname>deletion_callback</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; GlContext &gt;</type>
+          <declname>producer_context</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="86" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.cc" bodystart="100" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlTextureBuffer_1a491d7019f9154b23b1ce05d11652f0e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::GlTextureBuffer::~GlTextureBuffer</definition>
+        <argsstring>()</argsstring>
+        <name>~GlTextureBuffer</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::~GlTextureBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="89" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.cc" bodystart="234" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlTextureBuffer_1a83c1c26df65dd2416d4c8c364f3f3da2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>GLuint</type>
+        <definition>GLuint mediapipe::GlTextureBuffer::name</definition>
+        <argsstring>() const</argsstring>
+        <name>name</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="93" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" bodystart="93" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlTextureBuffer_1a0d2bbee9e961e0e608da61708dcfb8e6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>GLenum</type>
+        <definition>GLenum mediapipe::GlTextureBuffer::target</definition>
+        <argsstring>() const</argsstring>
+        <name>target</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::target</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="94" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" bodystart="94" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlTextureBuffer_1ae5093a1f88565d6dbe5b15cb5a3769a7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::GlTextureBuffer::width</definition>
+        <argsstring>() const override</argsstring>
+        <name>width</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="95" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" bodystart="95" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlTextureBuffer_1ae9414e7d3a8fa32a07e968a23524c0de" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::GlTextureBuffer::height</definition>
+        <argsstring>() const override</argsstring>
+        <name>height</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="96" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" bodystart="96" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlTextureBuffer_1ab2d93c4f7aaea23322bb762b2ce3f373" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>GpuBufferFormat</type>
+        <definition>GpuBufferFormat mediapipe::GlTextureBuffer::format</definition>
+        <argsstring>() const override</argsstring>
+        <name>format</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::format</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="97" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" bodystart="97" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlTextureBuffer_1aab3d74cfb070a8fd976f9f04a130e847" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>GlTextureView</type>
+        <definition>GlTextureView mediapipe::GlTextureBuffer::GetReadView</definition>
+        <argsstring>(internal::types&lt; GlTextureView &gt;, int plane) const override</argsstring>
+        <name>GetReadView</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::GetReadView</qualifiedname>
+        <param>
+          <type>internal::types&lt; GlTextureView &gt;</type>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>plane</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="99" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.cc" bodystart="274" bodyend="293"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlTextureBuffer_1a4668ff9ac52a4b67f63170bcea769fe3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GlTextureView</type>
+        <definition>GlTextureView mediapipe::GlTextureBuffer::GetWriteView</definition>
+        <argsstring>(internal::types&lt; GlTextureView &gt;, int plane) override</argsstring>
+        <name>GetWriteView</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::GetWriteView</qualifiedname>
+        <param>
+          <type>internal::types&lt; GlTextureView &gt;</type>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>plane</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="101" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.cc" bodystart="295" bodyend="314"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlTextureBuffer_1a368a631970df4c4092382812d5da43a9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlTextureBuffer::WaitUntilComplete</definition>
+        <argsstring>() const</argsstring>
+        <name>WaitUntilComplete</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::WaitUntilComplete</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="113" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.cc" bodystart="243" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlTextureBuffer_1af4cc7b8da571f9b978ae1c62906d259c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlTextureBuffer::WaitOnGpu</definition>
+        <argsstring>() const</argsstring>
+        <name>WaitOnGpu</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::WaitOnGpu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="119" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.cc" bodystart="252" bodyend="259"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlTextureBuffer_1a22b928e98594cce2c6e01a5c23ad1ec3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlTextureBuffer::Reuse</definition>
+        <argsstring>()</argsstring>
+        <name>Reuse</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::Reuse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="125" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.cc" bodystart="194" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlTextureBuffer_1aa53f408a0fe5f87c5fc85f0d59284970" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlTextureBuffer::Updated</definition>
+        <argsstring>(std::shared_ptr&lt; GlSyncPoint &gt; prod_token)</argsstring>
+        <name>Updated</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::Updated</qualifiedname>
+        <param>
+          <type>std::shared_ptr&lt; GlSyncPoint &gt;</type>
+          <declname>prod_token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="130" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.cc" bodystart="213" bodyend="222"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlTextureBuffer_1ac958805890c56f1aed2f273753db0329" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlTextureBuffer::DidRead</definition>
+        <argsstring>(std::shared_ptr&lt; GlSyncPoint &gt; cons_token) const</argsstring>
+        <name>DidRead</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::DidRead</qualifiedname>
+        <param>
+          <type>std::shared_ptr&lt; GlSyncPoint &gt;</type>
+          <declname>cons_token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="133" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.cc" bodystart="224" bodyend="232"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlTextureBuffer_1a8840ad8d11b239cec1e69b45bc061b01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlTextureBuffer::WaitForConsumers</definition>
+        <argsstring>()</argsstring>
+        <name>WaitForConsumers</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::WaitForConsumers</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="138" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.cc" bodystart="261" bodyend="264"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlTextureBuffer_1a742341596210d12b87301ae6fe67692f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlTextureBuffer::WaitForConsumersOnGpu</definition>
+        <argsstring>()</argsstring>
+        <name>WaitForConsumersOnGpu</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::WaitForConsumersOnGpu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="139" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.cc" bodystart="266" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlTextureBuffer_1a1bfbe4712b328cfc6f93edc72727a6a1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::shared_ptr&lt; GlContext &gt; &amp;</type>
+        <definition>const std::shared_ptr&lt; GlContext &gt; &amp; mediapipe::GlTextureBuffer::GetProducerContext</definition>
+        <argsstring>()</argsstring>
+        <name>GetProducerContext</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::GetProducerContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="142" column="25" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" bodystart="142" bodyend="144"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1GlTextureBuffer_1aa9a01c571a74edf7fa6fd9e162b1340e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::GlTextureBuffer::CreateInternal</definition>
+        <argsstring>(const void *data, int alignment=4)</argsstring>
+        <name>CreateInternal</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::CreateInternal</qualifiedname>
+        <param>
+          <type>const void *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>alignment</declname>
+          <defval>4</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="155" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.cc" bodystart="112" bodyend="192"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlTextureBuffer_1a485068d8d3d8075dfc854303561dfc4e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlTextureBuffer::ViewDoneWriting</definition>
+        <argsstring>(const GlTextureView &amp;view)</argsstring>
+        <name>ViewDoneWriting</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::ViewDoneWriting</qualifiedname>
+        <param>
+          <type>const GlTextureView &amp;</type>
+          <declname>view</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="157" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.cc" bodystart="316" bodyend="350"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlTextureBuffer_1ab3fe310e0feb87e7b131053ac2edf403" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::unique_ptr&lt; GlMultiSyncPoint &gt; consumer_multi_sync_</type>
+        <definition>std::unique_ptr&lt; GlMultiSyncPoint &gt; consumer_multi_sync_ mediapipe::GlTextureBuffer::ABSL_GUARDED_BY</definition>
+        <argsstring>(consumer_sync_mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::GlTextureBuffer::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>consumer_sync_mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="171" column="7"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" line="37" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h" bodystart="40" bodyend="175"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1ab3fe310e0feb87e7b131053ac2edf403" prot="private" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GpuBufferStorage_1ae79c17a40d6c5b7a4fc60606cbb01094" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>can_down_cast_to</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1aefde9988cc2c55d44af1a87320fa8138" prot="private" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>consumer_sync_mutex_</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1aca416835b39f89e578fc80927845e9d1" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>Create</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1ac0e57cf08a3303212f1df203a5ba02b5" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>Create</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1a5b6ce885d083d19e7823449b5656038e" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>Create</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1aa9a01c571a74edf7fa6fd9e162b1340e" prot="private" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>CreateInternal</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1a7e8339e115dd1cef5a13c3828bc0fd56" prot="private" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>deletion_callback_</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1a7dbfc8dac186113202ab5a04d06b2ab5" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>DeletionCallback</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1ac958805890c56f1aed2f273753db0329" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>DidRead</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GpuBufferStorage_1a1edb39489b5d86c44f01e18528780c2e" prot="public" virt="non-virtual" ambiguityscope="mediapipe::internal::GpuBufferStorage::"><scope>mediapipe::GlTextureBuffer</scope><name>down_cast</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GpuBufferStorage_1a2ca80b725d00d5fde71badcaa3f8ebd6" prot="public" virt="non-virtual" ambiguityscope="mediapipe::internal::GpuBufferStorage::"><scope>mediapipe::GlTextureBuffer</scope><name>down_cast</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1ab2d93c4f7aaea23322bb762b2ce3f373" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>format</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1a00f779f54e514727b4005cf1104dc18d" prot="private" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>format_</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1a1bfbe4712b328cfc6f93edc72727a6a1" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>GetProducerContext</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GpuBufferStorageImpl_1ac498febf3ec9202a9f1b6631a67f2daa" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>GetProviderTypes</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1aab3d74cfb070a8fd976f9f04a130e847" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>GetReadView</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1a4668ff9ac52a4b67f63170bcea769fe3" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>GetWriteView</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1ac1e0123843b3c6fba58882d51e7e8f36" prot="private" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>GlCalculatorHelperImpl</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1a999102d10de82a72539e3fe93c45c744" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>GlTextureBuffer</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1ae9414e7d3a8fa32a07e968a23524c0de" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>height</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1a05d2d6c9f243384862c99d901bcec58d" prot="private" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>height_</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1a83c1c26df65dd2416d4c8c364f3f3da2" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>name</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1ae60717c7c5b44185b38fb3b1d288d801" prot="private" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>name_</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1aac918b879a4bc1e1485d90243a5782e7" prot="private" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>producer_context_</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1a6c9f56c09e99f1f8aef6a9965f1aea2a" prot="private" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>producer_sync_</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GpuBufferStorageImpl_1af96c4afd8fb2bf8c439bee0e52982390" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>RegisterOnce</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1a22b928e98594cce2c6e01a5c23ad1ec3" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>Reuse</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1a0d2bbee9e961e0e608da61708dcfb8e6" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>target</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1a2358c74b2d0e43ae9e6f5ea8fd5eee43" prot="private" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>target_</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1aa53f408a0fe5f87c5fc85f0d59284970" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>Updated</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1a485068d8d3d8075dfc854303561dfc4e" prot="private" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>ViewDoneWriting</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1a8840ad8d11b239cec1e69b45bc061b01" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>WaitForConsumers</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1a742341596210d12b87301ae6fe67692f" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>WaitForConsumersOnGpu</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1af4cc7b8da571f9b978ae1c62906d259c" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>WaitOnGpu</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1a368a631970df4c4092382812d5da43a9" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>WaitUntilComplete</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1ae5093a1f88565d6dbe5b15cb5a3769a7" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>width</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1a5613952ba5cf325e439acba638dfc532" prot="private" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>width_</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1af40d472db3bbe47045fb73dae28802c6" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>Wrap</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1a7038fd3bc51ff25b0f893fb7362dbaa7" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>Wrap</name></member>
+      <member refid="classmediapipe_1_1GlTextureBuffer_1a491d7019f9154b23b1ce05d11652f0e5" prot="public" virt="non-virtual"><scope>mediapipe::GlTextureBuffer</scope><name>~GlTextureBuffer</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GpuBufferStorage_1ad1d62b12ca23e73e0c2bb08fee508843" prot="public" virt="virtual"><scope>mediapipe::GlTextureBuffer</scope><name>~GpuBufferStorage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1443 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://illixr.github.io/hand_tracking/v1.0/api/graph__profiler_8h_source/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>File graph_profiler.h - ILLIXR Hand Tracking Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/mkd-extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: none; }
+    .glightbox-clean .gslide-media {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-graph_profilerh" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+
+
+<header class="md-header md-header--shadow" data-md-component="header" style="background-color: #11284b">
+    <nav class="md-header__inner md-grid" aria-label="Header">
+        <a href="../.." title="ILLIXR Hand Tracking Documentation" class="md-header__button md-logo" aria-label="ILLIXR Hand Tracking Documentation" data-md-component="logo">
+            <img src="../../images/icon.png" alt="logo">
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+            <div class="md-header__ellipsis">
+                <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ILLIXR Hand Tracking Documentation
+          </span>
+                </div>
+                <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File graph_profiler.h
+            
+          </span>
+                </div>
+            </div>
+        </div>
+        
+        
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+        
+        
+        
+        <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+        
+        
+        
+        <label class="md-header__button md-icon" for="__search">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+        
+    </nav>
+    
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+    <label class="md-nav__title" for="__drawer" style="background-color:var(--md-nav-hdr-color);color:var(--md-nav-hdr-fg-color);">
+        <a href="../.." title="ILLIXR Hand Tracking Documentation" class="md-nav__button md-logo" aria-label="ILLIXR Hand Tracking Documentation" data-md-component="logo">
+            <img src="../../images/icon.png" alt="logo">
+        </a>
+        ILLIXR Hand Tracking Documentation
+    </label>
+    
+    <ul class="md-nav__list" data-md-scrollfix style="background-color:var(--md-nav-list-color)">
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+    
+    
+    
+    <div class="md-nav__link md-nav__container" style="color:black;">
+        <a href="../.." class="md-nav__link ">
+            
+
+<span class="md-ellipsis">
+    Latest Documentation
+    
+  </span>
+
+
+        </a>
+        
+        
+        <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+            <span class="md-nav__icon md-icon"></span>
+        </label>
+        
+    </div>
+    
+    <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Latest Documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    API
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1" id="__nav_1_2_1_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Hand Tracking
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Hand Tracking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classILLIXR_1_1hand__tracking/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Plugin
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classILLIXR_1_1hand__tracking__publisher/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Publisher
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1_3" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1_3" id="__nav_1_2_1_3_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Data Types
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_2_1_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Data Types
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structht__illixr__handle__t/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    illixr_handle_t
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structmediapipe_1_1ILLIXR_1_1illixr__ht__frame/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    illixr_ht_frame
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structILLIXR_1_1pose__image/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    pose_image
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classmediapipe_1_1ILLIXROutputCalculator/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    ILLIXR Calculator
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1_5" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1_5" id="__nav_1_2_1_5_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    OpenXR
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_2_1_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            OpenXR
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../interface_8h/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Interface
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../ixr__openxr_8hpp/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Func. Implementations
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1_5_3" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1_5_3" id="__nav_1_2_1_5_3_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Structs
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_2_1_5_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Structs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structixr__hand__tracker/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    ixr_hand+tracker
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structixr__session/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    ixr_session
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classes/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Classes
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../namespacemediapipe/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Namespaces
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../../LICENSE/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    License
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+        
+    </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+    
+    
+    
+    
+    
+    
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-graph_profilerh">File graph_profiler.h</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_eb2b6c49887aebc07904ba22fd97ad51/"><strong>framework</strong></a> <strong>&gt;</strong> <a href="../dir_b1dfac6e7e55566f82988d965be562dd/"><strong>profiler</strong></a> <strong>&gt;</strong> <a href="../graph__profiler_8h/"><strong>graph_profiler.h</strong></a></p>
+<p><a href="../graph__profiler_8h/">Go to the documentation of this file</a></p>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-0-1"><span class="c1">// Copyright 2019 The MediaPipe Authors.</span>
+</span><span id="__span-0-2"><span class="c1">//</span>
+</span><span id="__span-0-3"><span class="c1">// Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+</span><span id="__span-0-4"><span class="c1">// you may not use this file except in compliance with the License.</span>
+</span><span id="__span-0-5"><span class="c1">// You may obtain a copy of the License at</span>
+</span><span id="__span-0-6"><span class="c1">//</span>
+</span><span id="__span-0-7"><span class="c1">//      http://www.apache.org/licenses/LICENSE-2.0</span>
+</span><span id="__span-0-8"><span class="c1">//</span>
+</span><span id="__span-0-9"><span class="c1">// Unless required by applicable law or agreed to in writing, software</span>
+</span><span id="__span-0-10"><span class="c1">// distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+</span><span id="__span-0-11"><span class="c1">// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+</span><span id="__span-0-12"><span class="c1">// See the License for the specific language governing permissions and</span>
+</span><span id="__span-0-13"><span class="c1">// limitations under the License.</span>
+</span><span id="__span-0-14">
+</span><span id="__span-0-15"><span class="cp">#ifndef MEDIAPIPE_FRAMEWORK_PROFILER_GRAPH_PROFILER_H_</span>
+</span><span id="__span-0-16"><span class="cp">#define MEDIAPIPE_FRAMEWORK_PROFILER_GRAPH_PROFILER_H_</span>
+</span><span id="__span-0-17">
+</span><span id="__span-0-18"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;atomic&gt;</span>
+</span><span id="__span-0-19"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstddef&gt;</span>
+</span><span id="__span-0-20"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdint&gt;</span>
+</span><span id="__span-0-21"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;memory&gt;</span>
+</span><span id="__span-0-22"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;set&gt;</span>
+</span><span id="__span-0-23"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+</span><span id="__span-0-24"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+</span><span id="__span-0-25">
+</span><span id="__span-0-26"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;absl/time/time.h&quot;</span>
+</span><span id="__span-0-27"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/calculator.pb.h&quot;</span>
+</span><span id="__span-0-28"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/calculator_context.h&quot;</span>
+</span><span id="__span-0-29"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/calculator_profile.pb.h&quot;</span>
+</span><span id="__span-0-30"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/deps/clock.h&quot;</span>
+</span><span id="__span-0-31"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/deps/monotonic_clock.h&quot;</span>
+</span><span id="__span-0-32"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/executor.h&quot;</span>
+</span><span id="__span-0-33"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/profiler/graph_tracer.h&quot;</span>
+</span><span id="__span-0-34"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/profiler/sharded_map.h&quot;</span>
+</span><span id="__span-0-35"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/validated_graph_config.h&quot;</span>
+</span><span id="__span-0-36"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/util/unused.hpp&quot;</span>
+</span><span id="__span-0-37">
+</span><span id="__span-0-38"><span class="k">namespace</span><span class="w"> </span><span class="nn">mediapipe</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-39">
+</span><span id="__span-0-40"><span class="k">class</span><span class="w"> </span><span class="nc">GlProfilingHelper</span><span class="p">;</span>
+</span><span id="__span-0-41">
+</span><span id="__span-0-42"><span class="k">struct</span><span class="w"> </span><span class="nc">PacketId</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-43"><span class="w">  </span><span class="c1">// Stream name, excluding TAG if available.</span>
+</span><span id="__span-0-44"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">stream_name</span><span class="p">;</span>
+</span><span id="__span-0-45"><span class="w">  </span><span class="c1">// Timestamp of the packet.</span>
+</span><span id="__span-0-46"><span class="w">  </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">timestamp_usec</span><span class="p">;</span>
+</span><span id="__span-0-47">
+</span><span id="__span-0-48"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">PacketId</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-49"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">stream_name</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">stream_name</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+</span><span id="__span-0-50"><span class="w">           </span><span class="p">(</span><span class="n">timestamp_usec</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">timestamp_usec</span><span class="p">);</span>
+</span><span id="__span-0-51"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-52"><span class="p">};</span>
+</span><span id="__span-0-53">
+</span><span id="__span-0-54"><span class="k">struct</span><span class="w"> </span><span class="nc">PacketInfo</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-55"><span class="w">  </span><span class="c1">// Number of remained consumer of this packet.</span>
+</span><span id="__span-0-56"><span class="w">  </span><span class="c1">// This is used to decide if this PacketInfo should be discarded.</span>
+</span><span id="__span-0-57"><span class="w">  </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">remaining_consumer_count</span><span class="p">;</span>
+</span><span id="__span-0-58"><span class="w">  </span><span class="c1">// Packet production time based on profiler&#39;s clock.</span>
+</span><span id="__span-0-59"><span class="w">  </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">production_time_usec</span><span class="p">;</span>
+</span><span id="__span-0-60"><span class="w">  </span><span class="c1">// The time when the Process(), that generated the corresponding source</span>
+</span><span id="__span-0-61"><span class="w">  </span><span class="c1">// packet, was started.</span>
+</span><span id="__span-0-62"><span class="w">  </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">source_process_start_usec</span><span class="p">;</span>
+</span><span id="__span-0-63">
+</span><span id="__span-0-64"><span class="w">  </span><span class="c1">// For testing.</span>
+</span><span id="__span-0-65"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">PacketInfo</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-66"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">remaining_consumer_count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">remaining_consumer_count</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+</span><span id="__span-0-67"><span class="w">           </span><span class="p">(</span><span class="n">production_time_usec</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">production_time_usec</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+</span><span id="__span-0-68"><span class="w">           </span><span class="p">(</span><span class="n">source_process_start_usec</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">source_process_start_usec</span><span class="p">);</span>
+</span><span id="__span-0-69"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-70"><span class="p">};</span>
+</span><span id="__span-0-71">
+</span><span id="__span-0-72"><span class="c1">// For testing</span>
+</span><span id="__span-0-73"><span class="k">class</span><span class="w"> </span><span class="nc">GraphProfilerTestPeer</span><span class="p">;</span>
+</span><span id="__span-0-74">
+</span><span id="__span-0-75"><span class="c1">// GraphProfiler::CaptureProfile option, see the method for details.</span>
+</span><span id="__span-0-76"><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">PopulateGraphConfig</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">kNo</span><span class="p">,</span><span class="w"> </span><span class="n">kFull</span><span class="w"> </span><span class="p">};</span>
+</span><span id="__span-0-77">
+</span><span id="__span-0-78"><span class="c1">// GraphProfiler keeps track of the following in microseconds based on the</span>
+</span><span id="__span-0-79"><span class="c1">// profiler clock, for each calculator</span>
+</span><span id="__span-0-80"><span class="c1">// - Open(), Process(), and Close() runtime.</span>
+</span><span id="__span-0-81"><span class="c1">// - Input stream latency: Time from when a packet was produced to when it was</span>
+</span><span id="__span-0-82"><span class="c1">// consumed by the calculator.</span>
+</span><span id="__span-0-83"><span class="c1">// - Process input latency: How long it took a packet to travel from start of</span>
+</span><span id="__span-0-84"><span class="c1">// the graph (source nodes) to reach the Calculator.</span>
+</span><span id="__span-0-85"><span class="c1">// - Process input latency: Process input latency + process runtime for a</span>
+</span><span id="__span-0-86"><span class="c1">// packet.</span>
+</span><span id="__span-0-87"><span class="c1">//</span>
+</span><span id="__span-0-88"><span class="c1">// The profiler can be configured in the graph definition:</span>
+</span><span id="__span-0-89"><span class="c1">//   profiler_config {</span>
+</span><span id="__span-0-90"><span class="c1">//     histogram_interval_size_usec : 2000000</span>
+</span><span id="__span-0-91"><span class="c1">//     num_histogram_intervals : 5</span>
+</span><span id="__span-0-92"><span class="c1">//     enable_profiler: true</span>
+</span><span id="__span-0-93"><span class="c1">//   }</span>
+</span><span id="__span-0-94"><span class="c1">//</span>
+</span><span id="__span-0-95"><span class="c1">// Because the graph definition affects the stream profiling and the profiler is</span>
+</span><span id="__span-0-96"><span class="c1">// singleton, the profiler can not be used with more than one graph. Thus the</span>
+</span><span id="__span-0-97"><span class="c1">// profiler disables itself and returns an empty stub if Initialize() is called</span>
+</span><span id="__span-0-98"><span class="c1">// more than once.</span>
+</span><span id="__span-0-99"><span class="c1">//</span>
+</span><span id="__span-0-100"><span class="c1">// The profiler uses the synchronized monotonic clock by default.</span>
+</span><span id="__span-0-101"><span class="c1">// The client can overwrite this by calling SetClock().</span>
+</span><span id="__span-0-102"><span class="k">class</span><span class="w"> </span><span class="nc">GraphProfiler</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">enable_shared_from_this</span><span class="o">&lt;</span><span class="n">ProfilingContext</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-103"><span class="w"> </span><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-0-104"><span class="w">  </span><span class="n">GraphProfiler</span><span class="p">();</span>
+</span><span id="__span-0-105"><span class="w">  </span><span class="o">~</span><span class="n">GraphProfiler</span><span class="p">();</span>
+</span><span id="__span-0-106">
+</span><span id="__span-0-107"><span class="w">  </span><span class="c1">// Not copyable or movable.</span>
+</span><span id="__span-0-108"><span class="w">  </span><span class="n">GraphProfiler</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">GraphProfiler</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+</span><span id="__span-0-109"><span class="w">  </span><span class="n">GraphProfiler</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">GraphProfiler</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+</span><span id="__span-0-110">
+</span><span id="__span-0-111"><span class="w">  </span><span class="c1">// Initializes the profiler based on the input config.</span>
+</span><span id="__span-0-112"><span class="w">  </span><span class="c1">// This should be called before adding any calculator to the profiler.</span>
+</span><span id="__span-0-113"><span class="w">  </span><span class="c1">//</span>
+</span><span id="__span-0-114"><span class="w">  </span><span class="c1">// Because the graph definition affects the stream profiling and the profiler</span>
+</span><span id="__span-0-115"><span class="w">  </span><span class="c1">// is singleton, the profiler can not be used with more than one graph. Thus</span>
+</span><span id="__span-0-116"><span class="w">  </span><span class="c1">// the profiler disables itself and returns an empty stub if Initialize() is</span>
+</span><span id="__span-0-117"><span class="w">  </span><span class="c1">// called more than once.</span>
+</span><span id="__span-0-118"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">Initialize</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ValidatedGraphConfig</span><span class="o">&amp;</span><span class="w"> </span><span class="n">validated_graph_config</span><span class="p">)</span>
+</span><span id="__span-0-119"><span class="w">      </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">profiler_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-120">
+</span><span id="__span-0-121"><span class="w">  </span><span class="c1">// Sets the profiler clock.</span>
+</span><span id="__span-0-122"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">SetClock</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">mediapipe</span><span class="o">::</span><span class="n">Clock</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">clock</span><span class="p">)</span>
+</span><span id="__span-0-123"><span class="w">      </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">profiler_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-124">
+</span><span id="__span-0-125"><span class="w">  </span><span class="c1">// Gets the profiler clock.</span>
+</span><span id="__span-0-126"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">mediapipe</span><span class="o">::</span><span class="n">Clock</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetClock</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</span><span id="__span-0-127"><span class="w">      </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">profiler_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-128">
+</span><span id="__span-0-129"><span class="w">  </span><span class="c1">// Pauses profiling. No-op if already paused.</span>
+</span><span id="__span-0-130"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">Pause</span><span class="p">();</span>
+</span><span id="__span-0-131"><span class="w">  </span><span class="c1">// Resumes profiling. No-op if already profiling.</span>
+</span><span id="__span-0-132"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">Resume</span><span class="p">();</span>
+</span><span id="__span-0-133"><span class="w">  </span><span class="c1">// Resets cumulative profiling data. This only resets the information about</span>
+</span><span id="__span-0-134"><span class="w">  </span><span class="c1">// Process() and does NOT affect information for Open() and Close() methods.</span>
+</span><span id="__span-0-135"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">Reset</span><span class="p">()</span><span class="w"> </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">profiler_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-136"><span class="w">  </span><span class="c1">// Begins profiling for a single graph run.</span>
+</span><span id="__span-0-137"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">Start</span><span class="p">(</span><span class="n">mediapipe</span><span class="o">::</span><span class="n">Executor</span><span class="o">*</span><span class="w"> </span><span class="n">executor</span><span class="p">);</span>
+</span><span id="__span-0-138"><span class="w">  </span><span class="c1">// Ends profiling for a single graph run.</span>
+</span><span id="__span-0-139"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">Stop</span><span class="p">();</span>
+</span><span id="__span-0-140">
+</span><span id="__span-0-141"><span class="w">  </span><span class="c1">// Record a tracing event.</span>
+</span><span id="__span-0-142"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">LogEvent</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TraceEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">event</span><span class="p">);</span>
+</span><span id="__span-0-143">
+</span><span id="__span-0-144"><span class="w">  </span><span class="c1">// Collects the runtime profile for Open(), Process(), and Close() of each</span>
+</span><span id="__span-0-145"><span class="w">  </span><span class="c1">// calculator in the graph. May be called at any time after the graph has been</span>
+</span><span id="__span-0-146"><span class="w">  </span><span class="c1">// initialized.</span>
+</span><span id="__span-0-147"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">GetCalculatorProfiles</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">CalculatorProfile</span><span class="o">&gt;*</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+</span><span id="__span-0-148"><span class="w">      </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">profiler_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-149">
+</span><span id="__span-0-150"><span class="w">  </span><span class="c1">// Records recent profiling and tracing data.  Includes events since the</span>
+</span><span id="__span-0-151"><span class="w">  </span><span class="c1">// previous call to CaptureProfile.</span>
+</span><span id="__span-0-152"><span class="w">  </span><span class="c1">//</span>
+</span><span id="__span-0-153"><span class="w">  </span><span class="c1">// If `populate_config` is `kFull`, `config` field of the resulting profile</span>
+</span><span id="__span-0-154"><span class="w">  </span><span class="c1">// will contain canonicalized config of the profiled graph, and</span>
+</span><span id="__span-0-155"><span class="w">  </span><span class="c1">// `graph_trace.calculator_name` will contain node names referring to that</span>
+</span><span id="__span-0-156"><span class="w">  </span><span class="c1">// config. Both fields are left empty if the option is set to `kNo`.</span>
+</span><span id="__span-0-157"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">CaptureProfile</span><span class="p">(</span>
+</span><span id="__span-0-158"><span class="w">      </span><span class="n">GraphProfile</span><span class="o">*</span><span class="w"> </span><span class="n">result</span><span class="p">,</span>
+</span><span id="__span-0-159"><span class="w">      </span><span class="n">PopulateGraphConfig</span><span class="w"> </span><span class="n">populate_config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PopulateGraphConfig</span><span class="o">::</span><span class="n">kNo</span><span class="p">);</span>
+</span><span id="__span-0-160">
+</span><span id="__span-0-161"><span class="w">  </span><span class="c1">// Writes recent profiling and tracing data to a file specified in the</span>
+</span><span id="__span-0-162"><span class="w">  </span><span class="c1">// ProfilerConfig.  Includes events since the previous call to WriteProfile.</span>
+</span><span id="__span-0-163"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">WriteProfile</span><span class="p">();</span>
+</span><span id="__span-0-164">
+</span><span id="__span-0-165"><span class="w">  </span><span class="c1">// Returns the trace event buffer.</span>
+</span><span id="__span-0-166"><span class="w">  </span><span class="n">GraphTracer</span><span class="o">*</span><span class="w"> </span><span class="nf">tracer</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">packet_tracer_</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-167">
+</span><span id="__span-0-168"><span class="w">  </span><span class="c1">// Creates and returns a GlProfilingHelper interface for a single GLContext.</span>
+</span><span id="__span-0-169"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GlProfilingHelper</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CreateGlProfilingHelper</span><span class="p">();</span>
+</span><span id="__span-0-170">
+</span><span id="__span-0-171"><span class="w">  </span><span class="c1">// Convenience temporary object to record scoped entry and exit.</span>
+</span><span id="__span-0-172"><span class="w">  </span><span class="c1">// Gets start_time_usec_ on construction and records process runtime on</span>
+</span><span id="__span-0-173"><span class="w">  </span><span class="c1">// destruction. The |calculator_context| and |profiler| must not be null.</span>
+</span><span id="__span-0-174"><span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">Scope</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-175"><span class="w">   </span><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-0-176"><span class="w">    </span><span class="c1">// Constructs a scope.</span>
+</span><span id="__span-0-177"><span class="w">    </span><span class="c1">//</span>
+</span><span id="__span-0-178"><span class="w">    </span><span class="c1">// REQUIRES: `calculator_context` and `profiler` are not null, and must both</span>
+</span><span id="__span-0-179"><span class="w">    </span><span class="c1">// outlive this instance.</span>
+</span><span id="__span-0-180"><span class="w">    </span><span class="kr">inline</span><span class="w"> </span><span class="k">explicit</span><span class="w"> </span><span class="n">Scope</span><span class="p">(</span><span class="n">GraphTrace</span><span class="o">::</span><span class="n">EventType</span><span class="w"> </span><span class="n">event_type</span><span class="p">,</span>
+</span><span id="__span-0-181"><span class="w">                          </span><span class="n">CalculatorContext</span><span class="o">*</span><span class="w"> </span><span class="n">calculator_context</span><span class="p">,</span>
+</span><span id="__span-0-182"><span class="w">                          </span><span class="n">GraphProfiler</span><span class="o">*</span><span class="w"> </span><span class="n">profiler</span><span class="p">)</span>
+</span><span id="__span-0-183"><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">calculator_method_</span><span class="p">(</span><span class="n">event_type</span><span class="p">),</span>
+</span><span id="__span-0-184"><span class="w">          </span><span class="n">calculator_context_</span><span class="p">(</span><span class="o">*</span><span class="n">calculator_context</span><span class="p">),</span>
+</span><span id="__span-0-185"><span class="w">          </span><span class="n">profiler_</span><span class="p">(</span><span class="n">profiler</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-186"><span class="w">      </span><span class="n">start_time_usec_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">profiler_</span><span class="o">-&gt;</span><span class="n">TimeNowUsec</span><span class="p">();</span>
+</span><span id="__span-0-187"><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">profiler_</span><span class="o">-&gt;</span><span class="n">is_tracing_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-188"><span class="w">        </span><span class="n">absl</span><span class="o">::</span><span class="n">Time</span><span class="w"> </span><span class="n">time_now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">FromUnixMicros</span><span class="p">(</span><span class="n">start_time_usec_</span><span class="p">);</span>
+</span><span id="__span-0-189"><span class="w">        </span><span class="n">profiler_</span><span class="o">-&gt;</span><span class="n">packet_tracer_</span><span class="o">-&gt;</span><span class="n">LogInputEvents</span><span class="p">(</span>
+</span><span id="__span-0-190"><span class="w">            </span><span class="n">calculator_method_</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">calculator_context_</span><span class="p">,</span><span class="w"> </span><span class="n">time_now</span><span class="p">);</span>
+</span><span id="__span-0-191"><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-0-192"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-193">
+</span><span id="__span-0-194"><span class="w">    </span><span class="kr">inline</span><span class="w"> </span><span class="o">~</span><span class="n">Scope</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-195"><span class="w">      </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">end_time_usec</span><span class="p">;</span>
+</span><span id="__span-0-196"><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">profiler_</span><span class="o">-&gt;</span><span class="n">is_profiling_</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">profiler_</span><span class="o">-&gt;</span><span class="n">is_tracing_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-197"><span class="w">        </span><span class="n">end_time_usec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">profiler_</span><span class="o">-&gt;</span><span class="n">TimeNowUsec</span><span class="p">();</span>
+</span><span id="__span-0-198"><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-0-199"><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">profiler_</span><span class="o">-&gt;</span><span class="n">is_profiling_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-200"><span class="w">        </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">end_time_usec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">profiler_</span><span class="o">-&gt;</span><span class="n">TimeNowUsec</span><span class="p">();</span>
+</span><span id="__span-0-201"><span class="w">        </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">calculator_method_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-202"><span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="no">GraphTrace</span><span class="o">::</span><span class="no">OPEN</span><span class="p">:</span>
+</span><span id="__span-0-203"><span class="w">            </span><span class="n">profiler_</span><span class="o">-&gt;</span><span class="n">SetOpenRuntime</span><span class="p">(</span><span class="n">calculator_context_</span><span class="p">,</span><span class="w"> </span><span class="n">start_time_usec_</span><span class="p">,</span>
+</span><span id="__span-0-204"><span class="w">                                      </span><span class="n">end_time_usec</span><span class="p">);</span>
+</span><span id="__span-0-205"><span class="w">            </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-0-206">
+</span><span id="__span-0-207"><span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="no">GraphTrace</span><span class="o">::</span><span class="no">PROCESS</span><span class="p">:</span>
+</span><span id="__span-0-208"><span class="w">            </span><span class="n">profiler_</span><span class="o">-&gt;</span><span class="n">AddProcessSample</span><span class="p">(</span><span class="n">calculator_context_</span><span class="p">,</span><span class="w"> </span><span class="n">start_time_usec_</span><span class="p">,</span>
+</span><span id="__span-0-209"><span class="w">                                        </span><span class="n">end_time_usec</span><span class="p">);</span>
+</span><span id="__span-0-210"><span class="w">            </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-0-211">
+</span><span id="__span-0-212"><span class="w">          </span><span class="k">case</span><span class="w"> </span><span class="no">GraphTrace</span><span class="o">::</span><span class="no">CLOSE</span><span class="p">:</span>
+</span><span id="__span-0-213"><span class="w">            </span><span class="n">profiler_</span><span class="o">-&gt;</span><span class="n">SetCloseRuntime</span><span class="p">(</span><span class="n">calculator_context_</span><span class="p">,</span><span class="w"> </span><span class="n">start_time_usec_</span><span class="p">,</span>
+</span><span id="__span-0-214"><span class="w">                                       </span><span class="n">end_time_usec</span><span class="p">);</span>
+</span><span id="__span-0-215"><span class="w">            </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-0-216"><span class="w">          </span><span class="k">default</span><span class="o">:</span>
+</span><span id="__span-0-217"><span class="w">            </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-0-218"><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-0-219"><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-0-220"><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">profiler_</span><span class="o">-&gt;</span><span class="n">is_tracing_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-221"><span class="w">        </span><span class="n">absl</span><span class="o">::</span><span class="n">Time</span><span class="w"> </span><span class="n">time_now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">FromUnixMicros</span><span class="p">(</span><span class="n">end_time_usec</span><span class="p">);</span>
+</span><span id="__span-0-222"><span class="w">        </span><span class="n">profiler_</span><span class="o">-&gt;</span><span class="n">packet_tracer_</span><span class="o">-&gt;</span><span class="n">LogOutputEvents</span><span class="p">(</span>
+</span><span id="__span-0-223"><span class="w">            </span><span class="n">calculator_method_</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">calculator_context_</span><span class="p">,</span><span class="w"> </span><span class="n">time_now</span><span class="p">);</span>
+</span><span id="__span-0-224"><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-0-225"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-226">
+</span><span id="__span-0-227"><span class="w">   </span><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-0-228"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">GraphTrace</span><span class="o">::</span><span class="n">EventType</span><span class="w"> </span><span class="n">calculator_method_</span><span class="p">;</span>
+</span><span id="__span-0-229"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">CalculatorContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">calculator_context_</span><span class="p">;</span>
+</span><span id="__span-0-230"><span class="w">    </span><span class="n">GraphProfiler</span><span class="o">*</span><span class="w"> </span><span class="n">profiler_</span><span class="p">;</span>
+</span><span id="__span-0-231"><span class="w">    </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">start_time_usec_</span><span class="p">;</span>
+</span><span id="__span-0-232"><span class="w">  </span><span class="p">};</span>
+</span><span id="__span-0-233">
+</span><span id="__span-0-234"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">ProfilerConfig</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">profiler_config</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">profiler_config_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-235">
+</span><span id="__span-0-236"><span class="w">  </span><span class="c1">// Helper method to expose the config to other profilers.</span>
+</span><span id="__span-0-237"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">ValidatedGraphConfig</span><span class="o">*</span><span class="w"> </span><span class="nf">GetValidatedGraphConfig</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-238"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">validated_graph_</span><span class="p">;</span>
+</span><span id="__span-0-239"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-240">
+</span><span id="__span-0-241"><span class="w">  </span><span class="c1">// Gets a numerical identifier for this GraphProfiler object.</span>
+</span><span id="__span-0-242"><span class="w">  </span><span class="kt">uint64_t</span><span class="w"> </span><span class="nf">GetGraphId</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">graph_id_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-243">
+</span><span id="__span-0-244"><span class="w"> </span><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-0-245"><span class="w">  </span><span class="c1">// This can be used to add packet info for the input streams to the graph.</span>
+</span><span id="__span-0-246"><span class="w">  </span><span class="c1">// It treats the stream defined by |stream_name| as a stream produced by a</span>
+</span><span id="__span-0-247"><span class="w">  </span><span class="c1">// source calculator and thus uses |timestamp_usec| for the packet production</span>
+</span><span id="__span-0-248"><span class="w">  </span><span class="c1">// time and source production time.</span>
+</span><span id="__span-0-249"><span class="w">  </span><span class="c1">// It is the responsibility of the caller to make sure the |timestamp_usec|</span>
+</span><span id="__span-0-250"><span class="w">  </span><span class="c1">// is valid for profiling.</span>
+</span><span id="__span-0-251"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">AddPacketInfo</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TraceEvent</span><span class="o">&amp;</span><span class="w"> </span><span class="n">packet_info</span><span class="p">)</span>
+</span><span id="__span-0-252"><span class="w">      </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">profiler_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-253"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">InitializeTimeHistogram</span><span class="p">(</span><span class="kt">int64_t</span><span class="w"> </span><span class="n">interval_size_usec</span><span class="p">,</span>
+</span><span id="__span-0-254"><span class="w">                                      </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">num_intervals</span><span class="p">,</span>
+</span><span id="__span-0-255"><span class="w">                                      </span><span class="n">TimeHistogram</span><span class="o">*</span><span class="w"> </span><span class="n">histogram</span><span class="p">);</span>
+</span><span id="__span-0-256"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">ResetTimeHistogram</span><span class="p">(</span><span class="n">TimeHistogram</span><span class="o">*</span><span class="w"> </span><span class="n">histogram</span><span class="p">);</span>
+</span><span id="__span-0-257"><span class="w">  </span><span class="c1">// Add a sample to a time histogram.</span>
+</span><span id="__span-0-258"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">AddTimeSample</span><span class="p">(</span><span class="kt">int64_t</span><span class="w"> </span><span class="n">start_time_usec</span><span class="p">,</span><span class="w"> </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">end_time_usec</span><span class="p">,</span>
+</span><span id="__span-0-259"><span class="w">                            </span><span class="n">TimeHistogram</span><span class="o">*</span><span class="w"> </span><span class="n">histogram</span><span class="p">);</span>
+</span><span id="__span-0-260">
+</span><span id="__span-0-261"><span class="w">  </span><span class="c1">// Add output streams to the stream consumer count map.</span>
+</span><span id="__span-0-262"><span class="w">  </span><span class="c1">// This is neeeded in case an output stream is not consumed by any calculator.</span>
+</span><span id="__span-0-263"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">InitializeOutputStreams</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">CalculatorGraphConfig</span><span class="o">::</span><span class="n">Node</span><span class="o">&amp;</span><span class="w"> </span><span class="n">node_config</span><span class="p">);</span>
+</span><span id="__span-0-264"><span class="w">  </span><span class="c1">// Initializes input stream profiles for a calculator by adding all the input</span>
+</span><span id="__span-0-265"><span class="w">  </span><span class="c1">// streams.</span>
+</span><span id="__span-0-266"><span class="w">  </span><span class="c1">// Although this adds back edges to the profile to keep the ordering, it does</span>
+</span><span id="__span-0-267"><span class="w">  </span><span class="c1">// not add them to |stream_consumer_counts_| to avoid using them for updating</span>
+</span><span id="__span-0-268"><span class="w">  </span><span class="c1">// |source_process_start_usec| and garbage collection while profiling.</span>
+</span><span id="__span-0-269"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">InitializeInputStreams</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">CalculatorGraphConfig</span><span class="o">::</span><span class="n">Node</span><span class="o">&amp;</span><span class="w"> </span><span class="n">node_config</span><span class="p">,</span>
+</span><span id="__span-0-270"><span class="w">                              </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">interval_size_usec</span><span class="p">,</span><span class="w"> </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">num_intervals</span><span class="p">,</span>
+</span><span id="__span-0-271"><span class="w">                              </span><span class="n">CalculatorProfile</span><span class="o">*</span><span class="w"> </span><span class="n">calculator_profile</span><span class="p">);</span>
+</span><span id="__span-0-272"><span class="w">  </span><span class="c1">// Returns the input stream back edges for a calculator.</span>
+</span><span id="__span-0-273"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetBackEdgeIds</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">CalculatorGraphConfig</span><span class="o">::</span><span class="n">Node</span><span class="o">&amp;</span><span class="w"> </span><span class="n">node_config</span><span class="p">,</span>
+</span><span id="__span-0-274"><span class="w">                               </span><span class="k">const</span><span class="w"> </span><span class="n">tool</span><span class="o">::</span><span class="n">TagMap</span><span class="o">&amp;</span><span class="w"> </span><span class="n">input_tag_map</span><span class="p">);</span>
+</span><span id="__span-0-275">
+</span><span id="__span-0-276"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">AddPacketInfoInternal</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">PacketId</span><span class="o">&amp;</span><span class="w"> </span><span class="n">packet_id</span><span class="p">,</span>
+</span><span id="__span-0-277"><span class="w">                             </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">production_time_usec</span><span class="p">,</span>
+</span><span id="__span-0-278"><span class="w">                             </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">source_process_start_usec</span><span class="p">);</span>
+</span><span id="__span-0-279"><span class="w">  </span><span class="c1">// Adds packet info for non-empty output packets.</span>
+</span><span id="__span-0-280"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">AddPacketInfoForOutputPackets</span><span class="p">(</span>
+</span><span id="__span-0-281"><span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">OutputStreamShardSet</span><span class="o">&amp;</span><span class="w"> </span><span class="n">output_stream_shard_set</span><span class="p">,</span>
+</span><span id="__span-0-282"><span class="w">      </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">production_time_usec</span><span class="p">,</span><span class="w"> </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">source_process_start_usec</span><span class="p">);</span>
+</span><span id="__span-0-283">
+</span><span id="__span-0-284"><span class="w">  </span><span class="c1">// Updates the production time for outputs and the stream profile for inputs.</span>
+</span><span id="__span-0-285"><span class="w">  </span><span class="kt">int64_t</span><span class="w"> </span><span class="nf">AddStreamLatencies</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">CalculatorContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">calculator_context</span><span class="p">,</span>
+</span><span id="__span-0-286"><span class="w">                             </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">start_time_usec</span><span class="p">,</span><span class="w"> </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">end_time_usec</span><span class="p">,</span>
+</span><span id="__span-0-287"><span class="w">                             </span><span class="n">CalculatorProfile</span><span class="o">*</span><span class="w"> </span><span class="n">calculator_profile</span><span class="p">);</span>
+</span><span id="__span-0-288">
+</span><span id="__span-0-289"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">SetOpenRuntime</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">CalculatorContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">calculator_context</span><span class="p">,</span>
+</span><span id="__span-0-290"><span class="w">                      </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">start_time_usec</span><span class="p">,</span><span class="w"> </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">end_time_usec</span><span class="p">)</span>
+</span><span id="__span-0-291"><span class="w">      </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">profiler_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-292"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">SetCloseRuntime</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">CalculatorContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">calculator_context</span><span class="p">,</span>
+</span><span id="__span-0-293"><span class="w">                       </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">start_time_usec</span><span class="p">,</span><span class="w"> </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">end_time_usec</span><span class="p">)</span>
+</span><span id="__span-0-294"><span class="w">      </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">profiler_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-295">
+</span><span id="__span-0-296"><span class="w">  </span><span class="c1">// Updates the input streams profiles for the calculator and returns the</span>
+</span><span id="__span-0-297"><span class="w">  </span><span class="c1">// minimum |source_process_start_usec| of all input packets, excluding empty</span>
+</span><span id="__span-0-298"><span class="w">  </span><span class="c1">// packets and back-edge packets. Returns -1 if there is no input packets.</span>
+</span><span id="__span-0-299"><span class="w">  </span><span class="kt">int64_t</span><span class="w"> </span><span class="nf">AddInputStreamTimeSamples</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">CalculatorContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">calculator_context</span><span class="p">,</span>
+</span><span id="__span-0-300"><span class="w">                                    </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">start_time_usec</span><span class="p">,</span>
+</span><span id="__span-0-301"><span class="w">                                    </span><span class="n">CalculatorProfile</span><span class="o">*</span><span class="w"> </span><span class="n">calculator_profile</span><span class="p">);</span>
+</span><span id="__span-0-302">
+</span><span id="__span-0-303"><span class="w">  </span><span class="c1">// Updates the Process() data for calculator.</span>
+</span><span id="__span-0-304"><span class="w">  </span><span class="c1">// Requires ReaderLock for is_profiling_.</span>
+</span><span id="__span-0-305"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">AddProcessSample</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">CalculatorContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">calculator_context</span><span class="p">,</span>
+</span><span id="__span-0-306"><span class="w">                        </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">start_time_usec</span><span class="p">,</span><span class="w"> </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">end_time_usec</span><span class="p">)</span>
+</span><span id="__span-0-307"><span class="w">      </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">profiler_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-308">
+</span><span id="__span-0-309"><span class="w">  </span><span class="c1">// Helper method to get trace_log_path.  If the trace_log_path is empty and</span>
+</span><span id="__span-0-310"><span class="w">  </span><span class="c1">// tracing is enabled, this function returns a default platform dependent</span>
+</span><span id="__span-0-311"><span class="w">  </span><span class="c1">// trace_log_path.</span>
+</span><span id="__span-0-312"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetTraceLogPath</span><span class="p">();</span>
+</span><span id="__span-0-313">
+</span><span id="__span-0-314"><span class="w">  </span><span class="c1">// Helper method to get the clock time in microsecond.</span>
+</span><span id="__span-0-315"><span class="w">  </span><span class="kt">int64_t</span><span class="w"> </span><span class="nf">TimeNowUsec</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">ToUnixMicros</span><span class="p">(</span><span class="n">clock_</span><span class="o">-&gt;</span><span class="n">TimeNow</span><span class="p">());</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-316">
+</span><span id="__span-0-317"><span class="w"> </span><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-0-318"><span class="w">  </span><span class="c1">// The settings for this tracer.</span>
+</span><span id="__span-0-319"><span class="w">  </span><span class="n">ProfilerConfig</span><span class="w"> </span><span class="n">profiler_config_</span><span class="p">;</span>
+</span><span id="__span-0-320">
+</span><span id="__span-0-321"><span class="w">  </span><span class="c1">// If true, the profiler has already been initialized and should not be</span>
+</span><span id="__span-0-322"><span class="w">  </span><span class="c1">// initialized again.</span>
+</span><span id="__span-0-323"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="kt">atomic_bool</span><span class="w"> </span><span class="n">is_initialized_</span><span class="p">;</span>
+</span><span id="__span-0-324">
+</span><span id="__span-0-325"><span class="w">  </span><span class="c1">// If true, the profiler is profiling. Otherwise, it is paused.</span>
+</span><span id="__span-0-326"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="kt">atomic_bool</span><span class="w"> </span><span class="n">is_profiling_</span><span class="p">;</span>
+</span><span id="__span-0-327">
+</span><span id="__span-0-328"><span class="w">  </span><span class="c1">// If true, the tracer records timing events.</span>
+</span><span id="__span-0-329"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="kt">atomic_bool</span><span class="w"> </span><span class="n">is_tracing_</span><span class="p">;</span>
+</span><span id="__span-0-330">
+</span><span id="__span-0-331"><span class="w">  </span><span class="c1">// Stores all the calculator profiles with the calculator name as the key.</span>
+</span><span id="__span-0-332"><span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">CalculatorProfileMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ShardedMap</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">CalculatorProfile</span><span class="o">&gt;</span><span class="p">;</span>
+</span><span id="__span-0-333"><span class="w">  </span><span class="n">CalculatorProfileMap</span><span class="w"> </span><span class="n">calculator_profiles_</span><span class="p">;</span>
+</span><span id="__span-0-334"><span class="w">  </span><span class="c1">// Stores the production time of a packet, based on profiler&#39;s clock.</span>
+</span><span id="__span-0-335"><span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">PacketInfoMap</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-0-336"><span class="w">      </span><span class="n">ShardedMap</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int64_t</span><span class="p">,</span><span class="w"> </span><span class="n">PacketInfo</span><span class="o">&gt;&gt;&gt;</span><span class="p">;</span>
+</span><span id="__span-0-337"><span class="w">  </span><span class="n">PacketInfoMap</span><span class="w"> </span><span class="n">packets_info_</span><span class="p">;</span>
+</span><span id="__span-0-338">
+</span><span id="__span-0-339"><span class="w">  </span><span class="c1">// Global mutex for the profiler.</span>
+</span><span id="__span-0-340"><span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">Mutex</span><span class="w"> </span><span class="n">profiler_mutex_</span><span class="p">;</span>
+</span><span id="__span-0-341">
+</span><span id="__span-0-342"><span class="w">  </span><span class="c1">// Buffer of recent profile trace events.</span>
+</span><span id="__span-0-343"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GraphTracer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">packet_tracer_</span><span class="p">;</span>
+</span><span id="__span-0-344">
+</span><span id="__span-0-345"><span class="w">  </span><span class="c1">// The clock for time measurement, which must be a monotonic real time clock.</span>
+</span><span id="__span-0-346"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">mediapipe</span><span class="o">::</span><span class="n">Clock</span><span class="o">&gt;</span><span class="w"> </span><span class="n">clock_</span><span class="p">;</span>
+</span><span id="__span-0-347">
+</span><span id="__span-0-348"><span class="w">  </span><span class="c1">// Inidicates that profiling has started and not yet stopped.</span>
+</span><span id="__span-0-349"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="kt">atomic_bool</span><span class="w"> </span><span class="n">is_running_</span><span class="p">;</span>
+</span><span id="__span-0-350">
+</span><span id="__span-0-351"><span class="w">  </span><span class="c1">// The end time of the previous output log.</span>
+</span><span id="__span-0-352"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Time</span><span class="w"> </span><span class="n">previous_log_end_time_</span><span class="p">;</span>
+</span><span id="__span-0-353">
+</span><span id="__span-0-354"><span class="w">  </span><span class="c1">// The index number of the previous output log.</span>
+</span><span id="__span-0-355"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">atomic</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">previous_log_index_</span><span class="p">;</span>
+</span><span id="__span-0-356">
+</span><span id="__span-0-357"><span class="w">  </span><span class="c1">// The configuration for the graph being profiled.</span>
+</span><span id="__span-0-358"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">ValidatedGraphConfig</span><span class="o">*</span><span class="w"> </span><span class="n">validated_graph_</span><span class="p">;</span>
+</span><span id="__span-0-359">
+</span><span id="__span-0-360"><span class="w">  </span><span class="c1">// A private resource for creating GraphProfiles.</span>
+</span><span id="__span-0-361"><span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">GraphProfileBuilder</span><span class="p">;</span>
+</span><span id="__span-0-362"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GraphProfileBuilder</span><span class="o">&gt;</span><span class="w"> </span><span class="n">profile_builder_</span><span class="p">;</span>
+</span><span id="__span-0-363">
+</span><span id="__span-0-364"><span class="w">  </span><span class="c1">// The globally incrementing identifier for all graphs in a process.</span>
+</span><span id="__span-0-365"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">atomic_int</span><span class="w"> </span><span class="n">next_instance_id_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-366">
+</span><span id="__span-0-367"><span class="w">  </span><span class="c1">// A unique identifier for this object. Only unique within a process.</span>
+</span><span id="__span-0-368"><span class="w">  </span><span class="kt">uint64_t</span><span class="w"> </span><span class="n">graph_id_</span><span class="p">;</span>
+</span><span id="__span-0-369">
+</span><span id="__span-0-370"><span class="w">  </span><span class="c1">// For testing.</span>
+</span><span id="__span-0-371"><span class="w">  </span><span class="k">friend</span><span class="w"> </span><span class="n">GraphProfilerTestPeer</span><span class="p">;</span>
+</span><span id="__span-0-372"><span class="p">};</span>
+</span><span id="__span-0-373">
+</span><span id="__span-0-374"><span class="c1">// The API class used to access the preferred profiler, such as</span>
+</span><span id="__span-0-375"><span class="c1">// GraphProfiler or GraphProfilerStub.  ProfilingContext is defined as</span>
+</span><span id="__span-0-376"><span class="c1">// a class rather than a typedef in order to support clients that refer</span>
+</span><span id="__span-0-377"><span class="c1">// to it only as a forward declaration, such as CalculatorState.</span>
+</span><span id="__span-0-378"><span class="k">class</span><span class="w"> </span><span class="nc">ProfilingContext</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">GraphProfiler</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-379"><span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">GraphProfiler</span><span class="o">::</span><span class="n">GraphProfiler</span><span class="p">;</span>
+</span><span id="__span-0-380"><span class="p">};</span>
+</span><span id="__span-0-381">
+</span><span id="__span-0-382"><span class="c1">// For now, OSS always uses GlContextProfilerStub.</span>
+</span><span id="__span-0-383"><span class="c1">// TODO: Switch to GlContextProfiler when GlContext is moved to OSS.</span>
+</span><span id="__span-0-384"><span class="cp">#define MEDIAPIPE_DISABLE_GPU_PROFILER 1</span>
+</span><span id="__span-0-385">
+</span><span id="__span-0-386"><span class="c1">// GlContextProfiler keeps track of all timestamp queries within a specific</span>
+</span><span id="__span-0-387"><span class="c1">// GlContext object. When created, the GlContextProfiler must be initialized</span>
+</span><span id="__span-0-388"><span class="c1">// before marking timestamps. Finally, when GlContext is no longer interested</span>
+</span><span id="__span-0-389"><span class="c1">// in marking timestamps or is about to be destroyed, Finish() must be called</span>
+</span><span id="__span-0-390"><span class="c1">// to complete all pending time queries and detach the timer from the GlContext.</span>
+</span><span id="__span-0-391"><span class="c1">// Note that the GlContextProfiler must be created and initialized within a</span>
+</span><span id="__span-0-392"><span class="c1">// valid GlContext object.</span>
+</span><span id="__span-0-393"><span class="cp">#if !MEDIAPIPE_DISABLE_GPU_PROFILER</span>
+</span><span id="__span-0-394"><span class="k">class</span><span class="w"> </span><span class="nc">GlContextProfiler</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-395"><span class="w"> </span><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-0-396"><span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">GlContextProfiler</span><span class="p">(</span>
+</span><span id="__span-0-397"><span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">ProfilingContext</span><span class="o">&gt;</span><span class="w"> </span><span class="n">profiling_context</span><span class="p">)</span>
+</span><span id="__span-0-398"><span class="w">      </span><span class="o">:</span><span class="w"> </span><span class="n">profiling_context_</span><span class="p">(</span><span class="n">profiling_context</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-0-399">
+</span><span id="__span-0-400"><span class="w">  </span><span class="c1">// Not copyable or movable.</span>
+</span><span id="__span-0-401"><span class="w">  </span><span class="n">GlContextProfiler</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">GlContextProfiler</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+</span><span id="__span-0-402"><span class="w">  </span><span class="n">GlContextProfiler</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">GlContextProfiler</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+</span><span id="__span-0-403">
+</span><span id="__span-0-404"><span class="w">  </span><span class="c1">// Add a GlTimingInfo object to the collection of pending timestamp queries</span>
+</span><span id="__span-0-405"><span class="w">  </span><span class="c1">// associated with a specific graph node_id, packet input_timestamp and mark</span>
+</span><span id="__span-0-406"><span class="w">  </span><span class="c1">// if it is a start or stop event. When a stop event is marked, this function</span>
+</span><span id="__span-0-407"><span class="w">  </span><span class="c1">// blocks on the corresponding start event to complete.</span>
+</span><span id="__span-0-408"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">MarkTimestamp</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">node_id</span><span class="p">,</span><span class="w"> </span><span class="n">Timestamp</span><span class="w"> </span><span class="n">input_timestamp</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_finish</span><span class="p">);</span>
+</span><span id="__span-0-409">
+</span><span id="__span-0-410"><span class="w">  </span><span class="c1">// Complete all pending timing queries and detach the timer from the</span>
+</span><span id="__span-0-411"><span class="w">  </span><span class="c1">// GlContext.</span>
+</span><span id="__span-0-412"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">LogAllTimestamps</span><span class="p">();</span>
+</span><span id="__span-0-413">
+</span><span id="__span-0-414"><span class="w"> </span><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-0-415"><span class="w">  </span><span class="c1">// Store GlTimeQuery and the corresponding TraceEvent object that should be</span>
+</span><span id="__span-0-416"><span class="w">  </span><span class="c1">// populated when the query completes together.</span>
+</span><span id="__span-0-417"><span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">GlTimingInfo</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-418"><span class="w">    </span><span class="n">GlTimeQuery</span><span class="w"> </span><span class="n">time_query</span><span class="p">;</span>
+</span><span id="__span-0-419"><span class="w">    </span><span class="n">TraceEvent</span><span class="w"> </span><span class="n">trace_event</span><span class="p">;</span>
+</span><span id="__span-0-420"><span class="w">  </span><span class="p">};</span>
+</span><span id="__span-0-421">
+</span><span id="__span-0-422"><span class="w">  </span><span class="c1">// Setup the timer for marking GPU timestamps. If successful in setup, return</span>
+</span><span id="__span-0-423"><span class="w">  </span><span class="c1">// true otherwise return false to indicate that timing measurment is not</span>
+</span><span id="__span-0-424"><span class="w">  </span><span class="c1">// supported.</span>
+</span><span id="__span-0-425"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">Initialize</span><span class="p">();</span>
+</span><span id="__span-0-426">
+</span><span id="__span-0-427"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Time</span><span class="w"> </span><span class="nf">TimeNow</span><span class="p">();</span>
+</span><span id="__span-0-428">
+</span><span id="__span-0-429"><span class="w">  </span><span class="c1">// Calibrate the GPU timer w.r.t. the CPU clock. If calibration is fails,</span>
+</span><span id="__span-0-430"><span class="w">  </span><span class="c1">// timing_measurement_supported_ is set to false.</span>
+</span><span id="__span-0-431"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">CalibrateTimer</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">recalibrate</span><span class="p">);</span>
+</span><span id="__span-0-432">
+</span><span id="__span-0-433"><span class="w">  </span><span class="c1">// Log a TraceEvent object to represent if the GPU calibration period has</span>
+</span><span id="__span-0-434"><span class="w">  </span><span class="c1">// started or just ended.</span>
+</span><span id="__span-0-435"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">LogCalibrationEvent</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">started</span><span class="p">,</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">Time</span><span class="w"> </span><span class="n">time</span><span class="p">);</span>
+</span><span id="__span-0-436">
+</span><span id="__span-0-437"><span class="w">  </span><span class="c1">// Log TraceEvent objects for completed time queries. If the parameter wait is</span>
+</span><span id="__span-0-438"><span class="w">  </span><span class="c1">// set to true, wait for all time queries to complete before returning.</span>
+</span><span id="__span-0-439"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">RetireReadyGlTimings</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">wait</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+</span><span id="__span-0-440">
+</span><span id="__span-0-441"><span class="w">  </span><span class="c1">// Get the TraceEvent object containing the timestamp recorded by the GPU if</span>
+</span><span id="__span-0-442"><span class="w">  </span><span class="c1">// the provided query was fulfilled. If it is still pending and wait is false,</span>
+</span><span id="__span-0-443"><span class="w">  </span><span class="c1">// return absl::nullopt.</span>
+</span><span id="__span-0-444"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">optional</span><span class="o">&lt;</span><span class="n">TraceEvent</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetTimeFromQuery</span><span class="p">(</span>
+</span><span id="__span-0-445"><span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GlTimingInfo</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">query</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">wait</span><span class="p">);</span>
+</span><span id="__span-0-446">
+</span><span id="__span-0-447"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">ProfilingContext</span><span class="o">&gt;</span><span class="w"> </span><span class="n">profiling_context_</span><span class="p">;</span>
+</span><span id="__span-0-448"><span class="w">  </span><span class="n">GlSimpleTimer</span><span class="w"> </span><span class="n">gl_timer_</span><span class="p">;</span>
+</span><span id="__span-0-449"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">checked_timing_supported_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-0-450"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">timing_measurement_supported_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-0-451"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">deque</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GlTimingInfo</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">pending_gl_times_</span><span class="p">;</span>
+</span><span id="__span-0-452"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GlTimingInfo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">gl_start_query_</span><span class="p">;</span>
+</span><span id="__span-0-453"><span class="p">};</span>
+</span><span id="__span-0-454">
+</span><span id="__span-0-455"><span class="c1">// The API class used to access the preferred GlContext profiler, such as</span>
+</span><span id="__span-0-456"><span class="c1">// GlContextProfiler or GlContextProfilerStub. GlProfilingHelper is defined as</span>
+</span><span id="__span-0-457"><span class="c1">// a class rather than a typedef in order to support clients that refer</span>
+</span><span id="__span-0-458"><span class="c1">// to it only as a forward declaration.</span>
+</span><span id="__span-0-459"><span class="k">class</span><span class="w"> </span><span class="nc">GlProfilingHelper</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">GlContextProfiler</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-460"><span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">GlContextProfiler</span><span class="o">::</span><span class="n">GlContextProfiler</span><span class="p">;</span>
+</span><span id="__span-0-461"><span class="p">};</span>
+</span><span id="__span-0-462"><span class="cp">#else   </span><span class="c1">// MEDIAPIPE_DISABLE_GPU_PROFILER</span>
+</span><span id="__span-0-463"><span class="k">class</span><span class="w"> </span><span class="nc">GlContextProfilerStub</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-464"><span class="w"> </span><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-0-465"><span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">GlContextProfilerStub</span><span class="p">(</span>
+</span><span id="__span-0-466"><span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">ProfilingContext</span><span class="o">&gt;</span><span class="w"> </span><span class="n">profiling_context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="n">UNUSED</span><span class="p">(</span><span class="n">profiling_context</span><span class="p">);}</span>
+</span><span id="__span-0-467"><span class="w">  </span><span class="c1">// Not copyable or movable.</span>
+</span><span id="__span-0-468"><span class="w">  </span><span class="n">GlContextProfilerStub</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">GlContextProfilerStub</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+</span><span id="__span-0-469"><span class="w">  </span><span class="n">GlContextProfilerStub</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">GlContextProfilerStub</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+</span><span id="__span-0-470"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">Initialze</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-471"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">MarkTimestamp</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">node_id</span><span class="p">,</span><span class="w"> </span><span class="n">Timestamp</span><span class="w"> </span><span class="n">input_timestamp</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_finish</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="n">UNUSED</span><span class="p">(</span><span class="n">node_id</span><span class="p">);</span><span class="w"> </span><span class="n">UNUSED</span><span class="p">(</span><span class="n">input_timestamp</span><span class="p">);</span><span class="w"> </span><span class="n">UNUSED</span><span class="p">(</span><span class="n">is_finish</span><span class="p">);}</span>
+</span><span id="__span-0-472"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">LogAllTimestamps</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-0-473"><span class="p">};</span>
+</span><span id="__span-0-474"><span class="k">class</span><span class="w"> </span><span class="nc">GlProfilingHelper</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">GlContextProfilerStub</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-475"><span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">GlContextProfilerStub</span><span class="o">::</span><span class="n">GlContextProfilerStub</span><span class="p">;</span>
+</span><span id="__span-0-476"><span class="p">};</span>
+</span><span id="__span-0-477"><span class="cp">#endif  </span><span class="c1">// !MEDIAPIPE_DISABLE_GPU_PROFILER</span>
+</span><span id="__span-0-478"><span class="cp">#undef MEDIAPIPE_DISABLE_GPU_PROFILER</span>
+</span><span id="__span-0-479"><span class="p">}</span><span class="w">  </span><span class="c1">// namespace mediapipe</span>
+</span><span id="__span-0-480">
+</span><span id="__span-0-481"><span class="cp">#endif  </span><span class="c1">// MEDIAPIPE_FRAMEWORK_PROFILER_GRAPH_PROFILER_H_</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "content.code.annotate", "content.footnote.tooltips", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../js/jquery.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "zoom"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

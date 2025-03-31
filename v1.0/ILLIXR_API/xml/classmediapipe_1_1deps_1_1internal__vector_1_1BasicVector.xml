@@ -1,0 +1,1204 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::deps::internal_vector::BasicVector</compoundname>
+    <derivedcompoundref refid="classVector2" prot="public" virt="non-virtual">Vector2&lt; T &gt;</derivedcompoundref>
+    <derivedcompoundref refid="classVector3" prot="public" virt="non-virtual">Vector3&lt; T &gt;</derivedcompoundref>
+    <derivedcompoundref refid="classVector4" prot="public" virt="non-virtual">Vector4&lt; T &gt;</derivedcompoundref>
+    <templateparamlist>
+      <param>
+        <type>template&lt; typename &gt; class</type>
+        <declname>VecTemplate</declname>
+        <defname>VecTemplate</defname>
+      </param>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>std::size_t</type>
+        <declname>N</declname>
+        <defname>N</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1af4926bece9309c44cc1852010592cd7d" prot="public" static="no" strong="no">
+        <type></type>
+        <name></name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector</qualifiedname>
+        <enumvalue id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1af4926bece9309c44cc1852010592cd7da730c9988e9f5f20bfa61a9458bab8b02" prot="public">
+          <name>SIZE</name>
+          <initializer>= N</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="75" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="75" bodyend="75"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1adad3f14a7c9ac0643cd9c14171116d03" prot="private" static="no">
+        <type>VecTemplate&lt; T &gt;</type>
+        <definition>using mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::D =  VecTemplate&lt;T&gt;</definition>
+        <argsstring></argsstring>
+        <name>D</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::D</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="45" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-type">
+      <memberdef kind="typedef" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1aa4f91485cdf0e9a59652d65caaea7b33" prot="protected" static="no">
+        <type>std::conditional&lt; std::is_integral&lt; T &gt;::value, double, T &gt;::type</type>
+        <definition>typedef std::conditional&lt;std::is_integral&lt;T&gt;::value,double,T&gt;::type mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::FloatType</definition>
+        <argsstring></argsstring>
+        <name>FloatType</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::FloatType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="52" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1ae2beb77c6f98052979876d9f5a463763" prot="protected" static="no">
+        <type>typename absl::make_index_sequence&lt; N &gt;</type>
+        <definition>using mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::IdxSeqN =  typename absl::make_index_sequence&lt;N&gt;</definition>
+        <argsstring></argsstring>
+        <name>IdxSeqN</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::IdxSeqN</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="54" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a575da7c52cc696e19a4015baf08a5135" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>std::size_t</type>
+            <declname>I</declname>
+            <defname>I</defname>
+          </param>
+          <param>
+            <type>typename F</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>As</declname>
+            <defname>As</defname>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>static auto mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::Reduce</definition>
+        <argsstring>(F f, As *... as) -&gt; decltype(f(as[I]...))</argsstring>
+        <name>Reduce</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::Reduce</qualifiedname>
+        <param>
+          <type>F</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>As *...</type>
+          <declname>as</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="57" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="57" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a0e06513c34c12d743a419a7e96534b4f" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename R</type>
+            <defval>D</defval>
+          </param>
+          <param>
+            <type>std::size_t...</type>
+            <declname>Is</declname>
+            <defname>Is</defname>
+          </param>
+          <param>
+            <type>typename F</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>As</declname>
+            <defname>As</defname>
+          </param>
+        </templateparamlist>
+        <type>R</type>
+        <definition>static R mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::GenerateEach</definition>
+        <argsstring>(absl::index_sequence&lt; Is... &gt;, F f, As *... as)</argsstring>
+        <name>GenerateEach</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::GenerateEach</qualifiedname>
+        <param>
+          <type>absl::index_sequence&lt; Is... &gt;</type>
+        </param>
+        <param>
+          <type>F</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>As *...</type>
+          <declname>as</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="62" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="62" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a8a25b4c5ecc751c36673b0d9780f7273" prot="protected" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename R</type>
+            <defval>D</defval>
+          </param>
+          <param>
+            <type>typename F</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>As</declname>
+            <defname>As</defname>
+          </param>
+        </templateparamlist>
+        <type>R</type>
+        <definition>static R mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::Generate</definition>
+        <argsstring>(F f, As &amp;&amp;... as)</argsstring>
+        <name>Generate</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::Generate</qualifiedname>
+        <param>
+          <type>F</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>As &amp;&amp;...</type>
+          <declname>as</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="70" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="70" bodyend="72"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1ab3b0cfadcca13908ca9be46459b7e30b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>static int mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::Size</definition>
+        <argsstring>()</argsstring>
+        <name>Size</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::Size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="76" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="76" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a544d2210b6bc99af39ed5a2ee8080006" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T2</type>
+          </param>
+        </templateparamlist>
+        <type>D</type>
+        <definition>static D mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::Cast</definition>
+        <argsstring>(const VecTemplate&lt; T2 &gt; &amp;b)</argsstring>
+        <name>Cast</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::Cast</qualifiedname>
+        <param>
+          <type>const VecTemplate&lt; T2 &gt; &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="138" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="138" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1abdc1582d97b304ed42cbc1598761827f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>D</type>
+        <definition>static D mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::NaN</definition>
+        <argsstring>()</argsstring>
+        <name>NaN</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::NaN</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="229" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="229" bodyend="231"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a6ae66dd43faeb6ee56291db28c02b4aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::Clear</definition>
+        <argsstring>()</argsstring>
+        <name>Clear</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::Clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="78" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="78" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a538cdba28939ed83aba5c0660ddfe02f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T &amp;</type>
+        <definition>T &amp; mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::operator[]</definition>
+        <argsstring>(int b)</argsstring>
+        <name>operator[]</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::operator[]</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="80" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="80" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1aa2a096e65fc831b4e54765f330682731" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::operator[]</definition>
+        <argsstring>(int b) const</argsstring>
+        <name>operator[]</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::operator[]</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="85" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="85" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a4fc9f8265238910b6ec965bec2be419a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::operator==</definition>
+        <argsstring>(const D &amp;b) const</argsstring>
+        <name>operator==</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::operator==</qualifiedname>
+        <param>
+          <type>const D &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="92" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="92" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a5351db97bcce814fe647644a634aeaaf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::operator!=</definition>
+        <argsstring>(const D &amp;b) const</argsstring>
+        <name>operator!=</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::operator!=</qualifiedname>
+        <param>
+          <type>const D &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="96" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="96" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1ab3657ef004d2db8de1cc2728a7480846" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::operator&lt;</definition>
+        <argsstring>(const D &amp;b) const</argsstring>
+        <name>operator&lt;</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::operator&lt;</qualifiedname>
+        <param>
+          <type>const D &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="97" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="97" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1ad6dd29f8105c954be95b5d30ca0c35d8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::operator&gt;</definition>
+        <argsstring>(const D &amp;b) const</argsstring>
+        <name>operator&gt;</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::operator&gt;</qualifiedname>
+        <param>
+          <type>const D &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="103" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="103" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a1002fdade87375ea6038b116ae85ca5f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::operator&lt;=</definition>
+        <argsstring>(const D &amp;b) const</argsstring>
+        <name>operator&lt;=</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::operator&lt;=</qualifiedname>
+        <param>
+          <type>const D &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="104" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="104" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a8e2927e097f94c55586b2b503442d2e5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::operator&gt;=</definition>
+        <argsstring>(const D &amp;b) const</argsstring>
+        <name>operator&gt;=</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::operator&gt;=</qualifiedname>
+        <param>
+          <type>const D &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="105" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="105" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1ae8cfe507caff6df103304421d48ad35b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>D &amp;</type>
+        <definition>D &amp; mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::operator+=</definition>
+        <argsstring>(const D &amp;b)</argsstring>
+        <name>operator+=</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::operator+=</qualifiedname>
+        <param>
+          <type>const D &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="107" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="107" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a13708debe8b6560c5d0827d2e7b9fca3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>D &amp;</type>
+        <definition>D &amp; mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::operator-=</definition>
+        <argsstring>(const D &amp;b)</argsstring>
+        <name>operator-=</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::operator-=</qualifiedname>
+        <param>
+          <type>const D &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="112" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="112" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a77094bde698debb357c244bd9c55bb69" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>D &amp;</type>
+        <definition>D &amp; mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::operator*=</definition>
+        <argsstring>(T k)</argsstring>
+        <name>operator*=</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::operator*=</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="117" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="117" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a67929f77ea31882fa24955f2384dc345" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>D &amp;</type>
+        <definition>D &amp; mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::operator/=</definition>
+        <argsstring>(T k)</argsstring>
+        <name>operator/=</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::operator/=</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="122" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="122" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1aadf450e37b70e9369a30c4970df98f6a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>D</type>
+        <definition>D mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::operator+</definition>
+        <argsstring>(const D &amp;b) const</argsstring>
+        <name>operator+</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::operator+</qualifiedname>
+        <param>
+          <type>const D &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="127" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="127" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a69045295a4921967b3c6c2ec3df493f1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>D</type>
+        <definition>D mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::operator-</definition>
+        <argsstring>(const D &amp;b) const</argsstring>
+        <name>operator-</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::operator-</qualifiedname>
+        <param>
+          <type>const D &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="128" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="128" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a667dca64aef270146e29989bf17685cf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>D</type>
+        <definition>D mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::operator*</definition>
+        <argsstring>(T k) const</argsstring>
+        <name>operator*</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::operator*</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="129" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="129" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1afdcc963ca32a5b6dced0d1e1eca744a7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>D</type>
+        <definition>D mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::operator/</definition>
+        <argsstring>(T k) const</argsstring>
+        <name>operator/</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::operator/</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="130" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="130" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a3048e4ac074ca5fe5ed313160904833c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>D</type>
+        <definition>D mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::MulComponents</definition>
+        <argsstring>(const D &amp;b) const</argsstring>
+        <name>MulComponents</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::MulComponents</qualifiedname>
+        <param>
+          <type>const D &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="143" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="143" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a15d147ea36012bf0822e1053fd0f91aa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>D</type>
+        <definition>D mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::DivComponents</definition>
+        <argsstring>(const D &amp;b) const</argsstring>
+        <name>DivComponents</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::DivComponents</qualifiedname>
+        <param>
+          <type>const D &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="147" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="147" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1afc4e21c93d40088a6a494ba7f87ab377" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::DotProd</definition>
+        <argsstring>(const D &amp;b) const</argsstring>
+        <name>DotProd</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::DotProd</qualifiedname>
+        <param>
+          <type>const D &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="163" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="163" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a183f5bbe9fa6f31bcad4297412d690b7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::Norm2</definition>
+        <argsstring>() const</argsstring>
+        <name>Norm2</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::Norm2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="169" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="169" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a94f54d1efc8345072178c0dea0436bcb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>FloatType</type>
+        <definition>FloatType mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::Norm</definition>
+        <argsstring>() const</argsstring>
+        <name>Norm</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::Norm</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="172" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="172" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1ae48a0268b72f1c2d5da7cb02619de4a3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>D</type>
+        <definition>D mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::Normalize</definition>
+        <argsstring>() const</argsstring>
+        <name>Normalize</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::Normalize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="178" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="178" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a290852c6e459288892c79199424c60ef" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>D</type>
+        <definition>D mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::Sqrt</definition>
+        <argsstring>() const</argsstring>
+        <name>Sqrt</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::Sqrt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="188" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="188" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1ac8f0557c148c21085565cc10bad9f954" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>D</type>
+        <definition>D mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::Floor</definition>
+        <argsstring>() const</argsstring>
+        <name>Floor</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::Floor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="198" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="198" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a4d8be854636b28b5a0b9f5f05da2a818" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>D</type>
+        <definition>D mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::Ceil</definition>
+        <argsstring>() const</argsstring>
+        <name>Ceil</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::Ceil</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="203" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="203" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a7ee39079b460da63f64948cf2be049a6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>D</type>
+        <definition>D mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::FRound</definition>
+        <argsstring>() const</argsstring>
+        <name>FRound</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::FRound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="208" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="208" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a7e4fbe81b1e31baab36d6ecaff4bd9b4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>VecTemplate&lt; int &gt;</type>
+        <definition>VecTemplate&lt; int &gt; mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::IRound</definition>
+        <argsstring>() const</argsstring>
+        <name>IRound</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::IRound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="214" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="214" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1ad54a3d191750a5f63868bfa19c8a2865" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::IsNaN</definition>
+        <argsstring>() const</argsstring>
+        <name>IsNaN</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::IsNaN</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="221" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="221" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a6412b497342cd47d3ab057d8ab11b937" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename K</type>
+          </param>
+        </templateparamlist>
+        <type>D</type>
+        <definition>D mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::MulScalarInternal</definition>
+        <argsstring>(const K &amp;k) const</argsstring>
+        <name>MulScalarInternal</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::MulScalarInternal</qualifiedname>
+        <param>
+          <type>const K &amp;</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="246" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="246" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a34770bfc17ec35618ba89e47eb88655b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename K</type>
+          </param>
+        </templateparamlist>
+        <type>D</type>
+        <definition>D mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::DivScalarInternal</definition>
+        <argsstring>(const K &amp;k) const</argsstring>
+        <name>DivScalarInternal</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::DivScalarInternal</qualifiedname>
+        <param>
+          <type>const K &amp;</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="250" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="250" bodyend="252"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a4f965fea66a1efbe256f0a89008ff6cc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>D</type>
+        <definition>D operator-</definition>
+        <argsstring>(const D &amp;a)</argsstring>
+        <name>operator-</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::operator-</qualifiedname>
+        <param>
+          <type>const D &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="132" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="132" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="friend" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a41286eaea693d9e66ac925c7ee20faca" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>D</type>
+        <definition>D Max</definition>
+        <argsstring>(const D &amp;a, const D &amp;b)</argsstring>
+        <name>Max</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::Max</qualifiedname>
+        <param>
+          <type>const D &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const D &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="152" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="152" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="friend" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a7c0f10af033f27904403af96d35421b5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>D</type>
+        <definition>D Min</definition>
+        <argsstring>(const D &amp;a, const D &amp;b)</argsstring>
+        <name>Min</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::Min</qualifiedname>
+        <param>
+          <type>const D &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const D &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="158" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="158" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="friend" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a96f8b50143cd8d5ba7e75956554fe1be" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream &amp; operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;out, const D &amp;v)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::operator&lt;&lt;</qualifiedname>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>const D &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="233" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="233" bodyend="242"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a23a02d6e6e1f3527d729746dd7d9ed24" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const D &amp;</type>
+        <definition>const D &amp; mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::AsD</definition>
+        <argsstring>() const</argsstring>
+        <name>AsD</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::AsD</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="255" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="255" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a70f07b08d9f824bbe914fcef2f28106f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>D &amp;</type>
+        <definition>D &amp; mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::AsD</definition>
+        <argsstring>()</argsstring>
+        <name>AsD</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::AsD</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="256" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="256" bodyend="256"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a8442d1fdc2b66558302b6b4d54d55f95" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename U</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>static void mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::Print</definition>
+        <argsstring>(std::ostream &amp;out, const U &amp;v)</argsstring>
+        <name>Print</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::Print</qualifiedname>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>const U &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="261" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="261" bodyend="263"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a68d380d49a68a76d1441fa235c1e97f5" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::Print</definition>
+        <argsstring>(std::ostream &amp;out, uint8_t v)</argsstring>
+        <name>Print</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::Print</qualifiedname>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="264" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="264" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a00b1ab836b856874158d66d160419811" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::Ignore</definition>
+        <argsstring>(std::initializer_list&lt; bool &gt;)</argsstring>
+        <name>Ignore</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::Ignore</qualifiedname>
+        <param>
+          <type>std::initializer_list&lt; bool &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="269" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="269" bodyend="269"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1aae152b609f60011efcd3479bed66f04b" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>std::size_t...</type>
+            <declname>Is</declname>
+            <defname>Is</defname>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>static T mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::Dot</definition>
+        <argsstring>(T sum, const T *a, const T *b, absl::index_sequence&lt; Is... &gt;)</argsstring>
+        <name>Dot</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::Dot</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>sum</declname>
+        </param>
+        <param>
+          <type>const T *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const T *</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>absl::index_sequence&lt; Is... &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="272" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="272" bodyend="275"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a00885f72c14369c6a6c2753b5eb81474" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>std::size_t...</type>
+            <declname>Is</declname>
+            <defname>Is</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>static void mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::PlusEq</definition>
+        <argsstring>(T *a, const T *b, absl::index_sequence&lt; Is... &gt;)</argsstring>
+        <name>PlusEq</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::PlusEq</qualifiedname>
+        <param>
+          <type>T *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const T *</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>absl::index_sequence&lt; Is... &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="278" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="278" bodyend="280"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a72d5c1e0ef32bebd8e01363f5e100c55" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>std::size_t...</type>
+            <declname>Is</declname>
+            <defname>Is</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>static void mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::MinusEq</definition>
+        <argsstring>(T *a, const T *b, absl::index_sequence&lt; Is... &gt;)</argsstring>
+        <name>MinusEq</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::MinusEq</qualifiedname>
+        <param>
+          <type>T *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>const T *</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>absl::index_sequence&lt; Is... &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="283" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="283" bodyend="285"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a3177a6a98694b73ccb1068b278412af6" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>std::size_t...</type>
+            <declname>Is</declname>
+            <defname>Is</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>static void mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::MulEq</definition>
+        <argsstring>(T *a, T b, absl::index_sequence&lt; Is... &gt;)</argsstring>
+        <name>MulEq</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::MulEq</qualifiedname>
+        <param>
+          <type>T *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>absl::index_sequence&lt; Is... &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="288" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="288" bodyend="290"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1af1ec5ca8d0c6ac73e10a89f4925261e5" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>std::size_t...</type>
+            <declname>Is</declname>
+            <defname>Is</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>static void mediapipe::deps::internal_vector::BasicVector&lt; VecTemplate, T, N &gt;::DivEq</definition>
+        <argsstring>(T *a, T b, absl::index_sequence&lt; Is... &gt;)</argsstring>
+        <name>DivEq</name>
+        <qualifiedname>mediapipe::deps::internal_vector::BasicVector::DivEq</qualifiedname>
+        <param>
+          <type>T *</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>absl::index_sequence&lt; Is... &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="293" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="293" bodyend="295"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" line="44" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/vector.h" bodystart="44" bodyend="296"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a23a02d6e6e1f3527d729746dd7d9ed24" prot="private" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>AsD</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a70f07b08d9f824bbe914fcef2f28106f" prot="private" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>AsD</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a544d2210b6bc99af39ed5a2ee8080006" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>Cast</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a4d8be854636b28b5a0b9f5f05da2a818" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>Ceil</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a6ae66dd43faeb6ee56291db28c02b4aa" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>Clear</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1adad3f14a7c9ac0643cd9c14171116d03" prot="private" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>D</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a15d147ea36012bf0822e1053fd0f91aa" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>DivComponents</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1af1ec5ca8d0c6ac73e10a89f4925261e5" prot="private" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>DivEq</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a34770bfc17ec35618ba89e47eb88655b" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>DivScalarInternal</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1aae152b609f60011efcd3479bed66f04b" prot="private" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>Dot</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1afc4e21c93d40088a6a494ba7f87ab377" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>DotProd</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1aa4f91485cdf0e9a59652d65caaea7b33" prot="protected" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>FloatType</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1ac8f0557c148c21085565cc10bad9f954" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>Floor</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a7ee39079b460da63f64948cf2be049a6" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>FRound</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a8a25b4c5ecc751c36673b0d9780f7273" prot="protected" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>Generate</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a0e06513c34c12d743a419a7e96534b4f" prot="protected" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>GenerateEach</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1ae2beb77c6f98052979876d9f5a463763" prot="protected" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>IdxSeqN</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a00b1ab836b856874158d66d160419811" prot="private" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>Ignore</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a7e4fbe81b1e31baab36d6ecaff4bd9b4" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>IRound</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1ad54a3d191750a5f63868bfa19c8a2865" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>IsNaN</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a41286eaea693d9e66ac925c7ee20faca" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>Max</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a7c0f10af033f27904403af96d35421b5" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>Min</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a72d5c1e0ef32bebd8e01363f5e100c55" prot="private" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>MinusEq</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a3048e4ac074ca5fe5ed313160904833c" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>MulComponents</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a3177a6a98694b73ccb1068b278412af6" prot="private" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>MulEq</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a6412b497342cd47d3ab057d8ab11b937" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>MulScalarInternal</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1abdc1582d97b304ed42cbc1598761827f" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>NaN</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a94f54d1efc8345072178c0dea0436bcb" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>Norm</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a183f5bbe9fa6f31bcad4297412d690b7" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>Norm2</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1ae48a0268b72f1c2d5da7cb02619de4a3" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>Normalize</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a5351db97bcce814fe647644a634aeaaf" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>operator!=</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a667dca64aef270146e29989bf17685cf" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>operator*</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a77094bde698debb357c244bd9c55bb69" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>operator*=</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1aadf450e37b70e9369a30c4970df98f6a" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>operator+</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1ae8cfe507caff6df103304421d48ad35b" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>operator+=</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a69045295a4921967b3c6c2ec3df493f1" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>operator-</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a4f965fea66a1efbe256f0a89008ff6cc" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>operator-</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a13708debe8b6560c5d0827d2e7b9fca3" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>operator-=</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1afdcc963ca32a5b6dced0d1e1eca744a7" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>operator/</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a67929f77ea31882fa24955f2384dc345" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>operator/=</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1ab3657ef004d2db8de1cc2728a7480846" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>operator&lt;</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a96f8b50143cd8d5ba7e75956554fe1be" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a1002fdade87375ea6038b116ae85ca5f" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>operator&lt;=</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a4fc9f8265238910b6ec965bec2be419a" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>operator==</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1ad6dd29f8105c954be95b5d30ca0c35d8" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>operator&gt;</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a8e2927e097f94c55586b2b503442d2e5" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>operator&gt;=</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a538cdba28939ed83aba5c0660ddfe02f" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>operator[]</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1aa2a096e65fc831b4e54765f330682731" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>operator[]</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a00885f72c14369c6a6c2753b5eb81474" prot="private" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>PlusEq</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a8442d1fdc2b66558302b6b4d54d55f95" prot="private" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>Print</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a68d380d49a68a76d1441fa235c1e97f5" prot="private" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>Print</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a575da7c52cc696e19a4015baf08a5135" prot="protected" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>Reduce</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1af4926bece9309c44cc1852010592cd7da730c9988e9f5f20bfa61a9458bab8b02" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>SIZE</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1ab3b0cfadcca13908ca9be46459b7e30b" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>Size</name></member>
+      <member refid="classmediapipe_1_1deps_1_1internal__vector_1_1BasicVector_1a290852c6e459288892c79199424c60ef" prot="public" virt="non-virtual"><scope>mediapipe::deps::internal_vector::BasicVector</scope><name>Sqrt</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

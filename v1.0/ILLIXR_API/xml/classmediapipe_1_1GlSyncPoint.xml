@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1GlSyncPoint" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>mediapipe::GlSyncPoint</compoundname>
+    <derivedcompoundref refid="classmediapipe_1_1GlExternalFenceSyncPoint" prot="public" virt="non-virtual">mediapipe::GlExternalFenceSyncPoint</derivedcompoundref>
+    <derivedcompoundref refid="classmediapipe_1_1GlFenceSyncPoint" prot="public" virt="non-virtual">mediapipe::GlFenceSyncPoint</derivedcompoundref>
+    <derivedcompoundref refid="classmediapipe_1_1GlFinishSyncPoint" prot="public" virt="non-virtual">mediapipe::GlFinishSyncPoint</derivedcompoundref>
+    <derivedcompoundref refid="classmediapipe_1_1GlMultiSyncPoint" prot="public" virt="non-virtual">mediapipe::GlMultiSyncPoint</derivedcompoundref>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1GlSyncPoint_1a7d9fa9921608d165695b0f32087d1c40" prot="protected" static="no" mutable="no">
+        <type>std::shared_ptr&lt; GlContext &gt;</type>
+        <definition>std::shared_ptr&lt;GlContext&gt; mediapipe::GlSyncPoint::gl_context_</definition>
+        <argsstring></argsstring>
+        <name>gl_context_</name>
+        <qualifiedname>mediapipe::GlSyncPoint::gl_context_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="104" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1GlSyncPoint_1a107d024f419021fbb379dfae1333a057" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::GlSyncPoint::GlSyncPoint</definition>
+        <argsstring>(const std::shared_ptr&lt; GlContext &gt; &amp;gl_context)</argsstring>
+        <name>GlSyncPoint</name>
+        <qualifiedname>mediapipe::GlSyncPoint::GlSyncPoint</qualifiedname>
+        <param>
+          <type>const std::shared_ptr&lt; GlContext &gt; &amp;</type>
+          <declname>gl_context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="83" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="83" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlSyncPoint_1aa62cdfa2007ab66494dffb8d2f95e304" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual mediapipe::GlSyncPoint::~GlSyncPoint</definition>
+        <argsstring>()</argsstring>
+        <name>~GlSyncPoint</name>
+        <qualifiedname>mediapipe::GlSyncPoint::~GlSyncPoint</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="85" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="85" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlSyncPoint_1a8bb29e26c10693fe7ab371139e304df9" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void mediapipe::GlSyncPoint::Wait</definition>
+        <argsstring>()=0</argsstring>
+        <name>Wait</name>
+        <qualifiedname>mediapipe::GlSyncPoint::Wait</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="90" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlSyncPoint_1a2739437871be4e7e6c227fa1c2e45ec1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mediapipe::GlSyncPoint::WaitOnGpu</definition>
+        <argsstring>()</argsstring>
+        <name>WaitOnGpu</name>
+        <qualifiedname>mediapipe::GlSyncPoint::WaitOnGpu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="95" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="95" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlSyncPoint_1a7d381cf0fef76d2ed1644d4ffca4ab5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool mediapipe::GlSyncPoint::IsReady</definition>
+        <argsstring>()=0</argsstring>
+        <name>IsReady</name>
+        <qualifiedname>mediapipe::GlSyncPoint::IsReady</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="98" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlSyncPoint_1a501af8d498e63370f7534455e122688b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::shared_ptr&lt; GlContext &gt; &amp;</type>
+        <definition>const std::shared_ptr&lt; GlContext &gt; &amp; mediapipe::GlSyncPoint::GetContext</definition>
+        <argsstring>()</argsstring>
+        <name>GetContext</name>
+        <qualifiedname>mediapipe::GlSyncPoint::GetContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="101" column="25" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="101" bodyend="101"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="81" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="81" bodyend="105"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1GlSyncPoint_1a501af8d498e63370f7534455e122688b" prot="public" virt="non-virtual"><scope>mediapipe::GlSyncPoint</scope><name>GetContext</name></member>
+      <member refid="classmediapipe_1_1GlSyncPoint_1a7d9fa9921608d165695b0f32087d1c40" prot="protected" virt="non-virtual"><scope>mediapipe::GlSyncPoint</scope><name>gl_context_</name></member>
+      <member refid="classmediapipe_1_1GlSyncPoint_1a107d024f419021fbb379dfae1333a057" prot="public" virt="non-virtual"><scope>mediapipe::GlSyncPoint</scope><name>GlSyncPoint</name></member>
+      <member refid="classmediapipe_1_1GlSyncPoint_1a7d381cf0fef76d2ed1644d4ffca4ab5b" prot="public" virt="pure-virtual"><scope>mediapipe::GlSyncPoint</scope><name>IsReady</name></member>
+      <member refid="classmediapipe_1_1GlSyncPoint_1a8bb29e26c10693fe7ab371139e304df9" prot="public" virt="pure-virtual"><scope>mediapipe::GlSyncPoint</scope><name>Wait</name></member>
+      <member refid="classmediapipe_1_1GlSyncPoint_1a2739437871be4e7e6c227fa1c2e45ec1" prot="public" virt="virtual"><scope>mediapipe::GlSyncPoint</scope><name>WaitOnGpu</name></member>
+      <member refid="classmediapipe_1_1GlSyncPoint_1aa62cdfa2007ab66494dffb8d2f95e304" prot="public" virt="virtual"><scope>mediapipe::GlSyncPoint</scope><name>~GlSyncPoint</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,986 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1ImageFrame" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::ImageFrame</compoundname>
+    <innerclass refid="classmediapipe_1_1ImageFrame_1_1PixelDataDeleter" prot="public">mediapipe::ImageFrame::PixelDataDeleter</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classmediapipe_1_1ImageFrame_1acd8fcd624c4cdf2e91182b8974786fc9" prot="public" static="no">
+        <type>std::function&lt; void(uint8_t *)&gt;</type>
+        <definition>typedef std::function&lt;void(uint8_t*)&gt; mediapipe::ImageFrame::Deleter</definition>
+        <argsstring></argsstring>
+        <name>Deleter</name>
+        <qualifiedname>mediapipe::ImageFrame::Deleter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="68" column="25" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1ImageFrame_1a27e49459a41e10949aefc6186da5f6a4" prot="public" static="yes" mutable="no">
+        <type>const uint32_t</type>
+        <definition>const uint32_t mediapipe::ImageFrame::kDefaultAlignmentBoundary</definition>
+        <argsstring></argsstring>
+        <name>kDefaultAlignmentBoundary</name>
+        <qualifiedname>mediapipe::ImageFrame::kDefaultAlignmentBoundary</qualifiedname>
+        <initializer>= 16</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="83" column="25" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1ImageFrame_1a2ed015ea88c57ed171397c098f406826" prot="public" static="yes" mutable="no">
+        <type>const uint32_t</type>
+        <definition>const uint32_t mediapipe::ImageFrame::kGlDefaultAlignmentBoundary</definition>
+        <argsstring></argsstring>
+        <name>kGlDefaultAlignmentBoundary</name>
+        <qualifiedname>mediapipe::ImageFrame::kGlDefaultAlignmentBoundary</qualifiedname>
+        <initializer>= 4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="89" column="25" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1ImageFrame_1aea2a4ebb852b7a6dcf573572302d3cfd" prot="private" static="no" mutable="no">
+        <type>ImageFormat::Format</type>
+        <definition>ImageFormat::Format mediapipe::ImageFrame::format_</definition>
+        <argsstring></argsstring>
+        <name>format_</name>
+        <qualifiedname>mediapipe::ImageFrame::format_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="249" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" bodystart="249" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1ImageFrame_1a76bce5ce6d7971dd078b09d0f456698e" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::ImageFrame::width_</definition>
+        <argsstring></argsstring>
+        <name>width_</name>
+        <qualifiedname>mediapipe::ImageFrame::width_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="250" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" bodystart="250" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1ImageFrame_1a1fbd32137918107d57696cd4e259d630" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::ImageFrame::height_</definition>
+        <argsstring></argsstring>
+        <name>height_</name>
+        <qualifiedname>mediapipe::ImageFrame::height_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="251" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" bodystart="251" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1ImageFrame_1a1f2bd541260355ebecd1e20bb5c245d3" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::ImageFrame::width_step_</definition>
+        <argsstring></argsstring>
+        <name>width_step_</name>
+        <qualifiedname>mediapipe::ImageFrame::width_step_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="252" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" bodystart="252" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1ImageFrame_1a0924f2608b7c514e84e722b07836e479" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; uint8_t[], Deleter &gt;</type>
+        <definition>std::unique_ptr&lt;uint8_t[], Deleter&gt; mediapipe::ImageFrame::pixel_data_</definition>
+        <argsstring></argsstring>
+        <name>pixel_data_</name>
+        <qualifiedname>mediapipe::ImageFrame::pixel_data_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="253" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" bodystart="253" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1a5017b0f544f1d9e24227f66bd21fabe8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::ImageFrame::NumberOfChannelsForFormat</definition>
+        <argsstring>(ImageFormat::Format format)</argsstring>
+        <name>NumberOfChannelsForFormat</name>
+        <qualifiedname>mediapipe::ImageFrame::NumberOfChannelsForFormat</qualifiedname>
+        <param>
+          <type>ImageFormat::Format</type>
+          <declname>format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="92" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="268" bodyend="295"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1aea4d6bfc5e5f4bc20bce470e4c6ed3fd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::ImageFrame::ChannelSizeForFormat</definition>
+        <argsstring>(ImageFormat::Format format)</argsstring>
+        <name>ChannelSizeForFormat</name>
+        <qualifiedname>mediapipe::ImageFrame::ChannelSizeForFormat</qualifiedname>
+        <param>
+          <type>ImageFormat::Format</type>
+          <declname>format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="94" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="299" bodyend="326"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1a219daa65e2280f126de8b3c525a4c022" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::ImageFrame::ByteDepthForFormat</definition>
+        <argsstring>(ImageFormat::Format format)</argsstring>
+        <name>ByteDepthForFormat</name>
+        <qualifiedname>mediapipe::ImageFrame::ByteDepthForFormat</qualifiedname>
+        <param>
+          <type>ImageFormat::Format</type>
+          <declname>format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="96" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="330" bodyend="332"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1a7689c9e85d7b737d6e78495c51b38415" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string mediapipe::ImageFrame::InvalidFormatString</definition>
+        <argsstring>(ImageFormat::Format format)</argsstring>
+        <name>InvalidFormatString</name>
+        <qualifiedname>mediapipe::ImageFrame::InvalidFormatString</qualifiedname>
+        <param>
+          <type>ImageFormat::Format</type>
+          <declname>format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="234" column="22" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="248" bodyend="262"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1a41bc344e8207363f4589f968dee21b5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::ImageFrame::ImageFrame</definition>
+        <argsstring>(const ImageFrame &amp;)=delete</argsstring>
+        <name>ImageFrame</name>
+        <qualifiedname>mediapipe::ImageFrame::ImageFrame</qualifiedname>
+        <param>
+          <type>const ImageFrame &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="98" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1a9704d4236b719eacc5a64ab2e776c66d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ImageFrame &amp;</type>
+        <definition>ImageFrame &amp; mediapipe::ImageFrame::operator=</definition>
+        <argsstring>(const ImageFrame &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>mediapipe::ImageFrame::operator=</qualifiedname>
+        <param>
+          <type>const ImageFrame &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="99" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1aaecd0a7bd34e1901ee86308a7fc06f94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::ImageFrame::ImageFrame</definition>
+        <argsstring>()</argsstring>
+        <name>ImageFrame</name>
+        <qualifiedname>mediapipe::ImageFrame::ImageFrame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="102" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="63" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1a5c3321b3ecff9baedb299d70f4d1acb2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::ImageFrame::ImageFrame</definition>
+        <argsstring>(ImageFormat::Format format, int width, int height, uint32_t alignment_boundary)</argsstring>
+        <name>ImageFrame</name>
+        <qualifiedname>mediapipe::ImageFrame::ImageFrame</qualifiedname>
+        <param>
+          <type>ImageFormat::Format</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>alignment_boundary</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="108" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="66" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1aa421eee9c2901fd0001a7a3b7b52acdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::ImageFrame::ImageFrame</definition>
+        <argsstring>(ImageFormat::Format format, int width, int height)</argsstring>
+        <name>ImageFrame</name>
+        <qualifiedname>mediapipe::ImageFrame::ImageFrame</qualifiedname>
+        <param>
+          <type>ImageFormat::Format</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="111" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="72" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1a2fc737c6abe82f988a84d6b48fed0783" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::ImageFrame::ImageFrame</definition>
+        <argsstring>(ImageFormat::Format format, int width, int height, int width_step, uint8_t *pixel_data, Deleter deleter=std::default_delete&lt; uint8_t[]&gt;())</argsstring>
+        <name>ImageFrame</name>
+        <qualifiedname>mediapipe::ImageFrame::ImageFrame</qualifiedname>
+        <param>
+          <type>ImageFormat::Format</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width_step</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>pixel_data</declname>
+        </param>
+        <param>
+          <type>Deleter</type>
+          <declname>deleter</declname>
+          <defval>std::default_delete&lt; uint8_t[]&gt;()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="119" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="77" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1af618d2eda716b92d41a3c5f038c5de64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::ImageFrame::ImageFrame</definition>
+        <argsstring>(ImageFrame &amp;&amp;move_from)</argsstring>
+        <name>ImageFrame</name>
+        <qualifiedname>mediapipe::ImageFrame::ImageFrame</qualifiedname>
+        <param>
+          <type>ImageFrame &amp;&amp;</type>
+          <declname>move_from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="123" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="83" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1afb155ab3a17c654cd43b1e93df7d0286" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ImageFrame &amp;</type>
+        <definition>ImageFrame &amp; mediapipe::ImageFrame::operator=</definition>
+        <argsstring>(ImageFrame &amp;&amp;move_from)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>mediapipe::ImageFrame::operator=</qualifiedname>
+        <param>
+          <type>ImageFrame &amp;&amp;</type>
+          <declname>move_from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="124" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="85" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1ab6d3c110ac3895f181c2318118270e8c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::ImageFrame::IsEmpty</definition>
+        <argsstring>() const</argsstring>
+        <name>IsEmpty</name>
+        <qualifiedname>mediapipe::ImageFrame::IsEmpty</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="127" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" bodystart="127" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1a2566460aa6bbc92ca8672e7e15668012" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::ImageFrame::SetToZero</definition>
+        <argsstring>()</argsstring>
+        <name>SetToZero</name>
+        <qualifiedname>mediapipe::ImageFrame::SetToZero</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="131" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="183" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1afa229a585ac6778b3edab5974a97d845" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::ImageFrame::SetAlignmentPaddingAreas</definition>
+        <argsstring>()</argsstring>
+        <name>SetAlignmentPaddingAreas</name>
+        <qualifiedname>mediapipe::ImageFrame::SetAlignmentPaddingAreas</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="137" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="189" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1a7e29dd201dbfa83f61db59cf5f2bf118" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::ImageFrame::IsContiguous</definition>
+        <argsstring>() const</argsstring>
+        <name>IsContiguous</name>
+        <qualifiedname>mediapipe::ImageFrame::IsContiguous</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="141" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="220" bodyend="225"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1afc72fdf0a2c70bb818ef03f2f3f008da" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::ImageFrame::IsAligned</definition>
+        <argsstring>(uint32_t alignment_boundary) const</argsstring>
+        <name>IsAligned</name>
+        <qualifiedname>mediapipe::ImageFrame::IsAligned</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>alignment_boundary</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="147" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="227" bodyend="240"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1acee1cc6b59dd3bf4b3cf10e6ef8f7d59" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>ImageFormat::Format</type>
+        <definition>ImageFormat::Format mediapipe::ImageFrame::Format</definition>
+        <argsstring>() const</argsstring>
+        <name>Format</name>
+        <qualifiedname>mediapipe::ImageFrame::Format</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="150" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" bodystart="150" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1af38ae159ca497b99b8e1dbaf3908714c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::ImageFrame::Width</definition>
+        <argsstring>() const</argsstring>
+        <name>Width</name>
+        <qualifiedname>mediapipe::ImageFrame::Width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="152" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" bodystart="152" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1a362605aa3fb5354d99d2ae48428c8ad6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::ImageFrame::Height</definition>
+        <argsstring>() const</argsstring>
+        <name>Height</name>
+        <qualifiedname>mediapipe::ImageFrame::Height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="154" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" bodystart="154" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1ac1bb82ef6c2635721c592e18ddfe7835" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::ImageFrame::NumberOfChannels</definition>
+        <argsstring>() const</argsstring>
+        <name>NumberOfChannels</name>
+        <qualifiedname>mediapipe::ImageFrame::NumberOfChannels</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="156" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="264" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1a19f2c852af9eb0670d0a535695c72820" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::ImageFrame::ChannelSize</definition>
+        <argsstring>() const</argsstring>
+        <name>ChannelSize</name>
+        <qualifiedname>mediapipe::ImageFrame::ChannelSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="158" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="297" bodyend="297"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1a86235cc683a1edbf6bfa13bcf5affea8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::ImageFrame::ByteDepth</definition>
+        <argsstring>() const</argsstring>
+        <name>ByteDepth</name>
+        <qualifiedname>mediapipe::ImageFrame::ByteDepth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="160" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="328" bodyend="328"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1af93613b80398bc7a5df476042b54313c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::ImageFrame::WidthStep</definition>
+        <argsstring>() const</argsstring>
+        <name>WidthStep</name>
+        <qualifiedname>mediapipe::ImageFrame::WidthStep</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="167" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" bodystart="167" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1ad2d7aefaf8fab4a33baf92a808165602" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::ImageFrame::CopyFrom</definition>
+        <argsstring>(const ImageFrame &amp;image_frame, uint32_t alignment_boundary)</argsstring>
+        <name>CopyFrom</name>
+        <qualifiedname>mediapipe::ImageFrame::CopyFrom</qualifiedname>
+        <param>
+          <type>const ImageFrame &amp;</type>
+          <declname>image_frame</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>alignment_boundary</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="172" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="334" bodyend="344"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1a022ba91a3981df5962b153128b81241f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint8_t *</type>
+        <definition>uint8_t * mediapipe::ImageFrame::MutablePixelData</definition>
+        <argsstring>()</argsstring>
+        <name>MutablePixelData</name>
+        <qualifiedname>mediapipe::ImageFrame::MutablePixelData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="176" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" bodystart="176" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1aeb0131523af472d72ff08c6f4976b261" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const uint8_t *</type>
+        <definition>const uint8_t * mediapipe::ImageFrame::PixelData</definition>
+        <argsstring>() const</argsstring>
+        <name>PixelData</name>
+        <qualifiedname>mediapipe::ImageFrame::PixelData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="178" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" bodystart="178" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1a436062e293a823b53fe035e4f173f7ac" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::ImageFrame::PixelDataSize</definition>
+        <argsstring>() const</argsstring>
+        <name>PixelDataSize</name>
+        <qualifiedname>mediapipe::ImageFrame::PixelDataSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="181" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" bodystart="181" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1a24f78115632fa8b85f3c60038abfae2e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::ImageFrame::PixelDataSizeStoredContiguously</definition>
+        <argsstring>() const</argsstring>
+        <name>PixelDataSizeStoredContiguously</name>
+        <qualifiedname>mediapipe::ImageFrame::PixelDataSizeStoredContiguously</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="184" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" bodystart="184" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1a553b9cccb252d936c7a4e2d4379bd694" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::ImageFrame::AdoptPixelData</definition>
+        <argsstring>(ImageFormat::Format format, int width, int height, int width_step, uint8_t *pixel_data, Deleter deleter=std::default_delete&lt; uint8_t[]&gt;())</argsstring>
+        <name>AdoptPixelData</name>
+        <qualifiedname>mediapipe::ImageFrame::AdoptPixelData</qualifiedname>
+        <param>
+          <type>ImageFormat::Format</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width_step</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>pixel_data</declname>
+        </param>
+        <param>
+          <type>Deleter</type>
+          <declname>deleter</declname>
+          <defval>std::default_delete&lt; uint8_t[]&gt;()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="191" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="122" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1ae5263c43bc88f658aee6040ea803491e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::ImageFrame::CopyPixelData</definition>
+        <argsstring>(ImageFormat::Format format, int width, int height, const uint8_t *pixel_data, uint32_t alignment_boundary)</argsstring>
+        <name>CopyPixelData</name>
+        <qualifiedname>mediapipe::ImageFrame::CopyPixelData</qualifiedname>
+        <param>
+          <type>ImageFormat::Format</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>pixel_data</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>alignment_boundary</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="198" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="346" bodyend="351"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1a9cf6e5f830bffd8161f84847412e2754" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::ImageFrame::CopyPixelData</definition>
+        <argsstring>(ImageFormat::Format format, int width, int height, int width_step, const uint8_t *pixel_data, uint32_t alignment_boundary)</argsstring>
+        <name>CopyPixelData</name>
+        <qualifiedname>mediapipe::ImageFrame::CopyPixelData</qualifiedname>
+        <param>
+          <type>ImageFormat::Format</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width_step</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>pixel_data</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>alignment_boundary</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="204" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="353" bodyend="360"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1aa52599e9ee7a0a58d5cac0d4dfd2534a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::ImageFrame::Reset</definition>
+        <argsstring>(ImageFormat::Format format, int width, int height, uint32_t alignment_boundary)</argsstring>
+        <name>Reset</name>
+        <qualifiedname>mediapipe::ImageFrame::Reset</qualifiedname>
+        <param>
+          <type>ImageFormat::Format</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>alignment_boundary</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="211" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="99" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1a3b844c8815325f2df1c7fcabfc340814" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::unique_ptr&lt; uint8_t[], Deleter &gt;</type>
+        <definition>std::unique_ptr&lt; uint8_t[], ImageFrame::Deleter &gt; mediapipe::ImageFrame::Release</definition>
+        <argsstring>()</argsstring>
+        <name>Release</name>
+        <qualifiedname>mediapipe::ImageFrame::Release</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="216" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="136" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1a0bbbb7c846be4438c67e1787990ba4eb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::ImageFrame::CopyToBuffer</definition>
+        <argsstring>(uint8_t *buffer, int buffer_size) const</argsstring>
+        <name>CopyToBuffer</name>
+        <qualifiedname>mediapipe::ImageFrame::CopyToBuffer</qualifiedname>
+        <param>
+          <type>uint8_t *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>buffer_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="221" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="362" bodyend="375"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1af1335603a67d649bad9ef609c81d5ef3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::ImageFrame::CopyToBuffer</definition>
+        <argsstring>(uint16_t *buffer, int buffer_size) const</argsstring>
+        <name>CopyToBuffer</name>
+        <qualifiedname>mediapipe::ImageFrame::CopyToBuffer</qualifiedname>
+        <param>
+          <type>uint16_t *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>buffer_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="226" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="377" bodyend="390"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1a5e9398be2d15ba6df6dc70fce699f6b1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::ImageFrame::CopyToBuffer</definition>
+        <argsstring>(float *buffer, int buffer_size) const</argsstring>
+        <name>CopyToBuffer</name>
+        <qualifiedname>mediapipe::ImageFrame::CopyToBuffer</qualifiedname>
+        <param>
+          <type>float *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>buffer_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="231" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="392" bodyend="405"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1a62a4587bedcc07a462538475fd054b86" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::ImageFrame::IsValidAlignmentNumber</definition>
+        <argsstring>(uint32_t alignment_boundary)</argsstring>
+        <name>IsValidAlignmentNumber</name>
+        <qualifiedname>mediapipe::ImageFrame::IsValidAlignmentNumber</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>alignment_boundary</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="238" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="243" bodyend="245"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1ae6db984c5cc5ddbd55a3cd677eb933a7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::ImageFrame::InternalCopyFrom</definition>
+        <argsstring>(int width, int height, int width_step, int channel_size, const uint8_t *pixel_data)</argsstring>
+        <name>InternalCopyFrom</name>
+        <qualifiedname>mediapipe::ImageFrame::InternalCopyFrom</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width_step</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>channel_size</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>pixel_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="242" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="140" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1ImageFrame_1a183d0da3f18b865bc8a0ffd25b1fdac1" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::ImageFrame::InternalCopyToBuffer</definition>
+        <argsstring>(int width_step, char *buffer) const</argsstring>
+        <name>InternalCopyToBuffer</name>
+        <qualifiedname>mediapipe::ImageFrame::InternalCopyToBuffer</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>width_step</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>buffer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="247" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.cc" bodystart="163" bodyend="181"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" line="66" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_frame.h" bodystart="66" bodyend="254"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1ImageFrame_1a553b9cccb252d936c7a4e2d4379bd694" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>AdoptPixelData</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a86235cc683a1edbf6bfa13bcf5affea8" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>ByteDepth</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a219daa65e2280f126de8b3c525a4c022" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>ByteDepthForFormat</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a19f2c852af9eb0670d0a535695c72820" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>ChannelSize</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1aea4d6bfc5e5f4bc20bce470e4c6ed3fd" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>ChannelSizeForFormat</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1ad2d7aefaf8fab4a33baf92a808165602" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>CopyFrom</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1ae5263c43bc88f658aee6040ea803491e" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>CopyPixelData</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a9cf6e5f830bffd8161f84847412e2754" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>CopyPixelData</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a0bbbb7c846be4438c67e1787990ba4eb" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>CopyToBuffer</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1af1335603a67d649bad9ef609c81d5ef3" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>CopyToBuffer</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a5e9398be2d15ba6df6dc70fce699f6b1" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>CopyToBuffer</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1acd8fcd624c4cdf2e91182b8974786fc9" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>Deleter</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1acee1cc6b59dd3bf4b3cf10e6ef8f7d59" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>Format</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1aea2a4ebb852b7a6dcf573572302d3cfd" prot="private" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>format_</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a362605aa3fb5354d99d2ae48428c8ad6" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>Height</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a1fbd32137918107d57696cd4e259d630" prot="private" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>height_</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a41bc344e8207363f4589f968dee21b5f" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>ImageFrame</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1aaecd0a7bd34e1901ee86308a7fc06f94" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>ImageFrame</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a5c3321b3ecff9baedb299d70f4d1acb2" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>ImageFrame</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1aa421eee9c2901fd0001a7a3b7b52acdc" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>ImageFrame</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a2fc737c6abe82f988a84d6b48fed0783" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>ImageFrame</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1af618d2eda716b92d41a3c5f038c5de64" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>ImageFrame</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1ae6db984c5cc5ddbd55a3cd677eb933a7" prot="private" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>InternalCopyFrom</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a183d0da3f18b865bc8a0ffd25b1fdac1" prot="private" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>InternalCopyToBuffer</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a7689c9e85d7b737d6e78495c51b38415" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>InvalidFormatString</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1afc72fdf0a2c70bb818ef03f2f3f008da" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>IsAligned</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a7e29dd201dbfa83f61db59cf5f2bf118" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>IsContiguous</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1ab6d3c110ac3895f181c2318118270e8c" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>IsEmpty</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a62a4587bedcc07a462538475fd054b86" prot="private" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>IsValidAlignmentNumber</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a27e49459a41e10949aefc6186da5f6a4" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>kDefaultAlignmentBoundary</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a2ed015ea88c57ed171397c098f406826" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>kGlDefaultAlignmentBoundary</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a022ba91a3981df5962b153128b81241f" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>MutablePixelData</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1ac1bb82ef6c2635721c592e18ddfe7835" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>NumberOfChannels</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a5017b0f544f1d9e24227f66bd21fabe8" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>NumberOfChannelsForFormat</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a9704d4236b719eacc5a64ab2e776c66d" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>operator=</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1afb155ab3a17c654cd43b1e93df7d0286" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>operator=</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a0924f2608b7c514e84e722b07836e479" prot="private" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>pixel_data_</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1aeb0131523af472d72ff08c6f4976b261" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>PixelData</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a436062e293a823b53fe035e4f173f7ac" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>PixelDataSize</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a24f78115632fa8b85f3c60038abfae2e" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>PixelDataSizeStoredContiguously</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a3b844c8815325f2df1c7fcabfc340814" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>Release</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1aa52599e9ee7a0a58d5cac0d4dfd2534a" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>Reset</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1afa229a585ac6778b3edab5974a97d845" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>SetAlignmentPaddingAreas</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a2566460aa6bbc92ca8672e7e15668012" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>SetToZero</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1af38ae159ca497b99b8e1dbaf3908714c" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>Width</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a76bce5ce6d7971dd078b09d0f456698e" prot="private" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>width_</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1a1f2bd541260355ebecd1e20bb5c245d3" prot="private" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>width_step_</name></member>
+      <member refid="classmediapipe_1_1ImageFrame_1af93613b80398bc7a5df476042b54313c" prot="public" virt="non-virtual"><scope>mediapipe::ImageFrame</scope><name>WidthStep</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

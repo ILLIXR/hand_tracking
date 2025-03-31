@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1InferenceIoMapper" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::InferenceIoMapper</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1InferenceIoMapper_1a3cf78d7a9e41b947c916203ec97b8bea" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::InferenceIoMapper::num_feedback_tensors_</definition>
+        <argsstring></argsstring>
+        <name>num_feedback_tensors_</name>
+        <qualifiedname>mediapipe::InferenceIoMapper::num_feedback_tensors_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_io_mapper.h" line="71" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_io_mapper.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1InferenceIoMapper_1a35d31ac480d57f04abe59f100bfb03eb" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt;int&gt; mediapipe::InferenceIoMapper::input_tensor_indices_</definition>
+        <argsstring></argsstring>
+        <name>input_tensor_indices_</name>
+        <qualifiedname>mediapipe::InferenceIoMapper::input_tensor_indices_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_io_mapper.h" line="72" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_io_mapper.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1InferenceIoMapper_1ac1e148bc32bffbe4df771490edd1b34c" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt;int&gt; mediapipe::InferenceIoMapper::output_tensor_indices_</definition>
+        <argsstring></argsstring>
+        <name>output_tensor_indices_</name>
+        <qualifiedname>mediapipe::InferenceIoMapper::output_tensor_indices_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_io_mapper.h" line="73" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_io_mapper.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1InferenceIoMapper_1aee3c6572bf2b98c493b7b38c31511ce0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::StatusOr&lt; InputOutputTensorNames &gt;</type>
+        <definition>absl::StatusOr&lt; InputOutputTensorNames &gt; mediapipe::InferenceIoMapper::GetInputOutputTensorNamesFromInterpreter</definition>
+        <argsstring>(const tflite::Interpreter &amp;interpreter)</argsstring>
+        <name>GetInputOutputTensorNamesFromInterpreter</name>
+        <qualifiedname>mediapipe::InferenceIoMapper::GetInputOutputTensorNamesFromInterpreter</qualifiedname>
+        <param>
+          <type>const tflite::Interpreter &amp;</type>
+          <declname>interpreter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_io_mapper.h" line="45" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_io_mapper.cc" bodystart="153" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceIoMapper_1ad214816842d131d6e0cbeeae598acd7f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::StatusOr&lt; InputOutputTensorNames &gt;</type>
+        <definition>absl::StatusOr&lt; InputOutputTensorNames &gt; mediapipe::InferenceIoMapper::GetInputOutputTensorNamesFromModel</definition>
+        <argsstring>(const tflite::FlatBufferModel &amp;flatbuffer, const tflite::OpResolver &amp;op_resolver)</argsstring>
+        <name>GetInputOutputTensorNamesFromModel</name>
+        <qualifiedname>mediapipe::InferenceIoMapper::GetInputOutputTensorNamesFromModel</qualifiedname>
+        <param>
+          <type>const tflite::FlatBufferModel &amp;</type>
+          <declname>flatbuffer</declname>
+        </param>
+        <param>
+          <type>const tflite::OpResolver &amp;</type>
+          <declname>op_resolver</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_io_mapper.h" line="53" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_io_mapper.cc" bodystart="170" bodyend="183"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1InferenceIoMapper_1adbcec5fa3b4088d9121776f3c87bf834" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::InferenceIoMapper::UpdateIoMap</definition>
+        <argsstring>(const mediapipe::InferenceCalculatorOptions::InputOutputConfig &amp;io_config, const InputOutputTensorNames &amp;input_output_tensor_names)</argsstring>
+        <name>UpdateIoMap</name>
+        <qualifiedname>mediapipe::InferenceIoMapper::UpdateIoMap</qualifiedname>
+        <param>
+          <type>const mediapipe::InferenceCalculatorOptions::InputOutputConfig &amp;</type>
+          <declname>io_config</declname>
+        </param>
+        <param>
+          <type>const InputOutputTensorNames &amp;</type>
+          <declname>input_output_tensor_names</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_io_mapper.h" line="58" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_io_mapper.cc" bodystart="185" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceIoMapper_1a1ab502945c50ac3860b3fb53e5470283" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::StatusOr&lt; TensorSpan &gt;</type>
+        <definition>absl::StatusOr&lt; TensorSpan &gt; mediapipe::InferenceIoMapper::RemapInputTensors</definition>
+        <argsstring>(const TensorSpan &amp;unmapped_tensors)</argsstring>
+        <name>RemapInputTensors</name>
+        <qualifiedname>mediapipe::InferenceIoMapper::RemapInputTensors</qualifiedname>
+        <param>
+          <type>const TensorSpan &amp;</type>
+          <declname>unmapped_tensors</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_io_mapper.h" line="63" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_io_mapper.cc" bodystart="286" bodyend="302"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceIoMapper_1a60c16a255acf5dfc7f52d573a1847f85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::StatusOr&lt; std::vector&lt; Tensor &gt; &gt;</type>
+        <definition>absl::StatusOr&lt; std::vector&lt; Tensor &gt; &gt; mediapipe::InferenceIoMapper::RemapOutputTensors</definition>
+        <argsstring>(std::vector&lt; Tensor &gt; &amp;&amp;unmapped_tensors)</argsstring>
+        <name>RemapOutputTensors</name>
+        <qualifiedname>mediapipe::InferenceIoMapper::RemapOutputTensors</qualifiedname>
+        <param>
+          <type>std::vector&lt; Tensor &gt; &amp;&amp;</type>
+          <declname>unmapped_tensors</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_io_mapper.h" line="67" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_io_mapper.cc" bodystart="304" bodyend="322"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_io_mapper.h" line="38" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_io_mapper.h" bodystart="38" bodyend="74"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1InferenceIoMapper_1aee3c6572bf2b98c493b7b38c31511ce0" prot="public" virt="non-virtual"><scope>mediapipe::InferenceIoMapper</scope><name>GetInputOutputTensorNamesFromInterpreter</name></member>
+      <member refid="classmediapipe_1_1InferenceIoMapper_1ad214816842d131d6e0cbeeae598acd7f" prot="public" virt="non-virtual"><scope>mediapipe::InferenceIoMapper</scope><name>GetInputOutputTensorNamesFromModel</name></member>
+      <member refid="classmediapipe_1_1InferenceIoMapper_1a35d31ac480d57f04abe59f100bfb03eb" prot="private" virt="non-virtual"><scope>mediapipe::InferenceIoMapper</scope><name>input_tensor_indices_</name></member>
+      <member refid="classmediapipe_1_1InferenceIoMapper_1a3cf78d7a9e41b947c916203ec97b8bea" prot="private" virt="non-virtual"><scope>mediapipe::InferenceIoMapper</scope><name>num_feedback_tensors_</name></member>
+      <member refid="classmediapipe_1_1InferenceIoMapper_1ac1e148bc32bffbe4df771490edd1b34c" prot="private" virt="non-virtual"><scope>mediapipe::InferenceIoMapper</scope><name>output_tensor_indices_</name></member>
+      <member refid="classmediapipe_1_1InferenceIoMapper_1a1ab502945c50ac3860b3fb53e5470283" prot="public" virt="non-virtual"><scope>mediapipe::InferenceIoMapper</scope><name>RemapInputTensors</name></member>
+      <member refid="classmediapipe_1_1InferenceIoMapper_1a60c16a255acf5dfc7f52d573a1847f85" prot="public" virt="non-virtual"><scope>mediapipe::InferenceIoMapper</scope><name>RemapOutputTensors</name></member>
+      <member refid="classmediapipe_1_1InferenceIoMapper_1adbcec5fa3b4088d9121776f3c87bf834" prot="public" virt="non-virtual"><scope>mediapipe::InferenceIoMapper</scope><name>UpdateIoMap</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

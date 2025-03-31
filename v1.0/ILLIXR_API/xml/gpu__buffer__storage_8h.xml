@@ -1,0 +1,669 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="gpu__buffer__storage_8h" kind="file" language="C++">
+    <compoundname>gpu_buffer_storage.h</compoundname>
+    <includes local="no">cstdint</includes>
+    <includes local="no">functional</includes>
+    <includes local="no">memory</includes>
+    <includes local="no">sstream</includes>
+    <includes local="no">type_traits</includes>
+    <includes local="yes">absl/container/flat_hash_map.h</includes>
+    <includes refid="no__destructor_8h" local="yes">mediapipe/framework/deps/no_destructor.h</includes>
+    <includes refid="type__util_8h" local="yes">mediapipe/framework/tool/type_util.h</includes>
+    <includes refid="gpu__buffer__format_8h" local="yes">mediapipe/gpu/gpu_buffer_format.h</includes>
+    <includes refid="unused_8hpp" local="yes">mediapipe/util/unused.hpp</includes>
+    <includedby refid="frame__buffer__view_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/frame_buffer_view.h</includedby>
+    <includedby refid="gl__texture__buffer_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h</includedby>
+    <includedby refid="gl__texture__view_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_view.h</includedby>
+    <includedby refid="gpu__buffer_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer.h</includedby>
+    <includedby refid="gpu__buffer__storage_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.cc</includedby>
+    <includedby refid="gpu__buffer__storage__image__frame_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage_image_frame.h</includedby>
+    <includedby refid="image__frame__view_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/image_frame_view.h</includedby>
+    <incdepgraph>
+      <node id="19">
+        <label>mediapipe/framework/formats/image_format.pb.h</label>
+        <link refid="image__format_8pb_8h_source"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>mediapipe/framework/demangle.h</label>
+        <link refid="demangle_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>mediapipe/framework/deps/no_destructor.h</label>
+        <link refid="no__destructor_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>mediapipe/framework/port.h</label>
+        <link refid="port_8h_source"/>
+      </node>
+      <node id="10">
+        <label>mediapipe/framework/tool/type_util.h</label>
+        <link refid="type__util_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>mediapipe/gpu/gl_base.h</label>
+        <link refid="gl__base_8h_source"/>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>mediapipe/gpu/gpu_buffer_format.h</label>
+        <link refid="gpu__buffer__format_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h</label>
+        <link refid="gpu__buffer__storage_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>mediapipe/util/unused.hpp</label>
+        <link refid="unused_8hpp_source"/>
+      </node>
+      <node id="37">
+        <label>EGL/egl.h</label>
+      </node>
+      <node id="38">
+        <label>GLES2/gl2.h</label>
+      </node>
+      <node id="39">
+        <label>GLES2/gl2ext.h</label>
+      </node>
+      <node id="40">
+        <label>GLES3/gl32.h</label>
+      </node>
+      <node id="14">
+        <label>absl/base/attributes.h</label>
+      </node>
+      <node id="7">
+        <label>absl/container/flat_hash_map.h</label>
+      </node>
+      <node id="11">
+        <label>cstddef</label>
+      </node>
+      <node id="2">
+        <label>cstdint</label>
+      </node>
+      <node id="3">
+        <label>functional</label>
+      </node>
+      <node id="24">
+        <label>google/protobuf/arena.h</label>
+      </node>
+      <node id="25">
+        <label>google/protobuf/arenastring.h</label>
+      </node>
+      <node id="33">
+        <label>google/protobuf/extension_set.h</label>
+      </node>
+      <node id="34">
+        <label>google/protobuf/generated_enum_reflection.h</label>
+      </node>
+      <node id="26">
+        <label>google/protobuf/generated_message_bases.h</label>
+      </node>
+      <node id="30">
+        <label>google/protobuf/generated_message_reflection.h</label>
+      </node>
+      <node id="27">
+        <label>google/protobuf/generated_message_table_driven.h</label>
+      </node>
+      <node id="28">
+        <label>google/protobuf/generated_message_util.h</label>
+      </node>
+      <node id="23">
+        <label>google/protobuf/io/coded_stream.h</label>
+      </node>
+      <node id="31">
+        <label>google/protobuf/message.h</label>
+      </node>
+      <node id="29">
+        <label>google/protobuf/metadata_lite.h</label>
+      </node>
+      <node id="21">
+        <label>google/protobuf/port_def.inc</label>
+      </node>
+      <node id="22">
+        <label>google/protobuf/port_undef.inc</label>
+      </node>
+      <node id="32">
+        <label>google/protobuf/repeated_field.h</label>
+      </node>
+      <node id="35">
+        <label>google/protobuf/unknown_field_set.h</label>
+      </node>
+      <node id="20">
+        <label>limits</label>
+      </node>
+      <node id="4">
+        <label>memory</label>
+      </node>
+      <node id="5">
+        <label>sstream</label>
+      </node>
+      <node id="16">
+        <label>stdlib.h</label>
+      </node>
+      <node id="12">
+        <label>string</label>
+      </node>
+      <node id="6">
+        <label>type_traits</label>
+      </node>
+      <node id="13">
+        <label>typeinfo</label>
+      </node>
+      <node id="9">
+        <label>utility</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="5">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter.h</label>
+        <link refid="image__to__tensor__converter_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.h</label>
+        <link refid="image__to__tensor__converter__gl__buffer_8h_source"/>
+      </node>
+      <node id="7">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_texture.h</label>
+        <link refid="image__to__tensor__converter__gl__texture_8h_source"/>
+      </node>
+      <node id="8">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_opencv.h</label>
+        <link refid="image__to__tensor__converter__opencv_8h_source"/>
+      </node>
+      <node id="9">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_utils.h</label>
+        <link refid="image__to__tensor__utils_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image.h</label>
+        <link refid="image_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_opencv.h</label>
+        <link refid="image__opencv_8h_source"/>
+      </node>
+      <node id="2">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/frame_buffer_view.h</label>
+        <link refid="frame__buffer__view_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h</label>
+        <link refid="gl__calculator__helper_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h</label>
+        <link refid="gl__texture__buffer_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer_pool.h</label>
+        <link refid="gl__texture__buffer__pool_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_view.h</label>
+        <link refid="gl__texture__view_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer.h</label>
+        <link refid="gpu__buffer_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_multi_pool.h</label>
+        <link refid="gpu__buffer__multi__pool_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h</label>
+        <link refid="gpu__buffer__storage_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage_image_frame.h</label>
+        <link refid="gpu__buffer__storage__image__frame_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_service.h</label>
+        <link refid="gpu__service_8h_source"/>
+      </node>
+      <node id="16">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_shared_data_internal.h</label>
+        <link refid="gpu__shared__data__internal_8h_source"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/image_frame_view.h</label>
+        <link refid="image__frame__view_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/plugin.hpp</label>
+        <link refid="plugin_8hpp_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structmediapipe_1_1internal_1_1types" prot="public">mediapipe::internal::types</innerclass>
+    <innerclass refid="classmediapipe_1_1internal_1_1GpuBufferStorage" prot="public">mediapipe::internal::GpuBufferStorage</innerclass>
+    <innerclass refid="structmediapipe_1_1internal_1_1overload__priority" prot="public">mediapipe::internal::overload_priority</innerclass>
+    <innerclass refid="structmediapipe_1_1internal_1_1overload__priority_3_010_01_4" prot="public">mediapipe::internal::overload_priority&lt; 0 &gt;</innerclass>
+    <innerclass refid="classmediapipe_1_1internal_1_1GpuBufferStorageRegistry" prot="public">mediapipe::internal::GpuBufferStorageRegistry</innerclass>
+    <innerclass refid="structmediapipe_1_1internal_1_1GpuBufferStorageRegistry_1_1RegistryToken" prot="public">mediapipe::internal::GpuBufferStorageRegistry::RegistryToken</innerclass>
+    <innerclass refid="structmediapipe_1_1internal_1_1ForceStaticInstantiation" prot="public">mediapipe::internal::ForceStaticInstantiation</innerclass>
+    <innerclass refid="classmediapipe_1_1internal_1_1GpuBufferStorageImpl" prot="public">mediapipe::internal::GpuBufferStorageImpl</innerclass>
+    <innernamespace refid="namespacemediapipe">mediapipe</innernamespace>
+    <innernamespace refid="namespacemediapipe_1_1internal">mediapipe::internal</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MEDIAPIPE_GPU_GPU_BUFFER_STORAGE_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MEDIAPIPE_GPU_GPU_BUFFER_STORAGE_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;functional&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sstream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;type_traits&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/container/flat_hash_map.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/deps/no_destructor.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/tool/type_util.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/gpu/gpu_buffer_format.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/util/unused.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mediapipe<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">internal<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal">...<sp/>T&gt;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">types<sp/>{};</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//<sp/>This<sp/>template<sp/>must<sp/>be<sp/>specialized<sp/>for<sp/>each<sp/>view<sp/>type<sp/>V.<sp/>Each<sp/>specialization</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//<sp/>should<sp/>define<sp/>a<sp/>pair<sp/>of<sp/>virtual<sp/>methods<sp/>called<sp/>GetReadView<sp/>and<sp/>GetWriteView,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//<sp/>whose<sp/>first<sp/>argument<sp/>is<sp/>a<sp/>types&lt;V&gt;<sp/>tag<sp/>object.<sp/>The<sp/>result<sp/>type<sp/>and<sp/>optional</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">//<sp/>further<sp/>arguments<sp/>will<sp/>depend<sp/>on<sp/>the<sp/>view<sp/>type.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Example:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>template<sp/>&lt;&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>class<sp/>ViewProvider&lt;MyView&gt;<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>public:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>virtual<sp/>~ViewProvider()<sp/>=<sp/>default;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>virtual<sp/>MyView<sp/>GetReadView(types&lt;MyView&gt;)<sp/>const<sp/>=<sp/>0;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>virtual<sp/>MyView<sp/>GetWriteView(types&lt;MyView&gt;)<sp/>=<sp/>0;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>};</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">//<sp/>The<sp/>additional<sp/>arguments<sp/>and<sp/>result<sp/>type<sp/>are<sp/>reflected<sp/>in<sp/>GpuBuffer&apos;s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">//<sp/>GetReadView<sp/>and<sp/>GetWriteView<sp/>methods.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Using<sp/>a<sp/>type<sp/>tag<sp/>for<sp/>the<sp/>first<sp/>argument<sp/>allows<sp/>the<sp/>methods<sp/>to<sp/>be<sp/>overloaded,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">//<sp/>so<sp/>that<sp/>a<sp/>single<sp/>storage<sp/>can<sp/>implement<sp/>provider<sp/>methods<sp/>for<sp/>multiple<sp/>views.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Since<sp/>these<sp/>methods<sp/>are<sp/>not<sp/>template<sp/>methods,<sp/>they<sp/>can<sp/>(and<sp/>should)<sp/>be</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//<sp/>virtual,<sp/>which<sp/>allows<sp/>storage<sp/>classes<sp/>to<sp/>override<sp/>them,<sp/>enforcing<sp/>that<sp/>all</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">//<sp/>storages<sp/>providing<sp/>a<sp/>given<sp/>view<sp/>type<sp/>implement<sp/>the<sp/>same<sp/>interface.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>V&gt;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">ViewProvider;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Generic<sp/>interface<sp/>for<sp/>a<sp/>backing<sp/>storage<sp/>for<sp/>GpuBuffer.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">//<sp/>GpuBuffer<sp/>is<sp/>an<sp/>opaque<sp/>handle<sp/>to<sp/>an<sp/>image.<sp/>Its<sp/>contents<sp/>are<sp/>handled<sp/>by</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Storage<sp/>classes.<sp/>Application<sp/>code<sp/>does<sp/>not<sp/>interact<sp/>with<sp/>the<sp/>storages</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment">//<sp/>directly;<sp/>to<sp/>access<sp/>the<sp/>data,<sp/>it<sp/>asks<sp/>the<sp/>GpuBuffer<sp/>for<sp/>a<sp/>View,<sp/>and<sp/>in<sp/>turn</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">//<sp/>GpuBuffer<sp/>looks<sp/>for<sp/>a<sp/>storage<sp/>that<sp/>can<sp/>provide<sp/>that<sp/>view.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">//<sp/>This<sp/>architecture<sp/>decouples<sp/>application<sp/>code<sp/>from<sp/>the<sp/>underlying<sp/>storage,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">//<sp/>making<sp/>it<sp/>possible<sp/>to<sp/>use<sp/>platform-specific<sp/>optimized<sp/>storage<sp/>systems,<sp/>e.g.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">//<sp/>for<sp/>zero-copy<sp/>data<sp/>sharing<sp/>between<sp/>CPU<sp/>and<sp/>GPU.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Storage<sp/>implementations<sp/>should<sp/>inherit<sp/>from<sp/>GpuBufferStorageImpl.<sp/>See<sp/>that</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment">//<sp/>class<sp/>for<sp/>details.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">GpuBufferStorage<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~GpuBufferStorage()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Concrete<sp/>storage<sp/>types<sp/>should<sp/>override<sp/>the<sp/>following<sp/>three<sp/>accessors.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>GpuBufferFormat<sp/>format()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>We<sp/>can&apos;t<sp/>use<sp/>dynamic_cast<sp/>since<sp/>we<sp/>want<sp/>to<sp/>support<sp/>building<sp/>without<sp/>RTTI.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>public<sp/>methods<sp/>delegate<sp/>to<sp/>the<sp/>type-erased<sp/>private<sp/>virtual<sp/>method.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>T*<sp/>down_cast()<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">T*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(</highlight><highlight class="keyword">const_cast&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(down_cast(kTypeId&lt;T&gt;)));</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>T*<sp/>down_cast()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keyword">const<sp/></highlight><highlight class="normal">T*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(down_cast(kTypeId&lt;T&gt;));</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>can_down_cast_to(TypeId<sp/>to)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>down_cast(to)<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>TypeId<sp/>storage_type()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>down_cast(TypeId<sp/>to)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Used<sp/>to<sp/>disambiguate<sp/>between<sp/>overloads<sp/>by<sp/>manually<sp/>specifying<sp/>their<sp/>priority.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Higher<sp/>Ns<sp/>will<sp/>be<sp/>picked<sp/>first.<sp/>The<sp/>caller<sp/>should<sp/>pass<sp/>overload_priority&lt;M&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="comment">//<sp/>where<sp/>M<sp/>is<sp/>&gt;=<sp/>the<sp/>largest<sp/>N<sp/>used<sp/>in<sp/>overloads<sp/>(e.g.<sp/>10).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>N&gt;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">overload_priority<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>overload_priority&lt;N<sp/>-<sp/>1&gt;<sp/>{};</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">overload_priority&lt;0&gt;<sp/>{};</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Manages<sp/>the<sp/>available<sp/>GpuBufferStorage<sp/>implementations.<sp/>The<sp/>list<sp/>of<sp/>available</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="comment">//<sp/>implementations<sp/>is<sp/>built<sp/>at<sp/>runtime<sp/>using<sp/>a<sp/>registration<sp/>mechanism,<sp/>so<sp/>that</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="comment">//<sp/>it<sp/>can<sp/>be<sp/>determined<sp/>by<sp/>the<sp/>program&apos;s<sp/>dependencies.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">GpuBufferStorageRegistry<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">RegistryToken<sp/>{};</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">StorageFactory<sp/>=<sp/>std::function&lt;std::shared_ptr&lt;GpuBufferStorage&gt;(</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/>GpuBufferFormat)&gt;;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">StorageConverter<sp/>=<sp/>std::function&lt;std::shared_ptr&lt;GpuBufferStorage&gt;(</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::shared_ptr&lt;GpuBufferStorage&gt;)&gt;;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>GpuBufferStorageRegistry&amp;<sp/>Get()<sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>NoDestructor&lt;GpuBufferStorageRegistry&gt;<sp/>registry;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*registry;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Registers<sp/>a<sp/>storage<sp/>type<sp/>by<sp/>automatically<sp/>creating<sp/>a<sp/>factory<sp/>for<sp/>it.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>is<sp/>normally<sp/>called<sp/>by<sp/>GpuBufferImpl.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Storage&gt;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>RegistryToken<sp/>Register()<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>RegisterFactory&lt;Storage&gt;(</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[](</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height,</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GpuBufferFormat<sp/>format)<sp/>-&gt;<sp/>std::shared_ptr&lt;Storage&gt;<sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>CreateStorage&lt;Storage&gt;(overload_priority&lt;10&gt;{},<sp/>width,<sp/>height,</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>format);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Registers<sp/>a<sp/>new<sp/>factory<sp/>for<sp/>a<sp/>storage<sp/>type.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Storage,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>RegistryToken<sp/>RegisterFactory(F&amp;&amp;<sp/>factory)<sp/>{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>(kDisableRegistration&lt;Storage&gt;)<sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>{};</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Register(factory,<sp/>Storage::GetProviderTypes());</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Registers<sp/>a<sp/>new<sp/>converter<sp/>from<sp/>storage<sp/>type<sp/>StorageFrom<sp/>to<sp/>StorageTo.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>StorageFrom,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>StorageTo,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>RegistryToken<sp/>RegisterConverter(F&amp;&amp;<sp/>converter)<sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>(kDisableRegistration&lt;StorageTo&gt;)<sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>{};</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Register(</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[converter](std::shared_ptr&lt;GpuBufferStorage&gt;<sp/>source)</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-&gt;<sp/>std::shared_ptr&lt;GpuBufferStorage&gt;<sp/>{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>converter(std::static_pointer_cast&lt;StorageFrom&gt;(source));</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>StorageTo::GetProviderTypes(),<sp/>kTypeId&lt;StorageFrom&gt;);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>a<sp/>factory<sp/>function<sp/>for<sp/>a<sp/>storage<sp/>that<sp/>implements</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>view_provider_type.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/>StorageFactory<sp/>StorageFactoryForViewProvider(TypeId<sp/>view_provider_type);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>a<sp/>conversion<sp/>function<sp/>that,<sp/>given<sp/>a<sp/>storage<sp/>of</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>existing_storage_type,<sp/>converts<sp/>its<sp/>contents<sp/>to<sp/>a<sp/>new<sp/>storage<sp/>that</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>implements<sp/>view_provider_type.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/>StorageConverter<sp/>StorageConverterForViewProvider(</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>TypeId<sp/>view_provider_type,<sp/>TypeId<sp/>existing_storage_type);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Storage,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal">...<sp/>Args&gt;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>CreateStorage(overload_priority&lt;1&gt;,<sp/>Args...<sp/>args)</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>-&gt;<sp/></highlight><highlight class="keyword">decltype</highlight><highlight class="normal">(Storage::Create(args...))<sp/>{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Storage::Create(args...);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Storage,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal">...<sp/>Args&gt;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>CreateStorage(overload_priority&lt;0&gt;,<sp/>Args...<sp/>args)<sp/>{</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::make_shared&lt;Storage&gt;(args...);</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Temporary<sp/>workaround:<sp/>a<sp/>Storage<sp/>class<sp/>can<sp/>define<sp/>a<sp/>static<sp/>constexpr</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>kDisableGpuBufferRegistration<sp/>member<sp/>to<sp/>true<sp/>to<sp/>prevent<sp/>registering<sp/>any</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>factory<sp/>of<sp/>converter<sp/>that<sp/>would<sp/>produce<sp/>it.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>better<sp/>solution<sp/>for<sp/>storage<sp/>priorities.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Storage,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>=<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">&gt;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>kDisableRegistration<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/>RegistryToken<sp/>Register(StorageFactory<sp/>factory,</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;TypeId&gt;<sp/>provider_hashes);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/>RegistryToken<sp/>Register(StorageConverter<sp/>converter,</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;TypeId&gt;<sp/>provider_hashes,</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TypeId<sp/>source_storage);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/>absl::flat_hash_map&lt;TypeId,<sp/>StorageFactory&gt;<sp/>factory_for_view_provider_;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/>absl::flat_hash_map&lt;std::pair&lt;TypeId,<sp/>TypeId&gt;,<sp/>StorageConverter&gt;</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>converter_for_view_provider_and_existing_storage_;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Putting<sp/>this<sp/>outside<sp/>the<sp/>class<sp/>body<sp/>to<sp/>work<sp/>around<sp/>a<sp/>GCC<sp/>bug.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="comment">//<sp/>https://gcc.gnu.org/bugzilla/show_bug.cgi?id=71954</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Storage&gt;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>GpuBufferStorageRegistry::kDisableRegistration&lt;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>Storage,<sp/>std::void_t&lt;</highlight><highlight class="keyword">decltype</highlight><highlight class="normal">(&amp;Storage::kDisableGpuBufferRegistration)&gt;&gt;<sp/>=</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>Storage::kDisableGpuBufferRegistration;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Defining<sp/>a<sp/>member<sp/>of<sp/>this<sp/>type<sp/>causes<sp/>P<sp/>to<sp/>be<sp/>ODR-used,<sp/>which<sp/>forces<sp/>its</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instantiation<sp/>if<sp/>it&apos;s<sp/>a<sp/>static<sp/>member<sp/>of<sp/>a<sp/>template.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;auto*<sp/>P&gt;</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">ForceStaticInstantiation<sp/>{</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>_MSC_VER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Just<sp/>having<sp/>it<sp/>as<sp/>the<sp/>template<sp/>argument<sp/>does<sp/>not<sp/>count<sp/>as<sp/>a<sp/>use<sp/>for</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>MSVC.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Use()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>P<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>force_static[Use()];</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>_MSC_VER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Inherit<sp/>from<sp/>this<sp/>class<sp/>to<sp/>define<sp/>a<sp/>new<sp/>storage<sp/>type.<sp/>The<sp/>storage<sp/>type<sp/>itself</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight><highlight class="comment">//<sp/>should<sp/>be<sp/>passed<sp/>as<sp/>the<sp/>first<sp/>template<sp/>argument<sp/>(CRTP),<sp/>followed<sp/>by<sp/>one<sp/>or</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight><highlight class="comment">//<sp/>more<sp/>specializations<sp/>of<sp/>ViewProvider.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Concrete<sp/>storage<sp/>types<sp/>should<sp/>implement<sp/>the<sp/>basic<sp/>accessors<sp/>from</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight><highlight class="comment">//<sp/>GpuBufferStorage,<sp/>plus<sp/>the<sp/>view<sp/>read/write<sp/>getters<sp/>for<sp/>each<sp/>ViewProvider<sp/>they</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight><highlight class="comment">//<sp/>implement.<sp/>This<sp/>class<sp/>handles<sp/>the<sp/>rest.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Arguments:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>T:<sp/>storage<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>U...:<sp/>ViewProvider&lt;SomeView&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Example:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>class<sp/>MyStorage<sp/>:<sp/>public<sp/>GpuBufferStorageImpl&lt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>MyStorage,<sp/>ViewProvider&lt;GlTextureView&gt;&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">T,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal">...<sp/>U&gt;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">GpuBufferStorageImpl<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>GpuBufferStorage,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>U...<sp/>{</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;TypeId&gt;&amp;<sp/>GetProviderTypes()<sp/>{</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::vector&lt;TypeId&gt;<sp/>kProviderIds{kTypeId&lt;U&gt;...};</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>kProviderIds;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Exposing<sp/>this<sp/>as<sp/>a<sp/>function<sp/>allows<sp/>dependent<sp/>initializers<sp/>to<sp/>call<sp/>this<sp/>to</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>ensure<sp/>proper<sp/>ordering.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>GpuBufferStorageRegistry::RegistryToken<sp/>RegisterOnce()<sp/>{</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>registration<sp/>=<sp/>GpuBufferStorageRegistry::Get().Register&lt;T&gt;();</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>registration;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Allows<sp/>a<sp/>down_cast<sp/>to<sp/>any<sp/>of<sp/>the<sp/>view<sp/>provider<sp/>types<sp/>in<sp/>U.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>down_cast(TypeId<sp/>to)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">final</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>down_cast_impl(to,<sp/>types&lt;T,<sp/>U...&gt;{});</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/>TypeId<sp/>storage_type()<sp/>const<sp/>final<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>kTypeId&lt;T&gt;;<sp/>}</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>down_cast_impl(TypeId<sp/>to,<sp/>types&lt;&gt;)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/>UNUSED(to);<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">V,<sp/></highlight><highlight class="keyword">class</highlight><highlight class="normal">...<sp/>W&gt;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>down_cast_impl(TypeId<sp/>to,<sp/>types&lt;V,<sp/>W...&gt;)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(to<sp/>==<sp/>kTypeId&lt;V&gt;)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keyword">const<sp/></highlight><highlight class="normal">V*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>down_cast_impl(to,<sp/>types&lt;W...&gt;{});</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>registration<sp/>=<sp/>RegisterOnce();</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">RequireStatics<sp/>=<sp/>ForceStaticInstantiation&lt;&amp;registration&gt;;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>!MEDIAPIPE_DISABLE_GPU<sp/>&amp;&amp;<sp/>MEDIAPIPE_GPU_BUFFER_USE_CV_PIXEL_BUFFER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight><highlight class="comment">//<sp/>This<sp/>function<sp/>can<sp/>be<sp/>overridden<sp/>to<sp/>enable<sp/>construction<sp/>of<sp/>a<sp/>GpuBuffer<sp/>from</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight><highlight class="comment">//<sp/>platform-specific<sp/>types<sp/>without<sp/>having<sp/>to<sp/>expose<sp/>that<sp/>type<sp/>in<sp/>the<sp/>GpuBuffer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight><highlight class="comment">//<sp/>definition.<sp/>It<sp/>is<sp/>only<sp/>needed<sp/>for<sp/>backward<sp/>compatibility<sp/>reasons;<sp/>do<sp/>not<sp/>add</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight><highlight class="comment">//<sp/>overrides<sp/>for<sp/>new<sp/>types.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal">std::shared_ptr&lt;internal::GpuBufferStorage&gt;<sp/>AsGpuBufferStorage();</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>!MEDIAPIPE_DISABLE_GPU<sp/>&amp;&amp;<sp/>MEDIAPIPE_GPU_BUFFER_USE_CV_PIXEL_BUFFER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>internal</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>mediapipe</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MEDIAPIPE_GPU_GPU_BUFFER_STORAGE_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_storage.h"/>
+  </compounddef>
+</doxygen>

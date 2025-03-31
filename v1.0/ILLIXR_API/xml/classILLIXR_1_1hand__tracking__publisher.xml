@@ -1,0 +1,737 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classILLIXR_1_1hand__tracking__publisher" kind="class" language="C++" prot="public">
+    <compoundname>ILLIXR::hand_tracking_publisher</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">threadloop</basecompoundref>
+    <includes refid="hand__tracking__publisher_8hpp" local="no">hand_tracking_publisher.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1a5df6b0a1d227fdfb366ca496dc6b0127" prot="private" static="no" mutable="no">
+        <type>const std::shared_ptr&lt; switchboard &gt;</type>
+        <definition>const std::shared_ptr&lt;switchboard&gt; ILLIXR::hand_tracking_publisher::switchboard_</definition>
+        <argsstring></argsstring>
+        <name>switchboard_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::switchboard_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="186" column="41" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="186" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1a406a39106ad15ea99d86a4f6aaac7c6e" prot="private" static="no" mutable="no">
+        <type>switchboard::writer&lt; data_format::ht::ht_frame &gt;</type>
+        <definition>switchboard::writer&lt;data_format::ht::ht_frame&gt; ILLIXR::hand_tracking_publisher::ht_publisher_</definition>
+        <argsstring></argsstring>
+        <name>ht_publisher_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::ht_publisher_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="187" column="27" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="187" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1a28174b30a06b1065ebc8c7c3eb689534" prot="private" static="no" mutable="no">
+        <type>switchboard::reader&lt; data_format::pose_type &gt;</type>
+        <definition>switchboard::reader&lt;data_format::pose_type&gt; ILLIXR::hand_tracking_publisher::pose_reader_</definition>
+        <argsstring></argsstring>
+        <name>pose_reader_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::pose_reader_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="188" column="30" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1a9131bed08de4eda25f6298a398407f8b" prot="private" static="no" mutable="no">
+        <type>switchboard::reader&lt; data_format::camera_data &gt;</type>
+        <definition>switchboard::reader&lt;data_format::camera_data&gt; ILLIXR::hand_tracking_publisher::camera_reader_</definition>
+        <argsstring></argsstring>
+        <name>camera_reader_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::camera_reader_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="189" column="28" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="189" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1a58afd7f78c4100b3c84bd717215a1ef6" prot="private" static="no" mutable="no">
+        <type>switchboard::reader&lt; data_format::depth_type &gt;</type>
+        <definition>switchboard::reader&lt;data_format::depth_type&gt; ILLIXR::hand_tracking_publisher::depth_reader_</definition>
+        <argsstring></argsstring>
+        <name>depth_reader_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::depth_reader_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="190" column="29" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1a8c688693da43809d67df4c5b65fbf4d3" prot="private" static="no" mutable="no">
+        <type>switchboard::reader&lt; data_format::rgb_depth_type &gt;</type>
+        <definition>switchboard::reader&lt;data_format::rgb_depth_type&gt; ILLIXR::hand_tracking_publisher::rgb_depth_reader_</definition>
+        <argsstring></argsstring>
+        <name>rgb_depth_reader_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::rgb_depth_reader_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="191" column="25" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1aa0833c5a5101e5ce924ed218fdbe8f15" prot="private" static="no" mutable="no">
+        <type>std::map&lt; data_format::image::image_type, mediapipe::OutputStreamPoller * &gt;</type>
+        <definition>std::map&lt;data_format::image::image_type, mediapipe::OutputStreamPoller*&gt; ILLIXR::hand_tracking_publisher::poller_</definition>
+        <argsstring></argsstring>
+        <name>poller_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::poller_</qualifiedname>
+        <initializer>= {
+        {data_format::image::LEFT_EYE, nullptr}, {data_format::image::RIGHT_EYE, nullptr}, {data_format::image::RGB, nullptr}}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="193" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="193" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1a0efd4f6ff4c5dc139ad487db85ab2863" prot="private" static="no" mutable="no">
+        <type>boost::interprocess::managed_shared_memory</type>
+        <definition>boost::interprocess::managed_shared_memory ILLIXR::hand_tracking_publisher::managed_shm_</definition>
+        <argsstring></argsstring>
+        <name>managed_shm_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::managed_shm_</qualifiedname>
+        <briefdescription>
+<para>used to communicate with openXR interface </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="197" column="48" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="197" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1a35a8acb533cea862eaca15f58fc33d26" prot="private" static="no" mutable="no">
+        <type>boost::interprocess::named_mutex *</type>
+        <definition>boost::interprocess::named_mutex* ILLIXR::hand_tracking_publisher::shm_mutex_[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>shm_mutex_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::shm_mutex_</qualifiedname>
+        <initializer>{nullptr, nullptr}</initializer>
+        <briefdescription>
+<para>locks for communication </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="198" column="47" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="198" bodyend="198"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1ae342eab15b296c21a43622ddf8d6c2ef" prot="private" static="no" mutable="no">
+        <type>boost::interprocess::named_mutex *</type>
+        <definition>boost::interprocess::named_mutex* ILLIXR::hand_tracking_publisher::current_shm_mutex_idx_</definition>
+        <argsstring></argsstring>
+        <name>current_shm_mutex_idx_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::current_shm_mutex_idx_</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+<para>locks for communication </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="199" column="47" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="199" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1a8c7281b8c07c813124423595b5dbd870" prot="private" static="no" mutable="no">
+        <type>ILLIXR::data_format::ht::raw_ht_data *</type>
+        <definition>ILLIXR::data_format::ht::raw_ht_data* ILLIXR::hand_tracking_publisher::ht_raw_data_[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>ht_raw_data_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::ht_raw_data_</qualifiedname>
+        <initializer>{nullptr, nullptr}</initializer>
+        <briefdescription>
+<para>data type used for openXR </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="200" column="47" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="200" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1a2e013b9113092875d24244908e415d74" prot="private" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* ILLIXR::hand_tracking_publisher::current_swap_idx_</definition>
+        <argsstring></argsstring>
+        <name>current_swap_idx_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::current_swap_idx_</qualifiedname>
+        <briefdescription>
+<para>current active buffer </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="201" column="47" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1a95d50e3b8e09a0350d93fe752c9026f7" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ILLIXR::hand_tracking_publisher::dump_data</definition>
+        <argsstring></argsstring>
+        <name>dump_data</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::dump_data</qualifiedname>
+        <briefdescription>
+<para>whether to dump data to stdout for testing </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="202" column="48" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="202" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1ad14e059a93bb25391b312dcd7b67b22c" prot="private" static="no" mutable="no">
+        <type>ushort</type>
+        <definition>ushort ILLIXR::hand_tracking_publisher::count_</definition>
+        <argsstring></argsstring>
+        <name>count_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::count_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="204" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1a7ade401802568941f42ed46500dc80aa" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t ILLIXR::hand_tracking_publisher::frame_count_</definition>
+        <argsstring></argsstring>
+        <name>frame_count_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::frame_count_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="205" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1ad6e67349314bf5c2d1e54ee21e6d21c3" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ILLIXR::hand_tracking_publisher::img_size_x_</definition>
+        <argsstring></argsstring>
+        <name>img_size_x_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::img_size_x_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="206" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1a840f19d7eb43f729aa2c1cfc04dbb5fd" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ILLIXR::hand_tracking_publisher::img_size_y_</definition>
+        <argsstring></argsstring>
+        <name>img_size_y_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::img_size_y_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="207" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1ab5901ed338e28e66853b0917794abc13" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t ILLIXR::hand_tracking_publisher::last_frame_id_</definition>
+        <argsstring></argsstring>
+        <name>last_frame_id_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::last_frame_id_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="208" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1a6ae91ce28bdaecba49a7fafa955b31db" prot="private" static="no" mutable="no">
+        <type>mediapipe::Packet</type>
+        <definition>mediapipe::Packet ILLIXR::hand_tracking_publisher::packet_</definition>
+        <argsstring></argsstring>
+        <name>packet_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::packet_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="209" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1a8b1b50c2e1fa83be8a7a5f381c717578" prot="private" static="no" mutable="no">
+        <type>std::map&lt; data_format::image::image_type, cv::Mat &gt;</type>
+        <definition>std::map&lt;data_format::image::image_type, cv::Mat&gt; ILLIXR::hand_tracking_publisher::results_images_</definition>
+        <argsstring></argsstring>
+        <name>results_images_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::results_images_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="211" column="30" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="211" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1a9a2f7a20f60a9a495422937219bb5966" prot="private" static="no" mutable="no">
+        <type>std::map&lt; data_format::units::eyes, data_format::ht::ht_detection &gt;</type>
+        <definition>std::map&lt;data_format::units::eyes, data_format::ht::ht_detection&gt; ILLIXR::hand_tracking_publisher::detections_</definition>
+        <argsstring></argsstring>
+        <name>detections_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::detections_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="212" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1a413dbc124910e298648deb7e3162aef6" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; size_t, <ref refid="structILLIXR_1_1pose__image" kindref="compound">pose_image</ref> &gt;</type>
+        <definition>std::unordered_map&lt;size_t, pose_image&gt; ILLIXR::hand_tracking_publisher::raw_data_</definition>
+        <argsstring></argsstring>
+        <name>raw_data_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::raw_data_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="214" column="24" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="214" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1a0527f163c9d26033cd4743e227703f79" prot="private" static="no" mutable="no">
+        <type>data_format::pose_data</type>
+        <definition>data_format::pose_data ILLIXR::hand_tracking_publisher::current_pose_</definition>
+        <argsstring></argsstring>
+        <name>current_pose_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::current_pose_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="216" column="31" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="216" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1ac1076c33be3a31e3e743d68ee60e5fbd" prot="private" static="no" mutable="no">
+        <type>data_format::pose_data</type>
+        <definition>data_format::pose_data ILLIXR::hand_tracking_publisher::initial_pose_</definition>
+        <argsstring></argsstring>
+        <name>initial_pose_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::initial_pose_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="217" column="31" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="217" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1a4e1f5c8414ed7db04fe606d32d85a950" prot="private" static="no" mutable="no">
+        <type><ref refid="structILLIXR_1_1pose__image" kindref="compound">pose_image</ref></type>
+        <definition>pose_image ILLIXR::hand_tracking_publisher::current_raw_</definition>
+        <argsstring></argsstring>
+        <name>current_raw_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::current_raw_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="218" column="31" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="218" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1abdde05c9cc5ca89968cccd2594702e5e" prot="private" static="no" mutable="no">
+        <type>cv::Mat</type>
+        <definition>cv::Mat ILLIXR::hand_tracking_publisher::current_confidence_</definition>
+        <argsstring></argsstring>
+        <name>current_confidence_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::current_confidence_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="219" column="31" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="219" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1a50b9dd3e0a246300c14b58e28625b1ac" prot="private" static="no" mutable="no">
+        <type>cv::Mat</type>
+        <definition>cv::Mat ILLIXR::hand_tracking_publisher::current_depth_</definition>
+        <argsstring></argsstring>
+        <name>current_depth_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::current_depth_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="220" column="31" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="220" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1ad5a0c1ef653ffab30e8d545384849a0c" prot="private" static="no" mutable="no">
+        <type>data_format::ht::position</type>
+        <definition>data_format::ht::position ILLIXR::hand_tracking_publisher::last_position_</definition>
+        <argsstring></argsstring>
+        <name>last_position_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::last_position_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="221" column="31" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="221" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1a1426ed5768b5e5fdc33f72efb8a8f0af" prot="private" static="no" mutable="no">
+        <type>ht::input_type</type>
+        <definition>ht::input_type ILLIXR::hand_tracking_publisher::last_input_</definition>
+        <argsstring></argsstring>
+        <name>last_input_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::last_input_</qualifiedname>
+        <initializer>= ht::RIGHT</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="222" column="31" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="222" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classILLIXR_1_1hand__tracking__publisher_1a4f9bc10eadabc1aa1b87e24882d58b0b" prot="private" static="no" mutable="no">
+        <type>data_format::camera_data</type>
+        <definition>data_format::camera_data ILLIXR::hand_tracking_publisher::cam_data_</definition>
+        <argsstring></argsstring>
+        <name>cam_data_</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::cam_data_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="224" column="30" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="224" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classILLIXR_1_1hand__tracking__publisher_1a7af925e46919681100b21dbd5dd807ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ILLIXR::hand_tracking_publisher::hand_tracking_publisher</definition>
+        <argsstring>(const std::string &amp;name_, phonebook *pb_)</argsstring>
+        <name>hand_tracking_publisher</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::hand_tracking_publisher</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name_</declname>
+        </param>
+        <param>
+          <type>phonebook *</type>
+          <declname>pb_</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Basic constructor <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name_</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The name of the plugin </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pb_</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A phonebook instance </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="137" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.cpp" bodystart="12" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classILLIXR_1_1hand__tracking__publisher_1ae3054c934e9dff48038f37e3b16d183d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ILLIXR::hand_tracking_publisher::~hand_tracking_publisher</definition>
+        <argsstring>() override</argsstring>
+        <name>~hand_tracking_publisher</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::~hand_tracking_publisher</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="138" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.cpp" bodystart="59" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classILLIXR_1_1hand__tracking__publisher_1a85b3f0eaa43a290333581f2a74ed459c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ILLIXR::hand_tracking_publisher::add_raw</definition>
+        <argsstring>(size_t id, pose_image &amp;pi)</argsstring>
+        <name>add_raw</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::add_raw</qualifiedname>
+        <param>
+          <type>size_t</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type><ref refid="structILLIXR_1_1pose__image" kindref="compound">pose_image</ref> &amp;</type>
+          <declname>pi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add an input image to the raw image map <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>id</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The timesatmp of the data </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pi</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data to insert </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="145" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.cpp" bodystart="74" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classILLIXR_1_1hand__tracking__publisher_1a7fc89d55d870fa8e7b7508ef0c2de38f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ILLIXR::hand_tracking_publisher::set_frame_count</definition>
+        <argsstring>(ht::input_type it)</argsstring>
+        <name>set_frame_count</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::set_frame_count</qualifiedname>
+        <param>
+          <type>ht::input_type</type>
+          <declname>it</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set the number of expected output froames from the mediapipe pipeline <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>it</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of expected frames (1 or 2) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="151" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.cpp" bodystart="383" bodyend="389"/>
+      </memberdef>
+      <memberdef kind="function" id="classILLIXR_1_1hand__tracking__publisher_1ad6918c5ffde60300d175b2afdc4d6c5a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ILLIXR::hand_tracking_publisher::set_poller</definition>
+        <argsstring>(data_format::image::image_type im_type, mediapipe::OutputStreamPoller *plr)</argsstring>
+        <name>set_poller</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::set_poller</qualifiedname>
+        <param>
+          <type>data_format::image::image_type</type>
+          <declname>im_type</declname>
+        </param>
+        <param>
+          <type>mediapipe::OutputStreamPoller *</type>
+          <declname>plr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add a poller to the list <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>im_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The image type this poller reports </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>plr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The poller instance </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="158" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="158" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="classILLIXR_1_1hand__tracking__publisher_1a265c94660ec69d67733683082f86887f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ILLIXR::hand_tracking_publisher::start</definition>
+        <argsstring>() override</argsstring>
+        <name>start</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::start</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="166" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.cpp" bodystart="45" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classILLIXR_1_1hand__tracking__publisher_1afce5c2a04ba519198348995bc76b63b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ILLIXR::hand_tracking_publisher::stop</definition>
+        <argsstring>() override</argsstring>
+        <name>stop</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::stop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="171" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.cpp" bodystart="50" bodyend="57"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classILLIXR_1_1hand__tracking__publisher_1a83b0f7fd10650297fd2667aae70784a0" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>skip_option</type>
+        <definition>ILLIXR::threadloop::skip_option ILLIXR::hand_tracking_publisher::_p_should_skip</definition>
+        <argsstring>() override</argsstring>
+        <name>_p_should_skip</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::_p_should_skip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="177" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.cpp" bodystart="78" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="classILLIXR_1_1hand__tracking__publisher_1a62745d8ccde9b64a321ec42ab46b7579" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ILLIXR::hand_tracking_publisher::_p_one_iteration</definition>
+        <argsstring>() override</argsstring>
+        <name>_p_one_iteration</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::_p_one_iteration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="181" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.cpp" bodystart="111" bodyend="266"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classILLIXR_1_1hand__tracking__publisher_1a046b5d1f553d05595e07af041b28b30a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ILLIXR::hand_tracking_publisher::calculate_proper_position</definition>
+        <argsstring>(std::map&lt; data_format::ht::hand, data_format::ht::hand_points &gt; &amp;thp)</argsstring>
+        <name>calculate_proper_position</name>
+        <qualifiedname>ILLIXR::hand_tracking_publisher::calculate_proper_position</qualifiedname>
+        <param>
+          <type>std::map&lt; data_format::ht::hand, data_format::ht::hand_points &gt; &amp;</type>
+          <declname>thp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="184" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.cpp" bodystart="268" bodyend="381"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Plugin for hand tracking </para>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="130" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="130" bodyend="225"/>
+    <listofallmembers>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a62745d8ccde9b64a321ec42ab46b7579" prot="protected" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>_p_one_iteration</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a83b0f7fd10650297fd2667aae70784a0" prot="protected" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>_p_should_skip</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a85b3f0eaa43a290333581f2a74ed459c" prot="public" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>add_raw</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a046b5d1f553d05595e07af041b28b30a" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>calculate_proper_position</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a4f9bc10eadabc1aa1b87e24882d58b0b" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>cam_data_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a9131bed08de4eda25f6298a398407f8b" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>camera_reader_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1ad14e059a93bb25391b312dcd7b67b22c" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>count_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1abdde05c9cc5ca89968cccd2594702e5e" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>current_confidence_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a50b9dd3e0a246300c14b58e28625b1ac" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>current_depth_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a0527f163c9d26033cd4743e227703f79" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>current_pose_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a4e1f5c8414ed7db04fe606d32d85a950" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>current_raw_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1ae342eab15b296c21a43622ddf8d6c2ef" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>current_shm_mutex_idx_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a2e013b9113092875d24244908e415d74" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>current_swap_idx_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a58afd7f78c4100b3c84bd717215a1ef6" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>depth_reader_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a9a2f7a20f60a9a495422937219bb5966" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>detections_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a95d50e3b8e09a0350d93fe752c9026f7" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>dump_data</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a7ade401802568941f42ed46500dc80aa" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>frame_count_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a7af925e46919681100b21dbd5dd807ea" prot="public" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>hand_tracking_publisher</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a406a39106ad15ea99d86a4f6aaac7c6e" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>ht_publisher_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a8c7281b8c07c813124423595b5dbd870" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>ht_raw_data_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1ad6e67349314bf5c2d1e54ee21e6d21c3" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>img_size_x_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a840f19d7eb43f729aa2c1cfc04dbb5fd" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>img_size_y_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1ac1076c33be3a31e3e743d68ee60e5fbd" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>initial_pose_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1ab5901ed338e28e66853b0917794abc13" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>last_frame_id_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a1426ed5768b5e5fdc33f72efb8a8f0af" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>last_input_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1ad5a0c1ef653ffab30e8d545384849a0c" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>last_position_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a0efd4f6ff4c5dc139ad487db85ab2863" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>managed_shm_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a6ae91ce28bdaecba49a7fafa955b31db" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>packet_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1aa0833c5a5101e5ce924ed218fdbe8f15" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>poller_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a28174b30a06b1065ebc8c7c3eb689534" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>pose_reader_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a413dbc124910e298648deb7e3162aef6" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>raw_data_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a8b1b50c2e1fa83be8a7a5f381c717578" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>results_images_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a8c688693da43809d67df4c5b65fbf4d3" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>rgb_depth_reader_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a7fc89d55d870fa8e7b7508ef0c2de38f" prot="public" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>set_frame_count</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1ad6918c5ffde60300d175b2afdc4d6c5a" prot="public" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>set_poller</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a35a8acb533cea862eaca15f58fc33d26" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>shm_mutex_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a265c94660ec69d67733683082f86887f" prot="public" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>start</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1afce5c2a04ba519198348995bc76b63b5" prot="public" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>stop</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1a5df6b0a1d227fdfb366ca496dc6b0127" prot="private" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>switchboard_</name></member>
+      <member refid="classILLIXR_1_1hand__tracking__publisher_1ae3054c934e9dff48038f37e3b16d183d" prot="public" virt="non-virtual"><scope>ILLIXR::hand_tracking_publisher</scope><name>~hand_tracking_publisher</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

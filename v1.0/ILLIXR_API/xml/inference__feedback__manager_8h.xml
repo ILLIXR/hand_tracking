@@ -1,0 +1,1105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="inference__feedback__manager_8h" kind="file" language="C++">
+    <compoundname>inference_feedback_manager.h</compoundname>
+    <includes local="no">vector</includes>
+    <includes local="yes">absl/container/flat_hash_set.h</includes>
+    <includes local="yes">absl/status/status.h</includes>
+    <includes local="yes">absl/status/statusor.h</includes>
+    <includes refid="inference__calculator_8pb_8h" local="yes">mediapipe/calculators/tensor/inference_calculator.pb.h</includes>
+    <includes refid="inference__io__mapper_8h" local="yes">mediapipe/calculators/tensor/inference_io_mapper.h</includes>
+    <includes local="yes">tensorflow/lite/interpreter.h</includes>
+    <includedby refid="inference__feedback__manager_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.cc</includedby>
+    <includedby refid="inference__interpreter__delegate__runner_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_interpreter_delegate_runner.cc</includedby>
+    <incdepgraph>
+      <node id="6">
+        <label>mediapipe/calculators/tensor/inference_calculator.pb.h</label>
+        <link refid="inference__calculator_8pb_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>mediapipe/framework/calculator.pb.h</label>
+        <link refid="calculator_8pb_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>mediapipe/framework/calculator_options.pb.h</label>
+        <link refid="calculator__options_8pb_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="104">
+        <label>mediapipe/framework/formats/image_format.pb.h</label>
+        <link refid="image__format_8pb_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>mediapipe/framework/mediapipe_options.pb.h</label>
+        <link refid="mediapipe__options_8pb_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>mediapipe/framework/packet_factory.pb.h</label>
+        <link refid="packet__factory_8pb_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>mediapipe/framework/packet_generator.pb.h</label>
+        <link refid="packet__generator_8pb_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>mediapipe/framework/status_handler.pb.h</label>
+        <link refid="status__handler_8pb_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>mediapipe/framework/stream_handler.pb.h</label>
+        <link refid="stream__handler_8pb_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.h</label>
+        <link refid="inference__feedback__manager_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>mediapipe/calculators/tensor/inference_io_mapper.h</label>
+        <link refid="inference__io__mapper_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+        <childnode refid="108" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>mediapipe/calculators/tensor/tensor_span.h</label>
+        <link refid="tensor__span_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="73">
+        <label>mediapipe/framework/deps/canonical_errors.h</label>
+        <link refid="deps_2canonical__errors_8h_source"/>
+        <childnode refid="74" relation="include">
+        </childnode>
+      </node>
+      <node id="61">
+        <label>mediapipe/framework/deps/registration.h</label>
+        <link refid="registration_8h_source"/>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+      </node>
+      <node id="71">
+        <label>mediapipe/framework/deps/registration_token.h</label>
+        <link refid="registration__token_8h_source"/>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="85">
+        <label>mediapipe/framework/deps/safe_int.h</label>
+        <link refid="safe__int_8h_source"/>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="87" relation="include">
+        </childnode>
+      </node>
+      <node id="74">
+        <label>mediapipe/framework/deps/status.h</label>
+        <link refid="deps_2status_8h_source"/>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+      </node>
+      <node id="87">
+        <label>mediapipe/framework/deps/strong_int.h</label>
+        <link refid="strong__int_8h_source"/>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="88" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="89" relation="include">
+        </childnode>
+      </node>
+      <node id="99">
+        <label>mediapipe/framework/deps/thread_options.h</label>
+        <link refid="thread__options_8h_source"/>
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="101" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="97">
+        <label>mediapipe/framework/deps/threadpool.h</label>
+        <link refid="deps_2threadpool_8h_source"/>
+        <childnode refid="98" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="99" relation="include">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>mediapipe/framework/executor.h</label>
+        <link refid="executor_8h_source"/>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>mediapipe/framework/formats/tensor.h</label>
+        <link refid="tensor_8h_source"/>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>mediapipe/framework/formats/tensor/internal.h</label>
+        <link refid="internal_8h_source"/>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+      </node>
+      <node id="78">
+        <label>mediapipe/framework/mediapipe_profiling.h</label>
+        <link refid="mediapipe__profiling_8h_source"/>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>mediapipe/framework/memory_manager.h</label>
+        <link refid="memory__manager_8h_source"/>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+      </node>
+      <node id="80">
+        <label>mediapipe/framework/platform_specific_profiling.h</label>
+        <link refid="platform__specific__profiling_8h_source"/>
+        <childnode refid="81" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>mediapipe/framework/port.h</label>
+        <link refid="port_8h_source"/>
+      </node>
+      <node id="72">
+        <label>mediapipe/framework/port/canonical_errors.h</label>
+        <link refid="port_2canonical__errors_8h_source"/>
+        <childnode refid="73" relation="include">
+        </childnode>
+      </node>
+      <node id="91">
+        <label>mediapipe/framework/port/logging.h</label>
+        <link refid="logging_8h_source"/>
+        <childnode refid="92" relation="include">
+        </childnode>
+        <childnode refid="93" relation="include">
+        </childnode>
+        <childnode refid="88" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="94" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+      </node>
+      <node id="89">
+        <label>mediapipe/framework/port/port.h</label>
+        <link refid="port_2port_8h_source"/>
+        <childnode refid="90" relation="include">
+        </childnode>
+      </node>
+      <node id="82">
+        <label>mediapipe/framework/port/status.h</label>
+        <link refid="port_2status_8h_source"/>
+        <childnode refid="74" relation="include">
+        </childnode>
+      </node>
+      <node id="77">
+        <label>mediapipe/framework/port/statusor.h</label>
+        <link refid="statusor_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="96">
+        <label>mediapipe/framework/port/threadpool.h</label>
+        <link refid="port_2threadpool_8h_source"/>
+        <childnode refid="97" relation="include">
+        </childnode>
+      </node>
+      <node id="81">
+        <label>mediapipe/framework/profiler/graph_profiler_stub.h</label>
+        <link refid="graph__profiler__stub_8h_source"/>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+      </node>
+      <node id="83">
+        <label>mediapipe/framework/timestamp.h</label>
+        <link refid="timestamp_8h_source"/>
+        <childnode refid="84" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="85" relation="include">
+        </childnode>
+        <childnode refid="91" relation="include">
+        </childnode>
+      </node>
+      <node id="102">
+        <label>mediapipe/gpu/attachments.h</label>
+        <link refid="attachments_8h_source"/>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>mediapipe/gpu/gl_base.h</label>
+        <link refid="gl__base_8h_source"/>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="56">
+        <label>mediapipe/gpu/gl_context.h</label>
+        <link refid="gl__context_8h_source"/>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="103" relation="include">
+        </childnode>
+      </node>
+      <node id="103">
+        <label>mediapipe/gpu/gpu_buffer_format.h</label>
+        <link refid="gpu__buffer__format_8h_source"/>
+        <childnode refid="104" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+      </node>
+      <node id="105">
+        <label>mediapipe/util/tflite/tflite_signature_reader.h</label>
+        <link refid="tflite__signature__reader_8h_source"/>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+      </node>
+      <node id="79">
+        <label>mediapipe/util/unused.hpp</label>
+        <link refid="unused_8hpp_source"/>
+      </node>
+      <node id="52">
+        <label>EGL/egl.h</label>
+      </node>
+      <node id="53">
+        <label>GLES2/gl2.h</label>
+      </node>
+      <node id="54">
+        <label>GLES2/gl2ext.h</label>
+      </node>
+      <node id="55">
+        <label>GLES3/gl32.h</label>
+      </node>
+      <node id="76">
+        <label>absl/base/attributes.h</label>
+      </node>
+      <node id="64">
+        <label>absl/base/macros.h</label>
+      </node>
+      <node id="90">
+        <label>absl/base/port.h</label>
+      </node>
+      <node id="65">
+        <label>absl/base/thread_annotations.h</label>
+      </node>
+      <node id="34">
+        <label>absl/container/flat_hash_map.h</label>
+      </node>
+      <node id="3">
+        <label>absl/container/flat_hash_set.h</label>
+      </node>
+      <node id="45">
+        <label>absl/functional/any_invocable.h</label>
+      </node>
+      <node id="46">
+        <label>absl/log/absl_check.h</label>
+      </node>
+      <node id="66">
+        <label>absl/log/absl_log.h</label>
+      </node>
+      <node id="67">
+        <label>absl/meta/type_traits.h</label>
+      </node>
+      <node id="4">
+        <label>absl/status/status.h</label>
+      </node>
+      <node id="5">
+        <label>absl/status/statusor.h</label>
+      </node>
+      <node id="94">
+        <label>absl/strings/has_ostream_operator.h</label>
+      </node>
+      <node id="68">
+        <label>absl/strings/str_join.h</label>
+      </node>
+      <node id="69">
+        <label>absl/strings/str_split.h</label>
+      </node>
+      <node id="70">
+        <label>absl/strings/string_view.h</label>
+      </node>
+      <node id="47">
+        <label>absl/synchronization/mutex.h</label>
+      </node>
+      <node id="92">
+        <label>absl/time/time.h</label>
+      </node>
+      <node id="38">
+        <label>algorithm</label>
+      </node>
+      <node id="58">
+        <label>atomic</label>
+      </node>
+      <node id="84">
+        <label>cmath</label>
+      </node>
+      <node id="93">
+        <label>cstddef</label>
+      </node>
+      <node id="39">
+        <label>cstdint</label>
+      </node>
+      <node id="98">
+        <label>deque</label>
+      </node>
+      <node id="59">
+        <label>functional</label>
+      </node>
+      <node id="95">
+        <label>glog/logging.h</label>
+      </node>
+      <node id="26">
+        <label>google/protobuf/any.pb.h</label>
+      </node>
+      <node id="12">
+        <label>google/protobuf/arena.h</label>
+      </node>
+      <node id="13">
+        <label>google/protobuf/arenastring.h</label>
+      </node>
+      <node id="21">
+        <label>google/protobuf/extension_set.h</label>
+      </node>
+      <node id="22">
+        <label>google/protobuf/generated_enum_reflection.h</label>
+      </node>
+      <node id="14">
+        <label>google/protobuf/generated_message_bases.h</label>
+      </node>
+      <node id="18">
+        <label>google/protobuf/generated_message_reflection.h</label>
+      </node>
+      <node id="15">
+        <label>google/protobuf/generated_message_table_driven.h</label>
+      </node>
+      <node id="16">
+        <label>google/protobuf/generated_message_util.h</label>
+      </node>
+      <node id="11">
+        <label>google/protobuf/io/coded_stream.h</label>
+      </node>
+      <node id="19">
+        <label>google/protobuf/message.h</label>
+      </node>
+      <node id="17">
+        <label>google/protobuf/metadata_lite.h</label>
+      </node>
+      <node id="9">
+        <label>google/protobuf/port_def.inc</label>
+      </node>
+      <node id="10">
+        <label>google/protobuf/port_undef.inc</label>
+      </node>
+      <node id="20">
+        <label>google/protobuf/repeated_field.h</label>
+      </node>
+      <node id="23">
+        <label>google/protobuf/unknown_field_set.h</label>
+      </node>
+      <node id="40">
+        <label>initializer_list</label>
+      </node>
+      <node id="75">
+        <label>iosfwd</label>
+      </node>
+      <node id="7">
+        <label>limits</label>
+      </node>
+      <node id="86">
+        <label>limits.h</label>
+      </node>
+      <node id="36">
+        <label>mediapipe/framework/api2/port.h</label>
+      </node>
+      <node id="41">
+        <label>memory</label>
+      </node>
+      <node id="42">
+        <label>numeric</label>
+      </node>
+      <node id="106">
+        <label>optional</label>
+      </node>
+      <node id="88">
+        <label>ostream</label>
+      </node>
+      <node id="57">
+        <label>pthread.h</label>
+      </node>
+      <node id="101">
+        <label>set</label>
+      </node>
+      <node id="100">
+        <label>stddef.h</label>
+      </node>
+      <node id="8">
+        <label>string</label>
+      </node>
+      <node id="107">
+        <label>tensorflow/lite/interpreter.h</label>
+      </node>
+      <node id="108">
+        <label>tensorflow/lite/model_builder.h</label>
+      </node>
+      <node id="43">
+        <label>tuple</label>
+      </node>
+      <node id="44">
+        <label>type_traits</label>
+      </node>
+      <node id="62">
+        <label>unordered_map</label>
+      </node>
+      <node id="63">
+        <label>unordered_set</label>
+      </node>
+      <node id="33">
+        <label>utility</label>
+      </node>
+      <node id="2">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classmediapipe_1_1InferenceFeedbackManager" prot="public">mediapipe::InferenceFeedbackManager</innerclass>
+    <innerclass refid="structmediapipe_1_1InferenceFeedbackManager_1_1TensorFeedbackIndicesLink" prot="private">mediapipe::InferenceFeedbackManager::TensorFeedbackIndicesLink</innerclass>
+    <innernamespace refid="namespacemediapipe">mediapipe</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MEDIAPIPE_CALCULATORS_TENSOR_Inference_feedback_manager_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MEDIAPIPE_CALCULATORS_TENSOR_Inference_feedback_manager_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/container/flat_hash_set.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/status/status.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/status/statusor.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/calculators/tensor/inference_calculator.pb.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/calculators/tensor/inference_io_mapper.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/interpreter.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mediapipe<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Feedback<sp/>tensors<sp/>are<sp/>pairs<sp/>of<sp/>model<sp/>output<sp/>/<sp/>input<sp/>tensors<sp/>where<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">//<sp/>model<sp/>output<sp/>is<sp/>used<sp/>as<sp/>model<sp/>input<sp/>in<sp/>the<sp/>next<sp/>model<sp/>invocation.<sp/>This<sp/>allows</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//<sp/>to<sp/>manage<sp/>a<sp/>notion<sp/>of<sp/>temporal<sp/>state<sp/>by<sp/>continuously<sp/>feeding<sp/>from<sp/>the<sp/>model&apos;s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment">//<sp/>output<sp/>to<sp/>the<sp/>model&apos;s<sp/>input<sp/>during<sp/>each<sp/>inference<sp/>step.<sp/>The</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">//<sp/>InferenceFeedbackManager<sp/>initializes<sp/>the<sp/>feedback<sp/>input<sp/>tensors<sp/>with<sp/>zeros</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//<sp/>and<sp/>efficiently<sp/>swaps<sp/>them<sp/>from<sp/>output<sp/>to<sp/>input<sp/>with<sp/>zero<sp/>copies.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">InferenceFeedbackManager<sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Initializes<sp/>the<sp/>feedback<sp/>tensors<sp/>with<sp/>zeros<sp/>and<sp/>generates</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>feedback_tensor_indices_links_.<sp/>The<sp/>provided<sp/>interpreter<sp/>must<sp/>outlive<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>InferenceFeedbackManager<sp/>instance.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>absl::Status<sp/>Init(</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>mediapipe::InferenceCalculatorOptions::InputOutputConfig&amp;<sp/>io_config,</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>InputOutputTensorNames&amp;<sp/>input_output_tensor_names_map,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>tflite::Interpreter*<sp/>interpreter);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Swaps<sp/>the<sp/>feedback<sp/>tensors<sp/>from<sp/>output<sp/>to<sp/>input.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SwapFeedbackTensors();</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>the<sp/>number<sp/>of<sp/>expected<sp/>non-feedback<sp/>tensors.<sp/>This<sp/>can<sp/>be<sp/>used<sp/>to</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>confirm<sp/>the<sp/>number<sp/>of<sp/>input<sp/>tensors<sp/>to<sp/>the<sp/>InferenceRunner<sp/>implementation.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>GetNumberOfNonFeedbackInputTensors()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>Returns<sp/>the<sp/>number<sp/>of<sp/>feedback<sp/>tensor<sp/>pairs.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>GetNumberOfFeedbackTensors()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Since<sp/>feedback<sp/>tensors<sp/>are<sp/>excluded<sp/>from<sp/>InferenceRunner<sp/>input,<sp/>This<sp/>method</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>maps<sp/>the<sp/>tensor<sp/>index<sp/>from<sp/>the<sp/>InferenceRunner<sp/>input<sp/>to<sp/>the<sp/>TfLite<sp/>model</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>tensor<sp/>input.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>absl::StatusOr&lt;int&gt;<sp/>MapInputTensorToModelIndex(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>input_idx)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>true<sp/>if<sp/>the<sp/>tensor<sp/>at<sp/>the<sp/>given<sp/>index<sp/>is<sp/>a<sp/>feedback<sp/>input<sp/>tensor.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>IsFeedbackInputTensorAtIndex(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>idx)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>true<sp/>if<sp/>the<sp/>tensor<sp/>at<sp/>the<sp/>given<sp/>index<sp/>is<sp/>a<sp/>feedback<sp/>output<sp/>tensor.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>IsFeedbackOutputTensorAtIndex(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>idx)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Links<sp/>between<sp/>feedback<sp/>tensors<sp/>defined<sp/>by<sp/>model<sp/>tensor<sp/>indices.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">TensorFeedbackIndicesLink<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>from_idx;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>to_idx;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Translates<sp/>the<sp/>tensor<sp/>names<sp/>from<sp/>the<sp/>input/output<sp/>config<sp/>into<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>corresponding<sp/>TfLite<sp/>tensor<sp/>indices.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>absl::StatusOr&lt;std::vector&lt;TensorFeedbackIndicesLink&gt;&gt;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>ConvertSignatureTensorNamesToModelIndices(</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>mediapipe::InferenceCalculatorOptions::InputOutputConfig&amp;<sp/>io_config,</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>InputOutputTensorNames&amp;<sp/>input_output_tensor_names_map);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Non-owning<sp/>reference<sp/>to<sp/>the<sp/>TfLite<sp/>interpreter.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>tflite::Interpreter*<sp/>interpreter_<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>List<sp/>of<sp/>tensor<sp/>feedback<sp/>pairs<sp/>defined<sp/>by<sp/>model<sp/>tensor<sp/>indices.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>std::vector&lt;TensorFeedbackIndicesLink&gt;<sp/>feedback_tensor_indices_links_;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Maps<sp/>InferenceRunner<sp/>input<sp/>indices<sp/>to<sp/>TfLiteModel<sp/>input<sp/>indices.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>std::vector&lt;int&gt;<sp/>input_tensor_to_model_indices_;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>of<sp/>feedback<sp/>input<sp/>model<sp/>tensor<sp/>indices.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>absl::flat_hash_set&lt;int&gt;<sp/>feedback_input_indices_;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>of<sp/>feedback<sp/>output<sp/>model<sp/>tensor<sp/>indices.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>absl::flat_hash_set&lt;int&gt;<sp/>feedback_output_indices_;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>mediapipe</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MEDIAPIPE_CALCULATORS_TENSOR_Inference_feedback_manager_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.h"/>
+  </compounddef>
+</doxygen>

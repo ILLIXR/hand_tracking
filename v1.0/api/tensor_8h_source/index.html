@@ -1,0 +1,1449 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://illixr.github.io/hand_tracking/v1.0/api/tensor_8h_source/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>File tensor.h - ILLIXR Hand Tracking Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/mkd-extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: none; }
+    .glightbox-clean .gslide-media {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-tensorh" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+
+
+<header class="md-header md-header--shadow" data-md-component="header" style="background-color: #11284b">
+    <nav class="md-header__inner md-grid" aria-label="Header">
+        <a href="../.." title="ILLIXR Hand Tracking Documentation" class="md-header__button md-logo" aria-label="ILLIXR Hand Tracking Documentation" data-md-component="logo">
+            <img src="../../images/icon.png" alt="logo">
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+            <div class="md-header__ellipsis">
+                <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ILLIXR Hand Tracking Documentation
+          </span>
+                </div>
+                <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File tensor.h
+            
+          </span>
+                </div>
+            </div>
+        </div>
+        
+        
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+        
+        
+        
+        <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+        
+        
+        
+        <label class="md-header__button md-icon" for="__search">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+        
+    </nav>
+    
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+    <label class="md-nav__title" for="__drawer" style="background-color:var(--md-nav-hdr-color);color:var(--md-nav-hdr-fg-color);">
+        <a href="../.." title="ILLIXR Hand Tracking Documentation" class="md-nav__button md-logo" aria-label="ILLIXR Hand Tracking Documentation" data-md-component="logo">
+            <img src="../../images/icon.png" alt="logo">
+        </a>
+        ILLIXR Hand Tracking Documentation
+    </label>
+    
+    <ul class="md-nav__list" data-md-scrollfix style="background-color:var(--md-nav-list-color)">
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+    
+    
+    
+    <div class="md-nav__link md-nav__container" style="color:black;">
+        <a href="../.." class="md-nav__link ">
+            
+
+<span class="md-ellipsis">
+    Latest Documentation
+    
+  </span>
+
+
+        </a>
+        
+        
+        <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+            <span class="md-nav__icon md-icon"></span>
+        </label>
+        
+    </div>
+    
+    <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Latest Documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    API
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1" id="__nav_1_2_1_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Hand Tracking
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Hand Tracking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classILLIXR_1_1hand__tracking/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Plugin
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classILLIXR_1_1hand__tracking__publisher/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Publisher
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1_3" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1_3" id="__nav_1_2_1_3_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Data Types
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_2_1_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Data Types
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structht__illixr__handle__t/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    illixr_handle_t
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structmediapipe_1_1ILLIXR_1_1illixr__ht__frame/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    illixr_ht_frame
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structILLIXR_1_1pose__image/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    pose_image
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classmediapipe_1_1ILLIXROutputCalculator/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    ILLIXR Calculator
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1_5" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1_5" id="__nav_1_2_1_5_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    OpenXR
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_2_1_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            OpenXR
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../interface_8h/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Interface
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../ixr__openxr_8hpp/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Func. Implementations
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1_5_3" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1_5_3" id="__nav_1_2_1_5_3_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Structs
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_2_1_5_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Structs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structixr__hand__tracker/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    ixr_hand+tracker
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structixr__session/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    ixr_session
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classes/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Classes
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../namespacemediapipe/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Namespaces
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../../LICENSE/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    License
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+        
+    </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+    
+    
+    
+    
+    
+    
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-tensorh">File tensor.h</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_e1936a3127ddda691b53116ddef30aa7/"><strong>formats</strong></a> <strong>&gt;</strong> <a href="../tensor_8h/"><strong>tensor.h</strong></a></p>
+<p><a href="../tensor_8h/">Go to the documentation of this file</a></p>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-0-1"><span class="c1">// Copyright 2020 The MediaPipe Authors.</span>
+</span><span id="__span-0-2"><span class="c1">//</span>
+</span><span id="__span-0-3"><span class="c1">// Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+</span><span id="__span-0-4"><span class="c1">// you may not use this file except in compliance with the License.</span>
+</span><span id="__span-0-5"><span class="c1">// You may obtain a copy of the License at</span>
+</span><span id="__span-0-6"><span class="c1">//</span>
+</span><span id="__span-0-7"><span class="c1">//      http://www.apache.org/licenses/LICENSE-2.0</span>
+</span><span id="__span-0-8"><span class="c1">//</span>
+</span><span id="__span-0-9"><span class="c1">// Unless required by applicable law or agreed to in writing, software</span>
+</span><span id="__span-0-10"><span class="c1">// distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+</span><span id="__span-0-11"><span class="c1">// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+</span><span id="__span-0-12"><span class="c1">// See the License for the specific language governing permissions and</span>
+</span><span id="__span-0-13"><span class="c1">// limitations under the License.</span>
+</span><span id="__span-0-14">
+</span><span id="__span-0-15"><span class="cp">#ifndef MEDIAPIPE_FRAMEWORK_FORMATS_TENSOR_H_</span>
+</span><span id="__span-0-16"><span class="cp">#define MEDIAPIPE_FRAMEWORK_FORMATS_TENSOR_H_</span>
+</span><span id="__span-0-17">
+</span><span id="__span-0-18"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;algorithm&gt;</span>
+</span><span id="__span-0-19"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdint&gt;</span>
+</span><span id="__span-0-20"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;initializer_list&gt;</span>
+</span><span id="__span-0-21"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;memory&gt;</span>
+</span><span id="__span-0-22"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;numeric&gt;</span>
+</span><span id="__span-0-23"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;tuple&gt;</span>
+</span><span id="__span-0-24"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;type_traits&gt;</span>
+</span><span id="__span-0-25"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;utility&gt;</span>
+</span><span id="__span-0-26"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+</span><span id="__span-0-27">
+</span><span id="__span-0-28"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;absl/container/flat_hash_set.h&quot;</span>
+</span><span id="__span-0-29"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;absl/functional/any_invocable.h&quot;</span>
+</span><span id="__span-0-30"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;absl/log/absl_check.h&quot;</span>
+</span><span id="__span-0-31"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;absl/status/status.h&quot;</span>
+</span><span id="__span-0-32"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;absl/synchronization/mutex.h&quot;</span>
+</span><span id="__span-0-33"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/formats/tensor/internal.h&quot;</span>
+</span><span id="__span-0-34"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/memory_manager.h&quot;</span>
+</span><span id="__span-0-35"><span class="c1">// Exports MEDIAPIPE_TENSOR_USE_AHWB macro.</span>
+</span><span id="__span-0-36"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/port.h&quot;</span>
+</span><span id="__span-0-37">
+</span><span id="__span-0-38"><span class="cp">#ifdef MEDIAPIPE_TENSOR_USE_AHWB</span>
+</span><span id="__span-0-39"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;EGL/egl.h&gt;</span>
+</span><span id="__span-0-40"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;EGL/eglext.h&gt;</span>
+</span><span id="__span-0-41">
+</span><span id="__span-0-42"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/formats/hardware_buffer.h&quot;</span>
+</span><span id="__span-0-43"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/formats/hardware_buffer_pool.h&quot;</span>
+</span><span id="__span-0-44"><span class="cp">#endif  </span><span class="c1">// MEDIAPIPE_TENSOR_USE_AHWB</span>
+</span><span id="__span-0-45"><span class="cp">#if MEDIAPIPE_OPENGL_ES_VERSION &gt;= MEDIAPIPE_OPENGL_ES_30</span>
+</span><span id="__span-0-46"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/gpu/gl_base.h&quot;</span>
+</span><span id="__span-0-47"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/gpu/gl_context.h&quot;</span>
+</span><span id="__span-0-48"><span class="cp">#endif  </span><span class="c1">// MEDIAPIPE_OPENGL_ES_VERSION &gt;= MEDIAPIPE_OPENGL_ES_30</span>
+</span><span id="__span-0-49">
+</span><span id="__span-0-50"><span class="cp">#if defined __has_builtin</span>
+</span><span id="__span-0-51"><span class="cp">#if __has_builtin(__builtin_LINE)</span>
+</span><span id="__span-0-52"><span class="cp">#define builtin_LINE __builtin_LINE</span>
+</span><span id="__span-0-53"><span class="cp">#endif</span>
+</span><span id="__span-0-54"><span class="cp">#if __has_builtin(__builtin_FILE)</span>
+</span><span id="__span-0-55"><span class="cp">#define builtin_FILE __builtin_FILE</span>
+</span><span id="__span-0-56"><span class="cp">#endif</span>
+</span><span id="__span-0-57"><span class="cp">#endif</span>
+</span><span id="__span-0-58">
+</span><span id="__span-0-59"><span class="cp">#ifndef builtin_LINE</span>
+</span><span id="__span-0-60"><span class="cp">#define builtin_LINE() 0</span>
+</span><span id="__span-0-61"><span class="cp">#endif</span>
+</span><span id="__span-0-62"><span class="cp">#ifndef builtin_FILE</span>
+</span><span id="__span-0-63"><span class="cp">#define builtin_FILE() &quot;&quot;</span>
+</span><span id="__span-0-64"><span class="cp">#endif</span>
+</span><span id="__span-0-65">
+</span><span id="__span-0-66"><span class="k">namespace</span><span class="w"> </span><span class="nn">mediapipe</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-67"><span class="c1">// Tensor is a container of multi-dimensional data that supports sharing the</span>
+</span><span id="__span-0-68"><span class="c1">// content across different backends and APIs, currently: CPU / Metal / OpenGL.</span>
+</span><span id="__span-0-69"><span class="c1">// Texture2DView is limited to 4 dimensions.</span>
+</span><span id="__span-0-70"><span class="c1">// The content is accessible through requesting device specific views.</span>
+</span><span id="__span-0-71"><span class="c1">// Acquiring a view guarantees that the content is not changed by another thread</span>
+</span><span id="__span-0-72"><span class="c1">// until the view is released.</span>
+</span><span id="__span-0-73"><span class="c1">//</span>
+</span><span id="__span-0-74"><span class="c1">// Tensor::MtlBufferView view = tensor.GetMtlBufferWriteView(mtl_device);</span>
+</span><span id="__span-0-75"><span class="c1">// mtl_device is used to create MTLBuffer</span>
+</span><span id="__span-0-76"><span class="c1">// id&lt;MTLBuffer&gt; buffer = view.buffer();</span>
+</span><span id="__span-0-77"><span class="c1">// For OpenGL the code below must be called by a thread with valid OpenGL ES</span>
+</span><span id="__span-0-78"><span class="c1">// context bound:</span>
+</span><span id="__span-0-79"><span class="c1">// GLuint buffer = view.buffer();</span>
+</span><span id="__span-0-80"><span class="c1">// Then the buffer can be bound to the GPU command buffer.</span>
+</span><span id="__span-0-81"><span class="c1">// ...binding the buffer to the command buffer...</span>
+</span><span id="__span-0-82"><span class="c1">// ...committing command buffer and releasing the view...</span>
+</span><span id="__span-0-83"><span class="c1">//</span>
+</span><span id="__span-0-84"><span class="c1">// The following request for the CPU view will be blocked until the GPU view is</span>
+</span><span id="__span-0-85"><span class="c1">// released and the GPU task is finished.</span>
+</span><span id="__span-0-86"><span class="c1">//</span>
+</span><span id="__span-0-87"><span class="c1">// auto view = tensor.GetCpuReadView();</span>
+</span><span id="__span-0-88"><span class="c1">// float* pointer = view.buffer&lt;float&gt;();</span>
+</span><span id="__span-0-89"><span class="c1">// ...reading the cpu memory...</span>
+</span><span id="__span-0-90">
+</span><span id="__span-0-91"><span class="k">struct</span><span class="w"> </span><span class="nc">MtlResources</span><span class="p">;</span>
+</span><span id="__span-0-92"><span class="k">class</span><span class="w"> </span><span class="nc">Tensor</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-93"><span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">View</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-94"><span class="w">   </span><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-0-95"><span class="w">    </span><span class="c1">// Non-copyable.</span>
+</span><span id="__span-0-96"><span class="w">    </span><span class="n">View</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">View</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+</span><span id="__span-0-97"><span class="w">    </span><span class="n">View</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">View</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+</span><span id="__span-0-98">
+</span><span id="__span-0-99"><span class="w">   </span><span class="k">protected</span><span class="o">:</span>
+</span><span id="__span-0-100"><span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">View</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">absl</span><span class="o">::</span><span class="n">MutexLock</span><span class="o">&gt;&amp;&amp;</span><span class="w"> </span><span class="n">lock</span><span class="p">)</span>
+</span><span id="__span-0-101"><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">lock_</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">lock</span><span class="p">))</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-0-102"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">absl</span><span class="o">::</span><span class="n">MutexLock</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock_</span><span class="p">;</span>
+</span><span id="__span-0-103"><span class="w">  </span><span class="p">};</span>
+</span><span id="__span-0-104">
+</span><span id="__span-0-105"><span class="w"> </span><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-0-106"><span class="w">  </span><span class="c1">// No resources are allocated here.</span>
+</span><span id="__span-0-107"><span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ElementType</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-108"><span class="w">    </span><span class="n">kNone</span><span class="p">,</span>
+</span><span id="__span-0-109"><span class="w">    </span><span class="n">kFloat16</span><span class="p">,</span>
+</span><span id="__span-0-110"><span class="w">    </span><span class="n">kFloat32</span><span class="p">,</span>
+</span><span id="__span-0-111"><span class="w">    </span><span class="n">kUInt8</span><span class="p">,</span>
+</span><span id="__span-0-112"><span class="w">    </span><span class="n">kInt8</span><span class="p">,</span>
+</span><span id="__span-0-113"><span class="w">    </span><span class="n">kInt32</span><span class="p">,</span>
+</span><span id="__span-0-114"><span class="w">    </span><span class="n">kInt64</span><span class="p">,</span>
+</span><span id="__span-0-115"><span class="w">    </span><span class="n">kChar</span><span class="p">,</span>
+</span><span id="__span-0-116"><span class="w">    </span><span class="n">kBool</span>
+</span><span id="__span-0-117"><span class="w">  </span><span class="p">};</span>
+</span><span id="__span-0-118"><span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">Shape</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-119"><span class="w">    </span><span class="n">Shape</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+</span><span id="__span-0-120"><span class="w">    </span><span class="n">Shape</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">initializer_list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dimensions</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">dims</span><span class="p">(</span><span class="n">dimensions</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-0-121"><span class="w">    </span><span class="n">Shape</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">dimensions</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">dims</span><span class="p">(</span><span class="n">dimensions</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-0-122"><span class="w">    </span><span class="n">Shape</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">initializer_list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dimensions</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_dynamic</span><span class="p">)</span>
+</span><span id="__span-0-123"><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">dims</span><span class="p">(</span><span class="n">dimensions</span><span class="p">),</span><span class="w"> </span><span class="n">is_dynamic</span><span class="p">(</span><span class="n">is_dynamic</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-0-124"><span class="w">    </span><span class="n">Shape</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">dimensions</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_dynamic</span><span class="p">)</span>
+</span><span id="__span-0-125"><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">dims</span><span class="p">(</span><span class="n">dimensions</span><span class="p">),</span><span class="w"> </span><span class="n">is_dynamic</span><span class="p">(</span><span class="n">is_dynamic</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-0-126"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">num_elements</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-127"><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">accumulate</span><span class="p">(</span><span class="n">dims</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">dims</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-0-128"><span class="w">                             </span><span class="n">std</span><span class="o">::</span><span class="n">multiplies</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">());</span>
+</span><span id="__span-0-129"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-130"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dims</span><span class="p">;</span>
+</span><span id="__span-0-131"><span class="w">    </span><span class="c1">// The Tensor has dynamic rather than static shape so the TFLite interpreter</span>
+</span><span id="__span-0-132"><span class="w">    </span><span class="c1">// needs to be reallocated. Only relevant for CPU.</span>
+</span><span id="__span-0-133"><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_dynamic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-0-134"><span class="w">  </span><span class="p">};</span>
+</span><span id="__span-0-135"><span class="w">  </span><span class="c1">// Quantization parameters corresponding to the zero_point and scale value</span>
+</span><span id="__span-0-136"><span class="w">  </span><span class="c1">// made available by TfLite quantized (uint8/int8) tensors.</span>
+</span><span id="__span-0-137"><span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">QuantizationParameters</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-138"><span class="w">    </span><span class="n">QuantizationParameters</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+</span><span id="__span-0-139"><span class="w">    </span><span class="n">QuantizationParameters</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">scale</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">zero_point</span><span class="p">)</span>
+</span><span id="__span-0-140"><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">scale</span><span class="p">(</span><span class="n">scale</span><span class="p">),</span><span class="w"> </span><span class="n">zero_point</span><span class="p">(</span><span class="n">zero_point</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-0-141"><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">scale</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0f</span><span class="p">;</span>
+</span><span id="__span-0-142"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">zero_point</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-143"><span class="w">  </span><span class="p">};</span>
+</span><span id="__span-0-144">
+</span><span id="__span-0-145"><span class="w">  </span><span class="c1">// memory_alignment is an optional argument to tell the API to allocate</span>
+</span><span id="__span-0-146"><span class="w">  </span><span class="c1">// a buffer that is padded to multiples of memory_alignment bytes.</span>
+</span><span id="__span-0-147"><span class="w">  </span><span class="c1">// memory_alignment must be power of 2, i.e. 2, 4, 8, 16, 64, etc.</span>
+</span><span id="__span-0-148"><span class="w">  </span><span class="c1">// If memory_alignment is 0, then the buffer will not be padded.</span>
+</span><span id="__span-0-149"><span class="w">  </span><span class="c1">// Note that memory_alignment is only applied to CPU storage (includes AHWBs).</span>
+</span><span id="__span-0-150"><span class="w">  </span><span class="n">Tensor</span><span class="p">(</span><span class="n">ElementType</span><span class="w"> </span><span class="n">element_type</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Shape</span><span class="o">&amp;</span><span class="w"> </span><span class="n">shape</span><span class="p">,</span>
+</span><span id="__span-0-151"><span class="w">         </span><span class="n">MemoryManager</span><span class="o">*</span><span class="w"> </span><span class="n">memory_manager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">memory_alignment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-0-152"><span class="w">  </span><span class="n">Tensor</span><span class="p">(</span><span class="n">ElementType</span><span class="w"> </span><span class="n">element_type</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Shape</span><span class="o">&amp;</span><span class="w"> </span><span class="n">shape</span><span class="p">,</span>
+</span><span id="__span-0-153"><span class="w">         </span><span class="k">const</span><span class="w"> </span><span class="n">QuantizationParameters</span><span class="o">&amp;</span><span class="w"> </span><span class="n">quantization_parameters</span><span class="p">,</span>
+</span><span id="__span-0-154"><span class="w">         </span><span class="n">MemoryManager</span><span class="o">*</span><span class="w"> </span><span class="n">memory_manager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">memory_alignment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-0-155">
+</span><span id="__span-0-156"><span class="w">  </span><span class="c1">// Non-copyable.</span>
+</span><span id="__span-0-157"><span class="w">  </span><span class="n">Tensor</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Tensor</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+</span><span id="__span-0-158"><span class="w">  </span><span class="n">Tensor</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Tensor</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+</span><span id="__span-0-159"><span class="w">  </span><span class="c1">// Move-only.</span>
+</span><span id="__span-0-160"><span class="w">  </span><span class="n">Tensor</span><span class="p">(</span><span class="n">Tensor</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">src</span><span class="p">);</span>
+</span><span id="__span-0-161"><span class="w">  </span><span class="n">Tensor</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">Tensor</span><span class="o">&amp;&amp;</span><span class="p">);</span>
+</span><span id="__span-0-162"><span class="w">  </span><span class="o">~</span><span class="n">Tensor</span><span class="p">();</span>
+</span><span id="__span-0-163">
+</span><span id="__span-0-164"><span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+</span><span id="__span-0-165"><span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">CpuView</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">View</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-166"><span class="w">   </span><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-0-167"><span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">P</span><span class="o">&gt;</span>
+</span><span id="__span-0-168"><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">buffer</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-169"><span class="w">      </span><span class="c1">// const and non-const return  type selection.</span>
+</span><span id="__span-0-170"><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">std</span><span class="o">::</span><span class="n">tuple_element</span><span class="o">&lt;</span>
+</span><span id="__span-0-171"><span class="w">          </span><span class="n">std</span><span class="o">::</span><span class="n">is_const</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="n">P</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">P</span><span class="o">*&gt;&gt;::</span><span class="n">type</span><span class="o">&gt;</span><span class="p">(</span><span class="n">buffer_</span><span class="p">);</span>
+</span><span id="__span-0-172"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-173"><span class="w">    </span><span class="n">CpuView</span><span class="p">(</span><span class="n">CpuView</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">src</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">View</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">lock_</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-174"><span class="w">      </span><span class="n">buffer_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">exchange</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">buffer_</span><span class="p">,</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
+</span><span id="__span-0-175"><span class="w">      </span><span class="n">release_callback_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">exchange</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">release_callback_</span><span class="p">,</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
+</span><span id="__span-0-176"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-177"><span class="w">    </span><span class="o">~</span><span class="n">CpuView</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-178"><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">release_callback_</span><span class="p">)</span><span class="w"> </span><span class="n">release_callback_</span><span class="p">();</span>
+</span><span id="__span-0-179"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-180">
+</span><span id="__span-0-181"><span class="w">   </span><span class="k">protected</span><span class="o">:</span>
+</span><span id="__span-0-182"><span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Tensor</span><span class="p">;</span>
+</span><span id="__span-0-183"><span class="w">    </span><span class="n">CpuView</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">buffer</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">absl</span><span class="o">::</span><span class="n">MutexLock</span><span class="o">&gt;&amp;&amp;</span><span class="w"> </span><span class="n">lock</span><span class="p">,</span>
+</span><span id="__span-0-184"><span class="w">            </span><span class="n">absl</span><span class="o">::</span><span class="n">AnyInvocable</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">release_callback</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span>
+</span><span id="__span-0-185"><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">View</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">lock</span><span class="p">)),</span>
+</span><span id="__span-0-186"><span class="w">          </span><span class="n">buffer_</span><span class="p">(</span><span class="n">buffer</span><span class="p">),</span>
+</span><span id="__span-0-187"><span class="w">          </span><span class="n">release_callback_</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">release_callback</span><span class="p">))</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-0-188"><span class="w">    </span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">buffer_</span><span class="p">;</span>
+</span><span id="__span-0-189"><span class="w">    </span><span class="n">absl</span><span class="o">::</span><span class="n">AnyInvocable</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">release_callback_</span><span class="p">;</span>
+</span><span id="__span-0-190"><span class="w">  </span><span class="p">};</span>
+</span><span id="__span-0-191"><span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">CpuReadView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CpuView</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="o">&gt;</span><span class="p">;</span>
+</span><span id="__span-0-192"><span class="w">  </span><span class="n">CpuReadView</span><span class="w"> </span><span class="nf">GetCpuReadView</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-193"><span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">CpuWriteView</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CpuView</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">;</span>
+</span><span id="__span-0-194"><span class="w">  </span><span class="n">CpuWriteView</span><span class="w"> </span><span class="nf">GetCpuWriteView</span><span class="p">(</span>
+</span><span id="__span-0-195"><span class="w">      </span><span class="kt">uint64_t</span><span class="w"> </span><span class="n">source_location_hash</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-0-196"><span class="w">          </span><span class="n">tensor_internal</span><span class="o">::</span><span class="n">FnvHash64</span><span class="p">(</span><span class="n">builtin_FILE</span><span class="p">(),</span><span class="w"> </span><span class="n">builtin_LINE</span><span class="p">()))</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-197">
+</span><span id="__span-0-198"><span class="cp">#ifdef MEDIAPIPE_TENSOR_USE_AHWB</span>
+</span><span id="__span-0-199"><span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">FinishingFunc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">(</span><span class="kt">bool</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+</span><span id="__span-0-200"><span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">AHardwareBufferView</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">View</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-201"><span class="w">   </span><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-0-202"><span class="w">    </span><span class="n">AHardwareBuffer</span><span class="o">*</span><span class="w"> </span><span class="n">handle</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-203"><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">hardware_buffer_</span><span class="o">-&gt;</span><span class="n">GetAHardwareBuffer</span><span class="p">();</span>
+</span><span id="__span-0-204"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-205"><span class="w">    </span><span class="n">AHardwareBufferView</span><span class="p">(</span><span class="n">AHardwareBufferView</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">src</span><span class="p">)</span>
+</span><span id="__span-0-206"><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">View</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">lock_</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-207"><span class="w">      </span><span class="n">hardware_buffer_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">hardware_buffer_</span><span class="p">);</span>
+</span><span id="__span-0-208"><span class="w">      </span><span class="n">file_descriptor_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">src</span><span class="p">.</span><span class="n">file_descriptor_</span><span class="p">;</span>
+</span><span id="__span-0-209"><span class="w">      </span><span class="n">fence_fd_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">exchange</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">fence_fd_</span><span class="p">,</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
+</span><span id="__span-0-210"><span class="w">      </span><span class="n">ahwb_written_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">exchange</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">ahwb_written_</span><span class="p">,</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
+</span><span id="__span-0-211"><span class="w">      </span><span class="n">ahwb_release_callbacks_</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-0-212"><span class="w">          </span><span class="n">std</span><span class="o">::</span><span class="n">exchange</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">ahwb_release_callbacks_</span><span class="p">,</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
+</span><span id="__span-0-213"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-214"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">file_descriptor</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">file_descriptor_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-215">
+</span><span id="__span-0-216"><span class="w">    </span><span class="c1">// TODO: verify if multiple functions can be specified.</span>
+</span><span id="__span-0-217"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">SetReadingFinishedFunc</span><span class="p">(</span><span class="n">FinishingFunc</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">func</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-218"><span class="w">      </span><span class="n">ABSL_CHECK</span><span class="p">(</span><span class="n">ahwb_written_</span><span class="p">)</span>
+</span><span id="__span-0-219"><span class="w">          </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;AHWB write view can&#39;t accept &#39;reading finished callback&#39;&quot;</span><span class="p">;</span>
+</span><span id="__span-0-220"><span class="w">      </span><span class="o">*</span><span class="n">ahwb_written_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">func</span><span class="p">);</span>
+</span><span id="__span-0-221"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-222">
+</span><span id="__span-0-223"><span class="w">    </span><span class="c1">// TODO: verify if multiple functions can be specified.</span>
+</span><span id="__span-0-224"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">SetWritingFinishedFD</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FinishingFunc</span><span class="w"> </span><span class="n">func</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-225"><span class="w">      </span><span class="n">ABSL_CHECK</span><span class="p">(</span><span class="n">fence_fd_</span><span class="p">)</span>
+</span><span id="__span-0-226"><span class="w">          </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;AHWB read view can&#39;t accept &#39;writing finished file descriptor&#39;&quot;</span><span class="p">;</span>
+</span><span id="__span-0-227"><span class="w">      </span><span class="o">*</span><span class="n">fence_fd_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fd</span><span class="p">;</span>
+</span><span id="__span-0-228"><span class="w">      </span><span class="o">*</span><span class="n">ahwb_written_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">func</span><span class="p">);</span>
+</span><span id="__span-0-229"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-230">
+</span><span id="__span-0-231"><span class="w">    </span><span class="c1">// Passed `callback` is invoked when the tensor is being released.</span>
+</span><span id="__span-0-232"><span class="w">    </span><span class="c1">// TODO: rename to Add* or set a single callback only.</span>
+</span><span id="__span-0-233"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">SetReleaseCallback</span><span class="p">(</span><span class="n">absl</span><span class="o">::</span><span class="n">AnyInvocable</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="n">callback</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-234"><span class="w">      </span><span class="n">ahwb_release_callbacks_</span><span class="o">-&gt;</span><span class="n">push_back</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">callback</span><span class="p">));</span>
+</span><span id="__span-0-235"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-236">
+</span><span id="__span-0-237"><span class="w">   </span><span class="k">protected</span><span class="o">:</span>
+</span><span id="__span-0-238"><span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Tensor</span><span class="p">;</span>
+</span><span id="__span-0-239"><span class="w">    </span><span class="n">AHardwareBufferView</span><span class="p">(</span>
+</span><span id="__span-0-240"><span class="w">        </span><span class="n">HardwareBuffer</span><span class="o">*</span><span class="w"> </span><span class="n">hardware_buffer</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">file_descriptor</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">fence_fd</span><span class="p">,</span>
+</span><span id="__span-0-241"><span class="w">        </span><span class="n">FinishingFunc</span><span class="o">*</span><span class="w"> </span><span class="n">ahwb_written</span><span class="p">,</span>
+</span><span id="__span-0-242"><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">absl</span><span class="o">::</span><span class="n">AnyInvocable</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">()</span><span class="o">&gt;&gt;*</span><span class="w"> </span><span class="n">ahwb_release_callbacks</span><span class="p">,</span>
+</span><span id="__span-0-243"><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">absl</span><span class="o">::</span><span class="n">MutexLock</span><span class="o">&gt;&amp;&amp;</span><span class="w"> </span><span class="n">lock</span><span class="p">)</span>
+</span><span id="__span-0-244"><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">View</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">lock</span><span class="p">)),</span>
+</span><span id="__span-0-245"><span class="w">          </span><span class="n">hardware_buffer_</span><span class="p">(</span><span class="n">hardware_buffer</span><span class="p">),</span>
+</span><span id="__span-0-246"><span class="w">          </span><span class="n">file_descriptor_</span><span class="p">(</span><span class="n">file_descriptor</span><span class="p">),</span>
+</span><span id="__span-0-247"><span class="w">          </span><span class="n">fence_fd_</span><span class="p">(</span><span class="n">fence_fd</span><span class="p">),</span>
+</span><span id="__span-0-248"><span class="w">          </span><span class="n">ahwb_written_</span><span class="p">(</span><span class="n">ahwb_written</span><span class="p">),</span>
+</span><span id="__span-0-249"><span class="w">          </span><span class="n">ahwb_release_callbacks_</span><span class="p">(</span><span class="n">ahwb_release_callbacks</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-0-250"><span class="w">    </span><span class="n">HardwareBuffer</span><span class="o">*</span><span class="w"> </span><span class="n">hardware_buffer_</span><span class="p">;</span>
+</span><span id="__span-0-251"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">file_descriptor_</span><span class="p">;</span>
+</span><span id="__span-0-252"><span class="w">    </span><span class="c1">// The view sets some Tensor&#39;s fields. The view is released prior to tensor.</span>
+</span><span id="__span-0-253"><span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">fence_fd_</span><span class="p">;</span>
+</span><span id="__span-0-254"><span class="w">    </span><span class="n">FinishingFunc</span><span class="o">*</span><span class="w"> </span><span class="n">ahwb_written_</span><span class="p">;</span>
+</span><span id="__span-0-255"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">absl</span><span class="o">::</span><span class="n">AnyInvocable</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">()</span><span class="o">&gt;&gt;*</span><span class="w"> </span><span class="n">ahwb_release_callbacks_</span><span class="p">;</span>
+</span><span id="__span-0-256"><span class="w">  </span><span class="p">};</span>
+</span><span id="__span-0-257"><span class="w">  </span><span class="n">AHardwareBufferView</span><span class="w"> </span><span class="nf">GetAHardwareBufferReadView</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-258"><span class="w">  </span><span class="n">AHardwareBufferView</span><span class="w"> </span><span class="nf">GetAHardwareBufferWriteView</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-259"><span class="cp">#endif  </span><span class="c1">// MEDIAPIPE_TENSOR_USE_AHWB</span>
+</span><span id="__span-0-260">
+</span><span id="__span-0-261"><span class="cp">#if MEDIAPIPE_OPENGL_ES_VERSION &gt;= MEDIAPIPE_OPENGL_ES_30</span>
+</span><span id="__span-0-262"><span class="w">  </span><span class="c1">// TODO: Use GlTextureView instead.</span>
+</span><span id="__span-0-263"><span class="w">  </span><span class="c1">// Only float32 textures are supported with 1/2/3/4 depths.</span>
+</span><span id="__span-0-264"><span class="w">  </span><span class="c1">// OpenGlTexture2dView currently only supports BHWC memory layout.</span>
+</span><span id="__span-0-265"><span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">OpenGlTexture2dView</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">View</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-266"><span class="w">   </span><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-0-267"><span class="w">    </span><span class="n">GLuint</span><span class="w"> </span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">name_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-268"><span class="w">    </span><span class="n">OpenGlTexture2dView</span><span class="p">(</span><span class="n">OpenGlTexture2dView</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">src</span><span class="p">)</span>
+</span><span id="__span-0-269"><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">View</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">lock_</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-270"><span class="w">      </span><span class="n">name_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">exchange</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="n">GL_INVALID_INDEX</span><span class="p">);</span>
+</span><span id="__span-0-271"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-272"><span class="w">    </span><span class="c1">// To fit a tensor into a texture two layouts are used:</span>
+</span><span id="__span-0-273"><span class="w">    </span><span class="c1">// 1. Aligned. Width of the texture = tensor_width * num_slices, where slice</span>
+</span><span id="__span-0-274"><span class="w">    </span><span class="c1">//    is a group of 4 depth values. Tensor depth is padded to 4.</span>
+</span><span id="__span-0-275"><span class="w">    </span><span class="c1">// 2. Linearized. If texture width or height with the layout 1. is greater</span>
+</span><span id="__span-0-276"><span class="w">    </span><span class="c1">//    than the GPU supports then all tensor values are packed into a texture</span>
+</span><span id="__span-0-277"><span class="w">    </span><span class="c1">//    with fixed width calculated by this method.</span>
+</span><span id="__span-0-278"><span class="w">    </span><span class="c1">// Must be called with the valid GL context bound to the current thread.</span>
+</span><span id="__span-0-279"><span class="w">    </span><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Layout</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">kAligned</span><span class="p">,</span><span class="w"> </span><span class="n">kLinearized</span><span class="w"> </span><span class="p">};</span>
+</span><span id="__span-0-280"><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">Layout</span><span class="w"> </span><span class="nf">GetLayoutDimensions</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Tensor</span><span class="o">::</span><span class="n">Shape</span><span class="o">&amp;</span><span class="w"> </span><span class="n">shape</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">width</span><span class="p">,</span>
+</span><span id="__span-0-281"><span class="w">                                      </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">height</span><span class="p">);</span>
+</span><span id="__span-0-282">
+</span><span id="__span-0-283"><span class="w">   </span><span class="k">protected</span><span class="o">:</span>
+</span><span id="__span-0-284"><span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Tensor</span><span class="p">;</span>
+</span><span id="__span-0-285"><span class="w">    </span><span class="n">OpenGlTexture2dView</span><span class="p">(</span><span class="n">GLuint</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">absl</span><span class="o">::</span><span class="n">MutexLock</span><span class="o">&gt;&amp;&amp;</span><span class="w"> </span><span class="n">lock</span><span class="p">)</span>
+</span><span id="__span-0-286"><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">View</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">lock</span><span class="p">)),</span><span class="w"> </span><span class="n">name_</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-0-287"><span class="w">    </span><span class="n">GLuint</span><span class="w"> </span><span class="n">name_</span><span class="p">;</span>
+</span><span id="__span-0-288"><span class="w">  </span><span class="p">};</span>
+</span><span id="__span-0-289"><span class="w">  </span><span class="c1">// A valid OpenGL context must be bound to the calling thread due to possible</span>
+</span><span id="__span-0-290"><span class="w">  </span><span class="c1">// GPU resource allocation.</span>
+</span><span id="__span-0-291"><span class="w">  </span><span class="n">OpenGlTexture2dView</span><span class="w"> </span><span class="nf">GetOpenGlTexture2dReadView</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-292"><span class="w">  </span><span class="n">OpenGlTexture2dView</span><span class="w"> </span><span class="nf">GetOpenGlTexture2dWriteView</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-293"><span class="cp">#endif  </span><span class="c1">// MEDIAPIPE_OPENGL_ES_VERSION &gt;= MEDIAPIPE_OPENGL_ES_30</span>
+</span><span id="__span-0-294">
+</span><span id="__span-0-295"><span class="cp">#if MEDIAPIPE_OPENGL_ES_VERSION &gt;= MEDIAPIPE_OPENGL_ES_31</span>
+</span><span id="__span-0-296"><span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">OpenGlBufferView</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">View</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-297"><span class="w">   </span><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-0-298"><span class="w">    </span><span class="n">GLuint</span><span class="w"> </span><span class="n">name</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">name_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-299">
+</span><span id="__span-0-300"><span class="w">    </span><span class="n">OpenGlBufferView</span><span class="p">(</span><span class="n">OpenGlBufferView</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">src</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">View</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">lock_</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-301"><span class="w">      </span><span class="n">name_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">exchange</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="n">GL_INVALID_INDEX</span><span class="p">);</span>
+</span><span id="__span-0-302"><span class="w">      </span><span class="n">ssbo_read_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">exchange</span><span class="p">(</span><span class="n">src</span><span class="p">.</span><span class="n">ssbo_read_</span><span class="p">,</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
+</span><span id="__span-0-303"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-304"><span class="w">    </span><span class="o">~</span><span class="n">OpenGlBufferView</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-305"><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ssbo_read_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-306"><span class="w">        </span><span class="c1">// TODO: update tensor to properly handle cases when</span>
+</span><span id="__span-0-307"><span class="w">        </span><span class="c1">// multiple views were requested multiple sync fence may be needed.</span>
+</span><span id="__span-0-308"><span class="w">        </span><span class="o">*</span><span class="n">ssbo_read_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">glFenceSync</span><span class="p">(</span><span class="n">GL_SYNC_GPU_COMMANDS_COMPLETE</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-0-309"><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-0-310"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-311">
+</span><span id="__span-0-312"><span class="w">   </span><span class="k">protected</span><span class="o">:</span>
+</span><span id="__span-0-313"><span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Tensor</span><span class="p">;</span>
+</span><span id="__span-0-314">
+</span><span id="__span-0-315"><span class="w">    </span><span class="n">OpenGlBufferView</span><span class="p">(</span><span class="n">GLuint</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">absl</span><span class="o">::</span><span class="n">MutexLock</span><span class="o">&gt;&amp;&amp;</span><span class="w"> </span><span class="n">lock</span><span class="p">,</span>
+</span><span id="__span-0-316"><span class="w">                     </span><span class="n">GLsync</span><span class="o">*</span><span class="w"> </span><span class="n">ssbo_read</span><span class="p">)</span>
+</span><span id="__span-0-317"><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">View</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">lock</span><span class="p">)),</span><span class="w"> </span><span class="n">name_</span><span class="p">(</span><span class="n">name</span><span class="p">),</span><span class="w"> </span><span class="n">ssbo_read_</span><span class="p">(</span><span class="n">ssbo_read</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-0-318"><span class="w">    </span><span class="n">GLuint</span><span class="w"> </span><span class="n">name_</span><span class="p">;</span>
+</span><span id="__span-0-319"><span class="w">    </span><span class="n">GLsync</span><span class="o">*</span><span class="w"> </span><span class="n">ssbo_read_</span><span class="p">;</span>
+</span><span id="__span-0-320"><span class="w">  </span><span class="p">};</span>
+</span><span id="__span-0-321"><span class="w">  </span><span class="c1">// A valid OpenGL context must be bound to the calling thread due to possible</span>
+</span><span id="__span-0-322"><span class="w">  </span><span class="c1">// GPU resource allocation.</span>
+</span><span id="__span-0-323"><span class="w">  </span><span class="n">OpenGlBufferView</span><span class="w"> </span><span class="nf">GetOpenGlBufferReadView</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-324"><span class="w">  </span><span class="n">OpenGlBufferView</span><span class="w"> </span><span class="nf">GetOpenGlBufferWriteView</span><span class="p">(</span>
+</span><span id="__span-0-325"><span class="w">      </span><span class="kt">uint64_t</span><span class="w"> </span><span class="n">source_location_hash</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-0-326"><span class="w">          </span><span class="n">tensor_internal</span><span class="o">::</span><span class="n">FnvHash64</span><span class="p">(</span><span class="n">builtin_FILE</span><span class="p">(),</span><span class="w"> </span><span class="n">builtin_LINE</span><span class="p">()))</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-327"><span class="cp">#endif  </span><span class="c1">// MEDIAPIPE_OPENGL_ES_VERSION &gt;= MEDIAPIPE_OPENGL_ES_31</span>
+</span><span id="__span-0-328">
+</span><span id="__span-0-329"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">Shape</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">shape</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">shape_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-330"><span class="w">  </span><span class="n">ElementType</span><span class="w"> </span><span class="nf">element_type</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">element_type_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-331"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">QuantizationParameters</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">quantization_parameters</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-332"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">quantization_parameters_</span><span class="p">;</span>
+</span><span id="__span-0-333"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-334"><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">element_size</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-335"><span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">element_type_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-336"><span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">ElementType</span><span class="o">::</span><span class="no">kNone</span><span class="p">:</span>
+</span><span id="__span-0-337"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-338"><span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">ElementType</span><span class="o">::</span><span class="no">kFloat16</span><span class="p">:</span>
+</span><span id="__span-0-339"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</span><span id="__span-0-340"><span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">ElementType</span><span class="o">::</span><span class="no">kFloat32</span><span class="p">:</span>
+</span><span id="__span-0-341"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">);</span>
+</span><span id="__span-0-342"><span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">ElementType</span><span class="o">::</span><span class="no">kUInt8</span><span class="p">:</span>
+</span><span id="__span-0-343"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-0-344"><span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">ElementType</span><span class="o">::</span><span class="no">kInt8</span><span class="p">:</span>
+</span><span id="__span-0-345"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-0-346"><span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">ElementType</span><span class="o">::</span><span class="no">kInt32</span><span class="p">:</span>
+</span><span id="__span-0-347"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int32_t</span><span class="p">);</span>
+</span><span id="__span-0-348"><span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">ElementType</span><span class="o">::</span><span class="no">kInt64</span><span class="p">:</span>
+</span><span id="__span-0-349"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int64_t</span><span class="p">);</span>
+</span><span id="__span-0-350"><span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">ElementType</span><span class="o">::</span><span class="no">kChar</span><span class="p">:</span>
+</span><span id="__span-0-351"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">);</span>
+</span><span id="__span-0-352"><span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="no">ElementType</span><span class="o">::</span><span class="no">kBool</span><span class="p">:</span>
+</span><span id="__span-0-353"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">bool</span><span class="p">);</span>
+</span><span id="__span-0-354"><span class="w">      </span><span class="k">default</span><span class="o">:</span>
+</span><span id="__span-0-355"><span class="w">          </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;Unexpected value&quot;</span><span class="p">);</span>
+</span><span id="__span-0-356"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-357"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-358"><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">bytes</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">shape_</span><span class="p">.</span><span class="n">num_elements</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">element_size</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-359">
+</span><span id="__span-0-360"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">ready_on_cpu</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-361"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">valid_</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">kValidAHardwareBuffer</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">kValidCpu</span><span class="p">);</span>
+</span><span id="__span-0-362"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-363"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">ready_on_gpu</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-364"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">valid_</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">kValidMetalBuffer</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">kValidOpenGlBuffer</span><span class="w"> </span><span class="o">|</span>
+</span><span id="__span-0-365"><span class="w">                     </span><span class="n">kValidAHardwareBuffer</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">kValidOpenGlTexture2d</span><span class="p">);</span>
+</span><span id="__span-0-366"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-367"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">ready_as_metal_buffer</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">valid_</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">kValidMetalBuffer</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-368"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">ready_as_opengl_buffer</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-369"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">valid_</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">kValidAHardwareBuffer</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">kValidOpenGlBuffer</span><span class="p">);</span>
+</span><span id="__span-0-370"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-371"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">ready_as_opengl_texture_2d</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-372"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">valid_</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">kValidOpenGlTexture2d</span><span class="p">;</span>
+</span><span id="__span-0-373"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-374"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">ready_as_ahwb</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">use_ahwb_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-375">
+</span><span id="__span-0-376"><span class="w"> </span><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-0-377"><span class="w">  </span><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MtlBufferView</span><span class="p">;</span>
+</span><span id="__span-0-378"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">Move</span><span class="p">(</span><span class="n">Tensor</span><span class="o">*</span><span class="p">);</span>
+</span><span id="__span-0-379"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">Invalidate</span><span class="p">();</span>
+</span><span id="__span-0-380"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">ReadBackGpuToCpu</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-381">
+</span><span id="__span-0-382"><span class="w">  </span><span class="n">ElementType</span><span class="w"> </span><span class="n">element_type_</span><span class="p">;</span>
+</span><span id="__span-0-383"><span class="w">  </span><span class="n">Shape</span><span class="w"> </span><span class="n">shape_</span><span class="p">;</span>
+</span><span id="__span-0-384"><span class="w">  </span><span class="n">QuantizationParameters</span><span class="w"> </span><span class="n">quantization_parameters_</span><span class="p">;</span>
+</span><span id="__span-0-385"><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">memory_alignment_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-386">
+</span><span id="__span-0-387"><span class="w">  </span><span class="c1">// The flags describe the current source of truth resource type.</span>
+</span><span id="__span-0-388"><span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-389"><span class="w">    </span><span class="n">kValidNone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-0-390"><span class="w">    </span><span class="n">kValidCpu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-0-391"><span class="w">    </span><span class="n">kValidMetalBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-0-392"><span class="w">    </span><span class="n">kValidOpenGlBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-0-393"><span class="w">    </span><span class="n">kValidOpenGlTexture2d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+</span><span id="__span-0-394"><span class="w">    </span><span class="n">kValidAHardwareBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+</span><span id="__span-0-395"><span class="w">  </span><span class="p">};</span>
+</span><span id="__span-0-396"><span class="w">  </span><span class="c1">// A list of resource which are currently allocated and synchronized between</span>
+</span><span id="__span-0-397"><span class="w">  </span><span class="c1">// each-other: valid_ = kValidCpu | kValidMetalBuffer;</span>
+</span><span id="__span-0-398"><span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">valid_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-399"><span class="w">  </span><span class="c1">// The mutex is locked by Get*View and is kept by all Views.</span>
+</span><span id="__span-0-400"><span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">Mutex</span><span class="w"> </span><span class="n">view_mutex_</span><span class="p">;</span>
+</span><span id="__span-0-401">
+</span><span id="__span-0-402"><span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">cpu_buffer_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+</span><span id="__span-0-403"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">AllocateCpuBuffer</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-404"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">FreeCpuBuffer</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-405"><span class="w">  </span><span class="c1">// Forward declaration of the MtlResources provides compile-time verification</span>
+</span><span id="__span-0-406"><span class="w">  </span><span class="c1">// of ODR if this header includes any actual code that uses MtlResources.</span>
+</span><span id="__span-0-407"><span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">MtlResources</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mtl_resources_</span><span class="p">;</span>
+</span><span id="__span-0-408">
+</span><span id="__span-0-409"><span class="cp">#ifdef MEDIAPIPE_TENSOR_USE_AHWB</span>
+</span><span id="__span-0-410"><span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">HardwareBuffer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ahwb_</span><span class="p">;</span>
+</span><span id="__span-0-411">
+</span><span id="__span-0-412"><span class="w">  </span><span class="c1">// Allocates and pools HardwareBuffer instances. Holding the shared_ptr to the</span>
+</span><span id="__span-0-413"><span class="w">  </span><span class="c1">// pool ensures it outlives the internal ahwb_.</span>
+</span><span id="__span-0-414"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">HardwareBufferPool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">hardware_buffer_pool_</span><span class="p">;</span>
+</span><span id="__span-0-415">
+</span><span id="__span-0-416"><span class="w">  </span><span class="c1">// Signals when GPU finished writing into SSBO so AHWB can be used then. Or</span>
+</span><span id="__span-0-417"><span class="w">  </span><span class="c1">// signals when writing into AHWB has been finished so GPU can read from SSBO.</span>
+</span><span id="__span-0-418"><span class="w">  </span><span class="c1">// Sync and FD are bound together.</span>
+</span><span id="__span-0-419"><span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="n">EGLSyncKHR</span><span class="w"> </span><span class="n">fence_sync_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EGL_NO_SYNC_KHR</span><span class="p">;</span>
+</span><span id="__span-0-420">
+</span><span id="__span-0-421"><span class="w">  </span><span class="c1">// This FD signals when the writing into the SSBO has been finished.</span>
+</span><span id="__span-0-422"><span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ssbo_written_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+</span><span id="__span-0-423">
+</span><span id="__span-0-424"><span class="w">  </span><span class="c1">// An externally set FD that is wrapped with the EGL sync then to synchronize</span>
+</span><span id="__span-0-425"><span class="w">  </span><span class="c1">// AHWB -&gt; OpenGL SSBO.</span>
+</span><span id="__span-0-426"><span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">fence_fd_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+</span><span id="__span-0-427">
+</span><span id="__span-0-428"><span class="w">  </span><span class="c1">// Reading from SSBO has been finished so SSBO can be released.</span>
+</span><span id="__span-0-429"><span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="n">GLsync</span><span class="w"> </span><span class="n">ssbo_read_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-430">
+</span><span id="__span-0-431"><span class="w">  </span><span class="c1">// Multiple cleanups maybe needed. (E.g. two inference calculators use the</span>
+</span><span id="__span-0-432"><span class="w">  </span><span class="c1">// same input tensor and import buffer by FD which results in two buffer</span>
+</span><span id="__span-0-433"><span class="w">  </span><span class="c1">// handles that must be released.)</span>
+</span><span id="__span-0-434"><span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">absl</span><span class="o">::</span><span class="n">AnyInvocable</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">()</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">ahwb_release_callbacks_</span><span class="p">;</span>
+</span><span id="__span-0-435">
+</span><span id="__span-0-436"><span class="w">  </span><span class="c1">// An externally set function that signals when it is safe to release AHWB.</span>
+</span><span id="__span-0-437"><span class="w">  </span><span class="c1">// If the input parameter is &#39;true&#39; then wait for the writing to be finished.</span>
+</span><span id="__span-0-438"><span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="n">FinishingFunc</span><span class="w"> </span><span class="n">ahwb_written_</span><span class="p">;</span>
+</span><span id="__span-0-439">
+</span><span id="__span-0-440"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">AllocateAHardwareBuffer</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-441">
+</span><span id="__span-0-442"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">CreateEglSyncAndFd</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-443"><span class="cp">#endif  </span><span class="c1">// MEDIAPIPE_TENSOR_USE_AHWB</span>
+</span><span id="__span-0-444">
+</span><span id="__span-0-445"><span class="w">  </span><span class="c1">// Use Ahwb for other views: OpenGL / CPU buffer.</span>
+</span><span id="__span-0-446"><span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">use_ahwb_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-0-447"><span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="kt">uint64_t</span><span class="w"> </span><span class="n">ahwb_tracking_key_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-448"><span class="w">  </span><span class="c1">// TODO: Tracks all unique tensors. Can grow to a large number. LRU</span>
+</span><span id="__span-0-449"><span class="w">  </span><span class="c1">// (Least Recently Used) can be more predicted.</span>
+</span><span id="__span-0-450"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">flat_hash_set</span><span class="o">&lt;</span><span class="kt">uint64_t</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ahwb_usage_track_</span><span class="p">;</span>
+</span><span id="__span-0-451"><span class="w">  </span><span class="c1">// Expects the target SSBO to be already bound.</span>
+</span><span id="__span-0-452"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">AllocateAhwbMapToSsbo</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-453"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">InsertAhwbToSsboFence</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-454"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">MoveAhwbStuff</span><span class="p">(</span><span class="n">Tensor</span><span class="o">*</span><span class="w"> </span><span class="n">src</span><span class="p">);</span>
+</span><span id="__span-0-455"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">ReleaseAhwbStuff</span><span class="p">();</span>
+</span><span id="__span-0-456"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="nf">MapAhwbToCpuRead</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-457"><span class="w">  </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="nf">MapAhwbToCpuWrite</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-458"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">MoveCpuOrSsboToAhwb</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-459"><span class="w">  </span><span class="c1">// Set current tracking key, set &quot;use ahwb&quot; if the key is already marked.</span>
+</span><span id="__span-0-460"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">TrackAhwbUsage</span><span class="p">(</span><span class="kt">uint64_t</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-461">
+</span><span id="__span-0-462"><span class="cp">#if MEDIAPIPE_OPENGL_ES_VERSION &gt;= MEDIAPIPE_OPENGL_ES_30</span>
+</span><span id="__span-0-463"><span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">mediapipe</span><span class="o">::</span><span class="n">GlContext</span><span class="o">&gt;</span><span class="w"> </span><span class="n">gl_context_</span><span class="p">;</span>
+</span><span id="__span-0-464"><span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="n">GLuint</span><span class="w"> </span><span class="n">opengl_texture2d_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GL_INVALID_INDEX</span><span class="p">;</span>
+</span><span id="__span-0-465"><span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="n">GLuint</span><span class="w"> </span><span class="n">frame_buffer_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GL_INVALID_INDEX</span><span class="p">;</span>
+</span><span id="__span-0-466"><span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">texture_width_</span><span class="p">;</span>
+</span><span id="__span-0-467"><span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">texture_height_</span><span class="p">;</span>
+</span><span id="__span-0-468"><span class="cp">#ifdef __EMSCRIPTEN__</span>
+</span><span id="__span-0-469"><span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">texture_is_half_float_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-0-470"><span class="cp">#endif  </span><span class="c1">// __EMSCRIPTEN__</span>
+</span><span id="__span-0-471"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">AllocateOpenGlTexture2d</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-472"><span class="cp">#if MEDIAPIPE_OPENGL_ES_VERSION &gt;= MEDIAPIPE_OPENGL_ES_31</span>
+</span><span id="__span-0-473"><span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="n">GLuint</span><span class="w"> </span><span class="n">opengl_buffer_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GL_INVALID_INDEX</span><span class="p">;</span>
+</span><span id="__span-0-474"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">AllocateOpenGlBuffer</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-475"><span class="cp">#endif  </span><span class="c1">// MEDIAPIPE_OPENGL_ES_VERSION &gt;= MEDIAPIPE_OPENGL_ES_31</span>
+</span><span id="__span-0-476"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">NeedsHalfFloatRenderTarget</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-477"><span class="cp">#endif  </span><span class="c1">// MEDIAPIPE_OPENGL_ES_VERSION &gt;= MEDIAPIPE_OPENGL_ES_30</span>
+</span><span id="__span-0-478"><span class="p">};</span>
+</span><span id="__span-0-479">
+</span><span id="__span-0-480"><span class="kt">int</span><span class="w"> </span><span class="nf">BhwcBatchFromShape</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Tensor</span><span class="o">::</span><span class="n">Shape</span><span class="o">&amp;</span><span class="w"> </span><span class="n">shape</span><span class="p">);</span>
+</span><span id="__span-0-481"><span class="kt">int</span><span class="w"> </span><span class="nf">BhwcHeightFromShape</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Tensor</span><span class="o">::</span><span class="n">Shape</span><span class="o">&amp;</span><span class="w"> </span><span class="n">shape</span><span class="p">);</span>
+</span><span id="__span-0-482"><span class="kt">int</span><span class="w"> </span><span class="nf">BhwcWidthFromShape</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Tensor</span><span class="o">::</span><span class="n">Shape</span><span class="o">&amp;</span><span class="w"> </span><span class="n">shape</span><span class="p">);</span>
+</span><span id="__span-0-483"><span class="kt">int</span><span class="w"> </span><span class="nf">BhwcDepthFromShape</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Tensor</span><span class="o">::</span><span class="n">Shape</span><span class="o">&amp;</span><span class="w"> </span><span class="n">shape</span><span class="p">);</span>
+</span><span id="__span-0-484">
+</span><span id="__span-0-485"><span class="p">}</span><span class="w">  </span><span class="c1">// namespace mediapipe</span>
+</span><span id="__span-0-486">
+</span><span id="__span-0-487"><span class="cp">#endif  </span><span class="c1">// MEDIAPIPE_FRAMEWORK_FORMATS_TENSOR_H_</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "content.code.annotate", "content.footnote.tooltips", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../js/jquery.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "zoom"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

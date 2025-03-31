@@ -1,0 +1,312 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1OutputStream" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>mediapipe::OutputStream</compoundname>
+    <derivedcompoundref refid="classmediapipe_1_1OutputStreamShard" prot="public" virt="non-virtual">mediapipe::OutputStreamShard</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1OutputStream_1a302b2cf8c14c3542677c585a68685c6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::OutputStream::OutputStream</definition>
+        <argsstring>(const OutputStream &amp;)=delete</argsstring>
+        <name>OutputStream</name>
+        <qualifiedname>mediapipe::OutputStream::OutputStream</qualifiedname>
+        <param>
+          <type>const OutputStream &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream.h" line="33" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStream_1ac3dd27fb73c5bca14257f144cce9c898" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>OutputStream &amp;</type>
+        <definition>OutputStream &amp; mediapipe::OutputStream::operator=</definition>
+        <argsstring>(const OutputStream &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>mediapipe::OutputStream::operator=</qualifiedname>
+        <param>
+          <type>const OutputStream &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream.h" line="34" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStream_1a066accd575d9e6d75162012fd4f5810d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const std::string &amp;</type>
+        <definition>virtual const std::string &amp; mediapipe::OutputStream::Name</definition>
+        <argsstring>() const =0</argsstring>
+        <name>Name</name>
+        <qualifiedname>mediapipe::OutputStream::Name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream.h" line="37" column="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStream_1a0db4105ac9669b2a9234c08440858806" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void mediapipe::OutputStream::AddPacket</definition>
+        <argsstring>(const Packet &amp;packet)=0</argsstring>
+        <name>AddPacket</name>
+        <qualifiedname>mediapipe::OutputStream::AddPacket</qualifiedname>
+        <param>
+          <type>const Packet &amp;</type>
+          <declname>packet</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream.h" line="56" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStream_1a35e4ec2e3fc21a5a348496c2cb0e319e" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void mediapipe::OutputStream::AddPacket</definition>
+        <argsstring>(Packet &amp;&amp;packet)=0</argsstring>
+        <name>AddPacket</name>
+        <qualifiedname>mediapipe::OutputStream::AddPacket</qualifiedname>
+        <param>
+          <type>Packet &amp;&amp;</type>
+          <declname>packet</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream.h" line="60" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStream_1ab8d63d37785036857a4605f98462040e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void mediapipe::OutputStream::Add</definition>
+        <argsstring>(T *ptr, Timestamp timestamp)</argsstring>
+        <name>Add</name>
+        <qualifiedname>mediapipe::OutputStream::Add</qualifiedname>
+        <param>
+          <type>T *</type>
+          <declname>ptr</declname>
+        </param>
+        <param>
+          <type>Timestamp</type>
+          <declname>timestamp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream.h" line="64" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream.h" bodystart="64" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStream_1a9ad2d38078bf8e1a2c28905584f2d7d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void mediapipe::OutputStream::SetNextTimestampBound</definition>
+        <argsstring>(Timestamp timestamp)=0</argsstring>
+        <name>SetNextTimestampBound</name>
+        <qualifiedname>mediapipe::OutputStream::SetNextTimestampBound</qualifiedname>
+        <param>
+          <type>Timestamp</type>
+          <declname>timestamp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream.h" line="77" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStream_1acbde4b851d4cec84261ef4a80d24d32b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>Timestamp</type>
+        <definition>virtual Timestamp mediapipe::OutputStream::NextTimestampBound</definition>
+        <argsstring>() const =0</argsstring>
+        <name>NextTimestampBound</name>
+        <qualifiedname>mediapipe::OutputStream::NextTimestampBound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream.h" line="80" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStream_1a39bba1ae1301d1ce32befbc7e7cba4b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void mediapipe::OutputStream::Close</definition>
+        <argsstring>()=0</argsstring>
+        <name>Close</name>
+        <qualifiedname>mediapipe::OutputStream::Close</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream.h" line="91" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStream_1a60090082774b6e40d58f9ad1cde4a3f0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool mediapipe::OutputStream::IsClosed</definition>
+        <argsstring>() const =0</argsstring>
+        <name>IsClosed</name>
+        <qualifiedname>mediapipe::OutputStream::IsClosed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream.h" line="94" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStream_1a4d2a7c17444de4c19f306c31308f4184" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void mediapipe::OutputStream::SetOffset</definition>
+        <argsstring>(TimestampDiff offset)=0</argsstring>
+        <name>SetOffset</name>
+        <qualifiedname>mediapipe::OutputStream::SetOffset</qualifiedname>
+        <param>
+          <type>TimestampDiff</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream.h" line="100" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStream_1ad61e7d9125e53db42d29de59663d4132" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool mediapipe::OutputStream::OffsetEnabled</definition>
+        <argsstring>() const =0</argsstring>
+        <name>OffsetEnabled</name>
+        <qualifiedname>mediapipe::OutputStream::OffsetEnabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream.h" line="103" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStream_1a5e2233d6e69805c5d7bf08dfd38d2feb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>TimestampDiff</type>
+        <definition>virtual TimestampDiff mediapipe::OutputStream::Offset</definition>
+        <argsstring>() const =0</argsstring>
+        <name>Offset</name>
+        <qualifiedname>mediapipe::OutputStream::Offset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream.h" line="107" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStream_1a8b6569fadf1542052e5b6e4cfff903c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void mediapipe::OutputStream::SetHeader</definition>
+        <argsstring>(const Packet &amp;packet)=0</argsstring>
+        <name>SetHeader</name>
+        <qualifiedname>mediapipe::OutputStream::SetHeader</qualifiedname>
+        <param>
+          <type>const Packet &amp;</type>
+          <declname>packet</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream.h" line="113" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStream_1a8d2d7a94f46b70f988149ee5d6c66893" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const Packet &amp;</type>
+        <definition>virtual const Packet &amp; mediapipe::OutputStream::Header</definition>
+        <argsstring>() const =0</argsstring>
+        <name>Header</name>
+        <qualifiedname>mediapipe::OutputStream::Header</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream.h" line="117" column="24"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classmediapipe_1_1OutputStream_1a5bf3e88a0685a6011ce2942d0fe45517" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::OutputStream::OutputStream</definition>
+        <argsstring>()</argsstring>
+        <name>OutputStream</name>
+        <qualifiedname>mediapipe::OutputStream::OutputStream</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream.h" line="120" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream.h" bodystart="120" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OutputStream_1a6d52626ca403ba43bfddd2654311e60e" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual mediapipe::OutputStream::~OutputStream</definition>
+        <argsstring>()</argsstring>
+        <name>~OutputStream</name>
+        <qualifiedname>mediapipe::OutputStream::~OutputStream</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream.h" line="121" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream.h" bodystart="121" bodyend="121"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream.h" line="31" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream.h" bodystart="31" bodyend="122"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1OutputStream_1ab8d63d37785036857a4605f98462040e" prot="public" virt="non-virtual"><scope>mediapipe::OutputStream</scope><name>Add</name></member>
+      <member refid="classmediapipe_1_1OutputStream_1a0db4105ac9669b2a9234c08440858806" prot="public" virt="pure-virtual"><scope>mediapipe::OutputStream</scope><name>AddPacket</name></member>
+      <member refid="classmediapipe_1_1OutputStream_1a35e4ec2e3fc21a5a348496c2cb0e319e" prot="public" virt="pure-virtual"><scope>mediapipe::OutputStream</scope><name>AddPacket</name></member>
+      <member refid="classmediapipe_1_1OutputStream_1a39bba1ae1301d1ce32befbc7e7cba4b2" prot="public" virt="pure-virtual"><scope>mediapipe::OutputStream</scope><name>Close</name></member>
+      <member refid="classmediapipe_1_1OutputStream_1a8d2d7a94f46b70f988149ee5d6c66893" prot="public" virt="pure-virtual"><scope>mediapipe::OutputStream</scope><name>Header</name></member>
+      <member refid="classmediapipe_1_1OutputStream_1a60090082774b6e40d58f9ad1cde4a3f0" prot="public" virt="pure-virtual"><scope>mediapipe::OutputStream</scope><name>IsClosed</name></member>
+      <member refid="classmediapipe_1_1OutputStream_1a066accd575d9e6d75162012fd4f5810d" prot="public" virt="pure-virtual"><scope>mediapipe::OutputStream</scope><name>Name</name></member>
+      <member refid="classmediapipe_1_1OutputStream_1acbde4b851d4cec84261ef4a80d24d32b" prot="public" virt="pure-virtual"><scope>mediapipe::OutputStream</scope><name>NextTimestampBound</name></member>
+      <member refid="classmediapipe_1_1OutputStream_1a5e2233d6e69805c5d7bf08dfd38d2feb" prot="public" virt="pure-virtual"><scope>mediapipe::OutputStream</scope><name>Offset</name></member>
+      <member refid="classmediapipe_1_1OutputStream_1ad61e7d9125e53db42d29de59663d4132" prot="public" virt="pure-virtual"><scope>mediapipe::OutputStream</scope><name>OffsetEnabled</name></member>
+      <member refid="classmediapipe_1_1OutputStream_1ac3dd27fb73c5bca14257f144cce9c898" prot="public" virt="non-virtual"><scope>mediapipe::OutputStream</scope><name>operator=</name></member>
+      <member refid="classmediapipe_1_1OutputStream_1a302b2cf8c14c3542677c585a68685c6c" prot="public" virt="non-virtual"><scope>mediapipe::OutputStream</scope><name>OutputStream</name></member>
+      <member refid="classmediapipe_1_1OutputStream_1a5bf3e88a0685a6011ce2942d0fe45517" prot="protected" virt="non-virtual"><scope>mediapipe::OutputStream</scope><name>OutputStream</name></member>
+      <member refid="classmediapipe_1_1OutputStream_1a8b6569fadf1542052e5b6e4cfff903c2" prot="public" virt="pure-virtual"><scope>mediapipe::OutputStream</scope><name>SetHeader</name></member>
+      <member refid="classmediapipe_1_1OutputStream_1a9ad2d38078bf8e1a2c28905584f2d7d4" prot="public" virt="pure-virtual"><scope>mediapipe::OutputStream</scope><name>SetNextTimestampBound</name></member>
+      <member refid="classmediapipe_1_1OutputStream_1a4d2a7c17444de4c19f306c31308f4184" prot="public" virt="pure-virtual"><scope>mediapipe::OutputStream</scope><name>SetOffset</name></member>
+      <member refid="classmediapipe_1_1OutputStream_1a6d52626ca403ba43bfddd2654311e60e" prot="protected" virt="virtual"><scope>mediapipe::OutputStream</scope><name>~OutputStream</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

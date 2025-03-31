@@ -1,0 +1,1841 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="calculator__context_8h" kind="file" language="C++">
+    <compoundname>calculator_context.h</compoundname>
+    <includes local="no">memory</includes>
+    <includes local="no">queue</includes>
+    <includes local="no">string</includes>
+    <includes local="no">utility</includes>
+    <includes local="yes">absl/log/absl_check.h</includes>
+    <includes refid="calculator__state_8h" local="yes">mediapipe/framework/calculator_state.h</includes>
+    <includes refid="counter_8h" local="yes">mediapipe/framework/counter.h</includes>
+    <includes refid="graph__service_8h" local="yes">mediapipe/framework/graph_service.h</includes>
+    <includes refid="input__stream__shard_8h" local="yes">mediapipe/framework/input_stream_shard.h</includes>
+    <includes refid="output__stream__shard_8h" local="yes">mediapipe/framework/output_stream_shard.h</includes>
+    <includes refid="packet__set_8h" local="yes">mediapipe/framework/packet_set.h</includes>
+    <includes refid="port_8h" local="yes">mediapipe/framework/port.h</includes>
+    <includes refid="any__proto_8h" local="yes">mediapipe/framework/port/any_proto.h</includes>
+    <includes refid="port_2status_8h" local="yes">mediapipe/framework/port/status.h</includes>
+    <includes refid="timestamp_8h" local="yes">mediapipe/framework/timestamp.h</includes>
+    <includedby refid="begin__loop__calculator_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/begin_loop_calculator.h</includedby>
+    <includedby refid="end__loop__calculator_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/end_loop_calculator.h</includedby>
+    <includedby refid="inference__runner_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_runner.h</includedby>
+    <includedby refid="association__calculator_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/association_calculator.h</includedby>
+    <includedby refid="association__norm__rect__calculator_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/association_norm_rect_calculator.cc</includedby>
+    <includedby refid="contract_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/contract.h</includedby>
+    <includedby refid="node_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/node.h</includedby>
+    <includedby refid="api_2port_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/port.h</includedby>
+    <includedby refid="calculator__base_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_base.h</includedby>
+    <includedby refid="calculator__context_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_context.cc</includedby>
+    <includedby refid="calculator__context__manager_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_context_manager.h</includedby>
+    <includedby refid="calculator__framework_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_framework.h</includedby>
+    <includedby refid="calculator__node_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_node.h</includedby>
+    <includedby refid="input__stream__handler_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_handler.h</includedby>
+    <includedby refid="legacy__calculator__support_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/legacy_calculator_support.h</includedby>
+    <includedby refid="graph__profiler_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/graph_profiler.h</includedby>
+    <includedby refid="graph__tracer_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/graph_tracer.cc</includedby>
+    <includedby refid="graph__tracer_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/graph_tracer.h</includedby>
+    <includedby refid="scheduler__queue_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler_queue.h</includedby>
+    <includedby refid="options__util_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_util.cc</includedby>
+    <includedby refid="gl__calculator__helper_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h</includedby>
+    <includedby refid="gpu__shared__data__internal_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_shared_data_internal.h</includedby>
+    <incdepgraph>
+      <node id="10">
+        <label>mediapipe/framework/calculator.pb.h</label>
+        <link refid="calculator_8pb_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>mediapipe/framework/calculator_options.pb.h</label>
+        <link refid="calculator__options_8pb_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>mediapipe/framework/mediapipe_options.pb.h</label>
+        <link refid="mediapipe__options_8pb_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>mediapipe/framework/packet_factory.pb.h</label>
+        <link refid="packet__factory_8pb_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>mediapipe/framework/packet_generator.pb.h</label>
+        <link refid="packet__generator_8pb_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>mediapipe/framework/status_handler.pb.h</label>
+        <link refid="status__handler_8pb_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>mediapipe/framework/stream_handler.pb.h</label>
+        <link refid="stream__handler_8pb_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_context.h</label>
+        <link refid="calculator__context_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="116" relation="include">
+        </childnode>
+        <childnode refid="118" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="88" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>mediapipe/framework/calculator_state.h</label>
+        <link refid="calculator__state_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="101" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="115" relation="include">
+        </childnode>
+      </node>
+      <node id="103">
+        <label>mediapipe/framework/collection.h</label>
+        <link refid="collection_8h_source"/>
+        <childnode refid="104" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+        <childnode refid="113" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="99" relation="include">
+        </childnode>
+      </node>
+      <node id="106">
+        <label>mediapipe/framework/collection_item_id.h</label>
+        <link refid="collection__item__id_8h_source"/>
+        <childnode refid="92" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>mediapipe/framework/counter.h</label>
+        <link refid="counter_8h_source"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>mediapipe/framework/counter_factory.h</label>
+        <link refid="counter__factory_8h_source"/>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="97">
+        <label>mediapipe/framework/demangle.h</label>
+        <link refid="demangle_8h_source"/>
+        <childnode refid="98" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="73">
+        <label>mediapipe/framework/deps/canonical_errors.h</label>
+        <link refid="deps_2canonical__errors_8h_source"/>
+        <childnode refid="74" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>mediapipe/framework/deps/map_util.h</label>
+        <link refid="deps_2map__util_8h_source"/>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="59">
+        <label>mediapipe/framework/deps/no_destructor.h</label>
+        <link refid="no__destructor_8h_source"/>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>mediapipe/framework/deps/registration.h</label>
+        <link refid="registration_8h_source"/>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+      </node>
+      <node id="71">
+        <label>mediapipe/framework/deps/registration_token.h</label>
+        <link refid="registration__token_8h_source"/>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="90">
+        <label>mediapipe/framework/deps/safe_int.h</label>
+        <link refid="safe__int_8h_source"/>
+        <childnode refid="91" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="92" relation="include">
+        </childnode>
+      </node>
+      <node id="85">
+        <label>mediapipe/framework/deps/source_location.h</label>
+        <link refid="deps_2source__location_8h_source"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="74">
+        <label>mediapipe/framework/deps/status.h</label>
+        <link refid="deps_2status_8h_source"/>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+      </node>
+      <node id="83">
+        <label>mediapipe/framework/deps/status_builder.h</label>
+        <link refid="deps_2status__builder_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="84" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="85" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+      </node>
+      <node id="87">
+        <label>mediapipe/framework/deps/status_macros.h</label>
+        <link refid="deps_2status__macros_8h_source"/>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="83" relation="include">
+        </childnode>
+      </node>
+      <node id="92">
+        <label>mediapipe/framework/deps/strong_int.h</label>
+        <link refid="strong__int_8h_source"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="93" relation="include">
+        </childnode>
+      </node>
+      <node id="53">
+        <label>mediapipe/framework/graph_service.h</label>
+        <link refid="graph__service_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+      </node>
+      <node id="101">
+        <label>mediapipe/framework/graph_service_manager.h</label>
+        <link refid="graph__service__manager_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="117">
+        <label>mediapipe/framework/input_stream.h</label>
+        <link refid="input__stream_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="116">
+        <label>mediapipe/framework/input_stream_shard.h</label>
+        <link refid="input__stream__shard_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="117" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="120">
+        <label>mediapipe/framework/output_stream.h</label>
+        <link refid="output__stream_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="88" relation="include">
+        </childnode>
+      </node>
+      <node id="118">
+        <label>mediapipe/framework/output_stream_shard.h</label>
+        <link refid="output__stream__shard_8h_source"/>
+        <childnode refid="119" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="120" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="121" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="88" relation="include">
+        </childnode>
+      </node>
+      <node id="55">
+        <label>mediapipe/framework/packet.h</label>
+        <link refid="packet_8h_source"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="88" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+        <childnode refid="99" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+      </node>
+      <node id="102">
+        <label>mediapipe/framework/packet_set.h</label>
+        <link refid="packet__set_8h_source"/>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="121">
+        <label>mediapipe/framework/packet_type.h</label>
+        <link refid="packet__type_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="122" relation="include">
+        </childnode>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="99" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>mediapipe/framework/port.h</label>
+        <link refid="port_8h_source"/>
+      </node>
+      <node id="114">
+        <label>mediapipe/framework/port/any_proto.h</label>
+        <link refid="any__proto_8h_source"/>
+        <childnode refid="109" relation="include">
+        </childnode>
+      </node>
+      <node id="72">
+        <label>mediapipe/framework/port/canonical_errors.h</label>
+        <link refid="port_2canonical__errors_8h_source"/>
+        <childnode refid="73" relation="include">
+        </childnode>
+      </node>
+      <node id="109">
+        <label>mediapipe/framework/port/core_proto_inc.h</label>
+        <link refid="core__proto__inc_8h_source"/>
+        <childnode refid="110" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="111" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>mediapipe/framework/port/logging.h</label>
+        <link refid="logging_8h_source"/>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>mediapipe/framework/port/map_util.h</label>
+        <link refid="port_2map__util_8h_source"/>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="93">
+        <label>mediapipe/framework/port/port.h</label>
+        <link refid="port_2port_8h_source"/>
+        <childnode refid="94" relation="include">
+        </childnode>
+      </node>
+      <node id="79">
+        <label>mediapipe/framework/port/proto_ns.h</label>
+        <link refid="proto__ns_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="81">
+        <label>mediapipe/framework/port/status.h</label>
+        <link refid="port_2status_8h_source"/>
+        <childnode refid="74" relation="include">
+        </childnode>
+      </node>
+      <node id="82">
+        <label>mediapipe/framework/port/status_builder.h</label>
+        <link refid="port_2status__builder_8h_source"/>
+        <childnode refid="83" relation="include">
+        </childnode>
+      </node>
+      <node id="86">
+        <label>mediapipe/framework/port/status_macros.h</label>
+        <link refid="port_2status__macros_8h_source"/>
+        <childnode refid="87" relation="include">
+        </childnode>
+      </node>
+      <node id="78">
+        <label>mediapipe/framework/port/statusor.h</label>
+        <link refid="statusor_8h_source"/>
+        <childnode refid="58" relation="include">
+        </childnode>
+      </node>
+      <node id="88">
+        <label>mediapipe/framework/timestamp.h</label>
+        <link refid="timestamp_8h_source"/>
+        <childnode refid="89" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="90" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="115">
+        <label>mediapipe/framework/tool/options_map.h</label>
+        <link refid="options__map_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+      </node>
+      <node id="100">
+        <label>mediapipe/framework/tool/status_util.h</label>
+        <link refid="status__util_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+      </node>
+      <node id="107">
+        <label>mediapipe/framework/tool/tag_map.h</label>
+        <link refid="tag__map_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="108" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+      </node>
+      <node id="113">
+        <label>mediapipe/framework/tool/tag_map_helper.h</label>
+        <link refid="tag__map__helper_8h_source"/>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+      </node>
+      <node id="95">
+        <label>mediapipe/framework/tool/type_util.h</label>
+        <link refid="type__util_8h_source"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="112">
+        <label>mediapipe/framework/tool/validate_name.h</label>
+        <link refid="validate__name_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+      </node>
+      <node id="99">
+        <label>mediapipe/framework/type_map.h</label>
+        <link refid="type__map_8h_source"/>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>mediapipe/util/unused.hpp</label>
+        <link refid="unused_8hpp_source"/>
+      </node>
+      <node id="76">
+        <label>absl/base/attributes.h</label>
+      </node>
+      <node id="9">
+        <label>absl/base/macros.h</label>
+      </node>
+      <node id="94">
+        <label>absl/base/port.h</label>
+      </node>
+      <node id="37">
+        <label>absl/base/thread_annotations.h</label>
+      </node>
+      <node id="108">
+        <label>absl/container/btree_map.h</label>
+      </node>
+      <node id="65">
+        <label>absl/container/flat_hash_map.h</label>
+      </node>
+      <node id="66">
+        <label>absl/container/flat_hash_set.h</label>
+      </node>
+      <node id="6">
+        <label>absl/log/absl_check.h</label>
+      </node>
+      <node id="56">
+        <label>absl/log/absl_log.h</label>
+      </node>
+      <node id="57">
+        <label>absl/memory/memory.h</label>
+      </node>
+      <node id="67">
+        <label>absl/meta/type_traits.h</label>
+      </node>
+      <node id="77">
+        <label>absl/status/status.h</label>
+      </node>
+      <node id="58">
+        <label>absl/status/statusor.h</label>
+      </node>
+      <node id="50">
+        <label>absl/strings/has_ostream_operator.h</label>
+      </node>
+      <node id="54">
+        <label>absl/strings/str_cat.h</label>
+      </node>
+      <node id="68">
+        <label>absl/strings/str_join.h</label>
+      </node>
+      <node id="69">
+        <label>absl/strings/str_split.h</label>
+      </node>
+      <node id="70">
+        <label>absl/strings/string_view.h</label>
+      </node>
+      <node id="38">
+        <label>absl/synchronization/mutex.h</label>
+      </node>
+      <node id="39">
+        <label>absl/time/time.h</label>
+      </node>
+      <node id="122">
+        <label>absl/types/span.h</label>
+      </node>
+      <node id="36">
+        <label>algorithm</label>
+      </node>
+      <node id="89">
+        <label>cmath</label>
+      </node>
+      <node id="47">
+        <label>cstddef</label>
+      </node>
+      <node id="34">
+        <label>cstdint</label>
+      </node>
+      <node id="104">
+        <label>cstdlib</label>
+      </node>
+      <node id="61">
+        <label>functional</label>
+      </node>
+      <node id="51">
+        <label>glog/logging.h</label>
+      </node>
+      <node id="27">
+        <label>google/protobuf/any.pb.h</label>
+      </node>
+      <node id="15">
+        <label>google/protobuf/arena.h</label>
+      </node>
+      <node id="16">
+        <label>google/protobuf/arenastring.h</label>
+      </node>
+      <node id="23">
+        <label>google/protobuf/extension_set.h</label>
+      </node>
+      <node id="24">
+        <label>google/protobuf/generated_enum_reflection.h</label>
+      </node>
+      <node id="20">
+        <label>google/protobuf/generated_message_reflection.h</label>
+      </node>
+      <node id="17">
+        <label>google/protobuf/generated_message_table_driven.h</label>
+      </node>
+      <node id="18">
+        <label>google/protobuf/generated_message_util.h</label>
+      </node>
+      <node id="14">
+        <label>google/protobuf/io/coded_stream.h</label>
+      </node>
+      <node id="110">
+        <label>google/protobuf/io/tokenizer.h</label>
+      </node>
+      <node id="21">
+        <label>google/protobuf/message.h</label>
+      </node>
+      <node id="80">
+        <label>google/protobuf/message_lite.h</label>
+      </node>
+      <node id="19">
+        <label>google/protobuf/metadata_lite.h</label>
+      </node>
+      <node id="12">
+        <label>google/protobuf/port_def.inc</label>
+      </node>
+      <node id="13">
+        <label>google/protobuf/port_undef.inc</label>
+      </node>
+      <node id="22">
+        <label>google/protobuf/repeated_field.h</label>
+      </node>
+      <node id="111">
+        <label>google/protobuf/text_format.h</label>
+      </node>
+      <node id="25">
+        <label>google/protobuf/unknown_field_set.h</label>
+      </node>
+      <node id="75">
+        <label>iosfwd</label>
+      </node>
+      <node id="44">
+        <label>iterator</label>
+      </node>
+      <node id="11">
+        <label>limits</label>
+      </node>
+      <node id="91">
+        <label>limits.h</label>
+      </node>
+      <node id="119">
+        <label>list</label>
+      </node>
+      <node id="8">
+        <label>map</label>
+      </node>
+      <node id="2">
+        <label>memory</label>
+      </node>
+      <node id="48">
+        <label>ostream</label>
+      </node>
+      <node id="3">
+        <label>queue</label>
+      </node>
+      <node id="105">
+        <label>set</label>
+      </node>
+      <node id="84">
+        <label>sstream</label>
+      </node>
+      <node id="43">
+        <label>stddef.h</label>
+      </node>
+      <node id="98">
+        <label>stdlib.h</label>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="62">
+        <label>tuple</label>
+      </node>
+      <node id="45">
+        <label>type_traits</label>
+      </node>
+      <node id="96">
+        <label>typeinfo</label>
+      </node>
+      <node id="63">
+        <label>unordered_map</label>
+      </node>
+      <node id="64">
+        <label>unordered_set</label>
+      </node>
+      <node id="5">
+        <label>utility</label>
+      </node>
+      <node id="49">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="28">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp</label>
+        <link refid="hand__tracking__publisher_8hpp_source"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/begin_loop_calculator.h</label>
+        <link refid="begin__loop__calculator_8h_source"/>
+      </node>
+      <node id="14">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/clip_vector_size_calculator.h</label>
+        <link refid="clip__vector__size__calculator_8h_source"/>
+      </node>
+      <node id="3">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/end_loop_calculator.h</label>
+        <link refid="end__loop__calculator_8h_source"/>
+      </node>
+      <node id="15">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h</label>
+        <link refid="split__vector__calculator_8h_source"/>
+      </node>
+      <node id="11">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/internal/callback_packet_calculator.h</label>
+        <link refid="callback__packet__calculator_8h_source"/>
+      </node>
+      <node id="16">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.h</label>
+        <link refid="image__to__tensor__converter__gl__buffer_8h_source"/>
+      </node>
+      <node id="17">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_texture.h</label>
+        <link refid="image__to__tensor__converter__gl__texture_8h_source"/>
+      </node>
+      <node id="18">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_opencv.h</label>
+        <link refid="image__to__tensor__converter__opencv_8h_source"/>
+      </node>
+      <node id="19">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator.h</label>
+        <link refid="inference__calculator_8h_source"/>
+      </node>
+      <node id="5">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_interpreter_delegate_runner.h</label>
+        <link refid="inference__interpreter__delegate__runner_8h_source"/>
+      </node>
+      <node id="4">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_runner.h</label>
+        <link refid="inference__runner_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/association_calculator.h</label>
+        <link refid="association__calculator_8h_source"/>
+      </node>
+      <node id="20">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/collection_has_min_size_calculator.h</label>
+        <link refid="collection__has__min__size__calculator_8h_source"/>
+      </node>
+      <node id="21">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/detections_to_rects_calculator.h</label>
+        <link refid="detections__to__rects__calculator_8h_source"/>
+      </node>
+      <node id="22">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/filter_collection_calculator.h</label>
+        <link refid="filter__collection__calculator_8h_source"/>
+      </node>
+      <node id="12">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.h</label>
+        <link refid="illixr__output__calculator_8h_source"/>
+      </node>
+      <node id="23">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/landmarks_to_render_data_calculator.h</label>
+        <link refid="landmarks__to__render__data__calculator_8h_source"/>
+      </node>
+      <node id="7">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/contract.h</label>
+        <link refid="contract_8h_source"/>
+      </node>
+      <node id="8">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/node.h</label>
+        <link refid="node_8h_source"/>
+      </node>
+      <node id="9">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/port.h</label>
+        <link refid="api_2port_8h_source"/>
+      </node>
+      <node id="10">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_base.h</label>
+        <link refid="calculator__base_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_context.h</label>
+        <link refid="calculator__context_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_context_manager.h</label>
+        <link refid="calculator__context__manager_8h_source"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_framework.h</label>
+        <link refid="calculator__framework_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h</label>
+        <link refid="calculator__graph_8h_source"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_node.h</label>
+        <link refid="calculator__node_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_registry.h</label>
+        <link refid="calculator__registry_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.h</label>
+        <link refid="graph__output__stream_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_handler.h</label>
+        <link refid="input__stream__handler_8h_source"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/legacy_calculator_support.h</label>
+        <link refid="legacy__calculator__support_8h_source"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h</label>
+        <link refid="output__stream__handler_8h_source"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_poller.h</label>
+        <link refid="output__stream__poller_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/graph_profiler.h</label>
+        <link refid="graph__profiler_8h_source"/>
+      </node>
+      <node id="46">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/graph_tracer.h</label>
+        <link refid="graph__tracer_8h_source"/>
+        <childnode refid="45" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h</label>
+        <link refid="scheduler_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler_queue.h</label>
+        <link refid="scheduler__queue_8h_source"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/stream_handler/default_input_stream_handler.h</label>
+        <link refid="default__input__stream__handler_8h_source"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/stream_handler/fixed_size_input_stream_handler.h</label>
+        <link refid="fixed__size__input__stream__handler_8h_source"/>
+      </node>
+      <node id="25">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/stream_handler/immediate_input_stream_handler.h</label>
+        <link refid="immediate__input__stream__handler_8h_source"/>
+      </node>
+      <node id="43">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/stream_handler/in_order_output_stream_handler.h</label>
+        <link refid="in__order__output__stream__handler_8h_source"/>
+      </node>
+      <node id="26">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/container_util.h</label>
+        <link refid="container__util_8h_source"/>
+      </node>
+      <node id="35">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/packet_generator_wrapper_calculator.h</label>
+        <link refid="packet__generator__wrapper__calculator_8h_source"/>
+      </node>
+      <node id="36">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/sink.h</label>
+        <link refid="sink_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h</label>
+        <link refid="gl__calculator__helper_8h_source"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_service.h</label>
+        <link refid="gpu__service_8h_source"/>
+      </node>
+      <node id="32">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_shared_data_internal.h</label>
+        <link refid="gpu__shared__data__internal_8h_source"/>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/plugin.hpp</label>
+        <link refid="plugin_8hpp_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classmediapipe_1_1CalculatorContext" prot="public">mediapipe::CalculatorContext</innerclass>
+    <innernamespace refid="namespacemediapipe">mediapipe</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Copyright<sp/>2019<sp/>The<sp/>MediaPipe<sp/>Authors.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>MEDIAPIPE_FRAMEWORK_CALCULATOR_CONTEXT_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MEDIAPIPE_FRAMEWORK_CALCULATOR_CONTEXT_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;queue&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;utility&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/log/absl_check.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/calculator_state.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/counter.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/graph_service.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/input_stream_shard.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/output_stream_shard.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/packet_set.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/port.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/port/any_proto.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/port/status.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/timestamp.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mediapipe<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">//<sp/>A<sp/>CalculatorContext<sp/>provides<sp/>information<sp/>about<sp/>the<sp/>graph<sp/>it<sp/>is<sp/>running</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">//<sp/>inside<sp/>of<sp/>through<sp/>a<sp/>number<sp/>of<sp/>accessor<sp/>functions:<sp/>Inputs(),<sp/>Outputs(),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">//<sp/>InputSidePackets(),<sp/>Options(),<sp/>etc.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">//<sp/>CalculatorBase<sp/>APIs,<sp/>such<sp/>as<sp/>CalculatorBase::Open(CalculatorContext*<sp/>cc),</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//<sp/>CalculatorBase::Process(CalculatorContext*<sp/>cc),<sp/>and</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">//<sp/>CalculatorBase::Close(CalculatorContext*<sp/>cc),<sp/>will<sp/>only<sp/>interact<sp/>with</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment">//<sp/>its<sp/>own<sp/>CalculatorContext<sp/>object<sp/>for<sp/>exchanging<sp/>data<sp/>with<sp/>the<sp/>framework.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CalculatorContext<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>CalculatorContext(CalculatorState*<sp/>calculator_state,</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::shared_ptr&lt;tool::TagMap&gt;<sp/>input_tag_map,</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::shared_ptr&lt;tool::TagMap&gt;<sp/>output_tag_map)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>calculator_state_(calculator_state),</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inputs_(<ref refid="namespacestd" kindref="compound">std</ref>::move(input_tag_map)),</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>outputs_(<ref refid="namespacestd" kindref="compound">std</ref>::move(output_tag_map))<sp/>{}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>CalculatorContext(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>CalculatorContext&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>CalculatorContext&amp;<sp/>operator=(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>CalculatorContext&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>NodeName()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NodeId()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>CalculatorType()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>the<sp/>options<sp/>given<sp/>to<sp/>this<sp/>calculator.<sp/>The<sp/>Calculator<sp/>or</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>CalculatorBase<sp/>implementation<sp/>may<sp/>get<sp/>its<sp/>options<sp/>by<sp/>calling</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>GetExtension()<sp/>on<sp/>the<sp/>result.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>CalculatorOptions&amp;<sp/>Options()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>the<sp/>options<sp/>given<sp/>to<sp/>this<sp/>calculator.<sp/><sp/>Template<sp/>argument<sp/>T<sp/>must</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>be<sp/>the<sp/>type<sp/>of<sp/>the<sp/>protobuf<sp/>extension<sp/>message<sp/>or<sp/>the<sp/>protobuf::Any</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>message<sp/>containing<sp/>the<sp/>options.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>T&amp;<sp/>Options()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>calculator_state_-&gt;Options&lt;T&gt;();</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>HasOptions()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>calculator_state_-&gt;HasOptions&lt;T&gt;();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>a<sp/>counter<sp/>using<sp/>the<sp/>graph&apos;s<sp/>counter<sp/>factory.<sp/>The<sp/>counter&apos;s<sp/>name<sp/>is</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>passed-in<sp/>name,<sp/>prefixed<sp/>by<sp/>the<sp/>calculator<sp/>node&apos;s<sp/>name<sp/>(if<sp/>present)<sp/>or</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>calculator&apos;s<sp/>type<sp/>(if<sp/>not).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>Counter*<sp/>GetCounter(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>name);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>the<sp/>counter<sp/>set,<sp/>which<sp/>can<sp/>be<sp/>used<sp/>to<sp/>create<sp/>new<sp/>counters.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>No<sp/>prefix<sp/>is<sp/>added<sp/>to<sp/>counters<sp/>created<sp/>in<sp/>this<sp/>way.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>CounterFactory*<sp/>GetCounterFactory();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>the<sp/>current<sp/>input<sp/>timestamp,<sp/>or<sp/>Timestamp::Unset<sp/>if<sp/>there<sp/>are</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>no<sp/>input<sp/>packets.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>Timestamp<sp/>InputTimestamp()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>input_timestamps_.empty()<sp/>?<sp/>Timestamp::Unset()</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>input_timestamps_.front();</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>a<sp/>reference<sp/>to<sp/>the<sp/>input<sp/>side<sp/>packet<sp/>set.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>PacketSet&amp;<sp/>InputSidePackets()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>a<sp/>reference<sp/>to<sp/>the<sp/>output<sp/>side<sp/>packet<sp/>collection.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>OutputSidePacketSet&amp;<sp/>OutputSidePackets();</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>a<sp/>reference<sp/>to<sp/>the<sp/>input<sp/>stream<sp/>collection.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>You<sp/>may<sp/>consume<sp/>or<sp/>move<sp/>the<sp/>value<sp/>packets<sp/>from<sp/>the<sp/>Inputs.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>InputStreamShardSet&amp;<sp/>Inputs();</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>a<sp/>const<sp/>reference<sp/>to<sp/>the<sp/>input<sp/>stream<sp/>collection.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>InputStreamShardSet&amp;<sp/>Inputs()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>a<sp/>reference<sp/>to<sp/>the<sp/>output<sp/>stream<sp/>collection.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>OutputStreamShardSet&amp;<sp/>Outputs();</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>a<sp/>const<sp/>reference<sp/>to<sp/>the<sp/>output<sp/>stream<sp/>collection.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>OutputStreamShardSet&amp;<sp/>Outputs()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Sets<sp/>this<sp/>packet<sp/>timestamp<sp/>offset<sp/>for<sp/>Packets<sp/>going<sp/>to<sp/>all<sp/>outputs.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>you<sp/>only<sp/>want<sp/>to<sp/>set<sp/>the<sp/>offset<sp/>for<sp/>a<sp/>single<sp/>output<sp/>stream<sp/>then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>use<sp/>OutputStream::SetOffset()<sp/>directly.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SetOffset(TimestampDiff<sp/>offset);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>DEPRECATED:<sp/>This<sp/>was<sp/>intended<sp/>to<sp/>get<sp/>graph<sp/>run<sp/>status<sp/>during</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>`CalculatorBase::Close`<sp/>call.<sp/>However,<sp/>`Close`<sp/>can<sp/>run<sp/>simultaneously<sp/>with</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>other<sp/>calculators<sp/>`CalculatorBase::Process`,<sp/>hence<sp/>the<sp/>actual<sp/>graph</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>status<sp/>may<sp/>change<sp/>any<sp/>time<sp/>and<sp/>returned<sp/>graph<sp/>status<sp/>here<sp/>does<sp/>not</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>necessarily<sp/>reflect<sp/>the<sp/>actual<sp/>graph<sp/>status.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>As<sp/>an<sp/>alternative,<sp/>instead<sp/>of<sp/>checking<sp/>graph<sp/>status<sp/>in<sp/>`Close`<sp/>and<sp/>doing</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>work<sp/>for<sp/>&quot;done&quot;<sp/>state,<sp/>you<sp/>can<sp/>enable<sp/>timestamp<sp/>bound<sp/>processing<sp/>for<sp/>your</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>calculator<sp/>(`CalculatorContract::SetProcessTimestampBounds`)<sp/>to<sp/>trigger</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>`Process`<sp/>on<sp/>timestamp<sp/>bound<sp/>updates<sp/>and<sp/>handle<sp/>&quot;done&quot;<sp/>state<sp/>there.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>examples<sp/>in:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>mediapipe/framework/calculator_graph_summary_packet_test.cc.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/>ABSL_DEPRECATED(</highlight><highlight class="stringliteral">&quot;Does<sp/>not<sp/>reflect<sp/>the<sp/>actual<sp/>graph<sp/>status.&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/>absl::Status<sp/>GraphStatus()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>graph_status_;<sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/>ProfilingContext*<sp/>GetProfilingContext()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>calculator_state_-&gt;GetSharedProfilingContext().get();</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/>ServiceBinding&lt;T&gt;<sp/>Service(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GraphService&lt;T&gt;&amp;<sp/>service)<sp/>{</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ServiceBinding&lt;T&gt;(calculator_state_-&gt;GetServiceObject(service));</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NumberOfTimestamps()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">int</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(input_timestamps_.size());</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>HasInputTimestamp()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!input_timestamps_.empty();<sp/>}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Adds<sp/>a<sp/>new<sp/>input<sp/>timestamp<sp/>by<sp/>the<sp/>friend<sp/>class<sp/>CalculatorContextManager.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PushInputTimestamp(Timestamp<sp/>input_timestamp)<sp/>{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>input_timestamps_.push(input_timestamp);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PopInputTimestamp()<sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>ABSL_CHECK(!input_timestamps_.empty());</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>input_timestamps_.pop();</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>SetGraphStatus(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>absl::Status&amp;<sp/>status)<sp/>{<sp/>graph_status_<sp/>=<sp/>status;<sp/>}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Interface<sp/>for<sp/>the<sp/>friend<sp/>class<sp/>Calculator.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>InputStreamSet&amp;<sp/>InputStreams()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>OutputStreamSet&amp;<sp/>OutputStreams()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Stores<sp/>the<sp/>shared<sp/>data<sp/>across<sp/>all<sp/>CalculatorContext<sp/>objects,<sp/>including</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>input<sp/>side<sp/>packets,<sp/>calculator<sp/>options,<sp/>node<sp/>name,<sp/>etc.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>Removes<sp/>unnecessary<sp/>fields<sp/>from<sp/>CalculatorState<sp/>after</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>migrating<sp/>all<sp/>clients<sp/>to<sp/>CalculatorContext.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/>CalculatorState*<sp/>calculator_state_;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/>InputStreamShardSet<sp/>inputs_;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/>OutputStreamShardSet<sp/>outputs_;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Created<sp/>on-demand<sp/>when<sp/>needed<sp/>by<sp/>legacy<sp/>APIs.<sp/>No<sp/>synchronization<sp/>needed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>because<sp/>all<sp/>possible<sp/>callers<sp/>are<sp/>already<sp/>serialized.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">mutable</highlight><highlight class="normal"><sp/>std::unique_ptr&lt;InputStreamSet&gt;<sp/>input_streams_;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">mutable</highlight><highlight class="normal"><sp/>std::unique_ptr&lt;OutputStreamSet&gt;<sp/>output_streams_;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>queue<sp/>of<sp/>timestamp<sp/>values<sp/>to<sp/>Process()<sp/>in<sp/>this<sp/>calculator<sp/>context.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/>std::queue&lt;Timestamp&gt;<sp/>input_timestamps_;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>status<sp/>of<sp/>the<sp/>graph<sp/>run.<sp/>Only<sp/>used<sp/>when<sp/>Close()<sp/>is<sp/>called.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/>absl::Status<sp/>graph_status_;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Accesses<sp/>CalculatorContext<sp/>for<sp/>setting<sp/>input<sp/>timestamp.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CalculatorContextManager;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>mediapipe</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MEDIAPIPE_FRAMEWORK_CALCULATOR_CONTEXT_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_context.h"/>
+  </compounddef>
+</doxygen>

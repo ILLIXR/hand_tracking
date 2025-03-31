@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1OpenCvVideoDecoderCalculator" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::OpenCvVideoDecoderCalculator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">mediapipe::CalculatorBase</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1OpenCvVideoDecoderCalculator_1ad3efe58b131b66c97c93be415fca6c3c" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; cv::VideoCapture &gt;</type>
+        <definition>std::unique_ptr&lt;cv::VideoCapture&gt; mediapipe::OpenCvVideoDecoderCalculator::cap_</definition>
+        <argsstring></argsstring>
+        <name>cap_</name>
+        <qualifiedname>mediapipe::OpenCvVideoDecoderCalculator::cap_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" line="249" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" bodystart="249" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1OpenCvVideoDecoderCalculator_1a1d5da1e80bb488180a60b61545057425" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::OpenCvVideoDecoderCalculator::width_</definition>
+        <argsstring></argsstring>
+        <name>width_</name>
+        <qualifiedname>mediapipe::OpenCvVideoDecoderCalculator::width_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" line="250" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" bodystart="250" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1OpenCvVideoDecoderCalculator_1ab6e8ee03bca17913d3f344cdd67481ce" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::OpenCvVideoDecoderCalculator::height_</definition>
+        <argsstring></argsstring>
+        <name>height_</name>
+        <qualifiedname>mediapipe::OpenCvVideoDecoderCalculator::height_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" line="251" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" bodystart="251" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1OpenCvVideoDecoderCalculator_1a8e2f6c9d78f890ba84353bbdb7411724" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::OpenCvVideoDecoderCalculator::frame_count_</definition>
+        <argsstring></argsstring>
+        <name>frame_count_</name>
+        <qualifiedname>mediapipe::OpenCvVideoDecoderCalculator::frame_count_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" line="252" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" bodystart="252" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1OpenCvVideoDecoderCalculator_1a34891b1aaaa2781e57193c537bf3528d" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::OpenCvVideoDecoderCalculator::decoded_frames_</definition>
+        <argsstring></argsstring>
+        <name>decoded_frames_</name>
+        <qualifiedname>mediapipe::OpenCvVideoDecoderCalculator::decoded_frames_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" line="253" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" bodystart="253" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1OpenCvVideoDecoderCalculator_1a44365b185f369fedebf2320a73c7921c" prot="private" static="no" mutable="no">
+        <type>ImageFormat::Format</type>
+        <definition>ImageFormat::Format mediapipe::OpenCvVideoDecoderCalculator::format_</definition>
+        <argsstring></argsstring>
+        <name>format_</name>
+        <qualifiedname>mediapipe::OpenCvVideoDecoderCalculator::format_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" line="254" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" bodystart="254" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1OpenCvVideoDecoderCalculator_1a059567988093a90399bcba6f09c1a0d3" prot="private" static="no" mutable="no">
+        <type>Timestamp</type>
+        <definition>Timestamp mediapipe::OpenCvVideoDecoderCalculator::prev_timestamp_</definition>
+        <argsstring></argsstring>
+        <name>prev_timestamp_</name>
+        <qualifiedname>mediapipe::OpenCvVideoDecoderCalculator::prev_timestamp_</qualifiedname>
+        <initializer>= Timestamp::Unset()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" line="255" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" bodystart="255" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1OpenCvVideoDecoderCalculator_1a5b5b8c6914be661e04065a88e506d96e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>static absl::Status mediapipe::OpenCvVideoDecoderCalculator::GetContract</definition>
+        <argsstring>(CalculatorContract *cc)</argsstring>
+        <name>GetContract</name>
+        <qualifiedname>mediapipe::OpenCvVideoDecoderCalculator::GetContract</qualifiedname>
+        <param>
+          <type>CalculatorContract *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" line="96" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" bodystart="96" bodyend="106"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1OpenCvVideoDecoderCalculator_1a3640c0699a040d1087c73d509817cd59" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::OpenCvVideoDecoderCalculator::Open</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Open</name>
+        <qualifiedname>mediapipe::OpenCvVideoDecoderCalculator::Open</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" line="108" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" bodystart="108" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OpenCvVideoDecoderCalculator_1a3715d1a49fda3dc905a6266bfacea56f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::OpenCvVideoDecoderCalculator::Process</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Process</name>
+        <qualifiedname>mediapipe::OpenCvVideoDecoderCalculator::Process</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" line="191" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" bodystart="191" bodyend="225"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OpenCvVideoDecoderCalculator_1aa86359c936c3f672ca1dc1d7e2a46c83" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::OpenCvVideoDecoderCalculator::Close</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Close</name>
+        <qualifiedname>mediapipe::OpenCvVideoDecoderCalculator::Close</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" line="227" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" bodystart="227" bodyend="238"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1OpenCvVideoDecoderCalculator_1ae834976798a7a205dcdf49730115e64d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::OpenCvVideoDecoderCalculator::ReadFrame</definition>
+        <argsstring>(cv::Mat &amp;frame)</argsstring>
+        <name>ReadFrame</name>
+        <qualifiedname>mediapipe::OpenCvVideoDecoderCalculator::ReadFrame</qualifiedname>
+        <param>
+          <type>cv::Mat &amp;</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" line="241" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" bodystart="241" bodyend="246"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" line="94" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/video/opencv_video_decoder_calculator.cc" bodystart="94" bodyend="256"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1CalculatorBase_1a586aedabbf1f8f9d14e07a7251cc5936" prot="public" virt="non-virtual"><scope>mediapipe::OpenCvVideoDecoderCalculator</scope><name>CalculatorBase</name></member>
+      <member refid="classmediapipe_1_1OpenCvVideoDecoderCalculator_1ad3efe58b131b66c97c93be415fca6c3c" prot="private" virt="non-virtual"><scope>mediapipe::OpenCvVideoDecoderCalculator</scope><name>cap_</name></member>
+      <member refid="classmediapipe_1_1OpenCvVideoDecoderCalculator_1aa86359c936c3f672ca1dc1d7e2a46c83" prot="public" virt="non-virtual"><scope>mediapipe::OpenCvVideoDecoderCalculator</scope><name>Close</name></member>
+      <member refid="classmediapipe_1_1OpenCvVideoDecoderCalculator_1a34891b1aaaa2781e57193c537bf3528d" prot="private" virt="non-virtual"><scope>mediapipe::OpenCvVideoDecoderCalculator</scope><name>decoded_frames_</name></member>
+      <member refid="classmediapipe_1_1OpenCvVideoDecoderCalculator_1a44365b185f369fedebf2320a73c7921c" prot="private" virt="non-virtual"><scope>mediapipe::OpenCvVideoDecoderCalculator</scope><name>format_</name></member>
+      <member refid="classmediapipe_1_1OpenCvVideoDecoderCalculator_1a8e2f6c9d78f890ba84353bbdb7411724" prot="private" virt="non-virtual"><scope>mediapipe::OpenCvVideoDecoderCalculator</scope><name>frame_count_</name></member>
+      <member refid="classmediapipe_1_1OpenCvVideoDecoderCalculator_1a5b5b8c6914be661e04065a88e506d96e" prot="public" virt="non-virtual"><scope>mediapipe::OpenCvVideoDecoderCalculator</scope><name>GetContract</name></member>
+      <member refid="classmediapipe_1_1OpenCvVideoDecoderCalculator_1ab6e8ee03bca17913d3f344cdd67481ce" prot="private" virt="non-virtual"><scope>mediapipe::OpenCvVideoDecoderCalculator</scope><name>height_</name></member>
+      <member refid="classmediapipe_1_1OpenCvVideoDecoderCalculator_1a3640c0699a040d1087c73d509817cd59" prot="public" virt="non-virtual"><scope>mediapipe::OpenCvVideoDecoderCalculator</scope><name>Open</name></member>
+      <member refid="classmediapipe_1_1OpenCvVideoDecoderCalculator_1a059567988093a90399bcba6f09c1a0d3" prot="private" virt="non-virtual"><scope>mediapipe::OpenCvVideoDecoderCalculator</scope><name>prev_timestamp_</name></member>
+      <member refid="classmediapipe_1_1OpenCvVideoDecoderCalculator_1a3715d1a49fda3dc905a6266bfacea56f" prot="public" virt="non-virtual"><scope>mediapipe::OpenCvVideoDecoderCalculator</scope><name>Process</name></member>
+      <member refid="classmediapipe_1_1OpenCvVideoDecoderCalculator_1ae834976798a7a205dcdf49730115e64d" prot="public" virt="non-virtual"><scope>mediapipe::OpenCvVideoDecoderCalculator</scope><name>ReadFrame</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a0cf70172f342c2cc0314af8e76ae982b" prot="public" virt="virtual"><scope>mediapipe::OpenCvVideoDecoderCalculator</scope><name>SourceProcessOrder</name></member>
+      <member refid="classmediapipe_1_1OpenCvVideoDecoderCalculator_1a1d5da1e80bb488180a60b61545057425" prot="private" virt="non-virtual"><scope>mediapipe::OpenCvVideoDecoderCalculator</scope><name>width_</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a9ced1ccc8a3f7ad59e54a317f4054c90" prot="public" virt="virtual"><scope>mediapipe::OpenCvVideoDecoderCalculator</scope><name>~CalculatorBase</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

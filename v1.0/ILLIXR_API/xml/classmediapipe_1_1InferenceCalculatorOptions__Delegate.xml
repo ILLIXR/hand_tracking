@@ -1,0 +1,1836 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1InferenceCalculatorOptions__Delegate" kind="class" language="C++" prot="public" final="yes">
+    <compoundname>mediapipe::InferenceCalculatorOptions_Delegate</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">PROTOBUF_NAMESPACE_ID::Message</basecompoundref>
+    <innerclass refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1_1__Internal" prot="public">mediapipe::InferenceCalculatorOptions_Delegate::_Internal</innerclass>
+    <innerclass refid="unionmediapipe_1_1InferenceCalculatorOptions__Delegate_1_1DelegateUnion" prot="private">mediapipe::InferenceCalculatorOptions_Delegate::DelegateUnion</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a00f98afcae6e52bc23297db5e187de4e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>DelegateCase</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::DelegateCase</qualifiedname>
+        <enumvalue id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a00f98afcae6e52bc23297db5e187de4eaf04de3fc1419abfc1267f7626ded442f" prot="public">
+          <name>kTflite</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a00f98afcae6e52bc23297db5e187de4ea9487536d8ba5e666d9e3f339650b0542" prot="public">
+          <name>kGpu</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a00f98afcae6e52bc23297db5e187de4eac8ac47e1781c49317bb360b3c68ceb09" prot="public">
+          <name>kNnapi</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a00f98afcae6e52bc23297db5e187de4ea70a03a3aafc406038f35e2f0c12dd88a" prot="public">
+          <name>kXnnpack</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a00f98afcae6e52bc23297db5e187de4ea81dc1e41144e993d1a444c3f5b6d07f5" prot="public">
+          <name>DELEGATE_NOT_SET</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1090" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1090" bodyend="1096"/>
+      </memberdef>
+      <memberdef kind="enum" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a68eee6754f74f1020af2d9a6e74886df" prot="public" static="no" strong="no">
+        <type>int</type>
+        <name></name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate</qualifiedname>
+        <enumvalue id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a68eee6754f74f1020af2d9a6e74886dfa96bfb60b9a5c5c3bb24b096eea5018da" prot="public">
+          <name>kTfliteFieldNumber</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a68eee6754f74f1020af2d9a6e74886dfa64756078f932d86d4a8e3dd3882e9ea0" prot="public">
+          <name>kGpuFieldNumber</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a68eee6754f74f1020af2d9a6e74886dfa90280569467cf82df79ca989996f86fa" prot="public">
+          <name>kNnapiFieldNumber</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a68eee6754f74f1020af2d9a6e74886dfa782e8ede57c844a0b36653e9c498ea68" prot="public">
+          <name>kXnnpackFieldNumber</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1181" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1181" bodyend="1186"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1aaf90a166f91bf13ba70ef00f25325996" prot="public" static="no">
+        <type>InferenceCalculatorOptions_Delegate_TfLite</type>
+        <definition>typedef InferenceCalculatorOptions_Delegate_TfLite mediapipe::InferenceCalculatorOptions_Delegate::TfLite</definition>
+        <argsstring></argsstring>
+        <name>TfLite</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::TfLite</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1174" column="54" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a14fef4a6fd62220cff0372c998be4e09" prot="public" static="no">
+        <type>InferenceCalculatorOptions_Delegate_Gpu</type>
+        <definition>typedef InferenceCalculatorOptions_Delegate_Gpu mediapipe::InferenceCalculatorOptions_Delegate::Gpu</definition>
+        <argsstring></argsstring>
+        <name>Gpu</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::Gpu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1175" column="51" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a5116f6e433b002e5415af6ffb21bd332" prot="public" static="no">
+        <type>InferenceCalculatorOptions_Delegate_Nnapi</type>
+        <definition>typedef InferenceCalculatorOptions_Delegate_Nnapi mediapipe::InferenceCalculatorOptions_Delegate::Nnapi</definition>
+        <argsstring></argsstring>
+        <name>Nnapi</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::Nnapi</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1176" column="53" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ac85f998a0db4fa62d7cb35624937e8d3" prot="public" static="no">
+        <type>InferenceCalculatorOptions_Delegate_Xnnpack</type>
+        <definition>typedef InferenceCalculatorOptions_Delegate_Xnnpack mediapipe::InferenceCalculatorOptions_Delegate::Xnnpack</definition>
+        <argsstring></argsstring>
+        <name>Xnnpack</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::Xnnpack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1177" column="55" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1177" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a01001df7f6c91c0e31cfb6ac1de6ed9c" prot="private" static="no">
+        <type>void</type>
+        <definition>typedef void mediapipe::InferenceCalculatorOptions_Delegate::InternalArenaConstructable_</definition>
+        <argsstring></argsstring>
+        <name>InternalArenaConstructable_</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::InternalArenaConstructable_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1273" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1273" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a805ebd0210ea220d6034f8f34413e57f" prot="private" static="no">
+        <type>void</type>
+        <definition>typedef void mediapipe::InferenceCalculatorOptions_Delegate::DestructorSkippable_</definition>
+        <argsstring></argsstring>
+        <name>DestructorSkippable_</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::DestructorSkippable_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1274" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1274" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a4f973916efa936d182e2cc18ec5ed853" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int mediapipe::InferenceCalculatorOptions_Delegate::kIndexInFileMessages</definition>
+        <argsstring></argsstring>
+        <name>kIndexInFileMessages</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::kIndexInFileMessages</qualifiedname>
+        <initializer>=
+    4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1102" column="24" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a813e7b59cf4e6bd6adcc9d4cfbada7fa" prot="public" static="yes" mutable="no">
+        <type>const ClassData</type>
+        <definition>const ::PROTOBUF_NAMESPACE_ID::Message::ClassData mediapipe::InferenceCalculatorOptions_Delegate::_class_data_</definition>
+        <argsstring></argsstring>
+        <name>_class_data_</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::_class_data_</qualifiedname>
+        <initializer>= {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    InferenceCalculatorOptions_Delegate::MergeImpl
+}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1167" column="26" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1167" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a9b35d94da3444084fc3673b7717b6cfe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata</definition>
+        <argsstring></argsstring>
+        <name>::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::AnyMetadata</qualifiedname>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1155" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ab618dbbac4a8d749da0d85c32932df36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>class</type>
+        <definition>friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper</definition>
+        <argsstring></argsstring>
+        <name>::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::InternalHelper</qualifiedname>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1272" column="28" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1272" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a8bdc6d3e7be1b2f7536b903b975e79eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>struct</type>
+        <definition>friend struct ::TableStruct_mediapipe_2fcalculators_2ftensor_2finference_5fcalculator_2eproto</definition>
+        <argsstring></argsstring>
+        <name>::TableStruct_mediapipe_2fcalculators_2ftensor_2finference_5fcalculator_2eproto</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::TableStruct_mediapipe_2fcalculators_2ftensor_2finference_5fcalculator_2eproto</qualifiedname>
+        <param>
+          <type>::TableStruct_mediapipe_2fcalculators_2ftensor_2finference_5fcalculator_2eproto</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1286" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1286" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ab282aaa4b1b14921e98d839a8ae77e0a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void swap</definition>
+        <argsstring>(InferenceCalculatorOptions_Delegate &amp;a, InferenceCalculatorOptions_Delegate &amp;b)</argsstring>
+        <name>swap</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::swap</qualifiedname>
+        <param>
+          <type>InferenceCalculatorOptions_Delegate &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>InferenceCalculatorOptions_Delegate &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1105" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1105" bodyend="1107"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1aef61b1a178e8c0a9bfaea58bc06c09f4" prot="private" static="no" mutable="no">
+        <type>union mediapipe::InferenceCalculatorOptions_Delegate::DelegateUnion</type>
+        <definition>union mediapipe::InferenceCalculatorOptions_Delegate::DelegateUnion mediapipe::InferenceCalculatorOptions_Delegate::delegate_</definition>
+        <argsstring></argsstring>
+        <name>delegate_</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::delegate_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1282" column="13"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a3e0e708941573719d67b3b82d5de1921" prot="private" static="no" mutable="no">
+        <type>mutable::PROTOBUF_NAMESPACE_ID::internal::CachedSize</type>
+        <definition>mutable::PROTOBUF_NAMESPACE_ID::internal::CachedSize mediapipe::InferenceCalculatorOptions_Delegate::_cached_size_</definition>
+        <argsstring></argsstring>
+        <name>_cached_size_</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::_cached_size_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1283" column="57" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1283" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a4e9b0f9a71734cf374d5476432b5f66e" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t mediapipe::InferenceCalculatorOptions_Delegate::_oneof_case_[1]</definition>
+        <argsstring>[1]</argsstring>
+        <name>_oneof_case_</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::_oneof_case_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1284" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1284" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ab261b8c7f284216e464d1410eb2813b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::InferenceCalculatorOptions_Delegate::InferenceCalculatorOptions_Delegate</definition>
+        <argsstring>()</argsstring>
+        <name>InferenceCalculatorOptions_Delegate</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::InferenceCalculatorOptions_Delegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1043" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1043" bodyend="1043"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a183da69fb7dcd4404bd006c38c596b26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::InferenceCalculatorOptions_Delegate::~InferenceCalculatorOptions_Delegate</definition>
+        <argsstring>() override</argsstring>
+        <name>~InferenceCalculatorOptions_Delegate</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::~InferenceCalculatorOptions_Delegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1044" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.cc" bodystart="1669" bodyend="1674"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a6e0142c299e8e2a61b9e4c2d159f5f7d" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr mediapipe::InferenceCalculatorOptions_Delegate::InferenceCalculatorOptions_Delegate</definition>
+        <argsstring>(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)</argsstring>
+        <name>InferenceCalculatorOptions_Delegate</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::InferenceCalculatorOptions_Delegate</qualifiedname>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1045" column="22" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.cc" bodystart="79" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1aff12356e0a14a2b066f04a86a2b6a7dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::InferenceCalculatorOptions_Delegate::InferenceCalculatorOptions_Delegate</definition>
+        <argsstring>(const InferenceCalculatorOptions_Delegate &amp;from)</argsstring>
+        <name>InferenceCalculatorOptions_Delegate</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::InferenceCalculatorOptions_Delegate</qualifiedname>
+        <param>
+          <type>const InferenceCalculatorOptions_Delegate &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1047" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.cc" bodystart="1637" bodyend="1663"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a9cfcd1a4463739b73a34014ca812f4f7" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::InferenceCalculatorOptions_Delegate::InferenceCalculatorOptions_Delegate</definition>
+        <argsstring>(InferenceCalculatorOptions_Delegate &amp;&amp;from) noexcept</argsstring>
+        <name>InferenceCalculatorOptions_Delegate</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::InferenceCalculatorOptions_Delegate</qualifiedname>
+        <param>
+          <type>InferenceCalculatorOptions_Delegate &amp;&amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1048" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1048" bodyend="1051"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ad4669270cfa048660426038392c45785" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>InferenceCalculatorOptions_Delegate &amp;</type>
+        <definition>InferenceCalculatorOptions_Delegate &amp; mediapipe::InferenceCalculatorOptions_Delegate::operator=</definition>
+        <argsstring>(const InferenceCalculatorOptions_Delegate &amp;from)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::operator=</qualifiedname>
+        <param>
+          <type>const InferenceCalculatorOptions_Delegate &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1053" column="46" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1053" bodyend="1056"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a66ce41355ff54698f677538286e7c3f5" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>InferenceCalculatorOptions_Delegate &amp;</type>
+        <definition>InferenceCalculatorOptions_Delegate &amp; mediapipe::InferenceCalculatorOptions_Delegate::operator=</definition>
+        <argsstring>(InferenceCalculatorOptions_Delegate &amp;&amp;from) noexcept</argsstring>
+        <name>operator=</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::operator=</qualifiedname>
+        <param>
+          <type>InferenceCalculatorOptions_Delegate &amp;&amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1057" column="46" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1057" bodyend="1069"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a4a8c6f3601e8ee5d394aef0376893168" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &amp;</type>
+        <definition>const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &amp; mediapipe::InferenceCalculatorOptions_Delegate::unknown_fields</definition>
+        <argsstring>() const</argsstring>
+        <name>unknown_fields</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::unknown_fields</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1071" column="57" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1071" bodyend="1073"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a7240142943797830f467aada1a1cbef0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *</type>
+        <definition>inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet * mediapipe::InferenceCalculatorOptions_Delegate::mutable_unknown_fields</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_unknown_fields</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::mutable_unknown_fields</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1074" column="51" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1074" bodyend="1076"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a54343c3f4a690c81699c1158bc9fb5df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::Swap</definition>
+        <argsstring>(InferenceCalculatorOptions_Delegate *other)</argsstring>
+        <name>Swap</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::Swap</qualifiedname>
+        <param>
+          <type>InferenceCalculatorOptions_Delegate *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1108" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1108" bodyend="1120"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1af8135379671a9854e636287ab35bb703" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::UnsafeArenaSwap</definition>
+        <argsstring>(InferenceCalculatorOptions_Delegate *other)</argsstring>
+        <name>UnsafeArenaSwap</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::UnsafeArenaSwap</qualifiedname>
+        <param>
+          <type>InferenceCalculatorOptions_Delegate *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1121" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1121" bodyend="1125"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1aa53f694d2371094ac48332640be0de58" prot="public" static="no" const="yes" explicit="no" inline="yes" final="yes" virt="non-virtual">
+        <type>InferenceCalculatorOptions_Delegate *</type>
+        <definition>InferenceCalculatorOptions_Delegate * mediapipe::InferenceCalculatorOptions_Delegate::New</definition>
+        <argsstring>(::PROTOBUF_NAMESPACE_ID::Arena *arena=nullptr) const final</argsstring>
+        <name>New</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::New</qualifiedname>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::Arena *</type>
+          <declname>arena</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1129" column="39" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1129" bodyend="1131"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ab19e316a8c852a83fc68e139e6e10cd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::CopyFrom</definition>
+        <argsstring>(const InferenceCalculatorOptions_Delegate &amp;from)</argsstring>
+        <name>CopyFrom</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::CopyFrom</qualifiedname>
+        <param>
+          <type>const InferenceCalculatorOptions_Delegate &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1133" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.cc" bodystart="1931" bodyend="1936"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ad014bcad1ca9041eb7a84fdaaf83c171" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::MergeFrom</definition>
+        <argsstring>(const InferenceCalculatorOptions_Delegate &amp;from)</argsstring>
+        <name>MergeFrom</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::MergeFrom</qualifiedname>
+        <param>
+          <type>const InferenceCalculatorOptions_Delegate &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1135" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.cc" bodystart="1901" bodyend="1929"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ae9c6827272b6dfda5cac34eb8df9dc54" prot="public" static="no" const="no" explicit="no" inline="no" final="yes" virt="non-virtual">
+        <type>PROTOBUF_ATTRIBUTE_REINITIALIZES void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::Clear</definition>
+        <argsstring>() final</argsstring>
+        <name>Clear</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::Clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1139" column="41" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.cc" bodystart="1728" bodyend="1736"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a5b4b281a69d5986423da39576aa3e547" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::InferenceCalculatorOptions_Delegate::IsInitialized</definition>
+        <argsstring>() const final</argsstring>
+        <name>IsInitialized</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::IsInitialized</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1140" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.cc" bodystart="1938" bodyend="1940"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a3666500590ec65c52320361edbc1a6b8" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t mediapipe::InferenceCalculatorOptions_Delegate::ByteSizeLong</definition>
+        <argsstring>() const final</argsstring>
+        <name>ByteSizeLong</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::ByteSizeLong</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1142" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.cc" bodystart="1844" bodyend="1886"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a213a0ebe82547b688c3bd6de5c68a768" prot="public" static="no" const="no" explicit="no" inline="no" final="yes" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * mediapipe::InferenceCalculatorOptions_Delegate::_InternalParse</definition>
+        <argsstring>(const char *ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final</argsstring>
+        <name>_InternalParse</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::_InternalParse</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>ptr</declname>
+        </param>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::internal::ParseContext *</type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1143" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.cc" bodystart="1738" bodyend="1797"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a5146571ba067d771ca3e726f476768b3" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="non-virtual">
+        <type>uint8_t *</type>
+        <definition>uint8_t * mediapipe::InferenceCalculatorOptions_Delegate::_InternalSerialize</definition>
+        <argsstring>(uint8_t *target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final</argsstring>
+        <name>_InternalSerialize</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::_InternalSerialize</qualifiedname>
+        <param>
+          <type>uint8_t *</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1144" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.cc" bodystart="1799" bodyend="1842"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a66b7a2cd1dab871718c5fcbc2b795833" prot="public" static="no" const="yes" explicit="no" inline="yes" final="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::InferenceCalculatorOptions_Delegate::GetCachedSize</definition>
+        <argsstring>() const final</argsstring>
+        <name>GetCachedSize</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::GetCachedSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1146" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1146" bodyend="1146"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a250a64540acb29f2542cac62326f02ae" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="non-virtual">
+        <type>const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *</type>
+        <definition>const ::PROTOBUF_NAMESPACE_ID::Message::ClassData * mediapipe::InferenceCalculatorOptions_Delegate::GetClassData</definition>
+        <argsstring>() const final</argsstring>
+        <name>GetClassData</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::GetClassData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1168" column="52" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.cc" bodystart="1892" bodyend="1892"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a6fb00ca579aaf3776a322382829e0221" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="non-virtual">
+        <type>::PROTOBUF_NAMESPACE_ID::Metadata</type>
+        <definition>PROTOBUF_NAMESPACE_ID::Metadata mediapipe::InferenceCalculatorOptions_Delegate::GetMetadata</definition>
+        <argsstring>() const final</argsstring>
+        <name>GetMetadata</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::GetMetadata</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1170" column="37" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.cc" bodystart="1949" bodyend="1953"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a7f4a67e023eea4864317b6ae0a86e383" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::InferenceCalculatorOptions_Delegate::has_tflite</definition>
+        <argsstring>() const</argsstring>
+        <name>has_tflite</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::has_tflite</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1188" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="2974" bodyend="2976"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a94300bd654fc3196e23c5e73c6202b02" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::clear_tflite</definition>
+        <argsstring>()</argsstring>
+        <name>clear_tflite</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::clear_tflite</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1192" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="2980" bodyend="2987"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a86c58ff2e527b3bd99f293f45859935b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::mediapipe::InferenceCalculatorOptions_Delegate_TfLite &amp;</type>
+        <definition>const ::mediapipe::InferenceCalculatorOptions_Delegate_TfLite &amp; mediapipe::InferenceCalculatorOptions_Delegate::tflite</definition>
+        <argsstring>() const</argsstring>
+        <name>tflite</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::tflite</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1193" column="65" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3007" bodyend="3010"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a61b951339dd2cadd17065fdfe39f2df7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PROTOBUF_NODISCARD::mediapipe::InferenceCalculatorOptions_Delegate_TfLite *</type>
+        <definition>mediapipe::InferenceCalculatorOptions_Delegate_TfLite * mediapipe::InferenceCalculatorOptions_Delegate::release_tflite</definition>
+        <argsstring>()</argsstring>
+        <name>release_tflite</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::release_tflite</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1194" column="78" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="2988" bodyend="3001"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a2bcb5f3820fd5211d7afef77b3bea9fb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::InferenceCalculatorOptions_Delegate_TfLite *</type>
+        <definition>mediapipe::InferenceCalculatorOptions_Delegate_TfLite * mediapipe::InferenceCalculatorOptions_Delegate::mutable_tflite</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_tflite</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::mutable_tflite</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1195" column="59" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3038" bodyend="3042"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a22cf80b99789fc3803024f55b6bbb6ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::set_allocated_tflite</definition>
+        <argsstring>(::mediapipe::InferenceCalculatorOptions_Delegate_TfLite *tflite)</argsstring>
+        <name>set_allocated_tflite</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::set_allocated_tflite</qualifiedname>
+        <param>
+          <type>::mediapipe::InferenceCalculatorOptions_Delegate_TfLite *</type>
+          <declname>tflite</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1196" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.cc" bodystart="1568" bodyend="1582"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1abf48e5bb91f0196f6e903355d1397f73" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::unsafe_arena_set_allocated_tflite</definition>
+        <argsstring>(::mediapipe::InferenceCalculatorOptions_Delegate_TfLite *tflite)</argsstring>
+        <name>unsafe_arena_set_allocated_tflite</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::unsafe_arena_set_allocated_tflite</qualifiedname>
+        <param>
+          <type>::mediapipe::InferenceCalculatorOptions_Delegate_TfLite *</type>
+          <declname>tflite</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1201" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3022" bodyend="3029"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a5d49be4cb599427aa9fdf1e776a80221" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::InferenceCalculatorOptions_Delegate_TfLite *</type>
+        <definition>mediapipe::InferenceCalculatorOptions_Delegate_TfLite * mediapipe::InferenceCalculatorOptions_Delegate::unsafe_arena_release_tflite</definition>
+        <argsstring>()</argsstring>
+        <name>unsafe_arena_release_tflite</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::unsafe_arena_release_tflite</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1203" column="59" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3011" bodyend="3021"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a9db03f6d9d7fa04a13097e63ab44ec5a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::InferenceCalculatorOptions_Delegate::has_gpu</definition>
+        <argsstring>() const</argsstring>
+        <name>has_gpu</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::has_gpu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1206" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3048" bodyend="3050"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1af35bcb456c73699ec91a939093668117" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::clear_gpu</definition>
+        <argsstring>()</argsstring>
+        <name>clear_gpu</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::clear_gpu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1210" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3054" bodyend="3061"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1acb22ce30cc6ea4d8bca701316d355620" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::mediapipe::InferenceCalculatorOptions_Delegate_Gpu &amp;</type>
+        <definition>const ::mediapipe::InferenceCalculatorOptions_Delegate_Gpu &amp; mediapipe::InferenceCalculatorOptions_Delegate::gpu</definition>
+        <argsstring>() const</argsstring>
+        <name>gpu</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::gpu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1211" column="62" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3081" bodyend="3084"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a7adb0974ab67b0b2868b8519cf01cf22" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PROTOBUF_NODISCARD::mediapipe::InferenceCalculatorOptions_Delegate_Gpu *</type>
+        <definition>mediapipe::InferenceCalculatorOptions_Delegate_Gpu * mediapipe::InferenceCalculatorOptions_Delegate::release_gpu</definition>
+        <argsstring>()</argsstring>
+        <name>release_gpu</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::release_gpu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1212" column="75" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3062" bodyend="3075"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a3dd181075bc97910216e12c28eada736" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::InferenceCalculatorOptions_Delegate_Gpu *</type>
+        <definition>mediapipe::InferenceCalculatorOptions_Delegate_Gpu * mediapipe::InferenceCalculatorOptions_Delegate::mutable_gpu</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_gpu</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::mutable_gpu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1213" column="56" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3112" bodyend="3116"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a93e8388b290a0dcf2d4e9869fe3907af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::set_allocated_gpu</definition>
+        <argsstring>(::mediapipe::InferenceCalculatorOptions_Delegate_Gpu *gpu)</argsstring>
+        <name>set_allocated_gpu</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::set_allocated_gpu</qualifiedname>
+        <param>
+          <type>::mediapipe::InferenceCalculatorOptions_Delegate_Gpu *</type>
+          <declname>gpu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1214" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.cc" bodystart="1583" bodyend="1597"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1afedd2ffca3066f1df389ef3c6fd135df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::unsafe_arena_set_allocated_gpu</definition>
+        <argsstring>(::mediapipe::InferenceCalculatorOptions_Delegate_Gpu *gpu)</argsstring>
+        <name>unsafe_arena_set_allocated_gpu</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::unsafe_arena_set_allocated_gpu</qualifiedname>
+        <param>
+          <type>::mediapipe::InferenceCalculatorOptions_Delegate_Gpu *</type>
+          <declname>gpu</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1219" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3096" bodyend="3103"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1af348f8026156a3a2819186047cf13891" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::InferenceCalculatorOptions_Delegate_Gpu *</type>
+        <definition>mediapipe::InferenceCalculatorOptions_Delegate_Gpu * mediapipe::InferenceCalculatorOptions_Delegate::unsafe_arena_release_gpu</definition>
+        <argsstring>()</argsstring>
+        <name>unsafe_arena_release_gpu</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::unsafe_arena_release_gpu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1221" column="56" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3085" bodyend="3095"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a0c3e60c299e25c7b009afb847b9016bb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::InferenceCalculatorOptions_Delegate::has_nnapi</definition>
+        <argsstring>() const</argsstring>
+        <name>has_nnapi</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::has_nnapi</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1224" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3122" bodyend="3124"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ae13361e59699a02caf223407f2c8e5d3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::clear_nnapi</definition>
+        <argsstring>()</argsstring>
+        <name>clear_nnapi</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::clear_nnapi</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1228" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3128" bodyend="3135"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1adddf967f0078d59891aecfde6e0dec6e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::mediapipe::InferenceCalculatorOptions_Delegate_Nnapi &amp;</type>
+        <definition>const ::mediapipe::InferenceCalculatorOptions_Delegate_Nnapi &amp; mediapipe::InferenceCalculatorOptions_Delegate::nnapi</definition>
+        <argsstring>() const</argsstring>
+        <name>nnapi</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::nnapi</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1229" column="64" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3155" bodyend="3158"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a29f1c38b7e2a283093a1594e9f8ab336" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PROTOBUF_NODISCARD::mediapipe::InferenceCalculatorOptions_Delegate_Nnapi *</type>
+        <definition>mediapipe::InferenceCalculatorOptions_Delegate_Nnapi * mediapipe::InferenceCalculatorOptions_Delegate::release_nnapi</definition>
+        <argsstring>()</argsstring>
+        <name>release_nnapi</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::release_nnapi</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1230" column="77" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3136" bodyend="3149"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a44c457834ab6c90cc90e710a1303967f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::InferenceCalculatorOptions_Delegate_Nnapi *</type>
+        <definition>mediapipe::InferenceCalculatorOptions_Delegate_Nnapi * mediapipe::InferenceCalculatorOptions_Delegate::mutable_nnapi</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_nnapi</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::mutable_nnapi</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1231" column="58" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3186" bodyend="3190"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a938eb7df51c985af2ff57b685a145120" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::set_allocated_nnapi</definition>
+        <argsstring>(::mediapipe::InferenceCalculatorOptions_Delegate_Nnapi *nnapi)</argsstring>
+        <name>set_allocated_nnapi</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::set_allocated_nnapi</qualifiedname>
+        <param>
+          <type>::mediapipe::InferenceCalculatorOptions_Delegate_Nnapi *</type>
+          <declname>nnapi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1232" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.cc" bodystart="1598" bodyend="1612"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a61f5404b719837a359e5dc6a72b2c7e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::unsafe_arena_set_allocated_nnapi</definition>
+        <argsstring>(::mediapipe::InferenceCalculatorOptions_Delegate_Nnapi *nnapi)</argsstring>
+        <name>unsafe_arena_set_allocated_nnapi</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::unsafe_arena_set_allocated_nnapi</qualifiedname>
+        <param>
+          <type>::mediapipe::InferenceCalculatorOptions_Delegate_Nnapi *</type>
+          <declname>nnapi</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1237" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3170" bodyend="3177"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a269c137f6b5b45e79f3333d1ac9e452d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::InferenceCalculatorOptions_Delegate_Nnapi *</type>
+        <definition>mediapipe::InferenceCalculatorOptions_Delegate_Nnapi * mediapipe::InferenceCalculatorOptions_Delegate::unsafe_arena_release_nnapi</definition>
+        <argsstring>()</argsstring>
+        <name>unsafe_arena_release_nnapi</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::unsafe_arena_release_nnapi</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1239" column="58" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3159" bodyend="3169"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ad93eb201c22fb99fd1ce34749e685b62" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::InferenceCalculatorOptions_Delegate::has_xnnpack</definition>
+        <argsstring>() const</argsstring>
+        <name>has_xnnpack</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::has_xnnpack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1242" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3196" bodyend="3198"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a8f6fc7eb84d422d0b99fe19f9fdf4cba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::clear_xnnpack</definition>
+        <argsstring>()</argsstring>
+        <name>clear_xnnpack</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::clear_xnnpack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1246" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3202" bodyend="3209"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a0248c4fd4fb15036d5b98d6c8defda28" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::mediapipe::InferenceCalculatorOptions_Delegate_Xnnpack &amp;</type>
+        <definition>const ::mediapipe::InferenceCalculatorOptions_Delegate_Xnnpack &amp; mediapipe::InferenceCalculatorOptions_Delegate::xnnpack</definition>
+        <argsstring>() const</argsstring>
+        <name>xnnpack</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::xnnpack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1247" column="66" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3229" bodyend="3232"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a9f6cc5b9f01e69b602f77b8539ad4776" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PROTOBUF_NODISCARD::mediapipe::InferenceCalculatorOptions_Delegate_Xnnpack *</type>
+        <definition>mediapipe::InferenceCalculatorOptions_Delegate_Xnnpack * mediapipe::InferenceCalculatorOptions_Delegate::release_xnnpack</definition>
+        <argsstring>()</argsstring>
+        <name>release_xnnpack</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::release_xnnpack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1248" column="79" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3210" bodyend="3223"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a39022a071e253d585e16cc65716e89c9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::InferenceCalculatorOptions_Delegate_Xnnpack *</type>
+        <definition>mediapipe::InferenceCalculatorOptions_Delegate_Xnnpack * mediapipe::InferenceCalculatorOptions_Delegate::mutable_xnnpack</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_xnnpack</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::mutable_xnnpack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1249" column="60" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3260" bodyend="3264"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a2b1f5f3d14e842ffff56e3fa625aeb87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::set_allocated_xnnpack</definition>
+        <argsstring>(::mediapipe::InferenceCalculatorOptions_Delegate_Xnnpack *xnnpack)</argsstring>
+        <name>set_allocated_xnnpack</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::set_allocated_xnnpack</qualifiedname>
+        <param>
+          <type>::mediapipe::InferenceCalculatorOptions_Delegate_Xnnpack *</type>
+          <declname>xnnpack</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1250" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.cc" bodystart="1613" bodyend="1627"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ae6641d5a61e31c32b2f8cd19be44796d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::unsafe_arena_set_allocated_xnnpack</definition>
+        <argsstring>(::mediapipe::InferenceCalculatorOptions_Delegate_Xnnpack *xnnpack)</argsstring>
+        <name>unsafe_arena_set_allocated_xnnpack</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::unsafe_arena_set_allocated_xnnpack</qualifiedname>
+        <param>
+          <type>::mediapipe::InferenceCalculatorOptions_Delegate_Xnnpack *</type>
+          <declname>xnnpack</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1255" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3244" bodyend="3251"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a85d39243b540a6ea89f457b61d4374c9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::InferenceCalculatorOptions_Delegate_Xnnpack *</type>
+        <definition>mediapipe::InferenceCalculatorOptions_Delegate_Xnnpack * mediapipe::InferenceCalculatorOptions_Delegate::unsafe_arena_release_xnnpack</definition>
+        <argsstring>()</argsstring>
+        <name>unsafe_arena_release_xnnpack</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::unsafe_arena_release_xnnpack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1257" column="60" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3233" bodyend="3243"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1adda7016f4fc2f037a0eba5d3fcddff4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::clear_delegate</definition>
+        <argsstring>()</argsstring>
+        <name>clear_delegate</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::clear_delegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1259" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.cc" bodystart="1693" bodyend="1725"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a8d25146808c9ff83820c858b16d7b86d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>DelegateCase</type>
+        <definition>InferenceCalculatorOptions_Delegate::DelegateCase mediapipe::InferenceCalculatorOptions_Delegate::delegate_case</definition>
+        <argsstring>() const</argsstring>
+        <name>delegate_case</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::delegate_case</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1260" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3272" bodyend="3274"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a9e6718cdc1568846b0456b2d95f7514c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::PROTOBUF_NAMESPACE_ID::Descriptor *</type>
+        <definition>static const ::PROTOBUF_NAMESPACE_ID::Descriptor * mediapipe::InferenceCalculatorOptions_Delegate::descriptor</definition>
+        <argsstring>()</argsstring>
+        <name>descriptor</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::descriptor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1078" column="52" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1078" bodyend="1080"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a86253430041d7ba1a34653423e781871" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::PROTOBUF_NAMESPACE_ID::Descriptor *</type>
+        <definition>static const ::PROTOBUF_NAMESPACE_ID::Descriptor * mediapipe::InferenceCalculatorOptions_Delegate::GetDescriptor</definition>
+        <argsstring>()</argsstring>
+        <name>GetDescriptor</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::GetDescriptor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1081" column="52" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1081" bodyend="1083"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a69c5ecb60c1b689422add032482bb094" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::PROTOBUF_NAMESPACE_ID::Reflection *</type>
+        <definition>static const ::PROTOBUF_NAMESPACE_ID::Reflection * mediapipe::InferenceCalculatorOptions_Delegate::GetReflection</definition>
+        <argsstring>()</argsstring>
+        <name>GetReflection</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::GetReflection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1084" column="52" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1084" bodyend="1086"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1afa8f9a2e5667af36d32ce178b3b2885f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const InferenceCalculatorOptions_Delegate &amp;</type>
+        <definition>static const InferenceCalculatorOptions_Delegate &amp; mediapipe::InferenceCalculatorOptions_Delegate::default_instance</definition>
+        <argsstring>()</argsstring>
+        <name>default_instance</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::default_instance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1087" column="52" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1087" bodyend="1089"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a965870dd952283d7b098ba0c1acfd4e8" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const InferenceCalculatorOptions_Delegate *</type>
+        <definition>static const InferenceCalculatorOptions_Delegate * mediapipe::InferenceCalculatorOptions_Delegate::internal_default_instance</definition>
+        <argsstring>()</argsstring>
+        <name>internal_default_instance</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::internal_default_instance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1098" column="59" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1098" bodyend="1101"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a59534f8a225450699d0bc1aa25a4925f" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::MergeImpl</definition>
+        <argsstring>(::PROTOBUF_NAMESPACE_ID::Message *to, const ::PROTOBUF_NAMESPACE_ID::Message &amp;from)</argsstring>
+        <name>MergeImpl</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::MergeImpl</qualifiedname>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::Message *</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>const ::PROTOBUF_NAMESPACE_ID::Message &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1137" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.cc" bodystart="1894" bodyend="1898"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a7286078283c9ac2be06e13f53658a3f6" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::PROTOBUF_NAMESPACE_ID::StringPiece</type>
+        <definition>::PROTOBUF_NAMESPACE_ID::StringPiece mediapipe::InferenceCalculatorOptions_Delegate::FullMessageName</definition>
+        <argsstring>()</argsstring>
+        <name>FullMessageName</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::FullMessageName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1156" column="47" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1156" bodyend="1158"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ad7f85a19677a31d70e02e056b450af8e" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::ArenaDtor</definition>
+        <argsstring>(void *object)</argsstring>
+        <name>ArenaDtor</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::ArenaDtor</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>object</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1163" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.cc" bodystart="1683" bodyend="1686"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a114a27f1d18569295b67fc95064eab94" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::SharedCtor</definition>
+        <argsstring>()</argsstring>
+        <name>SharedCtor</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::SharedCtor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1149" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.cc" bodystart="1665" bodyend="1667"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a9b59a6deb4d1e0363762d023042538d7" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::SharedDtor</definition>
+        <argsstring>()</argsstring>
+        <name>SharedDtor</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::SharedDtor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1150" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.cc" bodystart="1676" bodyend="1681"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1afaebf2fa47f33bf47bb70f0d94976e02" prot="private" static="no" const="yes" explicit="no" inline="no" final="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::SetCachedSize</definition>
+        <argsstring>(int size) const final</argsstring>
+        <name>SetCachedSize</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::SetCachedSize</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1151" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.cc" bodystart="1689" bodyend="1691"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1afcfcc5c343f0829d2cf213d3ed6201c7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::InternalSwap</definition>
+        <argsstring>(InferenceCalculatorOptions_Delegate *other)</argsstring>
+        <name>InternalSwap</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::InternalSwap</qualifiedname>
+        <param>
+          <type>InferenceCalculatorOptions_Delegate *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1152" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.cc" bodystart="1942" bodyend="1947"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a7bd38ab5fbe5607e73e6a04209769790" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::RegisterArenaDtor</definition>
+        <argsstring>(::PROTOBUF_NAMESPACE_ID::Arena *arena)</argsstring>
+        <name>RegisterArenaDtor</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::RegisterArenaDtor</qualifiedname>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::Arena *</type>
+          <declname>arena</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1164" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.cc" bodystart="1687" bodyend="1688"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a142136f8f441b2a6a034ae30f9594e6b" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::InferenceCalculatorOptions_Delegate::_internal_has_tflite</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_has_tflite</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::_internal_has_tflite</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1190" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="2971" bodyend="2973"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a2bce8a93168ffefe5a90293c47fd1936" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::mediapipe::InferenceCalculatorOptions_Delegate_TfLite &amp;</type>
+        <definition>const ::mediapipe::InferenceCalculatorOptions_Delegate_TfLite &amp; mediapipe::InferenceCalculatorOptions_Delegate::_internal_tflite</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_tflite</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::_internal_tflite</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1198" column="65" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3002" bodyend="3006"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a58dc297a263ebc4ace31259564ea7d96" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::InferenceCalculatorOptions_Delegate_TfLite *</type>
+        <definition>mediapipe::InferenceCalculatorOptions_Delegate_TfLite * mediapipe::InferenceCalculatorOptions_Delegate::_internal_mutable_tflite</definition>
+        <argsstring>()</argsstring>
+        <name>_internal_mutable_tflite</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::_internal_mutable_tflite</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1199" column="59" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3030" bodyend="3037"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a49ed8356817098feb52ad32cb5e96923" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::InferenceCalculatorOptions_Delegate::_internal_has_gpu</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_has_gpu</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::_internal_has_gpu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1208" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3045" bodyend="3047"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a2fcbcb0f9c99a3efd38ad55cc5b692dd" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::mediapipe::InferenceCalculatorOptions_Delegate_Gpu &amp;</type>
+        <definition>const ::mediapipe::InferenceCalculatorOptions_Delegate_Gpu &amp; mediapipe::InferenceCalculatorOptions_Delegate::_internal_gpu</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_gpu</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::_internal_gpu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1216" column="62" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3076" bodyend="3080"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ab2628f822b89f0abf6e14d95a47f9724" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::InferenceCalculatorOptions_Delegate_Gpu *</type>
+        <definition>mediapipe::InferenceCalculatorOptions_Delegate_Gpu * mediapipe::InferenceCalculatorOptions_Delegate::_internal_mutable_gpu</definition>
+        <argsstring>()</argsstring>
+        <name>_internal_mutable_gpu</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::_internal_mutable_gpu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1217" column="56" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3104" bodyend="3111"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a43561495c9186ad804d17ead696b9f6e" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::InferenceCalculatorOptions_Delegate::_internal_has_nnapi</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_has_nnapi</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::_internal_has_nnapi</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1226" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3119" bodyend="3121"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ac89a91998aa01855bbea4ce64e906cbd" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::mediapipe::InferenceCalculatorOptions_Delegate_Nnapi &amp;</type>
+        <definition>const ::mediapipe::InferenceCalculatorOptions_Delegate_Nnapi &amp; mediapipe::InferenceCalculatorOptions_Delegate::_internal_nnapi</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_nnapi</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::_internal_nnapi</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1234" column="64" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3150" bodyend="3154"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a062c5601dce189cf9a04e026ebd2674c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::InferenceCalculatorOptions_Delegate_Nnapi *</type>
+        <definition>mediapipe::InferenceCalculatorOptions_Delegate_Nnapi * mediapipe::InferenceCalculatorOptions_Delegate::_internal_mutable_nnapi</definition>
+        <argsstring>()</argsstring>
+        <name>_internal_mutable_nnapi</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::_internal_mutable_nnapi</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1235" column="58" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3178" bodyend="3185"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a2f908485e74341e3cb1820f1c8a2efac" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::InferenceCalculatorOptions_Delegate::_internal_has_xnnpack</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_has_xnnpack</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::_internal_has_xnnpack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1244" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3193" bodyend="3195"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a031b1c9d394af42a05c8a43d286eb273" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::mediapipe::InferenceCalculatorOptions_Delegate_Xnnpack &amp;</type>
+        <definition>const ::mediapipe::InferenceCalculatorOptions_Delegate_Xnnpack &amp; mediapipe::InferenceCalculatorOptions_Delegate::_internal_xnnpack</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_xnnpack</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::_internal_xnnpack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1252" column="66" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3224" bodyend="3228"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a46908187ab9d8bb2aef60365fa4ba976" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::InferenceCalculatorOptions_Delegate_Xnnpack *</type>
+        <definition>mediapipe::InferenceCalculatorOptions_Delegate_Xnnpack * mediapipe::InferenceCalculatorOptions_Delegate::_internal_mutable_xnnpack</definition>
+        <argsstring>()</argsstring>
+        <name>_internal_mutable_xnnpack</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::_internal_mutable_xnnpack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1253" column="60" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3252" bodyend="3259"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a9854126bbcc83f6c3000dd6bf31a4f9a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::set_has_tflite</definition>
+        <argsstring>()</argsstring>
+        <name>set_has_tflite</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::set_has_tflite</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1264" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="2977" bodyend="2979"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a5ab686560b39e4cdd010d2f671ab6a63" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::set_has_gpu</definition>
+        <argsstring>()</argsstring>
+        <name>set_has_gpu</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::set_has_gpu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1265" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3051" bodyend="3053"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a64798bf8176d84e56f9c61e97705fe78" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::set_has_nnapi</definition>
+        <argsstring>()</argsstring>
+        <name>set_has_nnapi</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::set_has_nnapi</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1266" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3125" bodyend="3127"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a91c413245ac8b0f39e670499005ae03d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::set_has_xnnpack</definition>
+        <argsstring>()</argsstring>
+        <name>set_has_xnnpack</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::set_has_xnnpack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1267" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3199" bodyend="3201"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a9a3424351308277bb1635d1e73333809" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::InferenceCalculatorOptions_Delegate::has_delegate</definition>
+        <argsstring>() const</argsstring>
+        <name>has_delegate</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::has_delegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1269" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3266" bodyend="3268"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a9c1d8c52f022e811b17e19c27b929dba" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceCalculatorOptions_Delegate::clear_has_delegate</definition>
+        <argsstring>()</argsstring>
+        <name>clear_has_delegate</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::clear_has_delegate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1270" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="3269" bodyend="3271"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a21f77170e4e135d6f4bd1911b571c2ec" prot="protected" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::InferenceCalculatorOptions_Delegate::InferenceCalculatorOptions_Delegate</definition>
+        <argsstring>(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned=false)</argsstring>
+        <name>InferenceCalculatorOptions_Delegate</name>
+        <qualifiedname>mediapipe::InferenceCalculatorOptions_Delegate::InferenceCalculatorOptions_Delegate</qualifiedname>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::Arena *</type>
+          <declname>arena</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>is_message_owned</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1160" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.cc" bodystart="1628" bodyend="1636"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" line="1040" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/calculators/tensor/inference_calculator.pb.h" bodystart="1041" bodyend="1287"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ab618dbbac4a8d749da0d85c32932df36" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a9b35d94da3444084fc3673b7717b6cfe" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a8bdc6d3e7be1b2f7536b903b975e79eb" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>::TableStruct_mediapipe_2fcalculators_2ftensor_2finference_5fcalculator_2eproto</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a3e0e708941573719d67b3b82d5de1921" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>_cached_size_</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a813e7b59cf4e6bd6adcc9d4cfbada7fa" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>_class_data_</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a2fcbcb0f9c99a3efd38ad55cc5b692dd" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>_internal_gpu</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a49ed8356817098feb52ad32cb5e96923" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>_internal_has_gpu</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a43561495c9186ad804d17ead696b9f6e" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>_internal_has_nnapi</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a142136f8f441b2a6a034ae30f9594e6b" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>_internal_has_tflite</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a2f908485e74341e3cb1820f1c8a2efac" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>_internal_has_xnnpack</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ab2628f822b89f0abf6e14d95a47f9724" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>_internal_mutable_gpu</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a062c5601dce189cf9a04e026ebd2674c" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>_internal_mutable_nnapi</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a58dc297a263ebc4ace31259564ea7d96" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>_internal_mutable_tflite</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a46908187ab9d8bb2aef60365fa4ba976" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>_internal_mutable_xnnpack</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ac89a91998aa01855bbea4ce64e906cbd" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>_internal_nnapi</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a2bce8a93168ffefe5a90293c47fd1936" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>_internal_tflite</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a031b1c9d394af42a05c8a43d286eb273" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>_internal_xnnpack</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a213a0ebe82547b688c3bd6de5c68a768" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>_InternalParse</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a5146571ba067d771ca3e726f476768b3" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>_InternalSerialize</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a4e9b0f9a71734cf374d5476432b5f66e" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>_oneof_case_</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ad7f85a19677a31d70e02e056b450af8e" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>ArenaDtor</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a3666500590ec65c52320361edbc1a6b8" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>ByteSizeLong</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ae9c6827272b6dfda5cac34eb8df9dc54" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>Clear</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1adda7016f4fc2f037a0eba5d3fcddff4e" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>clear_delegate</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1af35bcb456c73699ec91a939093668117" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>clear_gpu</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a9c1d8c52f022e811b17e19c27b929dba" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>clear_has_delegate</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ae13361e59699a02caf223407f2c8e5d3" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>clear_nnapi</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a94300bd654fc3196e23c5e73c6202b02" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>clear_tflite</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a8f6fc7eb84d422d0b99fe19f9fdf4cba" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>clear_xnnpack</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ab19e316a8c852a83fc68e139e6e10cd6" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>CopyFrom</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1afa8f9a2e5667af36d32ce178b3b2885f" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>default_instance</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1aef61b1a178e8c0a9bfaea58bc06c09f4" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>delegate_</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a8d25146808c9ff83820c858b16d7b86d" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>delegate_case</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a00f98afcae6e52bc23297db5e187de4ea81dc1e41144e993d1a444c3f5b6d07f5" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>DELEGATE_NOT_SET</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a00f98afcae6e52bc23297db5e187de4e" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>DelegateCase</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a9e6718cdc1568846b0456b2d95f7514c" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>descriptor</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a805ebd0210ea220d6034f8f34413e57f" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>DestructorSkippable_</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a7286078283c9ac2be06e13f53658a3f6" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>FullMessageName</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a66b7a2cd1dab871718c5fcbc2b795833" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>GetCachedSize</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a250a64540acb29f2542cac62326f02ae" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>GetClassData</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a86253430041d7ba1a34653423e781871" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>GetDescriptor</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a6fb00ca579aaf3776a322382829e0221" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>GetMetadata</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a69c5ecb60c1b689422add032482bb094" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>GetReflection</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a14fef4a6fd62220cff0372c998be4e09" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>Gpu</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1acb22ce30cc6ea4d8bca701316d355620" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>gpu</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a9a3424351308277bb1635d1e73333809" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>has_delegate</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a9db03f6d9d7fa04a13097e63ab44ec5a" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>has_gpu</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a0c3e60c299e25c7b009afb847b9016bb" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>has_nnapi</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a7f4a67e023eea4864317b6ae0a86e383" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>has_tflite</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ad93eb201c22fb99fd1ce34749e685b62" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>has_xnnpack</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ab261b8c7f284216e464d1410eb2813b7" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>InferenceCalculatorOptions_Delegate</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a6e0142c299e8e2a61b9e4c2d159f5f7d" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>InferenceCalculatorOptions_Delegate</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1aff12356e0a14a2b066f04a86a2b6a7dc" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>InferenceCalculatorOptions_Delegate</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a9cfcd1a4463739b73a34014ca812f4f7" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>InferenceCalculatorOptions_Delegate</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a21f77170e4e135d6f4bd1911b571c2ec" prot="protected" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>InferenceCalculatorOptions_Delegate</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a965870dd952283d7b098ba0c1acfd4e8" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>internal_default_instance</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a01001df7f6c91c0e31cfb6ac1de6ed9c" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>InternalArenaConstructable_</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1afcfcc5c343f0829d2cf213d3ed6201c7" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>InternalSwap</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a5b4b281a69d5986423da39576aa3e547" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>IsInitialized</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a00f98afcae6e52bc23297db5e187de4ea9487536d8ba5e666d9e3f339650b0542" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>kGpu</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a68eee6754f74f1020af2d9a6e74886dfa64756078f932d86d4a8e3dd3882e9ea0" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>kGpuFieldNumber</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a4f973916efa936d182e2cc18ec5ed853" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>kIndexInFileMessages</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a00f98afcae6e52bc23297db5e187de4eac8ac47e1781c49317bb360b3c68ceb09" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>kNnapi</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a68eee6754f74f1020af2d9a6e74886dfa90280569467cf82df79ca989996f86fa" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>kNnapiFieldNumber</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a00f98afcae6e52bc23297db5e187de4eaf04de3fc1419abfc1267f7626ded442f" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>kTflite</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a68eee6754f74f1020af2d9a6e74886dfa96bfb60b9a5c5c3bb24b096eea5018da" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>kTfliteFieldNumber</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a00f98afcae6e52bc23297db5e187de4ea70a03a3aafc406038f35e2f0c12dd88a" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>kXnnpack</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a68eee6754f74f1020af2d9a6e74886dfa782e8ede57c844a0b36653e9c498ea68" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>kXnnpackFieldNumber</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ad014bcad1ca9041eb7a84fdaaf83c171" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>MergeFrom</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a59534f8a225450699d0bc1aa25a4925f" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>MergeImpl</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a3dd181075bc97910216e12c28eada736" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>mutable_gpu</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a44c457834ab6c90cc90e710a1303967f" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>mutable_nnapi</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a2bcb5f3820fd5211d7afef77b3bea9fb" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>mutable_tflite</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a7240142943797830f467aada1a1cbef0" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>mutable_unknown_fields</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a39022a071e253d585e16cc65716e89c9" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>mutable_xnnpack</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1aa53f694d2371094ac48332640be0de58" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>New</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a5116f6e433b002e5415af6ffb21bd332" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>Nnapi</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1adddf967f0078d59891aecfde6e0dec6e" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>nnapi</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ad4669270cfa048660426038392c45785" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>operator=</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a66ce41355ff54698f677538286e7c3f5" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>operator=</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a7bd38ab5fbe5607e73e6a04209769790" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>RegisterArenaDtor</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a7adb0974ab67b0b2868b8519cf01cf22" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>release_gpu</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a29f1c38b7e2a283093a1594e9f8ab336" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>release_nnapi</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a61b951339dd2cadd17065fdfe39f2df7" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>release_tflite</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a9f6cc5b9f01e69b602f77b8539ad4776" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>release_xnnpack</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a93e8388b290a0dcf2d4e9869fe3907af" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>set_allocated_gpu</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a938eb7df51c985af2ff57b685a145120" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>set_allocated_nnapi</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a22cf80b99789fc3803024f55b6bbb6ea" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>set_allocated_tflite</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a2b1f5f3d14e842ffff56e3fa625aeb87" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>set_allocated_xnnpack</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a5ab686560b39e4cdd010d2f671ab6a63" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>set_has_gpu</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a64798bf8176d84e56f9c61e97705fe78" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>set_has_nnapi</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a9854126bbcc83f6c3000dd6bf31a4f9a" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>set_has_tflite</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a91c413245ac8b0f39e670499005ae03d" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>set_has_xnnpack</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1afaebf2fa47f33bf47bb70f0d94976e02" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>SetCachedSize</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a114a27f1d18569295b67fc95064eab94" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>SharedCtor</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a9b59a6deb4d1e0363762d023042538d7" prot="private" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>SharedDtor</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ab282aaa4b1b14921e98d839a8ae77e0a" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>swap</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a54343c3f4a690c81699c1158bc9fb5df" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>Swap</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1aaf90a166f91bf13ba70ef00f25325996" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>TfLite</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a86c58ff2e527b3bd99f293f45859935b" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>tflite</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a4a8c6f3601e8ee5d394aef0376893168" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>unknown_fields</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1af348f8026156a3a2819186047cf13891" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>unsafe_arena_release_gpu</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a269c137f6b5b45e79f3333d1ac9e452d" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>unsafe_arena_release_nnapi</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a5d49be4cb599427aa9fdf1e776a80221" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>unsafe_arena_release_tflite</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a85d39243b540a6ea89f457b61d4374c9" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>unsafe_arena_release_xnnpack</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1afedd2ffca3066f1df389ef3c6fd135df" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>unsafe_arena_set_allocated_gpu</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a61f5404b719837a359e5dc6a72b2c7e7" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>unsafe_arena_set_allocated_nnapi</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1abf48e5bb91f0196f6e903355d1397f73" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>unsafe_arena_set_allocated_tflite</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ae6641d5a61e31c32b2f8cd19be44796d" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>unsafe_arena_set_allocated_xnnpack</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1af8135379671a9854e636287ab35bb703" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>UnsafeArenaSwap</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a0248c4fd4fb15036d5b98d6c8defda28" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>xnnpack</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1ac85f998a0db4fa62d7cb35624937e8d3" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>Xnnpack</name></member>
+      <member refid="classmediapipe_1_1InferenceCalculatorOptions__Delegate_1a183da69fb7dcd4404bd006c38c596b26" prot="public" virt="non-virtual"><scope>mediapipe::InferenceCalculatorOptions_Delegate</scope><name>~InferenceCalculatorOptions_Delegate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

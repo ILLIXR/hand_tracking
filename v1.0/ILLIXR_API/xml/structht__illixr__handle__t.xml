@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structht__illixr__handle__t" kind="struct" language="C++" prot="public">
+    <compoundname>ht_illixr_handle_t</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structht__illixr__handle__t_1a473db7c00614497bcfc29b1f3114678b" prot="public" static="no" mutable="no">
+        <type>boost::interprocess::named_mutex *</type>
+        <definition>boost::interprocess::named_mutex* ht_illixr_handle_t::m_swap[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>m_swap</name>
+        <qualifiedname>ht_illixr_handle_t::m_swap</qualifiedname>
+        <initializer>{nullptr, nullptr}</initializer>
+        <briefdescription>
+<para>communication mutexes </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" line="80" column="47" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" bodystart="80" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="variable" id="structht__illixr__handle__t_1a9ba7aea312e897d31217593a0a35441e" prot="public" static="no" mutable="no">
+        <type>boost::interprocess::named_mutex *</type>
+        <definition>boost::interprocess::named_mutex* ht_illixr_handle_t::m_current_swap_idx</definition>
+        <argsstring></argsstring>
+        <name>m_current_swap_idx</name>
+        <qualifiedname>ht_illixr_handle_t::m_current_swap_idx</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+<para>index mutex </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" line="81" column="47" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structht__illixr__handle__t_1a7064e61047aa1a1f14d0ed9a08955500" prot="public" static="no" mutable="no">
+        <type>boost::interprocess::managed_shared_memory</type>
+        <definition>boost::interprocess::managed_shared_memory ht_illixr_handle_t::managed_shm</definition>
+        <argsstring></argsstring>
+        <name>managed_shm</name>
+        <qualifiedname>ht_illixr_handle_t::managed_shm</qualifiedname>
+        <briefdescription>
+<para>shared memory for communicating with the hand tracker </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" line="82" column="48" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structht__illixr__handle__t_1a80030bef351e83dca13a476d9f1f535a" prot="public" static="no" mutable="no">
+        <type>ILLIXR::data_format::coordinates::frame</type>
+        <definition>ILLIXR::data_format::coordinates::frame ht_illixr_handle_t::ref</definition>
+        <argsstring></argsstring>
+        <name>ref</name>
+        <qualifiedname>ht_illixr_handle_t::ref</qualifiedname>
+        <initializer>= ILLIXR::data_format::coordinates::RIGHT_HANDED_Y_UP</initializer>
+        <briefdescription>
+<para>reference frame </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" line="83" column="48" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structht__illixr__handle__t_1af27e428ae35ecbd77b4e24a700b3f3ef" prot="public" static="no" mutable="no">
+        <type><ref refid="structvalid__points" kindref="compound">valid_points</ref></type>
+        <definition>valid_points ht_illixr_handle_t::last_valid_frame[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>last_valid_frame</name>
+        <qualifiedname>ht_illixr_handle_t::last_valid_frame</qualifiedname>
+        <briefdescription>
+<para>last valid data for each hand </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" line="84" column="48" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structht__illixr__handle__t_1aa096166f0691cc0ebe159b72b80840b7" prot="public" static="no" mutable="no">
+        <type>Eigen::Matrix3f</type>
+        <definition>Eigen::Matrix3f ht_illixr_handle_t::convert</definition>
+        <argsstring></argsstring>
+        <name>convert</name>
+        <qualifiedname>ht_illixr_handle_t::convert</qualifiedname>
+        <briefdescription>
+<para>coordinate conversion matrix </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" line="85" column="48" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structht__illixr__handle__t_1af20f1d46a8426a43b798cea0e3c246fd" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ht_illixr_handle_t::do_convert</definition>
+        <argsstring></argsstring>
+        <name>do_convert</name>
+        <qualifiedname>ht_illixr_handle_t::do_convert</qualifiedname>
+        <briefdescription>
+<para>indicates whether conversion is required </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" line="86" column="48" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" bodystart="86" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structht__illixr__handle__t_1ad3e7b17e52ac0e259525abe50ad46f74" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ht_illixr_handle_t::ht_illixr_handle_t</definition>
+        <argsstring>()</argsstring>
+        <name>ht_illixr_handle_t</name>
+        <qualifiedname>ht_illixr_handle_t::ht_illixr_handle_t</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Basic constructor to initialize the data structures </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" line="91" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" bodystart="91" bodyend="104"/>
+        <references refid="structht__illixr__handle__t_1aa096166f0691cc0ebe159b72b80840b7" compoundref="interface_8cpp" startline="85">convert</references>
+        <references refid="structht__illixr__handle__t_1af20f1d46a8426a43b798cea0e3c246fd" compoundref="interface_8cpp" startline="86">do_convert</references>
+        <references refid="structht__illixr__handle__t_1a9ba7aea312e897d31217593a0a35441e" compoundref="interface_8cpp" startline="81">m_current_swap_idx</references>
+        <references refid="structht__illixr__handle__t_1a473db7c00614497bcfc29b1f3114678b" compoundref="interface_8cpp" startline="80" endline="80">m_swap</references>
+        <references refid="structht__illixr__handle__t_1a7064e61047aa1a1f14d0ed9a08955500" compoundref="interface_8cpp" startline="82">managed_shm</references>
+        <references refid="structht__illixr__handle__t_1a80030bef351e83dca13a476d9f1f535a" compoundref="interface_8cpp" startline="83">ref</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Holds handles for communicating with the ILLIXR hand tracking code </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>ht_illixr_handle_t</label>
+        <link refid="structht__illixr__handle__t"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>last_valid_frame</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>valid_points</label>
+        <link refid="structvalid__points"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" line="79" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" bodystart="79" bodyend="105"/>
+    <listofallmembers>
+      <member refid="structht__illixr__handle__t_1aa096166f0691cc0ebe159b72b80840b7" prot="public" virt="non-virtual"><scope>ht_illixr_handle_t</scope><name>convert</name></member>
+      <member refid="structht__illixr__handle__t_1af20f1d46a8426a43b798cea0e3c246fd" prot="public" virt="non-virtual"><scope>ht_illixr_handle_t</scope><name>do_convert</name></member>
+      <member refid="structht__illixr__handle__t_1ad3e7b17e52ac0e259525abe50ad46f74" prot="public" virt="non-virtual"><scope>ht_illixr_handle_t</scope><name>ht_illixr_handle_t</name></member>
+      <member refid="structht__illixr__handle__t_1af27e428ae35ecbd77b4e24a700b3f3ef" prot="public" virt="non-virtual"><scope>ht_illixr_handle_t</scope><name>last_valid_frame</name></member>
+      <member refid="structht__illixr__handle__t_1a9ba7aea312e897d31217593a0a35441e" prot="public" virt="non-virtual"><scope>ht_illixr_handle_t</scope><name>m_current_swap_idx</name></member>
+      <member refid="structht__illixr__handle__t_1a473db7c00614497bcfc29b1f3114678b" prot="public" virt="non-virtual"><scope>ht_illixr_handle_t</scope><name>m_swap</name></member>
+      <member refid="structht__illixr__handle__t_1a7064e61047aa1a1f14d0ed9a08955500" prot="public" virt="non-virtual"><scope>ht_illixr_handle_t</scope><name>managed_shm</name></member>
+      <member refid="structht__illixr__handle__t_1a80030bef351e83dca13a476d9f1f535a" prot="public" virt="non-virtual"><scope>ht_illixr_handle_t</scope><name>ref</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

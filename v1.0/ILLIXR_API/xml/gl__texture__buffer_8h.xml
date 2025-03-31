@@ -1,0 +1,1015 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="gl__texture__buffer_8h" kind="file" language="C++">
+    <compoundname>gl_texture_buffer.h</compoundname>
+    <includes local="no">atomic</includes>
+    <includes local="no">memory</includes>
+    <includes local="yes">absl/memory/memory.h</includes>
+    <includes refid="image__frame_8h" local="yes">mediapipe/framework/formats/image_frame.h</includes>
+    <includes refid="gl__base_8h" local="yes">mediapipe/gpu/gl_base.h</includes>
+    <includes refid="gl__context_8h" local="yes">mediapipe/gpu/gl_context.h</includes>
+    <includes refid="gl__texture__view_8h" local="yes">mediapipe/gpu/gl_texture_view.h</includes>
+    <includes refid="gpu__buffer__format_8h" local="yes">mediapipe/gpu/gpu_buffer_format.h</includes>
+    <includes refid="gpu__buffer__storage_8h" local="yes">mediapipe/gpu/gpu_buffer_storage.h</includes>
+    <includedby refid="image_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image.h</includedby>
+    <includedby refid="gl__texture__buffer_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.cc</includedby>
+    <includedby refid="gl__texture__buffer__pool_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer_pool.h</includedby>
+    <includedby refid="gpu__buffer_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer.h</includedby>
+    <incdepgraph>
+      <node id="10">
+        <label>mediapipe/framework/formats/image_format.pb.h</label>
+        <link refid="image__format_8pb_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="69">
+        <label>mediapipe/framework/mediapipe_options.pb.h</label>
+        <link refid="mediapipe__options_8pb_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>mediapipe/framework/demangle.h</label>
+        <link refid="demangle_8h_source"/>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="63">
+        <label>mediapipe/framework/deps/canonical_errors.h</label>
+        <link refid="deps_2canonical__errors_8h_source"/>
+        <childnode refid="64" relation="include">
+        </childnode>
+      </node>
+      <node id="98">
+        <label>mediapipe/framework/deps/no_destructor.h</label>
+        <link refid="no__destructor_8h_source"/>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>mediapipe/framework/deps/registration.h</label>
+        <link refid="registration_8h_source"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+      </node>
+      <node id="60">
+        <label>mediapipe/framework/deps/registration_token.h</label>
+        <link refid="registration__token_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+      </node>
+      <node id="77">
+        <label>mediapipe/framework/deps/safe_int.h</label>
+        <link refid="safe__int_8h_source"/>
+        <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+      </node>
+      <node id="64">
+        <label>mediapipe/framework/deps/status.h</label>
+        <link refid="deps_2status_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+      </node>
+      <node id="79">
+        <label>mediapipe/framework/deps/strong_int.h</label>
+        <link refid="strong__int_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+      </node>
+      <node id="90">
+        <label>mediapipe/framework/deps/thread_options.h</label>
+        <link refid="thread__options_8h_source"/>
+        <childnode refid="91" relation="include">
+        </childnode>
+        <childnode refid="92" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="88">
+        <label>mediapipe/framework/deps/threadpool.h</label>
+        <link refid="deps_2threadpool_8h_source"/>
+        <childnode refid="89" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="90" relation="include">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>mediapipe/framework/executor.h</label>
+        <link refid="executor_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>mediapipe/framework/formats/image_frame.h</label>
+        <link refid="image__frame_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="70">
+        <label>mediapipe/framework/mediapipe_profiling.h</label>
+        <link refid="mediapipe__profiling_8h_source"/>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+      </node>
+      <node id="72">
+        <label>mediapipe/framework/platform_specific_profiling.h</label>
+        <link refid="platform__specific__profiling_8h_source"/>
+        <childnode refid="73" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>mediapipe/framework/port.h</label>
+        <link refid="port_8h_source"/>
+      </node>
+      <node id="62">
+        <label>mediapipe/framework/port/canonical_errors.h</label>
+        <link refid="port_2canonical__errors_8h_source"/>
+        <childnode refid="63" relation="include">
+        </childnode>
+      </node>
+      <node id="83">
+        <label>mediapipe/framework/port/logging.h</label>
+        <link refid="logging_8h_source"/>
+        <childnode refid="84" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+        <childnode refid="85" relation="include">
+        </childnode>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+      </node>
+      <node id="81">
+        <label>mediapipe/framework/port/port.h</label>
+        <link refid="port_2port_8h_source"/>
+        <childnode refid="82" relation="include">
+        </childnode>
+      </node>
+      <node id="74">
+        <label>mediapipe/framework/port/status.h</label>
+        <link refid="port_2status_8h_source"/>
+        <childnode refid="64" relation="include">
+        </childnode>
+      </node>
+      <node id="67">
+        <label>mediapipe/framework/port/statusor.h</label>
+        <link refid="statusor_8h_source"/>
+        <childnode refid="68" relation="include">
+        </childnode>
+      </node>
+      <node id="87">
+        <label>mediapipe/framework/port/threadpool.h</label>
+        <link refid="port_2threadpool_8h_source"/>
+        <childnode refid="88" relation="include">
+        </childnode>
+      </node>
+      <node id="73">
+        <label>mediapipe/framework/profiler/graph_profiler_stub.h</label>
+        <link refid="graph__profiler__stub_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+      </node>
+      <node id="75">
+        <label>mediapipe/framework/timestamp.h</label>
+        <link refid="timestamp_8h_source"/>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="83" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>mediapipe/framework/tool/type_util.h</label>
+        <link refid="type__util_8h_source"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="93">
+        <label>mediapipe/gpu/attachments.h</label>
+        <link refid="attachments_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>mediapipe/gpu/gl_base.h</label>
+        <link refid="gl__base_8h_source"/>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>mediapipe/gpu/gl_context.h</label>
+        <link refid="gl__context_8h_source"/>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="87" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="93" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="94" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h</label>
+        <link refid="gl__texture__buffer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+        <childnode refid="94" relation="include">
+        </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+      </node>
+      <node id="95">
+        <label>mediapipe/gpu/gl_texture_view.h</label>
+        <link refid="gl__texture__view_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+      </node>
+      <node id="94">
+        <label>mediapipe/gpu/gpu_buffer_format.h</label>
+        <link refid="gpu__buffer__format_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="96">
+        <label>mediapipe/gpu/gpu_buffer_storage.h</label>
+        <link refid="gpu__buffer__storage_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="98" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="94" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+      </node>
+      <node id="71">
+        <label>mediapipe/util/unused.hpp</label>
+        <link refid="unused_8hpp_source"/>
+      </node>
+      <node id="36">
+        <label>EGL/egl.h</label>
+      </node>
+      <node id="37">
+        <label>GLES2/gl2.h</label>
+      </node>
+      <node id="38">
+        <label>GLES2/gl2ext.h</label>
+      </node>
+      <node id="39">
+        <label>GLES3/gl32.h</label>
+      </node>
+      <node id="9">
+        <label>absl/base/attributes.h</label>
+      </node>
+      <node id="52">
+        <label>absl/base/macros.h</label>
+      </node>
+      <node id="82">
+        <label>absl/base/port.h</label>
+      </node>
+      <node id="53">
+        <label>absl/base/thread_annotations.h</label>
+      </node>
+      <node id="42">
+        <label>absl/container/flat_hash_map.h</label>
+      </node>
+      <node id="54">
+        <label>absl/container/flat_hash_set.h</label>
+      </node>
+      <node id="43">
+        <label>absl/log/absl_check.h</label>
+      </node>
+      <node id="55">
+        <label>absl/log/absl_log.h</label>
+      </node>
+      <node id="4">
+        <label>absl/memory/memory.h</label>
+      </node>
+      <node id="56">
+        <label>absl/meta/type_traits.h</label>
+      </node>
+      <node id="66">
+        <label>absl/status/status.h</label>
+      </node>
+      <node id="68">
+        <label>absl/status/statusor.h</label>
+      </node>
+      <node id="85">
+        <label>absl/strings/has_ostream_operator.h</label>
+      </node>
+      <node id="57">
+        <label>absl/strings/str_join.h</label>
+      </node>
+      <node id="58">
+        <label>absl/strings/str_split.h</label>
+      </node>
+      <node id="59">
+        <label>absl/strings/string_view.h</label>
+      </node>
+      <node id="44">
+        <label>absl/synchronization/mutex.h</label>
+      </node>
+      <node id="84">
+        <label>absl/time/time.h</label>
+      </node>
+      <node id="47">
+        <label>algorithm</label>
+      </node>
+      <node id="2">
+        <label>atomic</label>
+      </node>
+      <node id="76">
+        <label>cmath</label>
+      </node>
+      <node id="29">
+        <label>cstddef</label>
+      </node>
+      <node id="6">
+        <label>cstdint</label>
+      </node>
+      <node id="89">
+        <label>deque</label>
+      </node>
+      <node id="7">
+        <label>functional</label>
+      </node>
+      <node id="86">
+        <label>glog/logging.h</label>
+      </node>
+      <node id="15">
+        <label>google/protobuf/arena.h</label>
+      </node>
+      <node id="16">
+        <label>google/protobuf/arenastring.h</label>
+      </node>
+      <node id="24">
+        <label>google/protobuf/extension_set.h</label>
+      </node>
+      <node id="25">
+        <label>google/protobuf/generated_enum_reflection.h</label>
+      </node>
+      <node id="17">
+        <label>google/protobuf/generated_message_bases.h</label>
+      </node>
+      <node id="21">
+        <label>google/protobuf/generated_message_reflection.h</label>
+      </node>
+      <node id="18">
+        <label>google/protobuf/generated_message_table_driven.h</label>
+      </node>
+      <node id="19">
+        <label>google/protobuf/generated_message_util.h</label>
+      </node>
+      <node id="14">
+        <label>google/protobuf/io/coded_stream.h</label>
+      </node>
+      <node id="22">
+        <label>google/protobuf/message.h</label>
+      </node>
+      <node id="20">
+        <label>google/protobuf/metadata_lite.h</label>
+      </node>
+      <node id="12">
+        <label>google/protobuf/port_def.inc</label>
+      </node>
+      <node id="13">
+        <label>google/protobuf/port_undef.inc</label>
+      </node>
+      <node id="23">
+        <label>google/protobuf/repeated_field.h</label>
+      </node>
+      <node id="26">
+        <label>google/protobuf/unknown_field_set.h</label>
+      </node>
+      <node id="34">
+        <label>illixr/data_format/opencv_data_types.hpp</label>
+      </node>
+      <node id="65">
+        <label>iosfwd</label>
+      </node>
+      <node id="11">
+        <label>limits</label>
+      </node>
+      <node id="78">
+        <label>limits.h</label>
+      </node>
+      <node id="3">
+        <label>memory</label>
+      </node>
+      <node id="80">
+        <label>ostream</label>
+      </node>
+      <node id="41">
+        <label>pthread.h</label>
+      </node>
+      <node id="92">
+        <label>set</label>
+      </node>
+      <node id="97">
+        <label>sstream</label>
+      </node>
+      <node id="91">
+        <label>stddef.h</label>
+      </node>
+      <node id="33">
+        <label>stdlib.h</label>
+      </node>
+      <node id="8">
+        <label>string</label>
+      </node>
+      <node id="48">
+        <label>tuple</label>
+      </node>
+      <node id="49">
+        <label>type_traits</label>
+      </node>
+      <node id="30">
+        <label>typeinfo</label>
+      </node>
+      <node id="50">
+        <label>unordered_map</label>
+      </node>
+      <node id="51">
+        <label>unordered_set</label>
+      </node>
+      <node id="31">
+        <label>utility</label>
+      </node>
+      <node id="61">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter.h</label>
+        <link refid="image__to__tensor__converter_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.h</label>
+        <link refid="image__to__tensor__converter__gl__buffer_8h_source"/>
+      </node>
+      <node id="5">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_texture.h</label>
+        <link refid="image__to__tensor__converter__gl__texture_8h_source"/>
+      </node>
+      <node id="6">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_opencv.h</label>
+        <link refid="image__to__tensor__converter__opencv_8h_source"/>
+      </node>
+      <node id="7">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_utils.h</label>
+        <link refid="image__to__tensor__utils_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image.h</label>
+        <link refid="image_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_opencv.h</label>
+        <link refid="image__opencv_8h_source"/>
+      </node>
+      <node id="9">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h</label>
+        <link refid="gl__calculator__helper_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h</label>
+        <link refid="gl__texture__buffer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer_pool.h</label>
+        <link refid="gl__texture__buffer__pool_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer.h</label>
+        <link refid="gpu__buffer_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_multi_pool.h</label>
+        <link refid="gpu__buffer__multi__pool_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_service.h</label>
+        <link refid="gpu__service_8h_source"/>
+      </node>
+      <node id="13">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_shared_data_internal.h</label>
+        <link refid="gpu__shared__data__internal_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/plugin.hpp</label>
+        <link refid="plugin_8hpp_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classmediapipe_1_1GlTextureBuffer" prot="public">mediapipe::GlTextureBuffer</innerclass>
+    <innernamespace refid="namespacemediapipe">mediapipe</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Copyright<sp/>2019<sp/>The<sp/>MediaPipe<sp/>Authors.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Consider<sp/>this<sp/>file<sp/>an<sp/>implementation<sp/>detail.<sp/>None<sp/>of<sp/>this<sp/>is<sp/>part<sp/>of<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">//<sp/>public<sp/>API.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>MEDIAPIPE_GPU_GL_TEXTURE_BUFFER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MEDIAPIPE_GPU_GL_TEXTURE_BUFFER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;atomic&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/memory/memory.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/formats/image_frame.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/gpu/gl_base.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/gpu/gl_context.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/gpu/gl_texture_view.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/gpu/gpu_buffer_format.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/gpu/gpu_buffer_storage.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mediapipe<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">GlCalculatorHelperImpl;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Implements<sp/>a<sp/>GPU<sp/>memory<sp/>buffer<sp/>as<sp/>an<sp/>OpenGL<sp/>texture.<sp/>For<sp/>internal<sp/>use.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">GlTextureBuffer</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>internal::GpuBufferStorageImpl&lt;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GlTextureBuffer,<sp/>internal::ViewProvider&lt;GlTextureView&gt;&gt;,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>std::enable_shared_from_this&lt;GlTextureBuffer&gt;<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>is<sp/>called<sp/>when<sp/>the<sp/>texture<sp/>buffer<sp/>is<sp/>deleted.<sp/>It<sp/>is<sp/>passed<sp/>a<sp/>sync</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>token<sp/>created<sp/>at<sp/>that<sp/>time<sp/>on<sp/>the<sp/>GlContext.<sp/>If<sp/>the<sp/>GlTextureBuffer<sp/>has</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>been<sp/>created<sp/>from<sp/>a<sp/>texture<sp/>not<sp/>owned<sp/>by<sp/>MediaPipe,<sp/>the<sp/>sync<sp/>token<sp/>can<sp/>be</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>used<sp/>to<sp/>wait<sp/>until<sp/>a<sp/>point<sp/>when<sp/>it<sp/>is<sp/>certain<sp/>that<sp/>MediaPipe&apos;s<sp/>GPU<sp/>tasks</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>are<sp/>done<sp/>reading<sp/>from<sp/>the<sp/>texture.<sp/>This<sp/>is<sp/>improtant<sp/>if<sp/>the<sp/>code<sp/>outside</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>of<sp/>MediaPipe<sp/>is<sp/>going<sp/>to<sp/>reuse<sp/>the<sp/>texture.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">DeletionCallback<sp/>=</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::function&lt;void(std::shared_ptr&lt;GlSyncPoint&gt;<sp/>sync_token)&gt;;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Wraps<sp/>an<sp/>existing<sp/>texture,<sp/>but<sp/>does<sp/>not<sp/>take<sp/>ownership<sp/>of<sp/>it.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>deletion_callback<sp/>is<sp/>invoked<sp/>when<sp/>the<sp/>GlTextureBuffer<sp/>is<sp/>released,<sp/>so</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>caller<sp/>knows<sp/>that<sp/>the<sp/>texture<sp/>is<sp/>no<sp/>longer<sp/>in<sp/>use.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>commands<sp/>producing<sp/>the<sp/>texture<sp/>are<sp/>assumed<sp/>to<sp/>be<sp/>completed<sp/>at<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>time<sp/>of<sp/>this<sp/>call.<sp/>If<sp/>not,<sp/>call<sp/>Updated<sp/>on<sp/>the<sp/>result.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::unique_ptr&lt;GlTextureBuffer&gt;<sp/>Wrap(</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>GLenum<sp/>target,<sp/>GLuint<sp/>name,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height,<sp/>GpuBufferFormat<sp/>format,</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>DeletionCallback<sp/>deletion_callback);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Same<sp/>as<sp/>Wrap<sp/>above,<sp/>but<sp/>saves<sp/>the<sp/>given<sp/>context<sp/>for<sp/>future<sp/>use.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::unique_ptr&lt;GlTextureBuffer&gt;<sp/>Wrap(</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>GLenum<sp/>target,<sp/>GLuint<sp/>name,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height,<sp/>GpuBufferFormat<sp/>format,</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::shared_ptr&lt;GlContext&gt;<sp/>context,<sp/>DeletionCallback<sp/>deletion_callback);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Creates<sp/>a<sp/>texture<sp/>of<sp/>dimensions<sp/>width<sp/>x<sp/>height<sp/>and<sp/>allocates<sp/>space<sp/>for<sp/>it.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>data<sp/>is<sp/>provided,<sp/>it<sp/>is<sp/>uploaded<sp/>to<sp/>the<sp/>texture;<sp/>otherwise,<sp/>it<sp/>can<sp/>be</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>provided<sp/>later<sp/>via<sp/>glTexSubImage2D.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::unique_ptr&lt;GlTextureBuffer&gt;<sp/>Create(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GpuBufferFormat<sp/>format,</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>data<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>alignment<sp/>=<sp/>4);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>a<sp/>texture<sp/>with<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>data<sp/>in<sp/>image_frame.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::unique_ptr&lt;GlTextureBuffer&gt;<sp/>Create(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ImageFrame&amp;<sp/>image_frame);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::unique_ptr&lt;GlTextureBuffer&gt;<sp/>Create(</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>internal::GpuBufferSpec&amp;<sp/>spec)<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Create(spec.width,<sp/>spec.height,<sp/>spec.format);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Wraps<sp/>an<sp/>existing<sp/>texture,<sp/>but<sp/>does<sp/>not<sp/>take<sp/>ownership<sp/>of<sp/>it.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>deletion_callback<sp/>is<sp/>invoked<sp/>when<sp/>the<sp/>GlTextureBuffer<sp/>is<sp/>released,<sp/>so</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>caller<sp/>knows<sp/>that<sp/>the<sp/>texture<sp/>is<sp/>no<sp/>longer<sp/>in<sp/>use.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>commands<sp/>producing<sp/>the<sp/>texture<sp/>are<sp/>assumed<sp/>to<sp/>be<sp/>completed<sp/>at<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>time<sp/>of<sp/>this<sp/>call.<sp/>If<sp/>not,<sp/>call<sp/>Updated<sp/>on<sp/>the<sp/>result.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>GlTextureBuffer(GLenum<sp/>target,<sp/>GLuint<sp/>name,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height,</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GpuBufferFormat<sp/>format,<sp/>DeletionCallback<sp/>deletion_callback,</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::shared_ptr&lt;GlContext&gt;<sp/>producer_context<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>~GlTextureBuffer();</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Included<sp/>to<sp/>support<sp/>nativeGetGpuBuffer*<sp/>in<sp/>Java.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>turn<sp/>into<sp/>a<sp/>single<sp/>call?</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>GLuint<sp/>name()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>name_;<sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>GLenum<sp/>target()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>target_;<sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width()</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>width_;<sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height()</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>height_;<sp/>}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>GpuBufferFormat<sp/>format()</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>format_;<sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>GlTextureView<sp/>GetReadView(internal::types&lt;GlTextureView&gt;,</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>plane)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>GlTextureView<sp/>GetWriteView(internal::types&lt;GlTextureView&gt;,</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>plane)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>this<sp/>texture<sp/>is<sp/>going<sp/>to<sp/>be<sp/>used<sp/>outside<sp/>of<sp/>the<sp/>context<sp/>that<sp/>produced</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>it,<sp/>this<sp/>method<sp/>should<sp/>be<sp/>called<sp/>to<sp/>ensure<sp/>that<sp/>its<sp/>updated<sp/>contents<sp/>are</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>available.<sp/>When<sp/>this<sp/>method<sp/>returns,<sp/>all<sp/>changed<sp/>made<sp/>before<sp/>the<sp/>call<sp/>to</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Updated<sp/>have<sp/>become<sp/>visible.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>is<sp/>necessary<sp/>because<sp/>texture<sp/>changes<sp/>are<sp/>not<sp/>synchronized<sp/>across</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>contexts<sp/>in<sp/>a<sp/>sharegroup.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>NOTE:<sp/>This<sp/>blocks<sp/>the<sp/>current<sp/>CPU<sp/>thread<sp/>and<sp/>makes<sp/>the<sp/>changes<sp/>visible</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>to<sp/>the<sp/>CPU.<sp/>If<sp/>you<sp/>want<sp/>to<sp/>access<sp/>the<sp/>data<sp/>via<sp/>OpenGL,<sp/>use<sp/>WaitOnGpu</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>instead.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>WaitUntilComplete()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Call<sp/>this<sp/>method<sp/>to<sp/>synchronize<sp/>the<sp/>current<sp/>GL<sp/>context<sp/>with<sp/>the<sp/>texture&apos;s</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>producer.<sp/>This<sp/>will<sp/>not<sp/>block<sp/>the<sp/>current<sp/>CPU<sp/>thread,<sp/>but<sp/>will<sp/>ensure<sp/>that</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>subsequent<sp/>GL<sp/>commands<sp/>see<sp/>the<sp/>texture<sp/>in<sp/>its<sp/>complete<sp/>status,<sp/>with<sp/>all</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>rendering<sp/>done<sp/>on<sp/>the<sp/>GPU<sp/>by<sp/>the<sp/>generating<sp/>context.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>WaitOnGpu()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Informs<sp/>the<sp/>buffer<sp/>that<sp/>its<sp/>contents<sp/>are<sp/>going<sp/>to<sp/>be<sp/>overwritten.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>invalidates<sp/>the<sp/>current<sp/>sync<sp/>token.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>NOTE:<sp/>this<sp/>must<sp/>be<sp/>called<sp/>on<sp/>the<sp/>context<sp/>that<sp/>will<sp/>become<sp/>the<sp/>new</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>producer.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Reuse();</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Informs<sp/>the<sp/>buffer<sp/>that<sp/>its<sp/>contents<sp/>have<sp/>been<sp/>updated.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>provided<sp/>sync<sp/>token<sp/>marks<sp/>the<sp/>point<sp/>when<sp/>the<sp/>producer<sp/>has<sp/>finished</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>writing<sp/>the<sp/>new<sp/>contents.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Updated(std::shared_ptr&lt;GlSyncPoint&gt;<sp/>prod_token);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Informs<sp/>the<sp/>buffer<sp/>that<sp/>a<sp/>consumer<sp/>has<sp/>finished<sp/>reading<sp/>from<sp/>it.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DidRead(std::shared_ptr&lt;GlSyncPoint&gt;<sp/>cons_token)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Waits<sp/>for<sp/>all<sp/>pending<sp/>consumers<sp/>to<sp/>finish<sp/>accessing<sp/>the<sp/>current<sp/>content</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>of<sp/>the<sp/>texture.<sp/>This<sp/>(preferably<sp/>the<sp/>OnGpu<sp/>version)<sp/>should<sp/>be<sp/>called</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>before<sp/>overwriting<sp/>the<sp/>texture&apos;s<sp/>contents.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>WaitForConsumers();</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>WaitForConsumersOnGpu();</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>the<sp/>GL<sp/>context<sp/>this<sp/>buffer<sp/>was<sp/>created<sp/>with.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;GlContext&gt;&amp;<sp/>GetProducerContext()<sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>producer_context_;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>MEDIAPIPE_GPU_BUFFER_USE_CV_PIXEL_BUFFER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>kDisableGpuBufferRegistration<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MEDIAPIPE_GPU_BUFFER_USE_CV_PIXEL_BUFFER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Creates<sp/>a<sp/>texture<sp/>of<sp/>dimensions<sp/>width<sp/>x<sp/>height<sp/>and<sp/>allocates<sp/>space<sp/>for<sp/>it.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>data<sp/>is<sp/>provided,<sp/>it<sp/>is<sp/>uploaded<sp/>to<sp/>the<sp/>texture;<sp/>otherwise,<sp/>it<sp/>can<sp/>be</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>provided<sp/>later<sp/>via<sp/>glTexSubImage2D.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>true<sp/>on<sp/>success.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>CreateInternal(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>data,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>alignment<sp/>=<sp/>4);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ViewDoneWriting(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GlTextureView&amp;<sp/>view);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">GlCalculatorHelperImpl;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/>GLuint<sp/>name_<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width_<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height_<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GpuBufferFormat<sp/>format_<sp/>=<sp/>GpuBufferFormat::kUnknown;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLenum<sp/>target_<sp/>=<sp/>GL_TEXTURE_2D;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Token<sp/>tracking<sp/>changes<sp/>to<sp/>this<sp/>texture.<sp/>Used<sp/>by<sp/>WaitUntilComplete.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/>std::shared_ptr&lt;GlSyncPoint&gt;<sp/>producer_sync_;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">mutable</highlight><highlight class="normal"><sp/>absl::Mutex<sp/>consumer_sync_mutex_;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Tokens<sp/>tracking<sp/>the<sp/>point<sp/>when<sp/>consumers<sp/>finished<sp/>using<sp/>this<sp/>texture.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">mutable</highlight><highlight class="normal"><sp/>std::unique_ptr&lt;GlMultiSyncPoint&gt;<sp/>consumer_multi_sync_</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ABSL_GUARDED_BY(consumer_sync_mutex_)<sp/>=</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>absl::make_unique&lt;GlMultiSyncPoint&gt;();</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/>DeletionCallback<sp/>deletion_callback_;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/>std::shared_ptr&lt;GlContext&gt;<sp/>producer_context_;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">GlTextureBufferSharedPtr<sp/>=<sp/>std::shared_ptr&lt;GlTextureBuffer&gt;;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>mediapipe</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MEDIAPIPE_GPU_GL_TEXTURE_BUFFER_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h"/>
+  </compounddef>
+</doxygen>

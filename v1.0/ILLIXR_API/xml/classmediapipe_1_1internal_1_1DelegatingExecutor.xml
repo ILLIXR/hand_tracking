@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1internal_1_1DelegatingExecutor" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::internal::DelegatingExecutor</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">mediapipe::Executor</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1internal_1_1DelegatingExecutor_1a69f8f493a55e9a1c3ef74e84b3034a3a" prot="private" static="no" mutable="no">
+        <type>std::function&lt; void(std::function&lt; void()&gt;)&gt;</type>
+        <definition>std::function&lt;void(std::function&lt;void()&gt;)&gt; mediapipe::internal::DelegatingExecutor::callback_</definition>
+        <argsstring></argsstring>
+        <name>callback_</name>
+        <qualifiedname>mediapipe::internal::DelegatingExecutor::callback_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/delegating_executor.h" line="32" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/delegating_executor.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1DelegatingExecutor_1a5d2799094ae2e51e78011c848b9b2e30" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::internal::DelegatingExecutor::DelegatingExecutor</definition>
+        <argsstring>(std::function&lt; void(std::function&lt; void()&gt;)&gt; callback)</argsstring>
+        <name>DelegatingExecutor</name>
+        <qualifiedname>mediapipe::internal::DelegatingExecutor::DelegatingExecutor</qualifiedname>
+        <param>
+          <type>std::function&lt; void(std::function&lt; void()&gt;)&gt;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/delegating_executor.h" line="26" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/delegating_executor.h" bodystart="26" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1DelegatingExecutor_1aca266d2b3eb31c62cdc9c892538adad3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::DelegatingExecutor::Schedule</definition>
+        <argsstring>(std::function&lt; void()&gt; task) override</argsstring>
+        <name>Schedule</name>
+        <qualifiedname>mediapipe::internal::DelegatingExecutor::Schedule</qualifiedname>
+        <param>
+          <type>std::function&lt; void()&gt;</type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/delegating_executor.h" line="29" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/delegating_executor.cc" bodystart="22" bodyend="24"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/delegating_executor.h" line="24" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/delegating_executor.h" bodystart="24" bodyend="33"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1Executor_1a65d32854b4e6b242dbc424312d273a7c" prot="public" virt="virtual"><scope>mediapipe::internal::DelegatingExecutor</scope><name>AddTask</name></member>
+      <member refid="classmediapipe_1_1internal_1_1DelegatingExecutor_1a69f8f493a55e9a1c3ef74e84b3034a3a" prot="private" virt="non-virtual"><scope>mediapipe::internal::DelegatingExecutor</scope><name>callback_</name></member>
+      <member refid="classmediapipe_1_1internal_1_1DelegatingExecutor_1a5d2799094ae2e51e78011c848b9b2e30" prot="public" virt="non-virtual"><scope>mediapipe::internal::DelegatingExecutor</scope><name>DelegatingExecutor</name></member>
+      <member refid="classmediapipe_1_1internal_1_1DelegatingExecutor_1aca266d2b3eb31c62cdc9c892538adad3" prot="public" virt="non-virtual"><scope>mediapipe::internal::DelegatingExecutor</scope><name>Schedule</name></member>
+      <member refid="classmediapipe_1_1Executor_1a2a91bf0fcfb701b26c3099d54b5cc627" prot="public" virt="virtual"><scope>mediapipe::internal::DelegatingExecutor</scope><name>~Executor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

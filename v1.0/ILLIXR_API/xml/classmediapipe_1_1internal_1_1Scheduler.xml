@@ -1,0 +1,1100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1internal_1_1Scheduler" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>mediapipe::internal::Scheduler</compoundname>
+    <innerclass refid="structmediapipe_1_1internal_1_1Scheduler_1_1SourceLayerCompare" prot="private">mediapipe::internal::Scheduler::SourceLayerCompare</innerclass>
+    <sectiondef kind="private-type">
+      <memberdef kind="enum" id="classmediapipe_1_1internal_1_1Scheduler_1a722bcb20611b234ba4a6af34dbac77ce" prot="private" static="no" strong="no">
+        <type></type>
+        <name>State</name>
+        <qualifiedname>mediapipe::internal::Scheduler::State</qualifiedname>
+        <enumvalue id="classmediapipe_1_1internal_1_1Scheduler_1a722bcb20611b234ba4a6af34dbac77ceaae0091315f0c646cf46fdf8115331d96" prot="private">
+          <name>STATE_NOT_STARTED</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1internal_1_1Scheduler_1a722bcb20611b234ba4a6af34dbac77cea8694500abdb9a62f8e8cfd5b7788ab62" prot="private">
+          <name>STATE_RUNNING</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1internal_1_1Scheduler_1a722bcb20611b234ba4a6af34dbac77ceac9410c53a87ada74d20a16c1e436d4ae" prot="private">
+          <name>STATE_PAUSED</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1internal_1_1Scheduler_1a722bcb20611b234ba4a6af34dbac77ceacce4ba709d3d8dbc427264317df2f692" prot="private">
+          <name>STATE_CANCELLING</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1internal_1_1Scheduler_1a722bcb20611b234ba4a6af34dbac77ceabf5055b2324025be21f85a5af9d5efe1" prot="private">
+          <name>STATE_TERMINATED</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="198" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" bodystart="198" bodyend="206"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1internal_1_1Scheduler_1a502db041df6fcc1954526fa74dcc7ac9" prot="private" static="no" mutable="no">
+        <type>CalculatorGraph *</type>
+        <definition>CalculatorGraph* mediapipe::internal::Scheduler::graph_</definition>
+        <argsstring></argsstring>
+        <name>graph_</name>
+        <qualifiedname>mediapipe::internal::Scheduler::graph_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="255" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" bodystart="255" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1internal_1_1Scheduler_1acf8e8c3fd91a52dd94c465a82dad4ca4" prot="private" static="no" mutable="no">
+        <type>SchedulerShared</type>
+        <definition>SchedulerShared mediapipe::internal::Scheduler::shared_</definition>
+        <argsstring></argsstring>
+        <name>shared_</name>
+        <qualifiedname>mediapipe::internal::Scheduler::shared_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="258" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" bodystart="258" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1internal_1_1Scheduler_1a2dc511544ad140946810aa9a487cd117" prot="private" static="no" mutable="no">
+        <type>SchedulerQueue</type>
+        <definition>SchedulerQueue mediapipe::internal::Scheduler::default_queue_</definition>
+        <argsstring></argsstring>
+        <name>default_queue_</name>
+        <qualifiedname>mediapipe::internal::Scheduler::default_queue_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="261" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" bodystart="261" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1internal_1_1Scheduler_1afc6f79410a53a6a26211b37162add634" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, std::unique_ptr&lt; SchedulerQueue &gt; &gt;</type>
+        <definition>std::map&lt;std::string, std::unique_ptr&lt;SchedulerQueue&gt; &gt; mediapipe::internal::Scheduler::non_default_queues_</definition>
+        <argsstring></argsstring>
+        <name>non_default_queues_</name>
+        <qualifiedname>mediapipe::internal::Scheduler::non_default_queues_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="264" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" bodystart="264" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1internal_1_1Scheduler_1a04143f520c7439a41964f0d40f82552b" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; SchedulerQueue * &gt;</type>
+        <definition>std::vector&lt;SchedulerQueue*&gt; mediapipe::internal::Scheduler::scheduler_queues_</definition>
+        <argsstring></argsstring>
+        <name>scheduler_queues_</name>
+        <qualifiedname>mediapipe::internal::Scheduler::scheduler_queues_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="267" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" bodystart="267" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1internal_1_1Scheduler_1a4d80e881ab443a096efc6de8628bfe19" prot="private" static="no" mutable="no">
+        <type>std::set&lt; CalculatorNode *, SourceLayerCompare &gt;</type>
+        <definition>std::set&lt;CalculatorNode*, SourceLayerCompare&gt; mediapipe::internal::Scheduler::unopened_sources_</definition>
+        <argsstring></argsstring>
+        <name>unopened_sources_</name>
+        <qualifiedname>mediapipe::internal::Scheduler::unopened_sources_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="280" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" bodystart="280" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1internal_1_1Scheduler_1a7f1551378ab7a814234c888e2d77b494" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; CalculatorNode * &gt;</type>
+        <definition>std::vector&lt;CalculatorNode*&gt; mediapipe::internal::Scheduler::active_sources_</definition>
+        <argsstring></argsstring>
+        <name>active_sources_</name>
+        <qualifiedname>mediapipe::internal::Scheduler::active_sources_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="285" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" bodystart="285" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1internal_1_1Scheduler_1a1144ee67b7729d56aee139d554fa9785" prot="private" static="no" mutable="no">
+        <type>absl::Mutex</type>
+        <definition>absl::Mutex mediapipe::internal::Scheduler::state_mutex_</definition>
+        <argsstring></argsstring>
+        <name>state_mutex_</name>
+        <qualifiedname>mediapipe::internal::Scheduler::state_mutex_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="319" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" bodystart="319" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1internal_1_1Scheduler_1ad603842193d9e1f0d0c1c9c460e14973" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; State &gt;</type>
+        <definition>std::atomic&lt;State&gt; mediapipe::internal::Scheduler::state_</definition>
+        <argsstring></argsstring>
+        <name>state_</name>
+        <qualifiedname>mediapipe::internal::Scheduler::state_</qualifiedname>
+        <initializer>= STATE_NOT_STARTED</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="322" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" bodystart="322" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a28a5af371cf7f956ae3202b3f4c0b0ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::internal::Scheduler::Scheduler</definition>
+        <argsstring>(const Scheduler &amp;)=delete</argsstring>
+        <name>Scheduler</name>
+        <qualifiedname>mediapipe::internal::Scheduler::Scheduler</qualifiedname>
+        <param>
+          <type>const Scheduler &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="44" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1ac02902c30b9d0f7178a2f41c9c0d77a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Scheduler &amp;</type>
+        <definition>Scheduler &amp; mediapipe::internal::Scheduler::operator=</definition>
+        <argsstring>(const Scheduler &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>mediapipe::internal::Scheduler::operator=</qualifiedname>
+        <param>
+          <type>const Scheduler &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="45" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1adb03436f7b3d1c1e16df29ed1c39cf26" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::internal::Scheduler::Scheduler</definition>
+        <argsstring>(CalculatorGraph *graph)</argsstring>
+        <name>Scheduler</name>
+        <qualifiedname>mediapipe::internal::Scheduler::Scheduler</qualifiedname>
+        <param>
+          <type>CalculatorGraph *</type>
+          <declname>graph</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="47" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="39" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a24748dafb0c3225a24997393b92b7fe6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::internal::Scheduler::~Scheduler</definition>
+        <argsstring>()</argsstring>
+        <name>~Scheduler</name>
+        <qualifiedname>mediapipe::internal::Scheduler::~Scheduler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="49" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="48" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1ae0a51522774dc4ecc2122a56ae884f1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::SetExecutor</definition>
+        <argsstring>(Executor *executor)</argsstring>
+        <name>SetExecutor</name>
+        <qualifiedname>mediapipe::internal::Scheduler::SetExecutor</qualifiedname>
+        <param>
+          <type>Executor *</type>
+          <declname>executor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="54" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="80" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1ad7c6827ab7568c2c8a6b2eda3ae189e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::internal::Scheduler::SetNonDefaultExecutor</definition>
+        <argsstring>(const std::string &amp;name, Executor *executor)</argsstring>
+        <name>SetNonDefaultExecutor</name>
+        <qualifiedname>mediapipe::internal::Scheduler::SetNonDefaultExecutor</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>Executor *</type>
+          <declname>executor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="58" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="87" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a52ac59755ab87c28de152e654e07dfda" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::Reset</definition>
+        <argsstring>()</argsstring>
+        <name>Reset</name>
+        <qualifiedname>mediapipe::internal::Scheduler::Reset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="62" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="62" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a89f82b15c6f79fbc9ff281a814d67e68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <qualifiedname>mediapipe::internal::Scheduler::Start</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="65" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="197" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a2413adc62e96aefa858a6e65519de7bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::internal::Scheduler::WaitUntilDone</definition>
+        <argsstring>() ABSL_LOCKS_EXCLUDED(state_mutex_)</argsstring>
+        <name>WaitUntilDone</name>
+        <qualifiedname>mediapipe::internal::Scheduler::WaitUntilDone</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="72" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="280" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1aef664e1d593a0f4b14d39be70bc62523" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::internal::Scheduler::WaitUntilIdle</definition>
+        <argsstring>() ABSL_LOCKS_EXCLUDED(state_mutex_)</argsstring>
+        <name>WaitUntilIdle</name>
+        <qualifiedname>mediapipe::internal::Scheduler::WaitUntilIdle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="88" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="274" bodyend="278"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a50bd200fe0c1cdc2b9856d16796d4628" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::WaitUntilGraphInputStreamUnthrottled</definition>
+        <argsstring>(absl::Mutex *secondary_mutex) ABSL_EXCLUSIVE_LOCKS_REQUIRED(secondary_mutex)</argsstring>
+        <name>WaitUntilGraphInputStreamUnthrottled</name>
+        <qualifiedname>mediapipe::internal::Scheduler::WaitUntilGraphInputStreamUnthrottled</qualifiedname>
+        <param>
+          <type>absl::Mutex *</type>
+          <declname>secondary_mutex</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="97" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="232" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a1ec6721c95422f5a02aefbe3eb1268a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::internal::Scheduler::WaitForObservedOutput</definition>
+        <argsstring>() ABSL_LOCKS_EXCLUDED(state_mutex_)</argsstring>
+        <name>WaitForObservedOutput</name>
+        <qualifiedname>mediapipe::internal::Scheduler::WaitForObservedOutput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="106" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="261" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a99799681fc90cd0c62b790399a3f00a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::ScheduleNodeIfNotThrottled</definition>
+        <argsstring>(CalculatorNode *node, CalculatorContext *cc)</argsstring>
+        <name>ScheduleNodeIfNotThrottled</name>
+        <qualifiedname>mediapipe::internal::Scheduler::ScheduleNodeIfNotThrottled</qualifiedname>
+        <param>
+          <type>CalculatorNode *</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="111" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="328" bodyend="335"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1ac09e444d2c69b574256c159018bb4e02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::ScheduleNodeForOpen</definition>
+        <argsstring>(CalculatorNode *node)</argsstring>
+        <name>ScheduleNodeForOpen</name>
+        <qualifiedname>mediapipe::internal::Scheduler::ScheduleNodeForOpen</qualifiedname>
+        <param>
+          <type>CalculatorNode *</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="114" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="337" bodyend="341"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a1b9a8d517903801c8ac2ba3ae6e8fb5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::ScheduleUnthrottledReadyNodes</definition>
+        <argsstring>(const std::vector&lt; CalculatorNode * &gt; &amp;nodes_to_schedule)</argsstring>
+        <name>ScheduleUnthrottledReadyNodes</name>
+        <qualifiedname>mediapipe::internal::Scheduler::ScheduleUnthrottledReadyNodes</qualifiedname>
+        <param>
+          <type>const std::vector&lt; CalculatorNode * &gt; &amp;</type>
+          <declname>nodes_to_schedule</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="118" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="343" bodyend="352"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a49f714d97c2e7f20b90c8aab7121e43a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::QueueIdleStateChanged</definition>
+        <argsstring>(bool idle)</argsstring>
+        <name>QueueIdleStateChanged</name>
+        <qualifiedname>mediapipe::internal::Scheduler::QueueIdleStateChanged</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>idle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="121" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="451" bodyend="466"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1aa5db552c64c4e96a6e300dd154fe3f7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::AddApplicationThreadTask</definition>
+        <argsstring>(std::function&lt; void()&gt; task)</argsstring>
+        <name>AddApplicationThreadTask</name>
+        <qualifiedname>mediapipe::internal::Scheduler::AddApplicationThreadTask</qualifiedname>
+        <param>
+          <type>std::function&lt; void()&gt;</type>
+          <declname>task</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="124" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="212" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1adff102e7afab2d5ac95f419119b7638f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::AddUnopenedSourceNode</definition>
+        <argsstring>(CalculatorNode *node)</argsstring>
+        <name>AddUnopenedSourceNode</name>
+        <qualifiedname>mediapipe::internal::Scheduler::AddUnopenedSourceNode</qualifiedname>
+        <param>
+          <type>CalculatorNode *</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="128" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="423" bodyend="428"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1aac54c22e1e4b695d867376fda965be83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::AddNodeToSourcesQueue</definition>
+        <argsstring>(CalculatorNode *node) ABSL_LOCKS_EXCLUDED(state_mutex_)</argsstring>
+        <name>AddNodeToSourcesQueue</name>
+        <qualifiedname>mediapipe::internal::Scheduler::AddNodeToSourcesQueue</qualifiedname>
+        <param>
+          <type>CalculatorNode *</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="131" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="430" bodyend="437"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a4a2257a2dc4f5f3d6878274d168809be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::AssignNodeToSchedulerQueue</definition>
+        <argsstring>(CalculatorNode *node)</argsstring>
+        <name>AssignNodeToSchedulerQueue</name>
+        <qualifiedname>mediapipe::internal::Scheduler::AssignNodeToSchedulerQueue</qualifiedname>
+        <param>
+          <type>CalculatorNode *</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="135" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="439" bodyend="449"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a2bef79de64bb4b06aa4ea27270d049df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::Pause</definition>
+        <argsstring>() ABSL_LOCKS_EXCLUDED(state_mutex_)</argsstring>
+        <name>Pause</name>
+        <qualifiedname>mediapipe::internal::Scheduler::Pause</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="138" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="468" bodyend="475"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a978f3e088710f178b4267478137d91eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::Resume</definition>
+        <argsstring>() ABSL_LOCKS_EXCLUDED(state_mutex_)</argsstring>
+        <name>Resume</name>
+        <qualifiedname>mediapipe::internal::Scheduler::Resume</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="141" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="477" bodyend="490"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a0dcdafc69c8d10b7428a1884b3d9cf36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::Cancel</definition>
+        <argsstring>() ABSL_LOCKS_EXCLUDED(state_mutex_)</argsstring>
+        <name>Cancel</name>
+        <qualifiedname>mediapipe::internal::Scheduler::Cancel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="146" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="492" bodyend="508"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a97de1b49036ea00cb774ab585894f123" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::internal::Scheduler::IsPaused</definition>
+        <argsstring>() ABSL_LOCKS_EXCLUDED(state_mutex_)</argsstring>
+        <name>IsPaused</name>
+        <qualifiedname>mediapipe::internal::Scheduler::IsPaused</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="149" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="510" bodyend="513"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a50a103f2fb8be9ee3044d0e9d062a75d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::internal::Scheduler::IsTerminated</definition>
+        <argsstring>() ABSL_LOCKS_EXCLUDED(state_mutex_)</argsstring>
+        <name>IsTerminated</name>
+        <qualifiedname>mediapipe::internal::Scheduler::IsTerminated</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="152" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="515" bodyend="518"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1ae62c9a52ff1ed23b4f94b988ee41a3ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::CleanupAfterRun</definition>
+        <argsstring>()</argsstring>
+        <name>CleanupAfterRun</name>
+        <qualifiedname>mediapipe::internal::Scheduler::CleanupAfterRun</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="155" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="520" bodyend="534"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a8eb7e707a50255600883104481e25ce5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::SetHasError</definition>
+        <argsstring>(bool error)</argsstring>
+        <name>SetHasError</name>
+        <qualifiedname>mediapipe::internal::Scheduler::SetHasError</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="157" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" bodystart="157" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1af40ed8a546763591b506aac1875ea936" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::AddedPacketToGraphInputStream</definition>
+        <argsstring>() ABSL_LOCKS_EXCLUDED(state_mutex_)</argsstring>
+        <name>AddedPacketToGraphInputStream</name>
+        <qualifiedname>mediapipe::internal::Scheduler::AddedPacketToGraphInputStream</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="162" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="306" bodyend="314"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1ad5226e2b5d319445aed18137664272e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::ThrottledGraphInputStream</definition>
+        <argsstring>() ABSL_LOCKS_EXCLUDED(state_mutex_)</argsstring>
+        <name>ThrottledGraphInputStream</name>
+        <qualifiedname>mediapipe::internal::Scheduler::ThrottledGraphInputStream</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="164" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="220" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a95d0d2268113c61da7b13fb3f6c08028" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::UnthrottledGraphInputStream</definition>
+        <argsstring>() ABSL_LOCKS_EXCLUDED(state_mutex_)</argsstring>
+        <name>UnthrottledGraphInputStream</name>
+        <qualifiedname>mediapipe::internal::Scheduler::UnthrottledGraphInputStream</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="165" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="225" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a4c12c77cf5188d1af384082833fec5ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::EmittedObservedOutput</definition>
+        <argsstring>() ABSL_LOCKS_EXCLUDED(state_mutex_)</argsstring>
+        <name>EmittedObservedOutput</name>
+        <qualifiedname>mediapipe::internal::Scheduler::EmittedObservedOutput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="166" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="253" bodyend="259"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a44a13dffc2f6b512c3576b9ebb07fd42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::CloseAllSourceNodes</definition>
+        <argsstring>()</argsstring>
+        <name>CloseAllSourceNodes</name>
+        <qualifiedname>mediapipe::internal::Scheduler::CloseAllSourceNodes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="169" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="78" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1aef0a7546267de6c851b8749c6d439759" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::ClosedAllGraphInputStreams</definition>
+        <argsstring>()</argsstring>
+        <name>ClosedAllGraphInputStreams</name>
+        <qualifiedname>mediapipe::internal::Scheduler::ClosedAllGraphInputStreams</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="172" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="317" bodyend="322"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a39384f52fd7953c3c56602afe90b3478" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>internal::SchedulerTimes</type>
+        <definition>internal::SchedulerTimes mediapipe::internal::Scheduler::GetSchedulerTimes</definition>
+        <argsstring>()</argsstring>
+        <name>GetSchedulerTimes</name>
+        <qualifiedname>mediapipe::internal::Scheduler::GetSchedulerTimes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="176" column="28" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="536" bodyend="539"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1aa80c7b967c56e80250fda08b75788b54" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::SetQueuesRunning</definition>
+        <argsstring>(bool running)</argsstring>
+        <name>SetQueuesRunning</name>
+        <qualifiedname>mediapipe::internal::Scheduler::SetQueuesRunning</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>running</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="219" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="106" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1adb6b8510129947e6ba6924650f0cd31e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::SubmitWaitingTasksOnQueues</definition>
+        <argsstring>()</argsstring>
+        <name>SubmitWaitingTasksOnQueues</name>
+        <qualifiedname>mediapipe::internal::Scheduler::SubmitWaitingTasksOnQueues</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="222" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="112" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1ac3e0802d960c423485ad40647e30fcbc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::internal::Scheduler::IsIdle</definition>
+        <argsstring>() ABSL_EXCLUSIVE_LOCKS_REQUIRED(state_mutex_)</argsstring>
+        <name>IsIdle</name>
+        <qualifiedname>mediapipe::internal::Scheduler::IsIdle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="226" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="304" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1aa972dc59d79dfba7089c28d6384e0828" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::CleanupActiveSources</definition>
+        <argsstring>()</argsstring>
+        <name>CleanupActiveSources</name>
+        <qualifiedname>mediapipe::internal::Scheduler::CleanupActiveSources</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="231" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="354" bodyend="366"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a5719b7e76ceb9ac9971322121b5293f1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::internal::Scheduler::TryToScheduleNextSourceLayer</definition>
+        <argsstring>() ABSL_EXCLUSIVE_LOCKS_REQUIRED(state_mutex_)</argsstring>
+        <name>TryToScheduleNextSourceLayer</name>
+        <qualifiedname>mediapipe::internal::Scheduler::TryToScheduleNextSourceLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="236" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="368" bodyend="421"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a09f024333a6cea0cec6167602c38cf61" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::HandleIdle</definition>
+        <argsstring>() ABSL_EXCLUSIVE_LOCKS_REQUIRED(state_mutex_)</argsstring>
+        <name>HandleIdle</name>
+        <qualifiedname>mediapipe::internal::Scheduler::HandleIdle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="245" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="120" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a2d606a2db4514ad5aed72d6bb3078715" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::Quit</definition>
+        <argsstring>() ABSL_EXCLUSIVE_LOCKS_REQUIRED(state_mutex_)</argsstring>
+        <name>Quit</name>
+        <qualifiedname>mediapipe::internal::Scheduler::Quit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="248" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="184" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a711740e1170ea9730067e0d1bfe096fe" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::Scheduler::ApplicationThreadAwait</definition>
+        <argsstring>(const std::function&lt; bool()&gt; &amp;stop_condition)</argsstring>
+        <name>ApplicationThreadAwait</name>
+        <qualifiedname>mediapipe::internal::Scheduler::ApplicationThreadAwait</qualifiedname>
+        <param>
+          <type>const std::function&lt; bool()&gt; &amp;</type>
+          <declname>stop_condition</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="252" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc" bodystart="288" bodyend="302"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1aab99a2fcca75b64b066fc986960ff2f3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::priority_queue&lt; SchedulerQueue::Item &gt; sources_queue_</type>
+        <definition>std::priority_queue&lt; SchedulerQueue::Item &gt; sources_queue_ mediapipe::internal::Scheduler::ABSL_GUARDED_BY</definition>
+        <argsstring>(state_mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::internal::Scheduler::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>state_mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="272" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a26e5d930bf3e3170932ca726b5133159" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::CondVar state_cond_var_</type>
+        <definition>absl::CondVar state_cond_var_ mediapipe::internal::Scheduler::ABSL_GUARDED_BY</definition>
+        <argsstring>(state_mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::internal::Scheduler::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>state_mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="291" column="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1ae30e6f18e1cdb787a0b1e7fd1955ef4c" prot="private" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>int non_idle_queue_count_</type>
+        <definition>int non_idle_queue_count_ mediapipe::internal::Scheduler::ABSL_GUARDED_BY</definition>
+        <argsstring>(state_mutex_)=0</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::internal::Scheduler::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>state_mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="303" column="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a678f45ca394ad7f0bc70a29a9c8d9946" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::deque&lt; std::function&lt; void()&gt; &gt; app_thread_tasks_</type>
+        <definition>std::deque&lt; std::function&lt; void()&gt; &gt; app_thread_tasks_ mediapipe::internal::Scheduler::ABSL_GUARDED_BY</definition>
+        <argsstring>(state_mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::internal::Scheduler::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>state_mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="307" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a95620a73b601550e84aa0240760399c3" prot="private" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>int handling_idle_</type>
+        <definition>int handling_idle_ mediapipe::internal::Scheduler::ABSL_GUARDED_BY</definition>
+        <argsstring>(state_mutex_)=0</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::internal::Scheduler::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>state_mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="314" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a8a79d63b3a6a1a19a6bb2158f0a0dd74" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool graph_input_streams_closed_</type>
+        <definition>bool graph_input_streams_closed_ mediapipe::internal::Scheduler::ABSL_GUARDED_BY</definition>
+        <argsstring>(state_mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::internal::Scheduler::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>state_mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="325" column="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a1b6d411b06ea9b46b839159541c7a602" prot="private" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>int throttled_graph_input_stream_count_</type>
+        <definition>int throttled_graph_input_stream_count_ mediapipe::internal::Scheduler::ABSL_GUARDED_BY</definition>
+        <argsstring>(state_mutex_)=0</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::internal::Scheduler::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>state_mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="328" column="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a8cab344ebc3b7aec5493b38b9d8e26b7" prot="private" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>int unthrottle_seq_num_</type>
+        <definition>int unthrottle_seq_num_ mediapipe::internal::Scheduler::ABSL_GUARDED_BY</definition>
+        <argsstring>(state_mutex_)=0</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::internal::Scheduler::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>state_mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="331" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a0110183a0e0a4fbde7cee3567d624669" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool observed_output_signal_</type>
+        <definition>bool observed_output_signal_ mediapipe::internal::Scheduler::ABSL_GUARDED_BY</definition>
+        <argsstring>(state_mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::internal::Scheduler::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>state_mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="334" column="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1Scheduler_1a262d835810f594fc1be598ca89e05961" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool waiting_for_observed_output_</type>
+        <definition>bool waiting_for_observed_output_ mediapipe::internal::Scheduler::ABSL_GUARDED_BY</definition>
+        <argsstring>(state_mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::internal::Scheduler::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>state_mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="337" column="37"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" line="42" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h" bodystart="42" bodyend="338"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1aab99a2fcca75b64b066fc986960ff2f3" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a26e5d930bf3e3170932ca726b5133159" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1ae30e6f18e1cdb787a0b1e7fd1955ef4c" prot="private" virt="pure-virtual"><scope>mediapipe::internal::Scheduler</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a678f45ca394ad7f0bc70a29a9c8d9946" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a95620a73b601550e84aa0240760399c3" prot="private" virt="pure-virtual"><scope>mediapipe::internal::Scheduler</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a8a79d63b3a6a1a19a6bb2158f0a0dd74" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a1b6d411b06ea9b46b839159541c7a602" prot="private" virt="pure-virtual"><scope>mediapipe::internal::Scheduler</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a8cab344ebc3b7aec5493b38b9d8e26b7" prot="private" virt="pure-virtual"><scope>mediapipe::internal::Scheduler</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a0110183a0e0a4fbde7cee3567d624669" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a262d835810f594fc1be598ca89e05961" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a7f1551378ab7a814234c888e2d77b494" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>active_sources_</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1aa5db552c64c4e96a6e300dd154fe3f7e" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>AddApplicationThreadTask</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1af40ed8a546763591b506aac1875ea936" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>AddedPacketToGraphInputStream</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1aac54c22e1e4b695d867376fda965be83" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>AddNodeToSourcesQueue</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1adff102e7afab2d5ac95f419119b7638f" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>AddUnopenedSourceNode</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a711740e1170ea9730067e0d1bfe096fe" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>ApplicationThreadAwait</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a4a2257a2dc4f5f3d6878274d168809be" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>AssignNodeToSchedulerQueue</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a0dcdafc69c8d10b7428a1884b3d9cf36" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>Cancel</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1aa972dc59d79dfba7089c28d6384e0828" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>CleanupActiveSources</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1ae62c9a52ff1ed23b4f94b988ee41a3ab" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>CleanupAfterRun</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a44a13dffc2f6b512c3576b9ebb07fd42" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>CloseAllSourceNodes</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1aef0a7546267de6c851b8749c6d439759" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>ClosedAllGraphInputStreams</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a2dc511544ad140946810aa9a487cd117" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>default_queue_</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a4c12c77cf5188d1af384082833fec5ce" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>EmittedObservedOutput</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a39384f52fd7953c3c56602afe90b3478" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>GetSchedulerTimes</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a502db041df6fcc1954526fa74dcc7ac9" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>graph_</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a09f024333a6cea0cec6167602c38cf61" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>HandleIdle</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1ac3e0802d960c423485ad40647e30fcbc" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>IsIdle</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a97de1b49036ea00cb774ab585894f123" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>IsPaused</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a50a103f2fb8be9ee3044d0e9d062a75d" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>IsTerminated</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1afc6f79410a53a6a26211b37162add634" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>non_default_queues_</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1ac02902c30b9d0f7178a2f41c9c0d77a8" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>operator=</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a2bef79de64bb4b06aa4ea27270d049df" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>Pause</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a49f714d97c2e7f20b90c8aab7121e43a" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>QueueIdleStateChanged</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a2d606a2db4514ad5aed72d6bb3078715" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>Quit</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a52ac59755ab87c28de152e654e07dfda" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>Reset</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a978f3e088710f178b4267478137d91eb" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>Resume</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1ac09e444d2c69b574256c159018bb4e02" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>ScheduleNodeForOpen</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a99799681fc90cd0c62b790399a3f00a0" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>ScheduleNodeIfNotThrottled</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a28a5af371cf7f956ae3202b3f4c0b0ae" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>Scheduler</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1adb03436f7b3d1c1e16df29ed1c39cf26" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>Scheduler</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a04143f520c7439a41964f0d40f82552b" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>scheduler_queues_</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a1b9a8d517903801c8ac2ba3ae6e8fb5b" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>ScheduleUnthrottledReadyNodes</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1ae0a51522774dc4ecc2122a56ae884f1f" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>SetExecutor</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a8eb7e707a50255600883104481e25ce5" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>SetHasError</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1ad7c6827ab7568c2c8a6b2eda3ae189e5" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>SetNonDefaultExecutor</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1aa80c7b967c56e80250fda08b75788b54" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>SetQueuesRunning</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1acf8e8c3fd91a52dd94c465a82dad4ca4" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>shared_</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a89f82b15c6f79fbc9ff281a814d67e68" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>Start</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a722bcb20611b234ba4a6af34dbac77ce" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>State</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1ad603842193d9e1f0d0c1c9c460e14973" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>state_</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a722bcb20611b234ba4a6af34dbac77ceacce4ba709d3d8dbc427264317df2f692" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>STATE_CANCELLING</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a1144ee67b7729d56aee139d554fa9785" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>state_mutex_</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a722bcb20611b234ba4a6af34dbac77ceaae0091315f0c646cf46fdf8115331d96" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>STATE_NOT_STARTED</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a722bcb20611b234ba4a6af34dbac77ceac9410c53a87ada74d20a16c1e436d4ae" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>STATE_PAUSED</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a722bcb20611b234ba4a6af34dbac77cea8694500abdb9a62f8e8cfd5b7788ab62" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>STATE_RUNNING</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a722bcb20611b234ba4a6af34dbac77ceabf5055b2324025be21f85a5af9d5efe1" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>STATE_TERMINATED</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1adb6b8510129947e6ba6924650f0cd31e" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>SubmitWaitingTasksOnQueues</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1ad5226e2b5d319445aed18137664272e7" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>ThrottledGraphInputStream</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a5719b7e76ceb9ac9971322121b5293f1" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>TryToScheduleNextSourceLayer</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a4d80e881ab443a096efc6de8628bfe19" prot="private" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>unopened_sources_</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a95d0d2268113c61da7b13fb3f6c08028" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>UnthrottledGraphInputStream</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a1ec6721c95422f5a02aefbe3eb1268a0" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>WaitForObservedOutput</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a2413adc62e96aefa858a6e65519de7bf" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>WaitUntilDone</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a50bd200fe0c1cdc2b9856d16796d4628" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>WaitUntilGraphInputStreamUnthrottled</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1aef664e1d593a0f4b14d39be70bc62523" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>WaitUntilIdle</name></member>
+      <member refid="classmediapipe_1_1internal_1_1Scheduler_1a24748dafb0c3225a24997393b92b7fe6" prot="public" virt="non-virtual"><scope>mediapipe::internal::Scheduler</scope><name>~Scheduler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

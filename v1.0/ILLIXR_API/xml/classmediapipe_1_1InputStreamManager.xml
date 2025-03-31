@@ -1,0 +1,830 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1InputStreamManager" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::InputStreamManager</compoundname>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classmediapipe_1_1InputStreamManager_1a5749576f5283e583e050bf900a68a91c" prot="public" static="no">
+        <type>std::function&lt; void(InputStreamManager *, bool *)&gt;</type>
+        <definition>typedef std::function&lt;void(InputStreamManager*, bool*)&gt; mediapipe::InputStreamManager::QueueSizeCallback</definition>
+        <argsstring></argsstring>
+        <name>QueueSizeCallback</name>
+        <qualifiedname>mediapipe::InputStreamManager::QueueSizeCallback</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="52" column="25" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1InputStreamManager_1a72fdcb6dd37e5345b57a47b8b6eaaa0d" prot="private" static="no" mutable="yes">
+        <type>absl::Mutex</type>
+        <definition>absl::Mutex mediapipe::InputStreamManager::stream_mutex_</definition>
+        <argsstring></argsstring>
+        <name>stream_mutex_</name>
+        <qualifiedname>mediapipe::InputStreamManager::stream_mutex_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="198" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" bodystart="198" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1InputStreamManager_1a13368cd659a0920e6e0814f3ddd4e205" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::InputStreamManager::enable_timestamps_</definition>
+        <argsstring></argsstring>
+        <name>enable_timestamps_</name>
+        <qualifiedname>mediapipe::InputStreamManager::enable_timestamps_</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="209" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1InputStreamManager_1a1397525aa92b386bd7749ce099e35abd" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string mediapipe::InputStreamManager::name_</definition>
+        <argsstring></argsstring>
+        <name>name_</name>
+        <qualifiedname>mediapipe::InputStreamManager::name_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="210" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" bodystart="210" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1InputStreamManager_1a6068fc9fdefcbfc085a32190d8bb7cf0" prot="private" static="no" mutable="no">
+        <type>const PacketType *</type>
+        <definition>const PacketType* mediapipe::InputStreamManager::packet_type_</definition>
+        <argsstring></argsstring>
+        <name>packet_type_</name>
+        <qualifiedname>mediapipe::InputStreamManager::packet_type_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="211" column="20" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" bodystart="211" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1InputStreamManager_1adb71e65085080a6ae361ca0424f31341" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::InputStreamManager::back_edge_</definition>
+        <argsstring></argsstring>
+        <name>back_edge_</name>
+        <qualifiedname>mediapipe::InputStreamManager::back_edge_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="212" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1InputStreamManager_1ace05206f4f3ac820d76da0f390b81dea" prot="private" static="no" mutable="no">
+        <type>Packet</type>
+        <definition>Packet mediapipe::InputStreamManager::header_</definition>
+        <argsstring></argsstring>
+        <name>header_</name>
+        <qualifiedname>mediapipe::InputStreamManager::header_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="214" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" bodystart="214" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1InputStreamManager_1abdbea566e53f83caeee3fad5015514aa" prot="private" static="no" mutable="no">
+        <type>QueueSizeCallback</type>
+        <definition>QueueSizeCallback mediapipe::InputStreamManager::becomes_full_callback_</definition>
+        <argsstring></argsstring>
+        <name>becomes_full_callback_</name>
+        <qualifiedname>mediapipe::InputStreamManager::becomes_full_callback_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="220" column="21" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" bodystart="220" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1InputStreamManager_1a338c16c6695c3f014855f00ffd336b01" prot="private" static="no" mutable="no">
+        <type>QueueSizeCallback</type>
+        <definition>QueueSizeCallback mediapipe::InputStreamManager::becomes_not_full_callback_</definition>
+        <argsstring></argsstring>
+        <name>becomes_not_full_callback_</name>
+        <qualifiedname>mediapipe::InputStreamManager::becomes_not_full_callback_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="224" column="21" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" bodystart="224" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1InputStreamManager_1aac569c4b08bcb7a611d3f72b739883f5" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::InputStreamManager::last_reported_stream_full_</definition>
+        <argsstring></argsstring>
+        <name>last_reported_stream_full_</name>
+        <qualifiedname>mediapipe::InputStreamManager::last_reported_stream_full_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="229" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" bodystart="229" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1a7b73c668390c63fb02a6bf4055b9a5fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::InputStreamManager::InputStreamManager</definition>
+        <argsstring>(const InputStreamManager &amp;)=delete</argsstring>
+        <name>InputStreamManager</name>
+        <qualifiedname>mediapipe::InputStreamManager::InputStreamManager</qualifiedname>
+        <param>
+          <type>const InputStreamManager &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="54" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1a6e5f7a139bb57a96e540b43dff1c4ee2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>InputStreamManager &amp;</type>
+        <definition>InputStreamManager &amp; mediapipe::InputStreamManager::operator=</definition>
+        <argsstring>(const InputStreamManager &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>mediapipe::InputStreamManager::operator=</qualifiedname>
+        <param>
+          <type>const InputStreamManager &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="55" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1a21b75717f0581d52bb4ece10215dcb9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::InputStreamManager::InputStreamManager</definition>
+        <argsstring>()=default</argsstring>
+        <name>InputStreamManager</name>
+        <qualifiedname>mediapipe::InputStreamManager::InputStreamManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="57" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1a2ce995f7bac44387709c20d4595bb965" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::InputStreamManager::Initialize</definition>
+        <argsstring>(const std::string &amp;name, const PacketType *packet_type, bool back_edge)</argsstring>
+        <name>Initialize</name>
+        <qualifiedname>mediapipe::InputStreamManager::Initialize</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const PacketType *</type>
+          <declname>packet_type</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>back_edge</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="60" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc" bodystart="31" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1a48e5d84f558c6a718dc74ec47ab087f9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string &amp; mediapipe::InputStreamManager::Name</definition>
+        <argsstring>() const</argsstring>
+        <name>Name</name>
+        <qualifiedname>mediapipe::InputStreamManager::Name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="64" column="21" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc" bodystart="41" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1a4f354299be18a24b0021a5887653dfb5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::InputStreamManager::BackEdge</definition>
+        <argsstring>() const</argsstring>
+        <name>BackEdge</name>
+        <qualifiedname>mediapipe::InputStreamManager::BackEdge</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="67" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" bodystart="67" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1ac1b43e0f3d7ca464906db6036d772dbc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::InputStreamManager::SetHeader</definition>
+        <argsstring>(const Packet &amp;header)</argsstring>
+        <name>SetHeader</name>
+        <qualifiedname>mediapipe::InputStreamManager::SetHeader</qualifiedname>
+        <param>
+          <type>const Packet &amp;</type>
+          <declname>header</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="70" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc" bodystart="74" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1a91ccac613588bdc3a3e657db5547df3a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const Packet &amp;</type>
+        <definition>const Packet &amp; mediapipe::InputStreamManager::Header</definition>
+        <argsstring>() const</argsstring>
+        <name>Header</name>
+        <qualifiedname>mediapipe::InputStreamManager::Header</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="72" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" bodystart="72" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1aa4d2bd0fa6de3da984117e7a6021e1e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InputStreamManager::PrepareForRun</definition>
+        <argsstring>() ABSL_LOCKS_EXCLUDED(stream_mutex_)</argsstring>
+        <name>PrepareForRun</name>
+        <qualifiedname>mediapipe::InputStreamManager::PrepareForRun</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="76" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc" bodystart="50" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1a4e219dbc7e2fb52585ef7c09de72f26e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::InputStreamManager::AddPackets</definition>
+        <argsstring>(const std::list&lt; Packet &gt; &amp;container, bool *notify) ABSL_LOCKS_EXCLUDED(stream_mutex_)</argsstring>
+        <name>AddPackets</name>
+        <qualifiedname>mediapipe::InputStreamManager::AddPackets</qualifiedname>
+        <param>
+          <type>const std::list&lt; Packet &gt; &amp;</type>
+          <declname>container</declname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>notify</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="90" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc" bodystart="84" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1ae9baa85d9b183d0e942f8262d2eddf92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::InputStreamManager::MovePackets</definition>
+        <argsstring>(std::list&lt; Packet &gt; *container, bool *notify) ABSL_LOCKS_EXCLUDED(stream_mutex_)</argsstring>
+        <name>MovePackets</name>
+        <qualifiedname>mediapipe::InputStreamManager::MovePackets</qualifiedname>
+        <param>
+          <type>std::list&lt; Packet &gt; *</type>
+          <declname>container</declname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>notify</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="96" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc" bodystart="89" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1a51f1a9e05de3f9dcbdd7e756e221c75b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InputStreamManager::Close</definition>
+        <argsstring>() ABSL_LOCKS_EXCLUDED(stream_mutex_)</argsstring>
+        <name>Close</name>
+        <qualifiedname>mediapipe::InputStreamManager::Close</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="100" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc" bodystart="222" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1a06d0088f11463d30d0e7208f2fddf0b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::InputStreamManager::SetNextTimestampBound</definition>
+        <argsstring>(Timestamp bound, bool *notify) ABSL_LOCKS_EXCLUDED(stream_mutex_)</argsstring>
+        <name>SetNextTimestampBound</name>
+        <qualifiedname>mediapipe::InputStreamManager::SetNextTimestampBound</qualifiedname>
+        <param>
+          <type>Timestamp</type>
+          <declname>bound</declname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>notify</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="107" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc" bodystart="184" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1adbd8536e3e1b948c773396c28a331ea0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Timestamp</type>
+        <definition>Timestamp mediapipe::InputStreamManager::MinTimestampOrBound</definition>
+        <argsstring>(bool *is_empty) const ABSL_LOCKS_EXCLUDED(stream_mutex_)</argsstring>
+        <name>MinTimestampOrBound</name>
+        <qualifiedname>mediapipe::InputStreamManager::MinTimestampOrBound</qualifiedname>
+        <param>
+          <type>bool *</type>
+          <declname>is_empty</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="114" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc" bodystart="232" bodyend="238"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1a3ad02d4b55b291f4634b8bf437750b01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InputStreamManager::DisableTimestamps</definition>
+        <argsstring>()</argsstring>
+        <name>DisableTimestamps</name>
+        <qualifiedname>mediapipe::InputStreamManager::DisableTimestamps</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="118" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc" bodystart="220" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1a01edb8fe5073a5e6a7314f9dc428f390" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::InputStreamManager::IsEmpty</definition>
+        <argsstring>() const ABSL_LOCKS_EXCLUDED(stream_mutex_)</argsstring>
+        <name>IsEmpty</name>
+        <qualifiedname>mediapipe::InputStreamManager::IsEmpty</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="121" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc" bodystart="61" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1a294b9085ad1fad248c528f318de0f22f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Packet</type>
+        <definition>Packet mediapipe::InputStreamManager::QueueHead</definition>
+        <argsstring>() const ABSL_LOCKS_EXCLUDED(stream_mutex_)</argsstring>
+        <name>QueueHead</name>
+        <qualifiedname>mediapipe::InputStreamManager::QueueHead</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="125" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc" bodystart="66" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1ab06d0d223b3c53d309c2f17cab908dbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Packet</type>
+        <definition>Packet mediapipe::InputStreamManager::PopPacketAtTimestamp</definition>
+        <argsstring>(Timestamp timestamp, int *num_packets_dropped, bool *stream_is_done) ABSL_LOCKS_EXCLUDED(stream_mutex_)</argsstring>
+        <name>PopPacketAtTimestamp</name>
+        <qualifiedname>mediapipe::InputStreamManager::PopPacketAtTimestamp</qualifiedname>
+        <param>
+          <type>Timestamp</type>
+          <declname>timestamp</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>num_packets_dropped</declname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>stream_is_done</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="136" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc" bodystart="245" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1a1a8de9f983ef77c0cfddf30ff42348a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Packet</type>
+        <definition>Packet mediapipe::InputStreamManager::PopQueueHead</definition>
+        <argsstring>(bool *stream_is_done) ABSL_LOCKS_EXCLUDED(stream_mutex_)</argsstring>
+        <name>PopQueueHead</name>
+        <qualifiedname>mediapipe::InputStreamManager::PopQueueHead</qualifiedname>
+        <param>
+          <type>bool *</type>
+          <declname>stream_is_done</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="143" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc" bodystart="302" bodyend="333"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1a349ce2d96223d70fc24a277c35883f9a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::InputStreamManager::NumPacketsAdded</definition>
+        <argsstring>() const ABSL_LOCKS_EXCLUDED(stream_mutex_)</argsstring>
+        <name>NumPacketsAdded</name>
+        <qualifiedname>mediapipe::InputStreamManager::NumPacketsAdded</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="146" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc" bodystart="335" bodyend="338"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1a28ee1172f2d1abe8eba72fa651b73ec5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::InputStreamManager::QueueSize</definition>
+        <argsstring>() const ABSL_LOCKS_EXCLUDED(stream_mutex_)</argsstring>
+        <name>QueueSize</name>
+        <qualifiedname>mediapipe::InputStreamManager::QueueSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="149" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc" bodystart="340" bodyend="343"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1ace07e53afb5f4bf884deabec16484332" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::InputStreamManager::IsFull</definition>
+        <argsstring>() const ABSL_LOCKS_EXCLUDED(stream_mutex_)</argsstring>
+        <name>IsFull</name>
+        <qualifiedname>mediapipe::InputStreamManager::IsFull</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="152" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc" bodystart="370" bodyend="373"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1a9b8b840c31f7e469ad2a663c55d11e21" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::InputStreamManager::MaxQueueSize</definition>
+        <argsstring>() const ABSL_LOCKS_EXCLUDED(stream_mutex_)</argsstring>
+        <name>MaxQueueSize</name>
+        <qualifiedname>mediapipe::InputStreamManager::MaxQueueSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="155" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc" bodystart="345" bodyend="348"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1ac7626a09fcc06f9be56534821bf16159" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InputStreamManager::SetMaxQueueSize</definition>
+        <argsstring>(int max_queue_size) ABSL_LOCKS_EXCLUDED(stream_mutex_)</argsstring>
+        <name>SetMaxQueueSize</name>
+        <qualifiedname>mediapipe::InputStreamManager::SetMaxQueueSize</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>max_queue_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="160" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc" bodystart="350" bodyend="368"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1ad9009dac276ed2d8487a711d92d3be89" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Timestamp</type>
+        <definition>Timestamp mediapipe::InputStreamManager::GetMinTimestampAmongNLatest</definition>
+        <argsstring>(int n) const ABSL_LOCKS_EXCLUDED(stream_mutex_)</argsstring>
+        <name>GetMinTimestampAmongNLatest</name>
+        <qualifiedname>mediapipe::InputStreamManager::GetMinTimestampAmongNLatest</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="167" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc" bodystart="375" bodyend="381"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1a6e2e242c428f4fcf023c92cc539a0437" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InputStreamManager::ErasePacketsEarlierThan</definition>
+        <argsstring>(Timestamp timestamp) ABSL_LOCKS_EXCLUDED(stream_mutex_)</argsstring>
+        <name>ErasePacketsEarlierThan</name>
+        <qualifiedname>mediapipe::InputStreamManager::ErasePacketsEarlierThan</qualifiedname>
+        <param>
+          <type>Timestamp</type>
+          <declname>timestamp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="172" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc" bodystart="383" bodyend="403"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1aa94c57883e25466debf16863d80c1c38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InputStreamManager::SetQueueSizeCallbacks</definition>
+        <argsstring>(QueueSizeCallback becomes_full_callback, QueueSizeCallback becomes_not_full_callback)</argsstring>
+        <name>SetQueueSizeCallbacks</name>
+        <qualifiedname>mediapipe::InputStreamManager::SetQueueSizeCallbacks</qualifiedname>
+        <param>
+          <type>QueueSizeCallback</type>
+          <declname>becomes_full_callback</declname>
+        </param>
+        <param>
+          <type>QueueSizeCallback</type>
+          <declname>becomes_not_full_callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="178" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc" bodystart="43" bodyend="48"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1a51bf89aa76edfa096ce9f3d7b754ffd1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Container</type>
+          </param>
+        </templateparamlist>
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::InputStreamManager::AddOrMovePacketsInternal</definition>
+        <argsstring>(Container container, bool *notify) ABSL_LOCKS_EXCLUDED(stream_mutex_)</argsstring>
+        <name>AddOrMovePacketsInternal</name>
+        <qualifiedname>mediapipe::InputStreamManager::AddOrMovePacketsInternal</qualifiedname>
+        <param>
+          <type>Container</type>
+          <declname>container</declname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>notify</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="189" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc" bodystart="95" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1a7a24070a5690e0b499e9203234b936ad" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::InputStreamManager::IsDone</definition>
+        <argsstring>() const ABSL_EXCLUSIVE_LOCKS_REQUIRED(stream_mutex_)</argsstring>
+        <name>IsDone</name>
+        <qualifiedname>mediapipe::InputStreamManager::IsDone</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="193" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc" bodystart="405" bodyend="407"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1aad0d429ab35b70560c95dfb53d71d914" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Timestamp</type>
+        <definition>Timestamp mediapipe::InputStreamManager::MinTimestampOrBoundHelper</definition>
+        <argsstring>() const</argsstring>
+        <name>MinTimestampOrBoundHelper</name>
+        <qualifiedname>mediapipe::InputStreamManager::MinTimestampOrBoundHelper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="196" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc" bodystart="240" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1a750826ae071712f0a41537cb1df2cdd9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::deque&lt; Packet &gt; queue_</type>
+        <definition>std::deque&lt; Packet &gt; queue_ mediapipe::InputStreamManager::ABSL_GUARDED_BY</definition>
+        <argsstring>(stream_mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::InputStreamManager::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>stream_mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="199" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1a6baef16b28e540cb75acd44806780a0c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int64_t num_packets_added_</type>
+        <definition>int64_t num_packets_added_ mediapipe::InputStreamManager::ABSL_GUARDED_BY</definition>
+        <argsstring>(stream_mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::InputStreamManager::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>stream_mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="202" column="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1aa0ab70d3c5646a60f47df159237881a4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Timestamp next_timestamp_bound_</type>
+        <definition>Timestamp next_timestamp_bound_ mediapipe::InputStreamManager::ABSL_GUARDED_BY</definition>
+        <argsstring>(stream_mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::InputStreamManager::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>stream_mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="203" column="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1a20f6d3ea2c39da720622d20b43c25fee" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Timestamp last_select_timestamp_</type>
+        <definition>Timestamp last_select_timestamp_ mediapipe::InputStreamManager::ABSL_GUARDED_BY</definition>
+        <argsstring>(stream_mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::InputStreamManager::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>stream_mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="206" column="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1a916b2e6d3f8e8f28c765f7078e5bb332" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool closed_</type>
+        <definition>bool closed_ mediapipe::InputStreamManager::ABSL_GUARDED_BY</definition>
+        <argsstring>(stream_mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::InputStreamManager::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>stream_mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="207" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputStreamManager_1aaa1df90aff2cee5be56b57a8226dd56f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int max_queue_size_</type>
+        <definition>int max_queue_size_ mediapipe::InputStreamManager::ABSL_GUARDED_BY</definition>
+        <argsstring>(stream_mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::InputStreamManager::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>stream_mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="217" column="23"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" line="46" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h" bodystart="46" bodyend="230"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1InputStreamManager_1a750826ae071712f0a41537cb1df2cdd9" prot="private" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a6baef16b28e540cb75acd44806780a0c" prot="private" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1aa0ab70d3c5646a60f47df159237881a4" prot="private" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a20f6d3ea2c39da720622d20b43c25fee" prot="private" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a916b2e6d3f8e8f28c765f7078e5bb332" prot="private" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1aaa1df90aff2cee5be56b57a8226dd56f" prot="private" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a51bf89aa76edfa096ce9f3d7b754ffd1" prot="private" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>AddOrMovePacketsInternal</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a4e219dbc7e2fb52585ef7c09de72f26e" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>AddPackets</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1adb71e65085080a6ae361ca0424f31341" prot="private" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>back_edge_</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a4f354299be18a24b0021a5887653dfb5" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>BackEdge</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1abdbea566e53f83caeee3fad5015514aa" prot="private" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>becomes_full_callback_</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a338c16c6695c3f014855f00ffd336b01" prot="private" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>becomes_not_full_callback_</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a51f1a9e05de3f9dcbdd7e756e221c75b" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>Close</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a3ad02d4b55b291f4634b8bf437750b01" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>DisableTimestamps</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a13368cd659a0920e6e0814f3ddd4e205" prot="private" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>enable_timestamps_</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a6e2e242c428f4fcf023c92cc539a0437" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>ErasePacketsEarlierThan</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1ad9009dac276ed2d8487a711d92d3be89" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>GetMinTimestampAmongNLatest</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a91ccac613588bdc3a3e657db5547df3a" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>Header</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1ace05206f4f3ac820d76da0f390b81dea" prot="private" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>header_</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a2ce995f7bac44387709c20d4595bb965" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>Initialize</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a7b73c668390c63fb02a6bf4055b9a5fa" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>InputStreamManager</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a21b75717f0581d52bb4ece10215dcb9f" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>InputStreamManager</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a7a24070a5690e0b499e9203234b936ad" prot="private" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>IsDone</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a01edb8fe5073a5e6a7314f9dc428f390" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>IsEmpty</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1ace07e53afb5f4bf884deabec16484332" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>IsFull</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1aac569c4b08bcb7a611d3f72b739883f5" prot="private" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>last_reported_stream_full_</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a9b8b840c31f7e469ad2a663c55d11e21" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>MaxQueueSize</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1adbd8536e3e1b948c773396c28a331ea0" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>MinTimestampOrBound</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1aad0d429ab35b70560c95dfb53d71d914" prot="private" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>MinTimestampOrBoundHelper</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1ae9baa85d9b183d0e942f8262d2eddf92" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>MovePackets</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a48e5d84f558c6a718dc74ec47ab087f9" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>Name</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a1397525aa92b386bd7749ce099e35abd" prot="private" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>name_</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a349ce2d96223d70fc24a277c35883f9a" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>NumPacketsAdded</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a6e5f7a139bb57a96e540b43dff1c4ee2" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>operator=</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a6068fc9fdefcbfc085a32190d8bb7cf0" prot="private" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>packet_type_</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1ab06d0d223b3c53d309c2f17cab908dbe" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>PopPacketAtTimestamp</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a1a8de9f983ef77c0cfddf30ff42348a5" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>PopQueueHead</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1aa4d2bd0fa6de3da984117e7a6021e1e8" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>PrepareForRun</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a294b9085ad1fad248c528f318de0f22f" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>QueueHead</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a28ee1172f2d1abe8eba72fa651b73ec5" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>QueueSize</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a5749576f5283e583e050bf900a68a91c" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>QueueSizeCallback</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1ac1b43e0f3d7ca464906db6036d772dbc" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>SetHeader</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1ac7626a09fcc06f9be56534821bf16159" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>SetMaxQueueSize</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a06d0088f11463d30d0e7208f2fddf0b2" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>SetNextTimestampBound</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1aa94c57883e25466debf16863d80c1c38" prot="public" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>SetQueueSizeCallbacks</name></member>
+      <member refid="classmediapipe_1_1InputStreamManager_1a72fdcb6dd37e5345b57a47b8b6eaaa0d" prot="private" virt="non-virtual"><scope>mediapipe::InputStreamManager</scope><name>stream_mutex_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

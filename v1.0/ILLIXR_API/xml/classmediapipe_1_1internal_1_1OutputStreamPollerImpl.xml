@@ -1,0 +1,268 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1internal_1_1OutputStreamPollerImpl" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::internal::OutputStreamPollerImpl</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">mediapipe::internal::GraphOutputStream</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1a3b6fee25cb9816c5a080126b26c3f90c" prot="private" static="no" mutable="no">
+        <type>absl::Mutex</type>
+        <definition>absl::Mutex mediapipe::internal::OutputStreamPollerImpl::mutex_</definition>
+        <argsstring></argsstring>
+        <name>mutex_</name>
+        <qualifiedname>mediapipe::internal::OutputStreamPollerImpl::mutex_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.h" line="175" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1aac77666027b7c82d7bcd2284ba6d53d7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual mediapipe::internal::OutputStreamPollerImpl::~OutputStreamPollerImpl</definition>
+        <argsstring>()</argsstring>
+        <name>~OutputStreamPollerImpl</name>
+        <qualifiedname>mediapipe::internal::OutputStreamPollerImpl::~OutputStreamPollerImpl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.h" line="144" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.h" bodystart="144" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1a643c2966fa27f5de5093f63d0fc0ccfb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::internal::OutputStreamPollerImpl::Initialize</definition>
+        <argsstring>(const std::string &amp;stream_name, const PacketType *packet_type, std::function&lt; void(InputStreamManager *, bool *)&gt; queue_size_callback, OutputStreamManager *output_stream_manager, bool observe_timestamp_bounds=false)</argsstring>
+        <name>Initialize</name>
+        <qualifiedname>mediapipe::internal::OutputStreamPollerImpl::Initialize</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>stream_name</declname>
+        </param>
+        <param>
+          <type>const PacketType *</type>
+          <declname>packet_type</declname>
+        </param>
+        <param>
+          <type>std::function&lt; void(InputStreamManager *, bool *)&gt;</type>
+          <declname>queue_size_callback</declname>
+        </param>
+        <param>
+          <type>OutputStreamManager *</type>
+          <declname>output_stream_manager</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>observe_timestamp_bounds</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.h" line="147" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.cc" bodystart="126" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1ae8912baa8d0a16a3c93f81fc091cf2ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::OutputStreamPollerImpl::PrepareForRun</definition>
+        <argsstring>(std::function&lt; void()&gt; notification_callback, std::function&lt; void(absl::Status)&gt; error_callback) override</argsstring>
+        <name>PrepareForRun</name>
+        <qualifiedname>mediapipe::internal::OutputStreamPollerImpl::PrepareForRun</qualifiedname>
+        <param>
+          <type>std::function&lt; void()&gt;</type>
+          <declname>notification_callback</declname>
+        </param>
+        <param>
+          <type>std::function&lt; void(absl::Status)&gt;</type>
+          <declname>error_callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.h" line="153" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.cc" bodystart="138" bodyend="147"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1a4950925644ab46e462dc94859f02f171" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::OutputStreamPollerImpl::Reset</definition>
+        <argsstring>()</argsstring>
+        <name>Reset</name>
+        <qualifiedname>mediapipe::internal::OutputStreamPollerImpl::Reset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.h" line="157" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.cc" bodystart="149" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1a9dfbea84674b762019e3ea48487b7125" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::OutputStreamPollerImpl::SetMaxQueueSize</definition>
+        <argsstring>(int queue_size)</argsstring>
+        <name>SetMaxQueueSize</name>
+        <qualifiedname>mediapipe::internal::OutputStreamPollerImpl::SetMaxQueueSize</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>queue_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.h" line="159" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.cc" bodystart="156" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1a8a4bbd31606c5cfe9abb182498f32e2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::internal::OutputStreamPollerImpl::QueueSize</definition>
+        <argsstring>()</argsstring>
+        <name>QueueSize</name>
+        <qualifiedname>mediapipe::internal::OutputStreamPollerImpl::QueueSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.h" line="162" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.cc" bodystart="162" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1a531addbbaacfd032a0d37e6213646ff5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::internal::OutputStreamPollerImpl::Notify</definition>
+        <argsstring>() override</argsstring>
+        <name>Notify</name>
+        <qualifiedname>mediapipe::internal::OutputStreamPollerImpl::Notify</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.h" line="165" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.cc" bodystart="164" bodyend="169"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1a6383fc0a01991d5e7ffcabf2d17703c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::internal::OutputStreamPollerImpl::NotifyError</definition>
+        <argsstring>() override</argsstring>
+        <name>NotifyError</name>
+        <qualifiedname>mediapipe::internal::OutputStreamPollerImpl::NotifyError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.h" line="168" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.cc" bodystart="171" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1a77834cbd177c8458de052b1476859801" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ABSL_MUST_USE_RESULT bool</type>
+        <definition>bool mediapipe::internal::OutputStreamPollerImpl::Next</definition>
+        <argsstring>(Packet *packet)</argsstring>
+        <name>Next</name>
+        <qualifiedname>mediapipe::internal::OutputStreamPollerImpl::Next</qualifiedname>
+        <param>
+          <type>Packet *</type>
+          <declname>packet</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.h" line="172" column="29" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.cc" bodystart="178" bodyend="223"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1acdc02c902853c820aec3f3d20b3e5ee1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::CondVar handler_condvar_</type>
+        <definition>absl::CondVar handler_condvar_ mediapipe::internal::OutputStreamPollerImpl::ABSL_GUARDED_BY</definition>
+        <argsstring>(mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::internal::OutputStreamPollerImpl::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.h" line="176" column="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1a7ff1e31bcf81645521996d0c4cdbb457" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool graph_has_error_</type>
+        <definition>bool graph_has_error_ mediapipe::internal::OutputStreamPollerImpl::ABSL_GUARDED_BY</definition>
+        <argsstring>(mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::internal::OutputStreamPollerImpl::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.h" line="177" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1afcaa64a3febbb1144b61c883754943ff" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Timestamp output_timestamp_</type>
+        <definition>Timestamp output_timestamp_ mediapipe::internal::OutputStreamPollerImpl::ABSL_GUARDED_BY</definition>
+        <argsstring>(mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::internal::OutputStreamPollerImpl::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.h" line="178" column="31"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.h" line="142" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.h" bodystart="142" bodyend="179"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1acdc02c902853c820aec3f3d20b3e5ee1" prot="private" virt="non-virtual"><scope>mediapipe::internal::OutputStreamPollerImpl</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1a7ff1e31bcf81645521996d0c4cdbb457" prot="private" virt="non-virtual"><scope>mediapipe::internal::OutputStreamPollerImpl</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1afcaa64a3febbb1144b61c883754943ff" prot="private" virt="non-virtual"><scope>mediapipe::internal::OutputStreamPollerImpl</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1a643c2966fa27f5de5093f63d0fc0ccfb" prot="public" virt="non-virtual"><scope>mediapipe::internal::OutputStreamPollerImpl</scope><name>Initialize</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GraphOutputStream_1a9d602f29c4d2dd485a7b3e8c485e6471" prot="public" virt="non-virtual" ambiguityscope="mediapipe::internal::GraphOutputStream::"><scope>mediapipe::internal::OutputStreamPollerImpl</scope><name>Initialize</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GraphOutputStream_1aeba42cd1322ff6707e60909d9a6b5d3f" prot="public" virt="non-virtual"><scope>mediapipe::internal::OutputStreamPollerImpl</scope><name>input_stream</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GraphOutputStream_1a728396d1dcb84d627fe90e1e19c29fb5" prot="protected" virt="non-virtual"><scope>mediapipe::internal::OutputStreamPollerImpl</scope><name>input_stream_</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GraphOutputStream_1a26120a6e62354509991701c0aa0dfbe0" prot="protected" virt="non-virtual"><scope>mediapipe::internal::OutputStreamPollerImpl</scope><name>input_stream_handler_</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GraphOutputStream_1a3e54ffd0bbd606397c2834a199ceb21e" prot="protected" virt="non-virtual"><scope>mediapipe::internal::OutputStreamPollerImpl</scope><name>last_processed_ts_</name></member>
+      <member refid="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1a3b6fee25cb9816c5a080126b26c3f90c" prot="private" virt="non-virtual"><scope>mediapipe::internal::OutputStreamPollerImpl</scope><name>mutex_</name></member>
+      <member refid="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1a77834cbd177c8458de052b1476859801" prot="public" virt="non-virtual"><scope>mediapipe::internal::OutputStreamPollerImpl</scope><name>Next</name></member>
+      <member refid="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1a531addbbaacfd032a0d37e6213646ff5" prot="public" virt="non-virtual"><scope>mediapipe::internal::OutputStreamPollerImpl</scope><name>Notify</name></member>
+      <member refid="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1a6383fc0a01991d5e7ffcabf2d17703c6" prot="public" virt="non-virtual"><scope>mediapipe::internal::OutputStreamPollerImpl</scope><name>NotifyError</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GraphOutputStream_1a96b46c1046f69087c38e4e79a63ea220" prot="protected" virt="non-virtual"><scope>mediapipe::internal::OutputStreamPollerImpl</scope><name>observe_timestamp_bounds_</name></member>
+      <member refid="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1ae8912baa8d0a16a3c93f81fc091cf2ea" prot="public" virt="non-virtual"><scope>mediapipe::internal::OutputStreamPollerImpl</scope><name>PrepareForRun</name></member>
+      <member refid="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1a8a4bbd31606c5cfe9abb182498f32e2c" prot="public" virt="non-virtual"><scope>mediapipe::internal::OutputStreamPollerImpl</scope><name>QueueSize</name></member>
+      <member refid="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1a4950925644ab46e462dc94859f02f171" prot="public" virt="non-virtual"><scope>mediapipe::internal::OutputStreamPollerImpl</scope><name>Reset</name></member>
+      <member refid="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1a9dfbea84674b762019e3ea48487b7125" prot="public" virt="non-virtual"><scope>mediapipe::internal::OutputStreamPollerImpl</scope><name>SetMaxQueueSize</name></member>
+      <member refid="classmediapipe_1_1internal_1_1GraphOutputStream_1a719b11240f6065b97475b54ca4193c99" prot="public" virt="virtual"><scope>mediapipe::internal::OutputStreamPollerImpl</scope><name>~GraphOutputStream</name></member>
+      <member refid="classmediapipe_1_1internal_1_1OutputStreamPollerImpl_1aac77666027b7c82d7bcd2284ba6d53d7" prot="public" virt="virtual"><scope>mediapipe::internal::OutputStreamPollerImpl</scope><name>~OutputStreamPollerImpl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

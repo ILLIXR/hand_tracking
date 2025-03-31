@@ -1,0 +1,1718 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://illixr.github.io/hand_tracking/v1.0/api/calculator__graph_8h_source/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>File calculator_graph.h - ILLIXR Hand Tracking Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/mkd-extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: none; }
+    .glightbox-clean .gslide-media {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-calculator_graphh" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+
+
+<header class="md-header md-header--shadow" data-md-component="header" style="background-color: #11284b">
+    <nav class="md-header__inner md-grid" aria-label="Header">
+        <a href="../.." title="ILLIXR Hand Tracking Documentation" class="md-header__button md-logo" aria-label="ILLIXR Hand Tracking Documentation" data-md-component="logo">
+            <img src="../../images/icon.png" alt="logo">
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+            <div class="md-header__ellipsis">
+                <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ILLIXR Hand Tracking Documentation
+          </span>
+                </div>
+                <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File calculator_graph.h
+            
+          </span>
+                </div>
+            </div>
+        </div>
+        
+        
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+        
+        
+        
+        <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+        
+        
+        
+        <label class="md-header__button md-icon" for="__search">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+        
+    </nav>
+    
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+    <label class="md-nav__title" for="__drawer" style="background-color:var(--md-nav-hdr-color);color:var(--md-nav-hdr-fg-color);">
+        <a href="../.." title="ILLIXR Hand Tracking Documentation" class="md-nav__button md-logo" aria-label="ILLIXR Hand Tracking Documentation" data-md-component="logo">
+            <img src="../../images/icon.png" alt="logo">
+        </a>
+        ILLIXR Hand Tracking Documentation
+    </label>
+    
+    <ul class="md-nav__list" data-md-scrollfix style="background-color:var(--md-nav-list-color)">
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+    
+    
+    
+    <div class="md-nav__link md-nav__container" style="color:black;">
+        <a href="../.." class="md-nav__link ">
+            
+
+<span class="md-ellipsis">
+    Latest Documentation
+    
+  </span>
+
+
+        </a>
+        
+        
+        <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+            <span class="md-nav__icon md-icon"></span>
+        </label>
+        
+    </div>
+    
+    <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Latest Documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    API
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1" id="__nav_1_2_1_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Hand Tracking
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Hand Tracking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classILLIXR_1_1hand__tracking/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Plugin
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classILLIXR_1_1hand__tracking__publisher/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Publisher
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1_3" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1_3" id="__nav_1_2_1_3_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Data Types
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_2_1_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Data Types
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structht__illixr__handle__t/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    illixr_handle_t
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structmediapipe_1_1ILLIXR_1_1illixr__ht__frame/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    illixr_ht_frame
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structILLIXR_1_1pose__image/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    pose_image
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classmediapipe_1_1ILLIXROutputCalculator/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    ILLIXR Calculator
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1_5" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1_5" id="__nav_1_2_1_5_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    OpenXR
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_2_1_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            OpenXR
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../interface_8h/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Interface
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../ixr__openxr_8hpp/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Func. Implementations
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1_5_3" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1_5_3" id="__nav_1_2_1_5_3_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Structs
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_2_1_5_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Structs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structixr__hand__tracker/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    ixr_hand+tracker
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structixr__session/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    ixr_session
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classes/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Classes
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../namespacemediapipe/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Namespaces
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../../LICENSE/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    License
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+        
+    </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+    
+    
+    
+    
+    
+    
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-calculator_graphh">File calculator_graph.h</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_eb2b6c49887aebc07904ba22fd97ad51/"><strong>framework</strong></a> <strong>&gt;</strong> <a href="../calculator__graph_8h/"><strong>calculator_graph.h</strong></a></p>
+<p><a href="../calculator__graph_8h/">Go to the documentation of this file</a></p>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-0-1"><span class="c1">// Copyright 2019 The MediaPipe Authors.</span>
+</span><span id="__span-0-2"><span class="c1">//</span>
+</span><span id="__span-0-3"><span class="c1">// Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+</span><span id="__span-0-4"><span class="c1">// you may not use this file except in compliance with the License.</span>
+</span><span id="__span-0-5"><span class="c1">// You may obtain a copy of the License at</span>
+</span><span id="__span-0-6"><span class="c1">//</span>
+</span><span id="__span-0-7"><span class="c1">//      http://www.apache.org/licenses/LICENSE-2.0</span>
+</span><span id="__span-0-8"><span class="c1">//</span>
+</span><span id="__span-0-9"><span class="c1">// Unless required by applicable law or agreed to in writing, software</span>
+</span><span id="__span-0-10"><span class="c1">// distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+</span><span id="__span-0-11"><span class="c1">// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+</span><span id="__span-0-12"><span class="c1">// See the License for the specific language governing permissions and</span>
+</span><span id="__span-0-13"><span class="c1">// limitations under the License.</span>
+</span><span id="__span-0-14"><span class="c1">//</span>
+</span><span id="__span-0-15"><span class="c1">// Declares CalculatorGraph, which links Calculators into a directed acyclic</span>
+</span><span id="__span-0-16"><span class="c1">// graph, and allows its evaluation.</span>
+</span><span id="__span-0-17">
+</span><span id="__span-0-18"><span class="cp">#ifndef MEDIAPIPE_FRAMEWORK_CALCULATOR_GRAPH_H_</span>
+</span><span id="__span-0-19"><span class="cp">#define MEDIAPIPE_FRAMEWORK_CALCULATOR_GRAPH_H_</span>
+</span><span id="__span-0-20">
+</span><span id="__span-0-21"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;atomic&gt;</span>
+</span><span id="__span-0-22"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;functional&gt;</span>
+</span><span id="__span-0-23"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;map&gt;</span>
+</span><span id="__span-0-24"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;memory&gt;</span>
+</span><span id="__span-0-25"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+</span><span id="__span-0-26"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;utility&gt;</span>
+</span><span id="__span-0-27"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+</span><span id="__span-0-28">
+</span><span id="__span-0-29"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;absl/base/attributes.h&quot;</span>
+</span><span id="__span-0-30"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;absl/base/thread_annotations.h&quot;</span>
+</span><span id="__span-0-31"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;absl/container/flat_hash_map.h&quot;</span>
+</span><span id="__span-0-32"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;absl/container/flat_hash_set.h&quot;</span>
+</span><span id="__span-0-33"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;absl/status/status.h&quot;</span>
+</span><span id="__span-0-34"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;absl/status/statusor.h&quot;</span>
+</span><span id="__span-0-35"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;absl/strings/string_view.h&quot;</span>
+</span><span id="__span-0-36"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;absl/synchronization/mutex.h&quot;</span>
+</span><span id="__span-0-37"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/calculator.pb.h&quot;</span>
+</span><span id="__span-0-38"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/calculator_base.h&quot;</span>
+</span><span id="__span-0-39"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/calculator_node.h&quot;</span>
+</span><span id="__span-0-40"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/counter_factory.h&quot;</span>
+</span><span id="__span-0-41"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/executor.h&quot;</span>
+</span><span id="__span-0-42"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/graph_output_stream.h&quot;</span>
+</span><span id="__span-0-43"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/graph_service.h&quot;</span>
+</span><span id="__span-0-44"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/graph_service_manager.h&quot;</span>
+</span><span id="__span-0-45"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/mediapipe_profiling.h&quot;</span>
+</span><span id="__span-0-46"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/output_side_packet_impl.h&quot;</span>
+</span><span id="__span-0-47"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/output_stream_manager.h&quot;</span>
+</span><span id="__span-0-48"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/output_stream_poller.h&quot;</span>
+</span><span id="__span-0-49"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/output_stream_shard.h&quot;</span>
+</span><span id="__span-0-50"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/packet.h&quot;</span>
+</span><span id="__span-0-51"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/packet_generator_graph.h&quot;</span>
+</span><span id="__span-0-52"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/scheduler.h&quot;</span>
+</span><span id="__span-0-53"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/scheduler_shared.h&quot;</span>
+</span><span id="__span-0-54"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/subgraph.h&quot;</span>
+</span><span id="__span-0-55"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/thread_pool_executor.pb.h&quot;</span>
+</span><span id="__span-0-56"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/timestamp.h&quot;</span>
+</span><span id="__span-0-57"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/validated_graph_config.h&quot;</span>
+</span><span id="__span-0-58">
+</span><span id="__span-0-59"><span class="k">namespace</span><span class="w"> </span><span class="nn">mediapipe</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-60">
+</span><span id="__span-0-61"><span class="cp">#if !MEDIAPIPE_DISABLE_GPU</span>
+</span><span id="__span-0-62"><span class="k">class</span><span class="w"> </span><span class="nc">GpuResources</span><span class="p">;</span>
+</span><span id="__span-0-63"><span class="k">struct</span><span class="w"> </span><span class="nc">GpuSharedData</span><span class="p">;</span>
+</span><span id="__span-0-64"><span class="cp">#endif  </span><span class="c1">// !MEDIAPIPE_DISABLE_GPU</span>
+</span><span id="__span-0-65">
+</span><span id="__span-0-66"><span class="k">typedef</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="n">OutputStreamPoller</span><span class="o">&gt;</span><span class="w"> </span><span class="n">StatusOrPoller</span><span class="p">;</span>
+</span><span id="__span-0-67">
+</span><span id="__span-0-68"><span class="c1">// The class representing a DAG of calculator nodes.</span>
+</span><span id="__span-0-69"><span class="c1">//</span>
+</span><span id="__span-0-70"><span class="c1">// CalculatorGraph is the primary API for the MediaPipe Framework.</span>
+</span><span id="__span-0-71"><span class="c1">// In general, CalculatorGraph should be used if the only thing you need</span>
+</span><span id="__span-0-72"><span class="c1">// to do is run the graph (without pushing data in or extracting it as</span>
+</span><span id="__span-0-73"><span class="c1">// the graph runs).</span>
+</span><span id="__span-0-74"><span class="c1">//</span>
+</span><span id="__span-0-75"><span class="c1">// Example:</span>
+</span><span id="__span-0-76"><span class="c1">//   // Build dependency &quot;//mediapipe/framework:calculator_framework&quot;.</span>
+</span><span id="__span-0-77"><span class="c1">//</span>
+</span><span id="__span-0-78"><span class="c1">//   #include &quot;mediapipe/framework/calculator_framework.h&quot;</span>
+</span><span id="__span-0-79"><span class="c1">//</span>
+</span><span id="__span-0-80"><span class="c1">//   mediapipe::CalculatorGraphConfig config;</span>
+</span><span id="__span-0-81"><span class="c1">//   MP_RETURN_IF_ERROR(mediapipe::tool::ParseGraphFromString(kGraphStr,</span>
+</span><span id="__span-0-82"><span class="c1">//   &amp;config)); mediapipe::CalculatorGraph graph;</span>
+</span><span id="__span-0-83"><span class="c1">//   MP_RETURN_IF_ERROR(graph.Initialize(config));</span>
+</span><span id="__span-0-84"><span class="c1">//</span>
+</span><span id="__span-0-85"><span class="c1">//   std::map&lt;std::string, mediapipe::Packet&gt; extra_side_packets;</span>
+</span><span id="__span-0-86"><span class="c1">//   extra_side_packets[&quot;video_id&quot;] = mediapipe::MakePacket&lt;std::string&gt;(</span>
+</span><span id="__span-0-87"><span class="c1">//       &quot;3edb9503834e9b42&quot;);</span>
+</span><span id="__span-0-88"><span class="c1">//   MP_RETURN_IF_ERROR(graph.Run(extra_side_packets));</span>
+</span><span id="__span-0-89"><span class="c1">//</span>
+</span><span id="__span-0-90"><span class="c1">//   // Run again (demonstrating the more concise initializer list syntax).</span>
+</span><span id="__span-0-91"><span class="c1">//   MP_RETURN_IF_ERROR(graph.Run(</span>
+</span><span id="__span-0-92"><span class="c1">//       {{&quot;video_id&quot;, mediapipe::MakePacket&lt;std::string&gt;(&quot;Ex-uGhDzue4&quot;)}}));</span>
+</span><span id="__span-0-93"><span class="c1">//   // See mediapipe/framework/graph_runner.h for an interface</span>
+</span><span id="__span-0-94"><span class="c1">//   // to insert and extract packets from a graph as it runs.</span>
+</span><span id="__span-0-95"><span class="c1">//   // Once it is done using the graph, close its streams and wait till done.</span>
+</span><span id="__span-0-96"><span class="c1">//   MP_RETURN_IF_ERROR(graph-&gt;CloseAllInputStreams());</span>
+</span><span id="__span-0-97"><span class="c1">//   MP_RETURN_IF_ERROR(graph-&gt;WaitUntilDone());</span>
+</span><span id="__span-0-98"><span class="k">class</span><span class="w"> </span><span class="nc">CalculatorGraph</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-99"><span class="w"> </span><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-0-100"><span class="w">  </span><span class="c1">// Defines possible modes for adding a packet to a graph input stream.</span>
+</span><span id="__span-0-101"><span class="w">  </span><span class="c1">// WAIT_TILL_NOT_FULL can be used to control the memory usage of a graph by</span>
+</span><span id="__span-0-102"><span class="w">  </span><span class="c1">// avoiding adding a new packet until all dependent input streams fall below</span>
+</span><span id="__span-0-103"><span class="w">  </span><span class="c1">// the maximum queue size specified in the graph configuration.</span>
+</span><span id="__span-0-104"><span class="w">  </span><span class="c1">// ADD_IF_NOT_FULL could also be used to control the latency if used in a</span>
+</span><span id="__span-0-105"><span class="w">  </span><span class="c1">// real-time graph (e.g. drop camera frames if the MediaPipe graph queues are</span>
+</span><span id="__span-0-106"><span class="w">  </span><span class="c1">// full).</span>
+</span><span id="__span-0-107"><span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GraphInputStreamAddMode</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-108"><span class="w">    </span><span class="c1">// Blocks and waits until none of the affected streams</span>
+</span><span id="__span-0-109"><span class="w">    </span><span class="c1">// are full. Note that if max_queue_size is set to -1, the packet will be</span>
+</span><span id="__span-0-110"><span class="w">    </span><span class="c1">// added regardless of queue size.</span>
+</span><span id="__span-0-111"><span class="w">    </span><span class="n">WAIT_TILL_NOT_FULL</span><span class="p">,</span>
+</span><span id="__span-0-112"><span class="w">    </span><span class="c1">// Returns and does not add packet if any affected input</span>
+</span><span id="__span-0-113"><span class="w">    </span><span class="c1">// stream is full.</span>
+</span><span id="__span-0-114"><span class="w">    </span><span class="n">ADD_IF_NOT_FULL</span>
+</span><span id="__span-0-115"><span class="w">  </span><span class="p">};</span>
+</span><span id="__span-0-116">
+</span><span id="__span-0-117"><span class="w">  </span><span class="c1">// Creates an uninitialized graph.</span>
+</span><span id="__span-0-118"><span class="w">  </span><span class="n">CalculatorGraph</span><span class="p">();</span>
+</span><span id="__span-0-119"><span class="w">  </span><span class="n">CalculatorGraph</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">CalculatorGraph</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+</span><span id="__span-0-120"><span class="w">  </span><span class="n">CalculatorGraph</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">CalculatorGraph</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+</span><span id="__span-0-121">
+</span><span id="__span-0-122"><span class="w">  </span><span class="c1">// Initializes the graph from its proto description (using Initialize())</span>
+</span><span id="__span-0-123"><span class="w">  </span><span class="c1">// and crashes if something goes wrong.</span>
+</span><span id="__span-0-124"><span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">CalculatorGraph</span><span class="p">(</span><span class="n">CalculatorGraphConfig</span><span class="w"> </span><span class="n">config</span><span class="p">);</span>
+</span><span id="__span-0-125"><span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">CalculatorGraph</span><span class="p">();</span>
+</span><span id="__span-0-126">
+</span><span id="__span-0-127"><span class="w">  </span><span class="c1">// Initializes the graph from a its proto description.</span>
+</span><span id="__span-0-128"><span class="w">  </span><span class="c1">// side_packets that are provided at this stage are common across all Run()</span>
+</span><span id="__span-0-129"><span class="w">  </span><span class="c1">// invocations and could be used to execute PacketGenerators immediately.</span>
+</span><span id="__span-0-130"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">Initialize</span><span class="p">(</span><span class="n">CalculatorGraphConfig</span><span class="w"> </span><span class="n">config</span><span class="p">,</span>
+</span><span id="__span-0-131"><span class="w">                          </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">Packet</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">side_packets</span><span class="p">);</span>
+</span><span id="__span-0-132">
+</span><span id="__span-0-133"><span class="w">  </span><span class="c1">// Convenience version which does not take side packets.</span>
+</span><span id="__span-0-134"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">Initialize</span><span class="p">(</span><span class="n">CalculatorGraphConfig</span><span class="w"> </span><span class="n">config</span><span class="p">);</span>
+</span><span id="__span-0-135">
+</span><span id="__span-0-136"><span class="w">  </span><span class="c1">// Initializes the CalculatorGraph from the specified graph and subgraph</span>
+</span><span id="__span-0-137"><span class="w">  </span><span class="c1">// configs.  Template graph and subgraph configs can be specified through</span>
+</span><span id="__span-0-138"><span class="w">  </span><span class="c1">// |input_templates|.  Every subgraph must have its graph type specified in</span>
+</span><span id="__span-0-139"><span class="w">  </span><span class="c1">// CalclatorGraphConfig.type.  A subgraph can be instantiated directly by</span>
+</span><span id="__span-0-140"><span class="w">  </span><span class="c1">// specifying its type in |graph_type|.  A template graph can be instantiated</span>
+</span><span id="__span-0-141"><span class="w">  </span><span class="c1">// directly by specifying its template arguments in |options|.</span>
+</span><span id="__span-0-142"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">Initialize</span><span class="p">(</span>
+</span><span id="__span-0-143"><span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">CalculatorGraphConfig</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">configs</span><span class="p">,</span>
+</span><span id="__span-0-144"><span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">CalculatorGraphTemplate</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">templates</span><span class="p">,</span>
+</span><span id="__span-0-145"><span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">Packet</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">side_packets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{},</span>
+</span><span id="__span-0-146"><span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">graph_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-0-147"><span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">Subgraph</span><span class="o">::</span><span class="n">SubgraphOptions</span><span class="o">*</span><span class="w"> </span><span class="n">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span>
+</span><span id="__span-0-148">
+</span><span id="__span-0-149"><span class="w">  </span><span class="c1">// Returns the canonicalized CalculatorGraphConfig for this graph.</span>
+</span><span id="__span-0-150"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">CalculatorGraphConfig</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">Config</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-151"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">validated_graph_</span><span class="o">-&gt;</span><span class="n">Config</span><span class="p">();</span>
+</span><span id="__span-0-152"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-153">
+</span><span id="__span-0-154"><span class="w">  </span><span class="c1">// Observes the named output stream. packet_callback will be invoked on every</span>
+</span><span id="__span-0-155"><span class="w">  </span><span class="c1">// packet emitted by the output stream. Can only be called before Run() or</span>
+</span><span id="__span-0-156"><span class="w">  </span><span class="c1">// StartRun(). It is possible for packet_callback to be called until the</span>
+</span><span id="__span-0-157"><span class="w">  </span><span class="c1">// object is destroyed, even if e.g. Cancel() or WaitUntilDone() have already</span>
+</span><span id="__span-0-158"><span class="w">  </span><span class="c1">// been called. After this object is destroyed so is packet_callback.</span>
+</span><span id="__span-0-159"><span class="w">  </span><span class="c1">// TODO: Rename to AddOutputStreamCallback.</span>
+</span><span id="__span-0-160"><span class="w">  </span><span class="c1">//</span>
+</span><span id="__span-0-161"><span class="w">  </span><span class="c1">// Note: use `SetErrorCallback` to subscribe for errors when using graph for</span>
+</span><span id="__span-0-162"><span class="w">  </span><span class="c1">// async use cases.</span>
+</span><span id="__span-0-163"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">ObserveOutputStream</span><span class="p">(</span>
+</span><span id="__span-0-164"><span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">stream_name</span><span class="p">,</span>
+</span><span id="__span-0-165"><span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Packet</span><span class="o">&amp;</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">packet_callback</span><span class="p">,</span>
+</span><span id="__span-0-166"><span class="w">      </span><span class="kt">bool</span><span class="w"> </span><span class="n">observe_timestamp_bounds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+</span><span id="__span-0-167">
+</span><span id="__span-0-168"><span class="w">  </span><span class="c1">// Adds an OutputStreamPoller for a stream. This provides a synchronous,</span>
+</span><span id="__span-0-169"><span class="w">  </span><span class="c1">// polling API for accessing a stream&#39;s output. Should only be called before</span>
+</span><span id="__span-0-170"><span class="w">  </span><span class="c1">// Run() or StartRun(). For asynchronous output, use ObserveOutputStream. See</span>
+</span><span id="__span-0-171"><span class="w">  </span><span class="c1">// also the helpers in tool/sink.h.</span>
+</span><span id="__span-0-172"><span class="w">  </span><span class="n">StatusOrPoller</span><span class="w"> </span><span class="nf">AddOutputStreamPoller</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">stream_name</span><span class="p">,</span>
+</span><span id="__span-0-173"><span class="w">                                       </span><span class="kt">bool</span><span class="w"> </span><span class="n">observe_timestamp_bounds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+</span><span id="__span-0-174">
+</span><span id="__span-0-175"><span class="w">  </span><span class="c1">// Gets output side packet by name. The output side packet can be successfully</span>
+</span><span id="__span-0-176"><span class="w">  </span><span class="c1">// retrevied in one of the following situations:</span>
+</span><span id="__span-0-177"><span class="w">  </span><span class="c1">//   - The graph is done.</span>
+</span><span id="__span-0-178"><span class="w">  </span><span class="c1">//   - The output side packet has been generated by a calculator and the graph</span>
+</span><span id="__span-0-179"><span class="w">  </span><span class="c1">//     is currently idle.</span>
+</span><span id="__span-0-180"><span class="w">  </span><span class="c1">//   - The side packet is a base packet generated by a PacketGenerator.</span>
+</span><span id="__span-0-181"><span class="w">  </span><span class="c1">// Returns error if the the output side packet is not found or empty.</span>
+</span><span id="__span-0-182"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="n">Packet</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetOutputSidePacket</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">packet_name</span><span class="p">);</span>
+</span><span id="__span-0-183">
+</span><span id="__span-0-184"><span class="w">  </span><span class="c1">// Runs the graph after adding the given extra input side packets.  All</span>
+</span><span id="__span-0-185"><span class="w">  </span><span class="c1">// arguments are forgotten after Run() returns.</span>
+</span><span id="__span-0-186"><span class="w">  </span><span class="c1">// Run() is a blocking call and will return when all calculators are done.</span>
+</span><span id="__span-0-187"><span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">Run</span><span class="p">(</span>
+</span><span id="__span-0-188"><span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">Packet</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">extra_side_packets</span><span class="p">);</span>
+</span><span id="__span-0-189">
+</span><span id="__span-0-190"><span class="w">  </span><span class="c1">// Run the graph without adding any input side packets.</span>
+</span><span id="__span-0-191"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">Run</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">Run</span><span class="p">({});</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-192">
+</span><span id="__span-0-193"><span class="w">  </span><span class="c1">// Start a run of the graph.  StartRun, WaitUntilDone, Cancel, HasError,</span>
+</span><span id="__span-0-194"><span class="w">  </span><span class="c1">// AddPacketToInputStream, and CloseInputStream allow more control over</span>
+</span><span id="__span-0-195"><span class="w">  </span><span class="c1">// the execution of the graph run.  You can insert packets directly into</span>
+</span><span id="__span-0-196"><span class="w">  </span><span class="c1">// a stream while the graph is running. Once StartRun has been called,</span>
+</span><span id="__span-0-197"><span class="w">  </span><span class="c1">// the graph will continue to run until all work is either done or canceled,</span>
+</span><span id="__span-0-198"><span class="w">  </span><span class="c1">// meaning that either WaitUntilDone() or Cancel() has been called and has</span>
+</span><span id="__span-0-199"><span class="w">  </span><span class="c1">// completed. If StartRun returns an error, then the graph is not started and</span>
+</span><span id="__span-0-200"><span class="w">  </span><span class="c1">// a subsequent call to StartRun can be attempted.</span>
+</span><span id="__span-0-201"><span class="w">  </span><span class="c1">//</span>
+</span><span id="__span-0-202"><span class="w">  </span><span class="c1">// Example:</span>
+</span><span id="__span-0-203"><span class="w">  </span><span class="c1">//   MP_RETURN_IF_ERROR(graph.StartRun(...));</span>
+</span><span id="__span-0-204"><span class="w">  </span><span class="c1">//   while (true) {</span>
+</span><span id="__span-0-205"><span class="w">  </span><span class="c1">//     if (graph.HasError() || want_to_stop) break;</span>
+</span><span id="__span-0-206"><span class="w">  </span><span class="c1">//     MP_RETURN_IF_ERROR(graph.AddPacketToInputStream(...));</span>
+</span><span id="__span-0-207"><span class="w">  </span><span class="c1">//   }</span>
+</span><span id="__span-0-208"><span class="w">  </span><span class="c1">//   for (const std::string&amp; stream : streams) {</span>
+</span><span id="__span-0-209"><span class="w">  </span><span class="c1">//     MP_RETURN_IF_ERROR(graph.CloseInputStream(stream));</span>
+</span><span id="__span-0-210"><span class="w">  </span><span class="c1">//   }</span>
+</span><span id="__span-0-211"><span class="w">  </span><span class="c1">//   MP_RETURN_IF_ERROR(graph.WaitUntilDone());</span>
+</span><span id="__span-0-212"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">StartRun</span><span class="p">(</span>
+</span><span id="__span-0-213"><span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">Packet</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">extra_side_packets</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-214"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">StartRun</span><span class="p">(</span><span class="n">extra_side_packets</span><span class="p">,</span><span class="w"> </span><span class="p">{});</span>
+</span><span id="__span-0-215"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-216">
+</span><span id="__span-0-217"><span class="w">  </span><span class="c1">// In addition to the above StartRun, add additional parameter to set the</span>
+</span><span id="__span-0-218"><span class="w">  </span><span class="c1">// stream header before running.</span>
+</span><span id="__span-0-219"><span class="w">  </span><span class="c1">// Note: We highly discourage the use of stream headers, this is added for the</span>
+</span><span id="__span-0-220"><span class="w">  </span><span class="c1">// compatibility of existing calculators that use headers during Open().</span>
+</span><span id="__span-0-221"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">StartRun</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">Packet</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">extra_side_packets</span><span class="p">,</span>
+</span><span id="__span-0-222"><span class="w">                        </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">Packet</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">stream_headers</span><span class="p">);</span>
+</span><span id="__span-0-223">
+</span><span id="__span-0-224"><span class="w">  </span><span class="c1">// Wait for the current run to finish (block the current thread</span>
+</span><span id="__span-0-225"><span class="w">  </span><span class="c1">// until all source calculators have returned StatusStop(), all</span>
+</span><span id="__span-0-226"><span class="w">  </span><span class="c1">// graph_input_streams_ have been closed, and no more calculators can</span>
+</span><span id="__span-0-227"><span class="w">  </span><span class="c1">// be run). This function can be called only after StartRun(). If you want to</span>
+</span><span id="__span-0-228"><span class="w">  </span><span class="c1">// stop the run quickly, without waiting for all the work in progress to</span>
+</span><span id="__span-0-229"><span class="w">  </span><span class="c1">// finish, see Cancel(). The graph cannot be destroyed until all work is</span>
+</span><span id="__span-0-230"><span class="w">  </span><span class="c1">// either done or canceled, meaning that either WaitUntilDone() or Cancel()</span>
+</span><span id="__span-0-231"><span class="w">  </span><span class="c1">// has been called and completed.</span>
+</span><span id="__span-0-232"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">WaitUntilDone</span><span class="p">();</span>
+</span><span id="__span-0-233">
+</span><span id="__span-0-234"><span class="w">  </span><span class="c1">// Wait until the running graph is in the idle mode, which is when nothing can</span>
+</span><span id="__span-0-235"><span class="w">  </span><span class="c1">// be scheduled and nothing is running in the worker threads. This function</span>
+</span><span id="__span-0-236"><span class="w">  </span><span class="c1">// can be called only after StartRun().</span>
+</span><span id="__span-0-237"><span class="w">  </span><span class="c1">//</span>
+</span><span id="__span-0-238"><span class="w">  </span><span class="c1">// NOTE: The graph must not have any source nodes because source nodes prevent</span>
+</span><span id="__span-0-239"><span class="w">  </span><span class="c1">// the running graph from becoming idle until the source nodes are done.</span>
+</span><span id="__span-0-240"><span class="w">  </span><span class="c1">// Currently, `WaitUntilIdle` cannot be used reliably on graphs with any</span>
+</span><span id="__span-0-241"><span class="w">  </span><span class="c1">// source nodes.</span>
+</span><span id="__span-0-242"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">WaitUntilIdle</span><span class="p">();</span>
+</span><span id="__span-0-243">
+</span><span id="__span-0-244"><span class="w">  </span><span class="c1">// Wait until a packet is emitted on one of the observed output streams.</span>
+</span><span id="__span-0-245"><span class="w">  </span><span class="c1">// Returns immediately if a packet has already been emitted since the last</span>
+</span><span id="__span-0-246"><span class="w">  </span><span class="c1">// call to this function.</span>
+</span><span id="__span-0-247"><span class="w">  </span><span class="c1">// Returns OutOfRangeError if the graph terminated while waiting.</span>
+</span><span id="__span-0-248"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">WaitForObservedOutput</span><span class="p">();</span>
+</span><span id="__span-0-249">
+</span><span id="__span-0-250"><span class="w">  </span><span class="c1">// Quick non-locking means of checking if the graph has encountered an error.</span>
+</span><span id="__span-0-251"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">HasError</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">has_error_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-252">
+</span><span id="__span-0-253"><span class="w">  </span><span class="c1">// Add a Packet to a graph input stream based on the graph input stream add</span>
+</span><span id="__span-0-254"><span class="w">  </span><span class="c1">// mode. If the mode is ADD_IF_NOT_FULL, the packet will not be added if any</span>
+</span><span id="__span-0-255"><span class="w">  </span><span class="c1">// queue exceeds max_queue_size specified by the graph config and will return</span>
+</span><span id="__span-0-256"><span class="w">  </span><span class="c1">// StatusUnavailable. The WAIT_TILL_NOT_FULL mode (default) will block until</span>
+</span><span id="__span-0-257"><span class="w">  </span><span class="c1">// the queues fall below the max_queue_size before adding the packet. If the</span>
+</span><span id="__span-0-258"><span class="w">  </span><span class="c1">// mode is max_queue_size is -1, then the packet is added regardless of the</span>
+</span><span id="__span-0-259"><span class="w">  </span><span class="c1">// sizes of the queues in the graph. The input stream must have been specified</span>
+</span><span id="__span-0-260"><span class="w">  </span><span class="c1">// in the configuration as a graph level input_stream. On error, nothing is</span>
+</span><span id="__span-0-261"><span class="w">  </span><span class="c1">// added.</span>
+</span><span id="__span-0-262"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">AddPacketToInputStream</span><span class="p">(</span><span class="n">absl</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">stream_name</span><span class="p">,</span>
+</span><span id="__span-0-263"><span class="w">                                      </span><span class="k">const</span><span class="w"> </span><span class="n">Packet</span><span class="o">&amp;</span><span class="w"> </span><span class="n">packet</span><span class="p">);</span>
+</span><span id="__span-0-264">
+</span><span id="__span-0-265"><span class="w">  </span><span class="c1">// Same as the l-value version of this function by the same name, but moves</span>
+</span><span id="__span-0-266"><span class="w">  </span><span class="c1">// the r-value referenced packet into the stream instead of copying it over.</span>
+</span><span id="__span-0-267"><span class="w">  </span><span class="c1">// This allows the graph to take exclusive ownership of the packet, which may</span>
+</span><span id="__span-0-268"><span class="w">  </span><span class="c1">// allow more memory optimizations. Note that, if an error is returned, the</span>
+</span><span id="__span-0-269"><span class="w">  </span><span class="c1">// packet may remain valid.  In particular, when using the ADD_IF_NOT_FULL</span>
+</span><span id="__span-0-270"><span class="w">  </span><span class="c1">// mode with a full queue, this will return StatusUnavailable and the caller</span>
+</span><span id="__span-0-271"><span class="w">  </span><span class="c1">// may try adding the packet again later.</span>
+</span><span id="__span-0-272"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">AddPacketToInputStream</span><span class="p">(</span><span class="n">absl</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">stream_name</span><span class="p">,</span>
+</span><span id="__span-0-273"><span class="w">                                      </span><span class="n">Packet</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">packet</span><span class="p">);</span>
+</span><span id="__span-0-274">
+</span><span id="__span-0-275"><span class="w">  </span><span class="c1">// Indicates that input will arrive no earlier than a certain timestamp.</span>
+</span><span id="__span-0-276"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">SetInputStreamTimestampBound</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">stream_name</span><span class="p">,</span>
+</span><span id="__span-0-277"><span class="w">                                            </span><span class="n">Timestamp</span><span class="w"> </span><span class="n">timestamp</span><span class="p">);</span>
+</span><span id="__span-0-278">
+</span><span id="__span-0-279"><span class="w">  </span><span class="c1">// Sets the queue size of a graph input stream, overriding the graph default.</span>
+</span><span id="__span-0-280"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">SetInputStreamMaxQueueSize</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">stream_name</span><span class="p">,</span>
+</span><span id="__span-0-281"><span class="w">                                          </span><span class="kt">int</span><span class="w"> </span><span class="n">max_queue_size</span><span class="p">);</span>
+</span><span id="__span-0-282">
+</span><span id="__span-0-283"><span class="w">  </span><span class="c1">// Check if an input stream exists in the graph</span>
+</span><span id="__span-0-284"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">HasInputStream</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+</span><span id="__span-0-285">
+</span><span id="__span-0-286"><span class="w">  </span><span class="c1">// Close a graph input stream.  If the graph has any graph input streams</span>
+</span><span id="__span-0-287"><span class="w">  </span><span class="c1">// then Run() will not return until all the graph input streams have</span>
+</span><span id="__span-0-288"><span class="w">  </span><span class="c1">// been closed (and all packets propagate through the graph).</span>
+</span><span id="__span-0-289"><span class="w">  </span><span class="c1">// Note that multiple threads cannot call CloseInputStream() on the same</span>
+</span><span id="__span-0-290"><span class="w">  </span><span class="c1">// stream_name at the same time.</span>
+</span><span id="__span-0-291"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">CloseInputStream</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">stream_name</span><span class="p">);</span>
+</span><span id="__span-0-292">
+</span><span id="__span-0-293"><span class="w">  </span><span class="c1">// Closes all the graph input streams.</span>
+</span><span id="__span-0-294"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">CloseAllInputStreams</span><span class="p">();</span>
+</span><span id="__span-0-295">
+</span><span id="__span-0-296"><span class="w">  </span><span class="c1">// Closes all the graph input streams and source calculator nodes.</span>
+</span><span id="__span-0-297"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">CloseAllPacketSources</span><span class="p">();</span>
+</span><span id="__span-0-298">
+</span><span id="__span-0-299"><span class="w">  </span><span class="c1">// Returns the pointer to the stream with the given name, or dies if none</span>
+</span><span id="__span-0-300"><span class="w">  </span><span class="c1">// exists. The result remains owned by the CalculatorGraph.</span>
+</span><span id="__span-0-301"><span class="w">  </span><span class="n">ABSL_DEPRECATED</span><span class="p">(</span>
+</span><span id="__span-0-302"><span class="w">      </span><span class="s">&quot;Prefer using a Calculator to get information of all sorts out of the &quot;</span>
+</span><span id="__span-0-303"><span class="w">      </span><span class="s">&quot;graph.&quot;</span><span class="p">)</span>
+</span><span id="__span-0-304"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">OutputStreamManager</span><span class="o">*</span><span class="w"> </span><span class="n">FindOutputStreamManager</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+</span><span id="__span-0-305">
+</span><span id="__span-0-306"><span class="w">  </span><span class="c1">// Returns the ProfilingContext assocoaited with the CalculatorGraph.</span>
+</span><span id="__span-0-307"><span class="w">  </span><span class="n">ProfilingContext</span><span class="o">*</span><span class="w"> </span><span class="nf">profiler</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">profiler_</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-308"><span class="w">  </span><span class="c1">// Collects the runtime profile for Open(), Process(), and Close() of each</span>
+</span><span id="__span-0-309"><span class="w">  </span><span class="c1">// calculator in the graph. May be called at any time after the graph has been</span>
+</span><span id="__span-0-310"><span class="w">  </span><span class="c1">// initialized.</span>
+</span><span id="__span-0-311"><span class="w">  </span><span class="n">ABSL_DEPRECATED</span><span class="p">(</span><span class="s">&quot;Use profiler()-&gt;GetCalculatorProfiles() instead&quot;</span><span class="p">)</span>
+</span><span id="__span-0-312"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">GetCalculatorProfiles</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">CalculatorProfile</span><span class="o">&gt;*</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-313">
+</span><span id="__span-0-314"><span class="w">  </span><span class="c1">// Set the type of counter used in this graph.</span>
+</span><span id="__span-0-315"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">SetCounterFactory</span><span class="p">(</span><span class="n">CounterFactory</span><span class="o">*</span><span class="w"> </span><span class="n">factory</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-316"><span class="w">    </span><span class="n">counter_factory_</span><span class="p">.</span><span class="n">reset</span><span class="p">(</span><span class="n">factory</span><span class="p">);</span>
+</span><span id="__span-0-317"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-318"><span class="w">  </span><span class="n">CounterFactory</span><span class="o">*</span><span class="w"> </span><span class="nf">GetCounterFactory</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">counter_factory_</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-319">
+</span><span id="__span-0-320"><span class="w">  </span><span class="c1">// Sets the error callback to receive graph execution errors when blocking</span>
+</span><span id="__span-0-321"><span class="w">  </span><span class="c1">// calls like `WaitUntilIdle()`, `WaitUntilDone()` cannot be used.</span>
+</span><span id="__span-0-322"><span class="w">  </span><span class="c1">//</span>
+</span><span id="__span-0-323"><span class="w">  </span><span class="c1">// Useful for async graph use cases: e.g. user entering words and each</span>
+</span><span id="__span-0-324"><span class="w">  </span><span class="c1">// word is sent to the graph while graph outputs are received and rendered</span>
+</span><span id="__span-0-325"><span class="w">  </span><span class="c1">// asynchronously.</span>
+</span><span id="__span-0-326"><span class="w">  </span><span class="c1">//</span>
+</span><span id="__span-0-327"><span class="w">  </span><span class="c1">// NOTE:</span>
+</span><span id="__span-0-328"><span class="w">  </span><span class="c1">// - Must be called before graph is initialized.</span>
+</span><span id="__span-0-329"><span class="w">  </span><span class="c1">// - May be executed from multiple threads.</span>
+</span><span id="__span-0-330"><span class="w">  </span><span class="c1">// - Errors are first processed by the graph, then the graph transitions into</span>
+</span><span id="__span-0-331"><span class="w">  </span><span class="c1">//   the error state, and then finally the callback is invoked.</span>
+</span><span id="__span-0-332"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">SetErrorCallback</span><span class="p">(</span>
+</span><span id="__span-0-333"><span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="o">&amp;</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">error_callback</span><span class="p">);</span>
+</span><span id="__span-0-334">
+</span><span id="__span-0-335"><span class="w">  </span><span class="c1">// Callback when an error is encountered.</span>
+</span><span id="__span-0-336"><span class="w">  </span><span class="c1">// Adds the error to the vector of errors.</span>
+</span><span id="__span-0-337"><span class="w">  </span><span class="c1">//</span>
+</span><span id="__span-0-338"><span class="w">  </span><span class="c1">// Use `SetErrorCallback` to subscribe for errors when using graph for async</span>
+</span><span id="__span-0-339"><span class="w">  </span><span class="c1">// use cases.</span>
+</span><span id="__span-0-340"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">RecordError</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="o">&amp;</span><span class="w"> </span><span class="n">error</span><span class="p">)</span><span class="w"> </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">error_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-341">
+</span><span id="__span-0-342"><span class="w">  </span><span class="c1">// Combines errors into a status. Returns true if the vector of errors is</span>
+</span><span id="__span-0-343"><span class="w">  </span><span class="c1">// non-empty.</span>
+</span><span id="__span-0-344"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">GetCombinedErrors</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">error_prefix</span><span class="p">,</span>
+</span><span id="__span-0-345"><span class="w">                         </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="o">*</span><span class="w"> </span><span class="n">error_status</span><span class="p">);</span>
+</span><span id="__span-0-346"><span class="w">  </span><span class="c1">// Convenience overload which specifies a default error prefix.</span>
+</span><span id="__span-0-347"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">GetCombinedErrors</span><span class="p">(</span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="o">*</span><span class="w"> </span><span class="n">error_status</span><span class="p">);</span>
+</span><span id="__span-0-348">
+</span><span id="__span-0-349"><span class="w">  </span><span class="c1">// Returns the maximum input stream queue size.</span>
+</span><span id="__span-0-350"><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">GetMaxInputStreamQueueSize</span><span class="p">();</span>
+</span><span id="__span-0-351">
+</span><span id="__span-0-352"><span class="w">  </span><span class="c1">// Get the mode for adding packets to an input stream.</span>
+</span><span id="__span-0-353"><span class="w">  </span><span class="n">GraphInputStreamAddMode</span><span class="w"> </span><span class="nf">GetGraphInputStreamAddMode</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-354">
+</span><span id="__span-0-355"><span class="w">  </span><span class="c1">// Set the mode for adding packets to an input stream.</span>
+</span><span id="__span-0-356"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">SetGraphInputStreamAddMode</span><span class="p">(</span><span class="n">GraphInputStreamAddMode</span><span class="w"> </span><span class="n">mode</span><span class="p">);</span>
+</span><span id="__span-0-357">
+</span><span id="__span-0-358"><span class="w">  </span><span class="c1">// Aborts the scheduler if the graph is not terminated; no-op otherwise. Does</span>
+</span><span id="__span-0-359"><span class="w">  </span><span class="c1">// not wait for all work in progress to finish. To stop the run and wait for</span>
+</span><span id="__span-0-360"><span class="w">  </span><span class="c1">// work in progress to finish, see CloseAllInputStreams() and WaitUntilDone().</span>
+</span><span id="__span-0-361"><span class="w">  </span><span class="c1">// The graph cannot be destroyed until all work is either done or canceled,</span>
+</span><span id="__span-0-362"><span class="w">  </span><span class="c1">// meaning that either WaitUntilDone() or Cancel() has been called and</span>
+</span><span id="__span-0-363"><span class="w">  </span><span class="c1">// completed.</span>
+</span><span id="__span-0-364"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">Cancel</span><span class="p">();</span>
+</span><span id="__span-0-365">
+</span><span id="__span-0-366"><span class="w">  </span><span class="c1">// Pauses the scheduler. Only used by calculator graph testing.</span>
+</span><span id="__span-0-367"><span class="w">  </span><span class="n">ABSL_DEPRECATED</span><span class="p">(</span>
+</span><span id="__span-0-368"><span class="w">      </span><span class="s">&quot;CalculatorGraph will not allow external callers to explictly pause and &quot;</span>
+</span><span id="__span-0-369"><span class="w">      </span><span class="s">&quot;resume a graph.&quot;</span><span class="p">)</span>
+</span><span id="__span-0-370"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">Pause</span><span class="p">();</span>
+</span><span id="__span-0-371">
+</span><span id="__span-0-372"><span class="w">  </span><span class="c1">// Resumes the scheduler. Only used by calculator graph testing.</span>
+</span><span id="__span-0-373"><span class="w">  </span><span class="n">ABSL_DEPRECATED</span><span class="p">(</span>
+</span><span id="__span-0-374"><span class="w">      </span><span class="s">&quot;CalculatorGraph will not allow external callers to explictly pause and &quot;</span>
+</span><span id="__span-0-375"><span class="w">      </span><span class="s">&quot;resume a graph.&quot;</span><span class="p">)</span>
+</span><span id="__span-0-376"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">Resume</span><span class="p">();</span>
+</span><span id="__span-0-377">
+</span><span id="__span-0-378"><span class="w">  </span><span class="c1">// Sets the executor that will run the nodes assigned to the executor</span>
+</span><span id="__span-0-379"><span class="w">  </span><span class="c1">// named |name|. If |name| is empty, this sets the default executor. Must</span>
+</span><span id="__span-0-380"><span class="w">  </span><span class="c1">// be called before the graph is initialized.</span>
+</span><span id="__span-0-381"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">SetExecutor</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+</span><span id="__span-0-382"><span class="w">                           </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Executor</span><span class="o">&gt;</span><span class="w"> </span><span class="n">executor</span><span class="p">);</span>
+</span><span id="__span-0-383">
+</span><span id="__span-0-384"><span class="w">  </span><span class="c1">// WARNING: the following public methods are exposed to Scheduler only.</span>
+</span><span id="__span-0-385">
+</span><span id="__span-0-386"><span class="w">  </span><span class="c1">// Return true if all the graph input streams have been closed.</span>
+</span><span id="__span-0-387"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">GraphInputStreamsClosed</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-388"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">num_closed_graph_input_streams_</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">graph_input_streams_</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span><span id="__span-0-389"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-390">
+</span><span id="__span-0-391"><span class="w">  </span><span class="c1">// Returns true if this node or graph input stream is connected to</span>
+</span><span id="__span-0-392"><span class="w">  </span><span class="c1">// any input stream whose queue has hit maximum capacity.</span>
+</span><span id="__span-0-393"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">IsNodeThrottled</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">node_id</span><span class="p">)</span>
+</span><span id="__span-0-394"><span class="w">      </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">full_input_streams_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-395">
+</span><span id="__span-0-396"><span class="w">  </span><span class="c1">// If any active source node or graph input stream is throttled and not yet</span>
+</span><span id="__span-0-397"><span class="w">  </span><span class="c1">// closed, increases the max_queue_size for each full input stream in the</span>
+</span><span id="__span-0-398"><span class="w">  </span><span class="c1">// graph.</span>
+</span><span id="__span-0-399"><span class="w">  </span><span class="c1">// Returns true if at least one max_queue_size has been grown.</span>
+</span><span id="__span-0-400"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="nf">UnthrottleSources</span><span class="p">()</span><span class="w"> </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">full_input_streams_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-401">
+</span><span id="__span-0-402"><span class="w">  </span><span class="c1">// Returns the scheduler&#39;s runtime measures for overhead measurement.</span>
+</span><span id="__span-0-403"><span class="w">  </span><span class="c1">// Only meant for test purposes.</span>
+</span><span id="__span-0-404"><span class="w">  </span><span class="n">internal</span><span class="o">::</span><span class="n">SchedulerTimes</span><span class="w"> </span><span class="nf">GetSchedulerTimes</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-405"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">scheduler_</span><span class="p">.</span><span class="n">GetSchedulerTimes</span><span class="p">();</span>
+</span><span id="__span-0-406"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-407">
+</span><span id="__span-0-408"><span class="cp">#if !MEDIAPIPE_DISABLE_GPU</span>
+</span><span id="__span-0-409"><span class="w">  </span><span class="c1">// Returns a pointer to the GpuResources in use, if any.</span>
+</span><span id="__span-0-410"><span class="w">  </span><span class="c1">// Only meant for internal use.</span>
+</span><span id="__span-0-411"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">GpuResources</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetGpuResources</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-412">
+</span><span id="__span-0-413"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">SetGpuResources</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">GpuResources</span><span class="o">&gt;</span><span class="w"> </span><span class="n">resources</span><span class="p">);</span>
+</span><span id="__span-0-414"><span class="cp">#endif  </span><span class="c1">// !MEDIAPIPE_DISABLE_GPU</span>
+</span><span id="__span-0-415">
+</span><span id="__span-0-416"><span class="w">  </span><span class="c1">// Sets a service object, essentially a graph-level singleton, which can be</span>
+</span><span id="__span-0-417"><span class="w">  </span><span class="c1">// accessed by calculators and subgraphs without requiring an explicit</span>
+</span><span id="__span-0-418"><span class="w">  </span><span class="c1">// connection.</span>
+</span><span id="__span-0-419"><span class="w">  </span><span class="c1">//</span>
+</span><span id="__span-0-420"><span class="w">  </span><span class="c1">// NOTE: must be called before `Initialize`, so subgraphs can access services</span>
+</span><span id="__span-0-421"><span class="w">  </span><span class="c1">// as well, as graph expansion happens during initialization.</span>
+</span><span id="__span-0-422"><span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+</span><span id="__span-0-423"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">SetServiceObject</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">GraphService</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">service</span><span class="p">,</span>
+</span><span id="__span-0-424"><span class="w">                                </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">object</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-425"><span class="w">    </span><span class="c1">// TODO: check that the graph has not been started!</span>
+</span><span id="__span-0-426"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">service_manager_</span><span class="p">.</span><span class="n">SetServiceObject</span><span class="p">(</span><span class="n">service</span><span class="p">,</span><span class="w"> </span><span class="n">object</span><span class="p">);</span>
+</span><span id="__span-0-427"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-428">
+</span><span id="__span-0-429"><span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+</span><span id="__span-0-430"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetServiceObject</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">GraphService</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">service</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-431"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">service_manager_</span><span class="p">.</span><span class="n">GetServiceObject</span><span class="p">(</span><span class="n">service</span><span class="p">);</span>
+</span><span id="__span-0-432"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-433">
+</span><span id="__span-0-434"><span class="w">  </span><span class="c1">// Disallows/disables default initialization of MediaPipe graph services.</span>
+</span><span id="__span-0-435"><span class="w">  </span><span class="c1">//</span>
+</span><span id="__span-0-436"><span class="w">  </span><span class="c1">// IMPORTANT: MediaPipe graph serices, essentially a graph-level singletons,</span>
+</span><span id="__span-0-437"><span class="w">  </span><span class="c1">// are designed in the way, so they may provide default initialization. For</span>
+</span><span id="__span-0-438"><span class="w">  </span><span class="c1">// example, this allows to run OpenGL processing wihtin the graph without</span>
+</span><span id="__span-0-439"><span class="w">  </span><span class="c1">// provinging a praticular OpenGL context as it can be provided by</span>
+</span><span id="__span-0-440"><span class="w">  </span><span class="c1">// default-initializable `kGpuService`. (One caveat here, you may still need</span>
+</span><span id="__span-0-441"><span class="w">  </span><span class="c1">// to initialize it manually to share graph context with external context.)</span>
+</span><span id="__span-0-442"><span class="w">  </span><span class="c1">//</span>
+</span><span id="__span-0-443"><span class="w">  </span><span class="c1">// Even if calculators require some service optionally</span>
+</span><span id="__span-0-444"><span class="w">  </span><span class="c1">// (`calculator_contract-&gt;UseService(kSomeService).Optional()`), it will be</span>
+</span><span id="__span-0-445"><span class="w">  </span><span class="c1">// still initialized if it allows default initialization.</span>
+</span><span id="__span-0-446"><span class="w">  </span><span class="c1">//</span>
+</span><span id="__span-0-447"><span class="w">  </span><span class="c1">// So far, in rare cases, this may be unwanted and strict control of what</span>
+</span><span id="__span-0-448"><span class="w">  </span><span class="c1">// services are allowed in the graph can be achieved by calling this method,</span>
+</span><span id="__span-0-449"><span class="w">  </span><span class="c1">// following `SetServiceObject` call for services which are allowed in the</span>
+</span><span id="__span-0-450"><span class="w">  </span><span class="c1">// graph.</span>
+</span><span id="__span-0-451"><span class="w">  </span><span class="c1">//</span>
+</span><span id="__span-0-452"><span class="w">  </span><span class="c1">// Recommendation: do not use unless you have to (for example, default</span>
+</span><span id="__span-0-453"><span class="w">  </span><span class="c1">// initialization has side effects)</span>
+</span><span id="__span-0-454"><span class="w">  </span><span class="c1">//</span>
+</span><span id="__span-0-455"><span class="w">  </span><span class="c1">// NOTE: must be called before `StartRun`/`Run`, where services are checked</span>
+</span><span id="__span-0-456"><span class="w">  </span><span class="c1">// and can be default-initialized.</span>
+</span><span id="__span-0-457"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">DisallowServiceDefaultInitialization</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-458"><span class="w">    </span><span class="n">allow_service_default_initialization_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-0-459"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">OkStatus</span><span class="p">();</span>
+</span><span id="__span-0-460"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-461">
+</span><span id="__span-0-462"><span class="w">  </span><span class="c1">// Sets a service object, essentially a graph-level singleton, which can be</span>
+</span><span id="__span-0-463"><span class="w">  </span><span class="c1">// accessed by calculators and subgraphs without requiring an explicit</span>
+</span><span id="__span-0-464"><span class="w">  </span><span class="c1">// connection.</span>
+</span><span id="__span-0-465"><span class="w">  </span><span class="c1">//</span>
+</span><span id="__span-0-466"><span class="w">  </span><span class="c1">// NOTE: must be called before `Initialize`, so subgraphs can access services</span>
+</span><span id="__span-0-467"><span class="w">  </span><span class="c1">// as well, as graph expansion happens during initialization.</span>
+</span><span id="__span-0-468"><span class="w">  </span><span class="c1">//</span>
+</span><span id="__span-0-469"><span class="w">  </span><span class="c1">// Only the Java API should call this directly.</span>
+</span><span id="__span-0-470"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">SetServicePacket</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">GraphServiceBase</span><span class="o">&amp;</span><span class="w"> </span><span class="n">service</span><span class="p">,</span><span class="w"> </span><span class="n">Packet</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-471"><span class="w">    </span><span class="c1">// TODO: check that the graph has not been started!</span>
+</span><span id="__span-0-472"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">service_manager_</span><span class="p">.</span><span class="n">SetServicePacket</span><span class="p">(</span><span class="n">service</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">);</span>
+</span><span id="__span-0-473"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-474">
+</span><span id="__span-0-475"><span class="w"> </span><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-0-476"><span class="w">  </span><span class="c1">// GraphRunState is used as a parameter in the function CallStatusHandlers.</span>
+</span><span id="__span-0-477"><span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">GraphRunState</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-478"><span class="w">    </span><span class="c1">// State of the graph before the run; see status_handler.h for details.</span>
+</span><span id="__span-0-479"><span class="w">    </span><span class="n">PRE_RUN</span><span class="p">,</span>
+</span><span id="__span-0-480"><span class="w">    </span><span class="c1">// State of the graph after after the run; set by CleanUpAfterRun.</span>
+</span><span id="__span-0-481"><span class="w">    </span><span class="n">POST_RUN</span><span class="p">,</span>
+</span><span id="__span-0-482"><span class="w">  </span><span class="p">};</span>
+</span><span id="__span-0-483">
+</span><span id="__span-0-484"><span class="w">  </span><span class="c1">// The graph input streams (which have packets added to them from</span>
+</span><span id="__span-0-485"><span class="w">  </span><span class="c1">// outside the graph).  Since these will be connected directly to a</span>
+</span><span id="__span-0-486"><span class="w">  </span><span class="c1">// node&#39;s input streams they are implemented as &quot;output&quot; streams.</span>
+</span><span id="__span-0-487"><span class="w">  </span><span class="c1">// Based on the assumption that all the graph input packets must be added to a</span>
+</span><span id="__span-0-488"><span class="w">  </span><span class="c1">// graph input stream sequentially, a GraphInputStream object only contains</span>
+</span><span id="__span-0-489"><span class="w">  </span><span class="c1">// one reusable output stream shard.</span>
+</span><span id="__span-0-490"><span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">GraphInputStream</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-491"><span class="w">   </span><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-0-492"><span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">GraphInputStream</span><span class="p">(</span><span class="n">OutputStreamManager</span><span class="o">*</span><span class="w"> </span><span class="n">manager</span><span class="p">)</span>
+</span><span id="__span-0-493"><span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">manager_</span><span class="p">(</span><span class="n">manager</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-494"><span class="w">      </span><span class="n">shard_</span><span class="p">.</span><span class="n">SetSpec</span><span class="p">(</span><span class="n">manager_</span><span class="o">-&gt;</span><span class="n">Spec</span><span class="p">());</span>
+</span><span id="__span-0-495"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-496">
+</span><span id="__span-0-497"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">PrepareForRun</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">error_callback</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-498"><span class="w">      </span><span class="n">manager_</span><span class="o">-&gt;</span><span class="n">PrepareForRun</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">error_callback</span><span class="p">));</span>
+</span><span id="__span-0-499"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-500">
+</span><span id="__span-0-501"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">SetMaxQueueSize</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">max_queue_size</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-502"><span class="w">      </span><span class="n">manager_</span><span class="o">-&gt;</span><span class="n">SetMaxQueueSize</span><span class="p">(</span><span class="n">max_queue_size</span><span class="p">);</span>
+</span><span id="__span-0-503"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-504">
+</span><span id="__span-0-505"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">SetHeader</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Packet</span><span class="o">&amp;</span><span class="w"> </span><span class="n">header</span><span class="p">);</span>
+</span><span id="__span-0-506">
+</span><span id="__span-0-507"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">AddPacket</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Packet</span><span class="o">&amp;</span><span class="w"> </span><span class="n">packet</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">shard_</span><span class="p">.</span><span class="n">AddPacket</span><span class="p">(</span><span class="n">packet</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-508">
+</span><span id="__span-0-509"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">AddPacket</span><span class="p">(</span><span class="n">Packet</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">packet</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">shard_</span><span class="p">.</span><span class="n">AddPacket</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">packet</span><span class="p">));</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-510">
+</span><span id="__span-0-511"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">SetNextTimestampBound</span><span class="p">(</span><span class="n">Timestamp</span><span class="w"> </span><span class="n">timestamp</span><span class="p">);</span>
+</span><span id="__span-0-512">
+</span><span id="__span-0-513"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">PropagateUpdatesToMirrors</span><span class="p">();</span>
+</span><span id="__span-0-514">
+</span><span id="__span-0-515"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">Close</span><span class="p">();</span>
+</span><span id="__span-0-516">
+</span><span id="__span-0-517"><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">IsClosed</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">manager_</span><span class="o">-&gt;</span><span class="n">IsClosed</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-518">
+</span><span id="__span-0-519"><span class="w">    </span><span class="n">OutputStreamManager</span><span class="o">*</span><span class="w"> </span><span class="nf">GetManager</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">manager_</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-520">
+</span><span id="__span-0-521"><span class="w">   </span><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-0-522"><span class="w">    </span><span class="n">OutputStreamManager</span><span class="o">*</span><span class="w"> </span><span class="n">manager_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+</span><span id="__span-0-523"><span class="w">    </span><span class="n">OutputStreamShard</span><span class="w"> </span><span class="n">shard_</span><span class="p">;</span>
+</span><span id="__span-0-524"><span class="w">  </span><span class="p">};</span>
+</span><span id="__span-0-525">
+</span><span id="__span-0-526"><span class="w">  </span><span class="c1">// Initializes the graph from a ValidatedGraphConfig object.</span>
+</span><span id="__span-0-527"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">Initialize</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">ValidatedGraphConfig</span><span class="o">&gt;</span><span class="w"> </span><span class="n">validated_graph</span><span class="p">,</span>
+</span><span id="__span-0-528"><span class="w">                          </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">Packet</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">side_packets</span><span class="p">);</span>
+</span><span id="__span-0-529">
+</span><span id="__span-0-530"><span class="w">  </span><span class="c1">// AddPacketToInputStreamInternal template is called by either</span>
+</span><span id="__span-0-531"><span class="w">  </span><span class="c1">// AddPacketToInputStream(Packet&amp;&amp; packet) or</span>
+</span><span id="__span-0-532"><span class="w">  </span><span class="c1">// AddPacketToInputStream(const Packet&amp; packet).</span>
+</span><span id="__span-0-533"><span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+</span><span id="__span-0-534"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="n">AddPacketToInputStreamInternal</span><span class="p">(</span><span class="n">absl</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">stream_name</span><span class="p">,</span>
+</span><span id="__span-0-535"><span class="w">                                              </span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">packet</span><span class="p">);</span>
+</span><span id="__span-0-536">
+</span><span id="__span-0-537"><span class="w">  </span><span class="c1">// Sets the executor that will run the nodes assigned to the executor</span>
+</span><span id="__span-0-538"><span class="w">  </span><span class="c1">// named |name|.  If |name| is empty, this sets the default executor.</span>
+</span><span id="__span-0-539"><span class="w">  </span><span class="c1">// Does not check that the graph is uninitialized and |name| is not a</span>
+</span><span id="__span-0-540"><span class="w">  </span><span class="c1">// reserved executor name.</span>
+</span><span id="__span-0-541"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">SetExecutorInternal</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+</span><span id="__span-0-542"><span class="w">                                   </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Executor</span><span class="o">&gt;</span><span class="w"> </span><span class="n">executor</span><span class="p">);</span>
+</span><span id="__span-0-543">
+</span><span id="__span-0-544"><span class="w">  </span><span class="c1">// If the num_threads field in default_executor_options is not specified,</span>
+</span><span id="__span-0-545"><span class="w">  </span><span class="c1">// assigns a reasonable value based on system configuration and the graph.</span>
+</span><span id="__span-0-546"><span class="w">  </span><span class="c1">// Then, creates the default thread pool if appropriate.</span>
+</span><span id="__span-0-547"><span class="w">  </span><span class="c1">//</span>
+</span><span id="__span-0-548"><span class="w">  </span><span class="c1">// Only called by InitializeExecutors().</span>
+</span><span id="__span-0-549"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">InitializeDefaultExecutor</span><span class="p">(</span>
+</span><span id="__span-0-550"><span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">ThreadPoolExecutorOptions</span><span class="o">*</span><span class="w"> </span><span class="n">default_executor_options</span><span class="p">,</span>
+</span><span id="__span-0-551"><span class="w">      </span><span class="kt">bool</span><span class="w"> </span><span class="n">use_application_thread</span><span class="p">);</span>
+</span><span id="__span-0-552">
+</span><span id="__span-0-553"><span class="w">  </span><span class="c1">// Creates a thread pool as the default executor. The num_threads argument</span>
+</span><span id="__span-0-554"><span class="w">  </span><span class="c1">// overrides the num_threads field in default_executor_options.</span>
+</span><span id="__span-0-555"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">CreateDefaultThreadPool</span><span class="p">(</span>
+</span><span id="__span-0-556"><span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">ThreadPoolExecutorOptions</span><span class="o">*</span><span class="w"> </span><span class="n">default_executor_options</span><span class="p">,</span>
+</span><span id="__span-0-557"><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">num_threads</span><span class="p">);</span>
+</span><span id="__span-0-558">
+</span><span id="__span-0-559"><span class="w">  </span><span class="c1">// Returns true if |name| is a reserved executor name.</span>
+</span><span id="__span-0-560"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">IsReservedExecutorName</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+</span><span id="__span-0-561">
+</span><span id="__span-0-562"><span class="w">  </span><span class="c1">// Helper functions for Initialize().</span>
+</span><span id="__span-0-563"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">InitializeExecutors</span><span class="p">();</span>
+</span><span id="__span-0-564"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">InitializePacketGeneratorGraph</span><span class="p">(</span>
+</span><span id="__span-0-565"><span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">Packet</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">side_packets</span><span class="p">);</span>
+</span><span id="__span-0-566"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">InitializeStreams</span><span class="p">();</span>
+</span><span id="__span-0-567"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">InitializeProfiler</span><span class="p">();</span>
+</span><span id="__span-0-568"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">InitializeCalculatorNodes</span><span class="p">();</span>
+</span><span id="__span-0-569"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">InitializePacketGeneratorNodes</span><span class="p">(</span>
+</span><span id="__span-0-570"><span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">non_scheduled_generators</span><span class="p">);</span>
+</span><span id="__span-0-571">
+</span><span id="__span-0-572"><span class="w">  </span><span class="c1">// Iterates through all nodes and schedules any that can be opened.</span>
+</span><span id="__span-0-573"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">ScheduleAllOpenableNodes</span><span class="p">();</span>
+</span><span id="__span-0-574">
+</span><span id="__span-0-575"><span class="w">  </span><span class="c1">// Does the bulk of the work for StartRun but does not start the scheduler.</span>
+</span><span id="__span-0-576"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">PrepareForRun</span><span class="p">(</span>
+</span><span id="__span-0-577"><span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">Packet</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">extra_side_packets</span><span class="p">,</span>
+</span><span id="__span-0-578"><span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">Packet</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">stream_headers</span><span class="p">);</span>
+</span><span id="__span-0-579">
+</span><span id="__span-0-580"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">PrepareServices</span><span class="p">();</span>
+</span><span id="__span-0-581">
+</span><span id="__span-0-582"><span class="cp">#if !MEDIAPIPE_DISABLE_GPU</span>
+</span><span id="__span-0-583"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">MaybeSetUpGpuServiceFromLegacySidePacket</span><span class="p">(</span><span class="n">Packet</span><span class="w"> </span><span class="n">legacy_sp</span><span class="p">);</span>
+</span><span id="__span-0-584"><span class="w">  </span><span class="c1">// Helper for PrepareForRun. If it returns a non-empty map, those packets</span>
+</span><span id="__span-0-585"><span class="w">  </span><span class="c1">// must be added to the existing side packets, replacing existing values</span>
+</span><span id="__span-0-586"><span class="w">  </span><span class="c1">// that have the same key.</span>
+</span><span id="__span-0-587"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">Packet</span><span class="o">&gt;</span><span class="w"> </span><span class="n">MaybeCreateLegacyGpuSidePacket</span><span class="p">(</span>
+</span><span id="__span-0-588"><span class="w">      </span><span class="n">Packet</span><span class="w"> </span><span class="n">legacy_sp</span><span class="p">);</span>
+</span><span id="__span-0-589"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">PrepareGpu</span><span class="p">();</span>
+</span><span id="__span-0-590"><span class="cp">#endif  </span><span class="c1">// !MEDIAPIPE_DISABLE_GPU</span>
+</span><span id="__span-0-591">
+</span><span id="__span-0-592"><span class="w">  </span><span class="c1">// Cleans up any remaining state after the run and returns any errors that may</span>
+</span><span id="__span-0-593"><span class="w">  </span><span class="c1">// have occurred during the run. Called after the scheduler has terminated.</span>
+</span><span id="__span-0-594"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="nf">FinishRun</span><span class="p">();</span>
+</span><span id="__span-0-595">
+</span><span id="__span-0-596"><span class="w">  </span><span class="c1">// Cleans up any remaining state after the run. All status handlers run here</span>
+</span><span id="__span-0-597"><span class="w">  </span><span class="c1">// if their requested input side packets exist.</span>
+</span><span id="__span-0-598"><span class="w">  </span><span class="c1">// The original |*status| is passed to all the status handlers. If any status</span>
+</span><span id="__span-0-599"><span class="w">  </span><span class="c1">// handler fails, it appends its error to errors_, and CleanupAfterRun sets</span>
+</span><span id="__span-0-600"><span class="w">  </span><span class="c1">// |*status| to the new combined errors on return.</span>
+</span><span id="__span-0-601"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">CleanupAfterRun</span><span class="p">(</span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="o">*</span><span class="w"> </span><span class="n">status</span><span class="p">)</span><span class="w"> </span><span class="n">ABSL_LOCKS_EXCLUDED</span><span class="p">(</span><span class="n">error_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-602">
+</span><span id="__span-0-603"><span class="w">  </span><span class="c1">// Calls HandlePreRunStatus or HandleStatus on the StatusHandlers. Which one</span>
+</span><span id="__span-0-604"><span class="w">  </span><span class="c1">// is called depends on the GraphRunState parameter (PRE_RUN or POST_RUN).</span>
+</span><span id="__span-0-605"><span class="w">  </span><span class="c1">// current_run_side_packets_ must be set before this function is called.</span>
+</span><span id="__span-0-606"><span class="w">  </span><span class="c1">// On error, has_error_ will be set.</span>
+</span><span id="__span-0-607"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">CallStatusHandlers</span><span class="p">(</span><span class="n">GraphRunState</span><span class="w"> </span><span class="n">graph_run_state</span><span class="p">,</span>
+</span><span id="__span-0-608"><span class="w">                          </span><span class="k">const</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="o">&amp;</span><span class="w"> </span><span class="n">status</span><span class="p">);</span>
+</span><span id="__span-0-609">
+</span><span id="__span-0-610"><span class="w">  </span><span class="c1">// Callback function to throttle or unthrottle source nodes when a stream</span>
+</span><span id="__span-0-611"><span class="w">  </span><span class="c1">// becomes full or non-full. A node is throttled (i.e. prevented being</span>
+</span><span id="__span-0-612"><span class="w">  </span><span class="c1">// scheduled) if it has caused a downstream input queue to become full. Note</span>
+</span><span id="__span-0-613"><span class="w">  </span><span class="c1">// that all sources (including graph input streams) that affect this stream</span>
+</span><span id="__span-0-614"><span class="w">  </span><span class="c1">// will be throttled. A node is unthrottled (i.e. added to the scheduler</span>
+</span><span id="__span-0-615"><span class="w">  </span><span class="c1">// queue) if all downstream input queues have become non-full.</span>
+</span><span id="__span-0-616"><span class="w">  </span><span class="c1">//</span>
+</span><span id="__span-0-617"><span class="w">  </span><span class="c1">// This method is invoked from an input stream when its queue becomes full or</span>
+</span><span id="__span-0-618"><span class="w">  </span><span class="c1">// non-full. However, since streams are not allowed to hold any locks while</span>
+</span><span id="__span-0-619"><span class="w">  </span><span class="c1">// invoking a callback, this method must re-lock the stream and query its</span>
+</span><span id="__span-0-620"><span class="w">  </span><span class="c1">// status before taking any action.</span>
+</span><span id="__span-0-621"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">UpdateThrottledNodes</span><span class="p">(</span><span class="n">InputStreamManager</span><span class="o">*</span><span class="w"> </span><span class="n">stream</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="o">*</span><span class="w"> </span><span class="n">stream_was_full</span><span class="p">);</span>
+</span><span id="__span-0-622">
+</span><span id="__span-0-623"><span class="w">  </span><span class="c1">// Returns a comma-separated list of source nodes.</span>
+</span><span id="__span-0-624"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="nf">ListSourceNodes</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-625">
+</span><span id="__span-0-626"><span class="w">  </span><span class="c1">// Returns a parent node name for the given input stream.</span>
+</span><span id="__span-0-627"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="nf">GetParentNodeDebugName</span><span class="p">(</span><span class="n">InputStreamManager</span><span class="o">*</span><span class="w"> </span><span class="n">stream</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-628">
+</span><span id="__span-0-629"><span class="cp">#if !MEDIAPIPE_DISABLE_GPU</span>
+</span><span id="__span-0-630"><span class="w">  </span><span class="c1">// Owns the legacy GpuSharedData if we need to create one for backwards</span>
+</span><span id="__span-0-631"><span class="w">  </span><span class="c1">// compatibility.</span>
+</span><span id="__span-0-632"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GpuSharedData</span><span class="o">&gt;</span><span class="w"> </span><span class="n">legacy_gpu_shared_</span><span class="p">;</span>
+</span><span id="__span-0-633"><span class="cp">#endif  </span><span class="c1">// !MEDIAPIPE_DISABLE_GPU</span>
+</span><span id="__span-0-634">
+</span><span id="__span-0-635"><span class="w">  </span><span class="c1">// True if the graph was initialized.</span>
+</span><span id="__span-0-636"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">initialized_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-0-637">
+</span><span id="__span-0-638"><span class="w">  </span><span class="c1">// A packet type that has SetAny() called on it.</span>
+</span><span id="__span-0-639"><span class="w">  </span><span class="n">PacketType</span><span class="w"> </span><span class="n">any_packet_type_</span><span class="p">;</span>
+</span><span id="__span-0-640">
+</span><span id="__span-0-641"><span class="w">  </span><span class="c1">// The ValidatedGraphConfig object defining this CalculatorGraph.</span>
+</span><span id="__span-0-642"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">ValidatedGraphConfig</span><span class="o">&gt;</span><span class="w"> </span><span class="n">validated_graph_</span><span class="p">;</span>
+</span><span id="__span-0-643">
+</span><span id="__span-0-644"><span class="w">  </span><span class="c1">// The PacketGeneratorGraph to use to generate all the input side packets.</span>
+</span><span id="__span-0-645"><span class="w">  </span><span class="n">PacketGeneratorGraph</span><span class="w"> </span><span class="n">packet_generator_graph_</span><span class="p">;</span>
+</span><span id="__span-0-646">
+</span><span id="__span-0-647"><span class="w">  </span><span class="c1">// True if the graph has source nodes.</span>
+</span><span id="__span-0-648"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">has_sources_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-0-649">
+</span><span id="__span-0-650"><span class="w">  </span><span class="c1">// A flat array of InputStreamManager/OutputStreamManager/</span>
+</span><span id="__span-0-651"><span class="w">  </span><span class="c1">// OutputSidePacketImpl/CalculatorNode corresponding to the input/output</span>
+</span><span id="__span-0-652"><span class="w">  </span><span class="c1">// stream indexes, output side packet indexes, and calculator indexes</span>
+</span><span id="__span-0-653"><span class="w">  </span><span class="c1">// respectively in validated_graph_.</span>
+</span><span id="__span-0-654"><span class="w">  </span><span class="c1">// Once allocated these structures must not be reallocated since</span>
+</span><span id="__span-0-655"><span class="w">  </span><span class="c1">// internal structures may point to individual entries in the array.</span>
+</span><span id="__span-0-656"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">InputStreamManager</span><span class="p">[]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">input_stream_managers_</span><span class="p">;</span>
+</span><span id="__span-0-657"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">OutputStreamManager</span><span class="p">[]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">output_stream_managers_</span><span class="p">;</span>
+</span><span id="__span-0-658"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">OutputSidePacketImpl</span><span class="p">[]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">output_side_packets_</span><span class="p">;</span>
+</span><span id="__span-0-659"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">CalculatorNode</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">nodes_</span><span class="p">;</span>
+</span><span id="__span-0-660"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">packet_generator_nodes_added_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-0-661">
+</span><span id="__span-0-662"><span class="w">  </span><span class="c1">// The graph output streams.</span>
+</span><span id="__span-0-663"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">internal</span><span class="o">::</span><span class="n">GraphOutputStream</span><span class="o">&gt;&gt;</span>
+</span><span id="__span-0-664"><span class="w">      </span><span class="n">graph_output_streams_</span><span class="p">;</span>
+</span><span id="__span-0-665">
+</span><span id="__span-0-666"><span class="w">  </span><span class="c1">// Maximum queue size for an input stream. This is used by the scheduler to</span>
+</span><span id="__span-0-667"><span class="w">  </span><span class="c1">// restrict memory usage.</span>
+</span><span id="__span-0-668"><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">max_queue_size_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+</span><span id="__span-0-669">
+</span><span id="__span-0-670"><span class="w">  </span><span class="c1">// Mode for adding packets to a graph input stream. Set to block until all</span>
+</span><span id="__span-0-671"><span class="w">  </span><span class="c1">// affected input streams are not full by default.</span>
+</span><span id="__span-0-672"><span class="w">  </span><span class="n">GraphInputStreamAddMode</span><span class="w"> </span><span class="n">graph_input_stream_add_mode_</span>
+</span><span id="__span-0-673"><span class="w">      </span><span class="n">ABSL_GUARDED_BY</span><span class="p">(</span><span class="n">full_input_streams_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-674">
+</span><span id="__span-0-675"><span class="w">  </span><span class="c1">// For a source node or graph input stream (specified using id),</span>
+</span><span id="__span-0-676"><span class="w">  </span><span class="c1">// this stores the set of dependent input streams that have hit their</span>
+</span><span id="__span-0-677"><span class="w">  </span><span class="c1">// maximum capacity. Graph input streams are also treated as nodes.</span>
+</span><span id="__span-0-678"><span class="w">  </span><span class="c1">// A node is scheduled only if this set is empty.  Similarly, a packet</span>
+</span><span id="__span-0-679"><span class="w">  </span><span class="c1">// is added to a graph input stream only if this set is empty.</span>
+</span><span id="__span-0-680"><span class="w">  </span><span class="c1">// Note that this vector contains an unused entry for each non-source node.</span>
+</span><span id="__span-0-681"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">absl</span><span class="o">::</span><span class="n">flat_hash_set</span><span class="o">&lt;</span><span class="n">InputStreamManager</span><span class="o">*&gt;&gt;</span><span class="w"> </span><span class="n">full_input_streams_</span>
+</span><span id="__span-0-682"><span class="w">      </span><span class="n">ABSL_GUARDED_BY</span><span class="p">(</span><span class="n">full_input_streams_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-683">
+</span><span id="__span-0-684"><span class="w">  </span><span class="c1">// Input stream to index within `input_stream_managers_` mapping.</span>
+</span><span id="__span-0-685"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">flat_hash_map</span><span class="o">&lt;</span><span class="n">InputStreamManager</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">input_stream_to_index_</span><span class="p">;</span>
+</span><span id="__span-0-686">
+</span><span id="__span-0-687"><span class="w">  </span><span class="c1">// Maps stream names to graph input stream objects.</span>
+</span><span id="__span-0-688"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">flat_hash_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">GraphInputStream</span><span class="o">&gt;&gt;</span>
+</span><span id="__span-0-689"><span class="w">      </span><span class="n">graph_input_streams_</span><span class="p">;</span>
+</span><span id="__span-0-690">
+</span><span id="__span-0-691"><span class="w">  </span><span class="c1">// Maps graph input streams to their virtual node ids.</span>
+</span><span id="__span-0-692"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">flat_hash_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">graph_input_stream_node_ids_</span><span class="p">;</span>
+</span><span id="__span-0-693">
+</span><span id="__span-0-694"><span class="w">  </span><span class="c1">// Maps graph input streams to their max queue size.</span>
+</span><span id="__span-0-695"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">flat_hash_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">graph_input_stream_max_queue_size_</span><span class="p">;</span>
+</span><span id="__span-0-696">
+</span><span id="__span-0-697"><span class="w">  </span><span class="c1">// The factory for making counters associated with this graph.</span>
+</span><span id="__span-0-698"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">CounterFactory</span><span class="o">&gt;</span><span class="w"> </span><span class="n">counter_factory_</span><span class="p">;</span>
+</span><span id="__span-0-699">
+</span><span id="__span-0-700"><span class="w">  </span><span class="c1">// Executors for the scheduler, keyed by the executor&#39;s name. The default</span>
+</span><span id="__span-0-701"><span class="w">  </span><span class="c1">// executor&#39;s name is the empty string.</span>
+</span><span id="__span-0-702"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Executor</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">executors_</span><span class="p">;</span>
+</span><span id="__span-0-703">
+</span><span id="__span-0-704"><span class="w">  </span><span class="c1">// The processed input side packet map for this run.</span>
+</span><span id="__span-0-705"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">Packet</span><span class="o">&gt;</span><span class="w"> </span><span class="n">current_run_side_packets_</span><span class="p">;</span>
+</span><span id="__span-0-706">
+</span><span id="__span-0-707"><span class="w">  </span><span class="c1">// Object to manage graph services.</span>
+</span><span id="__span-0-708"><span class="w">  </span><span class="n">GraphServiceManager</span><span class="w"> </span><span class="n">service_manager_</span><span class="p">;</span>
+</span><span id="__span-0-709">
+</span><span id="__span-0-710"><span class="w">  </span><span class="c1">// Indicates whether service default initialization is allowed.</span>
+</span><span id="__span-0-711"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">allow_service_default_initialization_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+</span><span id="__span-0-712">
+</span><span id="__span-0-713"><span class="w">  </span><span class="c1">// Vector of errors encountered while running graph. Always use RecordError()</span>
+</span><span id="__span-0-714"><span class="w">  </span><span class="c1">// to add an error to this vector.</span>
+</span><span id="__span-0-715"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="o">&gt;</span><span class="w"> </span><span class="n">errors_</span><span class="w"> </span><span class="n">ABSL_GUARDED_BY</span><span class="p">(</span><span class="n">error_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-716">
+</span><span id="__span-0-717"><span class="w">  </span><span class="c1">// Optional error callback set by client.</span>
+</span><span id="__span-0-718"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">Status</span><span class="o">&amp;</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">error_callback_</span><span class="p">;</span>
+</span><span id="__span-0-719">
+</span><span id="__span-0-720"><span class="w">  </span><span class="c1">// True if the default executor uses the application thread.</span>
+</span><span id="__span-0-721"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">use_application_thread_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-0-722">
+</span><span id="__span-0-723"><span class="w">  </span><span class="c1">// Condition variable that waits until all input streams that depend on a</span>
+</span><span id="__span-0-724"><span class="w">  </span><span class="c1">// graph input stream are below the maximum queue size.</span>
+</span><span id="__span-0-725"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">CondVar</span><span class="w"> </span><span class="n">wait_to_add_packet_cond_var_</span>
+</span><span id="__span-0-726"><span class="w">      </span><span class="n">ABSL_GUARDED_BY</span><span class="p">(</span><span class="n">full_input_streams_mutex_</span><span class="p">);</span>
+</span><span id="__span-0-727">
+</span><span id="__span-0-728"><span class="w">  </span><span class="c1">// Mutex for the vector of errors.</span>
+</span><span id="__span-0-729"><span class="w">  </span><span class="n">absl</span><span class="o">::</span><span class="n">Mutex</span><span class="w"> </span><span class="n">error_mutex_</span><span class="p">;</span>
+</span><span id="__span-0-730">
+</span><span id="__span-0-731"><span class="w">  </span><span class="c1">// Status variable to indicate if the graph has encountered an error.</span>
+</span><span id="__span-0-732"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">atomic</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">has_error_</span><span class="p">;</span>
+</span><span id="__span-0-733">
+</span><span id="__span-0-734"><span class="w">  </span><span class="c1">// Mutex for full_input_streams_.</span>
+</span><span id="__span-0-735"><span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">Mutex</span><span class="w"> </span><span class="n">full_input_streams_mutex_</span><span class="p">;</span>
+</span><span id="__span-0-736">
+</span><span id="__span-0-737"><span class="w">  </span><span class="c1">// Number of closed graph input streams. This is a separate variable because</span>
+</span><span id="__span-0-738"><span class="w">  </span><span class="c1">// it is not safe to hold a lock on the scheduler while calling Close() on an</span>
+</span><span id="__span-0-739"><span class="w">  </span><span class="c1">// input stream. Hence, we decouple the closing of the stream and checking its</span>
+</span><span id="__span-0-740"><span class="w">  </span><span class="c1">// status.</span>
+</span><span id="__span-0-741"><span class="w">  </span><span class="c1">// TODO: update this comment.</span>
+</span><span id="__span-0-742"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">atomic</span><span class="o">&lt;</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">num_closed_graph_input_streams_</span><span class="p">;</span>
+</span><span id="__span-0-743">
+</span><span id="__span-0-744"><span class="w">  </span><span class="c1">// The graph tracing and profiling interface.  It is owned by the</span>
+</span><span id="__span-0-745"><span class="w">  </span><span class="c1">// CalculatorGraph using a shared_ptr in order to allow threadsafe access</span>
+</span><span id="__span-0-746"><span class="w">  </span><span class="c1">// to the ProfilingContext from clients that may outlive the CalculatorGraph</span>
+</span><span id="__span-0-747"><span class="w">  </span><span class="c1">// such as GlContext.  It is declared here before the Scheduler so that it</span>
+</span><span id="__span-0-748"><span class="w">  </span><span class="c1">// remains available during the Scheduler destructor.</span>
+</span><span id="__span-0-749"><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">ProfilingContext</span><span class="o">&gt;</span><span class="w"> </span><span class="n">profiler_</span><span class="p">;</span>
+</span><span id="__span-0-750">
+</span><span id="__span-0-751"><span class="w">  </span><span class="n">internal</span><span class="o">::</span><span class="n">Scheduler</span><span class="w"> </span><span class="n">scheduler_</span><span class="p">;</span>
+</span><span id="__span-0-752"><span class="p">};</span>
+</span><span id="__span-0-753">
+</span><span id="__span-0-754"><span class="p">}</span><span class="w">  </span><span class="c1">// namespace mediapipe</span>
+</span><span id="__span-0-755">
+</span><span id="__span-0-756"><span class="cp">#endif  </span><span class="c1">// MEDIAPIPE_FRAMEWORK_CALCULATOR_GRAPH_H_</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "content.code.annotate", "content.footnote.tooltips", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../js/jquery.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "zoom"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

@@ -1,0 +1,340 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1GlContext_1_1DedicatedThread" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::GlContext::DedicatedThread</compoundname>
+    <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classmediapipe_1_1GlContext_1_1DedicatedThread_1a9ab506d8b2810d69720c54453b873325" prot="private" static="no">
+        <type>std::function&lt; void(void)&gt;</type>
+        <definition>using mediapipe::GlContext::DedicatedThread::Job =  std::function&lt;void(void)&gt;</definition>
+        <argsstring></argsstring>
+        <name>Job</name>
+        <qualifiedname>mediapipe::GlContext::DedicatedThread::Job</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h" line="49" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1GlContext_1_1DedicatedThread_1a3cccb067c89f3370e5d6074869f1d24d" prot="private" static="no" mutable="no">
+        <type>absl::Mutex</type>
+        <definition>absl::Mutex mediapipe::GlContext::DedicatedThread::mutex_</definition>
+        <argsstring></argsstring>
+        <name>mutex_</name>
+        <qualifiedname>mediapipe::GlContext::DedicatedThread::mutex_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h" line="53" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GlContext_1_1DedicatedThread_1a178fc24bce1915d0785807f627b9b47b" prot="private" static="no" mutable="no">
+        <type>pthread_t</type>
+        <definition>pthread_t mediapipe::GlContext::DedicatedThread::gl_thread_id_</definition>
+        <argsstring></argsstring>
+        <name>gl_thread_id_</name>
+        <qualifiedname>mediapipe::GlContext::DedicatedThread::gl_thread_id_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h" line="56" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GlContext_1_1DedicatedThread_1a38ea76d31999fee4053bc4dae4eb297a" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::GlContext::DedicatedThread::self_destruct_</definition>
+        <argsstring></argsstring>
+        <name>self_destruct_</name>
+        <qualifiedname>mediapipe::GlContext::DedicatedThread::self_destruct_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h" line="61" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1_1DedicatedThread_1aa33fca3f3a1b8dfb4b1e35685e5eee7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::GlContext::DedicatedThread::DedicatedThread</definition>
+        <argsstring>()</argsstring>
+        <name>DedicatedThread</name>
+        <qualifiedname>mediapipe::GlContext::DedicatedThread::DedicatedThread</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h" line="33" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="85" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1_1DedicatedThread_1adad4bc794ee118627065be0e8e8e3a22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::GlContext::DedicatedThread::~DedicatedThread</definition>
+        <argsstring>()</argsstring>
+        <name>~DedicatedThread</name>
+        <qualifiedname>mediapipe::GlContext::DedicatedThread::~DedicatedThread</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h" line="34" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="89" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1_1DedicatedThread_1a17abc495ba95315ba0c9c74ef4ecab39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::GlContext::DedicatedThread::DedicatedThread</definition>
+        <argsstring>(const DedicatedThread &amp;)=delete</argsstring>
+        <name>DedicatedThread</name>
+        <qualifiedname>mediapipe::GlContext::DedicatedThread::DedicatedThread</qualifiedname>
+        <param>
+          <type>const DedicatedThread &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h" line="35" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1_1DedicatedThread_1a2ac6ed4062947e11b649a57adf61f158" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DedicatedThread &amp;</type>
+        <definition>DedicatedThread &amp; mediapipe::GlContext::DedicatedThread::operator=</definition>
+        <argsstring>(DedicatedThread)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>mediapipe::GlContext::DedicatedThread::operator=</qualifiedname>
+        <param>
+          <type>DedicatedThread</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h" line="36" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1_1DedicatedThread_1a802adb40d7886d911af0be3bbe8b08e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::GlContext::DedicatedThread::Run</definition>
+        <argsstring>(GlStatusFunction gl_func)</argsstring>
+        <name>Run</name>
+        <qualifiedname>mediapipe::GlContext::DedicatedThread::Run</qualifiedname>
+        <param>
+          <type>GlStatusFunction</type>
+          <declname>gl_func</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h" line="38" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="159" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1_1DedicatedThread_1a0827bba7064d0a5f6014241e56e85370" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlContext::DedicatedThread::RunWithoutWaiting</definition>
+        <argsstring>(GlVoidFunction gl_func)</argsstring>
+        <name>RunWithoutWaiting</name>
+        <qualifiedname>mediapipe::GlContext::DedicatedThread::RunWithoutWaiting</qualifiedname>
+        <param>
+          <type>GlVoidFunction</type>
+          <declname>gl_func</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h" line="39" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="180" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1_1DedicatedThread_1a85d3e7fe075c0140c960a341b80d6b0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::GlContext::DedicatedThread::IsCurrentThread</definition>
+        <argsstring>()</argsstring>
+        <name>IsCurrentThread</name>
+        <qualifiedname>mediapipe::GlContext::DedicatedThread::IsCurrentThread</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h" line="41" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="189" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1_1DedicatedThread_1a51c518998807375599d1ffd6ec0bf657" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlContext::DedicatedThread::SelfDestruct</definition>
+        <argsstring>()</argsstring>
+        <name>SelfDestruct</name>
+        <qualifiedname>mediapipe::GlContext::DedicatedThread::SelfDestruct</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h" line="43" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="100" bodyend="104"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1_1DedicatedThread_1ae00b762084a90a2ca85ae34f704c798a" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void * mediapipe::GlContext::DedicatedThread::ThreadBody</definition>
+        <argsstring>(void *instance)</argsstring>
+        <name>ThreadBody</name>
+        <qualifiedname>mediapipe::GlContext::DedicatedThread::ThreadBody</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>instance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h" line="46" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="122" bodyend="126"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1_1DedicatedThread_1a13166f4e3fc9ad3120a77c65c3c684be" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlContext::DedicatedThread::ThreadBody</definition>
+        <argsstring>()</argsstring>
+        <name>ThreadBody</name>
+        <qualifiedname>mediapipe::GlContext::DedicatedThread::ThreadBody</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h" line="47" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="134" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1_1DedicatedThread_1ae23ca7f4bdee33ae4e6e0bc8b29d4489" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Job</type>
+        <definition>GlContext::DedicatedThread::Job mediapipe::GlContext::DedicatedThread::GetJob</definition>
+        <argsstring>()</argsstring>
+        <name>GetJob</name>
+        <qualifiedname>mediapipe::GlContext::DedicatedThread::GetJob</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h" line="50" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="106" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1_1DedicatedThread_1a0687a2feb979661c75dfd0c9895c0f33" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlContext::DedicatedThread::PutJob</definition>
+        <argsstring>(Job job)</argsstring>
+        <name>PutJob</name>
+        <qualifiedname>mediapipe::GlContext::DedicatedThread::PutJob</qualifiedname>
+        <param>
+          <type>Job</type>
+          <declname>job</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h" line="51" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="116" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1_1DedicatedThread_1a223d3fb315a66803c1e6316f5df41542" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::CondVar gl_job_done_cv_</type>
+        <definition>absl::CondVar gl_job_done_cv_ mediapipe::GlContext::DedicatedThread::ABSL_GUARDED_BY</definition>
+        <argsstring>(mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::GlContext::DedicatedThread::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h" line="55" column="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1_1DedicatedThread_1a4cf255a9c84a7006549988af3c5389a9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::deque&lt; Job &gt; jobs_</type>
+        <definition>std::deque&lt; Job &gt; jobs_ mediapipe::GlContext::DedicatedThread::ABSL_GUARDED_BY</definition>
+        <argsstring>(mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::GlContext::DedicatedThread::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h" line="58" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1_1DedicatedThread_1af732b8081654dfa822c294d57df3b0f3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::CondVar has_jobs_cv_</type>
+        <definition>absl::CondVar has_jobs_cv_ mediapipe::GlContext::DedicatedThread::ABSL_GUARDED_BY</definition>
+        <argsstring>(mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::GlContext::DedicatedThread::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h" line="59" column="30"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h" line="31" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h" bodystart="31" bodyend="62"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1GlContext_1_1DedicatedThread_1a223d3fb315a66803c1e6316f5df41542" prot="private" virt="non-virtual"><scope>mediapipe::GlContext::DedicatedThread</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1GlContext_1_1DedicatedThread_1a4cf255a9c84a7006549988af3c5389a9" prot="private" virt="non-virtual"><scope>mediapipe::GlContext::DedicatedThread</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1GlContext_1_1DedicatedThread_1af732b8081654dfa822c294d57df3b0f3" prot="private" virt="non-virtual"><scope>mediapipe::GlContext::DedicatedThread</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1GlContext_1_1DedicatedThread_1aa33fca3f3a1b8dfb4b1e35685e5eee7c" prot="public" virt="non-virtual"><scope>mediapipe::GlContext::DedicatedThread</scope><name>DedicatedThread</name></member>
+      <member refid="classmediapipe_1_1GlContext_1_1DedicatedThread_1a17abc495ba95315ba0c9c74ef4ecab39" prot="public" virt="non-virtual"><scope>mediapipe::GlContext::DedicatedThread</scope><name>DedicatedThread</name></member>
+      <member refid="classmediapipe_1_1GlContext_1_1DedicatedThread_1ae23ca7f4bdee33ae4e6e0bc8b29d4489" prot="private" virt="non-virtual"><scope>mediapipe::GlContext::DedicatedThread</scope><name>GetJob</name></member>
+      <member refid="classmediapipe_1_1GlContext_1_1DedicatedThread_1a178fc24bce1915d0785807f627b9b47b" prot="private" virt="non-virtual"><scope>mediapipe::GlContext::DedicatedThread</scope><name>gl_thread_id_</name></member>
+      <member refid="classmediapipe_1_1GlContext_1_1DedicatedThread_1a85d3e7fe075c0140c960a341b80d6b0c" prot="public" virt="non-virtual"><scope>mediapipe::GlContext::DedicatedThread</scope><name>IsCurrentThread</name></member>
+      <member refid="classmediapipe_1_1GlContext_1_1DedicatedThread_1a9ab506d8b2810d69720c54453b873325" prot="private" virt="non-virtual"><scope>mediapipe::GlContext::DedicatedThread</scope><name>Job</name></member>
+      <member refid="classmediapipe_1_1GlContext_1_1DedicatedThread_1a3cccb067c89f3370e5d6074869f1d24d" prot="private" virt="non-virtual"><scope>mediapipe::GlContext::DedicatedThread</scope><name>mutex_</name></member>
+      <member refid="classmediapipe_1_1GlContext_1_1DedicatedThread_1a2ac6ed4062947e11b649a57adf61f158" prot="public" virt="non-virtual"><scope>mediapipe::GlContext::DedicatedThread</scope><name>operator=</name></member>
+      <member refid="classmediapipe_1_1GlContext_1_1DedicatedThread_1a0687a2feb979661c75dfd0c9895c0f33" prot="private" virt="non-virtual"><scope>mediapipe::GlContext::DedicatedThread</scope><name>PutJob</name></member>
+      <member refid="classmediapipe_1_1GlContext_1_1DedicatedThread_1a802adb40d7886d911af0be3bbe8b08e7" prot="public" virt="non-virtual"><scope>mediapipe::GlContext::DedicatedThread</scope><name>Run</name></member>
+      <member refid="classmediapipe_1_1GlContext_1_1DedicatedThread_1a0827bba7064d0a5f6014241e56e85370" prot="public" virt="non-virtual"><scope>mediapipe::GlContext::DedicatedThread</scope><name>RunWithoutWaiting</name></member>
+      <member refid="classmediapipe_1_1GlContext_1_1DedicatedThread_1a38ea76d31999fee4053bc4dae4eb297a" prot="private" virt="non-virtual"><scope>mediapipe::GlContext::DedicatedThread</scope><name>self_destruct_</name></member>
+      <member refid="classmediapipe_1_1GlContext_1_1DedicatedThread_1a51c518998807375599d1ffd6ec0bf657" prot="public" virt="non-virtual"><scope>mediapipe::GlContext::DedicatedThread</scope><name>SelfDestruct</name></member>
+      <member refid="classmediapipe_1_1GlContext_1_1DedicatedThread_1ae00b762084a90a2ca85ae34f704c798a" prot="private" virt="non-virtual"><scope>mediapipe::GlContext::DedicatedThread</scope><name>ThreadBody</name></member>
+      <member refid="classmediapipe_1_1GlContext_1_1DedicatedThread_1a13166f4e3fc9ad3120a77c65c3c684be" prot="private" virt="non-virtual"><scope>mediapipe::GlContext::DedicatedThread</scope><name>ThreadBody</name></member>
+      <member refid="classmediapipe_1_1GlContext_1_1DedicatedThread_1adad4bc794ee118627065be0e8e8e3a22" prot="public" virt="non-virtual"><scope>mediapipe::GlContext::DedicatedThread</scope><name>~DedicatedThread</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="resampler_8cc" kind="file" language="C++">
+    <compoundname>resampler.cc</compoundname>
+    <includes refid="resampler_8h" local="yes">resampler.h</includes>
+    <includes local="no">cmath</includes>
+    <includes local="no">cstring</includes>
+    <includes local="yes">tensorflow/lite/c/c_api_types.h</includes>
+    <includes local="yes">tensorflow/lite/c/common.h</includes>
+    <includes local="yes">tensorflow/lite/kernels/internal/tensor_ctypes.h</includes>
+    <includes local="yes">tensorflow/lite/kernels/kernel_util.h</includes>
+    <includes local="yes">tensorflow/lite/schema/schema_generated.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/operations/resampler.cc</label>
+        <link refid="resampler_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>resampler.h</label>
+        <link refid="resampler_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>cmath</label>
+      </node>
+      <node id="5">
+        <label>cstring</label>
+      </node>
+      <node id="6">
+        <label>tensorflow/lite/c/c_api_types.h</label>
+      </node>
+      <node id="7">
+        <label>tensorflow/lite/c/common.h</label>
+      </node>
+      <node id="8">
+        <label>tensorflow/lite/kernels/internal/tensor_ctypes.h</label>
+      </node>
+      <node id="3">
+        <label>tensorflow/lite/kernels/kernel_util.h</label>
+      </node>
+      <node id="9">
+        <label>tensorflow/lite/schema/schema_generated.h</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacemediapipe">mediapipe</innernamespace>
+    <innernamespace refid="namespacemediapipe_1_1tflite__operations">mediapipe::tflite_operations</innernamespace>
+    <innernamespace refid="namespacemediapipe_1_1tflite__operations_1_1anonymous__namespace_02resampler_8cc_03">mediapipe::tflite_operations::anonymous_namespace{resampler.cc}</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;resampler.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstring&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/c/c_api_types.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/c/common.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/kernels/internal/tensor_ctypes.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/kernels/kernel_util.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/schema/schema_generated.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mediapipe<sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">tflite_operations<sp/>{</highlight></codeline>
+<codeline lineno="14" refid="namespacemediapipe_1_1tflite__operations_1_1anonymous__namespace_02resampler_8cc_03" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>kInputTensorSourceIndex<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>kInputTensorWarpIndex<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>kOutputTensorDestinationIndex<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Ported<sp/>from<sp/>the<sp/>tfa<sp/>implementation<sp/>in</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">//<sp/>tensorflow/tensorflow_addons/custom_ops/image/cc/kernels/resampler_ops.cc</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>ResampleTensors(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>src,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>depth,</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>warp,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>dst)<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>get_data_point<sp/>=<sp/>[&amp;](</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>chan)<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>point_is_in_range<sp/>=</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(x<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>y<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>x<sp/>&lt;=<sp/>width<sp/>-<sp/>1<sp/>&amp;&amp;<sp/>y<sp/>&lt;=<sp/>height<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>point_is_in_range<sp/>?<sp/>src[(y<sp/>*<sp/>width<sp/>+<sp/>x)<sp/>*<sp/>depth<sp/>+<sp/>chan]<sp/>:<sp/>0.0f;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>get_warp_point<sp/>=<sp/>[&amp;](</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>chan)<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>point_is_in_range<sp/>=</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(x<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>y<sp/>&gt;=<sp/>0<sp/>&amp;&amp;<sp/>x<sp/>&lt;=<sp/>width<sp/>-<sp/>1<sp/>&amp;&amp;<sp/>y<sp/>&lt;=<sp/>height<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>point_is_in_range<sp/>?<sp/>warp[(y<sp/>*<sp/>width<sp/>+<sp/>x)<sp/>*<sp/>2<sp/>+<sp/>chan]<sp/>:<sp/>0.0f;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dst_y<sp/>=<sp/>0;<sp/>dst_y<sp/>&lt;<sp/>height;<sp/>++dst_y)<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dst_x<sp/>=<sp/>0;<sp/>dst_x<sp/>&lt;<sp/>width;<sp/>++dst_x)<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>x<sp/>=<sp/>get_warp_point(dst_x,<sp/>dst_y,<sp/>0);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>y<sp/>=<sp/>get_warp_point(dst_x,<sp/>dst_y,<sp/>1);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>dst_data<sp/>=<sp/>&amp;(dst[(dst_y<sp/>*<sp/>width<sp/>+<sp/>dst_x)<sp/>*<sp/>depth]);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(x<sp/>&gt;<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(-1.0)<sp/>&amp;&amp;<sp/>y<sp/>&gt;<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(-1.0)<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>x<sp/>&lt;<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(width)<sp/>&amp;&amp;<sp/>y<sp/>&lt;<sp/>static_cast&lt;float&gt;(height))<sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Precompute<sp/>floor<sp/>(f)<sp/>and<sp/>ceil<sp/>(c)<sp/>values<sp/>for<sp/>x<sp/>and<sp/>y.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fx<sp/>=<sp/>std::floor(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(x));</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fy<sp/>=<sp/>std::floor(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(y));</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cx<sp/>=<sp/>fx<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>cy<sp/>=<sp/>fy<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>dx<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(cx)<sp/>-<sp/>x;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>dy<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="keywordtype">float</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(cy)<sp/>-<sp/>y;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>chan<sp/>=<sp/>0;<sp/>chan<sp/>&lt;<sp/>depth;<sp/>++chan)<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>img_fxfy<sp/>=<sp/>dx<sp/>*<sp/>dy<sp/>*<sp/>get_data_point(fx,<sp/>fy,<sp/>chan);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>img_cxcy<sp/>=</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(1.0f<sp/>-<sp/>dx)<sp/>*<sp/>(1.0f<sp/>-<sp/>dy)<sp/>*<sp/>get_data_point(cx,<sp/>cy,<sp/>chan);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>img_fxcy<sp/>=</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dx<sp/>*<sp/>(1.0f<sp/>-<sp/>dy)<sp/>*<sp/>get_data_point(fx,<sp/>cy,<sp/>chan);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>img_cxfy<sp/>=</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(1.0f<sp/>-<sp/>dx)<sp/>*<sp/>dy<sp/>*<sp/>get_data_point(cx,<sp/>fy,<sp/>chan);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dst_data[chan]<sp/>=<sp/>img_fxfy<sp/>+<sp/>img_cxcy<sp/>+<sp/>img_fxcy<sp/>+<sp/>img_cxfy;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>chan<sp/>=<sp/>0;<sp/>chan<sp/>&lt;<sp/>depth;<sp/>++chan)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dst_data[chan]<sp/>=<sp/>0.0f;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal">TfLiteStatus<sp/>Prepare(TfLiteContext*<sp/>context,<sp/>TfLiteNode*<sp/>node)<sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>TF_LITE_ENSURE_EQ(context,<sp/>::tflite::NumInputs(node),<sp/>2);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>TF_LITE_ENSURE_EQ(context,<sp/>::tflite::NumOutputs(node),<sp/>1);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>TfLiteTensor*<sp/>output<sp/>=</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>::tflite::GetOutput(context,<sp/>node,<sp/>kOutputTensorDestinationIndex);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/>TF_LITE_ENSURE(context,<sp/>output<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>TfLiteTensor*<sp/>source<sp/>=</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>::tflite::GetInput(context,<sp/>node,<sp/>kInputTensorSourceIndex);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>TF_LITE_ENSURE(context,<sp/>source<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>TF_LITE_ENSURE_EQ(context,<sp/>::tflite::NumDimensions(source),<sp/>4);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>TF_LITE_ENSURE_EQ(context,<sp/>source-&gt;type,<sp/>kTfLiteFloat32);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>TF_LITE_ENSURE_EQ(context,<sp/>output-&gt;type,<sp/>kTfLiteFloat32);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>TfLiteTensor*<sp/>warp<sp/>=</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>::tflite::GetInput(context,<sp/>node,<sp/>kInputTensorWarpIndex);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>TF_LITE_ENSURE(context,<sp/>warp<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/>TF_LITE_ENSURE_EQ(context,<sp/>::tflite::NumDimensions(warp),<sp/>4);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/>TF_LITE_ENSURE_EQ(context,<sp/>warp-&gt;type,<sp/>kTfLiteFloat32);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>batches<sp/>=<sp/>source-&gt;dims-&gt;data[0];</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height<sp/>=<sp/>source-&gt;dims-&gt;data[1];</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width<sp/>=<sp/>source-&gt;dims-&gt;data[2];</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>channels_out<sp/>=<sp/>source-&gt;dims-&gt;data[3];</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>TfLiteIntArray*<sp/>output_size<sp/>=<sp/>TfLiteIntArrayCreate(4);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>output_size-&gt;data[0]<sp/>=<sp/>batches;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>output_size-&gt;data[1]<sp/>=<sp/>height;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>output_size-&gt;data[2]<sp/>=<sp/>width;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/>output_size-&gt;data[3]<sp/>=<sp/>channels_out;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>context-&gt;ResizeTensor(context,<sp/>output,<sp/>output_size);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal">TfLiteStatus<sp/>Eval(TfLiteContext*<sp/>context,<sp/>TfLiteNode*<sp/>node)<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>TfLiteTensor*<sp/>src<sp/>=</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>::tflite::GetInput(context,<sp/>node,<sp/>kInputTensorSourceIndex);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>TfLiteTensor*<sp/>warp<sp/>=</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>::tflite::GetInput(context,<sp/>node,<sp/>kInputTensorWarpIndex);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>TfLiteTensor*<sp/>dst<sp/>=</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>::tflite::GetOutput(context,<sp/>node,<sp/>kOutputTensorDestinationIndex);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>TF_LITE_ENSURE(context,<sp/>src<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>TF_LITE_ENSURE(context,<sp/>warp<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>TF_LITE_ENSURE(context,<sp/>dst<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Assumes<sp/>NHWC<sp/>layout.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>b<sp/>=<sp/>src-&gt;dims-&gt;data[0];</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>h<sp/>=<sp/>src-&gt;dims-&gt;data[1];</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w<sp/>=<sp/>src-&gt;dims-&gt;data[2];</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>d<sp/>=<sp/>src-&gt;dims-&gt;data[3];</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>batch<sp/>=<sp/>0;<sp/>(int)batch<sp/>&lt;<sp/>b;<sp/>++batch)<sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>warp_offset<sp/>=<sp/>h<sp/>*<sp/>w<sp/>*<sp/>2<sp/>*<sp/>batch;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>warp_data<sp/>=<sp/>::tflite::GetTensorData&lt;float&gt;(warp)<sp/>+<sp/>warp_offset;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>data_offset<sp/>=<sp/>h<sp/>*<sp/>w<sp/>*<sp/>d<sp/>*<sp/>batch;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>src_data<sp/>=<sp/>::tflite::GetTensorData&lt;float&gt;(src)<sp/>+<sp/>data_offset;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>dst_data<sp/>=<sp/>::tflite::GetTensorData&lt;float&gt;(dst)<sp/>+<sp/>data_offset;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>ResampleTensors(src_data,<sp/>w,<sp/>h,<sp/>d,<sp/>warp_data,<sp/>dst_data);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>kTfLiteOk;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal">TfLiteRegistration*<sp/>RegisterResampler()<sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>TfLiteRegistration<sp/>reg<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*.init=*/</highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*.free=*/</highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*.prepare=*/</highlight><highlight class="normal">Prepare,</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*.invoke=*/</highlight><highlight class="normal">Eval,</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*.profiling_string=*/</highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*.builtin_code=*/</highlight><highlight class="normal">tflite::BuiltinOperator_CUSTOM,</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*.custom_name=*/</highlight><highlight class="stringliteral">&quot;Resampler&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*.version=*/</highlight><highlight class="normal">1,</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>&amp;reg;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>tflite_operations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>mediapipe</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/operations/resampler.cc"/>
+  </compounddef>
+</doxygen>

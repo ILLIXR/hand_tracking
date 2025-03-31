@@ -1,0 +1,2027 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://illixr.github.io/hand_tracking/v1.0/api/namespacemediapipe_1_1api2_1_1internal/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>Namespace mediapipe::api2::internal - ILLIXR Hand Tracking Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/mkd-extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: none; }
+    .glightbox-clean .gslide-media {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#namespace-mediapipeapi2internal" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+
+
+<header class="md-header md-header--shadow" data-md-component="header" style="background-color: #11284b">
+    <nav class="md-header__inner md-grid" aria-label="Header">
+        <a href="../.." title="ILLIXR Hand Tracking Documentation" class="md-header__button md-logo" aria-label="ILLIXR Hand Tracking Documentation" data-md-component="logo">
+            <img src="../../images/icon.png" alt="logo">
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+            <div class="md-header__ellipsis">
+                <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ILLIXR Hand Tracking Documentation
+          </span>
+                </div>
+                <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Namespace mediapipe::api2::internal
+            
+          </span>
+                </div>
+            </div>
+        </div>
+        
+        
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+        
+        
+        
+        <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+        
+        
+        
+        <label class="md-header__button md-icon" for="__search">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+        
+    </nav>
+    
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+    <label class="md-nav__title" for="__drawer" style="background-color:var(--md-nav-hdr-color);color:var(--md-nav-hdr-fg-color);">
+        <a href="../.." title="ILLIXR Hand Tracking Documentation" class="md-nav__button md-logo" aria-label="ILLIXR Hand Tracking Documentation" data-md-component="logo">
+            <img src="../../images/icon.png" alt="logo">
+        </a>
+        ILLIXR Hand Tracking Documentation
+    </label>
+    
+    <ul class="md-nav__list" data-md-scrollfix style="background-color:var(--md-nav-list-color)">
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+    
+    
+    
+    <div class="md-nav__link md-nav__container" style="color:black;">
+        <a href="../.." class="md-nav__link ">
+            
+
+<span class="md-ellipsis">
+    Latest Documentation
+    
+  </span>
+
+
+        </a>
+        
+        
+        <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+            <span class="md-nav__icon md-icon"></span>
+        </label>
+        
+    </div>
+    
+    <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Latest Documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    API
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1" id="__nav_1_2_1_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Hand Tracking
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Hand Tracking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classILLIXR_1_1hand__tracking/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Plugin
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classILLIXR_1_1hand__tracking__publisher/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Publisher
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1_3" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1_3" id="__nav_1_2_1_3_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Data Types
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_2_1_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Data Types
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structht__illixr__handle__t/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    illixr_handle_t
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structmediapipe_1_1ILLIXR_1_1illixr__ht__frame/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    illixr_ht_frame
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structILLIXR_1_1pose__image/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    pose_image
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classmediapipe_1_1ILLIXROutputCalculator/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    ILLIXR Calculator
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1_5" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1_5" id="__nav_1_2_1_5_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    OpenXR
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_2_1_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            OpenXR
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../interface_8h/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Interface
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../ixr__openxr_8hpp/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Func. Implementations
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1_5_3" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1_5_3" id="__nav_1_2_1_5_3_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Structs
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_2_1_5_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Structs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structixr__hand__tracker/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    ixr_hand+tracker
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structixr__session/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    ixr_session
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classes/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Classes
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../namespacemediapipe/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Namespaces
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../../LICENSE/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    License
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+        
+    </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+    
+    
+    
+    
+    
+    
+    <label class="md-nav__title" for="__toc" style="background-color:var(--md-nav-hdr-color);color:var(--md-nav-hdr-fg-color);">
+        <span class="md-nav__icon md-icon"></span>
+        Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix  style="background-color:var(--md-nav-list-color)">
+        
+        <li class="md-nav__item">
+    <a href="#classes" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      Classes
+    </span>
+    </a>
+    
+</li>
+        
+        <li class="md-nav__item">
+    <a href="#public-types" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      Public Types
+    </span>
+    </a>
+    
+</li>
+        
+        <li class="md-nav__item">
+    <a href="#public-functions" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      Public Functions
+    </span>
+    </a>
+    
+</li>
+        
+        <li class="md-nav__item">
+    <a href="#protected-types" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      Protected Types
+    </span>
+    </a>
+    
+</li>
+        
+        <li class="md-nav__item">
+    <a href="#protected-functions" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      Protected Functions
+    </span>
+    </a>
+    
+</li>
+        
+        <li class="md-nav__item">
+    <a href="#public-types-documentation" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      Public Types Documentation
+    </span>
+    </a>
+    
+    <nav class="md-nav" aria-label="Public Types Documentation">
+        <ul class="md-nav__list">
+            
+            <li class="md-nav__item">
+    <a href="#typedef-tuple_index_sequence" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      typedef tuple_index_sequence
+    </span>
+    </a>
+    
+</li>
+            
+        </ul>
+    </nav>
+    
+</li>
+        
+        <li class="md-nav__item">
+    <a href="#public-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      Public Functions Documentation
+    </span>
+    </a>
+    
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+        <ul class="md-nav__list">
+            
+            <li class="md-nav__item">
+    <a href="#function-accessport" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function AccessPort
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-accessport_1" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function AccessPort
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-getcollection" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function GetCollection
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-getcollection_1" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function GetCollection
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-getcollection_2" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function GetCollection
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-getcollection_3" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function GetCollection
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-getornull" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function GetOrNull
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-settype" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function SetType
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-settype-nonetype" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function SetType&lt; NoneType &gt;
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-settypeoneof" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function SetTypeOneOf
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-singleportaccess" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function SinglePortAccess
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-singleportaccess_1" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function SinglePortAccess
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-singleportaccess_2" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function SinglePortAccess
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-singleportaccess_3" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function SinglePortAccess
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-singleportaccess_4" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function SinglePortAccess
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-singleportaccess_5" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function SinglePortAccess
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-singleportaccess_6" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function SinglePortAccess
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-call_with_optional_index" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function call_with_optional_index
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-filter_tuple" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function filter_tuple
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-filtered_tuple_indices" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function filtered_tuple_indices
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-filtered_tuple_indices_impl" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function filtered_tuple_indices_impl
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-flatten_tuple" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function flatten_tuple
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-index_sequence_cat" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function index_sequence_cat
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-index_sequence_cat_1" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function index_sequence_cat
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-map_tuple" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function map_tuple
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-map_tuple_impl" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function map_tuple_impl
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-select_tuple_indices" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function select_tuple_indices
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-tag_build" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function tag_build
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-tag_build_impl" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function tag_build_impl
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-tuple_apply" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function tuple_apply
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-tuple_apply_impl" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function tuple_apply_impl
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-tuple_find" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function tuple_find
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-tuple_find_1" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function tuple_find
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-tuple_for_each" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function tuple_for_each
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-tuple_for_each_impl" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function tuple_for_each_impl
+    </span>
+    </a>
+    
+</li>
+            
+        </ul>
+    </nav>
+    
+</li>
+        
+        <li class="md-nav__item">
+    <a href="#protected-types-documentation" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      Protected Types Documentation
+    </span>
+    </a>
+    
+    <nav class="md-nav" aria-label="Protected Types Documentation">
+        <ul class="md-nav__list">
+            
+            <li class="md-nav__item">
+    <a href="#typedef-generic" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      typedef Generic
+    </span>
+    </a>
+    
+</li>
+            
+        </ul>
+    </nav>
+    
+</li>
+        
+        <li class="md-nav__item">
+    <a href="#protected-functions-documentation" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      Protected Functions Documentation
+    </span>
+    </a>
+    
+    <nav class="md-nav" aria-label="Protected Functions Documentation">
+        <ul class="md-nav__list">
+            
+            <li class="md-nav__item">
+    <a href="#function-checkcompatibletype" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function CheckCompatibleType
+    </span>
+    </a>
+    
+</li>
+            
+            <li class="md-nav__item">
+    <a href="#function-checkcompatibletype_1" class="md-nav__link">
+    <span class="md-ellipsis" style="color:black;">
+      function CheckCompatibleType
+    </span>
+    </a>
+    
+</li>
+            
+        </ul>
+    </nav>
+    
+</li>
+        
+    </ul>
+    
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="namespace-mediapipeapi2internal">Namespace mediapipe::api2::internal</h1>
+<p><a href="../namespaces/"><strong>Namespace List</strong></a> <strong>&gt;</strong> <a href="../namespacemediapipe/"><strong>mediapipe</strong></a> <strong>&gt;</strong> <a href="../namespacemediapipe_1_1api2/"><strong>api2</strong></a> <strong>&gt;</strong> <a href="./"><strong>internal</strong></a></p>
+<h2 id="classes">Classes</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">struct</td>
+<td style="text-align: left;"><a href="../structmediapipe_1_1api2_1_1internal_1_1ActualPayloadType/"><strong>ActualPayloadType</strong></a> &lt;typename T, typename&gt;<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">struct</td>
+<td style="text-align: left;"><a href="../structmediapipe_1_1api2_1_1internal_1_1ActualPayloadType_3_01T_00_01std_1_1enable__if__t_3_01IsSa1ff7b9337817c712af900170f4be080/"><strong>ActualPayloadType&lt; T, std::enable_if_t&lt; IsSameType&lt; T &gt;{}, void &gt; &gt;</strong></a> &lt;typename T&gt;<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">struct</td>
+<td style="text-align: left;"><a href="../structmediapipe_1_1api2_1_1internal_1_1IsOneOf/"><strong>IsOneOf</strong></a> &lt;class T&gt;<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">struct</td>
+<td style="text-align: left;"><a href="../structmediapipe_1_1api2_1_1internal_1_1IsOneOf_3_01OneOf_3_01T_8_8_8_01_4_01_4/"><strong>IsOneOf&lt; OneOf&lt; T... &gt; &gt;</strong></a> &lt;T&gt;<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">struct</td>
+<td style="text-align: left;"><a href="../structmediapipe_1_1api2_1_1internal_1_1IsSameType/"><strong>IsSameType</strong></a> &lt;class T&gt;<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">struct</td>
+<td style="text-align: left;"><a href="../structmediapipe_1_1api2_1_1internal_1_1IsSameType_3_01SameType_3_01kP_01_4_01_4/"><strong>IsSameType&lt; SameType&lt; kP &gt; &gt;</strong></a> &lt;class P, kP&gt;<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">class</td>
+<td style="text-align: left;"><a href="../classmediapipe_1_1api2_1_1internal_1_1MultiplePortAccess/"><strong>MultiplePortAccess</strong></a> &lt;typename ValueT, typename X, class CC&gt;<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">struct</td>
+<td style="text-align: left;"><a href="../structmediapipe_1_1api2_1_1internal_1_1SideBase/"><strong>SideBase</strong></a> &lt;class Base&gt;<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">struct</td>
+<td style="text-align: left;"><a href="../structmediapipe_1_1api2_1_1internal_1_1SideBase_3_01InputBase_01_4/"><strong>SideBase&lt; InputBase &gt;</strong></a> &lt;&gt;<br></td>
+</tr>
+<tr>
+<td style="text-align: right;">struct</td>
+<td style="text-align: left;"><a href="../structmediapipe_1_1api2_1_1internal_1_1Wrap/"><strong>Wrap</strong></a> &lt;typename T&gt;<br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-types">Public Types</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">typedef std::make_index_sequence&lt; std::tuple_size_v&lt; std::decay_t&lt; Tuple &gt; &gt; &gt;</td>
+<td style="text-align: left;"><a href="#typedef-tuple_index_sequence"><strong>tuple_index_sequence</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">auto</td>
+<td style="text-align: left;"><a href="#function-accessport"><strong>AccessPort</strong></a> (std::false_type, const PortT &amp; port, CC * cc) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">auto</td>
+<td style="text-align: left;"><a href="#function-accessport"><strong>AccessPort</strong></a> (std::true_type, const PortT &amp; port, CC * cc) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">auto</td>
+<td style="text-align: left;"><a href="#function-getcollection"><strong>GetCollection</strong></a> (CC * cc, const InputBase &amp; port) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">auto</td>
+<td style="text-align: left;"><a href="#function-getcollection"><strong>GetCollection</strong></a> (CC * cc, const SideInputBase &amp; port) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">auto</td>
+<td style="text-align: left;"><a href="#function-getcollection"><strong>GetCollection</strong></a> (CC * cc, const OutputBase &amp; port) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">auto</td>
+<td style="text-align: left;"><a href="#function-getcollection"><strong>GetCollection</strong></a> (CC * cc, const SideOutputBase &amp; port) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">auto</td>
+<td style="text-align: left;"><a href="#function-getornull"><strong>GetOrNull</strong></a> (Collection &amp; collection, const absl::string_view &amp; tag, int index) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-settype"><strong>SetType</strong></a> (CalculatorContract * cc, PacketType &amp; pt) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-settype&lt;-nonetype-&gt;"><strong>SetType&lt; NoneType &gt;</strong></a> (CalculatorContract * cc, PacketType &amp; pt) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-settypeoneof"><strong>SetTypeOneOf</strong></a> (OneOf&lt; T... &gt;, CalculatorContract * cc, PacketType &amp; pt) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">InputShardAccess&lt; ValueT &gt;</td>
+<td style="text-align: left;"><a href="#function-singleportaccess"><strong>SinglePortAccess</strong></a> (mediapipe::CalculatorContext * cc, InputStreamShard * stream) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">OutputShardAccess&lt; ValueT &gt;</td>
+<td style="text-align: left;"><a href="#function-singleportaccess"><strong>SinglePortAccess</strong></a> (mediapipe::CalculatorContext * cc, OutputStreamShard * stream) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">InputSidePacketAccess&lt; ValueT &gt;</td>
+<td style="text-align: left;"><a href="#function-singleportaccess"><strong>SinglePortAccess</strong></a> (mediapipe::CalculatorContext * cc, const mediapipe::Packet * packet) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">OutputSidePacketAccess&lt; ValueT &gt;</td>
+<td style="text-align: left;"><a href="#function-singleportaccess"><strong>SinglePortAccess</strong></a> (mediapipe::CalculatorContext * cc, OutputSidePacket * osp) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">InputShardOrSideAccess&lt; ValueT &gt;</td>
+<td style="text-align: left;"><a href="#function-singleportaccess"><strong>SinglePortAccess</strong></a> (mediapipe::CalculatorContext * cc, InputStreamShard * stream, const mediapipe::Packet * packet) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">PacketTypeAccess</td>
+<td style="text-align: left;"><a href="#function-singleportaccess"><strong>SinglePortAccess</strong></a> (mediapipe::CalculatorContract * cc, PacketType * pt) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">PacketTypeAccessFallback</td>
+<td style="text-align: left;"><a href="#function-singleportaccess"><strong>SinglePortAccess</strong></a> (mediapipe::CalculatorContract * cc, PacketType * pt, bool is_stream) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">constexpr auto</td>
+<td style="text-align: left;"><a href="#function-call_with_optional_index"><strong>call_with_optional_index</strong></a> (F &amp;&amp; f, T &amp;&amp; t, I i) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">constexpr auto</td>
+<td style="text-align: left;"><a href="#function-filter_tuple"><strong>filter_tuple</strong></a> (Tuple &amp;&amp; t) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">constexpr auto</td>
+<td style="text-align: left;"><a href="#function-filtered_tuple_indices"><strong>filtered_tuple_indices</strong></a> (Tuple &amp;&amp; tuple) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">constexpr auto</td>
+<td style="text-align: left;"><a href="#function-filtered_tuple_indices_impl"><strong>filtered_tuple_indices_impl</strong></a> (Tuple &amp;&amp; t, std::index_sequence&lt; I... &gt;) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">constexpr auto</td>
+<td style="text-align: left;"><a href="#function-flatten_tuple"><strong>flatten_tuple</strong></a> (Tuple &amp;&amp; tuple) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">constexpr auto</td>
+<td style="text-align: left;"><a href="#function-index_sequence_cat"><strong>index_sequence_cat</strong></a> (std::index_sequence&lt; I... &gt;) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">constexpr auto</td>
+<td style="text-align: left;"><a href="#function-index_sequence_cat"><strong>index_sequence_cat</strong></a> (std::index_sequence&lt; I... &gt;, std::index_sequence&lt; J... &gt;, Tail... tail) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">constexpr auto</td>
+<td style="text-align: left;"><a href="#function-map_tuple"><strong>map_tuple</strong></a> (F &amp;&amp; f, Tuple &amp;&amp; tuple) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">constexpr auto</td>
+<td style="text-align: left;"><a href="#function-map_tuple_impl"><strong>map_tuple_impl</strong></a> (F &amp;&amp; f, Tuple &amp;&amp; tuple, std::index_sequence&lt; I... &gt;) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">constexpr auto</td>
+<td style="text-align: left;"><a href="#function-select_tuple_indices"><strong>select_tuple_indices</strong></a> (Tuple &amp;&amp; tuple, std::index_sequence&lt; I... &gt;) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">constexpr auto</td>
+<td style="text-align: left;"><a href="#function-tag_build"><strong>tag_build</strong></a> (S) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">constexpr auto</td>
+<td style="text-align: left;"><a href="#function-tag_build_impl"><strong>tag_build_impl</strong></a> (S, std::index_sequence&lt; I... &gt;) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">constexpr auto</td>
+<td style="text-align: left;"><a href="#function-tuple_apply"><strong>tuple_apply</strong></a> (F &amp;&amp; f, Tuple &amp;&amp; tuple) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">constexpr auto</td>
+<td style="text-align: left;"><a href="#function-tuple_apply_impl"><strong>tuple_apply_impl</strong></a> (F &amp;&amp; f, Tuple &amp;&amp; tuple, std::index_sequence&lt; I... &gt;) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">constexpr std::enable_if_t&lt; i==std::tuple_size_v&lt; std::decay_t&lt; Tuple &gt; &gt;, std::size_t &gt;</td>
+<td style="text-align: left;"><a href="#function-tuple_find"><strong>tuple_find</strong></a> (F &amp;&amp; f, Tuple &amp;&amp; tuple) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">constexpr std::enable_if_t&lt; i !=std::tuple_size_v&lt; std::decay_t&lt; Tuple &gt; &gt;, std::size_t &gt;</td>
+<td style="text-align: left;"><a href="#function-tuple_find"><strong>tuple_find</strong></a> (F &amp;&amp; f, Tuple &amp;&amp; tuple) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">constexpr void</td>
+<td style="text-align: left;"><a href="#function-tuple_for_each"><strong>tuple_for_each</strong></a> (F &amp;&amp; f, Tuple &amp;&amp; tuple) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">constexpr void</td>
+<td style="text-align: left;"><a href="#function-tuple_for_each_impl"><strong>tuple_for_each_impl</strong></a> (F &amp;&amp; f, Tuple &amp;&amp; tuple, std::index_sequence&lt; I... &gt;) <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="protected-types">Protected Types</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">typedef ::mediapipe::api2::AnyType</td>
+<td style="text-align: left;"><a href="#typedef-generic"><strong>Generic</strong></a>  <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="protected-functions">Protected Functions</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Type</th>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-checkcompatibletype"><strong>CheckCompatibleType</strong></a> (const HolderBase &amp; holder, internal::Wrap&lt; T &gt;) <br></td>
+</tr>
+<tr>
+<td style="text-align: right;">void</td>
+<td style="text-align: left;"><a href="#function-checkcompatibletype"><strong>CheckCompatibleType</strong></a> (const HolderBase &amp; holder, internal::Wrap&lt; OneOf&lt; T... &gt; &gt;) <br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-types-documentation">Public Types Documentation</h2>
+<h3 id="typedef-tuple_index_sequence">typedef tuple_index_sequence</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-0-1"><span class="k">using</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">tuple_index_sequence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typedef</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_index_sequence</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">tuple_size_v</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">Tuple</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="p">;</span>
+</span></code></pre></div>
+<hr>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-accessport">function AccessPort</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-1-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">ValueT</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">PortT</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CC</span><span class="o">&gt;</span>
+</span><span id="__span-1-2"><span class="k">auto</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">AccessPort</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-1-3"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">false_type</span><span class="p">,</span>
+</span><span id="__span-1-4"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">PortT</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">port</span><span class="p">,</span>
+</span><span id="__span-1-5"><span class="w">    </span><span class="n">CC</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cc</span>
+</span><span id="__span-1-6"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-accessport_1">function AccessPort</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-2-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">ValueT</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">PortT</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">CC</span><span class="o">&gt;</span>
+</span><span id="__span-2-2"><span class="k">auto</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">AccessPort</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-2-3"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">true_type</span><span class="p">,</span>
+</span><span id="__span-2-4"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">PortT</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">port</span><span class="p">,</span>
+</span><span id="__span-2-5"><span class="w">    </span><span class="n">CC</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cc</span>
+</span><span id="__span-2-6"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-getcollection">function GetCollection</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-3-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">CC</span><span class="o">&gt;</span>
+</span><span id="__span-3-2"><span class="k">auto</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">GetCollection</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-3-3"><span class="w">    </span><span class="n">CC</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cc</span><span class="p">,</span>
+</span><span id="__span-3-4"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">InputBase</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">port</span>
+</span><span id="__span-3-5"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-getcollection_1">function GetCollection</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-4-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">CC</span><span class="o">&gt;</span>
+</span><span id="__span-4-2"><span class="k">auto</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">GetCollection</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-4-3"><span class="w">    </span><span class="n">CC</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cc</span><span class="p">,</span>
+</span><span id="__span-4-4"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">SideInputBase</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">port</span>
+</span><span id="__span-4-5"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-getcollection_2">function GetCollection</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-5-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">CC</span><span class="o">&gt;</span>
+</span><span id="__span-5-2"><span class="k">auto</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">GetCollection</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-5-3"><span class="w">    </span><span class="n">CC</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cc</span><span class="p">,</span>
+</span><span id="__span-5-4"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">OutputBase</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">port</span>
+</span><span id="__span-5-5"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-getcollection_3">function GetCollection</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-6-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">CC</span><span class="o">&gt;</span>
+</span><span id="__span-6-2"><span class="k">auto</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">GetCollection</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-6-3"><span class="w">    </span><span class="n">CC</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cc</span><span class="p">,</span>
+</span><span id="__span-6-4"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">SideOutputBase</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">port</span>
+</span><span id="__span-6-5"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-getornull">function GetOrNull</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-7-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Collection</span><span class="o">&gt;</span>
+</span><span id="__span-7-2"><span class="k">auto</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">GetOrNull</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-7-3"><span class="w">    </span><span class="n">Collection</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">collection</span><span class="p">,</span>
+</span><span id="__span-7-4"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span>
+</span><span id="__span-7-5"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">index</span>
+</span><span id="__span-7-6"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-settype">function SetType</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-8-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">std</span><span class="o">::</span><span class="n">enable_if</span><span class="o">&lt;!</span><span class="n">std</span><span class="o">::</span><span class="n">is_same</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">AnyType</span><span class="w"> </span><span class="o">&gt;</span><span class="p">{}</span><span class="w"> </span><span class="o">&amp;&amp;!</span><span class="n">IsOneOf</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="p">{}</span><span class="w"> </span><span class="o">&amp;&amp;!</span><span class="n">IsSameType</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="p">{},</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;</span>
+</span><span id="__span-8-2"><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">SetType</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-8-3"><span class="w">    </span><span class="n">CalculatorContract</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cc</span><span class="p">,</span>
+</span><span id="__span-8-4"><span class="w">    </span><span class="n">PacketType</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">pt</span>
+</span><span id="__span-8-5"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-settype-nonetype">function SetType&lt; NoneType &gt;</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-9-1"><span class="k">template</span><span class="o">&lt;&gt;</span>
+</span><span id="__span-9-2"><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">SetType</span><span class="o">&lt;</span><span class="w"> </span><span class="n">NoneType</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-9-3"><span class="w">    </span><span class="n">CalculatorContract</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cc</span><span class="p">,</span>
+</span><span id="__span-9-4"><span class="w">    </span><span class="n">PacketType</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">pt</span>
+</span><span id="__span-9-5"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-settypeoneof">function SetTypeOneOf</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-10-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
+</span><span id="__span-10-2"><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">SetTypeOneOf</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-10-3"><span class="w">    </span><span class="n">OneOf</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="p">...</span><span class="w"> </span><span class="o">&gt;</span><span class="p">,</span>
+</span><span id="__span-10-4"><span class="w">    </span><span class="n">CalculatorContract</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cc</span><span class="p">,</span>
+</span><span id="__span-10-5"><span class="w">    </span><span class="n">PacketType</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">pt</span>
+</span><span id="__span-10-6"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-singleportaccess">function SinglePortAccess</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-11-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">ValueT</span><span class="o">&gt;</span>
+</span><span id="__span-11-2"><span class="n">InputShardAccess</span><span class="o">&lt;</span><span class="w"> </span><span class="n">ValueT</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">SinglePortAccess</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-11-3"><span class="w">    </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorContext</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cc</span><span class="p">,</span>
+</span><span id="__span-11-4"><span class="w">    </span><span class="n">InputStreamShard</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">stream</span>
+</span><span id="__span-11-5"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-singleportaccess_1">function SinglePortAccess</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-12-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">ValueT</span><span class="o">&gt;</span>
+</span><span id="__span-12-2"><span class="n">OutputShardAccess</span><span class="o">&lt;</span><span class="w"> </span><span class="n">ValueT</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">SinglePortAccess</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-12-3"><span class="w">    </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorContext</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cc</span><span class="p">,</span>
+</span><span id="__span-12-4"><span class="w">    </span><span class="n">OutputStreamShard</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">stream</span>
+</span><span id="__span-12-5"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-singleportaccess_2">function SinglePortAccess</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-13-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">ValueT</span><span class="o">&gt;</span>
+</span><span id="__span-13-2"><span class="n">InputSidePacketAccess</span><span class="o">&lt;</span><span class="w"> </span><span class="n">ValueT</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">SinglePortAccess</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-13-3"><span class="w">    </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorContext</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cc</span><span class="p">,</span>
+</span><span id="__span-13-4"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">Packet</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">packet</span>
+</span><span id="__span-13-5"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-singleportaccess_3">function SinglePortAccess</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-14-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">ValueT</span><span class="o">&gt;</span>
+</span><span id="__span-14-2"><span class="n">OutputSidePacketAccess</span><span class="o">&lt;</span><span class="w"> </span><span class="n">ValueT</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">SinglePortAccess</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-14-3"><span class="w">    </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorContext</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cc</span><span class="p">,</span>
+</span><span id="__span-14-4"><span class="w">    </span><span class="n">OutputSidePacket</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">osp</span>
+</span><span id="__span-14-5"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-singleportaccess_4">function SinglePortAccess</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-15-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">ValueT</span><span class="o">&gt;</span>
+</span><span id="__span-15-2"><span class="n">InputShardOrSideAccess</span><span class="o">&lt;</span><span class="w"> </span><span class="n">ValueT</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">SinglePortAccess</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-15-3"><span class="w">    </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorContext</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cc</span><span class="p">,</span>
+</span><span id="__span-15-4"><span class="w">    </span><span class="n">InputStreamShard</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">stream</span><span class="p">,</span>
+</span><span id="__span-15-5"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">Packet</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">packet</span>
+</span><span id="__span-15-6"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-singleportaccess_5">function SinglePortAccess</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-16-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">ValueT</span><span class="o">&gt;</span>
+</span><span id="__span-16-2"><span class="n">PacketTypeAccess</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">SinglePortAccess</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-16-3"><span class="w">    </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorContract</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cc</span><span class="p">,</span>
+</span><span id="__span-16-4"><span class="w">    </span><span class="n">PacketType</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pt</span>
+</span><span id="__span-16-5"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-singleportaccess_6">function SinglePortAccess</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-17-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">ValueT</span><span class="o">&gt;</span>
+</span><span id="__span-17-2"><span class="n">PacketTypeAccessFallback</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">SinglePortAccess</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-17-3"><span class="w">    </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorContract</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cc</span><span class="p">,</span>
+</span><span id="__span-17-4"><span class="w">    </span><span class="n">PacketType</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pt</span><span class="p">,</span>
+</span><span id="__span-17-5"><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_stream</span>
+</span><span id="__span-17-6"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-call_with_optional_index">function call_with_optional_index</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-18-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">I</span><span class="o">&gt;</span>
+</span><span id="__span-18-2"><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">call_with_optional_index</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-18-3"><span class="w">    </span><span class="n">F</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">,</span>
+</span><span id="__span-18-4"><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">,</span>
+</span><span id="__span-18-5"><span class="w">    </span><span class="n">I</span><span class="w"> </span><span class="n">i</span>
+</span><span id="__span-18-6"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-filter_tuple">function filter_tuple</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-19-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">template</span><span class="o">&lt;</span><span class="w"> </span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Pred</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Tuple</span><span class="o">&gt;</span>
+</span><span id="__span-19-2"><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">filter_tuple</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-19-3"><span class="w">    </span><span class="n">Tuple</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">t</span>
+</span><span id="__span-19-4"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-filtered_tuple_indices">function filtered_tuple_indices</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-20-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">template</span><span class="o">&lt;</span><span class="w"> </span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Pred</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Tuple</span><span class="o">&gt;</span>
+</span><span id="__span-20-2"><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">filtered_tuple_indices</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-20-3"><span class="w">    </span><span class="n">Tuple</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tuple</span>
+</span><span id="__span-20-4"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-filtered_tuple_indices_impl">function filtered_tuple_indices_impl</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-21-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">template</span><span class="o">&lt;</span><span class="w"> </span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Pred</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Tuple</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">...</span><span class="w"> </span><span class="n">I</span><span class="o">&gt;</span>
+</span><span id="__span-21-2"><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">filtered_tuple_indices_impl</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-21-3"><span class="w">    </span><span class="n">Tuple</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">,</span>
+</span><span id="__span-21-4"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">index_sequence</span><span class="o">&lt;</span><span class="w"> </span><span class="n">I</span><span class="p">...</span><span class="w"> </span><span class="o">&gt;</span>
+</span><span id="__span-21-5"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-flatten_tuple">function flatten_tuple</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-22-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">Tuple</span><span class="o">&gt;</span>
+</span><span id="__span-22-2"><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">flatten_tuple</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-22-3"><span class="w">    </span><span class="n">Tuple</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tuple</span>
+</span><span id="__span-22-4"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-index_sequence_cat">function index_sequence_cat</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-23-1"><span class="k">template</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">...</span><span class="w"> </span><span class="n">I</span><span class="o">&gt;</span>
+</span><span id="__span-23-2"><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">index_sequence_cat</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-23-3"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">index_sequence</span><span class="o">&lt;</span><span class="w"> </span><span class="n">I</span><span class="p">...</span><span class="w"> </span><span class="o">&gt;</span>
+</span><span id="__span-23-4"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-index_sequence_cat_1">function index_sequence_cat</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-24-1"><span class="k">template</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">...</span><span class="w"> </span><span class="n">I</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">...</span><span class="w"> </span><span class="n">J</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">Tail</span><span class="o">&gt;</span>
+</span><span id="__span-24-2"><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">index_sequence_cat</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-24-3"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">index_sequence</span><span class="o">&lt;</span><span class="w"> </span><span class="n">I</span><span class="p">...</span><span class="w"> </span><span class="o">&gt;</span><span class="p">,</span>
+</span><span id="__span-24-4"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">index_sequence</span><span class="o">&lt;</span><span class="w"> </span><span class="n">J</span><span class="p">...</span><span class="w"> </span><span class="o">&gt;</span><span class="p">,</span>
+</span><span id="__span-24-5"><span class="w">    </span><span class="n">Tail</span><span class="p">...</span><span class="w"> </span><span class="n">tail</span>
+</span><span id="__span-24-6"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-map_tuple">function map_tuple</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-25-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Tuple</span><span class="o">&gt;</span>
+</span><span id="__span-25-2"><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">map_tuple</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-25-3"><span class="w">    </span><span class="n">F</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">,</span>
+</span><span id="__span-25-4"><span class="w">    </span><span class="n">Tuple</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tuple</span>
+</span><span id="__span-25-5"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-map_tuple_impl">function map_tuple_impl</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-26-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Tuple</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">...</span><span class="w"> </span><span class="n">I</span><span class="o">&gt;</span>
+</span><span id="__span-26-2"><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">map_tuple_impl</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-26-3"><span class="w">    </span><span class="n">F</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">,</span>
+</span><span id="__span-26-4"><span class="w">    </span><span class="n">Tuple</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tuple</span><span class="p">,</span>
+</span><span id="__span-26-5"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">index_sequence</span><span class="o">&lt;</span><span class="w"> </span><span class="n">I</span><span class="p">...</span><span class="w"> </span><span class="o">&gt;</span>
+</span><span id="__span-26-6"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-select_tuple_indices">function select_tuple_indices</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-27-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Tuple</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">...</span><span class="w"> </span><span class="n">I</span><span class="o">&gt;</span>
+</span><span id="__span-27-2"><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">select_tuple_indices</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-27-3"><span class="w">    </span><span class="n">Tuple</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tuple</span><span class="p">,</span>
+</span><span id="__span-27-4"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">index_sequence</span><span class="o">&lt;</span><span class="w"> </span><span class="n">I</span><span class="p">...</span><span class="w"> </span><span class="o">&gt;</span>
+</span><span id="__span-27-5"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-tag_build">function tag_build</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-28-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">S</span><span class="o">&gt;</span>
+</span><span id="__span-28-2"><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">tag_build</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-28-3"><span class="w">    </span><span class="n">S</span>
+</span><span id="__span-28-4"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-tag_build_impl">function tag_build_impl</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-29-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">S</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">...</span><span class="w"> </span><span class="n">I</span><span class="o">&gt;</span>
+</span><span id="__span-29-2"><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">tag_build_impl</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-29-3"><span class="w">    </span><span class="n">S</span><span class="p">,</span>
+</span><span id="__span-29-4"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">index_sequence</span><span class="o">&lt;</span><span class="w"> </span><span class="n">I</span><span class="p">...</span><span class="w"> </span><span class="o">&gt;</span>
+</span><span id="__span-29-5"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-tuple_apply">function tuple_apply</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-30-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Tuple</span><span class="o">&gt;</span>
+</span><span id="__span-30-2"><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">tuple_apply</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-30-3"><span class="w">    </span><span class="n">F</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">,</span>
+</span><span id="__span-30-4"><span class="w">    </span><span class="n">Tuple</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tuple</span>
+</span><span id="__span-30-5"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-tuple_apply_impl">function tuple_apply_impl</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-31-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Tuple</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">...</span><span class="w"> </span><span class="n">I</span><span class="o">&gt;</span>
+</span><span id="__span-31-2"><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">tuple_apply_impl</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-31-3"><span class="w">    </span><span class="n">F</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">,</span>
+</span><span id="__span-31-4"><span class="w">    </span><span class="n">Tuple</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tuple</span><span class="p">,</span>
+</span><span id="__span-31-5"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">index_sequence</span><span class="o">&lt;</span><span class="w"> </span><span class="n">I</span><span class="p">...</span><span class="w"> </span><span class="o">&gt;</span>
+</span><span id="__span-31-6"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-tuple_find">function tuple_find</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-32-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Tuple</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="o">&gt;</span>
+</span><span id="__span-32-2"><span class="k">constexpr</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="w"> </span><span class="n">i</span><span class="o">==</span><span class="n">std</span><span class="o">::</span><span class="n">tuple_size_v</span><span class="o">&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Tuple</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">tuple_find</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-32-3"><span class="w">    </span><span class="n">F</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">,</span>
+</span><span id="__span-32-4"><span class="w">    </span><span class="n">Tuple</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tuple</span>
+</span><span id="__span-32-5"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-tuple_find_1">function tuple_find</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-33-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Tuple</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="o">&gt;</span>
+</span><span id="__span-33-2"><span class="k">constexpr</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="n">std</span><span class="o">::</span><span class="n">tuple_size_v</span><span class="o">&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Tuple</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">tuple_find</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-33-3"><span class="w">    </span><span class="n">F</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">,</span>
+</span><span id="__span-33-4"><span class="w">    </span><span class="n">Tuple</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tuple</span>
+</span><span id="__span-33-5"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-tuple_for_each">function tuple_for_each</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-34-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Tuple</span><span class="o">&gt;</span>
+</span><span id="__span-34-2"><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">tuple_for_each</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-34-3"><span class="w">    </span><span class="n">F</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">,</span>
+</span><span id="__span-34-4"><span class="w">    </span><span class="n">Tuple</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tuple</span>
+</span><span id="__span-34-5"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-tuple_for_each_impl">function tuple_for_each_impl</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-35-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">F</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Tuple</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="p">...</span><span class="w"> </span><span class="n">I</span><span class="o">&gt;</span>
+</span><span id="__span-35-2"><span class="k">constexpr</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">tuple_for_each_impl</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-35-3"><span class="w">    </span><span class="n">F</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">,</span>
+</span><span id="__span-35-4"><span class="w">    </span><span class="n">Tuple</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">tuple</span><span class="p">,</span>
+</span><span id="__span-35-5"><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">index_sequence</span><span class="o">&lt;</span><span class="w"> </span><span class="n">I</span><span class="p">...</span><span class="w"> </span><span class="o">&gt;</span>
+</span><span id="__span-35-6"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+<h2 id="protected-types-documentation">Protected Types Documentation</h2>
+<h3 id="typedef-generic">typedef Generic</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-36-1"><span class="k">using</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">Generic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">typedef</span><span class="w"> </span><span class="o">::</span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">AnyType</span><span class="p">;</span>
+</span></code></pre></div>
+<hr>
+<h2 id="protected-functions-documentation">Protected Functions Documentation</h2>
+<h3 id="function-checkcompatibletype">function CheckCompatibleType</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-37-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+</span><span id="__span-37-2"><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">CheckCompatibleType</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-37-3"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">HolderBase</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">holder</span><span class="p">,</span>
+</span><span id="__span-37-4"><span class="w">    </span><span class="n">internal</span><span class="o">::</span><span class="n">Wrap</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span>
+</span><span id="__span-37-5"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<h3 id="function-checkcompatibletype_1">function CheckCompatibleType</h3>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-38-1"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
+</span><span id="__span-38-2"><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">mediapipe</span><span class="o">::</span><span class="n">api2</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">CheckCompatibleType</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-38-3"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">HolderBase</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">holder</span><span class="p">,</span>
+</span><span id="__span-38-4"><span class="w">    </span><span class="n">internal</span><span class="o">::</span><span class="n">Wrap</span><span class="o">&lt;</span><span class="w"> </span><span class="n">OneOf</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="p">...</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span>
+</span><span id="__span-38-5"><span class="p">)</span><span class="w"> </span>
+</span></code></pre></div>
+<hr>
+
+<hr />
+<p>The documentation for this class was generated from the following file <code>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/contract.h</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "content.code.annotate", "content.footnote.tooltips", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../js/jquery.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "zoom"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

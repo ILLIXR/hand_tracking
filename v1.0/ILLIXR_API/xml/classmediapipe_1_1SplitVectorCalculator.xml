@@ -1,0 +1,303 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1SplitVectorCalculator" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::SplitVectorCalculator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">mediapipe::CalculatorBase</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>bool</type>
+        <declname>move_elements</declname>
+        <defname>move_elements</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1SplitVectorCalculator_1a68bb085e379b799fb5740ec3f1041286" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::pair&lt; int32_t, int32_t &gt; &gt;</type>
+        <definition>std::vector&lt;std::pair&lt;int32_t, int32_t&gt; &gt; mediapipe::SplitVectorCalculator&lt; T, move_elements &gt;::ranges_</definition>
+        <argsstring></argsstring>
+        <name>ranges_</name>
+        <qualifiedname>mediapipe::SplitVectorCalculator::ranges_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" line="249" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" bodystart="249" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1SplitVectorCalculator_1a7fcbf900ef04c9f897308620c11e176e" prot="private" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t mediapipe::SplitVectorCalculator&lt; T, move_elements &gt;::max_range_end_</definition>
+        <argsstring></argsstring>
+        <name>max_range_end_</name>
+        <qualifiedname>mediapipe::SplitVectorCalculator::max_range_end_</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" line="250" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" bodystart="250" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1SplitVectorCalculator_1a50d1d6c99527d00e5912b90d7a3004ec" prot="private" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t mediapipe::SplitVectorCalculator&lt; T, move_elements &gt;::total_elements_</definition>
+        <argsstring></argsstring>
+        <name>total_elements_</name>
+        <qualifiedname>mediapipe::SplitVectorCalculator::total_elements_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" line="251" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" bodystart="251" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1SplitVectorCalculator_1af0a74b6503a75e716fe4e284e2a092da" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::SplitVectorCalculator&lt; T, move_elements &gt;::element_only_</definition>
+        <argsstring></argsstring>
+        <name>element_only_</name>
+        <qualifiedname>mediapipe::SplitVectorCalculator::element_only_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" line="252" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" bodystart="252" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1SplitVectorCalculator_1ad0042be7df504788f9d935e607c015c6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::SplitVectorCalculator&lt; T, move_elements &gt;::combine_outputs_</definition>
+        <argsstring></argsstring>
+        <name>combine_outputs_</name>
+        <qualifiedname>mediapipe::SplitVectorCalculator::combine_outputs_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" line="253" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" bodystart="253" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1SplitVectorCalculator_1a51a7a4f0f6d2e9a920bfcce0a0874800" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>static absl::Status mediapipe::SplitVectorCalculator&lt; T, move_elements &gt;::GetContract</definition>
+        <argsstring>(CalculatorContract *cc)</argsstring>
+        <name>GetContract</name>
+        <qualifiedname>mediapipe::SplitVectorCalculator::GetContract</qualifiedname>
+        <param>
+          <type>CalculatorContract *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" line="63" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" bodystart="63" bodyend="110"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1SplitVectorCalculator_1af910de2ab0749ceb526673180bfd6b7b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::SplitVectorCalculator&lt; T, move_elements &gt;::Open</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Open</name>
+        <qualifiedname>mediapipe::SplitVectorCalculator::Open</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" line="112" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" bodystart="112" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1SplitVectorCalculator_1a89920b9b72b9e67ce7cac92fa9169e91" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::SplitVectorCalculator&lt; T, move_elements &gt;::Process</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Process</name>
+        <qualifiedname>mediapipe::SplitVectorCalculator::Process</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" line="130" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" bodystart="130" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1SplitVectorCalculator_1a9b0be89b8bfe794f902a560a74f87964" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename U</type>
+          </param>
+          <param>
+            <type>IsCopyable&lt; U &gt;</type>
+            <defval>true</defval>
+          </param>
+        </templateparamlist>
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::SplitVectorCalculator&lt; T, move_elements &gt;::ProcessCopyableElements</definition>
+        <argsstring>(CalculatorContext *cc)</argsstring>
+        <name>ProcessCopyableElements</name>
+        <qualifiedname>mediapipe::SplitVectorCalculator::ProcessCopyableElements</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" line="141" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" bodystart="141" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1SplitVectorCalculator_1a9b0be89b8bfe794f902a560a74f87964" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename U</type>
+          </param>
+          <param>
+            <type>IsNotCopyable&lt; U &gt;</type>
+            <defval>true</defval>
+          </param>
+        </templateparamlist>
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::SplitVectorCalculator&lt; T, move_elements &gt;::ProcessCopyableElements</definition>
+        <argsstring>(CalculatorContext *cc)</argsstring>
+        <name>ProcessCopyableElements</name>
+        <qualifiedname>mediapipe::SplitVectorCalculator::ProcessCopyableElements</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" line="176" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" bodystart="176" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1SplitVectorCalculator_1afdcbe57e223d0f4128ec981b60518270" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename U</type>
+          </param>
+          <param>
+            <type>IsMovable&lt; U &gt;</type>
+            <defval>true</defval>
+          </param>
+        </templateparamlist>
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::SplitVectorCalculator&lt; T, move_elements &gt;::ProcessMovableElements</definition>
+        <argsstring>(CalculatorContext *cc)</argsstring>
+        <name>ProcessMovableElements</name>
+        <qualifiedname>mediapipe::SplitVectorCalculator::ProcessMovableElements</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" line="182" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" bodystart="182" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1SplitVectorCalculator_1afdcbe57e223d0f4128ec981b60518270" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename U</type>
+          </param>
+          <param>
+            <type>IsNotMovable&lt; U &gt;</type>
+            <defval>true</defval>
+          </param>
+        </templateparamlist>
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::SplitVectorCalculator&lt; T, move_elements &gt;::ProcessMovableElements</definition>
+        <argsstring>(CalculatorContext *cc)</argsstring>
+        <name>ProcessMovableElements</name>
+        <qualifiedname>mediapipe::SplitVectorCalculator::ProcessMovableElements</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" line="224" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" bodystart="224" bodyend="227"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1SplitVectorCalculator_1a1ff859c6b09068317adc858f54b979b7" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>static absl::Status mediapipe::SplitVectorCalculator&lt; T, move_elements &gt;::checkRangesDontOverlap</definition>
+        <argsstring>(const ::mediapipe::SplitVectorCalculatorOptions &amp;options)</argsstring>
+        <name>checkRangesDontOverlap</name>
+        <qualifiedname>mediapipe::SplitVectorCalculator::checkRangesDontOverlap</qualifiedname>
+        <param>
+          <type>const ::mediapipe::SplitVectorCalculatorOptions &amp;</type>
+          <declname>options</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" line="230" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" bodystart="230" bodyend="247"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" line="61" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h" bodystart="61" bodyend="254"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1CalculatorBase_1a586aedabbf1f8f9d14e07a7251cc5936" prot="public" virt="non-virtual"><scope>mediapipe::SplitVectorCalculator</scope><name>CalculatorBase</name></member>
+      <member refid="classmediapipe_1_1SplitVectorCalculator_1a1ff859c6b09068317adc858f54b979b7" prot="private" virt="non-virtual"><scope>mediapipe::SplitVectorCalculator</scope><name>checkRangesDontOverlap</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a4c90b3bb22ad29984bf0e1436f629f1d" prot="public" virt="virtual"><scope>mediapipe::SplitVectorCalculator</scope><name>Close</name></member>
+      <member refid="classmediapipe_1_1SplitVectorCalculator_1ad0042be7df504788f9d935e607c015c6" prot="private" virt="non-virtual"><scope>mediapipe::SplitVectorCalculator</scope><name>combine_outputs_</name></member>
+      <member refid="classmediapipe_1_1SplitVectorCalculator_1af0a74b6503a75e716fe4e284e2a092da" prot="private" virt="non-virtual"><scope>mediapipe::SplitVectorCalculator</scope><name>element_only_</name></member>
+      <member refid="classmediapipe_1_1SplitVectorCalculator_1a51a7a4f0f6d2e9a920bfcce0a0874800" prot="public" virt="non-virtual"><scope>mediapipe::SplitVectorCalculator</scope><name>GetContract</name></member>
+      <member refid="classmediapipe_1_1SplitVectorCalculator_1a7fcbf900ef04c9f897308620c11e176e" prot="private" virt="non-virtual"><scope>mediapipe::SplitVectorCalculator</scope><name>max_range_end_</name></member>
+      <member refid="classmediapipe_1_1SplitVectorCalculator_1af910de2ab0749ceb526673180bfd6b7b" prot="public" virt="non-virtual"><scope>mediapipe::SplitVectorCalculator</scope><name>Open</name></member>
+      <member refid="classmediapipe_1_1SplitVectorCalculator_1a89920b9b72b9e67ce7cac92fa9169e91" prot="public" virt="non-virtual"><scope>mediapipe::SplitVectorCalculator</scope><name>Process</name></member>
+      <member refid="classmediapipe_1_1SplitVectorCalculator_1a9b0be89b8bfe794f902a560a74f87964" prot="public" virt="non-virtual"><scope>mediapipe::SplitVectorCalculator</scope><name>ProcessCopyableElements</name></member>
+      <member refid="classmediapipe_1_1SplitVectorCalculator_1a9b0be89b8bfe794f902a560a74f87964" prot="public" virt="non-virtual"><scope>mediapipe::SplitVectorCalculator</scope><name>ProcessCopyableElements</name></member>
+      <member refid="classmediapipe_1_1SplitVectorCalculator_1afdcbe57e223d0f4128ec981b60518270" prot="public" virt="non-virtual"><scope>mediapipe::SplitVectorCalculator</scope><name>ProcessMovableElements</name></member>
+      <member refid="classmediapipe_1_1SplitVectorCalculator_1afdcbe57e223d0f4128ec981b60518270" prot="public" virt="non-virtual"><scope>mediapipe::SplitVectorCalculator</scope><name>ProcessMovableElements</name></member>
+      <member refid="classmediapipe_1_1SplitVectorCalculator_1a68bb085e379b799fb5740ec3f1041286" prot="private" virt="non-virtual"><scope>mediapipe::SplitVectorCalculator</scope><name>ranges_</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a0cf70172f342c2cc0314af8e76ae982b" prot="public" virt="virtual"><scope>mediapipe::SplitVectorCalculator</scope><name>SourceProcessOrder</name></member>
+      <member refid="classmediapipe_1_1SplitVectorCalculator_1a50d1d6c99527d00e5912b90d7a3004ec" prot="private" virt="non-virtual"><scope>mediapipe::SplitVectorCalculator</scope><name>total_elements_</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a9ced1ccc8a3f7ad59e54a317f4054c90" prot="public" virt="virtual"><scope>mediapipe::SplitVectorCalculator</scope><name>~CalculatorBase</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,316 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1api2_1_1ImageToTensorCalculator" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::api2::ImageToTensorCalculator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">mediapipe::api2::Node</basecompoundref>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1a624ebc211761dbc689e08f5ab1a23b22" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr Input&lt; OneOf&lt; mediapipe::Image, mediapipe::ImageFrame &gt; &gt;::Optional</type>
+        <definition>constexpr Input&lt;OneOf&lt;mediapipe::Image,mediapipe::ImageFrame&gt;&gt;::Optional mediapipe::api2::ImageToTensorCalculator::kIn</definition>
+        <argsstring></argsstring>
+        <name>kIn</name>
+        <qualifiedname>mediapipe::api2::ImageToTensorCalculator::kIn</qualifiedname>
+        <initializer>{&quot;IMAGE&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" line="128" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" bodystart="128" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1a36d641f6371c48cc5665eaa8b6449439" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr Input&lt; GpuBuffer &gt;::Optional</type>
+        <definition>constexpr Input&lt;GpuBuffer&gt;::Optional mediapipe::api2::ImageToTensorCalculator::kInGpu</definition>
+        <argsstring></argsstring>
+        <name>kInGpu</name>
+        <qualifiedname>mediapipe::api2::ImageToTensorCalculator::kInGpu</qualifiedname>
+        <initializer>{&quot;IMAGE_GPU&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" line="129" column="37" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" bodystart="129" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1a9c6850f2b3a313f8c58ceac2b0caafeb" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr Input&lt; mediapipe::NormalizedRect &gt;::Optional</type>
+        <definition>constexpr Input&lt;mediapipe::NormalizedRect&gt;::Optional mediapipe::api2::ImageToTensorCalculator::kInNormRect</definition>
+        <argsstring></argsstring>
+        <name>kInNormRect</name>
+        <qualifiedname>mediapipe::api2::ImageToTensorCalculator::kInNormRect</qualifiedname>
+        <initializer>{
+      &quot;NORM_RECT&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" line="130" column="37" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" bodystart="130" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1aa45ffcc0467efbf809447a6c5d213885" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr Output&lt; std::vector&lt; Tensor &gt; &gt;</type>
+        <definition>constexpr Output&lt;std::vector&lt;Tensor&gt; &gt; mediapipe::api2::ImageToTensorCalculator::kOutTensors</definition>
+        <argsstring></argsstring>
+        <name>kOutTensors</name>
+        <qualifiedname>mediapipe::api2::ImageToTensorCalculator::kOutTensors</qualifiedname>
+        <initializer>{&quot;TENSORS&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" line="132" column="27" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" bodystart="132" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1a5e22c1226cd114111b2f623ea0e05068" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr Output&lt; std::array&lt; float, 4 &gt; &gt;::Optional</type>
+        <definition>constexpr Output&lt;std::array&lt;float,4&gt;&gt;::Optional mediapipe::api2::ImageToTensorCalculator::kOutLetterboxPadding</definition>
+        <argsstring></argsstring>
+        <name>kOutLetterboxPadding</name>
+        <qualifiedname>mediapipe::api2::ImageToTensorCalculator::kOutLetterboxPadding</qualifiedname>
+        <initializer>{
+      &quot;LETTERBOX_PADDING&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" line="133" column="38" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" bodystart="133" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1a69ded01d5ad86349727a408455ee0f52" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr Output&lt; std::array&lt; float, 16 &gt; &gt;::Optional</type>
+        <definition>constexpr Output&lt;std::array&lt;float,16&gt;&gt;::Optional mediapipe::api2::ImageToTensorCalculator::kOutMatrix</definition>
+        <argsstring></argsstring>
+        <name>kOutMatrix</name>
+        <qualifiedname>mediapipe::api2::ImageToTensorCalculator::kOutMatrix</qualifiedname>
+        <initializer>{&quot;MATRIX&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" line="135" column="38" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" bodystart="135" bodyend="135"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1a8dde2d63daf1aee6e0cd2d674056e7f0" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; ImageToTensorConverter &gt;</type>
+        <definition>std::unique_ptr&lt;ImageToTensorConverter&gt; mediapipe::api2::ImageToTensorCalculator::gpu_converter_</definition>
+        <argsstring></argsstring>
+        <name>gpu_converter_</name>
+        <qualifiedname>mediapipe::api2::ImageToTensorCalculator::gpu_converter_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" line="308" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" bodystart="308" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1a7b04a2f5b9126d9391fb2ca296d6bc6b" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; ImageToTensorConverter &gt;</type>
+        <definition>std::unique_ptr&lt;ImageToTensorConverter&gt; mediapipe::api2::ImageToTensorCalculator::cpu_converter_</definition>
+        <argsstring></argsstring>
+        <name>cpu_converter_</name>
+        <qualifiedname>mediapipe::api2::ImageToTensorCalculator::cpu_converter_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" line="309" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" bodystart="309" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1a63517d1161242d1680da471c9fba39a6" prot="private" static="no" mutable="no">
+        <type>mediapipe::ImageToTensorCalculatorOptions</type>
+        <definition>mediapipe::ImageToTensorCalculatorOptions mediapipe::api2::ImageToTensorCalculator::options_</definition>
+        <argsstring></argsstring>
+        <name>options_</name>
+        <qualifiedname>mediapipe::api2::ImageToTensorCalculator::options_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" line="310" column="45" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" bodystart="310" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1a524dce7cf0860d2bcabecd87fb54405a" prot="private" static="no" mutable="no">
+        <type>OutputTensorParams</type>
+        <definition>OutputTensorParams mediapipe::api2::ImageToTensorCalculator::params_</definition>
+        <argsstring></argsstring>
+        <name>params_</name>
+        <qualifiedname>mediapipe::api2::ImageToTensorCalculator::params_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" line="311" column="22" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" bodystart="311" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1ad85c3e4db9a1e4b2501d17d8fcdecf68" prot="private" static="no" mutable="no">
+        <type>MemoryManager *</type>
+        <definition>MemoryManager* mediapipe::api2::ImageToTensorCalculator::memory_manager_</definition>
+        <argsstring></argsstring>
+        <name>memory_manager_</name>
+        <qualifiedname>mediapipe::api2::ImageToTensorCalculator::memory_manager_</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" line="312" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" bodystart="312" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1ac3a3b75daa826368d2c9e3d032ef7066" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::api2::ImageToTensorCalculator::MEDIAPIPE_NODE_CONTRACT</definition>
+        <argsstring>(kIn, kInGpu, kInNormRect, kOutTensors, kOutLetterboxPadding, kOutMatrix)</argsstring>
+        <name>MEDIAPIPE_NODE_CONTRACT</name>
+        <qualifiedname>mediapipe::api2::ImageToTensorCalculator::MEDIAPIPE_NODE_CONTRACT</qualifiedname>
+        <param>
+          <type>kIn</type>
+        </param>
+        <param>
+          <type>kInGpu</type>
+        </param>
+        <param>
+          <type>kInNormRect</type>
+        </param>
+        <param>
+          <type>kOutTensors</type>
+        </param>
+        <param>
+          <type>kOutLetterboxPadding</type>
+        </param>
+        <param>
+          <type>kOutMatrix</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" line="137" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1a0a46ba2ec700c5d8aeb7da409082494c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::ImageToTensorCalculator::Open</definition>
+        <argsstring>(CalculatorContext *cc)</argsstring>
+        <name>Open</name>
+        <qualifiedname>mediapipe::api2::ImageToTensorCalculator::Open</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" line="165" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" bodystart="165" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1ac8937789b9238fcb15625536705fbcf3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::ImageToTensorCalculator::Process</definition>
+        <argsstring>(CalculatorContext *cc)</argsstring>
+        <name>Process</name>
+        <qualifiedname>mediapipe::api2::ImageToTensorCalculator::Process</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" line="174" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" bodystart="174" bodyend="244"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1a0de37431b4f0cb823a9e360a9826575e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>static absl::Status mediapipe::api2::ImageToTensorCalculator::UpdateContract</definition>
+        <argsstring>(CalculatorContract *cc)</argsstring>
+        <name>UpdateContract</name>
+        <qualifiedname>mediapipe::api2::ImageToTensorCalculator::UpdateContract</qualifiedname>
+        <param>
+          <type>CalculatorContract *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" line="140" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" bodystart="140" bodyend="163"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1a121c7bf7d97848e16e10df7f6ccdb6f6" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::ImageToTensorCalculator::InitConverterIfNecessary</definition>
+        <argsstring>(CalculatorContext *cc, const Image &amp;image)</argsstring>
+        <name>InitConverterIfNecessary</name>
+        <qualifiedname>mediapipe::api2::ImageToTensorCalculator::InitConverterIfNecessary</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <param>
+          <type>const Image &amp;</type>
+          <declname>image</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" line="247" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" bodystart="247" bodyend="306"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" line="125" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_calculator.cc" bodystart="125" bodyend="313"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1CalculatorBase_1a586aedabbf1f8f9d14e07a7251cc5936" prot="public" virt="non-virtual"><scope>mediapipe::api2::ImageToTensorCalculator</scope><name>CalculatorBase</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a4c90b3bb22ad29984bf0e1436f629f1d" prot="public" virt="virtual"><scope>mediapipe::api2::ImageToTensorCalculator</scope><name>Close</name></member>
+      <member refid="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1a7b04a2f5b9126d9391fb2ca296d6bc6b" prot="private" virt="non-virtual"><scope>mediapipe::api2::ImageToTensorCalculator</scope><name>cpu_converter_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1a8dde2d63daf1aee6e0cd2d674056e7f0" prot="private" virt="non-virtual"><scope>mediapipe::api2::ImageToTensorCalculator</scope><name>gpu_converter_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1a121c7bf7d97848e16e10df7f6ccdb6f6" prot="private" virt="non-virtual"><scope>mediapipe::api2::ImageToTensorCalculator</scope><name>InitConverterIfNecessary</name></member>
+      <member refid="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1a624ebc211761dbc689e08f5ab1a23b22" prot="public" virt="non-virtual"><scope>mediapipe::api2::ImageToTensorCalculator</scope><name>kIn</name></member>
+      <member refid="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1a36d641f6371c48cc5665eaa8b6449439" prot="public" virt="non-virtual"><scope>mediapipe::api2::ImageToTensorCalculator</scope><name>kInGpu</name></member>
+      <member refid="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1a9c6850f2b3a313f8c58ceac2b0caafeb" prot="public" virt="non-virtual"><scope>mediapipe::api2::ImageToTensorCalculator</scope><name>kInNormRect</name></member>
+      <member refid="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1a5e22c1226cd114111b2f623ea0e05068" prot="public" virt="non-virtual"><scope>mediapipe::api2::ImageToTensorCalculator</scope><name>kOutLetterboxPadding</name></member>
+      <member refid="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1a69ded01d5ad86349727a408455ee0f52" prot="public" virt="non-virtual"><scope>mediapipe::api2::ImageToTensorCalculator</scope><name>kOutMatrix</name></member>
+      <member refid="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1aa45ffcc0467efbf809447a6c5d213885" prot="public" virt="non-virtual"><scope>mediapipe::api2::ImageToTensorCalculator</scope><name>kOutTensors</name></member>
+      <member refid="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1ac3a3b75daa826368d2c9e3d032ef7066" prot="public" virt="non-virtual"><scope>mediapipe::api2::ImageToTensorCalculator</scope><name>MEDIAPIPE_NODE_CONTRACT</name></member>
+      <member refid="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1ad85c3e4db9a1e4b2501d17d8fcdecf68" prot="private" virt="non-virtual"><scope>mediapipe::api2::ImageToTensorCalculator</scope><name>memory_manager_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1a0a46ba2ec700c5d8aeb7da409082494c" prot="public" virt="non-virtual"><scope>mediapipe::api2::ImageToTensorCalculator</scope><name>Open</name></member>
+      <member refid="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1a63517d1161242d1680da471c9fba39a6" prot="private" virt="non-virtual"><scope>mediapipe::api2::ImageToTensorCalculator</scope><name>options_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1a524dce7cf0860d2bcabecd87fb54405a" prot="private" virt="non-virtual"><scope>mediapipe::api2::ImageToTensorCalculator</scope><name>params_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1ac8937789b9238fcb15625536705fbcf3" prot="public" virt="non-virtual"><scope>mediapipe::api2::ImageToTensorCalculator</scope><name>Process</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a0cf70172f342c2cc0314af8e76ae982b" prot="public" virt="virtual"><scope>mediapipe::api2::ImageToTensorCalculator</scope><name>SourceProcessOrder</name></member>
+      <member refid="classmediapipe_1_1api2_1_1ImageToTensorCalculator_1a0de37431b4f0cb823a9e360a9826575e" prot="public" virt="non-virtual"><scope>mediapipe::api2::ImageToTensorCalculator</scope><name>UpdateContract</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a9ced1ccc8a3f7ad59e54a317f4054c90" prot="public" virt="virtual"><scope>mediapipe::api2::ImageToTensorCalculator</scope><name>~CalculatorBase</name></member>
+      <member refid="classmediapipe_1_1api2_1_1Node_1acd6b394427fbcc78008356f4f3c0a827" prot="public" virt="virtual"><scope>mediapipe::api2::ImageToTensorCalculator</scope><name>~Node</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

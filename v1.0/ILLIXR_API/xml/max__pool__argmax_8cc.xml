@@ -1,0 +1,270 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="max__pool__argmax_8cc" kind="file" language="C++">
+    <compoundname>max_pool_argmax.cc</compoundname>
+    <includes refid="max__pool__argmax_8h" local="yes">max_pool_argmax.h</includes>
+    <includes local="yes">tensorflow/lite/kernels/internal/common.h</includes>
+    <includes local="yes">tensorflow/lite/kernels/internal/tensor.h</includes>
+    <includes local="yes">tensorflow/lite/kernels/padding.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/operations/max_pool_argmax.cc</label>
+        <link refid="max__pool__argmax_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>max_pool_argmax.h</label>
+        <link refid="max__pool__argmax_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>tensorflow/lite/kernels/internal/common.h</label>
+      </node>
+      <node id="5">
+        <label>tensorflow/lite/kernels/internal/tensor.h</label>
+      </node>
+      <node id="3">
+        <label>tensorflow/lite/kernels/kernel_util.h</label>
+      </node>
+      <node id="6">
+        <label>tensorflow/lite/kernels/padding.h</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacemediapipe">mediapipe</innernamespace>
+    <innernamespace refid="namespacemediapipe_1_1tflite__operations">mediapipe::tflite_operations</innernamespace>
+    <innernamespace refid="namespacemediapipe_1_1tflite__operations_1_1anonymous__namespace_02max__pool__argmax_8cc_03">mediapipe::tflite_operations::anonymous_namespace{max_pool_argmax.cc}</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Copyright<sp/>2018<sp/>The<sp/>TensorFlow<sp/>Authors.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Copyright<sp/>2019<sp/>The<sp/>MediaPipe<sp/>Authors.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">//<sp/>This<sp/>version<sp/>has<sp/>been<sp/>modified<sp/>by<sp/>MediaPipe<sp/>authors<sp/>to<sp/>support<sp/>argmax</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//<sp/>indices.<sp/>Details<sp/>of<sp/>the<sp/>modification<sp/>is<sp/>marked<sp/>below<sp/>in<sp/>the<sp/>code.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;max_pool_argmax.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/kernels/internal/common.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/kernels/internal/tensor.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/kernels/padding.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mediapipe<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">tflite_operations<sp/>{</highlight></codeline>
+<codeline lineno="26" refid="namespacemediapipe_1_1tflite__operations_1_1anonymous__namespace_02max__pool__argmax_8cc_03" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>kDataInputTensor<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>kOutputTensor<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>kIndicesTensor<sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">//<sp/>These<sp/>functions<sp/>were<sp/>copied<sp/>from<sp/>the<sp/>following<sp/>places:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">//<sp/>https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/kernels/internal/reference/reference_ops.h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/>https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/kernels/pooling.cc</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>MaxPoolArgmax(const<sp/>::tflite::PoolParams&amp;<sp/>params,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>const<sp/>::tflite::RuntimeShape&amp;<sp/>input_shape,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>input_data,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>const<sp/>::tflite::RuntimeShape&amp;<sp/>output_shape,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>output_data,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">*<sp/>indices_data)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Start<sp/>of<sp/>copy<sp/>from</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/kernels/internal/reference/reference_ops.h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Start<sp/>of<sp/>MediaPipe<sp/>modificiation.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/>TFLITE_DCHECK_EQ(input_shape.DimensionsCount(),<sp/>4);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>TFLITE_DCHECK_EQ(output_shape.DimensionsCount(),<sp/>4);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>batches<sp/>=<sp/>MatchingDim(input_shape,<sp/>0,<sp/>output_shape,<sp/>0);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>depth<sp/>=<sp/>MatchingDim(input_shape,<sp/>3,<sp/>output_shape,<sp/>3);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>input_height<sp/>=<sp/>input_shape.Dims(1);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>input_width<sp/>=<sp/>input_shape.Dims(2);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>output_height<sp/>=<sp/>output_shape.Dims(1);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>output_width<sp/>=<sp/>output_shape.Dims(2);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>stride_height<sp/>=<sp/>params.stride_height;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>stride_width<sp/>=<sp/>params.stride_width;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>batch<sp/>=<sp/>0;<sp/>batch<sp/>&lt;<sp/>batches;<sp/>++batch)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>out_y<sp/>=<sp/>0;<sp/>out_y<sp/>&lt;<sp/>output_height;<sp/>++out_y)<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>out_x<sp/>=<sp/>0;<sp/>out_x<sp/>&lt;<sp/>output_width;<sp/>++out_x)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>channel<sp/>=<sp/>0;<sp/>channel<sp/>&lt;<sp/>depth;<sp/>++channel)<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>in_x_origin<sp/>=</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(out_x<sp/>*<sp/>stride_width)<sp/>-<sp/>params.padding_values.width;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>in_y_origin<sp/>=</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(out_y<sp/>*<sp/>stride_height)<sp/>-<sp/>params.padding_values.height;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Compute<sp/>the<sp/>boundaries<sp/>of<sp/>the<sp/>filter<sp/>region<sp/>clamped<sp/>so<sp/>as<sp/>to</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>ensure<sp/>that<sp/>the<sp/>filter<sp/>window<sp/>fits<sp/>in<sp/>the<sp/>input<sp/>array.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>filter_x_start<sp/>=<sp/>std::max(0,<sp/>-in_x_origin);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>filter_x_end<sp/>=</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::min(params.filter_width,<sp/>input_width<sp/>-<sp/>in_x_origin);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>filter_y_start<sp/>=<sp/>std::max(0,<sp/>-in_y_origin);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>filter_y_end<sp/>=</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::min(params.filter_height,<sp/>input_height<sp/>-<sp/>in_y_origin);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>max<sp/>=<sp/>std::numeric_limits&lt;float&gt;::lowest();</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>max_x<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>max_y<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>filter_y<sp/>=<sp/>filter_y_start;<sp/>filter_y<sp/>&lt;<sp/>filter_y_end;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++filter_y)<sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>filter_x<sp/>=<sp/>filter_x_start;<sp/>filter_x<sp/>&lt;<sp/>filter_x_end;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++filter_x)<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>in_x<sp/>=<sp/>in_x_origin<sp/>+<sp/>filter_x;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>in_y<sp/>=<sp/>in_y_origin<sp/>+<sp/>filter_y;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>cur<sp/>=</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>input_data[Offset(input_shape,<sp/>batch,<sp/>in_y,<sp/>in_x,<sp/>channel)];</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cur<sp/>&gt;<sp/>max)<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>max<sp/>=<sp/>cur;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>max_x<sp/>=<sp/>filter_x;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>max_y<sp/>=<sp/>filter_y;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>output_data[Offset(output_shape,<sp/>batch,<sp/>out_y,<sp/>out_x,<sp/>channel)]<sp/>=</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>::tflite::ActivationFunctionWithMinMax(</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>max,<sp/>params.float_activation_min,</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>params.float_activation_max);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(indices_data)<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>indices_data[Offset(output_shape,<sp/>batch,<sp/>out_y,<sp/>out_x,<sp/>channel)]<sp/>=</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>max_y<sp/>*<sp/>params.filter_width<sp/>+<sp/>max_x<sp/>+<sp/>0.1f;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>End<sp/>of<sp/>MediaPipe<sp/>modification.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>End<sp/>of<sp/>copy.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Start<sp/>of<sp/>copy<sp/>from</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="comment">//<sp/>https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/kernels/pooling.cc</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Start<sp/>of<sp/>MediaPipe<sp/>modificiation.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal">TfLiteStatus<sp/>Prepare(TfLiteContext*<sp/>context,<sp/>TfLiteNode*<sp/>node)<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>params<sp/>=</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="keyword">const<sp/></highlight><highlight class="normal">TfLitePoolParams*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(node-&gt;custom_initial_data);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>TfLitePaddingValues*<sp/>data_padding<sp/>=</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="normal">TfLitePaddingValues*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(node-&gt;user_data);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/>TF_LITE_ENSURE_EQ(context,<sp/>::tflite::NumInputs(node),<sp/>1);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>TF_LITE_ENSURE_EQ(context,<sp/>::tflite::NumOutputs(node),<sp/>2);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>TfLiteTensor*<sp/>output<sp/>=<sp/>::tflite::GetOutput(context,<sp/>node,<sp/>kOutputTensor);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/>TF_LITE_ENSURE(context,<sp/>output<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>TfLiteTensor*<sp/>indices<sp/>=<sp/>::tflite::GetOutput(context,<sp/>node,<sp/>kIndicesTensor);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/>TF_LITE_ENSURE(context,<sp/>indices<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>TfLiteTensor*<sp/>input<sp/>=</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>::tflite::GetInput(context,<sp/>node,<sp/>kDataInputTensor);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>TF_LITE_ENSURE(context,<sp/>input<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/>TF_LITE_ENSURE_EQ(context,<sp/>::tflite::NumDimensions(input),<sp/>4);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/>TF_LITE_ENSURE_EQ(context,<sp/>input-&gt;type,<sp/>kTfLiteFloat32);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/>TF_LITE_ENSURE_EQ(context,<sp/>output-&gt;type,<sp/>kTfLiteFloat32);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>TF_LITE_ENSURE_EQ(context,<sp/>indices-&gt;type,<sp/>kTfLiteFloat32);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>batches<sp/>=<sp/>input-&gt;dims-&gt;data[0];</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height<sp/>=<sp/>input-&gt;dims-&gt;data[1];</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width<sp/>=<sp/>input-&gt;dims-&gt;data[2];</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>channels_out<sp/>=<sp/>input-&gt;dims-&gt;data[3];</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Matching<sp/>GetWindowedOutputSize<sp/>in<sp/>TensorFlow.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>padding<sp/>=<sp/>params-&gt;padding;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>compute_out_size<sp/>=<sp/>[padding](</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>image_size,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>filter_size,</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>stride)<sp/>-&gt;<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>padding<sp/>==<sp/>kTfLitePaddingSame<sp/>?<sp/>(image_size<sp/>+<sp/>stride<sp/>-<sp/>1)<sp/>/<sp/>stride</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>padding<sp/>==<sp/>kTfLitePaddingValid</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>(image_size<sp/>-<sp/>filter_size<sp/>+<sp/>stride)<sp/>/<sp/>stride</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>0;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>out_width<sp/>=</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>compute_out_size(width,<sp/>params-&gt;filter_width,<sp/>params-&gt;stride_width);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>out_height<sp/>=</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>compute_out_size(height,<sp/>params-&gt;filter_height,<sp/>params-&gt;stride_height);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/>data_padding-&gt;height<sp/>=<sp/>::tflite::ComputePadding(</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>params-&gt;stride_height,<sp/>1,<sp/>height,<sp/>params-&gt;filter_height,<sp/>out_height);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/>data_padding-&gt;width<sp/>=<sp/>::tflite::ComputePadding(</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>params-&gt;stride_width,<sp/>1,<sp/>width,<sp/>params-&gt;filter_width,<sp/>out_width);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/>TfLiteIntArray*<sp/>output_size<sp/>=<sp/>TfLiteIntArrayCreate(4);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/>output_size-&gt;data[0]<sp/>=<sp/>batches;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/>output_size-&gt;data[1]<sp/>=<sp/>out_height;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/>output_size-&gt;data[2]<sp/>=<sp/>out_width;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/>output_size-&gt;data[3]<sp/>=<sp/>channels_out;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/>TfLiteIntArray*<sp/>indices_size<sp/>=<sp/>TfLiteIntArrayCopy(output_size);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(context-&gt;ResizeTensor(context,<sp/>output,<sp/>output_size)<sp/>!=<sp/>kTfLiteOk)<sp/>{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>kTfLiteError;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(context-&gt;ResizeTensor(context,<sp/>indices,<sp/>indices_size)<sp/>!=<sp/>kTfLiteOk)<sp/>{</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>kTfLiteError;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>kTfLiteOk;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal">TfLiteStatus<sp/>Eval(TfLiteContext*<sp/>context,<sp/>TfLiteNode*<sp/>node)<sp/>{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/>params<sp/>=</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="keyword">const<sp/></highlight><highlight class="normal">TfLitePoolParams*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(node-&gt;custom_initial_data);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/>TfLitePaddingValues*<sp/>data_padding<sp/>=</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="normal">TfLitePaddingValues*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(node-&gt;user_data);</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/>TfLiteTensor*<sp/>output<sp/>=<sp/>::tflite::GetOutput(context,<sp/>node,<sp/>kOutputTensor);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/>TF_LITE_ENSURE(context,<sp/>output<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/>TfLiteTensor*<sp/>indices<sp/>=<sp/>::tflite::GetOutput(context,<sp/>node,<sp/>kIndicesTensor);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/>TF_LITE_ENSURE(context,<sp/>indices<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>TfLiteTensor*<sp/>input<sp/>=</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>::tflite::GetInput(context,<sp/>node,<sp/>kDataInputTensor);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/>TF_LITE_ENSURE(context,<sp/>input<sp/>!=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>activation_min,<sp/>activation_max;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/>::tflite::CalculateActivationRange(params-&gt;activation,<sp/>&amp;activation_min,</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;activation_max);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/>::tflite::PoolParams<sp/>op_params;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/>op_params.stride_height<sp/>=<sp/>params-&gt;stride_height;</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/>op_params.stride_width<sp/>=<sp/>params-&gt;stride_width;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/>op_params.filter_height<sp/>=<sp/>params-&gt;filter_height;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/>op_params.filter_width<sp/>=<sp/>params-&gt;filter_width;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/>op_params.padding_values.height<sp/>=<sp/>data_padding-&gt;height;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/>op_params.padding_values.width<sp/>=<sp/>data_padding-&gt;width;</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/>op_params.float_activation_min<sp/>=<sp/>activation_min;</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/>op_params.float_activation_max<sp/>=<sp/>activation_max;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/>MaxPoolArgmax(op_params,<sp/>::tflite::GetTensorShape(input),</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>::tflite::GetTensorData&lt;float&gt;(input),</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>::tflite::GetTensorShape(output),</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>::tflite::GetTensorData&lt;float&gt;(output),</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>::tflite::GetTensorData&lt;float&gt;(indices));</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>kTfLiteOk;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight><highlight class="comment">//<sp/>End<sp/>of<sp/>MediaPipe<sp/>modification.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight><highlight class="comment">//<sp/>End<sp/>of<sp/>copy.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal">TfLiteRegistration*<sp/>RegisterMaxPoolingWithArgmax2D()<sp/>{</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>TfLiteRegistration<sp/>reg<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>[](TfLiteContext*,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*,<sp/>size_t)<sp/>-&gt;<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>{</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>TfLitePaddingValues();</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>[](TfLiteContext*,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>buffer)<sp/>-&gt;<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="normal">TfLitePaddingValues*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(buffer);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>},</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Prepare,<sp/>Eval};</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>&amp;reg;</highlight></codeline>
+<codeline lineno="215"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>tflite_operations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>mediapipe</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/operations/max_pool_argmax.cc"/>
+  </compounddef>
+</doxygen>

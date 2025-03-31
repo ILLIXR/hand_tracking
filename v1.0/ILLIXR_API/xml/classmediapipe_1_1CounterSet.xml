@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1CounterSet" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::CounterSet</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1CounterSet_1a26c1c65e2c3be3e7e2b26b4dd0fed1b2" prot="private" static="no" mutable="no">
+        <type>absl::Mutex</type>
+        <definition>absl::Mutex mediapipe::CounterSet::mu_</definition>
+        <argsstring></argsstring>
+        <name>mu_</name>
+        <qualifiedname>mediapipe::CounterSet::mu_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.h" line="72" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1CounterSet_1a83ba41fbf89e69ebd369beee8d07233c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::CounterSet::CounterSet</definition>
+        <argsstring>()</argsstring>
+        <name>CounterSet</name>
+        <qualifiedname>mediapipe::CounterSet::CounterSet</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.h" line="37" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.cc" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CounterSet_1af3b3f765a6962657d932e50723382677" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::CounterSet::~CounterSet</definition>
+        <argsstring>()</argsstring>
+        <name>~CounterSet</name>
+        <qualifiedname>mediapipe::CounterSet::~CounterSet</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.h" line="41" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.cc" bodystart="57" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CounterSet_1a5410d55becab218cc152441c91024f2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::CounterSet::PrintCounters</definition>
+        <argsstring>()</argsstring>
+        <name>PrintCounters</name>
+        <qualifiedname>mediapipe::CounterSet::PrintCounters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.h" line="44" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.cc" bodystart="61" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CounterSet_1a4bac8b6b499694be5a3b80b1e7826920" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::CounterSet::PublishCounters</definition>
+        <argsstring>()</argsstring>
+        <name>PublishCounters</name>
+        <qualifiedname>mediapipe::CounterSet::PublishCounters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.h" line="47" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.cc" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CounterSet_1a819b0701c012e2176165850dd2d75e3c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename CounterType</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>Counter *</type>
+        <definition>Counter * mediapipe::CounterSet::Emplace</definition>
+        <argsstring>(const std::string &amp;name, Args &amp;&amp;... args) ABSL_LOCKS_EXCLUDED(mu_)</argsstring>
+        <name>Emplace</name>
+        <qualifiedname>mediapipe::CounterSet::Emplace</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.h" line="53" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.h" bodystart="53" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CounterSet_1a9f0e1030b69bce28e050916720fa43dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Counter *</type>
+        <definition>Counter * mediapipe::CounterSet::Get</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>Get</name>
+        <qualifiedname>mediapipe::CounterSet::Get</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.h" line="66" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.cc" bodystart="69" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CounterSet_1ad781a2e2846f358f29fc5e3aecddf352" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::map&lt; std::string, int64_t &gt;</type>
+        <definition>std::map&lt; std::string, int64_t &gt; mediapipe::CounterSet::GetCountersValues</definition>
+        <argsstring>() ABSL_LOCKS_EXCLUDED(mu_)</argsstring>
+        <name>GetCountersValues</name>
+        <qualifiedname>mediapipe::CounterSet::GetCountersValues</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.h" line="69" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.cc" bodystart="77" bodyend="85"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1CounterSet_1a6f12a4075049c00f6cc41485a785537e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::map&lt; std::string, std::unique_ptr&lt; Counter &gt; &gt; counters_</type>
+        <definition>std::map&lt; std::string, std::unique_ptr&lt; Counter &gt; &gt; counters_ mediapipe::CounterSet::ABSL_GUARDED_BY</definition>
+        <argsstring>(mu_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::CounterSet::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>mu_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.h" line="74" column="7"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.h" line="35" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.h" bodystart="35" bodyend="75"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1CounterSet_1a6f12a4075049c00f6cc41485a785537e" prot="private" virt="non-virtual"><scope>mediapipe::CounterSet</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1CounterSet_1a83ba41fbf89e69ebd369beee8d07233c" prot="public" virt="non-virtual"><scope>mediapipe::CounterSet</scope><name>CounterSet</name></member>
+      <member refid="classmediapipe_1_1CounterSet_1a819b0701c012e2176165850dd2d75e3c" prot="public" virt="non-virtual"><scope>mediapipe::CounterSet</scope><name>Emplace</name></member>
+      <member refid="classmediapipe_1_1CounterSet_1a9f0e1030b69bce28e050916720fa43dd" prot="public" virt="non-virtual"><scope>mediapipe::CounterSet</scope><name>Get</name></member>
+      <member refid="classmediapipe_1_1CounterSet_1ad781a2e2846f358f29fc5e3aecddf352" prot="public" virt="non-virtual"><scope>mediapipe::CounterSet</scope><name>GetCountersValues</name></member>
+      <member refid="classmediapipe_1_1CounterSet_1a26c1c65e2c3be3e7e2b26b4dd0fed1b2" prot="private" virt="non-virtual"><scope>mediapipe::CounterSet</scope><name>mu_</name></member>
+      <member refid="classmediapipe_1_1CounterSet_1a5410d55becab218cc152441c91024f2d" prot="public" virt="non-virtual"><scope>mediapipe::CounterSet</scope><name>PrintCounters</name></member>
+      <member refid="classmediapipe_1_1CounterSet_1a4bac8b6b499694be5a3b80b1e7826920" prot="public" virt="non-virtual"><scope>mediapipe::CounterSet</scope><name>PublishCounters</name></member>
+      <member refid="classmediapipe_1_1CounterSet_1af3b3f765a6962657d932e50723382677" prot="public" virt="non-virtual"><scope>mediapipe::CounterSet</scope><name>~CounterSet</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1GraphServiceManager" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::GraphServiceManager</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1GraphServiceManager_1a5e5a5cc5b7ff411ab5f5ad3460e545f5" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, Packet &gt;</type>
+        <definition>std::map&lt;std::string, Packet&gt; mediapipe::GraphServiceManager::service_packets_</definition>
+        <argsstring></argsstring>
+        <name>service_packets_</name>
+        <qualifiedname>mediapipe::GraphServiceManager::service_packets_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_service_manager.h" line="37" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_service_manager.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classmediapipe_1_1GraphServiceManager_1a63c15a41049c0bd31192f18fb2ee88eb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class CalculatorGraph</definition>
+        <argsstring></argsstring>
+        <name>CalculatorGraph</name>
+        <qualifiedname>mediapipe::GraphServiceManager::CalculatorGraph</qualifiedname>
+        <param>
+          <type>CalculatorGraph</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_service_manager.h" line="39" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_service_manager.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1GraphServiceManager_1a359973ab56c340cb324225a25c42a049" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::GraphServiceManager::SetServiceObject</definition>
+        <argsstring>(const GraphService&lt; T &gt; &amp;service, std::shared_ptr&lt; T &gt; object)</argsstring>
+        <name>SetServiceObject</name>
+        <qualifiedname>mediapipe::GraphServiceManager::SetServiceObject</qualifiedname>
+        <param>
+          <type>const GraphService&lt; T &gt; &amp;</type>
+          <declname>service</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; T &gt;</type>
+          <declname>object</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_service_manager.h" line="15" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_service_manager.h" bodystart="15" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GraphServiceManager_1a0b712386d966c6bc8506d415c58cc2a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::GraphServiceManager::SetServicePacket</definition>
+        <argsstring>(const GraphServiceBase &amp;service, Packet p)</argsstring>
+        <name>SetServicePacket</name>
+        <qualifiedname>mediapipe::GraphServiceManager::SetServicePacket</qualifiedname>
+        <param>
+          <type>const GraphServiceBase &amp;</type>
+          <declname>service</declname>
+        </param>
+        <param>
+          <type>Packet</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_service_manager.h" line="21" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_service_manager.cc" bodystart="5" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GraphServiceManager_1a4baff6688c9b49b2e5ca0a9973bc9215" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::shared_ptr&lt; T &gt;</type>
+        <definition>std::shared_ptr&lt; T &gt; mediapipe::GraphServiceManager::GetServiceObject</definition>
+        <argsstring>(const GraphService&lt; T &gt; &amp;service) const</argsstring>
+        <name>GetServiceObject</name>
+        <qualifiedname>mediapipe::GraphServiceManager::GetServiceObject</qualifiedname>
+        <param>
+          <type>const GraphService&lt; T &gt; &amp;</type>
+          <declname>service</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_service_manager.h" line="24" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_service_manager.h" bodystart="24" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GraphServiceManager_1ad4a1aac010a488eae95532bc9f6d2028" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::map&lt; std::string, Packet &gt; &amp;</type>
+        <definition>const std::map&lt; std::string, Packet &gt; &amp; mediapipe::GraphServiceManager::ServicePackets</definition>
+        <argsstring>()</argsstring>
+        <name>ServicePackets</name>
+        <qualifiedname>mediapipe::GraphServiceManager::ServicePackets</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_service_manager.h" line="30" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_service_manager.h" bodystart="30" bodyend="32"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1GraphServiceManager_1a6a46fdae9fa9a8750c5729a3421ccecc" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Packet</type>
+        <definition>Packet mediapipe::GraphServiceManager::GetServicePacket</definition>
+        <argsstring>(const GraphServiceBase &amp;service) const</argsstring>
+        <name>GetServicePacket</name>
+        <qualifiedname>mediapipe::GraphServiceManager::GetServicePacket</qualifiedname>
+        <param>
+          <type>const GraphServiceBase &amp;</type>
+          <declname>service</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_service_manager.h" line="35" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_service_manager.cc" bodystart="12" bodyend="19"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_service_manager.h" line="12" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_service_manager.h" bodystart="12" bodyend="40"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1GraphServiceManager_1a63c15a41049c0bd31192f18fb2ee88eb" prot="private" virt="non-virtual"><scope>mediapipe::GraphServiceManager</scope><name>CalculatorGraph</name></member>
+      <member refid="classmediapipe_1_1GraphServiceManager_1a4baff6688c9b49b2e5ca0a9973bc9215" prot="public" virt="non-virtual"><scope>mediapipe::GraphServiceManager</scope><name>GetServiceObject</name></member>
+      <member refid="classmediapipe_1_1GraphServiceManager_1a6a46fdae9fa9a8750c5729a3421ccecc" prot="private" virt="non-virtual"><scope>mediapipe::GraphServiceManager</scope><name>GetServicePacket</name></member>
+      <member refid="classmediapipe_1_1GraphServiceManager_1a5e5a5cc5b7ff411ab5f5ad3460e545f5" prot="private" virt="non-virtual"><scope>mediapipe::GraphServiceManager</scope><name>service_packets_</name></member>
+      <member refid="classmediapipe_1_1GraphServiceManager_1ad4a1aac010a488eae95532bc9f6d2028" prot="public" virt="non-virtual"><scope>mediapipe::GraphServiceManager</scope><name>ServicePackets</name></member>
+      <member refid="classmediapipe_1_1GraphServiceManager_1a359973ab56c340cb324225a25c42a049" prot="public" virt="non-virtual"><scope>mediapipe::GraphServiceManager</scope><name>SetServiceObject</name></member>
+      <member refid="classmediapipe_1_1GraphServiceManager_1a0b712386d966c6bc8506d415c58cc2a7" prot="public" virt="non-virtual"><scope>mediapipe::GraphServiceManager</scope><name>SetServicePacket</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

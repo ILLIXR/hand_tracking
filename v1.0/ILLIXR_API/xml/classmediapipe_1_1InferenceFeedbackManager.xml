@@ -1,0 +1,248 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1InferenceFeedbackManager" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::InferenceFeedbackManager</compoundname>
+    <innerclass refid="structmediapipe_1_1InferenceFeedbackManager_1_1TensorFeedbackIndicesLink" prot="private">mediapipe::InferenceFeedbackManager::TensorFeedbackIndicesLink</innerclass>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1InferenceFeedbackManager_1a6dfd4f96109bd9db69403eea37f590f9" prot="private" static="no" mutable="no">
+        <type>tflite::Interpreter *</type>
+        <definition>tflite::Interpreter* mediapipe::InferenceFeedbackManager::interpreter_</definition>
+        <argsstring></argsstring>
+        <name>interpreter_</name>
+        <qualifiedname>mediapipe::InferenceFeedbackManager::interpreter_</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.h" line="67" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1InferenceFeedbackManager_1ac12c2d9555665b55c196bc2c2e809426" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; TensorFeedbackIndicesLink &gt;</type>
+        <definition>std::vector&lt;TensorFeedbackIndicesLink&gt; mediapipe::InferenceFeedbackManager::feedback_tensor_indices_links_</definition>
+        <argsstring></argsstring>
+        <name>feedback_tensor_indices_links_</name>
+        <qualifiedname>mediapipe::InferenceFeedbackManager::feedback_tensor_indices_links_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.h" line="70" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1InferenceFeedbackManager_1a4bc9071a17e81158d6a4933761e5a9a0" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt;int&gt; mediapipe::InferenceFeedbackManager::input_tensor_to_model_indices_</definition>
+        <argsstring></argsstring>
+        <name>input_tensor_to_model_indices_</name>
+        <qualifiedname>mediapipe::InferenceFeedbackManager::input_tensor_to_model_indices_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.h" line="73" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1InferenceFeedbackManager_1a50e356cf4d297e627d9d9926ea71945f" prot="private" static="no" mutable="no">
+        <type>absl::flat_hash_set&lt; int &gt;</type>
+        <definition>absl::flat_hash_set&lt;int&gt; mediapipe::InferenceFeedbackManager::feedback_input_indices_</definition>
+        <argsstring></argsstring>
+        <name>feedback_input_indices_</name>
+        <qualifiedname>mediapipe::InferenceFeedbackManager::feedback_input_indices_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.h" line="76" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1InferenceFeedbackManager_1a31490184fd3220a552e4e9549fe461fb" prot="private" static="no" mutable="no">
+        <type>absl::flat_hash_set&lt; int &gt;</type>
+        <definition>absl::flat_hash_set&lt;int&gt; mediapipe::InferenceFeedbackManager::feedback_output_indices_</definition>
+        <argsstring></argsstring>
+        <name>feedback_output_indices_</name>
+        <qualifiedname>mediapipe::InferenceFeedbackManager::feedback_output_indices_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.h" line="79" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1InferenceFeedbackManager_1a9ea1947299ac9f89767aa74789406be9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::InferenceFeedbackManager::Init</definition>
+        <argsstring>(const mediapipe::InferenceCalculatorOptions::InputOutputConfig &amp;io_config, const InputOutputTensorNames &amp;input_output_tensor_names_map, tflite::Interpreter *interpreter)</argsstring>
+        <name>Init</name>
+        <qualifiedname>mediapipe::InferenceFeedbackManager::Init</qualifiedname>
+        <param>
+          <type>const mediapipe::InferenceCalculatorOptions::InputOutputConfig &amp;</type>
+          <declname>io_config</declname>
+        </param>
+        <param>
+          <type>const InputOutputTensorNames &amp;</type>
+          <declname>input_output_tensor_names_map</declname>
+        </param>
+        <param>
+          <type>tflite::Interpreter *</type>
+          <declname>interpreter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.h" line="26" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.cc" bodystart="46" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceFeedbackManager_1af2993161e7b23c8ea274f999591962f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InferenceFeedbackManager::SwapFeedbackTensors</definition>
+        <argsstring>()</argsstring>
+        <name>SwapFeedbackTensors</name>
+        <qualifiedname>mediapipe::InferenceFeedbackManager::SwapFeedbackTensors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.h" line="32" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.cc" bodystart="89" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceFeedbackManager_1a59dc349a6a4c3e494c8b7297b19fcadc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::InferenceFeedbackManager::GetNumberOfNonFeedbackInputTensors</definition>
+        <argsstring>() const</argsstring>
+        <name>GetNumberOfNonFeedbackInputTensors</name>
+        <qualifiedname>mediapipe::InferenceFeedbackManager::GetNumberOfNonFeedbackInputTensors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.h" line="36" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.cc" bodystart="184" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceFeedbackManager_1a80488fe54306c26010a3d204f16562ff" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::InferenceFeedbackManager::GetNumberOfFeedbackTensors</definition>
+        <argsstring>() const</argsstring>
+        <name>GetNumberOfFeedbackTensors</name>
+        <qualifiedname>mediapipe::InferenceFeedbackManager::GetNumberOfFeedbackTensors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.h" line="39" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.cc" bodystart="188" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceFeedbackManager_1af9ec97cc60c27b77823b724c620c25b7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::StatusOr&lt; int &gt;</type>
+        <definition>absl::StatusOr&lt; int &gt; mediapipe::InferenceFeedbackManager::MapInputTensorToModelIndex</definition>
+        <argsstring>(int input_idx) const</argsstring>
+        <name>MapInputTensorToModelIndex</name>
+        <qualifiedname>mediapipe::InferenceFeedbackManager::MapInputTensorToModelIndex</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>input_idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.h" line="44" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.cc" bodystart="176" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceFeedbackManager_1a871454cf7a45f0176fbb9678db2e4463" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::InferenceFeedbackManager::IsFeedbackInputTensorAtIndex</definition>
+        <argsstring>(int idx) const</argsstring>
+        <name>IsFeedbackInputTensorAtIndex</name>
+        <qualifiedname>mediapipe::InferenceFeedbackManager::IsFeedbackInputTensorAtIndex</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.h" line="47" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.cc" bodystart="168" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InferenceFeedbackManager_1a99429fe1622ae9000a6cfccec953107e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::InferenceFeedbackManager::IsFeedbackOutputTensorAtIndex</definition>
+        <argsstring>(int idx) const</argsstring>
+        <name>IsFeedbackOutputTensorAtIndex</name>
+        <qualifiedname>mediapipe::InferenceFeedbackManager::IsFeedbackOutputTensorAtIndex</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.h" line="50" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.cc" bodystart="172" bodyend="174"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1InferenceFeedbackManager_1abeccaf20173eb01e57f5c486c57887cc" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::StatusOr&lt; std::vector&lt; TensorFeedbackIndicesLink &gt; &gt;</type>
+        <definition>absl::StatusOr&lt; std::vector&lt; InferenceFeedbackManager::TensorFeedbackIndicesLink &gt; &gt; mediapipe::InferenceFeedbackManager::ConvertSignatureTensorNamesToModelIndices</definition>
+        <argsstring>(const mediapipe::InferenceCalculatorOptions::InputOutputConfig &amp;io_config, const InputOutputTensorNames &amp;input_output_tensor_names_map)</argsstring>
+        <name>ConvertSignatureTensorNamesToModelIndices</name>
+        <qualifiedname>mediapipe::InferenceFeedbackManager::ConvertSignatureTensorNamesToModelIndices</qualifiedname>
+        <param>
+          <type>const mediapipe::InferenceCalculatorOptions::InputOutputConfig &amp;</type>
+          <declname>io_config</declname>
+        </param>
+        <param>
+          <type>const InputOutputTensorNames &amp;</type>
+          <declname>input_output_tensor_names_map</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.h" line="62" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.cc" bodystart="106" bodyend="166"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.h" line="21" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.h" bodystart="21" bodyend="80"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1InferenceFeedbackManager_1abeccaf20173eb01e57f5c486c57887cc" prot="private" virt="non-virtual"><scope>mediapipe::InferenceFeedbackManager</scope><name>ConvertSignatureTensorNamesToModelIndices</name></member>
+      <member refid="classmediapipe_1_1InferenceFeedbackManager_1a50e356cf4d297e627d9d9926ea71945f" prot="private" virt="non-virtual"><scope>mediapipe::InferenceFeedbackManager</scope><name>feedback_input_indices_</name></member>
+      <member refid="classmediapipe_1_1InferenceFeedbackManager_1a31490184fd3220a552e4e9549fe461fb" prot="private" virt="non-virtual"><scope>mediapipe::InferenceFeedbackManager</scope><name>feedback_output_indices_</name></member>
+      <member refid="classmediapipe_1_1InferenceFeedbackManager_1ac12c2d9555665b55c196bc2c2e809426" prot="private" virt="non-virtual"><scope>mediapipe::InferenceFeedbackManager</scope><name>feedback_tensor_indices_links_</name></member>
+      <member refid="classmediapipe_1_1InferenceFeedbackManager_1a80488fe54306c26010a3d204f16562ff" prot="public" virt="non-virtual"><scope>mediapipe::InferenceFeedbackManager</scope><name>GetNumberOfFeedbackTensors</name></member>
+      <member refid="classmediapipe_1_1InferenceFeedbackManager_1a59dc349a6a4c3e494c8b7297b19fcadc" prot="public" virt="non-virtual"><scope>mediapipe::InferenceFeedbackManager</scope><name>GetNumberOfNonFeedbackInputTensors</name></member>
+      <member refid="classmediapipe_1_1InferenceFeedbackManager_1a9ea1947299ac9f89767aa74789406be9" prot="public" virt="non-virtual"><scope>mediapipe::InferenceFeedbackManager</scope><name>Init</name></member>
+      <member refid="classmediapipe_1_1InferenceFeedbackManager_1a4bc9071a17e81158d6a4933761e5a9a0" prot="private" virt="non-virtual"><scope>mediapipe::InferenceFeedbackManager</scope><name>input_tensor_to_model_indices_</name></member>
+      <member refid="classmediapipe_1_1InferenceFeedbackManager_1a6dfd4f96109bd9db69403eea37f590f9" prot="private" virt="non-virtual"><scope>mediapipe::InferenceFeedbackManager</scope><name>interpreter_</name></member>
+      <member refid="classmediapipe_1_1InferenceFeedbackManager_1a871454cf7a45f0176fbb9678db2e4463" prot="public" virt="non-virtual"><scope>mediapipe::InferenceFeedbackManager</scope><name>IsFeedbackInputTensorAtIndex</name></member>
+      <member refid="classmediapipe_1_1InferenceFeedbackManager_1a99429fe1622ae9000a6cfccec953107e" prot="public" virt="non-virtual"><scope>mediapipe::InferenceFeedbackManager</scope><name>IsFeedbackOutputTensorAtIndex</name></member>
+      <member refid="classmediapipe_1_1InferenceFeedbackManager_1af9ec97cc60c27b77823b724c620c25b7" prot="public" virt="non-virtual"><scope>mediapipe::InferenceFeedbackManager</scope><name>MapInputTensorToModelIndex</name></member>
+      <member refid="classmediapipe_1_1InferenceFeedbackManager_1af2993161e7b23c8ea274f999591962f8" prot="public" virt="non-virtual"><scope>mediapipe::InferenceFeedbackManager</scope><name>SwapFeedbackTensors</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

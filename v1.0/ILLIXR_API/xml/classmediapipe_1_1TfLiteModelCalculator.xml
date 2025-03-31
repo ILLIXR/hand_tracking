@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1TfLiteModelCalculator" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::TfLiteModelCalculator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">mediapipe::CalculatorBase</basecompoundref>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classmediapipe_1_1TfLiteModelCalculator_1a426ab5aace900d07fbe5cb9ad43ba13e" prot="public" static="no">
+        <type>std::unique_ptr&lt; tflite::FlatBufferModel, std::function&lt; void(tflite::FlatBufferModel *)&gt; &gt;</type>
+        <definition>using mediapipe::TfLiteModelCalculator::TfLiteModelPtr =  std::unique_ptr&lt;tflite::FlatBufferModel, std::function&lt;void(tflite::FlatBufferModel*)&gt; &gt;</definition>
+        <argsstring></argsstring>
+        <name>TfLiteModelPtr</name>
+        <qualifiedname>mediapipe::TfLiteModelCalculator::TfLiteModelPtr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tflite/tflite_model_calculator.cc" line="64" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tflite/tflite_model_calculator.cc" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmediapipe_1_1TfLiteModelCalculator_1ad7196b6c6b73f66e8591d4bac10f270c" prot="public" static="no">
+        <type>std::shared_ptr&lt; tflite::FlatBufferModel &gt;</type>
+        <definition>using mediapipe::TfLiteModelCalculator::SharedTfLiteModelPtr =  std::shared_ptr&lt;tflite::FlatBufferModel&gt;</definition>
+        <argsstring></argsstring>
+        <name>SharedTfLiteModelPtr</name>
+        <qualifiedname>mediapipe::TfLiteModelCalculator::SharedTfLiteModelPtr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tflite/tflite_model_calculator.cc" line="67" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tflite/tflite_model_calculator.cc" bodystart="67" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1TfLiteModelCalculator_1a78c52edcbe60078e6603eb82f9eac29f" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr absl::string_view</type>
+        <definition>constexpr absl::string_view mediapipe::TfLiteModelCalculator::kModelSpanTag</definition>
+        <argsstring></argsstring>
+        <name>kModelSpanTag</name>
+        <qualifiedname>mediapipe::TfLiteModelCalculator::kModelSpanTag</qualifiedname>
+        <initializer>= &quot;MODEL_SPAN&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tflite/tflite_model_calculator.cc" line="69" column="38" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tflite/tflite_model_calculator.cc" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1TfLiteModelCalculator_1a59a017e3351fe889d015e85801713f6c" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr absl::string_view</type>
+        <definition>constexpr absl::string_view mediapipe::TfLiteModelCalculator::kModelBlobTag</definition>
+        <argsstring></argsstring>
+        <name>kModelBlobTag</name>
+        <qualifiedname>mediapipe::TfLiteModelCalculator::kModelBlobTag</qualifiedname>
+        <initializer>= &quot;MODEL_BLOB&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tflite/tflite_model_calculator.cc" line="70" column="38" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tflite/tflite_model_calculator.cc" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1TfLiteModelCalculator_1a83c7dd4f8f1f863cf793e9ccdd6b44d9" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr absl::string_view</type>
+        <definition>constexpr absl::string_view mediapipe::TfLiteModelCalculator::kModelFDTag</definition>
+        <argsstring></argsstring>
+        <name>kModelFDTag</name>
+        <qualifiedname>mediapipe::TfLiteModelCalculator::kModelFDTag</qualifiedname>
+        <initializer>= &quot;MODEL_FD&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tflite/tflite_model_calculator.cc" line="71" column="38" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tflite/tflite_model_calculator.cc" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1TfLiteModelCalculator_1a65b8e2051b3320ba5c817736c33345fb" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr absl::string_view</type>
+        <definition>constexpr absl::string_view mediapipe::TfLiteModelCalculator::kModelTag</definition>
+        <argsstring></argsstring>
+        <name>kModelTag</name>
+        <qualifiedname>mediapipe::TfLiteModelCalculator::kModelTag</qualifiedname>
+        <initializer>= &quot;MODEL&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tflite/tflite_model_calculator.cc" line="72" column="38" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tflite/tflite_model_calculator.cc" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1TfLiteModelCalculator_1a2ec26c4f3f0f7efce8e92c764c55d199" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr absl::string_view</type>
+        <definition>constexpr absl::string_view mediapipe::TfLiteModelCalculator::kSharedModelTag</definition>
+        <argsstring></argsstring>
+        <name>kSharedModelTag</name>
+        <qualifiedname>mediapipe::TfLiteModelCalculator::kSharedModelTag</qualifiedname>
+        <initializer>= &quot;SHARED_MODEL&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tflite/tflite_model_calculator.cc" line="73" column="38" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tflite/tflite_model_calculator.cc" bodystart="73" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1TfLiteModelCalculator_1a90ed80ca46d6cc2e9ca74fc9517e41eb" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>static absl::Status mediapipe::TfLiteModelCalculator::GetContract</definition>
+        <argsstring>(CalculatorContract *cc)</argsstring>
+        <name>GetContract</name>
+        <qualifiedname>mediapipe::TfLiteModelCalculator::GetContract</qualifiedname>
+        <param>
+          <type>CalculatorContract *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tflite/tflite_model_calculator.cc" line="75" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tflite/tflite_model_calculator.cc" bodystart="75" bodyend="102"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1TfLiteModelCalculator_1ae6451731a3728c406b55cffa585c0145" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::TfLiteModelCalculator::Open</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Open</name>
+        <qualifiedname>mediapipe::TfLiteModelCalculator::Open</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tflite/tflite_model_calculator.cc" line="104" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tflite/tflite_model_calculator.cc" bodystart="104" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1TfLiteModelCalculator_1a55eb88738d1212553cd07bd2c3d5da86" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::TfLiteModelCalculator::Process</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Process</name>
+        <qualifiedname>mediapipe::TfLiteModelCalculator::Process</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tflite/tflite_model_calculator.cc" line="160" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tflite/tflite_model_calculator.cc" bodystart="160" bodyend="163"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tflite/tflite_model_calculator.cc" line="62" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tflite/tflite_model_calculator.cc" bodystart="62" bodyend="164"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1CalculatorBase_1a586aedabbf1f8f9d14e07a7251cc5936" prot="public" virt="non-virtual"><scope>mediapipe::TfLiteModelCalculator</scope><name>CalculatorBase</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a4c90b3bb22ad29984bf0e1436f629f1d" prot="public" virt="virtual"><scope>mediapipe::TfLiteModelCalculator</scope><name>Close</name></member>
+      <member refid="classmediapipe_1_1TfLiteModelCalculator_1a90ed80ca46d6cc2e9ca74fc9517e41eb" prot="public" virt="non-virtual"><scope>mediapipe::TfLiteModelCalculator</scope><name>GetContract</name></member>
+      <member refid="classmediapipe_1_1TfLiteModelCalculator_1a59a017e3351fe889d015e85801713f6c" prot="public" virt="non-virtual"><scope>mediapipe::TfLiteModelCalculator</scope><name>kModelBlobTag</name></member>
+      <member refid="classmediapipe_1_1TfLiteModelCalculator_1a83c7dd4f8f1f863cf793e9ccdd6b44d9" prot="public" virt="non-virtual"><scope>mediapipe::TfLiteModelCalculator</scope><name>kModelFDTag</name></member>
+      <member refid="classmediapipe_1_1TfLiteModelCalculator_1a78c52edcbe60078e6603eb82f9eac29f" prot="public" virt="non-virtual"><scope>mediapipe::TfLiteModelCalculator</scope><name>kModelSpanTag</name></member>
+      <member refid="classmediapipe_1_1TfLiteModelCalculator_1a65b8e2051b3320ba5c817736c33345fb" prot="public" virt="non-virtual"><scope>mediapipe::TfLiteModelCalculator</scope><name>kModelTag</name></member>
+      <member refid="classmediapipe_1_1TfLiteModelCalculator_1a2ec26c4f3f0f7efce8e92c764c55d199" prot="public" virt="non-virtual"><scope>mediapipe::TfLiteModelCalculator</scope><name>kSharedModelTag</name></member>
+      <member refid="classmediapipe_1_1TfLiteModelCalculator_1ae6451731a3728c406b55cffa585c0145" prot="public" virt="non-virtual"><scope>mediapipe::TfLiteModelCalculator</scope><name>Open</name></member>
+      <member refid="classmediapipe_1_1TfLiteModelCalculator_1a55eb88738d1212553cd07bd2c3d5da86" prot="public" virt="non-virtual"><scope>mediapipe::TfLiteModelCalculator</scope><name>Process</name></member>
+      <member refid="classmediapipe_1_1TfLiteModelCalculator_1ad7196b6c6b73f66e8591d4bac10f270c" prot="public" virt="non-virtual"><scope>mediapipe::TfLiteModelCalculator</scope><name>SharedTfLiteModelPtr</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a0cf70172f342c2cc0314af8e76ae982b" prot="public" virt="virtual"><scope>mediapipe::TfLiteModelCalculator</scope><name>SourceProcessOrder</name></member>
+      <member refid="classmediapipe_1_1TfLiteModelCalculator_1a426ab5aace900d07fbe5cb9ad43ba13e" prot="public" virt="non-virtual"><scope>mediapipe::TfLiteModelCalculator</scope><name>TfLiteModelPtr</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a9ced1ccc8a3f7ad59e54a317f4054c90" prot="public" virt="virtual"><scope>mediapipe::TfLiteModelCalculator</scope><name>~CalculatorBase</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

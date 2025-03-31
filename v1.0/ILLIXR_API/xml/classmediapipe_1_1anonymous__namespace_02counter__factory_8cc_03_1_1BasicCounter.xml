@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1anonymous__namespace_02counter__factory_8cc_03_1_1BasicCounter" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::anonymous_namespace{counter_factory.cc}::BasicCounter</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">mediapipe::Counter</basecompoundref>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1anonymous__namespace_02counter__factory_8cc_03_1_1BasicCounter_1a7966f2321bbd24d9e1a9b4781e0bb8e5" prot="private" static="no" mutable="no">
+        <type>absl::Mutex</type>
+        <definition>absl::Mutex mediapipe::anonymous_namespace{counter_factory.cc}::BasicCounter::mu_</definition>
+        <argsstring></argsstring>
+        <name>mu_</name>
+        <qualifiedname>mediapipe::anonymous_namespace{counter_factory.cc}::BasicCounter::mu_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.cc" line="49" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.cc" bodystart="49" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1anonymous__namespace_02counter__factory_8cc_03_1_1BasicCounter_1ab58b3e246741af04e99bd9d6d18a7418" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::anonymous_namespace{counter_factory.cc}::BasicCounter::BasicCounter</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>BasicCounter</name>
+        <qualifiedname>mediapipe::anonymous_namespace{counter_factory.cc}::BasicCounter::BasicCounter</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.cc" line="31" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.cc" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1anonymous__namespace_02counter__factory_8cc_03_1_1BasicCounter_1a276c0470625f8380b1e4ce5c068a53f6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::anonymous_namespace{counter_factory.cc}::BasicCounter::Increment</definition>
+        <argsstring>() ABSL_LOCKS_EXCLUDED(mu_) override</argsstring>
+        <name>Increment</name>
+        <qualifiedname>mediapipe::anonymous_namespace{counter_factory.cc}::BasicCounter::Increment</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.cc" line="33" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.cc" bodystart="33" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1anonymous__namespace_02counter__factory_8cc_03_1_1BasicCounter_1accb8414364ba5fc93bc8d492e411a5d1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::anonymous_namespace{counter_factory.cc}::BasicCounter::IncrementBy</definition>
+        <argsstring>(int amount) ABSL_LOCKS_EXCLUDED(mu_) override</argsstring>
+        <name>IncrementBy</name>
+        <qualifiedname>mediapipe::anonymous_namespace{counter_factory.cc}::BasicCounter::IncrementBy</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>amount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.cc" line="38" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.cc" bodystart="38" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1anonymous__namespace_02counter__factory_8cc_03_1_1BasicCounter_1a60a2642c63dc14b3d3f2eaf86ac2444e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t mediapipe::anonymous_namespace{counter_factory.cc}::BasicCounter::Get</definition>
+        <argsstring>() ABSL_LOCKS_EXCLUDED(mu_) override</argsstring>
+        <name>Get</name>
+        <qualifiedname>mediapipe::anonymous_namespace{counter_factory.cc}::BasicCounter::Get</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.cc" line="43" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.cc" bodystart="43" bodyend="46"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1anonymous__namespace_02counter__factory_8cc_03_1_1BasicCounter_1a8e982cc73f6d8de76f320784866b9a18" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int64_t value_</type>
+        <definition>int64_t value_ mediapipe::anonymous_namespace{counter_factory.cc}::BasicCounter::ABSL_GUARDED_BY</definition>
+        <argsstring>(mu_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::anonymous_namespace{counter_factory.cc}::BasicCounter::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>mu_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.cc" line="50" column="18"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.cc" line="29" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.cc" bodystart="29" bodyend="51"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1anonymous__namespace_02counter__factory_8cc_03_1_1BasicCounter_1a8e982cc73f6d8de76f320784866b9a18" prot="private" virt="non-virtual"><scope>mediapipe::anonymous_namespace{counter_factory.cc}::BasicCounter</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1anonymous__namespace_02counter__factory_8cc_03_1_1BasicCounter_1ab58b3e246741af04e99bd9d6d18a7418" prot="public" virt="non-virtual"><scope>mediapipe::anonymous_namespace{counter_factory.cc}::BasicCounter</scope><name>BasicCounter</name></member>
+      <member refid="classmediapipe_1_1Counter_1ac2fbf49975c830b6106083c7690cda62" prot="public" virt="non-virtual"><scope>mediapipe::anonymous_namespace{counter_factory.cc}::BasicCounter</scope><name>Counter</name></member>
+      <member refid="classmediapipe_1_1anonymous__namespace_02counter__factory_8cc_03_1_1BasicCounter_1a60a2642c63dc14b3d3f2eaf86ac2444e" prot="public" virt="non-virtual"><scope>mediapipe::anonymous_namespace{counter_factory.cc}::BasicCounter</scope><name>Get</name></member>
+      <member refid="classmediapipe_1_1anonymous__namespace_02counter__factory_8cc_03_1_1BasicCounter_1a276c0470625f8380b1e4ce5c068a53f6" prot="public" virt="non-virtual"><scope>mediapipe::anonymous_namespace{counter_factory.cc}::BasicCounter</scope><name>Increment</name></member>
+      <member refid="classmediapipe_1_1anonymous__namespace_02counter__factory_8cc_03_1_1BasicCounter_1accb8414364ba5fc93bc8d492e411a5d1" prot="public" virt="non-virtual"><scope>mediapipe::anonymous_namespace{counter_factory.cc}::BasicCounter</scope><name>IncrementBy</name></member>
+      <member refid="classmediapipe_1_1anonymous__namespace_02counter__factory_8cc_03_1_1BasicCounter_1a7966f2321bbd24d9e1a9b4781e0bb8e5" prot="private" virt="non-virtual"><scope>mediapipe::anonymous_namespace{counter_factory.cc}::BasicCounter</scope><name>mu_</name></member>
+      <member refid="classmediapipe_1_1Counter_1a61a31971c20bfb180ef75cee677fd9b7" prot="public" virt="virtual"><scope>mediapipe::anonymous_namespace{counter_factory.cc}::BasicCounter</scope><name>~Counter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

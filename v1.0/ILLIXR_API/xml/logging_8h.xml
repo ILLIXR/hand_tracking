@@ -1,0 +1,1295 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="logging_8h" kind="file" language="C++">
+    <compoundname>logging.h</compoundname>
+    <includes local="yes">absl/time/time.h</includes>
+    <includes local="no">cstddef</includes>
+    <includes local="no">ostream</includes>
+    <includes local="no">type_traits</includes>
+    <includes local="no">vector</includes>
+    <includes local="yes">absl/strings/has_ostream_operator.h</includes>
+    <includes local="yes">glog/logging.h</includes>
+    <includes refid="unused_8hpp" local="yes">mediapipe/util/unused.hpp</includes>
+    <includedby refid="contract_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/contract.h</includedby>
+    <includedby refid="api_2packet_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/packet.h</includedby>
+    <includedby refid="api_2port_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/port.h</includedby>
+    <includedby refid="calculator__context__manager_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_context_manager.cc</includedby>
+    <includedby refid="calculator__context__manager_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_context_manager.h</includedby>
+    <includedby refid="calculator__graph_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc</includedby>
+    <includedby refid="calculator__node_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_node.cc</includedby>
+    <includedby refid="calculator__state_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_state.cc</includedby>
+    <includedby refid="deps_2map__util_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/map_util.h</includedby>
+    <includedby refid="deps_2point2_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/point2.h</includedby>
+    <includedby refid="threadpool__pthread__impl_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/threadpool_pthread_impl.cc</includedby>
+    <includedby refid="topologicalsorter_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.cc</includedby>
+    <includedby refid="image_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image.h</includedby>
+    <includedby refid="image__opencv_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_opencv.cc</includedby>
+    <includedby refid="matrix_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/matrix.cc</includedby>
+    <includedby refid="input__side__packet__handler_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.cc</includedby>
+    <includedby refid="input__stream__manager_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.cc</includedby>
+    <includedby refid="output__side__packet__impl_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_side_packet_impl.cc</includedby>
+    <includedby refid="output__stream__handler_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h</includedby>
+    <includedby refid="packet_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h</includedby>
+    <includedby refid="packet__generator__graph_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_generator_graph.cc</includedby>
+    <includedby refid="packet__type_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.cc</includedby>
+    <includedby refid="parse__text__proto_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/port/parse_text_proto.h</includedby>
+    <includedby refid="scheduler_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.cc</includedby>
+    <includedby refid="scheduler__queue_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler_queue.cc</includedby>
+    <includedby refid="thread__pool__executor_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/thread_pool_executor.cc</includedby>
+    <includedby refid="timestamp_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/timestamp.h</includedby>
+    <includedby refid="message__type__util_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/message_type_util.cc</includedby>
+    <includedby refid="proto__util__lite_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc</includedby>
+    <includedby refid="subgraph__expansion_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.cc</includedby>
+    <includedby refid="switch__demux__calculator_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_demux_calculator.cc</includedby>
+    <includedby refid="switch__mux__calculator_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_mux_calculator.cc</includedby>
+    <includedby refid="tag__map_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/tag_map.h</includedby>
+    <includedby refid="tag__map__helper_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/tag_map_helper.cc</includedby>
+    <includedby refid="text__to__binary__graph_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/text_to_binary_graph.cc</includedby>
+    <includedby refid="validate__name_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc</includedby>
+    <includedby refid="validated__graph__config_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.cc</includedby>
+    <includedby refid="gpu__buffer_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer.cc</includedby>
+    <includedby refid="gpu__buffer__format_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_format.cc</includedby>
+    <includedby refid="gpu__buffer__multi__pool_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_multi_pool.cc</includedby>
+    <includedby refid="shader__util_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/shader_util.cc</includedby>
+    <includedby refid="annotation__renderer_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/annotation_renderer.cc</includedby>
+    <includedby refid="resource__cache_8h" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/resource_cache.h</includedby>
+    <includedby refid="cpu__op__resolver_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/cpu_op_resolver.cc</includedby>
+    <includedby refid="tflite__gpu__runner_8cc" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.cc</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/port/logging.h</label>
+        <link refid="logging_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>mediapipe/util/unused.hpp</label>
+        <link refid="unused_8hpp_source"/>
+      </node>
+      <node id="7">
+        <label>absl/strings/has_ostream_operator.h</label>
+      </node>
+      <node id="2">
+        <label>absl/time/time.h</label>
+      </node>
+      <node id="3">
+        <label>cstddef</label>
+      </node>
+      <node id="8">
+        <label>glog/logging.h</label>
+      </node>
+      <node id="4">
+        <label>ostream</label>
+      </node>
+      <node id="5">
+        <label>type_traits</label>
+      </node>
+      <node id="6">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="8">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp</label>
+        <link refid="hand__tracking__publisher_8hpp_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/begin_loop_calculator.h</label>
+        <link refid="begin__loop__calculator_8h_source"/>
+      </node>
+      <node id="12">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/clip_vector_size_calculator.h</label>
+        <link refid="clip__vector__size__calculator_8h_source"/>
+      </node>
+      <node id="13">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/end_loop_calculator.h</label>
+        <link refid="end__loop__calculator_8h_source"/>
+      </node>
+      <node id="14">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/core/split_vector_calculator.h</label>
+        <link refid="split__vector__calculator_8h_source"/>
+      </node>
+      <node id="45">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/internal/callback_packet_calculator.h</label>
+        <link refid="callback__packet__calculator_8h_source"/>
+      </node>
+      <node id="64">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter.h</label>
+        <link refid="image__to__tensor__converter_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_buffer.h</label>
+        <link refid="image__to__tensor__converter__gl__buffer_8h_source"/>
+      </node>
+      <node id="16">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_texture.h</label>
+        <link refid="image__to__tensor__converter__gl__texture_8h_source"/>
+      </node>
+      <node id="99">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_gl_utils.h</label>
+        <link refid="image__to__tensor__converter__gl__utils_8h_source"/>
+      </node>
+      <node id="17">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_converter_opencv.h</label>
+        <link refid="image__to__tensor__converter__opencv_8h_source"/>
+      </node>
+      <node id="65">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/image_to_tensor_utils.h</label>
+        <link refid="image__to__tensor__utils_8h_source"/>
+        <childnode refid="64" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator.h</label>
+        <link refid="inference__calculator_8h_source"/>
+      </node>
+      <node id="101">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_utils.h</label>
+        <link refid="inference__calculator__utils_8h_source"/>
+      </node>
+      <node id="103">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_feedback_manager.h</label>
+        <link refid="inference__feedback__manager_8h_source"/>
+      </node>
+      <node id="42">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_interpreter_delegate_runner.h</label>
+        <link refid="inference__interpreter__delegate__runner_8h_source"/>
+      </node>
+      <node id="102">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_io_mapper.h</label>
+        <link refid="inference__io__mapper_8h_source"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_runner.h</label>
+        <link refid="inference__runner_8h_source"/>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="104">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensor_span.h</label>
+        <link refid="tensor__span_8h_source"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/association_calculator.h</label>
+        <link refid="association__calculator_8h_source"/>
+      </node>
+      <node id="20">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/collection_has_min_size_calculator.h</label>
+        <link refid="collection__has__min__size__calculator_8h_source"/>
+      </node>
+      <node id="21">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/detections_to_rects_calculator.h</label>
+        <link refid="detections__to__rects__calculator_8h_source"/>
+      </node>
+      <node id="22">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/filter_collection_calculator.h</label>
+        <link refid="filter__collection__calculator_8h_source"/>
+      </node>
+      <node id="46">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/illixr_output_calculator.h</label>
+        <link refid="illixr__output__calculator_8h_source"/>
+      </node>
+      <node id="23">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/util/landmarks_to_render_data_calculator.h</label>
+        <link refid="landmarks__to__render__data__calculator_8h_source"/>
+      </node>
+      <node id="2">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/contract.h</label>
+        <link refid="contract_8h_source"/>
+      </node>
+      <node id="43">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/node.h</label>
+        <link refid="node_8h_source"/>
+      </node>
+      <node id="3">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/packet.h</label>
+        <link refid="api_2packet_8h_source"/>
+      </node>
+      <node id="4">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/port.h</label>
+        <link refid="api_2port_8h_source"/>
+      </node>
+      <node id="44">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_base.h</label>
+        <link refid="calculator__base_8h_source"/>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_context.h</label>
+        <link refid="calculator__context_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_context_manager.h</label>
+        <link refid="calculator__context__manager_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="69">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h</label>
+        <link refid="calculator__contract_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_framework.h</label>
+        <link refid="calculator__framework_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h</label>
+        <link refid="calculator__graph_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_node.h</label>
+        <link refid="calculator__node_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_registry.h</label>
+        <link refid="calculator__registry_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_state.h</label>
+        <link refid="calculator__state_8h_source"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="112">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/collection.h</label>
+        <link refid="collection_8h_source"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="84" relation="include">
+        </childnode>
+        <childnode refid="86" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/counter_factory.h</label>
+        <link refid="counter__factory_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/map_util.h</label>
+        <link refid="deps_2map__util_8h_source"/>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="57">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/point2.h</label>
+        <link refid="deps_2point2_8h_source"/>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="62" relation="include">
+        </childnode>
+      </node>
+      <node id="58">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/rectangle.h</label>
+        <link refid="deps_2rectangle_8h_source"/>
+        <childnode refid="59" relation="include">
+        </childnode>
+      </node>
+      <node id="63">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image.h</label>
+        <link refid="image_8h_source"/>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="66" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="66">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/image_opencv.h</label>
+        <link refid="image__opencv_8h_source"/>
+      </node>
+      <node id="60">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/location.h</label>
+        <link refid="location_8h_source"/>
+      </node>
+      <node id="100">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor.h</label>
+        <link refid="tensor_8h_source"/>
+        <childnode refid="64" relation="include">
+        </childnode>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="101" relation="include">
+        </childnode>
+        <childnode refid="102" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_output_stream.h</label>
+        <link refid="graph__output__stream_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="68">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_service.h</label>
+        <link refid="graph__service_8h_source"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="70">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/graph_service_manager.h</label>
+        <link refid="graph__service__manager_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="71" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="74">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h</label>
+        <link refid="input__side__packet__handler_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+      </node>
+      <node id="76">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream.h</label>
+        <link refid="input__stream_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_handler.h</label>
+        <link refid="input__stream__handler_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="79">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_manager.h</label>
+        <link refid="input__stream__manager_8h_source"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="77">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_stream_shard.h</label>
+        <link refid="input__stream__shard_8h_source"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/legacy_calculator_support.h</label>
+        <link refid="legacy__calculator__support_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="97">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/mediapipe_profiling.h</label>
+        <link refid="mediapipe__profiling_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="98" relation="include">
+        </childnode>
+      </node>
+      <node id="73">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/memory_manager_service.h</label>
+        <link refid="memory__manager__service_8h_source"/>
+      </node>
+      <node id="80">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_side_packet.h</label>
+        <link refid="output__side__packet_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+      </node>
+      <node id="75">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_side_packet_impl.h</label>
+        <link refid="output__side__packet__impl_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="81">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream.h</label>
+        <link refid="output__stream_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_handler.h</label>
+        <link refid="output__stream__handler_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="83">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_manager.h</label>
+        <link refid="output__stream__manager_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_poller.h</label>
+        <link refid="output__stream__poller_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="82">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/output_stream_shard.h</label>
+        <link refid="output__stream__shard_8h_source"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="83" relation="include">
+        </childnode>
+      </node>
+      <node id="67">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet.h</label>
+        <link refid="packet_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="68" relation="include">
+        </childnode>
+        <childnode refid="70" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="84" relation="include">
+        </childnode>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="92" relation="include">
+        </childnode>
+        <childnode refid="89" relation="include">
+        </childnode>
+        <childnode refid="90" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="85">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_generator.h</label>
+        <link refid="packet__generator_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="56">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_generator_graph.h</label>
+        <link refid="packet__generator__graph_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="84">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_set.h</label>
+        <link refid="packet__set_8h_source"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="85" relation="include">
+        </childnode>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="87" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="88" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="91" relation="include">
+        </childnode>
+      </node>
+      <node id="86">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/packet_type.h</label>
+        <link refid="packet__type_8h_source"/>
+        <childnode refid="69" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+        <childnode refid="85" relation="include">
+        </childnode>
+        <childnode refid="87" relation="include">
+        </childnode>
+        <childnode refid="88" relation="include">
+        </childnode>
+        <childnode refid="89" relation="include">
+        </childnode>
+        <childnode refid="90" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="110">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/platform_specific_profiling.h</label>
+        <link refid="platform__specific__profiling_8h_source"/>
+        <childnode refid="97" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/port/logging.h</label>
+        <link refid="logging_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="94" relation="include">
+        </childnode>
+        <childnode refid="95" relation="include">
+        </childnode>
+        <childnode refid="111" relation="include">
+        </childnode>
+        <childnode refid="114" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/port/map_util.h</label>
+        <link refid="port_2map__util_8h_source"/>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="94">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/port/parse_text_proto.h</label>
+        <link refid="parse__text__proto_8h_source"/>
+      </node>
+      <node id="62">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/port/point2.h</label>
+        <link refid="port_2point2_8h_source"/>
+        <childnode refid="60" relation="include">
+        </childnode>
+      </node>
+      <node id="59">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/port/rectangle.h</label>
+        <link refid="port_2rectangle_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/graph_profiler.h</label>
+        <link refid="graph__profiler_8h_source"/>
+      </node>
+      <node id="96">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/graph_profiler_stub.h</label>
+        <link refid="graph__profiler__stub_8h_source"/>
+        <childnode refid="97" relation="include">
+        </childnode>
+        <childnode refid="110" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/graph_tracer.h</label>
+        <link refid="graph__tracer_8h_source"/>
+        <childnode refid="51" relation="include">
+        </childnode>
+      </node>
+      <node id="92">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_buffer.h</label>
+        <link refid="trace__buffer_8h_source"/>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="93" relation="include">
+        </childnode>
+      </node>
+      <node id="93">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/profiler/trace_builder.h</label>
+        <link refid="trace__builder_8h_source"/>
+        <childnode refid="52" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler.h</label>
+        <link refid="scheduler_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="53">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/scheduler_queue.h</label>
+        <link refid="scheduler__queue_8h_source"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="87">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/status_handler.h</label>
+        <link refid="status__handler_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/stream_handler/default_input_stream_handler.h</label>
+        <link refid="default__input__stream__handler_8h_source"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/stream_handler/fixed_size_input_stream_handler.h</label>
+        <link refid="fixed__size__input__stream__handler_8h_source"/>
+      </node>
+      <node id="25">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/stream_handler/immediate_input_stream_handler.h</label>
+        <link refid="immediate__input__stream__handler_8h_source"/>
+      </node>
+      <node id="35">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/stream_handler/in_order_output_stream_handler.h</label>
+        <link refid="in__order__output__stream__handler_8h_source"/>
+      </node>
+      <node id="71">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/subgraph.h</label>
+        <link refid="subgraph_8h_source"/>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="72" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+      <node id="95">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/timestamp.h</label>
+        <link refid="timestamp_8h_source"/>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="79" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="83" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+        <childnode refid="67" relation="include">
+        </childnode>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="92" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="98" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/container_util.h</label>
+        <link refid="container__util_8h_source"/>
+      </node>
+      <node id="88">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/fill_packet_set.h</label>
+        <link refid="fill__packet__set_8h_source"/>
+      </node>
+      <node id="89">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_field_util.h</label>
+        <link refid="options__field__util_8h_source"/>
+        <childnode refid="90" relation="include">
+        </childnode>
+      </node>
+      <node id="90">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_syntax_util.h</label>
+        <link refid="options__syntax__util_8h_source"/>
+      </node>
+      <node id="78">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_util.h</label>
+        <link refid="options__util_8h_source"/>
+        <childnode refid="71" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/packet_generator_wrapper_calculator.h</label>
+        <link refid="packet__generator__wrapper__calculator_8h_source"/>
+      </node>
+      <node id="49">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/sink.h</label>
+        <link refid="sink_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="72">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.h</label>
+        <link refid="subgraph__expansion_8h_source"/>
+      </node>
+      <node id="111">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/tag_map.h</label>
+        <link refid="tag__map_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="112" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="113" relation="include">
+        </childnode>
+      </node>
+      <node id="113">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/tag_map_helper.h</label>
+        <link refid="tag__map__helper_8h_source"/>
+        <childnode refid="112" relation="include">
+        </childnode>
+      </node>
+      <node id="55">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/validated_graph_config.h</label>
+        <link refid="validated__graph__config_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_calculator_helper.h</label>
+        <link refid="gl__calculator__helper_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="98">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h</label>
+        <link refid="gl__context_8h_source"/>
+        <childnode refid="99" relation="include">
+        </childnode>
+        <childnode refid="100" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="105">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context_internal.h</label>
+        <link refid="gl__context__internal_8h_source"/>
+      </node>
+      <node id="106">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer.h</label>
+        <link refid="gl__texture__buffer_8h_source"/>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+      </node>
+      <node id="107">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_texture_buffer_pool.h</label>
+        <link refid="gl__texture__buffer__pool_8h_source"/>
+        <childnode refid="108" relation="include">
+        </childnode>
+      </node>
+      <node id="109">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer.h</label>
+        <link refid="gpu__buffer_8h_source"/>
+        <childnode refid="65" relation="include">
+        </childnode>
+        <childnode refid="63" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="108" relation="include">
+        </childnode>
+      </node>
+      <node id="108">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_buffer_multi_pool.h</label>
+        <link refid="gpu__buffer__multi__pool_8h_source"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_service.h</label>
+        <link refid="gpu__service_8h_source"/>
+      </node>
+      <node id="28">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gpu_shared_data_internal.h</label>
+        <link refid="gpu__shared__data__internal_8h_source"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="115">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/multi_pool.h</label>
+        <link refid="multi__pool_8h_source"/>
+        <childnode refid="107" relation="include">
+        </childnode>
+        <childnode refid="108" relation="include">
+        </childnode>
+        <childnode refid="116" relation="include">
+        </childnode>
+      </node>
+      <node id="116">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/reusable_pool.h</label>
+        <link refid="reusable__pool_8h_source"/>
+        <childnode refid="107" relation="include">
+        </childnode>
+      </node>
+      <node id="91">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/header_util.h</label>
+        <link refid="header__util_8h_source"/>
+      </node>
+      <node id="61">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/rectangle_util.h</label>
+        <link refid="rectangle__util_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="114">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/resource_cache.h</label>
+        <link refid="resource__cache_8h_source"/>
+        <childnode refid="115" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/plugin.hpp</label>
+        <link refid="plugin_8hpp_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classmediapipe_1_1LogEntry" prot="public">mediapipe::LogEntry</innerclass>
+    <innerclass refid="classmediapipe_1_1LogSink" prot="public">mediapipe::LogSink</innerclass>
+    <innernamespace refid="namespacestd">std</innernamespace>
+    <innernamespace refid="namespacemediapipe">mediapipe</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Copyright<sp/>2019<sp/>The<sp/>MediaPipe<sp/>Authors.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>MEDIAPIPE_PORT_LOGGING_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MEDIAPIPE_PORT_LOGGING_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/time/time.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>_WIN32</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>GLOG_NO_ABBREVIATED_SEVERITIES</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstddef&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;type_traits&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/strings/has_ostream_operator.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;glog/logging.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/util/unused.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacestd" kindref="compound">std</ref><sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal">...<sp/>Ts,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>=<sp/>std::enable_if_t&lt;absl::HasOstreamOperator&lt;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>std::vector&lt;Ts...&gt;::value_type&gt;::value&gt;&gt;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">std::ostream&amp;<sp/>operator&lt;&lt;(std::ostream&amp;<sp/>out,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;Ts...&gt;&amp;<sp/>v)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>begin<sp/>=<sp/>v.begin();</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>end<sp/>=<sp/>v.end();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>begin<sp/>!=<sp/>end<sp/>&amp;&amp;<sp/>i<sp/>&lt;<sp/>100;<sp/>++i,<sp/>++begin)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i)<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/>*begin;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(begin<sp/>!=<sp/>end)<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>...&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>out;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>std</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mediapipe<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">LogSeverity<sp/>=<sp/>google::LogSeverity;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>SetVLOGLevel<sp/>=<sp/>google::SetVLOGLevel;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">LogEntry<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/>LogEntry(LogSeverity<sp/>severity,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>struct<sp/>::tm*<sp/>tm_time,</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>absl::string_view<sp/>message)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>severity_(severity),</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>timestamp_(absl::FromTM(*tm_time,<sp/>absl::LocalTimeZone())),</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>text_message_(message)<sp/>{}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>LogSeverity<sp/>log_severity()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>severity_;<sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>absl::Time<sp/>timestamp()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>timestamp_;<sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>absl::string_view<sp/>text_message()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>text_message_;<sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>LogSeverity<sp/>severity_;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>absl::Time<sp/>timestamp_;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>absl::string_view<sp/>text_message_;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">LogSink<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>google::LogSink<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~LogSink()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Send(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>LogEntry&amp;<sp/>entry)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>WaitTillSent()<sp/>{}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>send(LogSeverity<sp/>severity,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>full_filename,</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>base_filename,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>line,</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>struct<sp/>::tm*<sp/>tm_time,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>message,</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>message_len)<sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>UNUSED(full_filename);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>UNUSED(base_filename);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>UNUSED(line);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>LogEntry<sp/>log_entry(severity,<sp/>tm_time,</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>absl::string_view(message,<sp/>message_len));</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>Send(log_entry);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>AddLogSink(LogSink*<sp/>destination)<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>google::AddLogSink(destination);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>RemoveLogSink(LogSink*<sp/>destination)<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>google::RemoveLogSink(destination);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>mediapipe</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MEDIAPIPE_PORT_LOGGING_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/port/logging.h"/>
+  </compounddef>
+</doxygen>

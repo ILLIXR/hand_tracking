@@ -1,0 +1,234 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1TopologicalSorter" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::TopologicalSorter</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1TopologicalSorter_1ab8fa6c74294687032552f93d437c098a" prot="private" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int mediapipe::TopologicalSorter::num_nodes_</definition>
+        <argsstring></argsstring>
+        <name>num_nodes_</name>
+        <qualifiedname>mediapipe::TopologicalSorter::num_nodes_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.h" line="69" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1TopologicalSorter_1a8c9ca5fc42189312ca0e2ccee89d3efc" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; int &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;int&gt; &gt; mediapipe::TopologicalSorter::adjacency_lists_</definition>
+        <argsstring></argsstring>
+        <name>adjacency_lists_</name>
+        <qualifiedname>mediapipe::TopologicalSorter::adjacency_lists_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.h" line="71" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1TopologicalSorter_1a8f5cd610d24c57eed810ea83c2e96dec" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::TopologicalSorter::traversal_started_</definition>
+        <argsstring></argsstring>
+        <name>traversal_started_</name>
+        <qualifiedname>mediapipe::TopologicalSorter::traversal_started_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.h" line="74" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1TopologicalSorter_1afbfa612a43f157e5a8c3940f8e16c93f" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::TopologicalSorter::num_nodes_left_</definition>
+        <argsstring></argsstring>
+        <name>num_nodes_left_</name>
+        <qualifiedname>mediapipe::TopologicalSorter::num_nodes_left_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.h" line="75" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1TopologicalSorter_1a011f5432425e7a114c6b7cac4a3d413c" prot="private" static="no" mutable="no">
+        <type>std::priority_queue&lt; int, std::vector&lt; int &gt;, std::greater&lt; int &gt; &gt;</type>
+        <definition>std::priority_queue&lt;int, std::vector&lt;int&gt;, std::greater&lt;int&gt; &gt; mediapipe::TopologicalSorter::nodes_with_zero_indegree_</definition>
+        <argsstring></argsstring>
+        <name>nodes_with_zero_indegree_</name>
+        <qualifiedname>mediapipe::TopologicalSorter::nodes_with_zero_indegree_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.h" line="77" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1TopologicalSorter_1a10bd34138429245d2c30969ff7b1cb6b" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt;int&gt; mediapipe::TopologicalSorter::indegree_</definition>
+        <argsstring></argsstring>
+        <name>indegree_</name>
+        <qualifiedname>mediapipe::TopologicalSorter::indegree_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.h" line="78" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1TopologicalSorter_1a7bb0e4e22ee9340a31f05b2a1fef5a9d" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::TopologicalSorter::TopologicalSorter</definition>
+        <argsstring>(int num_nodes)</argsstring>
+        <name>TopologicalSorter</name>
+        <qualifiedname>mediapipe::TopologicalSorter::TopologicalSorter</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>num_nodes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.h" line="48" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.cc" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1TopologicalSorter_1a4ac8f42042f3ba66d9f0b5239cefec28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::TopologicalSorter::TopologicalSorter</definition>
+        <argsstring>(const TopologicalSorter &amp;)=delete</argsstring>
+        <name>TopologicalSorter</name>
+        <qualifiedname>mediapipe::TopologicalSorter::TopologicalSorter</qualifiedname>
+        <param>
+          <type>const TopologicalSorter &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.h" line="49" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1TopologicalSorter_1a9235b5225229fd4f0f50f3e45d859be6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>TopologicalSorter &amp;</type>
+        <definition>TopologicalSorter &amp; mediapipe::TopologicalSorter::operator=</definition>
+        <argsstring>(const TopologicalSorter &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>mediapipe::TopologicalSorter::operator=</qualifiedname>
+        <param>
+          <type>const TopologicalSorter &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.h" line="50" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1TopologicalSorter_1a96d265c43f0025889c8b703e3de07f73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::TopologicalSorter::AddEdge</definition>
+        <argsstring>(int from, int to)</argsstring>
+        <name>AddEdge</name>
+        <qualifiedname>mediapipe::TopologicalSorter::AddEdge</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.h" line="53" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.cc" bodystart="29" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1TopologicalSorter_1a060dc94a9915b5e30c98019ed8acd1c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::TopologicalSorter::GetNext</definition>
+        <argsstring>(int *node_index, bool *cyclic, std::vector&lt; int &gt; *output_cycle_nodes)</argsstring>
+        <name>GetNext</name>
+        <qualifiedname>mediapipe::TopologicalSorter::GetNext</qualifiedname>
+        <param>
+          <type>int *</type>
+          <declname>node_index</declname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>cyclic</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; int &gt; *</type>
+          <declname>output_cycle_nodes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.h" line="62" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.cc" bodystart="35" bodyend="89"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1TopologicalSorter_1ae77d4612686a2848d01d1341207aafb1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::TopologicalSorter::FindCycle</definition>
+        <argsstring>(std::vector&lt; int &gt; *cycle_nodes)</argsstring>
+        <name>FindCycle</name>
+        <qualifiedname>mediapipe::TopologicalSorter::FindCycle</qualifiedname>
+        <param>
+          <type>std::vector&lt; int &gt; *</type>
+          <declname>cycle_nodes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.h" line="67" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.cc" bodystart="91" bodyend="152"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.h" line="46" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/topologicalsorter.h" bodystart="46" bodyend="79"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1TopologicalSorter_1a96d265c43f0025889c8b703e3de07f73" prot="public" virt="non-virtual"><scope>mediapipe::TopologicalSorter</scope><name>AddEdge</name></member>
+      <member refid="classmediapipe_1_1TopologicalSorter_1a8c9ca5fc42189312ca0e2ccee89d3efc" prot="private" virt="non-virtual"><scope>mediapipe::TopologicalSorter</scope><name>adjacency_lists_</name></member>
+      <member refid="classmediapipe_1_1TopologicalSorter_1ae77d4612686a2848d01d1341207aafb1" prot="private" virt="non-virtual"><scope>mediapipe::TopologicalSorter</scope><name>FindCycle</name></member>
+      <member refid="classmediapipe_1_1TopologicalSorter_1a060dc94a9915b5e30c98019ed8acd1c2" prot="public" virt="non-virtual"><scope>mediapipe::TopologicalSorter</scope><name>GetNext</name></member>
+      <member refid="classmediapipe_1_1TopologicalSorter_1a10bd34138429245d2c30969ff7b1cb6b" prot="private" virt="non-virtual"><scope>mediapipe::TopologicalSorter</scope><name>indegree_</name></member>
+      <member refid="classmediapipe_1_1TopologicalSorter_1a011f5432425e7a114c6b7cac4a3d413c" prot="private" virt="non-virtual"><scope>mediapipe::TopologicalSorter</scope><name>nodes_with_zero_indegree_</name></member>
+      <member refid="classmediapipe_1_1TopologicalSorter_1ab8fa6c74294687032552f93d437c098a" prot="private" virt="non-virtual"><scope>mediapipe::TopologicalSorter</scope><name>num_nodes_</name></member>
+      <member refid="classmediapipe_1_1TopologicalSorter_1afbfa612a43f157e5a8c3940f8e16c93f" prot="private" virt="non-virtual"><scope>mediapipe::TopologicalSorter</scope><name>num_nodes_left_</name></member>
+      <member refid="classmediapipe_1_1TopologicalSorter_1a9235b5225229fd4f0f50f3e45d859be6" prot="public" virt="non-virtual"><scope>mediapipe::TopologicalSorter</scope><name>operator=</name></member>
+      <member refid="classmediapipe_1_1TopologicalSorter_1a7bb0e4e22ee9340a31f05b2a1fef5a9d" prot="public" virt="non-virtual"><scope>mediapipe::TopologicalSorter</scope><name>TopologicalSorter</name></member>
+      <member refid="classmediapipe_1_1TopologicalSorter_1a4ac8f42042f3ba66d9f0b5239cefec28" prot="public" virt="non-virtual"><scope>mediapipe::TopologicalSorter</scope><name>TopologicalSorter</name></member>
+      <member refid="classmediapipe_1_1TopologicalSorter_1a8f5cd610d24c57eed810ea83c2e96dec" prot="private" virt="non-virtual"><scope>mediapipe::TopologicalSorter</scope><name>traversal_started_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

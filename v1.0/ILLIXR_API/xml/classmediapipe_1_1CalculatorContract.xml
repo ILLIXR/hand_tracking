@@ -1,0 +1,734 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1CalculatorContract" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::CalculatorContract</compoundname>
+    <innerclass refid="classmediapipe_1_1CalculatorContract_1_1GraphServiceRequest" prot="public">mediapipe::CalculatorContract::GraphServiceRequest</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classmediapipe_1_1CalculatorContract_1af6158e6dcae5529ec17bbd44b5df774e" prot="public" static="no">
+        <type>absl::flat_hash_map&lt; absl::string_view, GraphServiceRequest &gt;</type>
+        <definition>using mediapipe::CalculatorContract::ServiceReqMap =  absl::flat_hash_map&lt;absl::string_view, GraphServiceRequest&gt;</definition>
+        <argsstring></argsstring>
+        <name>ServiceReqMap</name>
+        <qualifiedname>mediapipe::CalculatorContract::ServiceReqMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="185" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="186" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorContract_1ab35d83f461fb35a10feea7e0570152c5" prot="private" static="no" mutable="no">
+        <type>const CalculatorGraphConfig::Node *</type>
+        <definition>const CalculatorGraphConfig::Node* mediapipe::CalculatorContract::node_config_</definition>
+        <argsstring></argsstring>
+        <name>node_config_</name>
+        <qualifiedname>mediapipe::CalculatorContract::node_config_</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="200" column="37" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorContract_1a194ad555b03e2f9b19fdc5cbefdfa979" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; CalculatorGraphConfig::Node &gt;</type>
+        <definition>std::unique_ptr&lt;CalculatorGraphConfig::Node&gt; mediapipe::CalculatorContract::wrapper_config_</definition>
+        <argsstring></argsstring>
+        <name>wrapper_config_</name>
+        <qualifiedname>mediapipe::CalculatorContract::wrapper_config_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="201" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorContract_1a788355f4c0a025075394fe53b47e02ad" prot="private" static="no" mutable="no">
+        <type>tool::OptionsMap</type>
+        <definition>tool::OptionsMap mediapipe::CalculatorContract::options_</definition>
+        <argsstring></argsstring>
+        <name>options_</name>
+        <qualifiedname>mediapipe::CalculatorContract::options_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="202" column="20" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="202" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorContract_1afbaa46e0e33a05891322485baacc66fc" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; PacketTypeSet &gt;</type>
+        <definition>std::unique_ptr&lt;PacketTypeSet&gt; mediapipe::CalculatorContract::inputs_</definition>
+        <argsstring></argsstring>
+        <name>inputs_</name>
+        <qualifiedname>mediapipe::CalculatorContract::inputs_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="203" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="203" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorContract_1a0fa6b96d6b044b160fa9ff8564a50204" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; PacketTypeSet &gt;</type>
+        <definition>std::unique_ptr&lt;PacketTypeSet&gt; mediapipe::CalculatorContract::outputs_</definition>
+        <argsstring></argsstring>
+        <name>outputs_</name>
+        <qualifiedname>mediapipe::CalculatorContract::outputs_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="204" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorContract_1aa0d4ebfa1034da6ebf689a295181dce6" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; PacketTypeSet &gt;</type>
+        <definition>std::unique_ptr&lt;PacketTypeSet&gt; mediapipe::CalculatorContract::input_side_packets_</definition>
+        <argsstring></argsstring>
+        <name>input_side_packets_</name>
+        <qualifiedname>mediapipe::CalculatorContract::input_side_packets_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="205" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorContract_1abaaa64600e3fcb28ddee9a7f78c7c227" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; PacketTypeSet &gt;</type>
+        <definition>std::unique_ptr&lt;PacketTypeSet&gt; mediapipe::CalculatorContract::output_side_packets_</definition>
+        <argsstring></argsstring>
+        <name>output_side_packets_</name>
+        <qualifiedname>mediapipe::CalculatorContract::output_side_packets_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="206" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorContract_1a719454dea17613cf145c21992ee3ccc0" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string mediapipe::CalculatorContract::input_stream_handler_</definition>
+        <argsstring></argsstring>
+        <name>input_stream_handler_</name>
+        <qualifiedname>mediapipe::CalculatorContract::input_stream_handler_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="207" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="207" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorContract_1a8532c98722ef52a0023e63b24e0bb5c7" prot="private" static="no" mutable="no">
+        <type>MediaPipeOptions</type>
+        <definition>MediaPipeOptions mediapipe::CalculatorContract::input_stream_handler_options_</definition>
+        <argsstring></argsstring>
+        <name>input_stream_handler_options_</name>
+        <qualifiedname>mediapipe::CalculatorContract::input_stream_handler_options_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="208" column="20" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="208" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorContract_1a39318d1fe0c58239acf74758a1e4f1ba" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string mediapipe::CalculatorContract::node_name_</definition>
+        <argsstring></argsstring>
+        <name>node_name_</name>
+        <qualifiedname>mediapipe::CalculatorContract::node_name_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="209" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorContract_1a1a3ff35026ff27bea992f85869e3e8f1" prot="private" static="no" mutable="no">
+        <type>ServiceReqMap</type>
+        <definition>ServiceReqMap mediapipe::CalculatorContract::service_requests_</definition>
+        <argsstring></argsstring>
+        <name>service_requests_</name>
+        <qualifiedname>mediapipe::CalculatorContract::service_requests_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="210" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="210" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorContract_1a3919e12976cdf1d2e7160efcee1d34d5" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::CalculatorContract::process_timestamps_</definition>
+        <argsstring></argsstring>
+        <name>process_timestamps_</name>
+        <qualifiedname>mediapipe::CalculatorContract::process_timestamps_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="211" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="211" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorContract_1a249cd4f447edeb4a343a4066cdbd97be" prot="private" static="no" mutable="no">
+        <type>TimestampDiff</type>
+        <definition>TimestampDiff mediapipe::CalculatorContract::timestamp_offset_</definition>
+        <argsstring></argsstring>
+        <name>timestamp_offset_</name>
+        <qualifiedname>mediapipe::CalculatorContract::timestamp_offset_</qualifiedname>
+        <initializer>= TimestampDiff::Unset()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="212" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="212" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classmediapipe_1_1CalculatorContract_1a05ceb25ec08160dc9179cfd861e808f0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class CalculatorNode</definition>
+        <argsstring></argsstring>
+        <name>CalculatorNode</name>
+        <qualifiedname>mediapipe::CalculatorContract::CalculatorNode</qualifiedname>
+        <param>
+          <type>CalculatorNode</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="214" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="214" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1a6acb43a3a15cae82e22faec07819e5ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorContract::Initialize</definition>
+        <argsstring>(const CalculatorGraphConfig::Node &amp;node)</argsstring>
+        <name>Initialize</name>
+        <qualifiedname>mediapipe::CalculatorContract::Initialize</qualifiedname>
+        <param>
+          <type>const CalculatorGraphConfig::Node &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="52" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.cc" bodystart="51" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1afa4b57b72459a76a608425d0f69e38d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorContract::Initialize</definition>
+        <argsstring>(const PacketGeneratorConfig &amp;node, const std::string &amp;package)</argsstring>
+        <name>Initialize</name>
+        <qualifiedname>mediapipe::CalculatorContract::Initialize</qualifiedname>
+        <param>
+          <type>const PacketGeneratorConfig &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>package</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="53" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.cc" bodystart="101" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1a0b9ad6633e4c2b24c0d3e77af12f8d56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorContract::Initialize</definition>
+        <argsstring>(const StatusHandlerConfig &amp;node)</argsstring>
+        <name>Initialize</name>
+        <qualifiedname>mediapipe::CalculatorContract::Initialize</qualifiedname>
+        <param>
+          <type>const StatusHandlerConfig &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="55" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.cc" bodystart="141" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1af418436da1301983d9a919fe5070f3bd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::CalculatorContract::SetNodeName</definition>
+        <argsstring>(const std::string &amp;node_name)</argsstring>
+        <name>SetNodeName</name>
+        <qualifiedname>mediapipe::CalculatorContract::SetNodeName</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>node_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="56" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="56" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1a45f74a1352b0d76b858f164bebdc1922" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const CalculatorOptions &amp;</type>
+        <definition>const CalculatorOptions &amp; mediapipe::CalculatorContract::Options</definition>
+        <argsstring>() const</argsstring>
+        <name>Options</name>
+        <qualifiedname>mediapipe::CalculatorContract::Options</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="59" column="27" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1ac27c146cd56568a6aa9f2a0d5a126985" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string &amp; mediapipe::CalculatorContract::GetNodeName</definition>
+        <argsstring>() const</argsstring>
+        <name>GetNodeName</name>
+        <qualifiedname>mediapipe::CalculatorContract::GetNodeName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="62" column="21" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="62" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1a1e8ddf27562303b6dc5150a80a30de93" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type>const T &amp;</type>
+        <definition>const T &amp; mediapipe::CalculatorContract::Options</definition>
+        <argsstring>() const</argsstring>
+        <name>Options</name>
+        <qualifiedname>mediapipe::CalculatorContract::Options</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="68" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="68" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1ad923592bd79349ff9cd14369f52c370a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool mediapipe::CalculatorContract::HasOptions</definition>
+        <argsstring>() const</argsstring>
+        <name>HasOptions</name>
+        <qualifiedname>mediapipe::CalculatorContract::HasOptions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="73" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="73" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1afeb18cab8cbffc78d93ab12b6e499666" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PacketTypeSet &amp;</type>
+        <definition>PacketTypeSet &amp; mediapipe::CalculatorContract::Inputs</definition>
+        <argsstring>()</argsstring>
+        <name>Inputs</name>
+        <qualifiedname>mediapipe::CalculatorContract::Inputs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="78" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="78" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1a28b2c2486ba644b9fccf01f81cb532cf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const PacketTypeSet &amp;</type>
+        <definition>const PacketTypeSet &amp; mediapipe::CalculatorContract::Inputs</definition>
+        <argsstring>() const</argsstring>
+        <name>Inputs</name>
+        <qualifiedname>mediapipe::CalculatorContract::Inputs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="79" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="79" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1a9e56b95b35236d088162d439be5fe762" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PacketTypeSet &amp;</type>
+        <definition>PacketTypeSet &amp; mediapipe::CalculatorContract::Outputs</definition>
+        <argsstring>()</argsstring>
+        <name>Outputs</name>
+        <qualifiedname>mediapipe::CalculatorContract::Outputs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="82" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="82" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1a288e41bbfe7cf326d0667c62e4b13ea5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const PacketTypeSet &amp;</type>
+        <definition>const PacketTypeSet &amp; mediapipe::CalculatorContract::Outputs</definition>
+        <argsstring>() const</argsstring>
+        <name>Outputs</name>
+        <qualifiedname>mediapipe::CalculatorContract::Outputs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="83" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="83" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1a06d6d087faa56593fcbf83d2b27f1a24" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PacketTypeSet &amp;</type>
+        <definition>PacketTypeSet &amp; mediapipe::CalculatorContract::InputSidePackets</definition>
+        <argsstring>()</argsstring>
+        <name>InputSidePackets</name>
+        <qualifiedname>mediapipe::CalculatorContract::InputSidePackets</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="86" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="86" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1ad54207885189bf58722baba2149c8479" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const PacketTypeSet &amp;</type>
+        <definition>const PacketTypeSet &amp; mediapipe::CalculatorContract::InputSidePackets</definition>
+        <argsstring>() const</argsstring>
+        <name>InputSidePackets</name>
+        <qualifiedname>mediapipe::CalculatorContract::InputSidePackets</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="87" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="87" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1abf64d43073e1bd07bb29981324e44860" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PacketTypeSet &amp;</type>
+        <definition>PacketTypeSet &amp; mediapipe::CalculatorContract::OutputSidePackets</definition>
+        <argsstring>()</argsstring>
+        <name>OutputSidePackets</name>
+        <qualifiedname>mediapipe::CalculatorContract::OutputSidePackets</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="90" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="90" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1acab36fb678e97cebd5901c782332b532" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const PacketTypeSet &amp;</type>
+        <definition>const PacketTypeSet &amp; mediapipe::CalculatorContract::OutputSidePackets</definition>
+        <argsstring>() const</argsstring>
+        <name>OutputSidePackets</name>
+        <qualifiedname>mediapipe::CalculatorContract::OutputSidePackets</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="91" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="91" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1a3954ff6e0b1758003861c7407c7d4d0d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::CalculatorContract::SetInputStreamHandler</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>SetInputStreamHandler</name>
+        <qualifiedname>mediapipe::CalculatorContract::SetInputStreamHandler</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="98" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="98" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1a286528aa2061d76ffca1f86e22d038c2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::CalculatorContract::SetInputStreamHandlerOptions</definition>
+        <argsstring>(const MediaPipeOptions &amp;options)</argsstring>
+        <name>SetInputStreamHandlerOptions</name>
+        <qualifiedname>mediapipe::CalculatorContract::SetInputStreamHandlerOptions</qualifiedname>
+        <param>
+          <type>const MediaPipeOptions &amp;</type>
+          <declname>options</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="101" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="101" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1aa44e5c28931437e8e950611cf26b5956" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string mediapipe::CalculatorContract::GetInputStreamHandler</definition>
+        <argsstring>() const</argsstring>
+        <name>GetInputStreamHandler</name>
+        <qualifiedname>mediapipe::CalculatorContract::GetInputStreamHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="107" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="107" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1a15bd9d2ff2febbe153e0044e2ab70f58" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>MediaPipeOptions</type>
+        <definition>MediaPipeOptions mediapipe::CalculatorContract::GetInputStreamHandlerOptions</definition>
+        <argsstring>() const</argsstring>
+        <name>GetInputStreamHandlerOptions</name>
+        <qualifiedname>mediapipe::CalculatorContract::GetInputStreamHandlerOptions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="111" column="20" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="111" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1a197a91b5f9705c8f5230e6eddb8304fd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::CalculatorContract::SetProcessTimestampBounds</definition>
+        <argsstring>(bool process_timestamps)</argsstring>
+        <name>SetProcessTimestampBounds</name>
+        <qualifiedname>mediapipe::CalculatorContract::SetProcessTimestampBounds</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>process_timestamps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="129" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="129" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1a3627a037f4220a60720cf4296e5a2ac6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::CalculatorContract::GetProcessTimestampBounds</definition>
+        <argsstring>() const</argsstring>
+        <name>GetProcessTimestampBounds</name>
+        <qualifiedname>mediapipe::CalculatorContract::GetProcessTimestampBounds</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="132" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="132" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1adc75656e8c5d46b4953219343803ae85" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::CalculatorContract::SetTimestampOffset</definition>
+        <argsstring>(TimestampDiff offset)</argsstring>
+        <name>SetTimestampOffset</name>
+        <qualifiedname>mediapipe::CalculatorContract::SetTimestampOffset</qualifiedname>
+        <param>
+          <type>TimestampDiff</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="138" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="138" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1aa8d6b1bd53c78162dd4faa061a4879a0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>TimestampDiff</type>
+        <definition>TimestampDiff mediapipe::CalculatorContract::GetTimestampOffset</definition>
+        <argsstring>() const</argsstring>
+        <name>GetTimestampOffset</name>
+        <qualifiedname>mediapipe::CalculatorContract::GetTimestampOffset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="139" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="139" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1a245201ce70150934b8e2e5dc1fd9be9b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>GraphServiceRequest &amp;</type>
+        <definition>GraphServiceRequest &amp; mediapipe::CalculatorContract::UseService</definition>
+        <argsstring>(const GraphServiceBase &amp;service)</argsstring>
+        <name>UseService</name>
+        <qualifiedname>mediapipe::CalculatorContract::UseService</qualifiedname>
+        <param>
+          <type>const GraphServiceBase &amp;</type>
+          <declname>service</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="178" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="178" bodyend="181"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1a69a5b5175903bb2b7e49e9cf03def5a4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ServiceReqMap &amp;</type>
+        <definition>const ServiceReqMap &amp; mediapipe::CalculatorContract::ServiceRequests</definition>
+        <argsstring>() const</argsstring>
+        <name>ServiceRequests</name>
+        <qualifiedname>mediapipe::CalculatorContract::ServiceRequests</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="188" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="188" bodyend="188"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1a24b1cd81c444b97e50c599537a4359a5" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void mediapipe::CalculatorContract::GetNodeOptions</definition>
+        <argsstring>(T *result) const</argsstring>
+        <name>GetNodeOptions</name>
+        <qualifiedname>mediapipe::CalculatorContract::GetNodeOptions</qualifiedname>
+        <param>
+          <type>T *</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="192" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorContract_1affc0558753bce6fc6160513ff0bdc772" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const CalculatorGraphConfig::Node &amp;</type>
+        <definition>const CalculatorGraphConfig::Node &amp; mediapipe::CalculatorContract::GetWrapperConfig</definition>
+        <argsstring>() const</argsstring>
+        <name>GetWrapperConfig</name>
+        <qualifiedname>mediapipe::CalculatorContract::GetWrapperConfig</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="196" column="37" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="196" bodyend="198"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" line="50" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_contract.h" bodystart="50" bodyend="215"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1CalculatorContract_1a05ceb25ec08160dc9179cfd861e808f0" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>CalculatorNode</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1aa44e5c28931437e8e950611cf26b5956" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>GetInputStreamHandler</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1a15bd9d2ff2febbe153e0044e2ab70f58" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>GetInputStreamHandlerOptions</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1ac27c146cd56568a6aa9f2a0d5a126985" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>GetNodeName</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1a24b1cd81c444b97e50c599537a4359a5" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>GetNodeOptions</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1a3627a037f4220a60720cf4296e5a2ac6" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>GetProcessTimestampBounds</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1aa8d6b1bd53c78162dd4faa061a4879a0" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>GetTimestampOffset</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1affc0558753bce6fc6160513ff0bdc772" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>GetWrapperConfig</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1ad923592bd79349ff9cd14369f52c370a" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>HasOptions</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1a6acb43a3a15cae82e22faec07819e5ca" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>Initialize</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1afa4b57b72459a76a608425d0f69e38d8" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>Initialize</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1a0b9ad6633e4c2b24c0d3e77af12f8d56" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>Initialize</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1aa0d4ebfa1034da6ebf689a295181dce6" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>input_side_packets_</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1a719454dea17613cf145c21992ee3ccc0" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>input_stream_handler_</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1a8532c98722ef52a0023e63b24e0bb5c7" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>input_stream_handler_options_</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1afeb18cab8cbffc78d93ab12b6e499666" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>Inputs</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1a28b2c2486ba644b9fccf01f81cb532cf" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>Inputs</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1afbaa46e0e33a05891322485baacc66fc" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>inputs_</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1a06d6d087faa56593fcbf83d2b27f1a24" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>InputSidePackets</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1ad54207885189bf58722baba2149c8479" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>InputSidePackets</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1ab35d83f461fb35a10feea7e0570152c5" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>node_config_</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1a39318d1fe0c58239acf74758a1e4f1ba" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>node_name_</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1a45f74a1352b0d76b858f164bebdc1922" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>Options</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1a1e8ddf27562303b6dc5150a80a30de93" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>Options</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1a788355f4c0a025075394fe53b47e02ad" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>options_</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1abaaa64600e3fcb28ddee9a7f78c7c227" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>output_side_packets_</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1a9e56b95b35236d088162d439be5fe762" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>Outputs</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1a288e41bbfe7cf326d0667c62e4b13ea5" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>Outputs</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1a0fa6b96d6b044b160fa9ff8564a50204" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>outputs_</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1abf64d43073e1bd07bb29981324e44860" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>OutputSidePackets</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1acab36fb678e97cebd5901c782332b532" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>OutputSidePackets</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1a3919e12976cdf1d2e7160efcee1d34d5" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>process_timestamps_</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1a1a3ff35026ff27bea992f85869e3e8f1" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>service_requests_</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1af6158e6dcae5529ec17bbd44b5df774e" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>ServiceReqMap</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1a69a5b5175903bb2b7e49e9cf03def5a4" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>ServiceRequests</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1a3954ff6e0b1758003861c7407c7d4d0d" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>SetInputStreamHandler</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1a286528aa2061d76ffca1f86e22d038c2" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>SetInputStreamHandlerOptions</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1af418436da1301983d9a919fe5070f3bd" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>SetNodeName</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1a197a91b5f9705c8f5230e6eddb8304fd" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>SetProcessTimestampBounds</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1adc75656e8c5d46b4953219343803ae85" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>SetTimestampOffset</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1a249cd4f447edeb4a343a4066cdbd97be" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>timestamp_offset_</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1a245201ce70150934b8e2e5dc1fd9be9b" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>UseService</name></member>
+      <member refid="classmediapipe_1_1CalculatorContract_1a194ad555b03e2f9b19fdc5cbefdfa979" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorContract</scope><name>wrapper_config_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

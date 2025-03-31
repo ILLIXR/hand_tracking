@@ -1,0 +1,701 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="tflite__gpu__runner_8cc" kind="file" language="C++">
+    <compoundname>tflite_gpu_runner.cc</compoundname>
+    <includes refid="tflite__gpu__runner_8h" local="yes">mediapipe/util/tflite/tflite_gpu_runner.h</includes>
+    <includes local="no">cstdint</includes>
+    <includes local="no">memory</includes>
+    <includes local="no">utility</includes>
+    <includes local="no">vector</includes>
+    <includes local="yes">absl/log/absl_log.h</includes>
+    <includes local="yes">absl/status/status.h</includes>
+    <includes local="yes">absl/status/statusor.h</includes>
+    <includes refid="port_2canonical__errors_8h" local="yes">mediapipe/framework/port/canonical_errors.h</includes>
+    <includes refid="logging_8h" local="yes">mediapipe/framework/port/logging.h</includes>
+    <includes refid="port_2ret__check_8h" local="yes">mediapipe/framework/port/ret_check.h</includes>
+    <includes refid="port_2status__macros_8h" local="yes">mediapipe/framework/port/status_macros.h</includes>
+    <includes refid="gl__base_8h" local="yes">mediapipe/gpu/gl_base.h</includes>
+    <includes local="yes">tensorflow/lite/core/api/op_resolver.h</includes>
+    <includes local="yes">tensorflow/lite/core/interpreter_builder.h</includes>
+    <includes local="yes">tensorflow/lite/delegates/gpu/api.h</includes>
+    <includes local="yes">tensorflow/lite/delegates/gpu/common/data_type.h</includes>
+    <includes local="yes">tensorflow/lite/delegates/gpu/common/model.h</includes>
+    <includes local="yes">tensorflow/lite/delegates/gpu/common/model_builder.h</includes>
+    <includes local="yes">tensorflow/lite/delegates/gpu/gl/api2.h</includes>
+    <includes local="yes">tensorflow/lite/interpreter.h</includes>
+    <includes local="yes">tensorflow/lite/model.h</includes>
+    <includes local="yes">tensorflow/lite/model_builder.h</includes>
+    <incdepgraph>
+      <node id="38">
+        <label>mediapipe/framework/deps/canonical_errors.h</label>
+        <link refid="deps_2canonical__errors_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>mediapipe/framework/deps/ret_check.h</label>
+        <link refid="deps_2ret__check_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>mediapipe/framework/deps/source_location.h</label>
+        <link refid="deps_2source__location_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>mediapipe/framework/deps/status.h</label>
+        <link refid="deps_2status_8h_source"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>mediapipe/framework/deps/status_builder.h</label>
+        <link refid="deps_2status__builder_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>mediapipe/framework/deps/status_macros.h</label>
+        <link refid="deps_2status__macros_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>mediapipe/framework/port.h</label>
+        <link refid="port_8h_source"/>
+      </node>
+      <node id="37">
+        <label>mediapipe/framework/port/canonical_errors.h</label>
+        <link refid="port_2canonical__errors_8h_source"/>
+        <childnode refid="38" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>mediapipe/framework/port/logging.h</label>
+        <link refid="logging_8h_source"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>mediapipe/framework/port/ret_check.h</label>
+        <link refid="port_2ret__check_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>mediapipe/framework/port/status_macros.h</label>
+        <link refid="port_2status__macros_8h_source"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>mediapipe/gpu/gl_base.h</label>
+        <link refid="gl__base_8h_source"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.cc</label>
+        <link refid="tflite__gpu__runner_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>mediapipe/util/tflite/tflite_gpu_runner.h</label>
+        <link refid="tflite__gpu__runner_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>mediapipe/util/unused.hpp</label>
+        <link refid="unused_8hpp_source"/>
+      </node>
+      <node id="26">
+        <label>EGL/egl.h</label>
+      </node>
+      <node id="27">
+        <label>GLES2/gl2.h</label>
+      </node>
+      <node id="28">
+        <label>GLES2/gl2ext.h</label>
+      </node>
+      <node id="29">
+        <label>GLES3/gl32.h</label>
+      </node>
+      <node id="15">
+        <label>absl/base/attributes.h</label>
+      </node>
+      <node id="11">
+        <label>absl/base/optimization.h</label>
+      </node>
+      <node id="23">
+        <label>absl/log/absl_log.h</label>
+      </node>
+      <node id="16">
+        <label>absl/memory/memory.h</label>
+      </node>
+      <node id="6">
+        <label>absl/status/status.h</label>
+      </node>
+      <node id="7">
+        <label>absl/status/statusor.h</label>
+      </node>
+      <node id="44">
+        <label>absl/strings/has_ostream_operator.h</label>
+      </node>
+      <node id="17">
+        <label>absl/strings/string_view.h</label>
+      </node>
+      <node id="40">
+        <label>absl/time/time.h</label>
+      </node>
+      <node id="41">
+        <label>cstddef</label>
+      </node>
+      <node id="3">
+        <label>cstdint</label>
+      </node>
+      <node id="20">
+        <label>functional</label>
+      </node>
+      <node id="45">
+        <label>glog/logging.h</label>
+      </node>
+      <node id="21">
+        <label>iosfwd</label>
+      </node>
+      <node id="4">
+        <label>memory</label>
+      </node>
+      <node id="42">
+        <label>ostream</label>
+      </node>
+      <node id="13">
+        <label>sstream</label>
+      </node>
+      <node id="22">
+        <label>string</label>
+      </node>
+      <node id="30">
+        <label>tensorflow/lite/core/api/op_resolver.h</label>
+      </node>
+      <node id="48">
+        <label>tensorflow/lite/core/interpreter_builder.h</label>
+      </node>
+      <node id="31">
+        <label>tensorflow/lite/delegates/gpu/api.h</label>
+      </node>
+      <node id="49">
+        <label>tensorflow/lite/delegates/gpu/common/data_type.h</label>
+      </node>
+      <node id="32">
+        <label>tensorflow/lite/delegates/gpu/common/model.h</label>
+      </node>
+      <node id="50">
+        <label>tensorflow/lite/delegates/gpu/common/model_builder.h</label>
+      </node>
+      <node id="33">
+        <label>tensorflow/lite/delegates/gpu/common/shape.h</label>
+      </node>
+      <node id="34">
+        <label>tensorflow/lite/delegates/gpu/gl/api2.h</label>
+      </node>
+      <node id="51">
+        <label>tensorflow/lite/interpreter.h</label>
+      </node>
+      <node id="35">
+        <label>tensorflow/lite/model.h</label>
+      </node>
+      <node id="36">
+        <label>tensorflow/lite/model_builder.h</label>
+      </node>
+      <node id="43">
+        <label>type_traits</label>
+      </node>
+      <node id="14">
+        <label>utility</label>
+      </node>
+      <node id="5">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacetflite">tflite</innernamespace>
+    <innernamespace refid="namespacetflite_1_1gpu">tflite::gpu</innernamespace>
+    <innernamespace refid="namespacetflite_1_1gpu_1_1anonymous__namespace_02tflite__gpu__runner_8cc_03">tflite::gpu::anonymous_namespace{tflite_gpu_runner.cc}</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Copyright<sp/>2020<sp/>The<sp/>MediaPipe<sp/>Authors.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/util/tflite/tflite_gpu_runner.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;utility&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/log/absl_log.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/status/status.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;absl/status/statusor.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/port/canonical_errors.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/port/logging.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/port/ret_check.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/framework/port/status_macros.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/gpu/gl_base.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/core/api/op_resolver.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/core/interpreter_builder.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/delegates/gpu/api.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/delegates/gpu/common/data_type.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/delegates/gpu/common/model.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/delegates/gpu/common/model_builder.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/delegates/gpu/gl/api2.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/interpreter.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/model.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/model_builder.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">//<sp/>This<sp/>code<sp/>should<sp/>be<sp/>enabled<sp/>as<sp/>soon<sp/>as<sp/>TensorFlow<sp/>version,<sp/>which<sp/>mediapipe</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//<sp/>uses,<sp/>will<sp/>include<sp/>this<sp/>module.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__ANDROID__)<sp/>||<sp/>defined(MEDIAPIPE_CHROMIUMOS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;tensorflow/lite/delegates/gpu/cl/api.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">tflite<sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">gpu<sp/>{</highlight></codeline>
+<codeline lineno="49" refid="namespacetflite_1_1gpu_1_1anonymous__namespace_02tflite__gpu__runner_8cc_03" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TODO:<sp/>Find<sp/>a<sp/>better<sp/>place<sp/>for<sp/>these<sp/>utility<sp/>functions.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>UpdateShapes(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>tflite::Interpreter&amp;<sp/>interpreter,</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;int&gt;&amp;<sp/>indices,</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;std::vector&lt;int&gt;&gt;*<sp/>shapes)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/>shapes-&gt;resize(indices.size());</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>indices.size();<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>TfLiteTensor*<sp/>tensor<sp/>=<sp/>interpreter.tensor(indices[i]);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>shapes-&gt;at(i).resize(tensor-&gt;dims-&gt;size);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>tensor-&gt;dims-&gt;size;<sp/>++j)<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>shapes-&gt;at(i)[j]<sp/>=<sp/>tensor-&gt;dims-&gt;data[j];</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal">absl::Status<sp/>InitializeShapes(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>tflite::FlatBufferModel&amp;<sp/>flatbuffer,</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>tflite::OpResolver&amp;<sp/>op_resolver,</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;std::vector&lt;int&gt;&gt;*<sp/>input_shapes,</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;std::vector&lt;int&gt;&gt;*<sp/>output_shapes)<sp/>{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;tflite::Interpreter&gt;<sp/>interpreter;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>tflite::InterpreterBuilder<sp/>interpreter_builder(flatbuffer,<sp/>op_resolver);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(interpreter_builder(&amp;interpreter)<sp/>!=<sp/>kTfLiteOk<sp/>||<sp/>!interpreter)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::InternalError(</highlight><highlight class="stringliteral">&quot;Unable<sp/>to<sp/>prepare<sp/>TfLite<sp/>interpreter.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>UpdateShapes(*interpreter,<sp/>interpreter-&gt;inputs(),<sp/>input_shapes);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/>UpdateShapes(*interpreter,<sp/>interpreter-&gt;outputs(),<sp/>output_shapes);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::OkStatus();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal">ObjectDef<sp/>GetSSBOObjectDef(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>channels)<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>ObjectDef<sp/>gpu_object_def;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>gpu_object_def.data_type<sp/>=<sp/>DataType::FLOAT32;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>gpu_object_def.data_layout<sp/>=<sp/>DataLayout::BHWC;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(channels<sp/>==<sp/>4)<sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>gpu_object_def.data_layout<sp/>=<sp/>DataLayout::DHWC4;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>gpu_object_def.object_type<sp/>=<sp/>ObjectType::OPENGL_SSBO;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>gpu_object_def.user_provided<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>gpu_object_def;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__ANDROID__)<sp/>||<sp/>defined(MEDIAPIPE_CHROMIUMOS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal">cl::InferenceOptions<sp/>GetClInferenceOptions(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>InferenceOptions&amp;<sp/>options)<sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>cl::InferenceOptions<sp/>result{};</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>result.priority1<sp/>=<sp/>options.priority1;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>result.priority2<sp/>=<sp/>options.priority2;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/>result.priority3<sp/>=<sp/>options.priority3;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/>result.usage<sp/>=<sp/>options.usage;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal">absl::Status<sp/>VerifyShapes(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;TensorObjectDef&gt;&amp;<sp/>actual,</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;BHWC&gt;&amp;<sp/>expected)<sp/>{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/>RET_CHECK_EQ(actual.size(),<sp/>expected.size());</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>size<sp/>=<sp/>actual.size();</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>size;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>dims<sp/>=<sp/>actual[i].dimensions;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>BHWC&amp;<sp/>bhwc<sp/>=<sp/>expected[i];</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>RET_CHECK(dims.b<sp/>==<sp/>bhwc.b<sp/>&amp;&amp;<sp/>dims.h<sp/>==<sp/>bhwc.h<sp/>&amp;&amp;<sp/>dims.w<sp/>==<sp/>bhwc.w<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dims.c<sp/>==<sp/>bhwc.c);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::OkStatus();</highlight></codeline>
+<codeline lineno="113"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>defined(__ANDROID__)<sp/>||<sp/>defined(MEDIAPIPE_CHROMIUMOS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal">absl::Status<sp/>TFLiteGPURunner::InitializeWithModel(</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>tflite::FlatBufferModel&amp;<sp/>flatbuffer,</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>tflite::OpResolver&amp;<sp/>op_resolver,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>allow_quant_ops)<sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>GraphFloat32<sp/>is<sp/>created<sp/>twice<sp/>because,<sp/>when<sp/>OpenCL<sp/>and<sp/>OpenGL<sp/>backends<sp/>are</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>initialized,<sp/>different<sp/>backend-specific<sp/>graph<sp/>transformations<sp/>happen</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>in-place.<sp/>As<sp/>GraphFloat32<sp/>is<sp/>not<sp/>copyable<sp/>by<sp/>design,<sp/>we<sp/>keep<sp/>two<sp/>copies<sp/>of</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>graph<sp/>until<sp/>inference<sp/>is<sp/>built.<sp/>This<sp/>decision<sp/>doesn&apos;t<sp/>affect<sp/>the<sp/>amount</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>of<sp/>run<sp/>time<sp/>memory<sp/>used,<sp/>because<sp/>both<sp/>graph_gl_<sp/>and<sp/>graph_cl_<sp/>are<sp/>deleted</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>in<sp/>the<sp/>end<sp/>of<sp/>the<sp/>initialization<sp/>stage.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/>graph_gl_<sp/>=<sp/>std::make_unique&lt;GraphFloat32&gt;();</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/>graph_cl_<sp/>=<sp/>std::make_unique&lt;GraphFloat32&gt;();</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/>MP_RETURN_IF_ERROR(BuildFromFlatBuffer(flatbuffer,<sp/>op_resolver,</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>graph_gl_.get(),<sp/>allow_quant_ops));</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>MP_RETURN_IF_ERROR(BuildFromFlatBuffer(flatbuffer,<sp/>op_resolver,</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>graph_cl_.get(),<sp/>allow_quant_ops));</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>input<sp/>:<sp/>graph_gl_-&gt;inputs())<sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>input_shapes_.push_back(input-&gt;tensor.shape);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>output<sp/>:<sp/>graph_gl_-&gt;outputs())<sp/>{</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>output_shapes_.push_back(output-&gt;tensor.shape);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/>MP_RETURN_IF_ERROR(InitializeShapes(flatbuffer,<sp/>op_resolver,</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;input_shape_from_model_,</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;output_shape_from_model_));</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::OkStatus();</highlight></codeline>
+<codeline lineno="145"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal">absl::StatusOr&lt;int64_t&gt;<sp/>TFLiteGPURunner::GetInputElements(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>&gt;=<sp/>input_shapes_.size())<sp/>{</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::InternalError(</highlight><highlight class="stringliteral">&quot;Wrong<sp/>input<sp/>tensor<sp/>id.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>input_shapes_[id].DimensionsProduct();</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal">absl::StatusOr&lt;int64_t&gt;<sp/>TFLiteGPURunner::GetOutputElements(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>&gt;=<sp/>output_shapes_.size())<sp/>{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::InternalError(</highlight><highlight class="stringliteral">&quot;Wrong<sp/>output<sp/>tensor<sp/>id.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>output_shapes_[id].DimensionsProduct();</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal">absl::Status<sp/>TFLiteGPURunner::Build()<sp/>{</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>1.<sp/>Prepare<sp/>inference<sp/>builder.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/>std::unique_ptr&lt;InferenceBuilder&gt;<sp/>builder;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>By<sp/>default,<sp/>we<sp/>try<sp/>CL<sp/>first<sp/>&amp;<sp/>fall<sp/>back<sp/>to<sp/>GL<sp/>if<sp/>that<sp/>fails.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(opencl_is_forced_)<sp/>{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>MP_RETURN_IF_ERROR(InitializeOpenCL(&amp;builder));</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Only<sp/>OpenCL<sp/>delegate<sp/>supports<sp/>serializations<sp/>currently.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>is_cl_used_<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(opengl_is_forced_)<sp/>{</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>MP_RETURN_IF_ERROR(InitializeOpenGL(&amp;builder));</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>try<sp/>to<sp/>build<sp/>OpenCL<sp/>first.<sp/>If<sp/>something<sp/>goes<sp/>wrong,<sp/>fall<sp/>back<sp/>to<sp/>OpenGL.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>absl::Status<sp/>status<sp/>=<sp/>InitializeOpenCL(&amp;builder);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(status.ok())<sp/>{</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>VLOG(2)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;OpenCL<sp/>backend<sp/>is<sp/>used.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>is_cl_used_<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>VLOG(2)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Falling<sp/>back<sp/>to<sp/>OpenGL:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>status.message();</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>MP_RETURN_IF_ERROR(InitializeOpenGL(&amp;builder));</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>GL<sp/>graph<sp/>not<sp/>needed<sp/>anymore,<sp/>CL<sp/>graph<sp/>maybe<sp/>needed<sp/>for<sp/>serialized<sp/>model</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>calculation.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/>graph_gl_.reset(</highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>2.<sp/>Describe<sp/>output/input<sp/>objects<sp/>for<sp/>created<sp/>builder.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>flow_index<sp/>=<sp/>0;<sp/>flow_index<sp/>&lt;<sp/>input_shapes_.size();<sp/>++flow_index)<sp/>{</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>MP_RETURN_IF_ERROR(builder-&gt;SetInputObjectDef(</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>flow_index,<sp/>GetSSBOObjectDef(input_shapes_[flow_index].c)));</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>flow_index<sp/>=<sp/>0;<sp/>flow_index<sp/>&lt;<sp/>output_shapes_.size();<sp/>++flow_index)<sp/>{</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>MP_RETURN_IF_ERROR(builder-&gt;SetOutputObjectDef(</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>flow_index,<sp/>GetSSBOObjectDef(output_shapes_[flow_index].c)));</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>3.<sp/>Build<sp/>inference<sp/>runner<sp/>with<sp/>the<sp/>created<sp/>builder.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>builder-&gt;Build(&amp;runner_);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal">absl::Status<sp/>TFLiteGPURunner::BindSSBOToInputTensor(GLuint<sp/>ssbo_id,</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>input_id)<sp/>{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/>OpenGlBuffer<sp/>buffer;</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/>buffer.id<sp/>=<sp/>ssbo_id;</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>runner_-&gt;SetInputObject(input_id,<sp/>std::move(buffer));</highlight></codeline>
+<codeline lineno="208"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal">absl::Status<sp/>TFLiteGPURunner::BindSSBOToOutputTensor(GLuint<sp/>ssbo_id,</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>output_id)<sp/>{</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/>OpenGlBuffer<sp/>buffer;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/>buffer.id<sp/>=<sp/>ssbo_id;</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>runner_-&gt;SetOutputObject(output_id,<sp/>std::move(buffer));</highlight></codeline>
+<codeline lineno="215"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal">absl::Status<sp/>TFLiteGPURunner::Invoke()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>runner_-&gt;Run();<sp/>}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal">absl::Status<sp/>TFLiteGPURunner::InitializeOpenGL(</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unique_ptr&lt;InferenceBuilder&gt;*<sp/>builder)<sp/>{</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/>gl::InferenceEnvironmentOptions<sp/>env_options;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/>gl::InferenceEnvironmentProperties<sp/>properties;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/>gl::InferenceOptions<sp/>gl_options;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/>gl_options.priority1<sp/>=<sp/>options_.priority1;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/>gl_options.priority2<sp/>=<sp/>options_.priority2;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/>gl_options.priority3<sp/>=<sp/>options_.priority3;</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/>gl_options.usage<sp/>=<sp/>options_.usage;</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/>MP_RETURN_IF_ERROR(</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>NewInferenceEnvironment(env_options,<sp/>&amp;gl_environment_,<sp/>&amp;properties));</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/>MP_RETURN_IF_ERROR(gl_environment_-&gt;NewInferenceBuilder(std::move(*graph_gl_),</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gl_options,<sp/>builder));</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::OkStatus();</highlight></codeline>
+<codeline lineno="233"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"></highlight></codeline>
+<codeline lineno="235"><highlight class="normal">absl::Status<sp/>TFLiteGPURunner::InitializeOpenCL(</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unique_ptr&lt;InferenceBuilder&gt;*<sp/>builder)<sp/>{</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__ANDROID__)<sp/>||<sp/>defined(MEDIAPIPE_CHROMIUMOS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/>cl::InferenceEnvironmentOptions<sp/>env_options;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!serialized_binary_cache_.empty())<sp/>{</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/>env_options.serialized_binary_cache<sp/>=<sp/>serialized_binary_cache_;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/>cl::InferenceEnvironmentProperties<sp/>properties;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/>MP_RETURN_IF_ERROR(</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>cl::NewInferenceEnvironment(env_options,<sp/>&amp;cl_environment_,<sp/>&amp;properties));</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(serialized_model_.empty()<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>opencl_init_from_serialized_model_is_forced_)<sp/>{</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/>MP_ASSIGN_OR_RETURN(serialized_model_,<sp/>GetSerializedModel());</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Try<sp/>to<sp/>initialize<sp/>from<sp/>serialized<sp/>model<sp/>first.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!serialized_model_.empty())<sp/>{</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/>absl::Status<sp/>init_status<sp/>=<sp/>InitializeOpenCLFromSerializedModel(builder);</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(init_status.ok())<sp/>{</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>serialized_model_used_<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::OkStatus();</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/>VLOG(2)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Failed<sp/>to<sp/>init<sp/>from<sp/>serialized<sp/>model:<sp/>[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>init_status</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;].<sp/>Trying<sp/>to<sp/>init<sp/>from<sp/>scratch.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Initialize<sp/>from<sp/>scratch.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/>cl::InferenceOptions<sp/>cl_options<sp/>=<sp/>GetClInferenceOptions(options_);</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/>GraphFloat32<sp/>graph_cl;</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/>MP_RETURN_IF_ERROR(graph_cl_-&gt;MakeExactCopy(&amp;graph_cl));</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/>MP_RETURN_IF_ERROR(cl_environment_-&gt;NewInferenceBuilder(</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>cl_options,<sp/>std::move(graph_cl),<sp/>builder));</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::OkStatus();</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::UnimplementedError(</highlight><highlight class="stringliteral">&quot;OpenCL<sp/>is<sp/>not<sp/>supported.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>defined(__ANDROID__)<sp/>||<sp/>defined(MEDIAPIPE_CHROMIUMOS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="273"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal">absl::Status<sp/>TFLiteGPURunner::InitializeOpenCLFromSerializedModel(</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unique_ptr&lt;InferenceBuilder&gt;*<sp/>builder)<sp/>{</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__ANDROID__)<sp/>||<sp/>defined(MEDIAPIPE_CHROMIUMOS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/>RET_CHECK(cl_environment_)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;CL<sp/>environment<sp/>is<sp/>not<sp/>initialized.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/>MP_RETURN_IF_ERROR(</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>cl_environment_-&gt;NewInferenceBuilder(serialized_model_,<sp/>builder));</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/>MP_RETURN_IF_ERROR(VerifyShapes(builder-&gt;get()-&gt;inputs(),<sp/>input_shapes_));</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>VerifyShapes(builder-&gt;get()-&gt;outputs(),<sp/>output_shapes_);</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::UnimplementedError(</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;OpenCL<sp/>and<sp/>serialized<sp/>model<sp/>are<sp/>not<sp/>supported.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>defined(__ANDROID__)<sp/>||<sp/>defined(MEDIAPIPE_CHROMIUMOS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="287"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal">absl::StatusOr&lt;std::vector&lt;uint8_t&gt;&gt;</highlight></codeline>
+<codeline lineno="290"><highlight class="normal">TFLiteGPURunner::GetSerializedBinaryCache()<sp/>{</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__ANDROID__)<sp/>||<sp/>defined(MEDIAPIPE_CHROMIUMOS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/>RET_CHECK(cl_environment_)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;CL<sp/>environment<sp/>is<sp/>not<sp/>initialized.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>cl_environment_-&gt;GetSerializedBinaryCache();</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::UnimplementedError(</highlight><highlight class="stringliteral">&quot;Serialized<sp/>binary<sp/>cache<sp/>is<sp/>not<sp/>supported.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>defined(__ANDROID__)<sp/>||<sp/>defined(MEDIAPIPE_CHROMIUMOS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="297"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"></highlight></codeline>
+<codeline lineno="299"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>TFLiteGPURunner::SetSerializedBinaryCache(std::vector&lt;uint8_t&gt;&amp;&amp;<sp/>cache)<sp/>{</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__ANDROID__)<sp/>||<sp/>defined(MEDIAPIPE_CHROMIUMOS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/>serialized_binary_cache_<sp/>=<sp/>std::move(cache);</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/>ABSL_LOG(ERROR)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Serialized<sp/>binary<sp/>cache<sp/>is<sp/>not<sp/>supported.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>defined(__ANDROID__)<sp/>||<sp/>defined(MEDIAPIPE_CHROMIUMOS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight></codeline>
+<codeline lineno="307"><highlight class="normal">absl::StatusOr&lt;std::vector&lt;uint8_t&gt;&gt;<sp/>TFLiteGPURunner::GetSerializedModel()<sp/>{</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__ANDROID__)<sp/>||<sp/>defined(MEDIAPIPE_CHROMIUMOS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(serialized_model_used_)<sp/>{</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>serialized_model_;</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/>RET_CHECK(graph_cl_)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;CL<sp/>graph<sp/>is<sp/>not<sp/>initialized.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"><sp/><sp/>RET_CHECK(cl_environment_)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;CL<sp/>environment<sp/>is<sp/>not<sp/>initialized.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="314"><highlight class="normal"></highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/>GraphFloat32<sp/>graph_cl;</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/>MP_RETURN_IF_ERROR(graph_cl_-&gt;MakeExactCopy(&amp;graph_cl));</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/>cl::InferenceOptions<sp/>cl_options<sp/>=<sp/>GetClInferenceOptions(options_);</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"><sp/><sp/>std::vector&lt;uint8_t&gt;<sp/>serialized_model;</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/>MP_RETURN_IF_ERROR(cl_environment_-&gt;BuildSerializedModel(</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>cl_options,<sp/>std::move(graph_cl),<sp/>&amp;serialized_model));</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>serialized_model;</highlight></codeline>
+<codeline lineno="322"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>absl::UnimplementedError(</highlight><highlight class="stringliteral">&quot;Serialized<sp/>model<sp/>is<sp/>not<sp/>supported.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>defined(__ANDROID__)<sp/>||<sp/>defined(MEDIAPIPE_CHROMIUMOS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="325"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"></highlight></codeline>
+<codeline lineno="327"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>TFLiteGPURunner::SetSerializedModel(</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;uint8_t&gt;&amp;&amp;<sp/>serialized_model)<sp/>{</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__ANDROID__)<sp/>||<sp/>defined(MEDIAPIPE_CHROMIUMOS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/>serialized_model_<sp/>=<sp/>std::move(serialized_model);</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/>serialized_model_used_<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/>ABSL_LOG(ERROR)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Serialized<sp/>model<sp/>is<sp/>not<sp/>supported.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>defined(__ANDROID__)<sp/>||<sp/>defined(MEDIAPIPE_CHROMIUMOS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="335"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"></highlight></codeline>
+<codeline lineno="337"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>gpu</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="338"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>tflite</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.cc"/>
+  </compounddef>
+</doxygen>

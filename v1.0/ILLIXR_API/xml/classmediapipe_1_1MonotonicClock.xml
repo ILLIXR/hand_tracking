@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1MonotonicClock" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>mediapipe::MonotonicClock</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">mediapipe::Clock</basecompoundref>
+    <derivedcompoundref refid="classmediapipe_1_1MonotonicClockImpl" prot="public" virt="non-virtual">mediapipe::MonotonicClockImpl</derivedcompoundref>
+    <innerclass refid="structmediapipe_1_1MonotonicClock_1_1State" prot="public">mediapipe::MonotonicClock::State</innerclass>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1MonotonicClock_1a8c79d63a1458b61f9f42b6b0c0cba2cb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::MonotonicClock::~MonotonicClock</definition>
+        <argsstring>() override</argsstring>
+        <name>~MonotonicClock</name>
+        <qualifiedname>mediapipe::MonotonicClock::~MonotonicClock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/monotonic_clock.h" line="42" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/monotonic_clock.h" bodystart="42" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1MonotonicClock_1a10b541aba96105d52f6046462da19185" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>absl::Time</type>
+        <definition>absl::Time mediapipe::MonotonicClock::TimeNow</definition>
+        <argsstring>() override=0</argsstring>
+        <name>TimeNow</name>
+        <qualifiedname>mediapipe::MonotonicClock::TimeNow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/monotonic_clock.h" line="47" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1MonotonicClock_1a29aa306773cf5137e995cd3aac3e7ea0" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>void mediapipe::MonotonicClock::Sleep</definition>
+        <argsstring>(absl::Duration d) override=0</argsstring>
+        <name>Sleep</name>
+        <qualifiedname>mediapipe::MonotonicClock::Sleep</qualifiedname>
+        <param>
+          <type>absl::Duration</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/monotonic_clock.h" line="53" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1MonotonicClock_1a31f1183522d9f46f2efaf3afe731c43b" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>void mediapipe::MonotonicClock::SleepUntil</definition>
+        <argsstring>(absl::Time wakeup_time) override=0</argsstring>
+        <name>SleepUntil</name>
+        <qualifiedname>mediapipe::MonotonicClock::SleepUntil</qualifiedname>
+        <param>
+          <type>absl::Time</type>
+          <declname>wakeup_time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/monotonic_clock.h" line="54" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1MonotonicClock_1ac87949d07847e7704a33aedf6f5826d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void mediapipe::MonotonicClock::GetCorrectionMetrics</definition>
+        <argsstring>(int *correction_count, double *max_correction)=0</argsstring>
+        <name>GetCorrectionMetrics</name>
+        <qualifiedname>mediapipe::MonotonicClock::GetCorrectionMetrics</qualifiedname>
+        <param>
+          <type>int *</type>
+          <declname>correction_count</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>max_correction</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/monotonic_clock.h" line="57" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1MonotonicClock_1aa9ad88c8f25a31f176ad0eda69ca4998" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void mediapipe::MonotonicClock::ResetCorrectionMetrics</definition>
+        <argsstring>()=0</argsstring>
+        <name>ResetCorrectionMetrics</name>
+        <qualifiedname>mediapipe::MonotonicClock::ResetCorrectionMetrics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/monotonic_clock.h" line="60" column="16"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1MonotonicClock_1a4ec704cfbe77c57e01b37c0cff1aaf1c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>MonotonicClock *</type>
+        <definition>MonotonicClock * mediapipe::MonotonicClock::CreateMonotonicClock</definition>
+        <argsstring>(Clock *raw_clock)</argsstring>
+        <name>CreateMonotonicClock</name>
+        <qualifiedname>mediapipe::MonotonicClock::CreateMonotonicClock</qualifiedname>
+        <param>
+          <type>Clock *</type>
+          <declname>raw_clock</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/monotonic_clock.h" line="68" column="25" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/monotonic_clock.cc" bodystart="185" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1MonotonicClock_1a682e0769168f7fa417df45f328651349" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>MonotonicClock *</type>
+        <definition>MonotonicClock * mediapipe::MonotonicClock::CreateSynchronizedMonotonicClock</definition>
+        <argsstring>()</argsstring>
+        <name>CreateSynchronizedMonotonicClock</name>
+        <qualifiedname>mediapipe::MonotonicClock::CreateSynchronizedMonotonicClock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/monotonic_clock.h" line="78" column="25" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/monotonic_clock.cc" bodystart="200" bodyend="205"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/monotonic_clock.h" line="37" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/monotonic_clock.h" bodystart="37" bodyend="79"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1MonotonicClock_1a4ec704cfbe77c57e01b37c0cff1aaf1c" prot="public" virt="non-virtual"><scope>mediapipe::MonotonicClock</scope><name>CreateMonotonicClock</name></member>
+      <member refid="classmediapipe_1_1MonotonicClock_1a682e0769168f7fa417df45f328651349" prot="public" virt="non-virtual"><scope>mediapipe::MonotonicClock</scope><name>CreateSynchronizedMonotonicClock</name></member>
+      <member refid="classmediapipe_1_1MonotonicClock_1ac87949d07847e7704a33aedf6f5826d6" prot="public" virt="pure-virtual"><scope>mediapipe::MonotonicClock</scope><name>GetCorrectionMetrics</name></member>
+      <member refid="classmediapipe_1_1Clock_1a3b8d93970521d552e284855445e29c09" prot="public" virt="non-virtual"><scope>mediapipe::MonotonicClock</scope><name>RealClock</name></member>
+      <member refid="classmediapipe_1_1MonotonicClock_1aa9ad88c8f25a31f176ad0eda69ca4998" prot="public" virt="pure-virtual"><scope>mediapipe::MonotonicClock</scope><name>ResetCorrectionMetrics</name></member>
+      <member refid="classmediapipe_1_1MonotonicClock_1a29aa306773cf5137e995cd3aac3e7ea0" prot="public" virt="pure-virtual"><scope>mediapipe::MonotonicClock</scope><name>Sleep</name></member>
+      <member refid="classmediapipe_1_1MonotonicClock_1a31f1183522d9f46f2efaf3afe731c43b" prot="public" virt="pure-virtual"><scope>mediapipe::MonotonicClock</scope><name>SleepUntil</name></member>
+      <member refid="classmediapipe_1_1MonotonicClock_1a10b541aba96105d52f6046462da19185" prot="public" virt="pure-virtual"><scope>mediapipe::MonotonicClock</scope><name>TimeNow</name></member>
+      <member refid="classmediapipe_1_1Clock_1a8ec92508052211a527023f58fb39edb6" prot="public" virt="virtual"><scope>mediapipe::MonotonicClock</scope><name>~Clock</name></member>
+      <member refid="classmediapipe_1_1MonotonicClock_1a8c79d63a1458b61f9f42b6b0c0cba2cb" prot="public" virt="non-virtual"><scope>mediapipe::MonotonicClock</scope><name>~MonotonicClock</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

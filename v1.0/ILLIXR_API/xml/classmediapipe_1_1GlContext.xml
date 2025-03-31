@@ -1,0 +1,1243 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1GlContext" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::GlContext</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">std::enable_shared_from_this&lt; GlContext &gt;</basecompoundref>
+    <innerclass refid="structmediapipe_1_1GlContext_1_1ContextBinding" prot="private">mediapipe::GlContext::ContextBinding</innerclass>
+    <innerclass refid="classmediapipe_1_1GlContext_1_1DedicatedThread" prot="public">mediapipe::GlContext::DedicatedThread</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classmediapipe_1_1GlContext_1a5d9bb2c0775c02c74e22f9dabc1389d4" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>SyncTokenTypeForTest</name>
+        <qualifiedname>mediapipe::GlContext::SyncTokenTypeForTest</qualifiedname>
+        <enumvalue id="classmediapipe_1_1GlContext_1a5d9bb2c0775c02c74e22f9dabc1389d4ab152911b220215d05f884349fb9989ee" prot="public">
+          <name>kGlFinish</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="327" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="327" bodyend="329"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmediapipe_1_1GlContext_1a84045f68817dfc18e89d8c5423de183e" prot="public" static="no">
+        <type>absl::StatusOr&lt; std::shared_ptr&lt; GlContext &gt; &gt;</type>
+        <definition>using mediapipe::GlContext::StatusOrGlContext =  absl::StatusOr&lt;std::shared_ptr&lt;GlContext&gt; &gt;</definition>
+        <argsstring></argsstring>
+        <name>StatusOrGlContext</name>
+        <qualifiedname>mediapipe::GlContext::StatusOrGlContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="153" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmediapipe_1_1GlContext_1a7d17a2929aab368aa4f23e6ac5523727" prot="public" static="no">
+        <type>internal::AttachmentBase&lt; GlContext &gt;</type>
+        <definition>using mediapipe::GlContext::AttachmentBase =  internal::AttachmentBase&lt;GlContext&gt;</definition>
+        <argsstring></argsstring>
+        <name>AttachmentBase</name>
+        <qualifiedname>mediapipe::GlContext::AttachmentBase</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="293" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="293" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmediapipe_1_1GlContext_1a712d0a988abf5a3b9594089bf8ab6ef0" prot="public" static="no">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type>internal::Attachment&lt; GlContext, T &gt;</type>
+        <definition>using mediapipe::GlContext::Attachment =  internal::Attachment&lt;GlContext, T&gt;</definition>
+        <argsstring></argsstring>
+        <name>Attachment</name>
+        <qualifiedname>mediapipe::GlContext::Attachment</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="295" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="295" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1GlContext_1a8ffa463fb2d4652c2344bfc941f7c45c" prot="private" static="no" mutable="no">
+        <type>friend</type>
+        <definition>friend mediapipe::GlContext::GlSyncWrapper</definition>
+        <argsstring></argsstring>
+        <name>GlSyncWrapper</name>
+        <qualifiedname>mediapipe::GlContext::GlSyncWrapper</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="335" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="335" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GlContext_1aad4d8b33db05d8fa4b552e74a83204df" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; DedicatedThread &gt;</type>
+        <definition>std::unique_ptr&lt;DedicatedThread&gt; mediapipe::GlContext::thread_</definition>
+        <argsstring></argsstring>
+        <name>thread_</name>
+        <qualifiedname>mediapipe::GlContext::thread_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="443" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="443" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GlContext_1ad64bcc62010be86c6e33c78f02823e35" prot="private" static="no" mutable="no">
+        <type>GLint</type>
+        <definition>GLint mediapipe::GlContext::gl_major_version_</definition>
+        <argsstring></argsstring>
+        <name>gl_major_version_</name>
+        <qualifiedname>mediapipe::GlContext::gl_major_version_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="445" column="9" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="445" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GlContext_1a2e6d64e9e750198a530bb72db4dbfe42" prot="private" static="no" mutable="no">
+        <type>GLint</type>
+        <definition>GLint mediapipe::GlContext::gl_minor_version_</definition>
+        <argsstring></argsstring>
+        <name>gl_minor_version_</name>
+        <qualifiedname>mediapipe::GlContext::gl_minor_version_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="446" column="9" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="446" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GlContext_1af3a918132abfc49cd74aaaea96beb405" prot="private" static="no" mutable="no">
+        <type>std::set&lt; absl::string_view &gt;</type>
+        <definition>std::set&lt;absl::string_view&gt; mediapipe::GlContext::gl_extensions_</definition>
+        <argsstring></argsstring>
+        <name>gl_extensions_</name>
+        <qualifiedname>mediapipe::GlContext::gl_extensions_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="450" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="450" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GlContext_1a593a7fbf6eb9fae4ea9c76bc54d6020c" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::GlContext::can_linear_filter_float_textures_</definition>
+        <argsstring></argsstring>
+        <name>can_linear_filter_float_textures_</name>
+        <qualifiedname>mediapipe::GlContext::can_linear_filter_float_textures_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="454" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="454" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GlContext_1a7cc555dc9b6349584d8d382e73137e4d" prot="private" static="no" mutable="no">
+        <type>absl::flat_hash_map&lt; const AttachmentBase *, internal::AttachmentPtr&lt; void &gt; &gt;</type>
+        <definition>absl::flat_hash_map&lt;const AttachmentBase*, internal::AttachmentPtr&lt;void&gt; &gt; mediapipe::GlContext::attachments_</definition>
+        <argsstring></argsstring>
+        <name>attachments_</name>
+        <qualifiedname>mediapipe::GlContext::attachments_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="457" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="457" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GlContext_1ad5b97e04a8b14fcdbfb0623b05f5738c" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; int64_t &gt;</type>
+        <definition>std::atomic&lt;int64_t&gt; mediapipe::GlContext::gl_finish_count_</definition>
+        <argsstring></argsstring>
+        <name>gl_finish_count_</name>
+        <qualifiedname>mediapipe::GlContext::gl_finish_count_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="462" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="462" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GlContext_1a3e89b13b120d7e02745c9b89926f3e96" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; int64_t &gt;</type>
+        <definition>std::atomic&lt;int64_t&gt; mediapipe::GlContext::gl_finish_count_target_</definition>
+        <argsstring></argsstring>
+        <name>gl_finish_count_target_</name>
+        <qualifiedname>mediapipe::GlContext::gl_finish_count_target_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="463" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="463" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GlContext_1a98e2259805eabcafaccfd4dc2b005ed1" prot="private" static="no" mutable="no">
+        <type>absl::Mutex</type>
+        <definition>absl::Mutex mediapipe::GlContext::context_use_mutex_</definition>
+        <argsstring></argsstring>
+        <name>context_use_mutex_</name>
+        <qualifiedname>mediapipe::GlContext::context_use_mutex_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="470" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="470" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GlContext_1aaf439646c61716402cf2c616b4e1260e" prot="private" static="no" mutable="no">
+        <type>absl::Mutex</type>
+        <definition>absl::Mutex mediapipe::GlContext::mutex_</definition>
+        <argsstring></argsstring>
+        <name>mutex_</name>
+        <qualifiedname>mediapipe::GlContext::mutex_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="474" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="474" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GlContext_1ad8d7573743eb0414ab3fb3ac9690c477" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; mediapipe::GlProfilingHelper &gt;</type>
+        <definition>std::unique_ptr&lt;mediapipe::GlProfilingHelper&gt; mediapipe::GlContext::profiling_helper_</definition>
+        <argsstring></argsstring>
+        <name>profiling_helper_</name>
+        <qualifiedname>mediapipe::GlContext::profiling_helper_</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="477" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="477" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1GlContext_1a2e7164afb6ff842909714d781e9036e2" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::GlContext::destructing_</definition>
+        <argsstring></argsstring>
+        <name>destructing_</name>
+        <qualifiedname>mediapipe::GlContext::destructing_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="479" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="479" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1ae741433e7088f1e9d8e5e70e95db550e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>StatusOrGlContext</type>
+        <definition>static StatusOrGlContext mediapipe::GlContext::Create</definition>
+        <argsstring>(std::nullptr_t nullp, bool create_thread)</argsstring>
+        <name>Create</name>
+        <qualifiedname>mediapipe::GlContext::Create</qualifiedname>
+        <param>
+          <type>std::nullptr_t</type>
+          <declname>nullp</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>create_thread</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="163" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a24da247d2eab5a3bf188f8e22923ed9d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>StatusOrGlContext</type>
+        <definition>static StatusOrGlContext mediapipe::GlContext::Create</definition>
+        <argsstring>(const GlContext &amp;share_context, bool create_thread)</argsstring>
+        <name>Create</name>
+        <qualifiedname>mediapipe::GlContext::Create</qualifiedname>
+        <param>
+          <type>const GlContext &amp;</type>
+          <declname>share_context</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>create_thread</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="164" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1ab6fad6da89c8fe027dd44ae4313a5b00" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>StatusOrGlContext</type>
+        <definition>static StatusOrGlContext mediapipe::GlContext::Create</definition>
+        <argsstring>(PlatformGlContext share_context, bool create_thread)</argsstring>
+        <name>Create</name>
+        <qualifiedname>mediapipe::GlContext::Create</qualifiedname>
+        <param>
+          <type>PlatformGlContext</type>
+          <declname>share_context</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>create_thread</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="166" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a879b3efd5ee351af27ad756b84d4f556" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; GlContext &gt;</type>
+        <definition>std::shared_ptr&lt; GlContext &gt; mediapipe::GlContext::GetCurrent</definition>
+        <argsstring>()</argsstring>
+        <name>GetCurrent</name>
+        <qualifiedname>mediapipe::GlContext::GetCurrent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="174" column="26" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="565" bodyend="567"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a06b6b00fbbc0090ce54510402ce7e227" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::GlContext::ParseGlVersion</definition>
+        <argsstring>(absl::string_view version_string, GLint *major, GLint *minor)</argsstring>
+        <name>ParseGlVersion</name>
+        <qualifiedname>mediapipe::GlContext::ParseGlVersion</qualifiedname>
+        <param>
+          <type>absl::string_view</type>
+          <declname>version_string</declname>
+        </param>
+        <param>
+          <type>GLint *</type>
+          <declname>major</declname>
+        </param>
+        <param>
+          <type>GLint *</type>
+          <declname>minor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="248" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="193" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a3149743aaed6181401e1ec86a3c380f8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::GlContext::IsAnyContextCurrent</definition>
+        <argsstring>()</argsstring>
+        <name>IsAnyContextCurrent</name>
+        <qualifiedname>mediapipe::GlContext::IsAnyContextCurrent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="310" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="902" bodyend="904"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1ab82436977c9572ccf40a542a4d84d8d4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>PlatformGlContext</type>
+        <definition>PlatformGlContext mediapipe::GlContext::GetCurrentNativeContext</definition>
+        <argsstring>()</argsstring>
+        <name>GetCurrentNativeContext</name>
+        <qualifiedname>mediapipe::GlContext::GetCurrentNativeContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="314" column="28" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="896" bodyend="900"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1aa33029dc55416f6a95605bc2874bf6ba" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; GlSyncPoint &gt;</type>
+        <definition>std::shared_ptr&lt; GlSyncPoint &gt; mediapipe::GlContext::CreateSyncTokenForCurrentExternalContext</definition>
+        <argsstring>(const std::shared_ptr&lt; GlContext &gt; &amp;delegate_graph_context)</argsstring>
+        <name>CreateSyncTokenForCurrentExternalContext</name>
+        <qualifiedname>mediapipe::GlContext::CreateSyncTokenForCurrentExternalContext</qualifiedname>
+        <param>
+          <type>const std::shared_ptr&lt; GlContext &gt; &amp;</type>
+          <declname>delegate_graph_context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="322" column="26" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="907" bodyend="918"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1af912297078395fa3227e676e35878e61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::GlContext::GlContext</definition>
+        <argsstring>(const GlContext &amp;)=delete</argsstring>
+        <name>GlContext</name>
+        <qualifiedname>mediapipe::GlContext::GlContext</qualifiedname>
+        <param>
+          <type>const GlContext &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="176" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a5aeb574f383cf82df4823fef8c341db2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GlContext &amp;</type>
+        <definition>GlContext &amp; mediapipe::GlContext::operator=</definition>
+        <argsstring>(const GlContext &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>mediapipe::GlContext::operator=</qualifiedname>
+        <param>
+          <type>const GlContext &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="177" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a4268ce1c3707c72daa481db2a1070d69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::GlContext::~GlContext</definition>
+        <argsstring>()</argsstring>
+        <name>~GlContext</name>
+        <qualifiedname>mediapipe::GlContext::~GlContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="178" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="385" bodyend="423"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a77932719462a871c960224547fb0adfe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlContext::SetProfilingContext</definition>
+        <argsstring>(std::shared_ptr&lt; mediapipe::ProfilingContext &gt; profiling_context)</argsstring>
+        <name>SetProfilingContext</name>
+        <qualifiedname>mediapipe::GlContext::SetProfilingContext</qualifiedname>
+        <param>
+          <type>std::shared_ptr&lt; mediapipe::ProfilingContext &gt;</type>
+          <declname>profiling_context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="184" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="425" bodyend="431"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1ab7bea9832f7c15bf14aa65a15f15cf17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::GlContext::Run</definition>
+        <argsstring>(GlStatusFunction gl_func, int node_id=-1, Timestamp input_timestamp=Timestamp::Unset())</argsstring>
+        <name>Run</name>
+        <qualifiedname>mediapipe::GlContext::Run</qualifiedname>
+        <param>
+          <type>GlStatusFunction</type>
+          <declname>gl_func</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>node_id</declname>
+          <defval>-1</defval>
+        </param>
+        <param>
+          <type>Timestamp</type>
+          <declname>input_timestamp</declname>
+          <defval>Timestamp::Unset()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="189" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="442" bodyend="467"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a286510511253679eb6d6310ae0d7a4c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlContext::RunWithoutWaiting</definition>
+        <argsstring>(GlVoidFunction gl_func)</argsstring>
+        <name>RunWithoutWaiting</name>
+        <qualifiedname>mediapipe::GlContext::RunWithoutWaiting</qualifiedname>
+        <param>
+          <type>GlVoidFunction</type>
+          <declname>gl_func</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="193" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="469" bodyend="487"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1aefedca4db3ffe356d595d245a1cba608" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; GlSyncPoint &gt;</type>
+        <definition>std::shared_ptr&lt; GlSyncPoint &gt; mediapipe::GlContext::CreateSyncToken</definition>
+        <argsstring>()</argsstring>
+        <name>CreateSyncToken</name>
+        <qualifiedname>mediapipe::GlContext::CreateSyncToken</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="196" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="882" bodyend="894"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a5f270d2bd666aa896f5f2e8f965b19a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlContext::GlFinishCalled</definition>
+        <argsstring>()</argsstring>
+        <name>GlFinishCalled</name>
+        <qualifiedname>mediapipe::GlContext::GlFinishCalled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="202" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="569" bodyend="573"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a78b532970fe2539b0467aded0b85b2e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlContext::WaitSyncToken</definition>
+        <argsstring>(const std::shared_ptr&lt; GlSyncPoint &gt; &amp;token)</argsstring>
+        <name>WaitSyncToken</name>
+        <qualifiedname>mediapipe::GlContext::WaitSyncToken</qualifiedname>
+        <param>
+          <type>const std::shared_ptr&lt; GlSyncPoint &gt; &amp;</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="207" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="1024" bodyend="1027"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a6c96feb7ed9eb3de3d362902a079725c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::GlContext::SyncTokenIsReady</definition>
+        <argsstring>(const std::shared_ptr&lt; GlSyncPoint &gt; &amp;token)</argsstring>
+        <name>SyncTokenIsReady</name>
+        <qualifiedname>mediapipe::GlContext::SyncTokenIsReady</qualifiedname>
+        <param>
+          <type>const std::shared_ptr&lt; GlSyncPoint &gt; &amp;</type>
+          <declname>token</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="212" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="1029" bodyend="1032"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1adcebcfa6bc9bab295458bd9d330f6359" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>PlatformGlContext</type>
+        <definition>PlatformGlContext mediapipe::GlContext::native_context</definition>
+        <argsstring>() const</argsstring>
+        <name>native_context</name>
+        <qualifiedname>mediapipe::GlContext::native_context</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="240" column="21" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="240" bodyend="240"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1ab8121d1bb2e494cf89b6cac82b0e0e1d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::GlContext::IsCurrent</definition>
+        <argsstring>() const</argsstring>
+        <name>IsCurrent</name>
+        <qualifiedname>mediapipe::GlContext::IsCurrent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="243" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1af7dedf91bc6da4e5603f577c988927eb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>GLint</type>
+        <definition>GLint mediapipe::GlContext::gl_major_version</definition>
+        <argsstring>() const</argsstring>
+        <name>gl_major_version</name>
+        <qualifiedname>mediapipe::GlContext::gl_major_version</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="245" column="9" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="245" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a00982ef63e75c4f5a68fdc2868b0ef22" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>GLint</type>
+        <definition>GLint mediapipe::GlContext::gl_minor_version</definition>
+        <argsstring>() const</argsstring>
+        <name>gl_minor_version</name>
+        <qualifiedname>mediapipe::GlContext::gl_minor_version</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="246" column="9" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="246" bodyend="246"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a4f6f6030e959cd53184a30247ca09a5c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>GlVersion</type>
+        <definition>GlVersion mediapipe::GlContext::GetGlVersion</definition>
+        <argsstring>() const</argsstring>
+        <name>GetGlVersion</name>
+        <qualifiedname>mediapipe::GlContext::GetGlVersion</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="253" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="223" bodyend="229"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1ac1eb364528e46063a76894c0550b5756" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::GlContext::HasGlExtension</definition>
+        <argsstring>(absl::string_view extension) const</argsstring>
+        <name>HasGlExtension</name>
+        <qualifiedname>mediapipe::GlContext::HasGlExtension</qualifiedname>
+        <param>
+          <type>absl::string_view</type>
+          <declname>extension</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="257" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="231" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a2807f390cecd00341c4703db14d10621" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t mediapipe::GlContext::gl_finish_count</definition>
+        <argsstring>()</argsstring>
+        <name>gl_finish_count</name>
+        <qualifiedname>mediapipe::GlContext::gl_finish_count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="259" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="259" bodyend="259"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a00049f27ef96247d1b0e9b07b3e93b31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlContext::WaitForGlFinishCountPast</definition>
+        <argsstring>(int64_t count_to_pass)</argsstring>
+        <name>WaitForGlFinishCountPast</name>
+        <qualifiedname>mediapipe::GlContext::WaitForGlFinishCountPast</qualifiedname>
+        <param>
+          <type>int64_t</type>
+          <declname>count_to_pass</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="263" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="941" bodyend="1022"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1ad75161b55f3811822ba6a310b8c7a019" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename</type>
+            <defval>typename std::enable_if&lt;std::is_void&lt;                            typename std::result_of&lt;T()&gt;::type&gt;::value&gt;::type</defval>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void mediapipe::GlContext::Run</definition>
+        <argsstring>(T f)</argsstring>
+        <name>Run</name>
+        <qualifiedname>mediapipe::GlContext::Run</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="283" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="283" bodyend="288"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a68789a7b7198241a6227ba24a82a0a76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlContext::SetStandardTextureParams</definition>
+        <argsstring>(GLenum target, GLint internal_format)</argsstring>
+        <name>SetStandardTextureParams</name>
+        <qualifiedname>mediapipe::GlContext::SetStandardTextureParams</qualifiedname>
+        <param>
+          <type>GLenum</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>GLint</type>
+          <declname>internal_format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="291" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="1096" bodyend="1115"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a2cf66a2785a6ed22789d1baab1d6d571" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type>T &amp;</type>
+        <definition>T &amp; mediapipe::GlContext::GetCachedAttachment</definition>
+        <argsstring>(const Attachment&lt; T &gt; &amp;attachment)</argsstring>
+        <name>GetCachedAttachment</name>
+        <qualifiedname>mediapipe::GlContext::GetCachedAttachment</qualifiedname>
+        <param>
+          <type>const Attachment&lt; T &gt; &amp;</type>
+          <declname>attachment</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="299" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="299" bodyend="306"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1abeb861ebc773d0f66e2c91f4d3cdc3a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; GlSyncPoint &gt;</type>
+        <definition>std::shared_ptr&lt; GlSyncPoint &gt; mediapipe::GlContext::TestOnly_CreateSpecificSyncToken</definition>
+        <argsstring>(SyncTokenTypeForTest type)</argsstring>
+        <name>TestOnly_CreateSpecificSyncToken</name>
+        <qualifiedname>mediapipe::GlContext::TestOnly_CreateSpecificSyncToken</qualifiedname>
+        <param>
+          <type>SyncTokenTypeForTest</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="330" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="920" bodyend="929"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1acdef9b6770c11e6e97f75fc5c7187811" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::GlContext::GlContext</definition>
+        <argsstring>()</argsstring>
+        <name>GlContext</name>
+        <qualifiedname>mediapipe::GlContext::GlContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="337" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="383" bodyend="383"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1ae4936574aed19f35ea97130c63e09b77" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::GlContext::ShouldUseFenceSync</definition>
+        <argsstring>() const</argsstring>
+        <name>ShouldUseFenceSync</name>
+        <qualifiedname>mediapipe::GlContext::ShouldUseFenceSync</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="339" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="860" bodyend="880"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1adcf83a49292c7a36b9bbfdc3bad0af4c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::GlContext::FinishInitialization</definition>
+        <argsstring>(bool create_thread)</argsstring>
+        <name>FinishInitialization</name>
+        <qualifiedname>mediapipe::GlContext::FinishInitialization</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>create_thread</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="391" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="296" bodyend="381"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a8346948b776cb9f91d1ae3286b6c0938" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::GlContext::EnterContext</definition>
+        <argsstring>(ContextBinding *saved_context)</argsstring>
+        <name>EnterContext</name>
+        <qualifiedname>mediapipe::GlContext::EnterContext</qualifiedname>
+        <param>
+          <type>ContextBinding *</type>
+          <declname>saved_context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="399" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="552" bodyend="555"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a1632420f787fefe9d2bf7e82fa2e11a5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::GlContext::ExitContext</definition>
+        <argsstring>(const ContextBinding *saved_context)</argsstring>
+        <name>ExitContext</name>
+        <qualifiedname>mediapipe::GlContext::ExitContext</qualifiedname>
+        <param>
+          <type>const ContextBinding *</type>
+          <declname>saved_context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="400" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="557" bodyend="563"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a241a3996048afe7ea2f589b71e908e42" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlContext::DestroyContext</definition>
+        <argsstring>()</argsstring>
+        <name>DestroyContext</name>
+        <qualifiedname>mediapipe::GlContext::DestroyContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="401" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a69ec3be200b47fe64c9a790125019b85" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::GlContext::HasContext</definition>
+        <argsstring>() const</argsstring>
+        <name>HasContext</name>
+        <qualifiedname>mediapipe::GlContext::HasContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="403" column="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1aa3ed21e4ec236b53799729e7a66f1ce4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlContext::ForceClearExistingGlErrors</definition>
+        <argsstring>()</argsstring>
+        <name>ForceClearExistingGlErrors</name>
+        <qualifiedname>mediapipe::GlContext::ForceClearExistingGlErrors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="408" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="1034" bodyend="1036"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a7ca43b82a250e4aeab783f8a04005408" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::GlContext::CheckForGlErrors</definition>
+        <argsstring>()</argsstring>
+        <name>CheckForGlErrors</name>
+        <qualifiedname>mediapipe::GlContext::CheckForGlErrors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="412" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="1038" bodyend="1038"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a2815d8d200f61434f5bc3c51a3af9643" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::GlContext::CheckForGlErrors</definition>
+        <argsstring>(bool force)</argsstring>
+        <name>CheckForGlErrors</name>
+        <qualifiedname>mediapipe::GlContext::CheckForGlErrors</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>force</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="416" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="1040" bodyend="1076"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a4093f757dfeb792f3920a287c5cdc367" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::GlContext::LogUncheckedGlErrors</definition>
+        <argsstring>(bool had_gl_errors)</argsstring>
+        <name>LogUncheckedGlErrors</name>
+        <qualifiedname>mediapipe::GlContext::LogUncheckedGlErrors</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>had_gl_errors</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="418" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="1078" bodyend="1087"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a9da8c16f5f5f30522ad7673d1b2c4204" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::GlContext::GetGlExtensions</definition>
+        <argsstring>()</argsstring>
+        <name>GetGlExtensions</name>
+        <qualifiedname>mediapipe::GlContext::GetGlExtensions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="419" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="239" bodyend="278"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a8e43cbb2513998d05177179e774c3b94" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::GlContext::GetGlExtensionsCompat</definition>
+        <argsstring>()</argsstring>
+        <name>GetGlExtensionsCompat</name>
+        <qualifiedname>mediapipe::GlContext::GetGlExtensionsCompat</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="420" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="282" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a3809e3524f6c26b19c225839c9e30cd7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::GlContext::SwitchContextAndRun</definition>
+        <argsstring>(GlStatusFunction gl_func)</argsstring>
+        <name>SwitchContextAndRun</name>
+        <qualifiedname>mediapipe::GlContext::SwitchContextAndRun</qualifiedname>
+        <param>
+          <type>GlStatusFunction</type>
+          <declname>gl_func</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="425" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="433" bodyend="440"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1af3f4e80e5b4689af8b2c5f0697cef65b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ContextBinding</type>
+        <definition>GlContext::ContextBinding mediapipe::GlContext::ThisContextBinding</definition>
+        <argsstring>()</argsstring>
+        <name>ThisContextBinding</name>
+        <qualifiedname>mediapipe::GlContext::ThisContextBinding</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="431" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="544" bodyend="550"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1abfc9f1c74789b34f3de6fa0dbe72b76e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ContextBinding</type>
+        <definition>ContextBinding mediapipe::GlContext::ThisContextBindingPlatform</definition>
+        <argsstring>()</argsstring>
+        <name>ThisContextBindingPlatform</name>
+        <qualifiedname>mediapipe::GlContext::ThisContextBindingPlatform</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="433" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a8bb3daa4f8b8c3165ec4cf47f42284e6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GlContext *context_waiting_on_</type>
+        <definition>GlContext *context_waiting_on_ mediapipe::GlContext::ABSL_GUARDED_BY</definition>
+        <argsstring>(mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::GlContext::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="465" column="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a228a165cef97a63db7970b40bbb4514e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::CondVar wait_for_gl_finish_cv_</type>
+        <definition>absl::CondVar wait_for_gl_finish_cv_ mediapipe::GlContext::ABSL_GUARDED_BY</definition>
+        <argsstring>(mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::GlContext::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="475" column="40"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a8feb210e4b3eeaf3266219b93b1f85ce" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::weak_ptr&lt; GlContext &gt; &amp;</type>
+        <definition>std::weak_ptr&lt; GlContext &gt; &amp; mediapipe::GlContext::CurrentContext</definition>
+        <argsstring>()</argsstring>
+        <name>CurrentContext</name>
+        <qualifiedname>mediapipe::GlContext::CurrentContext</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="394" column="24" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="489" bodyend="496"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1aa2aea1b4addb561c268499d5de390466" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::GlContext::SwitchContext</definition>
+        <argsstring>(ContextBinding *saved_context, const ContextBinding &amp;new_context)</argsstring>
+        <name>SwitchContext</name>
+        <qualifiedname>mediapipe::GlContext::SwitchContext</qualifiedname>
+        <param>
+          <type>ContextBinding *</type>
+          <declname>saved_context</declname>
+        </param>
+        <param>
+          <type>const ContextBinding &amp;</type>
+          <declname>new_context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="396" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.cc" bodystart="498" bodyend="542"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a66dcdb5e336d77ce775218b81406ff0e" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void mediapipe::GlContext::GetCurrentContextBinding</definition>
+        <argsstring>(ContextBinding *binding)</argsstring>
+        <name>GetCurrentContextBinding</name>
+        <qualifiedname>mediapipe::GlContext::GetCurrentContextBinding</qualifiedname>
+        <param>
+          <type>ContextBinding *</type>
+          <declname>binding</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="436" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlContext_1a4f79352bf7630ac8af34bc0b68c226fd" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>static absl::Status mediapipe::GlContext::SetCurrentContextBinding</definition>
+        <argsstring>(const ContextBinding &amp;new_binding)</argsstring>
+        <name>SetCurrentContextBinding</name>
+        <qualifiedname>mediapipe::GlContext::SetCurrentContextBinding</qualifiedname>
+        <param>
+          <type>const ContextBinding &amp;</type>
+          <declname>new_binding</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="438" column="23"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" line="151" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_context.h" bodystart="151" bodyend="480"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1GlContext_1a8bb3daa4f8b8c3165ec4cf47f42284e6" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a228a165cef97a63db7970b40bbb4514e" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a712d0a988abf5a3b9594089bf8ab6ef0" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>Attachment</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a7d17a2929aab368aa4f23e6ac5523727" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>AttachmentBase</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a7cc555dc9b6349584d8d382e73137e4d" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>attachments_</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a593a7fbf6eb9fae4ea9c76bc54d6020c" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>can_linear_filter_float_textures_</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a7ca43b82a250e4aeab783f8a04005408" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>CheckForGlErrors</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a2815d8d200f61434f5bc3c51a3af9643" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>CheckForGlErrors</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a98e2259805eabcafaccfd4dc2b005ed1" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>context_use_mutex_</name></member>
+      <member refid="classmediapipe_1_1GlContext_1ae741433e7088f1e9d8e5e70e95db550e" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>Create</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a24da247d2eab5a3bf188f8e22923ed9d" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>Create</name></member>
+      <member refid="classmediapipe_1_1GlContext_1ab6fad6da89c8fe027dd44ae4313a5b00" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>Create</name></member>
+      <member refid="classmediapipe_1_1GlContext_1aefedca4db3ffe356d595d245a1cba608" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>CreateSyncToken</name></member>
+      <member refid="classmediapipe_1_1GlContext_1aa33029dc55416f6a95605bc2874bf6ba" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>CreateSyncTokenForCurrentExternalContext</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a8feb210e4b3eeaf3266219b93b1f85ce" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>CurrentContext</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a241a3996048afe7ea2f589b71e908e42" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>DestroyContext</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a2e7164afb6ff842909714d781e9036e2" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>destructing_</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a8346948b776cb9f91d1ae3286b6c0938" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>EnterContext</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a1632420f787fefe9d2bf7e82fa2e11a5" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>ExitContext</name></member>
+      <member refid="classmediapipe_1_1GlContext_1adcf83a49292c7a36b9bbfdc3bad0af4c" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>FinishInitialization</name></member>
+      <member refid="classmediapipe_1_1GlContext_1aa3ed21e4ec236b53799729e7a66f1ce4" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>ForceClearExistingGlErrors</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a2cf66a2785a6ed22789d1baab1d6d571" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>GetCachedAttachment</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a879b3efd5ee351af27ad756b84d4f556" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>GetCurrent</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a66dcdb5e336d77ce775218b81406ff0e" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>GetCurrentContextBinding</name></member>
+      <member refid="classmediapipe_1_1GlContext_1ab82436977c9572ccf40a542a4d84d8d4" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>GetCurrentNativeContext</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a9da8c16f5f5f30522ad7673d1b2c4204" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>GetGlExtensions</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a8e43cbb2513998d05177179e774c3b94" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>GetGlExtensionsCompat</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a4f6f6030e959cd53184a30247ca09a5c" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>GetGlVersion</name></member>
+      <member refid="classmediapipe_1_1GlContext_1af3a918132abfc49cd74aaaea96beb405" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>gl_extensions_</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a2807f390cecd00341c4703db14d10621" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>gl_finish_count</name></member>
+      <member refid="classmediapipe_1_1GlContext_1ad5b97e04a8b14fcdbfb0623b05f5738c" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>gl_finish_count_</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a3e89b13b120d7e02745c9b89926f3e96" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>gl_finish_count_target_</name></member>
+      <member refid="classmediapipe_1_1GlContext_1af7dedf91bc6da4e5603f577c988927eb" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>gl_major_version</name></member>
+      <member refid="classmediapipe_1_1GlContext_1ad64bcc62010be86c6e33c78f02823e35" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>gl_major_version_</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a00982ef63e75c4f5a68fdc2868b0ef22" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>gl_minor_version</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a2e6d64e9e750198a530bb72db4dbfe42" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>gl_minor_version_</name></member>
+      <member refid="classmediapipe_1_1GlContext_1af912297078395fa3227e676e35878e61" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>GlContext</name></member>
+      <member refid="classmediapipe_1_1GlContext_1acdef9b6770c11e6e97f75fc5c7187811" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>GlContext</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a5f270d2bd666aa896f5f2e8f965b19a5" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>GlFinishCalled</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a8ffa463fb2d4652c2344bfc941f7c45c" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>GlSyncWrapper</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a69ec3be200b47fe64c9a790125019b85" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>HasContext</name></member>
+      <member refid="classmediapipe_1_1GlContext_1ac1eb364528e46063a76894c0550b5756" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>HasGlExtension</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a3149743aaed6181401e1ec86a3c380f8" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>IsAnyContextCurrent</name></member>
+      <member refid="classmediapipe_1_1GlContext_1ab8121d1bb2e494cf89b6cac82b0e0e1d" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>IsCurrent</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a4093f757dfeb792f3920a287c5cdc367" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>LogUncheckedGlErrors</name></member>
+      <member refid="classmediapipe_1_1GlContext_1aaf439646c61716402cf2c616b4e1260e" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>mutex_</name></member>
+      <member refid="classmediapipe_1_1GlContext_1adcebcfa6bc9bab295458bd9d330f6359" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>native_context</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a5aeb574f383cf82df4823fef8c341db2" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>operator=</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a06b6b00fbbc0090ce54510402ce7e227" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>ParseGlVersion</name></member>
+      <member refid="classmediapipe_1_1GlContext_1ad8d7573743eb0414ab3fb3ac9690c477" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>profiling_helper_</name></member>
+      <member refid="classmediapipe_1_1GlContext_1ab7bea9832f7c15bf14aa65a15f15cf17" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>Run</name></member>
+      <member refid="classmediapipe_1_1GlContext_1ad75161b55f3811822ba6a310b8c7a019" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>Run</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a286510511253679eb6d6310ae0d7a4c9" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>RunWithoutWaiting</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a4f79352bf7630ac8af34bc0b68c226fd" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>SetCurrentContextBinding</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a77932719462a871c960224547fb0adfe" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>SetProfilingContext</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a68789a7b7198241a6227ba24a82a0a76" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>SetStandardTextureParams</name></member>
+      <member refid="classmediapipe_1_1GlContext_1ae4936574aed19f35ea97130c63e09b77" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>ShouldUseFenceSync</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a84045f68817dfc18e89d8c5423de183e" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>StatusOrGlContext</name></member>
+      <member refid="classmediapipe_1_1GlContext_1aa2aea1b4addb561c268499d5de390466" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>SwitchContext</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a3809e3524f6c26b19c225839c9e30cd7" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>SwitchContextAndRun</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a6c96feb7ed9eb3de3d362902a079725c" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>SyncTokenIsReady</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a5d9bb2c0775c02c74e22f9dabc1389d4" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>SyncTokenTypeForTest</name></member>
+      <member refid="classmediapipe_1_1GlContext_1abeb861ebc773d0f66e2c91f4d3cdc3a1" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>TestOnly_CreateSpecificSyncToken</name></member>
+      <member refid="classmediapipe_1_1GlContext_1af3f4e80e5b4689af8b2c5f0697cef65b" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>ThisContextBinding</name></member>
+      <member refid="classmediapipe_1_1GlContext_1abfc9f1c74789b34f3de6fa0dbe72b76e" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>ThisContextBindingPlatform</name></member>
+      <member refid="classmediapipe_1_1GlContext_1aad4d8b33db05d8fa4b552e74a83204df" prot="private" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>thread_</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a00049f27ef96247d1b0e9b07b3e93b31" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>WaitForGlFinishCountPast</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a78b532970fe2539b0467aded0b85b2e1" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>WaitSyncToken</name></member>
+      <member refid="classmediapipe_1_1GlContext_1a4268ce1c3707c72daa481db2a1070d69" prot="public" virt="non-virtual"><scope>mediapipe::GlContext</scope><name>~GlContext</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

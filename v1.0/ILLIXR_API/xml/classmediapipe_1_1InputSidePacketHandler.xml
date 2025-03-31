@@ -1,0 +1,281 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1InputSidePacketHandler" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::InputSidePacketHandler</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1InputSidePacketHandler_1a1eb240b6491a567171e3fa00db4b7d22" prot="private" static="no" mutable="no">
+        <type>const PacketTypeSet *</type>
+        <definition>const PacketTypeSet* mediapipe::InputSidePacketHandler::input_side_packet_types_</definition>
+        <argsstring></argsstring>
+        <name>input_side_packet_types_</name>
+        <qualifiedname>mediapipe::InputSidePacketHandler::input_side_packet_types_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h" line="72" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1InputSidePacketHandler_1a52b3e0313d574f14488415d3fb6f9a5a" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; PacketSet &gt;</type>
+        <definition>std::unique_ptr&lt;PacketSet&gt; mediapipe::InputSidePacketHandler::input_side_packets_</definition>
+        <argsstring></argsstring>
+        <name>input_side_packets_</name>
+        <qualifiedname>mediapipe::InputSidePacketHandler::input_side_packets_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h" line="74" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1InputSidePacketHandler_1a6fa5cccd836eafb80a68edc1108c9bb4" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; PacketSet &gt;</type>
+        <definition>std::unique_ptr&lt;PacketSet&gt; mediapipe::InputSidePacketHandler::prev_input_side_packets_</definition>
+        <argsstring></argsstring>
+        <name>prev_input_side_packets_</name>
+        <qualifiedname>mediapipe::InputSidePacketHandler::prev_input_side_packets_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h" line="75" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1InputSidePacketHandler_1adc4a64f136ff7dfa30929a9cd8b44f36" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; int &gt;</type>
+        <definition>std::atomic&lt;int&gt; mediapipe::InputSidePacketHandler::missing_input_side_packet_count_</definition>
+        <argsstring></argsstring>
+        <name>missing_input_side_packet_count_</name>
+        <qualifiedname>mediapipe::InputSidePacketHandler::missing_input_side_packet_count_</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h" line="77" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h" bodystart="77" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1InputSidePacketHandler_1a019b72eff933db4958e2e16998f43740" prot="private" static="no" mutable="no">
+        <type>std::function&lt; void()&gt;</type>
+        <definition>std::function&lt;void()&gt; mediapipe::InputSidePacketHandler::input_side_packets_ready_callback_</definition>
+        <argsstring></argsstring>
+        <name>input_side_packets_ready_callback_</name>
+        <qualifiedname>mediapipe::InputSidePacketHandler::input_side_packets_ready_callback_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h" line="79" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1InputSidePacketHandler_1a51f86c89e03a85d6d80994c5ad3376b1" prot="private" static="no" mutable="no">
+        <type>std::function&lt; void(absl::Status)&gt;</type>
+        <definition>std::function&lt;void(absl::Status)&gt; mediapipe::InputSidePacketHandler::error_callback_</definition>
+        <argsstring></argsstring>
+        <name>error_callback_</name>
+        <qualifiedname>mediapipe::InputSidePacketHandler::error_callback_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h" line="80" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1InputSidePacketHandler_1a5170c54448f7daa7e17663b9080bd82a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::InputSidePacketHandler::InputSidePacketHandler</definition>
+        <argsstring>()=default</argsstring>
+        <name>InputSidePacketHandler</name>
+        <qualifiedname>mediapipe::InputSidePacketHandler::InputSidePacketHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h" line="39" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputSidePacketHandler_1a188c60e9a9a979a1b4b46369b1ed587d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::InputSidePacketHandler::~InputSidePacketHandler</definition>
+        <argsstring>()=default</argsstring>
+        <name>~InputSidePacketHandler</name>
+        <qualifiedname>mediapipe::InputSidePacketHandler::~InputSidePacketHandler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h" line="40" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputSidePacketHandler_1a2d3ebfb9b6c194ce072e251c715858a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::InputSidePacketHandler::PrepareForRun</definition>
+        <argsstring>(const PacketTypeSet *input_side_packet_types, const std::map&lt; std::string, Packet &gt; &amp;all_side_packets, std::function&lt; void()&gt; input_side_packets_ready_callback, std::function&lt; void(absl::Status)&gt; error_callback)</argsstring>
+        <name>PrepareForRun</name>
+        <qualifiedname>mediapipe::InputSidePacketHandler::PrepareForRun</qualifiedname>
+        <param>
+          <type>const PacketTypeSet *</type>
+          <declname>input_side_packet_types</declname>
+        </param>
+        <param>
+          <type>const std::map&lt; std::string, Packet &gt; &amp;</type>
+          <declname>all_side_packets</declname>
+        </param>
+        <param>
+          <type>std::function&lt; void()&gt;</type>
+          <declname>input_side_packets_ready_callback</declname>
+        </param>
+        <param>
+          <type>std::function&lt; void(absl::Status)&gt;</type>
+          <declname>error_callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h" line="44" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.cc" bodystart="25" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputSidePacketHandler_1a2dfd6cb7b2c8960657361157bc3f6da9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InputSidePacketHandler::Set</definition>
+        <argsstring>(CollectionItemId id, const Packet &amp;packet)</argsstring>
+        <name>Set</name>
+        <qualifiedname>mediapipe::InputSidePacketHandler::Set</qualifiedname>
+        <param>
+          <type>CollectionItemId</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>const Packet &amp;</type>
+          <declname>packet</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h" line="51" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.cc" bodystart="52" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputSidePacketHandler_1a577e1ee24de58eea6827479023527c6c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const PacketSet &amp;</type>
+        <definition>const PacketSet &amp; mediapipe::InputSidePacketHandler::InputSidePackets</definition>
+        <argsstring>() const</argsstring>
+        <name>InputSidePackets</name>
+        <qualifiedname>mediapipe::InputSidePacketHandler::InputSidePackets</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h" line="53" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputSidePacketHandler_1a1bb2019844bebe8b03ed7e9bed7eb3e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::InputSidePacketHandler::InputSidePacketsChanged</definition>
+        <argsstring>()</argsstring>
+        <name>InputSidePacketsChanged</name>
+        <qualifiedname>mediapipe::InputSidePacketHandler::InputSidePacketsChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h" line="57" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.cc" bodystart="46" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputSidePacketHandler_1a9afa34339392dbd1d8d2b872c2c3b971" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::InputSidePacketHandler::MissingInputSidePacketCount</definition>
+        <argsstring>() const</argsstring>
+        <name>MissingInputSidePacketCount</name>
+        <qualifiedname>mediapipe::InputSidePacketHandler::MissingInputSidePacketCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h" line="60" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h" bodystart="60" bodyend="62"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1InputSidePacketHandler_1ab05de2f675edb4c8959347d901f5e99d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::InputSidePacketHandler::SetInternal</definition>
+        <argsstring>(CollectionItemId id, const Packet &amp;packet)</argsstring>
+        <name>SetInternal</name>
+        <qualifiedname>mediapipe::InputSidePacketHandler::SetInternal</qualifiedname>
+        <param>
+          <type>CollectionItemId</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>const Packet &amp;</type>
+          <declname>packet</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h" line="66" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.cc" bodystart="59" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1InputSidePacketHandler_1afbd03b021f8269a3bb4d75680878c71e" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::InputSidePacketHandler::TriggerErrorCallback</definition>
+        <argsstring>(const absl::Status &amp;status) const</argsstring>
+        <name>TriggerErrorCallback</name>
+        <qualifiedname>mediapipe::InputSidePacketHandler::TriggerErrorCallback</qualifiedname>
+        <param>
+          <type>const absl::Status &amp;</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h" line="70" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.cc" bodystart="84" bodyend="88"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h" line="37" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/input_side_packet_handler.h" bodystart="37" bodyend="81"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1InputSidePacketHandler_1a51f86c89e03a85d6d80994c5ad3376b1" prot="private" virt="non-virtual"><scope>mediapipe::InputSidePacketHandler</scope><name>error_callback_</name></member>
+      <member refid="classmediapipe_1_1InputSidePacketHandler_1a1eb240b6491a567171e3fa00db4b7d22" prot="private" virt="non-virtual"><scope>mediapipe::InputSidePacketHandler</scope><name>input_side_packet_types_</name></member>
+      <member refid="classmediapipe_1_1InputSidePacketHandler_1a52b3e0313d574f14488415d3fb6f9a5a" prot="private" virt="non-virtual"><scope>mediapipe::InputSidePacketHandler</scope><name>input_side_packets_</name></member>
+      <member refid="classmediapipe_1_1InputSidePacketHandler_1a019b72eff933db4958e2e16998f43740" prot="private" virt="non-virtual"><scope>mediapipe::InputSidePacketHandler</scope><name>input_side_packets_ready_callback_</name></member>
+      <member refid="classmediapipe_1_1InputSidePacketHandler_1a5170c54448f7daa7e17663b9080bd82a" prot="public" virt="non-virtual"><scope>mediapipe::InputSidePacketHandler</scope><name>InputSidePacketHandler</name></member>
+      <member refid="classmediapipe_1_1InputSidePacketHandler_1a577e1ee24de58eea6827479023527c6c" prot="public" virt="non-virtual"><scope>mediapipe::InputSidePacketHandler</scope><name>InputSidePackets</name></member>
+      <member refid="classmediapipe_1_1InputSidePacketHandler_1a1bb2019844bebe8b03ed7e9bed7eb3e5" prot="public" virt="non-virtual"><scope>mediapipe::InputSidePacketHandler</scope><name>InputSidePacketsChanged</name></member>
+      <member refid="classmediapipe_1_1InputSidePacketHandler_1adc4a64f136ff7dfa30929a9cd8b44f36" prot="private" virt="non-virtual"><scope>mediapipe::InputSidePacketHandler</scope><name>missing_input_side_packet_count_</name></member>
+      <member refid="classmediapipe_1_1InputSidePacketHandler_1a9afa34339392dbd1d8d2b872c2c3b971" prot="public" virt="non-virtual"><scope>mediapipe::InputSidePacketHandler</scope><name>MissingInputSidePacketCount</name></member>
+      <member refid="classmediapipe_1_1InputSidePacketHandler_1a2d3ebfb9b6c194ce072e251c715858a8" prot="public" virt="non-virtual"><scope>mediapipe::InputSidePacketHandler</scope><name>PrepareForRun</name></member>
+      <member refid="classmediapipe_1_1InputSidePacketHandler_1a6fa5cccd836eafb80a68edc1108c9bb4" prot="private" virt="non-virtual"><scope>mediapipe::InputSidePacketHandler</scope><name>prev_input_side_packets_</name></member>
+      <member refid="classmediapipe_1_1InputSidePacketHandler_1a2dfd6cb7b2c8960657361157bc3f6da9" prot="public" virt="non-virtual"><scope>mediapipe::InputSidePacketHandler</scope><name>Set</name></member>
+      <member refid="classmediapipe_1_1InputSidePacketHandler_1ab05de2f675edb4c8959347d901f5e99d" prot="private" virt="non-virtual"><scope>mediapipe::InputSidePacketHandler</scope><name>SetInternal</name></member>
+      <member refid="classmediapipe_1_1InputSidePacketHandler_1afbd03b021f8269a3bb4d75680878c71e" prot="private" virt="non-virtual"><scope>mediapipe::InputSidePacketHandler</scope><name>TriggerErrorCallback</name></member>
+      <member refid="classmediapipe_1_1InputSidePacketHandler_1a188c60e9a9a979a1b4b46369b1ed587d" prot="public" virt="non-virtual"><scope>mediapipe::InputSidePacketHandler</scope><name>~InputSidePacketHandler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

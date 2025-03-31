@@ -1,0 +1,669 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classtflite_1_1gpu_1_1TFLiteGPURunner" kind="class" language="C++" prot="public">
+    <compoundname>tflite::gpu::TFLiteGPURunner</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1aff9884a5b6ba381dc65e4e597c2f7673" prot="private" static="no" mutable="no">
+        <type>InferenceOptions</type>
+        <definition>InferenceOptions tflite::gpu::TFLiteGPURunner::options_</definition>
+        <argsstring></argsstring>
+        <name>options_</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::options_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="112" column="20" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1ac0d46d902becb54b0e8c0b5cecf215cd" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; gl::InferenceEnvironment &gt;</type>
+        <definition>std::unique_ptr&lt;gl::InferenceEnvironment&gt; tflite::gpu::TFLiteGPURunner::gl_environment_</definition>
+        <argsstring></argsstring>
+        <name>gl_environment_</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::gl_environment_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="113" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1adc0761813db4307c97af5bfbb12441de" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; GraphFloat32 &gt;</type>
+        <definition>std::unique_ptr&lt;GraphFloat32&gt; tflite::gpu::TFLiteGPURunner::graph_gl_</definition>
+        <argsstring></argsstring>
+        <name>graph_gl_</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::graph_gl_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="125" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1adcfaddd53a8ddf27c51845a206d53333" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; GraphFloat32 &gt;</type>
+        <definition>std::unique_ptr&lt;GraphFloat32&gt; tflite::gpu::TFLiteGPURunner::graph_cl_</definition>
+        <argsstring></argsstring>
+        <name>graph_cl_</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::graph_cl_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="126" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="126" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1af54cf1a02ac3849f7bf9ab3c1cfff99a" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; InferenceRunner &gt;</type>
+        <definition>std::unique_ptr&lt;InferenceRunner&gt; tflite::gpu::TFLiteGPURunner::runner_</definition>
+        <argsstring></argsstring>
+        <name>runner_</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::runner_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="127" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1a24e9acdcdc2a3038919d0ea1823745a0" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tflite::gpu::TFLiteGPURunner::is_cl_used_</definition>
+        <argsstring></argsstring>
+        <name>is_cl_used_</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::is_cl_used_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="128" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="128" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1a14e3d9fe4d98802d3036854c5e0780e3" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; BHWC &gt;</type>
+        <definition>std::vector&lt;BHWC&gt; tflite::gpu::TFLiteGPURunner::input_shapes_</definition>
+        <argsstring></argsstring>
+        <name>input_shapes_</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::input_shapes_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="132" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1aaf764497752e3bad19e09720718f59ff" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; BHWC &gt;</type>
+        <definition>std::vector&lt;BHWC&gt; tflite::gpu::TFLiteGPURunner::output_shapes_</definition>
+        <argsstring></argsstring>
+        <name>output_shapes_</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::output_shapes_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="133" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1a6097fccb0e9100b2935bc5574931a89b" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; int &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;int&gt; &gt; tflite::gpu::TFLiteGPURunner::input_shape_from_model_</definition>
+        <argsstring></argsstring>
+        <name>input_shape_from_model_</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::input_shape_from_model_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="138" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1a758a6f3d6ed17ba4691d730b6d145b88" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; int &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;int&gt; &gt; tflite::gpu::TFLiteGPURunner::output_shape_from_model_</definition>
+        <argsstring></argsstring>
+        <name>output_shape_from_model_</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::output_shape_from_model_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="139" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1ae2a630bd01c626632783b917db63f9cd" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tflite::gpu::TFLiteGPURunner::opencl_is_forced_</definition>
+        <argsstring></argsstring>
+        <name>opencl_is_forced_</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::opencl_is_forced_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="141" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1acd9d5c2e1485690ceace1ee96a875f14" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tflite::gpu::TFLiteGPURunner::opengl_is_forced_</definition>
+        <argsstring></argsstring>
+        <name>opengl_is_forced_</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::opengl_is_forced_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="142" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1a87b78dcdcd8a7fea761f55edb56d2249" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool tflite::gpu::TFLiteGPURunner::opencl_init_from_serialized_model_is_forced_</definition>
+        <argsstring></argsstring>
+        <name>opencl_init_from_serialized_model_is_forced_</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::opencl_init_from_serialized_model_is_forced_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="143" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="143" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1a312f410e08fc60e4cea3c4a8c9ee5a00" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>tflite::gpu::TFLiteGPURunner::TFLiteGPURunner</definition>
+        <argsstring>(const InferenceOptions &amp;options)</argsstring>
+        <name>TFLiteGPURunner</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::TFLiteGPURunner</qualifiedname>
+        <param>
+          <type>const InferenceOptions &amp;</type>
+          <declname>options</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="58" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="58" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1a9ec7758f4f7d6db7a435688758f5259e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status tflite::gpu::TFLiteGPURunner::InitializeWithModel</definition>
+        <argsstring>(const tflite::FlatBufferModel &amp;flatbuffer, const tflite::OpResolver &amp;op_resolver, bool allow_quant_ops=false)</argsstring>
+        <name>InitializeWithModel</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::InitializeWithModel</qualifiedname>
+        <param>
+          <type>const tflite::FlatBufferModel &amp;</type>
+          <declname>flatbuffer</declname>
+        </param>
+        <param>
+          <type>const tflite::OpResolver &amp;</type>
+          <declname>op_resolver</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>allow_quant_ops</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="61" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.cc" bodystart="119" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1aeeb7ba57f53d3813d6eda2950e70215e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void tflite::gpu::TFLiteGPURunner::ForceOpenGL</definition>
+        <argsstring>()</argsstring>
+        <name>ForceOpenGL</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::ForceOpenGL</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="65" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1aaddf9773b780b6481f5044fe937f2a28" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void tflite::gpu::TFLiteGPURunner::ForceOpenCL</definition>
+        <argsstring>()</argsstring>
+        <name>ForceOpenCL</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::ForceOpenCL</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="66" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="66" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1ad438d3b58650c22517de3e749f799106" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void tflite::gpu::TFLiteGPURunner::ForceOpenCLInitFromSerializedModel</definition>
+        <argsstring>()</argsstring>
+        <name>ForceOpenCLInitFromSerializedModel</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::ForceOpenCLInitFromSerializedModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="67" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="67" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1acde2a4d2780c2d028f2d5f4284cf3fdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status tflite::gpu::TFLiteGPURunner::BindSSBOToInputTensor</definition>
+        <argsstring>(GLuint ssbo_id, int input_id)</argsstring>
+        <name>BindSSBOToInputTensor</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::BindSSBOToInputTensor</qualifiedname>
+        <param>
+          <type>GLuint</type>
+          <declname>ssbo_id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>input_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="71" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.cc" bodystart="203" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1ab0143c4153085c1ceceb9b6dcc7cefb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status tflite::gpu::TFLiteGPURunner::BindSSBOToOutputTensor</definition>
+        <argsstring>(GLuint ssbo_id, int output_id)</argsstring>
+        <name>BindSSBOToOutputTensor</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::BindSSBOToOutputTensor</qualifiedname>
+        <param>
+          <type>GLuint</type>
+          <declname>ssbo_id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>output_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="72" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.cc" bodystart="210" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1addc3708bb573b15b82e162e5652f0535" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int tflite::gpu::TFLiteGPURunner::inputs_size</definition>
+        <argsstring>() const</argsstring>
+        <name>inputs_size</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::inputs_size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="74" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="74" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1a6176338a7c9d527771a0c62e78dea47d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int tflite::gpu::TFLiteGPURunner::outputs_size</definition>
+        <argsstring>() const</argsstring>
+        <name>outputs_size</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::outputs_size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="75" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="75" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1a5e203ac140432c57188e0fefcaf128d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::StatusOr&lt; int64_t &gt;</type>
+        <definition>absl::StatusOr&lt; int64_t &gt; tflite::gpu::TFLiteGPURunner::GetInputElements</definition>
+        <argsstring>(int id)</argsstring>
+        <name>GetInputElements</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::GetInputElements</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="77" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.cc" bodystart="147" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1a5e8f901c6c7ca41f2bc15e6a8e86ba7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::StatusOr&lt; int64_t &gt;</type>
+        <definition>absl::StatusOr&lt; int64_t &gt; tflite::gpu::TFLiteGPURunner::GetOutputElements</definition>
+        <argsstring>(int id)</argsstring>
+        <name>GetOutputElements</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::GetOutputElements</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="78" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.cc" bodystart="155" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1abb436f24203fed6f7e507635cb83036d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status tflite::gpu::TFLiteGPURunner::Build</definition>
+        <argsstring>()</argsstring>
+        <name>Build</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::Build</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="80" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.cc" bodystart="163" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1a5710ce56e2fd20b15ac6e4479d6fb142" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status tflite::gpu::TFLiteGPURunner::Invoke</definition>
+        <argsstring>()</argsstring>
+        <name>Invoke</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::Invoke</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="81" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.cc" bodystart="217" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1a8fb54bc16ce1525f0a1c765fbdf297cf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; BHWC &gt;</type>
+        <definition>std::vector&lt; BHWC &gt; tflite::gpu::TFLiteGPURunner::GetInputShapes</definition>
+        <argsstring>()</argsstring>
+        <name>GetInputShapes</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::GetInputShapes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="83" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="83" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1a38517138f7c4ca0846cd234b3974729c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; BHWC &gt;</type>
+        <definition>std::vector&lt; BHWC &gt; tflite::gpu::TFLiteGPURunner::GetOutputShapes</definition>
+        <argsstring>()</argsstring>
+        <name>GetOutputShapes</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::GetOutputShapes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="84" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="84" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1aa91015e28faf45170189249e7dc736fb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; int &gt; &gt;</type>
+        <definition>std::vector&lt; std::vector&lt; int &gt; &gt; tflite::gpu::TFLiteGPURunner::GetTFLiteInputShapes</definition>
+        <argsstring>()</argsstring>
+        <name>GetTFLiteInputShapes</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::GetTFLiteInputShapes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="86" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="86" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1acf41f3ff7e1d3498a88cea13a5cc682d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; std::vector&lt; int &gt; &gt;</type>
+        <definition>std::vector&lt; std::vector&lt; int &gt; &gt; tflite::gpu::TFLiteGPURunner::GetTFLiteOutputShapes</definition>
+        <argsstring>()</argsstring>
+        <name>GetTFLiteOutputShapes</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::GetTFLiteOutputShapes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="89" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="89" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1a63ab4f13cb007a697a8930e8e6aa3aa6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool tflite::gpu::TFLiteGPURunner::CanGenerateSerializedBinaryCache</definition>
+        <argsstring>()</argsstring>
+        <name>CanGenerateSerializedBinaryCache</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::CanGenerateSerializedBinaryCache</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="94" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="94" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1a472d6a8e1ed8e0997853343dd434c6cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::StatusOr&lt; std::vector&lt; uint8_t &gt; &gt;</type>
+        <definition>absl::StatusOr&lt; std::vector&lt; uint8_t &gt; &gt; tflite::gpu::TFLiteGPURunner::GetSerializedBinaryCache</definition>
+        <argsstring>()</argsstring>
+        <name>GetSerializedBinaryCache</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::GetSerializedBinaryCache</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="95" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.cc" bodystart="290" bodyend="297"/>
+      </memberdef>
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1a8c09b0094b64077ffa14c1d5fcf7efc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void tflite::gpu::TFLiteGPURunner::SetSerializedBinaryCache</definition>
+        <argsstring>(std::vector&lt; uint8_t &gt; &amp;&amp;cache)</argsstring>
+        <name>SetSerializedBinaryCache</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::SetSerializedBinaryCache</qualifiedname>
+        <param>
+          <type>std::vector&lt; uint8_t &gt; &amp;&amp;</type>
+          <declname>cache</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="97" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.cc" bodystart="299" bodyend="305"/>
+      </memberdef>
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1a41a800f8987986607eae41f8a5e5cae1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool tflite::gpu::TFLiteGPURunner::CanGenerateSerializedModel</definition>
+        <argsstring>()</argsstring>
+        <name>CanGenerateSerializedModel</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::CanGenerateSerializedModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="100" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="100" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1a39b18591abc22b5c594aba28fc0c1af2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::StatusOr&lt; std::vector&lt; uint8_t &gt; &gt;</type>
+        <definition>absl::StatusOr&lt; std::vector&lt; uint8_t &gt; &gt; tflite::gpu::TFLiteGPURunner::GetSerializedModel</definition>
+        <argsstring>()</argsstring>
+        <name>GetSerializedModel</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::GetSerializedModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="101" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.cc" bodystart="307" bodyend="325"/>
+      </memberdef>
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1a3f035fedafe1f6e2c8b67259a6d62413" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void tflite::gpu::TFLiteGPURunner::SetSerializedModel</definition>
+        <argsstring>(std::vector&lt; uint8_t &gt; &amp;&amp;serialized_model)</argsstring>
+        <name>SetSerializedModel</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::SetSerializedModel</qualifiedname>
+        <param>
+          <type>std::vector&lt; uint8_t &gt; &amp;&amp;</type>
+          <declname>serialized_model</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="103" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.cc" bodystart="327" bodyend="335"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1a7ef9c2db7d5f9671ffd693248747a3eb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status tflite::gpu::TFLiteGPURunner::InitializeOpenGL</definition>
+        <argsstring>(std::unique_ptr&lt; InferenceBuilder &gt; *builder)</argsstring>
+        <name>InitializeOpenGL</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::InitializeOpenGL</qualifiedname>
+        <param>
+          <type>std::unique_ptr&lt; InferenceBuilder &gt; *</type>
+          <declname>builder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="106" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.cc" bodystart="219" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1aef560c7217d4e5d68a95081a295dc9c3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status tflite::gpu::TFLiteGPURunner::InitializeOpenCL</definition>
+        <argsstring>(std::unique_ptr&lt; InferenceBuilder &gt; *builder)</argsstring>
+        <name>InitializeOpenCL</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::InitializeOpenCL</qualifiedname>
+        <param>
+          <type>std::unique_ptr&lt; InferenceBuilder &gt; *</type>
+          <declname>builder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="107" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.cc" bodystart="235" bodyend="273"/>
+      </memberdef>
+      <memberdef kind="function" id="classtflite_1_1gpu_1_1TFLiteGPURunner_1ab939fc2a0102c1e0f5b6bad02365b1e9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status tflite::gpu::TFLiteGPURunner::InitializeOpenCLFromSerializedModel</definition>
+        <argsstring>(std::unique_ptr&lt; InferenceBuilder &gt; *builder)</argsstring>
+        <name>InitializeOpenCLFromSerializedModel</name>
+        <qualifiedname>tflite::gpu::TFLiteGPURunner::InitializeOpenCLFromSerializedModel</qualifiedname>
+        <param>
+          <type>std::unique_ptr&lt; InferenceBuilder &gt; *</type>
+          <declname>builder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="109" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.cc" bodystart="275" bodyend="287"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" line="56" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/tflite_gpu_runner.h" bodystart="56" bodyend="144"/>
+    <listofallmembers>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1acde2a4d2780c2d028f2d5f4284cf3fdf" prot="public" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>BindSSBOToInputTensor</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1ab0143c4153085c1ceceb9b6dcc7cefb5" prot="public" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>BindSSBOToOutputTensor</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1abb436f24203fed6f7e507635cb83036d" prot="public" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>Build</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1a63ab4f13cb007a697a8930e8e6aa3aa6" prot="public" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>CanGenerateSerializedBinaryCache</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1a41a800f8987986607eae41f8a5e5cae1" prot="public" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>CanGenerateSerializedModel</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1aaddf9773b780b6481f5044fe937f2a28" prot="public" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>ForceOpenCL</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1ad438d3b58650c22517de3e749f799106" prot="public" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>ForceOpenCLInitFromSerializedModel</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1aeeb7ba57f53d3813d6eda2950e70215e" prot="public" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>ForceOpenGL</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1a5e203ac140432c57188e0fefcaf128d0" prot="public" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>GetInputElements</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1a8fb54bc16ce1525f0a1c765fbdf297cf" prot="public" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>GetInputShapes</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1a5e8f901c6c7ca41f2bc15e6a8e86ba7a" prot="public" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>GetOutputElements</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1a38517138f7c4ca0846cd234b3974729c" prot="public" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>GetOutputShapes</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1a472d6a8e1ed8e0997853343dd434c6cc" prot="public" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>GetSerializedBinaryCache</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1a39b18591abc22b5c594aba28fc0c1af2" prot="public" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>GetSerializedModel</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1aa91015e28faf45170189249e7dc736fb" prot="public" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>GetTFLiteInputShapes</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1acf41f3ff7e1d3498a88cea13a5cc682d" prot="public" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>GetTFLiteOutputShapes</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1ac0d46d902becb54b0e8c0b5cecf215cd" prot="private" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>gl_environment_</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1adcfaddd53a8ddf27c51845a206d53333" prot="private" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>graph_cl_</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1adc0761813db4307c97af5bfbb12441de" prot="private" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>graph_gl_</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1aef560c7217d4e5d68a95081a295dc9c3" prot="private" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>InitializeOpenCL</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1ab939fc2a0102c1e0f5b6bad02365b1e9" prot="private" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>InitializeOpenCLFromSerializedModel</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1a7ef9c2db7d5f9671ffd693248747a3eb" prot="private" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>InitializeOpenGL</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1a9ec7758f4f7d6db7a435688758f5259e" prot="public" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>InitializeWithModel</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1a6097fccb0e9100b2935bc5574931a89b" prot="private" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>input_shape_from_model_</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1a14e3d9fe4d98802d3036854c5e0780e3" prot="private" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>input_shapes_</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1addc3708bb573b15b82e162e5652f0535" prot="public" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>inputs_size</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1a5710ce56e2fd20b15ac6e4479d6fb142" prot="public" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>Invoke</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1a24e9acdcdc2a3038919d0ea1823745a0" prot="private" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>is_cl_used_</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1a87b78dcdcd8a7fea761f55edb56d2249" prot="private" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>opencl_init_from_serialized_model_is_forced_</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1ae2a630bd01c626632783b917db63f9cd" prot="private" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>opencl_is_forced_</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1acd9d5c2e1485690ceace1ee96a875f14" prot="private" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>opengl_is_forced_</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1aff9884a5b6ba381dc65e4e597c2f7673" prot="private" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>options_</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1a758a6f3d6ed17ba4691d730b6d145b88" prot="private" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>output_shape_from_model_</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1aaf764497752e3bad19e09720718f59ff" prot="private" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>output_shapes_</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1a6176338a7c9d527771a0c62e78dea47d" prot="public" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>outputs_size</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1af54cf1a02ac3849f7bf9ab3c1cfff99a" prot="private" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>runner_</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1a8c09b0094b64077ffa14c1d5fcf7efc1" prot="public" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>SetSerializedBinaryCache</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1a3f035fedafe1f6e2c8b67259a6d62413" prot="public" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>SetSerializedModel</name></member>
+      <member refid="classtflite_1_1gpu_1_1TFLiteGPURunner_1a312f410e08fc60e4cea3c4a8c9ee5a00" prot="public" virt="non-virtual"><scope>tflite::gpu::TFLiteGPURunner</scope><name>TFLiteGPURunner</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

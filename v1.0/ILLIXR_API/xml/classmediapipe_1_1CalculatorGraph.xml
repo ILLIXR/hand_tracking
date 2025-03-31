@@ -1,0 +1,2052 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1CalculatorGraph" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::CalculatorGraph</compoundname>
+    <innerclass refid="classmediapipe_1_1CalculatorGraph_1_1GraphInputStream" prot="private">mediapipe::CalculatorGraph::GraphInputStream</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classmediapipe_1_1CalculatorGraph_1a190f41b189eec395fc7ff32942449089" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>GraphInputStreamAddMode</name>
+        <qualifiedname>mediapipe::CalculatorGraph::GraphInputStreamAddMode</qualifiedname>
+        <enumvalue id="classmediapipe_1_1CalculatorGraph_1a190f41b189eec395fc7ff32942449089ad198cb43f90d8a94e8404efc74961709" prot="public">
+          <name>WAIT_TILL_NOT_FULL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1CalculatorGraph_1a190f41b189eec395fc7ff32942449089aca9c794ec1bb43f383a401ed46168696" prot="public">
+          <name>ADD_IF_NOT_FULL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="107" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="107" bodyend="115"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-type">
+      <memberdef kind="enum" id="classmediapipe_1_1CalculatorGraph_1ae46deb8a4f07d06dfcb59968a9d0292d" prot="private" static="no" strong="yes">
+        <type></type>
+        <name>GraphRunState</name>
+        <qualifiedname>mediapipe::CalculatorGraph::GraphRunState</qualifiedname>
+        <enumvalue id="classmediapipe_1_1CalculatorGraph_1ae46deb8a4f07d06dfcb59968a9d0292da3e8890171da52a10414b00b6f00d3d69" prot="private">
+          <name>PRE_RUN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1CalculatorGraph_1ae46deb8a4f07d06dfcb59968a9d0292dae410749639103af519efebc935c8e554" prot="private">
+          <name>POST_RUN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="477" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="477" bodyend="482"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1abd4f5539a67205eb76575b4406e05268" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; GpuSharedData &gt;</type>
+        <definition>std::unique_ptr&lt;GpuSharedData&gt; mediapipe::CalculatorGraph::legacy_gpu_shared_</definition>
+        <argsstring></argsstring>
+        <name>legacy_gpu_shared_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::legacy_gpu_shared_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="632" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="632" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1a974cb922c86d6086f122f38fd0dbcdd3" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::CalculatorGraph::initialized_</definition>
+        <argsstring></argsstring>
+        <name>initialized_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::initialized_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="636" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="636" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1ac832f7b416bf2eea2e4a068af194156b" prot="private" static="no" mutable="no">
+        <type>PacketType</type>
+        <definition>PacketType mediapipe::CalculatorGraph::any_packet_type_</definition>
+        <argsstring></argsstring>
+        <name>any_packet_type_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::any_packet_type_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="639" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="639" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1a9ce99b0ef8d40e007a15f0fcf66c900b" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; ValidatedGraphConfig &gt;</type>
+        <definition>std::unique_ptr&lt;ValidatedGraphConfig&gt; mediapipe::CalculatorGraph::validated_graph_</definition>
+        <argsstring></argsstring>
+        <name>validated_graph_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::validated_graph_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="642" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="642" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1a9c7b8027ff72fea6e6a2e9f633b12aa2" prot="private" static="no" mutable="no">
+        <type>PacketGeneratorGraph</type>
+        <definition>PacketGeneratorGraph mediapipe::CalculatorGraph::packet_generator_graph_</definition>
+        <argsstring></argsstring>
+        <name>packet_generator_graph_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::packet_generator_graph_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="645" column="24" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="645" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1ae2fa42ee3109c413a953529096f4e2a6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::CalculatorGraph::has_sources_</definition>
+        <argsstring></argsstring>
+        <name>has_sources_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::has_sources_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="648" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="648" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1abc0d9b8fffa63fbbb615c3834f3201ef" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; InputStreamManager[]&gt;</type>
+        <definition>std::unique_ptr&lt;InputStreamManager[]&gt; mediapipe::CalculatorGraph::input_stream_managers_</definition>
+        <argsstring></argsstring>
+        <name>input_stream_managers_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::input_stream_managers_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="656" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="656" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1a614813df427f95313fab0eee6adbb014" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; OutputStreamManager[]&gt;</type>
+        <definition>std::unique_ptr&lt;OutputStreamManager[]&gt; mediapipe::CalculatorGraph::output_stream_managers_</definition>
+        <argsstring></argsstring>
+        <name>output_stream_managers_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::output_stream_managers_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="657" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="657" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1a50fe4490d3e528193894c33cc50abefa" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; OutputSidePacketImpl[]&gt;</type>
+        <definition>std::unique_ptr&lt;OutputSidePacketImpl[]&gt; mediapipe::CalculatorGraph::output_side_packets_</definition>
+        <argsstring></argsstring>
+        <name>output_side_packets_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::output_side_packets_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="658" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="658" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1ab491ccb0164ae0b9adfb9e0d5b5a2bc7" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::unique_ptr&lt; CalculatorNode &gt; &gt;</type>
+        <definition>std::vector&lt;std::unique_ptr&lt;CalculatorNode&gt; &gt; mediapipe::CalculatorGraph::nodes_</definition>
+        <argsstring></argsstring>
+        <name>nodes_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::nodes_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="659" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="659" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1a5a490b8556d3264566c5468eb8387831" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::CalculatorGraph::packet_generator_nodes_added_</definition>
+        <argsstring></argsstring>
+        <name>packet_generator_nodes_added_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::packet_generator_nodes_added_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="660" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="660" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1af9c6192e9b08ddcdb90559197264e3bf" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; internal::GraphOutputStream &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;internal::GraphOutputStream&gt; &gt; mediapipe::CalculatorGraph::graph_output_streams_</definition>
+        <argsstring></argsstring>
+        <name>graph_output_streams_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::graph_output_streams_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="664" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="664" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1a42d09b6f551b7b416b6bd4c481f23e0c" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::CalculatorGraph::max_queue_size_</definition>
+        <argsstring></argsstring>
+        <name>max_queue_size_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::max_queue_size_</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="668" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="668" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1a3a15f4dcd1133b1903e20a6c50b52619" prot="private" static="no" mutable="no">
+        <type>absl::flat_hash_map&lt; InputStreamManager *, int &gt;</type>
+        <definition>absl::flat_hash_map&lt;InputStreamManager*, int&gt; mediapipe::CalculatorGraph::input_stream_to_index_</definition>
+        <argsstring></argsstring>
+        <name>input_stream_to_index_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::input_stream_to_index_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="685" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="685" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1ab57c289079834ad55fd85776598e9d3b" prot="private" static="no" mutable="no">
+        <type>absl::flat_hash_map&lt; std::string, std::unique_ptr&lt; GraphInputStream &gt; &gt;</type>
+        <definition>absl::flat_hash_map&lt;std::string, std::unique_ptr&lt;GraphInputStream&gt; &gt; mediapipe::CalculatorGraph::graph_input_streams_</definition>
+        <argsstring></argsstring>
+        <name>graph_input_streams_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::graph_input_streams_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="689" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="689" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1a20da43f85f2b067a914607247b955325" prot="private" static="no" mutable="no">
+        <type>absl::flat_hash_map&lt; std::string, int &gt;</type>
+        <definition>absl::flat_hash_map&lt;std::string, int&gt; mediapipe::CalculatorGraph::graph_input_stream_node_ids_</definition>
+        <argsstring></argsstring>
+        <name>graph_input_stream_node_ids_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::graph_input_stream_node_ids_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="692" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="692" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1aa006973fd2076bc490537492019957b1" prot="private" static="no" mutable="no">
+        <type>absl::flat_hash_map&lt; std::string, int &gt;</type>
+        <definition>absl::flat_hash_map&lt;std::string, int&gt; mediapipe::CalculatorGraph::graph_input_stream_max_queue_size_</definition>
+        <argsstring></argsstring>
+        <name>graph_input_stream_max_queue_size_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::graph_input_stream_max_queue_size_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="695" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="695" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1a5b6c9d24abf505471f38b1b5b0710e45" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; CounterFactory &gt;</type>
+        <definition>std::unique_ptr&lt;CounterFactory&gt; mediapipe::CalculatorGraph::counter_factory_</definition>
+        <argsstring></argsstring>
+        <name>counter_factory_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::counter_factory_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="698" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="698" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1a945a6606f8131f3db957ebbd7e6dfb17" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, std::shared_ptr&lt; Executor &gt; &gt;</type>
+        <definition>std::map&lt;std::string, std::shared_ptr&lt;Executor&gt; &gt; mediapipe::CalculatorGraph::executors_</definition>
+        <argsstring></argsstring>
+        <name>executors_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::executors_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="702" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="702" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1ab6314115197348a0ed3c92d49b0251af" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, Packet &gt;</type>
+        <definition>std::map&lt;std::string, Packet&gt; mediapipe::CalculatorGraph::current_run_side_packets_</definition>
+        <argsstring></argsstring>
+        <name>current_run_side_packets_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::current_run_side_packets_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="705" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="705" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1a48e66a808cea0e8b59522e114d78122e" prot="private" static="no" mutable="no">
+        <type>GraphServiceManager</type>
+        <definition>GraphServiceManager mediapipe::CalculatorGraph::service_manager_</definition>
+        <argsstring></argsstring>
+        <name>service_manager_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::service_manager_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="708" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="708" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1a59737427aecb4b5558846b61baf90f45" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::CalculatorGraph::allow_service_default_initialization_</definition>
+        <argsstring></argsstring>
+        <name>allow_service_default_initialization_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::allow_service_default_initialization_</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="711" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="711" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1a0e58d5f7f333eaccb53e43753d967b8f" prot="private" static="no" mutable="no">
+        <type>std::function&lt; void(const absl::Status &amp;)&gt;</type>
+        <definition>std::function&lt;void(const absl::Status&amp;)&gt; mediapipe::CalculatorGraph::error_callback_</definition>
+        <argsstring></argsstring>
+        <name>error_callback_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::error_callback_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="718" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="718" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1aa41031e407d85a105d1ab27799f4d1ae" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::CalculatorGraph::use_application_thread_</definition>
+        <argsstring></argsstring>
+        <name>use_application_thread_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::use_application_thread_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="721" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="721" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1a0dd616c68a848ee1fb916ff0c2d5c235" prot="private" static="no" mutable="no">
+        <type>absl::Mutex</type>
+        <definition>absl::Mutex mediapipe::CalculatorGraph::error_mutex_</definition>
+        <argsstring></argsstring>
+        <name>error_mutex_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::error_mutex_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="729" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="729" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1a2eb860a3988e4e0ebd4bb6cda3f2042e" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; bool &gt;</type>
+        <definition>std::atomic&lt;bool&gt; mediapipe::CalculatorGraph::has_error_</definition>
+        <argsstring></argsstring>
+        <name>has_error_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::has_error_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="732" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="732" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1a891aa93943fa903335c234173c7a4982" prot="private" static="no" mutable="yes">
+        <type>absl::Mutex</type>
+        <definition>absl::Mutex mediapipe::CalculatorGraph::full_input_streams_mutex_</definition>
+        <argsstring></argsstring>
+        <name>full_input_streams_mutex_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::full_input_streams_mutex_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="735" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="735" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1ab3282062697955d4449d283e33e6a1f2" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; unsigned int &gt;</type>
+        <definition>std::atomic&lt;unsigned int&gt; mediapipe::CalculatorGraph::num_closed_graph_input_streams_</definition>
+        <argsstring></argsstring>
+        <name>num_closed_graph_input_streams_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::num_closed_graph_input_streams_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="742" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="742" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1ae378337ce31231411de2778798eb544c" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; ProfilingContext &gt;</type>
+        <definition>std::shared_ptr&lt;ProfilingContext&gt; mediapipe::CalculatorGraph::profiler_</definition>
+        <argsstring></argsstring>
+        <name>profiler_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::profiler_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="749" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="749" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1CalculatorGraph_1a7a2ba98ab83f17208e3b04183dec4ca5" prot="private" static="no" mutable="no">
+        <type>internal::Scheduler</type>
+        <definition>internal::Scheduler mediapipe::CalculatorGraph::scheduler_</definition>
+        <argsstring></argsstring>
+        <name>scheduler_</name>
+        <qualifiedname>mediapipe::CalculatorGraph::scheduler_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="751" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="751" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1acb4cbc4c5d617d15a9e5311f9f8688c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::CalculatorGraph::CalculatorGraph</definition>
+        <argsstring>()</argsstring>
+        <name>CalculatorGraph</name>
+        <qualifiedname>mediapipe::CalculatorGraph::CalculatorGraph</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="118" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="134" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a56d01c625fbb623d2619f79850dfd008" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::CalculatorGraph::CalculatorGraph</definition>
+        <argsstring>(const CalculatorGraph &amp;)=delete</argsstring>
+        <name>CalculatorGraph</name>
+        <qualifiedname>mediapipe::CalculatorGraph::CalculatorGraph</qualifiedname>
+        <param>
+          <type>const CalculatorGraph &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="119" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1abdb24647dfeea1492e0ee250d5a91793" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>CalculatorGraph &amp;</type>
+        <definition>CalculatorGraph &amp; mediapipe::CalculatorGraph::operator=</definition>
+        <argsstring>(const CalculatorGraph &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>mediapipe::CalculatorGraph::operator=</qualifiedname>
+        <param>
+          <type>const CalculatorGraph &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="120" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a8971ebcb80d6ec0ae4be1eadb0534a48" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::CalculatorGraph::CalculatorGraph</definition>
+        <argsstring>(CalculatorGraphConfig config)</argsstring>
+        <name>CalculatorGraph</name>
+        <qualifiedname>mediapipe::CalculatorGraph::CalculatorGraph</qualifiedname>
+        <param>
+          <type>CalculatorGraphConfig</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="124" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="139" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1aef0d2963c7491d76daeed1f749435d29" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>mediapipe::CalculatorGraph::~CalculatorGraph</definition>
+        <argsstring>()</argsstring>
+        <name>~CalculatorGraph</name>
+        <qualifiedname>mediapipe::CalculatorGraph::~CalculatorGraph</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="125" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="148" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1ad05e4a9662c180e728d05b1389639950" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::Initialize</definition>
+        <argsstring>(CalculatorGraphConfig config, const std::map&lt; std::string, Packet &gt; &amp;side_packets)</argsstring>
+        <name>Initialize</name>
+        <qualifiedname>mediapipe::CalculatorGraph::Initialize</qualifiedname>
+        <param>
+          <type>CalculatorGraphConfig</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>const std::map&lt; std::string, Packet &gt; &amp;</type>
+          <declname>side_packets</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="130" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="457" bodyend="465"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a1383ce595c31ea3026bc01eecc1f6829" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::Initialize</definition>
+        <argsstring>(CalculatorGraphConfig config)</argsstring>
+        <name>Initialize</name>
+        <qualifiedname>mediapipe::CalculatorGraph::Initialize</qualifiedname>
+        <param>
+          <type>CalculatorGraphConfig</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="134" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="453" bodyend="455"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1adfc3a2eaf71941d94d612c27fff76f5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::Initialize</definition>
+        <argsstring>(const std::vector&lt; CalculatorGraphConfig &gt; &amp;configs, const std::vector&lt; CalculatorGraphTemplate &gt; &amp;templates, const std::map&lt; std::string, Packet &gt; &amp;side_packets={}, const std::string &amp;graph_type=&quot;&quot;, const Subgraph::SubgraphOptions *options=nullptr)</argsstring>
+        <name>Initialize</name>
+        <qualifiedname>mediapipe::CalculatorGraph::Initialize</qualifiedname>
+        <param>
+          <type>const std::vector&lt; CalculatorGraphConfig &gt; &amp;</type>
+          <declname>configs</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; CalculatorGraphTemplate &gt; &amp;</type>
+          <declname>templates</declname>
+        </param>
+        <param>
+          <type>const std::map&lt; std::string, Packet &gt; &amp;</type>
+          <declname>side_packets</declname>
+          <defval>{}</defval>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>graph_type</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <param>
+          <type>const Subgraph::SubgraphOptions *</type>
+          <declname>options</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="142" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="467" bodyend="476"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a6cf8c8feba92b38b72cf8456236a3a55" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const CalculatorGraphConfig &amp;</type>
+        <definition>const CalculatorGraphConfig &amp; mediapipe::CalculatorGraph::Config</definition>
+        <argsstring>() const</argsstring>
+        <name>Config</name>
+        <qualifiedname>mediapipe::CalculatorGraph::Config</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="150" column="31" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="150" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a3d70fc936ed1d06229bb2d75fc517f74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::ObserveOutputStream</definition>
+        <argsstring>(const std::string &amp;stream_name, std::function&lt; absl::Status(const Packet &amp;)&gt; packet_callback, bool observe_timestamp_bounds=false)</argsstring>
+        <name>ObserveOutputStream</name>
+        <qualifiedname>mediapipe::CalculatorGraph::ObserveOutputStream</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>stream_name</declname>
+        </param>
+        <param>
+          <type>std::function&lt; absl::Status(const Packet &amp;)&gt;</type>
+          <declname>packet_callback</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>observe_timestamp_bounds</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="163" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="478" bodyend="498"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a1d596dd5f21744e8905b28a4b469a00e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>StatusOrPoller</type>
+        <definition>absl::StatusOr&lt; OutputStreamPoller &gt; mediapipe::CalculatorGraph::AddOutputStreamPoller</definition>
+        <argsstring>(const std::string &amp;stream_name, bool observe_timestamp_bounds=false)</argsstring>
+        <name>AddOutputStreamPoller</name>
+        <qualifiedname>mediapipe::CalculatorGraph::AddOutputStreamPoller</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>stream_name</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>observe_timestamp_bounds</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="172" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="511" bodyend="530"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1aba5136c7cfbfa112bc508789dd833109" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::StatusOr&lt; Packet &gt;</type>
+        <definition>absl::StatusOr&lt; Packet &gt; mediapipe::CalculatorGraph::GetOutputSidePacket</definition>
+        <argsstring>(const std::string &amp;packet_name)</argsstring>
+        <name>GetOutputSidePacket</name>
+        <qualifiedname>mediapipe::CalculatorGraph::GetOutputSidePacket</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>packet_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="182" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="532" bodyend="566"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a830f5e0f16fb6eaa9af577ff3c0f094d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::Run</definition>
+        <argsstring>(const std::map&lt; std::string, Packet &gt; &amp;extra_side_packets)</argsstring>
+        <name>Run</name>
+        <qualifiedname>mediapipe::CalculatorGraph::Run</qualifiedname>
+        <param>
+          <type>const std::map&lt; std::string, Packet &gt; &amp;</type>
+          <declname>extra_side_packets</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="187" column="24" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="568" bodyend="575"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1ab8e5ca713ae1f836bb7e14e57e37bba9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::Run</definition>
+        <argsstring>()</argsstring>
+        <name>Run</name>
+        <qualifiedname>mediapipe::CalculatorGraph::Run</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="191" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="191" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a322d18fa9e077e5b4a753735f2bab588" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::StartRun</definition>
+        <argsstring>(const std::map&lt; std::string, Packet &gt; &amp;extra_side_packets)</argsstring>
+        <name>StartRun</name>
+        <qualifiedname>mediapipe::CalculatorGraph::StartRun</qualifiedname>
+        <param>
+          <type>const std::map&lt; std::string, Packet &gt; &amp;</type>
+          <declname>extra_side_packets</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="212" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="212" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a7c4039f79fe68637926c10d63ea234f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::StartRun</definition>
+        <argsstring>(const std::map&lt; std::string, Packet &gt; &amp;extra_side_packets, const std::map&lt; std::string, Packet &gt; &amp;stream_headers)</argsstring>
+        <name>StartRun</name>
+        <qualifiedname>mediapipe::CalculatorGraph::StartRun</qualifiedname>
+        <param>
+          <type>const std::map&lt; std::string, Packet &gt; &amp;</type>
+          <declname>extra_side_packets</declname>
+        </param>
+        <param>
+          <type>const std::map&lt; std::string, Packet &gt; &amp;</type>
+          <declname>stream_headers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="221" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="577" bodyend="586"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a7303280c73cc3bfaf432dd8122c0ca68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::WaitUntilDone</definition>
+        <argsstring>()</argsstring>
+        <name>WaitUntilDone</name>
+        <qualifiedname>mediapipe::CalculatorGraph::WaitUntilDone</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="232" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="894" bodyend="900"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a6fe794a9917aea7a41661559373dbc58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::WaitUntilIdle</definition>
+        <argsstring>()</argsstring>
+        <name>WaitUntilIdle</name>
+        <qualifiedname>mediapipe::CalculatorGraph::WaitUntilIdle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="242" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="877" bodyend="892"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a6cebfb55da97f54bb1f6fe51a2169447" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::WaitForObservedOutput</definition>
+        <argsstring>()</argsstring>
+        <name>WaitForObservedOutput</name>
+        <qualifiedname>mediapipe::CalculatorGraph::WaitForObservedOutput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="248" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="902" bodyend="904"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1af830617e83d30eef8992d957b2e5eb18" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::CalculatorGraph::HasError</definition>
+        <argsstring>() const</argsstring>
+        <name>HasError</name>
+        <qualifiedname>mediapipe::CalculatorGraph::HasError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="251" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="251" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1aab0a4198f3f39120f0b754b6ab4a95b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::AddPacketToInputStream</definition>
+        <argsstring>(absl::string_view stream_name, const Packet &amp;packet)</argsstring>
+        <name>AddPacketToInputStream</name>
+        <qualifiedname>mediapipe::CalculatorGraph::AddPacketToInputStream</qualifiedname>
+        <param>
+          <type>absl::string_view</type>
+          <declname>stream_name</declname>
+        </param>
+        <param>
+          <type>const Packet &amp;</type>
+          <declname>packet</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="262" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="906" bodyend="909"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a9144ffc76fc75dbe815507ad2defc640" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::AddPacketToInputStream</definition>
+        <argsstring>(absl::string_view stream_name, Packet &amp;&amp;packet)</argsstring>
+        <name>AddPacketToInputStream</name>
+        <qualifiedname>mediapipe::CalculatorGraph::AddPacketToInputStream</qualifiedname>
+        <param>
+          <type>absl::string_view</type>
+          <declname>stream_name</declname>
+        </param>
+        <param>
+          <type>Packet &amp;&amp;</type>
+          <declname>packet</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="272" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="911" bodyend="914"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a0153e2e194186d422425b792362616e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::SetInputStreamTimestampBound</definition>
+        <argsstring>(const std::string &amp;stream_name, Timestamp timestamp)</argsstring>
+        <name>SetInputStreamTimestampBound</name>
+        <qualifiedname>mediapipe::CalculatorGraph::SetInputStreamTimestampBound</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>stream_name</declname>
+        </param>
+        <param>
+          <type>Timestamp</type>
+          <declname>timestamp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="276" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="916" bodyend="927"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a3c64115fd5368effaeaef9260624611b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::SetInputStreamMaxQueueSize</definition>
+        <argsstring>(const std::string &amp;stream_name, int max_queue_size)</argsstring>
+        <name>SetInputStreamMaxQueueSize</name>
+        <qualifiedname>mediapipe::CalculatorGraph::SetInputStreamMaxQueueSize</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>stream_name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>max_queue_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="280" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="1016" bodyend="1022"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a8f22ecf03e32c6591ec7c35b00136fbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::CalculatorGraph::HasInputStream</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>HasInputStream</name>
+        <qualifiedname>mediapipe::CalculatorGraph::HasInputStream</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="284" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="1024" bodyend="1026"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1aa95dd04d874b6a125c6950de34031139" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::CloseInputStream</definition>
+        <argsstring>(const std::string &amp;stream_name)</argsstring>
+        <name>CloseInputStream</name>
+        <qualifiedname>mediapipe::CalculatorGraph::CloseInputStream</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>stream_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="291" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="1028" bodyend="1049"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1afbb509a6276f8e72fff048c900a64517" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::CloseAllInputStreams</definition>
+        <argsstring>()</argsstring>
+        <name>CloseAllInputStreams</name>
+        <qualifiedname>mediapipe::CalculatorGraph::CloseAllInputStreams</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="294" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="1051" bodyend="1060"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1aed4b1e099ffbee72299775681f105126" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::CloseAllPacketSources</definition>
+        <argsstring>()</argsstring>
+        <name>CloseAllPacketSources</name>
+        <qualifiedname>mediapipe::CalculatorGraph::CloseAllPacketSources</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="297" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="1062" bodyend="1072"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a3a707f235d24dc9eb5288aee57a2832f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ABSL_DEPRECATED(&quot;Prefer using a Calculator to get information of all sorts out of the &quot; &quot;graph.&quot;) const OutputStreamManager *FindOutputStreamManager(const std ProfilingContext *</type>
+        <definition>ABSL_DEPRECATED(&quot;Prefer using a Calculator to get information of all sorts out of the &quot; &quot;graph.&quot;) const OutputStreamManager *FindOutputStreamManager(const std ProfilingContext * mediapipe::CalculatorGraph::profiler</definition>
+        <argsstring>()</argsstring>
+        <name>profiler</name>
+        <qualifiedname>mediapipe::CalculatorGraph::profiler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="307" column="20" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="307" bodyend="307"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a0b20327dafa7a388eeccc9b862423d97" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ABSL_DEPRECATED(&quot;Use profiler()-&gt;GetCalculatorProfiles() instead&quot;) absl void</type>
+        <definition>ABSL_DEPRECATED(&quot;Use profiler()-&gt;GetCalculatorProfiles() instead&quot;) absl void mediapipe::CalculatorGraph::SetCounterFactory</definition>
+        <argsstring>(CounterFactory *factory)</argsstring>
+        <name>SetCounterFactory</name>
+        <qualifiedname>mediapipe::CalculatorGraph::SetCounterFactory</qualifiedname>
+        <param>
+          <type>CounterFactory *</type>
+          <declname>factory</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="315" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="315" bodyend="317"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a5076ff397eb31e93ecb7dceaa2d34b7d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>CounterFactory *</type>
+        <definition>CounterFactory * mediapipe::CalculatorGraph::GetCounterFactory</definition>
+        <argsstring>()</argsstring>
+        <name>GetCounterFactory</name>
+        <qualifiedname>mediapipe::CalculatorGraph::GetCounterFactory</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="318" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="318" bodyend="318"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a73ecc98e31cfaf12637e4cefd3b27f43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::SetErrorCallback</definition>
+        <argsstring>(std::function&lt; void(const absl::Status &amp;)&gt; error_callback)</argsstring>
+        <name>SetErrorCallback</name>
+        <qualifiedname>mediapipe::CalculatorGraph::SetErrorCallback</qualifiedname>
+        <param>
+          <type>std::function&lt; void(const absl::Status &amp;)&gt;</type>
+          <declname>error_callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="332" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="500" bodyend="509"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1ab562ae36b1fd3e0777d18b8c8bc92f84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::CalculatorGraph::RecordError</definition>
+        <argsstring>(const absl::Status &amp;error) ABSL_LOCKS_EXCLUDED(error_mutex_)</argsstring>
+        <name>RecordError</name>
+        <qualifiedname>mediapipe::CalculatorGraph::RecordError</qualifiedname>
+        <param>
+          <type>const absl::Status &amp;</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="340" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="1074" bodyend="1096"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1af2a8eb04e15d313c883187b0d125987d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::CalculatorGraph::GetCombinedErrors</definition>
+        <argsstring>(const std::string &amp;error_prefix, absl::Status *error_status)</argsstring>
+        <name>GetCombinedErrors</name>
+        <qualifiedname>mediapipe::CalculatorGraph::GetCombinedErrors</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>error_prefix</declname>
+        </param>
+        <param>
+          <type>absl::Status *</type>
+          <declname>error_status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="344" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="1102" bodyend="1110"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a3fc9e500daffc852d105c09bd11d3cee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::CalculatorGraph::GetCombinedErrors</definition>
+        <argsstring>(absl::Status *error_status)</argsstring>
+        <name>GetCombinedErrors</name>
+        <qualifiedname>mediapipe::CalculatorGraph::GetCombinedErrors</qualifiedname>
+        <param>
+          <type>absl::Status *</type>
+          <declname>error_status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="347" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="1098" bodyend="1100"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a9f8357930239305cf173f762054ddce5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::CalculatorGraph::GetMaxInputStreamQueueSize</definition>
+        <argsstring>()</argsstring>
+        <name>GetMaxInputStreamQueueSize</name>
+        <qualifiedname>mediapipe::CalculatorGraph::GetMaxInputStreamQueueSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="350" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="1163" bodyend="1163"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1ab06c614dc3f27d021946eba525cf706d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>GraphInputStreamAddMode</type>
+        <definition>CalculatorGraph::GraphInputStreamAddMode mediapipe::CalculatorGraph::GetGraphInputStreamAddMode</definition>
+        <argsstring>() const</argsstring>
+        <name>GetGraphInputStreamAddMode</name>
+        <qualifiedname>mediapipe::CalculatorGraph::GetGraphInputStreamAddMode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="353" column="27" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="1301" bodyend="1304"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1ae0180664e8d4674e4366c4e7b6efa928" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::CalculatorGraph::SetGraphInputStreamAddMode</definition>
+        <argsstring>(GraphInputStreamAddMode mode)</argsstring>
+        <name>SetGraphInputStreamAddMode</name>
+        <qualifiedname>mediapipe::CalculatorGraph::SetGraphInputStreamAddMode</qualifiedname>
+        <param>
+          <type>GraphInputStreamAddMode</type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="356" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="1306" bodyend="1309"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a27478f86c1b5765054a8ef1fc97d2a38" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::CalculatorGraph::Cancel</definition>
+        <argsstring>()</argsstring>
+        <name>Cancel</name>
+        <qualifiedname>mediapipe::CalculatorGraph::Cancel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="364" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="1311" bodyend="1314"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a4021b1873b71e29b58e91acf11863021" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::CalculatorGraph::ABSL_DEPRECATED</definition>
+        <argsstring>(&quot;CalculatorGraph will not allow external callers to explictly pause and &quot; &quot;resume a graph.&quot;) void Pause()</argsstring>
+        <name>ABSL_DEPRECATED</name>
+        <qualifiedname>mediapipe::CalculatorGraph::ABSL_DEPRECATED</qualifiedname>
+        <param>
+          <type>&quot;CalculatorGraph will not allow external callers to explictly pause and &quot; &quot;resume a graph.&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="367" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a9cb27272be65eb2e20a2e84df9b97b96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::CalculatorGraph::ABSL_DEPRECATED</definition>
+        <argsstring>(&quot;CalculatorGraph will not allow external callers to explictly pause and &quot; &quot;resume a graph.&quot;) void Resume()</argsstring>
+        <name>ABSL_DEPRECATED</name>
+        <qualifiedname>mediapipe::CalculatorGraph::ABSL_DEPRECATED</qualifiedname>
+        <param>
+          <type>&quot;CalculatorGraph will not allow external callers to explictly pause and &quot; &quot;resume a graph.&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="373" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a9b6e47214be1134f1ad8ec5c9b948c79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::SetExecutor</definition>
+        <argsstring>(const std::string &amp;name, std::shared_ptr&lt; Executor &gt; executor)</argsstring>
+        <name>SetExecutor</name>
+        <qualifiedname>mediapipe::CalculatorGraph::SetExecutor</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; Executor &gt;</type>
+          <declname>executor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="381" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="1337" bodyend="1346"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a6dfae44c029368051fbcd1bb254ea5c5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::CalculatorGraph::GraphInputStreamsClosed</definition>
+        <argsstring>()</argsstring>
+        <name>GraphInputStreamsClosed</name>
+        <qualifiedname>mediapipe::CalculatorGraph::GraphInputStreamsClosed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="387" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="387" bodyend="389"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1adef6a896f65ac32187580e4968a08077" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::CalculatorGraph::IsNodeThrottled</definition>
+        <argsstring>(int node_id) ABSL_LOCKS_EXCLUDED(full_input_streams_mutex_)</argsstring>
+        <name>IsNodeThrottled</name>
+        <qualifiedname>mediapipe::CalculatorGraph::IsNodeThrottled</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>node_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="393" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="1240" bodyend="1243"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1ad589f920da8876ff9d1b2e09f2683283" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::CalculatorGraph::UnthrottleSources</definition>
+        <argsstring>() ABSL_LOCKS_EXCLUDED(full_input_streams_mutex_)</argsstring>
+        <name>UnthrottleSources</name>
+        <qualifiedname>mediapipe::CalculatorGraph::UnthrottleSources</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="400" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="1258" bodyend="1298"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1aa81ede80e2b98877a51e1b8ac94fada4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>internal::SchedulerTimes</type>
+        <definition>internal::SchedulerTimes mediapipe::CalculatorGraph::GetSchedulerTimes</definition>
+        <argsstring>()</argsstring>
+        <name>GetSchedulerTimes</name>
+        <qualifiedname>mediapipe::CalculatorGraph::GetSchedulerTimes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="404" column="28" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="404" bodyend="406"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a78f2d3f3d867d45e20289cfcc2e3c045" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; GpuResources &gt;</type>
+        <definition>std::shared_ptr&lt;::mediapipe::GpuResources &gt; mediapipe::CalculatorGraph::GetGpuResources</definition>
+        <argsstring>() const</argsstring>
+        <name>GetGpuResources</name>
+        <qualifiedname>mediapipe::CalculatorGraph::GetGpuResources</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="411" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="598" bodyend="601"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1af6cb877e5e0a5fc6679985fa7716400b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::SetGpuResources</definition>
+        <argsstring>(std::shared_ptr&lt; GpuResources &gt; resources)</argsstring>
+        <name>SetGpuResources</name>
+        <qualifiedname>mediapipe::CalculatorGraph::SetGpuResources</qualifiedname>
+        <param>
+          <type>std::shared_ptr&lt; GpuResources &gt;</type>
+          <declname>resources</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="413" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="589" bodyend="596"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a99afc0be0a85053afee0c7a19cfb7769" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::SetServiceObject</definition>
+        <argsstring>(const GraphService&lt; T &gt; &amp;service, std::shared_ptr&lt; T &gt; object)</argsstring>
+        <name>SetServiceObject</name>
+        <qualifiedname>mediapipe::CalculatorGraph::SetServiceObject</qualifiedname>
+        <param>
+          <type>const GraphService&lt; T &gt; &amp;</type>
+          <declname>service</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; T &gt;</type>
+          <declname>object</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="423" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="423" bodyend="427"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a17a5c737b82f94a3fcabb8b3de118bc1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::shared_ptr&lt; T &gt;</type>
+        <definition>std::shared_ptr&lt; T &gt; mediapipe::CalculatorGraph::GetServiceObject</definition>
+        <argsstring>(const GraphService&lt; T &gt; &amp;service)</argsstring>
+        <name>GetServiceObject</name>
+        <qualifiedname>mediapipe::CalculatorGraph::GetServiceObject</qualifiedname>
+        <param>
+          <type>const GraphService&lt; T &gt; &amp;</type>
+          <declname>service</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="430" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="430" bodyend="432"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a3b9a74e3779f5dc0dd0250e760247e65" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::DisallowServiceDefaultInitialization</definition>
+        <argsstring>()</argsstring>
+        <name>DisallowServiceDefaultInitialization</name>
+        <qualifiedname>mediapipe::CalculatorGraph::DisallowServiceDefaultInitialization</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="457" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="457" bodyend="460"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a87064186b79b5b2735f59b08b4ff6734" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::SetServicePacket</definition>
+        <argsstring>(const GraphServiceBase &amp;service, Packet p)</argsstring>
+        <name>SetServicePacket</name>
+        <qualifiedname>mediapipe::CalculatorGraph::SetServicePacket</qualifiedname>
+        <param>
+          <type>const GraphServiceBase &amp;</type>
+          <declname>service</declname>
+        </param>
+        <param>
+          <type>Packet</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="470" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="470" bodyend="473"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a0d161609de7144662bb450ff234dcd44" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::Initialize</definition>
+        <argsstring>(std::unique_ptr&lt; ValidatedGraphConfig &gt; validated_graph, const std::map&lt; std::string, Packet &gt; &amp;side_packets)</argsstring>
+        <name>Initialize</name>
+        <qualifiedname>mediapipe::CalculatorGraph::Initialize</qualifiedname>
+        <param>
+          <type>std::unique_ptr&lt; ValidatedGraphConfig &gt;</type>
+          <declname>validated_graph</declname>
+        </param>
+        <param>
+          <type>const std::map&lt; std::string, Packet &gt; &amp;</type>
+          <declname>side_packets</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="527" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="432" bodyend="451"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1ac3838e792d9483068c28ab1d3c54f156" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::AddPacketToInputStreamInternal</definition>
+        <argsstring>(absl::string_view stream_name, T &amp;&amp;packet)</argsstring>
+        <name>AddPacketToInputStreamInternal</name>
+        <qualifiedname>mediapipe::CalculatorGraph::AddPacketToInputStreamInternal</qualifiedname>
+        <param>
+          <type>absl::string_view</type>
+          <declname>stream_name</declname>
+        </param>
+        <param>
+          <type>T &amp;&amp;</type>
+          <declname>packet</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="534" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="934" bodyend="1014"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1ac6635e27d5f2c2d2d97f2f3a7c58afe5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::SetExecutorInternal</definition>
+        <argsstring>(const std::string &amp;name, std::shared_ptr&lt; Executor &gt; executor)</argsstring>
+        <name>SetExecutorInternal</name>
+        <qualifiedname>mediapipe::CalculatorGraph::SetExecutorInternal</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; Executor &gt;</type>
+          <declname>executor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="541" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="1320" bodyend="1335"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a451ca9fa40d613ef595a96a8857b7326" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::InitializeDefaultExecutor</definition>
+        <argsstring>(const ThreadPoolExecutorOptions *default_executor_options, bool use_application_thread)</argsstring>
+        <name>InitializeDefaultExecutor</name>
+        <qualifiedname>mediapipe::CalculatorGraph::InitializeDefaultExecutor</qualifiedname>
+        <param>
+          <type>const ThreadPoolExecutorOptions *</type>
+          <declname>default_executor_options</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>use_application_thread</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="549" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="394" bodyend="430"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a53a49f68a0af7d659a4229e81f4ef706" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::CreateDefaultThreadPool</definition>
+        <argsstring>(const ThreadPoolExecutorOptions *default_executor_options, int num_threads)</argsstring>
+        <name>CreateDefaultThreadPool</name>
+        <qualifiedname>mediapipe::CalculatorGraph::CreateDefaultThreadPool</qualifiedname>
+        <param>
+          <type>const ThreadPoolExecutorOptions *</type>
+          <declname>default_executor_options</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>num_threads</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="555" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="1348" bodyend="1363"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a135e135b6f15d3a7d8609b9a8243864e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::InitializeExecutors</definition>
+        <argsstring>()</argsstring>
+        <name>InitializeExecutors</name>
+        <qualifiedname>mediapipe::CalculatorGraph::InitializeExecutors</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="563" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="334" bodyend="392"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1aa04739ed59b3c0c926933e91d8caff3e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::InitializePacketGeneratorGraph</definition>
+        <argsstring>(const std::map&lt; std::string, Packet &gt; &amp;side_packets)</argsstring>
+        <name>InitializePacketGeneratorGraph</name>
+        <qualifiedname>mediapipe::CalculatorGraph::InitializePacketGeneratorGraph</qualifiedname>
+        <param>
+          <type>const std::map&lt; std::string, Packet &gt; &amp;</type>
+          <declname>side_packets</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="564" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="156" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a79b3ba81b0c3cf89eaa487cb7f064cb2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::InitializeStreams</definition>
+        <argsstring>()</argsstring>
+        <name>InitializeStreams</name>
+        <qualifiedname>mediapipe::CalculatorGraph::InitializeStreams</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="566" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="185" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1af40f6642785cf8b9dfb49074b493e3c7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::InitializeProfiler</definition>
+        <argsstring>()</argsstring>
+        <name>InitializeProfiler</name>
+        <qualifiedname>mediapipe::CalculatorGraph::InitializeProfiler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="567" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="329" bodyend="332"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a0db6b6dd9860e8a1612fdc3002af1d22" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::InitializeCalculatorNodes</definition>
+        <argsstring>()</argsstring>
+        <name>InitializeCalculatorNodes</name>
+        <qualifiedname>mediapipe::CalculatorGraph::InitializeCalculatorNodes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="568" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="257" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a0bb165f3751d2b5b08d309f9358d50de" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::InitializePacketGeneratorNodes</definition>
+        <argsstring>(const std::vector&lt; int &gt; &amp;non_scheduled_generators)</argsstring>
+        <name>InitializePacketGeneratorNodes</name>
+        <qualifiedname>mediapipe::CalculatorGraph::InitializePacketGeneratorNodes</qualifiedname>
+        <param>
+          <type>const std::vector&lt; int &gt; &amp;</type>
+          <declname>non_scheduled_generators</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="569" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="296" bodyend="327"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a9a3cb6b048233a9c9f0a82275e64cfcd" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::CalculatorGraph::ScheduleAllOpenableNodes</definition>
+        <argsstring>()</argsstring>
+        <name>ScheduleAllOpenableNodes</name>
+        <qualifiedname>mediapipe::CalculatorGraph::ScheduleAllOpenableNodes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="573" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="99" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1aaf3ca10f9361406851b79084ef1924d6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::PrepareForRun</definition>
+        <argsstring>(const std::map&lt; std::string, Packet &gt; &amp;extra_side_packets, const std::map&lt; std::string, Packet &gt; &amp;stream_headers)</argsstring>
+        <name>PrepareForRun</name>
+        <qualifiedname>mediapipe::CalculatorGraph::PrepareForRun</qualifiedname>
+        <param>
+          <type>const std::map&lt; std::string, Packet &gt; &amp;</type>
+          <declname>extra_side_packets</declname>
+        </param>
+        <param>
+          <type>const std::map&lt; std::string, Packet &gt; &amp;</type>
+          <declname>stream_headers</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="576" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="692" bodyend="875"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a8addc267f604881f0c5311ed5a7b6006" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::PrepareServices</definition>
+        <argsstring>()</argsstring>
+        <name>PrepareServices</name>
+        <qualifiedname>mediapipe::CalculatorGraph::PrepareServices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="580" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="664" bodyend="690"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a54a4954beb37cb39388fc77feb1b42e0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::MaybeSetUpGpuServiceFromLegacySidePacket</definition>
+        <argsstring>(Packet legacy_sp)</argsstring>
+        <name>MaybeSetUpGpuServiceFromLegacySidePacket</name>
+        <qualifiedname>mediapipe::CalculatorGraph::MaybeSetUpGpuServiceFromLegacySidePacket</qualifiedname>
+        <param>
+          <type>Packet</type>
+          <declname>legacy_sp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="583" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="613" bodyend="625"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a3d5c9b08b56cc03d8457c829dc0a377c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::map&lt; std::string, Packet &gt;</type>
+        <definition>std::map&lt; std::string, Packet &gt; mediapipe::CalculatorGraph::MaybeCreateLegacyGpuSidePacket</definition>
+        <argsstring>(Packet legacy_sp)</argsstring>
+        <name>MaybeCreateLegacyGpuSidePacket</name>
+        <qualifiedname>mediapipe::CalculatorGraph::MaybeCreateLegacyGpuSidePacket</qualifiedname>
+        <param>
+          <type>Packet</type>
+          <declname>legacy_sp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="587" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="627" bodyend="641"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a15ec4ee320a5223fcaf0202f2e88aa12" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::PrepareGpu</definition>
+        <argsstring>()</argsstring>
+        <name>PrepareGpu</name>
+        <qualifiedname>mediapipe::CalculatorGraph::PrepareGpu</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="589" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="647" bodyend="661"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a13d13b2965100eb1b655aece2f6c05a0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::CalculatorGraph::FinishRun</definition>
+        <argsstring>()</argsstring>
+        <name>FinishRun</name>
+        <qualifiedname>mediapipe::CalculatorGraph::FinishRun</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="594" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="1370" bodyend="1377"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a4a54e621b3d097453c90ec29a82dce0b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::CalculatorGraph::CleanupAfterRun</definition>
+        <argsstring>(absl::Status *status) ABSL_LOCKS_EXCLUDED(error_mutex_)</argsstring>
+        <name>CleanupAfterRun</name>
+        <qualifiedname>mediapipe::CalculatorGraph::CleanupAfterRun</qualifiedname>
+        <param>
+          <type>absl::Status *</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="601" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="1379" bodyend="1416"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a064a9ce6c1cd7d0fd877ef0aa5bd7ff5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::CalculatorGraph::CallStatusHandlers</definition>
+        <argsstring>(GraphRunState graph_run_state, const absl::Status &amp;status)</argsstring>
+        <name>CallStatusHandlers</name>
+        <qualifiedname>mediapipe::CalculatorGraph::CallStatusHandlers</qualifiedname>
+        <param>
+          <type>GraphRunState</type>
+          <declname>graph_run_state</declname>
+        </param>
+        <param>
+          <type>const absl::Status &amp;</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="607" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="1112" bodyend="1161"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1ae28a7c35b2fd7c45561aa5fee19c9462" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::CalculatorGraph::UpdateThrottledNodes</definition>
+        <argsstring>(InputStreamManager *stream, bool *stream_was_full)</argsstring>
+        <name>UpdateThrottledNodes</name>
+        <qualifiedname>mediapipe::CalculatorGraph::UpdateThrottledNodes</qualifiedname>
+        <param>
+          <type>InputStreamManager *</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>stream_was_full</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="621" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="1165" bodyend="1238"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a12e919baff73f0c4d166ef169e653f7c" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string mediapipe::CalculatorGraph::ListSourceNodes</definition>
+        <argsstring>() const</argsstring>
+        <name>ListSourceNodes</name>
+        <qualifiedname>mediapipe::CalculatorGraph::ListSourceNodes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="624" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="1424" bodyend="1432"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a9d2225778d11c7a1bcdc2b56522e1302" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string mediapipe::CalculatorGraph::GetParentNodeDebugName</definition>
+        <argsstring>(InputStreamManager *stream) const</argsstring>
+        <name>GetParentNodeDebugName</name>
+        <qualifiedname>mediapipe::CalculatorGraph::GetParentNodeDebugName</qualifiedname>
+        <param>
+          <type>InputStreamManager *</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="627" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="1434" bodyend="1453"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a65ff0768062113f5ddd2380f05152b65" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>GraphInputStreamAddMode graph_input_stream_add_mode_</type>
+        <definition>GraphInputStreamAddMode graph_input_stream_add_mode_ mediapipe::CalculatorGraph::ABSL_GUARDED_BY</definition>
+        <argsstring>(full_input_streams_mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::CalculatorGraph::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>full_input_streams_mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="673" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a221653e257fdb81274a2fe8f6f293eec" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; absl::flat_hash_set&lt; InputStreamManager * &gt; &gt; full_input_streams_</type>
+        <definition>std::vector&lt; absl::flat_hash_set&lt; InputStreamManager * &gt; &gt; full_input_streams_ mediapipe::CalculatorGraph::ABSL_GUARDED_BY</definition>
+        <argsstring>(full_input_streams_mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::CalculatorGraph::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>full_input_streams_mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="682" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1aefbd08aef3347725981a71db7497f520" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; absl::Status &gt; errors_</type>
+        <definition>std::vector&lt; absl::Status &gt; errors_ mediapipe::CalculatorGraph::ABSL_GUARDED_BY</definition>
+        <argsstring>(error_mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::CalculatorGraph::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>error_mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="715" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a2132d76e27f26c920b5714c477c55639" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::CondVar wait_to_add_packet_cond_var_</type>
+        <definition>absl::CondVar wait_to_add_packet_cond_var_ mediapipe::CalculatorGraph::ABSL_GUARDED_BY</definition>
+        <argsstring>(full_input_streams_mutex_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>mediapipe::CalculatorGraph::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>full_input_streams_mutex_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="726" column="7"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1CalculatorGraph_1a86bf2f1bf69192754ed2926dac8ce58e" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::CalculatorGraph::IsReservedExecutorName</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>IsReservedExecutorName</name>
+        <qualifiedname>mediapipe::CalculatorGraph::IsReservedExecutorName</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="560" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.cc" bodystart="1366" bodyend="1368"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" line="98" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/calculator_graph.h" bodystart="98" bodyend="752"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a4021b1873b71e29b58e91acf11863021" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>ABSL_DEPRECATED</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a9cb27272be65eb2e20a2e84df9b97b96" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>ABSL_DEPRECATED</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a65ff0768062113f5ddd2380f05152b65" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a221653e257fdb81274a2fe8f6f293eec" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1aefbd08aef3347725981a71db7497f520" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a2132d76e27f26c920b5714c477c55639" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a1d596dd5f21744e8905b28a4b469a00e" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>AddOutputStreamPoller</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1aab0a4198f3f39120f0b754b6ab4a95b2" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>AddPacketToInputStream</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a9144ffc76fc75dbe815507ad2defc640" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>AddPacketToInputStream</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1ac3838e792d9483068c28ab1d3c54f156" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>AddPacketToInputStreamInternal</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a59737427aecb4b5558846b61baf90f45" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>allow_service_default_initialization_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1ac832f7b416bf2eea2e4a068af194156b" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>any_packet_type_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1acb4cbc4c5d617d15a9e5311f9f8688c1" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>CalculatorGraph</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a56d01c625fbb623d2619f79850dfd008" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>CalculatorGraph</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a8971ebcb80d6ec0ae4be1eadb0534a48" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>CalculatorGraph</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a064a9ce6c1cd7d0fd877ef0aa5bd7ff5" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>CallStatusHandlers</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a27478f86c1b5765054a8ef1fc97d2a38" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>Cancel</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a4a54e621b3d097453c90ec29a82dce0b" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>CleanupAfterRun</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1afbb509a6276f8e72fff048c900a64517" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>CloseAllInputStreams</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1aed4b1e099ffbee72299775681f105126" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>CloseAllPacketSources</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1aa95dd04d874b6a125c6950de34031139" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>CloseInputStream</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a6cf8c8feba92b38b72cf8456236a3a55" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>Config</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a5b6c9d24abf505471f38b1b5b0710e45" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>counter_factory_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a53a49f68a0af7d659a4229e81f4ef706" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>CreateDefaultThreadPool</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1ab6314115197348a0ed3c92d49b0251af" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>current_run_side_packets_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a3b9a74e3779f5dc0dd0250e760247e65" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>DisallowServiceDefaultInitialization</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a0e58d5f7f333eaccb53e43753d967b8f" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>error_callback_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a0dd616c68a848ee1fb916ff0c2d5c235" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>error_mutex_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a945a6606f8131f3db957ebbd7e6dfb17" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>executors_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a13d13b2965100eb1b655aece2f6c05a0" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>FinishRun</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a891aa93943fa903335c234173c7a4982" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>full_input_streams_mutex_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1af2a8eb04e15d313c883187b0d125987d" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>GetCombinedErrors</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a3fc9e500daffc852d105c09bd11d3cee" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>GetCombinedErrors</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a5076ff397eb31e93ecb7dceaa2d34b7d" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>GetCounterFactory</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a78f2d3f3d867d45e20289cfcc2e3c045" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>GetGpuResources</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1ab06c614dc3f27d021946eba525cf706d" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>GetGraphInputStreamAddMode</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a9f8357930239305cf173f762054ddce5" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>GetMaxInputStreamQueueSize</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1aba5136c7cfbfa112bc508789dd833109" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>GetOutputSidePacket</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a9d2225778d11c7a1bcdc2b56522e1302" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>GetParentNodeDebugName</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1aa81ede80e2b98877a51e1b8ac94fada4" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>GetSchedulerTimes</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a17a5c737b82f94a3fcabb8b3de118bc1" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>GetServiceObject</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1aa006973fd2076bc490537492019957b1" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>graph_input_stream_max_queue_size_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a20da43f85f2b067a914607247b955325" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>graph_input_stream_node_ids_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1ab57c289079834ad55fd85776598e9d3b" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>graph_input_streams_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1af9c6192e9b08ddcdb90559197264e3bf" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>graph_output_streams_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a190f41b189eec395fc7ff32942449089" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>GraphInputStreamAddMode</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a6dfae44c029368051fbcd1bb254ea5c5" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>GraphInputStreamsClosed</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1ae46deb8a4f07d06dfcb59968a9d0292d" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>GraphRunState</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a2eb860a3988e4e0ebd4bb6cda3f2042e" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>has_error_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1ae2fa42ee3109c413a953529096f4e2a6" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>has_sources_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1af830617e83d30eef8992d957b2e5eb18" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>HasError</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a8f22ecf03e32c6591ec7c35b00136fbd" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>HasInputStream</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1ad05e4a9662c180e728d05b1389639950" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>Initialize</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a1383ce595c31ea3026bc01eecc1f6829" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>Initialize</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1adfc3a2eaf71941d94d612c27fff76f5c" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>Initialize</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a0d161609de7144662bb450ff234dcd44" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>Initialize</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a0db6b6dd9860e8a1612fdc3002af1d22" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>InitializeCalculatorNodes</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a974cb922c86d6086f122f38fd0dbcdd3" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>initialized_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a451ca9fa40d613ef595a96a8857b7326" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>InitializeDefaultExecutor</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a135e135b6f15d3a7d8609b9a8243864e" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>InitializeExecutors</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1aa04739ed59b3c0c926933e91d8caff3e" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>InitializePacketGeneratorGraph</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a0bb165f3751d2b5b08d309f9358d50de" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>InitializePacketGeneratorNodes</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1af40f6642785cf8b9dfb49074b493e3c7" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>InitializeProfiler</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a79b3ba81b0c3cf89eaa487cb7f064cb2" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>InitializeStreams</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1abc0d9b8fffa63fbbb615c3834f3201ef" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>input_stream_managers_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a3a15f4dcd1133b1903e20a6c50b52619" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>input_stream_to_index_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1adef6a896f65ac32187580e4968a08077" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>IsNodeThrottled</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a86bf2f1bf69192754ed2926dac8ce58e" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>IsReservedExecutorName</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1abd4f5539a67205eb76575b4406e05268" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>legacy_gpu_shared_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a12e919baff73f0c4d166ef169e653f7c" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>ListSourceNodes</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a42d09b6f551b7b416b6bd4c481f23e0c" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>max_queue_size_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a3d5c9b08b56cc03d8457c829dc0a377c" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>MaybeCreateLegacyGpuSidePacket</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a54a4954beb37cb39388fc77feb1b42e0" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>MaybeSetUpGpuServiceFromLegacySidePacket</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1ab491ccb0164ae0b9adfb9e0d5b5a2bc7" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>nodes_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1ab3282062697955d4449d283e33e6a1f2" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>num_closed_graph_input_streams_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a3d70fc936ed1d06229bb2d75fc517f74" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>ObserveOutputStream</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1abdb24647dfeea1492e0ee250d5a91793" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>operator=</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a50fe4490d3e528193894c33cc50abefa" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>output_side_packets_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a614813df427f95313fab0eee6adbb014" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>output_stream_managers_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a9c7b8027ff72fea6e6a2e9f633b12aa2" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>packet_generator_graph_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a5a490b8556d3264566c5468eb8387831" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>packet_generator_nodes_added_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1aaf3ca10f9361406851b79084ef1924d6" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>PrepareForRun</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a15ec4ee320a5223fcaf0202f2e88aa12" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>PrepareGpu</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a8addc267f604881f0c5311ed5a7b6006" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>PrepareServices</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a3a707f235d24dc9eb5288aee57a2832f" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>profiler</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1ae378337ce31231411de2778798eb544c" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>profiler_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1ab562ae36b1fd3e0777d18b8c8bc92f84" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>RecordError</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a830f5e0f16fb6eaa9af577ff3c0f094d" prot="public" virt="virtual"><scope>mediapipe::CalculatorGraph</scope><name>Run</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1ab8e5ca713ae1f836bb7e14e57e37bba9" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>Run</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a9a3cb6b048233a9c9f0a82275e64cfcd" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>ScheduleAllOpenableNodes</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a7a2ba98ab83f17208e3b04183dec4ca5" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>scheduler_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a48e66a808cea0e8b59522e114d78122e" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>service_manager_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a0b20327dafa7a388eeccc9b862423d97" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>SetCounterFactory</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a73ecc98e31cfaf12637e4cefd3b27f43" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>SetErrorCallback</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a9b6e47214be1134f1ad8ec5c9b948c79" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>SetExecutor</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1ac6635e27d5f2c2d2d97f2f3a7c58afe5" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>SetExecutorInternal</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1af6cb877e5e0a5fc6679985fa7716400b" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>SetGpuResources</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1ae0180664e8d4674e4366c4e7b6efa928" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>SetGraphInputStreamAddMode</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a3c64115fd5368effaeaef9260624611b" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>SetInputStreamMaxQueueSize</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a0153e2e194186d422425b792362616e6" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>SetInputStreamTimestampBound</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a99afc0be0a85053afee0c7a19cfb7769" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>SetServiceObject</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a87064186b79b5b2735f59b08b4ff6734" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>SetServicePacket</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a322d18fa9e077e5b4a753735f2bab588" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>StartRun</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a7c4039f79fe68637926c10d63ea234f9" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>StartRun</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1ad589f920da8876ff9d1b2e09f2683283" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>UnthrottleSources</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1ae28a7c35b2fd7c45561aa5fee19c9462" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>UpdateThrottledNodes</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1aa41031e407d85a105d1ab27799f4d1ae" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>use_application_thread_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a9ce99b0ef8d40e007a15f0fcf66c900b" prot="private" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>validated_graph_</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a6cebfb55da97f54bb1f6fe51a2169447" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>WaitForObservedOutput</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a7303280c73cc3bfaf432dd8122c0ca68" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>WaitUntilDone</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1a6fe794a9917aea7a41661559373dbc58" prot="public" virt="non-virtual"><scope>mediapipe::CalculatorGraph</scope><name>WaitUntilIdle</name></member>
+      <member refid="classmediapipe_1_1CalculatorGraph_1aef0d2963c7491d76daeed1f749435d29" prot="public" virt="virtual"><scope>mediapipe::CalculatorGraph</scope><name>~CalculatorGraph</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

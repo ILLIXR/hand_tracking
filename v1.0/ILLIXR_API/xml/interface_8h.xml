@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="interface_8h" kind="file" language="C++">
+    <compoundname>interface.h</compoundname>
+    <includes local="no">openxr/openxr.h</includes>
+    <includedby refid="interface_8cpp" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp</includedby>
+    <includedby refid="openxr_8cpp" local="yes">/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/openxr.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.h</label>
+        <link refid="interface_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>openxr/openxr.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structixr__session" prot="public">ixr_session</innerclass>
+    <innerclass refid="structixr__hand__tracker" prot="public">ixr_hand_tracker</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="interface_8h_1a95e1d92b2619a326b2e86600f3d23100" prot="public" static="no">
+        <name>EXTERNC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.h" line="7" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="interface_8h_1a4efbb45344120e09deb9bac78ddd990d" prot="public" static="no">
+        <type>struct <ref refid="structht__illixr__handle__t" kindref="compound">ht_illixr_handle_t</ref> *</type>
+        <definition>typedef struct ht_illixr_handle_t* ht_illixr_handle</definition>
+        <argsstring></argsstring>
+        <name>ht_illixr_handle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.h" line="15" column="34" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="interface_8h_1aef4b9612d1494731568ba894de650326" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>XrResult</type>
+        <definition>XrResult illixr_xrCreateHandTrackerEXT</definition>
+        <argsstring>(XrSession session, const XrHandTrackerCreateInfoEXT *createInfo, XrHandTrackerEXT *handTracker)</argsstring>
+        <name>illixr_xrCreateHandTrackerEXT</name>
+        <param>
+          <type>XrSession</type>
+          <declname>session</declname>
+        </param>
+        <param>
+          <type>const XrHandTrackerCreateInfoEXT *</type>
+          <declname>createInfo</declname>
+        </param>
+        <param>
+          <type>XrHandTrackerEXT *</type>
+          <declname>handTracker</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Create a hand joints handle. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>session</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An XrSession in which the hand tracker will be active. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>createInfo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The XrHandTrackerCreateInfoEXT used to specify the hand tracker. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>handTracker</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The returned XrHandTrackerEXT handle. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>XrResult instance. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.h" line="43" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" bodystart="107" bodyend="141" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.h" declline="43" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_8h_1a1531045f6e0cdbd6ee69b9f060d903cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>XrResult XRAPI_CALL</type>
+        <definition>XrResult XRAPI_CALL illixr_xrDestroyHandTrackerEXT</definition>
+        <argsstring>(XrHandTrackerEXT handTracker)</argsstring>
+        <name>illixr_xrDestroyHandTrackerEXT</name>
+        <param>
+          <type>XrHandTrackerEXT</type>
+          <declname>handTracker</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Destroy a hand joints handle <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handTracker</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An XrHandTrackerEXT previously created by illixr_xrCreateHandTrackerEXT. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>XrResult instance. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.h" line="51" column="21" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" bodystart="143" bodyend="155" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.h" declline="51" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="interface_8h_1a743b5fd2474e3dfa3ee2f9b80645bd8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>XrResult XRAPI_CALL</type>
+        <definition>XrResult XRAPI_CALL illixr_xrLocateHandJointsEXT</definition>
+        <argsstring>(XrHandTrackerEXT handTracker, const XrHandJointsLocateInfoEXT *locateInfo, XrHandJointLocationsEXT *locations)</argsstring>
+        <name>illixr_xrLocateHandJointsEXT</name>
+        <param>
+          <type>XrHandTrackerEXT</type>
+          <declname>handTracker</declname>
+        </param>
+        <param>
+          <type>const XrHandJointsLocateInfoEXT *</type>
+          <declname>locateInfo</declname>
+        </param>
+        <param>
+          <type>XrHandJointLocationsEXT *</type>
+          <declname>locations</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Locate hand joint locations <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>handTracker</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An XrHandTrackerEXT previously created by illixr_xrCreateHandTrackerEXT. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>locateInfo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to XrHandJointsLocateInfoEXT describing information to locate hand joints. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>locations</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to XrHandJointLocationsEXT receiving the returned hand joint locations. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>XrResult instance. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.h" line="60" column="21" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.cpp" bodystart="157" bodyend="261" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.h" declline="60" declcolumn="21"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;openxr/openxr.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>EXTERNC<sp/>extern<sp/>&quot;C&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>EXTERNC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structht__illixr__handle__t" kindref="compound">ht_illixr_handle_t</ref>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structht__illixr__handle__t" kindref="compound">ht_illixr_handle_t</ref>*<sp/><ref refid="structht__illixr__handle__t" kindref="compound">ht_illixr_handle</ref>;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="structixr__session" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structixr__session" kindref="compound">ixr_session</ref><sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>XrSessionState<sp/>state;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="structixr__hand__tracker" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structixr__hand__tracker" kindref="compound">ixr_hand_tracker</ref><sp/>{</highlight></codeline>
+<codeline lineno="28" refid="structixr__hand__tracker_1ab5187490641649f00906cfb352313616" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structixr__session" kindref="compound">ixr_session</ref>*<sp/><ref refid="structixr__hand__tracker_1ab5187490641649f00906cfb352313616" kindref="member">session</ref>;<sp/></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="structixr__hand__tracker_1aff6484ae45352104a81df5759c26b49b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structht__illixr__handle__t" kindref="compound">ht_illixr_handle</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structixr__hand__tracker_1aff6484ae45352104a81df5759c26b49b" kindref="member">ht_handle</ref>;<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="31" refid="structixr__hand__tracker_1a913d0c042f18e446515964694bb62590" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>XrHandEXT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structixr__hand__tracker_1a913d0c042f18e446515964694bb62590" kindref="member">hand</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="32" refid="structixr__hand__tracker_1aaa013be856968b407637e2ad1216156b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structixr__hand__tracker_1aaa013be856968b407637e2ad1216156b" kindref="member">ixr_hand</ref>;<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="33" refid="structixr__hand__tracker_1acd56b8cc19c3f244ff668d4d6c72c841" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>[[maybe_unused]]<sp/>XrHandJointSetEXT<sp/><ref refid="structixr__hand__tracker_1acd56b8cc19c3f244ff668d4d6c72c841" kindref="member">hand_joints</ref>;<sp/></highlight></codeline>
+<codeline lineno="34"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal">XrResult<sp/>illixr_xrCreateHandTrackerEXT(XrSession<sp/>session,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>XrHandTrackerCreateInfoEXT*<sp/>createInfo,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XrHandTrackerEXT*<sp/>handTracker);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal">XrResult<sp/>XRAPI_CALL<sp/>illixr_xrDestroyHandTrackerEXT(XrHandTrackerEXT<sp/>handTracker);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal">XrResult<sp/>XRAPI_CALL<sp/>illixr_xrLocateHandJointsEXT(XrHandTrackerEXT<sp/>handTracker,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>XrHandJointsLocateInfoEXT*<sp/>locateInfo,</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>XrHandJointLocationsEXT*<sp/>locations);</highlight></codeline>
+    </programlisting>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/openxr/interface.h"/>
+  </compounddef>
+</doxygen>

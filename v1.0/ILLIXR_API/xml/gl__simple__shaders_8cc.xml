@@ -1,0 +1,313 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="gl__simple__shaders_8cc" kind="file" language="C++">
+    <compoundname>gl_simple_shaders.cc</compoundname>
+    <includes refid="gl__simple__shaders_8h" local="yes">mediapipe/gpu/gl_simple_shaders.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>mediapipe/gpu/gl_base.h</label>
+        <link refid="gl__base_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_simple_shaders.cc</label>
+        <link refid="gl__simple__shaders_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>mediapipe/gpu/gl_simple_shaders.h</label>
+        <link refid="gl__simple__shaders_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>EGL/egl.h</label>
+      </node>
+      <node id="5">
+        <label>GLES2/gl2.h</label>
+      </node>
+      <node id="6">
+        <label>GLES2/gl2ext.h</label>
+      </node>
+      <node id="7">
+        <label>GLES3/gl32.h</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacemediapipe">mediapipe</innernamespace>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="gl__simple__shaders_8cc_1a6fc86e1797496be8af10753611cf4fbe" prot="public" static="no">
+        <name>__STRINGIFY</name>
+        <param><defname>_x</defname></param>
+        <initializer>#_x</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_simple_shaders.cc" line="23" column="9" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_simple_shaders.cc" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gl__simple__shaders_8cc_1a98f982555e8da2fc467482d67673ad80" prot="public" static="no">
+        <name>_STRINGIFY</name>
+        <param><defname>_x</defname></param>
+        <initializer>__STRINGIFY(_x)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_simple_shaders.cc" line="24" column="9" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_simple_shaders.cc" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="gl__simple__shaders_8cc_1aa17036adada4b500fae941216fdc0056" prot="public" static="no">
+        <name>PRECISION_COMPAT</name>
+        <initializer>  GLES_VERSION_COMPAT                                 \
+  &quot;#ifdef GL_ES \n&quot;                                   \
+  &quot;#define DEFAULT_PRECISION(p, t) precision p t; \n&quot; \
+  &quot;#else \n&quot;                                          \
+  &quot;#define DEFAULT_PRECISION(p, t) \n&quot;                \
+  &quot;#define lowp \n&quot;                                   \
+  &quot;#define mediump \n&quot;                                \
+  &quot;#define highp \n&quot;                                  \
+  &quot;#endif  // defined(GL_ES) \n&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_simple_shaders.cc" line="40" column="9" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_simple_shaders.cc" bodystart="40" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="define" id="gl__simple__shaders_8cc_1a3f3f44de80f3cf35fe381ce139f95a5a" prot="public" static="no">
+        <name>VERTEX_PREAMBLE</name>
+        <initializer>  PRECISION_COMPAT          \
+  &quot;#if __VERSION__ &lt; 130\n&quot; \
+  &quot;#define in attribute\n&quot;  \
+  &quot;#define out varying\n&quot;   \
+  &quot;#endif  // __VERSION__ &lt; 130\n&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_simple_shaders.cc" line="51" column="9" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_simple_shaders.cc" bodystart="51" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="define" id="gl__simple__shaders_8cc_1a734b6ecfb2a09a4ea9e05f90d15b7a6a" prot="public" static="no">
+        <name>FRAGMENT_PREAMBLE</name>
+        <initializer>  PRECISION_COMPAT                                               \
+  &quot;#if __VERSION__ &lt; 130\n&quot;                                      \
+  &quot;#define in varying\n&quot;                                         \
+  &quot;#define texture texture2D\n&quot;                                  \
+  &quot;#if defined(GL_ES) &amp;&amp; !defined(GL_FRAGMENT_PRECISION_HIGH)\n&quot; \
+  &quot;#define highp mediump\n&quot;                                      \
+  &quot;#endif  // GL_ES &amp;&amp; !GL_FRAGMENT_PRECISION_HIGH\n&quot;            \
+  &quot;#elif __VERSION__ &gt; 320 &amp;&amp; !defined(GL_ES)\n&quot;                 \
+  &quot;out vec4 frag_out; \n&quot;                                        \
+  &quot;#define gl_FragColor frag_out\n&quot;                              \
+  &quot;#define texture2D texture\n&quot;                                  \
+  &quot;#endif  // __VERSION__ &lt; 130\n&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_simple_shaders.cc" line="61" column="9" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_simple_shaders.cc" bodystart="61" bodyend="73"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/>Copyright<sp/>2019<sp/>The<sp/>MediaPipe<sp/>Authors.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>you<sp/>may<sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>WITHOUT<sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;mediapipe/gpu/gl_simple_shaders.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mediapipe<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">//<sp/>This<sp/>macro<sp/>converts<sp/>everything<sp/>between<sp/>its<sp/>parentheses<sp/>to<sp/>a<sp/>string.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Using<sp/>this<sp/>instead<sp/>of<sp/>R&quot;()&quot;<sp/>preserves<sp/>C-like<sp/>syntax<sp/>coloring<sp/>in<sp/>most</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">//<sp/>editors,<sp/>which<sp/>is<sp/>desirable<sp/>for<sp/>shaders.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>!defined(_STRINGIFY)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__STRINGIFY(_x)<sp/>#_x</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>_STRINGIFY(_x)<sp/>__STRINGIFY(_x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Our<sp/>fragment<sp/>shaders<sp/>use<sp/>DEFAULT_PRECISION<sp/>to<sp/>define<sp/>the<sp/>default<sp/>precision</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment">//<sp/>for<sp/>a<sp/>type.<sp/>The<sp/>macro<sp/>strips<sp/>out<sp/>the<sp/>precision<sp/>declaration<sp/>on<sp/>desktop<sp/>GL,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">//<sp/>where<sp/>it&apos;s<sp/>not<sp/>supported.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Note:<sp/>this<sp/>does<sp/>not<sp/>use<sp/>a<sp/>raw<sp/>string<sp/>because<sp/>some<sp/>compilers<sp/>don&apos;t<sp/>handle<sp/>raw</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">//<sp/>strings<sp/>inside<sp/>macros<sp/>correctly.<sp/>It<sp/>uses<sp/>a<sp/>macro<sp/>because<sp/>we<sp/>want<sp/>to<sp/>be<sp/>able</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">//<sp/>to<sp/>concatenate<sp/>strings<sp/>by<sp/>juxtaposition.<sp/>We<sp/>want<sp/>to<sp/>concatenate<sp/>strings<sp/>by</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/>juxtaposition<sp/>so<sp/>we<sp/>can<sp/>export<sp/>const<sp/>char*<sp/>static<sp/>data<sp/>containing<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">//<sp/>pre-expanded<sp/>strings.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TODO:<sp/>this<sp/>was<sp/>written<sp/>before<sp/>we<sp/>could<sp/>rely<sp/>on<sp/>C++11<sp/>support.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Consider<sp/>replacing<sp/>it<sp/>with<sp/>constexpr<sp/>string<sp/>concatenation,<sp/>or<sp/>replacing<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">//<sp/>static<sp/>variables<sp/>with<sp/>functions.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PRECISION_COMPAT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="41"><highlight class="preprocessor"><sp/><sp/>GLES_VERSION_COMPAT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="42"><highlight class="preprocessor"><sp/><sp/>&quot;#ifdef<sp/>GL_ES<sp/>\n&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="43"><highlight class="preprocessor"><sp/><sp/>&quot;#define<sp/>DEFAULT_PRECISION(p,<sp/>t)<sp/>precision<sp/>p<sp/>t;<sp/>\n&quot;<sp/>\</highlight></codeline>
+<codeline lineno="44"><highlight class="preprocessor"><sp/><sp/>&quot;#else<sp/>\n&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="45"><highlight class="preprocessor"><sp/><sp/>&quot;#define<sp/>DEFAULT_PRECISION(p,<sp/>t)<sp/>\n&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="46"><highlight class="preprocessor"><sp/><sp/>&quot;#define<sp/>lowp<sp/>\n&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="47"><highlight class="preprocessor"><sp/><sp/>&quot;#define<sp/>mediump<sp/>\n&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="48"><highlight class="preprocessor"><sp/><sp/>&quot;#define<sp/>highp<sp/>\n&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="49"><highlight class="preprocessor"><sp/><sp/>&quot;#endif<sp/><sp/>//<sp/>defined(GL_ES)<sp/>\n&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VERTEX_PREAMBLE<sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="52"><highlight class="preprocessor"><sp/><sp/>PRECISION_COMPAT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="53"><highlight class="preprocessor"><sp/><sp/>&quot;#if<sp/>__VERSION__<sp/>&lt;<sp/>130\n&quot;<sp/>\</highlight></codeline>
+<codeline lineno="54"><highlight class="preprocessor"><sp/><sp/>&quot;#define<sp/>in<sp/>attribute\n&quot;<sp/><sp/>\</highlight></codeline>
+<codeline lineno="55"><highlight class="preprocessor"><sp/><sp/>&quot;#define<sp/>out<sp/>varying\n&quot;<sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="56"><highlight class="preprocessor"><sp/><sp/>&quot;#endif<sp/><sp/>//<sp/>__VERSION__<sp/>&lt;<sp/>130\n&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Note:<sp/>on<sp/>systems<sp/>where<sp/>highp<sp/>precision<sp/>for<sp/>floats<sp/>is<sp/>not<sp/>supported<sp/>(look<sp/>up</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment">//<sp/>GL_FRAGMENT_PRECISION_HIGH),<sp/>we<sp/>replace<sp/>it<sp/>with<sp/>mediump.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="comment">//<sp/>gl_FragColor<sp/>is<sp/>re-defined<sp/>to<sp/>&apos;frag_out&apos;<sp/>when<sp/>using<sp/>3.20<sp/>Core<sp/>(GLSL<sp/>330+).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>FRAGMENT_PREAMBLE<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="62"><highlight class="preprocessor"><sp/><sp/>PRECISION_COMPAT<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="63"><highlight class="preprocessor"><sp/><sp/>&quot;#if<sp/>__VERSION__<sp/>&lt;<sp/>130\n&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="64"><highlight class="preprocessor"><sp/><sp/>&quot;#define<sp/>in<sp/>varying\n&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="65"><highlight class="preprocessor"><sp/><sp/>&quot;#define<sp/>texture<sp/>texture2D\n&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="66"><highlight class="preprocessor"><sp/><sp/>&quot;#if<sp/>defined(GL_ES)<sp/>&amp;&amp;<sp/>!defined(GL_FRAGMENT_PRECISION_HIGH)\n&quot;<sp/>\</highlight></codeline>
+<codeline lineno="67"><highlight class="preprocessor"><sp/><sp/>&quot;#define<sp/>highp<sp/>mediump\n&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="68"><highlight class="preprocessor"><sp/><sp/>&quot;#endif<sp/><sp/>//<sp/>GL_ES<sp/>&amp;&amp;<sp/>!GL_FRAGMENT_PRECISION_HIGH\n&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="69"><highlight class="preprocessor"><sp/><sp/>&quot;#elif<sp/>__VERSION__<sp/>&gt;<sp/>320<sp/>&amp;&amp;<sp/>!defined(GL_ES)\n&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="70"><highlight class="preprocessor"><sp/><sp/>&quot;out<sp/>vec4<sp/>frag_out;<sp/>\n&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="71"><highlight class="preprocessor"><sp/><sp/>&quot;#define<sp/>gl_FragColor<sp/>frag_out\n&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="72"><highlight class="preprocessor"><sp/><sp/>&quot;#define<sp/>texture2D<sp/>texture\n&quot;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="73"><highlight class="preprocessor"><sp/><sp/>&quot;#endif<sp/><sp/>//<sp/>__VERSION__<sp/>&lt;<sp/>130\n&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLchar*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>kMediaPipeVertexShaderPreamble<sp/>=<sp/>VERTEX_PREAMBLE;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLchar*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>kMediaPipeFragmentShaderPreamble<sp/>=<sp/>FRAGMENT_PREAMBLE;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLchar*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>kBasicVertexShader<sp/>=<sp/>VERTEX_PREAMBLE<sp/>_STRINGIFY(</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>vertex<sp/>position<sp/>in<sp/>clip<sp/>space<sp/>(-1..1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>in<sp/>vec4<sp/>position;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>texture<sp/>coordinate<sp/>for<sp/>each<sp/>vertex<sp/>in<sp/>normalized<sp/>texture<sp/>space<sp/>(0..1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>in<sp/>mediump<sp/>vec4<sp/>texture_coordinate;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>texture<sp/>coordinate<sp/>for<sp/>fragment<sp/>shader<sp/>(will<sp/>be<sp/>interpolated)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>mediump<sp/>vec2<sp/>sample_coordinate;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>main()<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>gl_Position<sp/>=<sp/>position;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>sample_coordinate<sp/>=<sp/>texture_coordinate.xy;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLchar*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>kScaledVertexShader<sp/>=<sp/>VERTEX_PREAMBLE<sp/>_STRINGIFY(</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>in<sp/>vec4<sp/>position;<sp/>in<sp/>mediump<sp/>vec4<sp/>texture_coordinate;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>mediump<sp/>vec2<sp/>sample_coordinate;<sp/>uniform<sp/>vec4<sp/>scale;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>main()<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>gl_Position<sp/>=<sp/>position<sp/>*<sp/>scale;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>sample_coordinate<sp/>=<sp/>texture_coordinate.xy;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLchar*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>kTransformedVertexShader<sp/>=<sp/>VERTEX_PREAMBLE<sp/>_STRINGIFY(</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>in<sp/>vec4<sp/>position;<sp/>in<sp/>mediump<sp/>vec4<sp/>texture_coordinate;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>mediump<sp/>vec2<sp/>sample_coordinate;<sp/>uniform<sp/>mat3<sp/>transform;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>uniform<sp/>vec2<sp/>viewport_size;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>main()<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>switch<sp/>from<sp/>clip<sp/>to<sp/>viewport<sp/>aspect<sp/>ratio<sp/>in<sp/>order<sp/>to<sp/>properly</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>apply<sp/>transformation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>vec2<sp/>half_viewport_size<sp/>=<sp/>viewport_size<sp/>*<sp/>0.5;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>vec3<sp/>pos<sp/>=<sp/>vec3(position.xy<sp/>*<sp/>half_viewport_size,<sp/>1);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>apply<sp/>transform</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>pos<sp/>=<sp/>transform<sp/>*<sp/>pos;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>switch<sp/>back<sp/>to<sp/>clip<sp/>space</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>gl_Position<sp/>=<sp/>vec4(pos.xy<sp/>/<sp/>half_viewport_size,<sp/>0,<sp/>1);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>sample_coordinate<sp/>=<sp/>texture_coordinate.xy;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLchar*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>kBasicTexturedFragmentShader<sp/>=<sp/>FRAGMENT_PREAMBLE<sp/>_STRINGIFY(</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>DEFAULT_PRECISION(mediump,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>in<sp/>mediump<sp/>vec2<sp/>sample_coordinate;<sp/><sp/></highlight><highlight class="comment">//<sp/>texture<sp/>coordinate<sp/>(0..1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>uniform<sp/>sampler2D<sp/>video_frame;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>main()<sp/>{<sp/>gl_FragColor<sp/>=<sp/>texture(video_frame,<sp/>sample_coordinate);<sp/>});</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLchar*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>kBasicTexturedFragmentShaderOES<sp/>=<sp/>FRAGMENT_PREAMBLE</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;#extension<sp/>GL_OES_EGL_image_external<sp/>:<sp/>require\n&quot;</highlight><highlight class="normal"><sp/>_STRINGIFY(</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DEFAULT_PRECISION(mediump,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>in<sp/>mediump<sp/>vec2<sp/>sample_coordinate;<sp/><sp/></highlight><highlight class="comment">//<sp/>texture<sp/>coordinate<sp/>(0..1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uniform<sp/>samplerExternalOES<sp/>video_frame;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>main()<sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gl_FragColor<sp/>=<sp/>texture(video_frame,<sp/>sample_coordinate);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLchar*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>kFlatColorFragmentShader<sp/>=<sp/>FRAGMENT_PREAMBLE<sp/>_STRINGIFY(</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>DEFAULT_PRECISION(mediump,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uniform<sp/>vec3<sp/>color;<sp/><sp/></highlight><highlight class="comment">//<sp/>r,g,b<sp/>color<sp/>components</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>main()<sp/>{<sp/>gl_FragColor<sp/>=<sp/>vec4(color.r,<sp/>color.g,<sp/>color.b,<sp/>1.0);<sp/>});</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLchar*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>kRgbWeightFragmentShader<sp/>=<sp/>FRAGMENT_PREAMBLE<sp/>_STRINGIFY(</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>DEFAULT_PRECISION(mediump,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>in<sp/>mediump<sp/>vec2<sp/>sample_coordinate;<sp/><sp/></highlight><highlight class="comment">//<sp/>texture<sp/>coordinate<sp/>(0..1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>uniform<sp/>sampler2D<sp/>video_frame;<sp/>uniform<sp/>vec3<sp/>weights;<sp/><sp/></highlight><highlight class="comment">//<sp/>r,g,b<sp/>weights</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>main()<sp/>{</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>vec4<sp/>color<sp/>=<sp/>texture(video_frame,<sp/>sample_coordinate);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>gl_FragColor.bgra<sp/>=<sp/>vec4(weights.z<sp/>*<sp/>color.b,<sp/>weights.y<sp/>*<sp/>color.g,</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>weights.x<sp/>*<sp/>color.r,<sp/>color.a);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>GLchar*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>kYUV2TexToRGBFragmentShader<sp/>=<sp/>FRAGMENT_PREAMBLE<sp/>_STRINGIFY(</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>DEFAULT_PRECISION(mediump,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>in<sp/>highp<sp/>vec2<sp/>sample_coordinate;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>uniform<sp/>sampler2D<sp/>video_frame_y;<sp/>uniform<sp/>sampler2D<sp/>video_frame_uv;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>main()<sp/>{</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>mediump<sp/>vec3<sp/>yuv;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>lowp<sp/>vec3<sp/>rgb;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>yuv.r<sp/>=<sp/>texture(video_frame_y,<sp/>sample_coordinate).r;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Subtract<sp/>(0.5,<sp/>0.5)<sp/>because<sp/>conversion<sp/>is<sp/>done<sp/>assuming<sp/>UV<sp/>color</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>midpoint<sp/>of<sp/>(128,<sp/>128).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>yuv.gb<sp/>=<sp/>texture(video_frame_uv,<sp/>sample_coordinate).rg<sp/>-<sp/>vec2(0.5,<sp/>0.5);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Using<sp/>BT.709<sp/>which<sp/>is<sp/>the<sp/>standard<sp/>for<sp/>HDTV.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>rgb<sp/>=<sp/>mat3(1,<sp/>1,<sp/>1,<sp/>0,<sp/>-0.18732,<sp/>1.8556,<sp/>1.57481,<sp/>-0.46813,<sp/>0)<sp/>*<sp/>yuv;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>gl_FragColor<sp/>=<sp/>vec4(rgb,<sp/>1);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>mediapipe</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/gpu/gl_simple_shaders.cc"/>
+  </compounddef>
+</doxygen>

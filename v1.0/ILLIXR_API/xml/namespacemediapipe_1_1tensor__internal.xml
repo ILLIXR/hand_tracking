@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespacemediapipe_1_1tensor__internal" kind="namespace" language="C++">
+    <compoundname>mediapipe::tensor_internal</compoundname>
+    <innerclass refid="structmediapipe_1_1tensor__internal_1_1TypeInList" prot="public">mediapipe::tensor_internal::TypeInList</innerclass>
+    <innerclass refid="structmediapipe_1_1tensor__internal_1_1TypeInList_3_01T_00_01TypeList_3_01T_00_01Ts_8_8_8_01_4_01_4" prot="public">mediapipe::tensor_internal::TypeInList&lt; T, TypeList&lt; T, Ts... &gt; &gt;</innerclass>
+    <innerclass refid="structmediapipe_1_1tensor__internal_1_1TypeInList_3_01T_00_01TypeList_3_01TOther_00_01Ts_8_8_8_01_4_01_4" prot="public">mediapipe::tensor_internal::TypeInList&lt; T, TypeList&lt; TOther, Ts... &gt; &gt;</innerclass>
+    <innerclass refid="structmediapipe_1_1tensor__internal_1_1TypeList" prot="public">mediapipe::tensor_internal::TypeList</innerclass>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="internal_8h_1a6bc8dccb981ded284cf22df89b7f4dfd" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint64_t</type>
+        <definition>constexpr uint64_t mediapipe::tensor_internal::kFnvPrime</definition>
+        <argsstring></argsstring>
+        <name>kFnvPrime</name>
+        <qualifiedname>mediapipe::tensor_internal::kFnvPrime</qualifiedname>
+        <initializer>= 0x00000100000001B3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor/internal.h" line="40" column="20" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor/internal.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="internal_8h_1a21d323a0c1da53600006365af9e5e0fd" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint64_t</type>
+        <definition>constexpr uint64_t mediapipe::tensor_internal::kFnvOffsetBias</definition>
+        <argsstring></argsstring>
+        <name>kFnvOffsetBias</name>
+        <qualifiedname>mediapipe::tensor_internal::kFnvOffsetBias</qualifiedname>
+        <initializer>= 0xcbf29ce484222325</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor/internal.h" line="41" column="20" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor/internal.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="internal_8h_1a808f64414a8c51589ab79557ab3fe625" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr uint64_t</type>
+        <definition>constexpr uint64_t mediapipe::tensor_internal::FnvHash64</definition>
+        <argsstring>(uint64_t value1, uint64_t value2)</argsstring>
+        <name>FnvHash64</name>
+        <qualifiedname>mediapipe::tensor_internal::FnvHash64</qualifiedname>
+        <param>
+          <type>uint64_t</type>
+          <declname>value1</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>value2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor/internal.h" line="42" column="20" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor/internal.h" bodystart="42" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="internal_8h_1ae266ad0d8186ba146e35e7ddfab08ea7" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr uint64_t</type>
+        <definition>constexpr uint64_t mediapipe::tensor_internal::FnvHash64</definition>
+        <argsstring>(const char *str, uint64_t hash=kFnvOffsetBias)</argsstring>
+        <name>FnvHash64</name>
+        <qualifiedname>mediapipe::tensor_internal::FnvHash64</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>hash</declname>
+          <defval>kFnvOffsetBias</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor/internal.h" line="45" column="20" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor/internal.h" bodystart="45" bodyend="47"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/formats/tensor/internal.h" line="33" column="1"/>
+  </compounddef>
+</doxygen>

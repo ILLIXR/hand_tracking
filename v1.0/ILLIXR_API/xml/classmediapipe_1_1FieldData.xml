@@ -1,0 +1,2551 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1FieldData" kind="class" language="C++" prot="public" final="yes">
+    <compoundname>mediapipe::FieldData</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">PROTOBUF_NAMESPACE_ID::Message</basecompoundref>
+    <innerclass refid="classmediapipe_1_1FieldData_1_1__Internal" prot="public">mediapipe::FieldData::_Internal</innerclass>
+    <innerclass refid="unionmediapipe_1_1FieldData_1_1ValueUnion" prot="private">mediapipe::FieldData::ValueUnion</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classmediapipe_1_1FieldData_1ae2b6e68becd1f430cde33792d3dda3f3" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ValueCase</name>
+        <qualifiedname>mediapipe::FieldData::ValueCase</qualifiedname>
+        <enumvalue id="classmediapipe_1_1FieldData_1ae2b6e68becd1f430cde33792d3dda3f3a9c629b5bcafa89b861c6fced41ca0cf7" prot="public">
+          <name>kInt32Value</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1FieldData_1ae2b6e68becd1f430cde33792d3dda3f3adb964f16782819f98285886be6a4cbb2" prot="public">
+          <name>kInt64Value</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1FieldData_1ae2b6e68becd1f430cde33792d3dda3f3a03ca471e389632d111f1cd9761e046f2" prot="public">
+          <name>kUint32Value</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1FieldData_1ae2b6e68becd1f430cde33792d3dda3f3a06a70cacc2492d1c5ec42251f315e500" prot="public">
+          <name>kUint64Value</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1FieldData_1ae2b6e68becd1f430cde33792d3dda3f3a87105ea68ebbe797753a92942f097340" prot="public">
+          <name>kDoubleValue</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1FieldData_1ae2b6e68becd1f430cde33792d3dda3f3ac406704a6c03454e2910ed5fbf93f6fa" prot="public">
+          <name>kFloatValue</name>
+          <initializer>= 6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1FieldData_1ae2b6e68becd1f430cde33792d3dda3f3a7e5e35569513e2339068be1896c71b8e" prot="public">
+          <name>kBoolValue</name>
+          <initializer>= 7</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1FieldData_1ae2b6e68becd1f430cde33792d3dda3f3ac4ac1bd2a9ddc589f36e12fe8e19b28c" prot="public">
+          <name>kEnumValue</name>
+          <initializer>= 8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1FieldData_1ae2b6e68becd1f430cde33792d3dda3f3ae9e2967a564949ec02a46b363a32f269" prot="public">
+          <name>kStringValue</name>
+          <initializer>= 9</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1FieldData_1ae2b6e68becd1f430cde33792d3dda3f3a8c4f4e63f0b2fd636b17a69c6743e23e" prot="public">
+          <name>kMessageValue</name>
+          <initializer>= 10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1FieldData_1ae2b6e68becd1f430cde33792d3dda3f3a9bd2d881956b5ee16e603ea9820073fb" prot="public">
+          <name>VALUE_NOT_SET</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="305" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="305" bodyend="317"/>
+      </memberdef>
+      <memberdef kind="enum" id="classmediapipe_1_1FieldData_1a6c10a804dd92926c603ef61e6bc751e2" prot="public" static="no" strong="no">
+        <type>int</type>
+        <name></name>
+        <qualifiedname>mediapipe::FieldData</qualifiedname>
+        <enumvalue id="classmediapipe_1_1FieldData_1a6c10a804dd92926c603ef61e6bc751e2ad43b4ad4477fbca918872f23087a4ba2" prot="public">
+          <name>kInt32ValueFieldNumber</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1FieldData_1a6c10a804dd92926c603ef61e6bc751e2adbd129b82ffb70c5fb0c50439decee98" prot="public">
+          <name>kInt64ValueFieldNumber</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1FieldData_1a6c10a804dd92926c603ef61e6bc751e2a07aad946e66fb536247d13fd7a7d3d46" prot="public">
+          <name>kUint32ValueFieldNumber</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1FieldData_1a6c10a804dd92926c603ef61e6bc751e2abf057bcb148677669d432e74fd41c22b" prot="public">
+          <name>kUint64ValueFieldNumber</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1FieldData_1a6c10a804dd92926c603ef61e6bc751e2a3023228468785ecdf8cecc8f693a6b73" prot="public">
+          <name>kDoubleValueFieldNumber</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1FieldData_1a6c10a804dd92926c603ef61e6bc751e2a48fae72c2f07dc614a86f27887387554" prot="public">
+          <name>kFloatValueFieldNumber</name>
+          <initializer>= 6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1FieldData_1a6c10a804dd92926c603ef61e6bc751e2af1bb9a8fdfbe5c3246805259cd911eae" prot="public">
+          <name>kBoolValueFieldNumber</name>
+          <initializer>= 7</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1FieldData_1a6c10a804dd92926c603ef61e6bc751e2aa8a4bb0f88ddcfcf925959e8409e1ff3" prot="public">
+          <name>kEnumValueFieldNumber</name>
+          <initializer>= 8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1FieldData_1a6c10a804dd92926c603ef61e6bc751e2a4f6ead61e9818be4417383d2aeca6bcc" prot="public">
+          <name>kStringValueFieldNumber</name>
+          <initializer>= 9</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmediapipe_1_1FieldData_1a6c10a804dd92926c603ef61e6bc751e2acb2f0c010aea75aa57f4d7f37c83d6ba" prot="public">
+          <name>kMessageValueFieldNumber</name>
+          <initializer>= 10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="397" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="397" bodyend="408"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classmediapipe_1_1FieldData_1a8683b52a3fd40bccbefeadce141c89f2" prot="private" static="no">
+        <type>void</type>
+        <definition>typedef void mediapipe::FieldData::InternalArenaConstructable_</definition>
+        <argsstring></argsstring>
+        <name>InternalArenaConstructable_</name>
+        <qualifiedname>mediapipe::FieldData::InternalArenaConstructable_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="569" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="569" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmediapipe_1_1FieldData_1a53e6d6be6584548e27d87c125f009bba" prot="private" static="no">
+        <type>void</type>
+        <definition>typedef void mediapipe::FieldData::DestructorSkippable_</definition>
+        <argsstring></argsstring>
+        <name>DestructorSkippable_</name>
+        <qualifiedname>mediapipe::FieldData::DestructorSkippable_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="570" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="570" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1FieldData_1a78a3aac8ade44e1c804f9f445338dfb3" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int mediapipe::FieldData::kIndexInFileMessages</definition>
+        <argsstring></argsstring>
+        <name>kIndexInFileMessages</name>
+        <qualifiedname>mediapipe::FieldData::kIndexInFileMessages</qualifiedname>
+        <initializer>=
+    1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="323" column="24" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="323" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1FieldData_1a59d92ed7c90c6bce2bfba8d26f6e1ce8" prot="public" static="yes" mutable="no">
+        <type>const ClassData</type>
+        <definition>const ::PROTOBUF_NAMESPACE_ID::Message::ClassData mediapipe::FieldData::_class_data_</definition>
+        <argsstring></argsstring>
+        <name>_class_data_</name>
+        <qualifiedname>mediapipe::FieldData::_class_data_</qualifiedname>
+        <initializer>= {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    FieldData::MergeImpl
+}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="388" column="26" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="388" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="friend">
+      <memberdef kind="friend" id="classmediapipe_1_1FieldData_1a9b35d94da3444084fc3673b7717b6cfe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata</definition>
+        <argsstring></argsstring>
+        <name>::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata</name>
+        <qualifiedname>mediapipe::FieldData::AnyMetadata</qualifiedname>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="376" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="376" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classmediapipe_1_1FieldData_1ab618dbbac4a8d749da0d85c32932df36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>class</type>
+        <definition>friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper</definition>
+        <argsstring></argsstring>
+        <name>::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper</name>
+        <qualifiedname>mediapipe::FieldData::InternalHelper</qualifiedname>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="568" column="28" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="568" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classmediapipe_1_1FieldData_1a83a3bd9f30df6e7aca433f6a49ce1ba0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>struct</type>
+        <definition>friend struct ::TableStruct_mediapipe_2fframework_2ftool_2ffield_5fdata_2eproto</definition>
+        <argsstring></argsstring>
+        <name>::TableStruct_mediapipe_2fframework_2ftool_2ffield_5fdata_2eproto</name>
+        <qualifiedname>mediapipe::FieldData::TableStruct_mediapipe_2fframework_2ftool_2ffield_5fdata_2eproto</qualifiedname>
+        <param>
+          <type>::TableStruct_mediapipe_2fframework_2ftool_2ffield_5fdata_2eproto</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="588" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="588" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classmediapipe_1_1FieldData_1ae5c20d71aa25e8b7328f1045b935cd8d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void swap</definition>
+        <argsstring>(FieldData &amp;a, FieldData &amp;b)</argsstring>
+        <name>swap</name>
+        <qualifiedname>mediapipe::FieldData::swap</qualifiedname>
+        <param>
+          <type>FieldData &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>FieldData &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="326" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="326" bodyend="328"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1FieldData_1af34bdf30359050930aa455e08149f339" prot="private" static="no" mutable="no">
+        <type>union mediapipe::FieldData::ValueUnion</type>
+        <definition>union mediapipe::FieldData::ValueUnion mediapipe::FieldData::value_</definition>
+        <argsstring></argsstring>
+        <name>value_</name>
+        <qualifiedname>mediapipe::FieldData::value_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="584" column="10"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1FieldData_1a7b52c900604afb075d016dd46d97b25d" prot="private" static="no" mutable="no">
+        <type>mutable::PROTOBUF_NAMESPACE_ID::internal::CachedSize</type>
+        <definition>mutable::PROTOBUF_NAMESPACE_ID::internal::CachedSize mediapipe::FieldData::_cached_size_</definition>
+        <argsstring></argsstring>
+        <name>_cached_size_</name>
+        <qualifiedname>mediapipe::FieldData::_cached_size_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="585" column="57" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="585" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1FieldData_1ab03429eeb22e9a7d4da3434adbe7043c" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t mediapipe::FieldData::_oneof_case_[1]</definition>
+        <argsstring>[1]</argsstring>
+        <name>_oneof_case_</name>
+        <qualifiedname>mediapipe::FieldData::_oneof_case_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="586" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="586" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1ae688ffd2da7a4ca4bf5343e194472fd0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::FieldData::FieldData</definition>
+        <argsstring>()</argsstring>
+        <name>FieldData</name>
+        <qualifiedname>mediapipe::FieldData::FieldData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="258" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="258" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1ac51e9c654a3e7d02e85ac9da7eb7c9c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::FieldData::~FieldData</definition>
+        <argsstring>() override</argsstring>
+        <name>~FieldData</name>
+        <qualifiedname>mediapipe::FieldData::~FieldData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="259" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.cc" bodystart="482" bodyend="487"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1aa9d614c3038cc46977201151dc85ab55" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr mediapipe::FieldData::FieldData</definition>
+        <argsstring>(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)</argsstring>
+        <name>FieldData</name>
+        <qualifiedname>mediapipe::FieldData::FieldData</qualifiedname>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="260" column="22" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.cc" bodystart="33" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a1aa75f890e2a36653e101b7d580a092e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::FieldData::FieldData</definition>
+        <argsstring>(const FieldData &amp;from)</argsstring>
+        <name>FieldData</name>
+        <qualifiedname>mediapipe::FieldData::FieldData</qualifiedname>
+        <param>
+          <type>const FieldData &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="262" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.cc" bodystart="426" bodyend="476"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a0613907886ca791ed809d12f331d554b" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::FieldData::FieldData</definition>
+        <argsstring>(FieldData &amp;&amp;from) noexcept</argsstring>
+        <name>FieldData</name>
+        <qualifiedname>mediapipe::FieldData::FieldData</qualifiedname>
+        <param>
+          <type>FieldData &amp;&amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="263" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="263" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1af81de5fe1361e5ac507fe0882d6a917a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>FieldData &amp;</type>
+        <definition>FieldData &amp; mediapipe::FieldData::operator=</definition>
+        <argsstring>(const FieldData &amp;from)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>mediapipe::FieldData::operator=</qualifiedname>
+        <param>
+          <type>const FieldData &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="268" column="20" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="268" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1acc40606a53d077019d2c5b47c1b25e09" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>FieldData &amp;</type>
+        <definition>FieldData &amp; mediapipe::FieldData::operator=</definition>
+        <argsstring>(FieldData &amp;&amp;from) noexcept</argsstring>
+        <name>operator=</name>
+        <qualifiedname>mediapipe::FieldData::operator=</qualifiedname>
+        <param>
+          <type>FieldData &amp;&amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="272" column="20" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="272" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1ad462994902cf0b0abc3f8dc32bf964c1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &amp;</type>
+        <definition>const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet &amp; mediapipe::FieldData::unknown_fields</definition>
+        <argsstring>() const</argsstring>
+        <name>unknown_fields</name>
+        <qualifiedname>mediapipe::FieldData::unknown_fields</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="286" column="57" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="286" bodyend="288"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a34ebf4183ea70d9e13c23254d8ef1f88" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet *</type>
+        <definition>inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet * mediapipe::FieldData::mutable_unknown_fields</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_unknown_fields</name>
+        <qualifiedname>mediapipe::FieldData::mutable_unknown_fields</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="289" column="51" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="289" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1ac50806df71124594d6ddb70383e46a7e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::Swap</definition>
+        <argsstring>(FieldData *other)</argsstring>
+        <name>Swap</name>
+        <qualifiedname>mediapipe::FieldData::Swap</qualifiedname>
+        <param>
+          <type>FieldData *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="329" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="329" bodyend="341"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1aeda9cf58d4cd16e2ba39c7b0bad853f1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::UnsafeArenaSwap</definition>
+        <argsstring>(FieldData *other)</argsstring>
+        <name>UnsafeArenaSwap</name>
+        <qualifiedname>mediapipe::FieldData::UnsafeArenaSwap</qualifiedname>
+        <param>
+          <type>FieldData *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="342" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="342" bodyend="346"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a5b2a24098dee501b61ce65330ab7fe1e" prot="public" static="no" const="yes" explicit="no" inline="yes" final="yes" virt="non-virtual">
+        <type>FieldData *</type>
+        <definition>FieldData * mediapipe::FieldData::New</definition>
+        <argsstring>(::PROTOBUF_NAMESPACE_ID::Arena *arena=nullptr) const final</argsstring>
+        <name>New</name>
+        <qualifiedname>mediapipe::FieldData::New</qualifiedname>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::Arena *</type>
+          <declname>arena</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="350" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="350" bodyend="352"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a150cda0c01a56d26b13b074be2efd0a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::CopyFrom</definition>
+        <argsstring>(const FieldData &amp;from)</argsstring>
+        <name>CopyFrom</name>
+        <qualifiedname>mediapipe::FieldData::CopyFrom</qualifiedname>
+        <param>
+          <type>const FieldData &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="354" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.cc" bodystart="892" bodyend="897"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1ab7fd779bfeb7e62fa30e76c216cefdf8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::MergeFrom</definition>
+        <argsstring>(const FieldData &amp;from)</argsstring>
+        <name>MergeFrom</name>
+        <qualifiedname>mediapipe::FieldData::MergeFrom</qualifiedname>
+        <param>
+          <type>const FieldData &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="356" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.cc" bodystart="838" bodyend="890"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1ac5ac0ec020a154eeb81709476fd80116" prot="public" static="no" const="no" explicit="no" inline="no" final="yes" virt="non-virtual">
+        <type>PROTOBUF_ATTRIBUTE_REINITIALIZES void</type>
+        <definition>void mediapipe::FieldData::Clear</definition>
+        <argsstring>() final</argsstring>
+        <name>Clear</name>
+        <qualifiedname>mediapipe::FieldData::Clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="360" column="41" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.cc" bodystart="559" bodyend="567"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a327bddf8a5a15ba7fd5f76736e515d55" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::FieldData::IsInitialized</definition>
+        <argsstring>() const final</argsstring>
+        <name>IsInitialized</name>
+        <qualifiedname>mediapipe::FieldData::IsInitialized</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="361" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.cc" bodystart="899" bodyend="901"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a245241c9778f49f0d0df704562f042ed" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t mediapipe::FieldData::ByteSizeLong</definition>
+        <argsstring>() const final</argsstring>
+        <name>ByteSizeLong</name>
+        <qualifiedname>mediapipe::FieldData::ByteSizeLong</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="363" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.cc" bodystart="755" bodyend="823"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1ab6bf5c5035d9c184f88d66d455666850" prot="public" static="no" const="no" explicit="no" inline="no" final="yes" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char * mediapipe::FieldData::_InternalParse</definition>
+        <argsstring>(const char *ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext *ctx) final</argsstring>
+        <name>_InternalParse</name>
+        <qualifiedname>mediapipe::FieldData::_InternalParse</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>ptr</declname>
+        </param>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::internal::ParseContext *</type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="364" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.cc" bodystart="569" bodyend="680"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a1e1d75c6cea9c2698188bbaa979588b0" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="non-virtual">
+        <type>uint8_t *</type>
+        <definition>uint8_t * mediapipe::FieldData::_InternalSerialize</definition>
+        <argsstring>(uint8_t *target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *stream) const final</argsstring>
+        <name>_InternalSerialize</name>
+        <qualifiedname>mediapipe::FieldData::_InternalSerialize</qualifiedname>
+        <param>
+          <type>uint8_t *</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream *</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="365" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.cc" bodystart="682" bodyend="753"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a7bea1697fd488809f2663d170b7ce0d8" prot="public" static="no" const="yes" explicit="no" inline="yes" final="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::FieldData::GetCachedSize</definition>
+        <argsstring>() const final</argsstring>
+        <name>GetCachedSize</name>
+        <qualifiedname>mediapipe::FieldData::GetCachedSize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="367" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="367" bodyend="367"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a5c40d15117056dbbb2cec9e7ffdfd4ca" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="non-virtual">
+        <type>const ::PROTOBUF_NAMESPACE_ID::Message::ClassData *</type>
+        <definition>const ::PROTOBUF_NAMESPACE_ID::Message::ClassData * mediapipe::FieldData::GetClassData</definition>
+        <argsstring>() const final</argsstring>
+        <name>GetClassData</name>
+        <qualifiedname>mediapipe::FieldData::GetClassData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="389" column="52" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.cc" bodystart="829" bodyend="829"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a79adf6ea3c0a9c009a3a6c545062cafa" prot="public" static="no" const="yes" explicit="no" inline="no" final="yes" virt="non-virtual">
+        <type>::PROTOBUF_NAMESPACE_ID::Metadata</type>
+        <definition>PROTOBUF_NAMESPACE_ID::Metadata mediapipe::FieldData::GetMetadata</definition>
+        <argsstring>() const final</argsstring>
+        <name>GetMetadata</name>
+        <qualifiedname>mediapipe::FieldData::GetMetadata</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="391" column="37" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.cc" bodystart="910" bodyend="914"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1ac92dcc7ef902f2593dcc10c4748414f4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::FieldData::has_int32_value</definition>
+        <argsstring>() const</argsstring>
+        <name>has_int32_value</name>
+        <qualifiedname>mediapipe::FieldData::has_int32_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="410" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="747" bodyend="749"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a92a189e04e61a79ad31d5f98c0c080dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::clear_int32_value</definition>
+        <argsstring>()</argsstring>
+        <name>clear_int32_value</name>
+        <qualifiedname>mediapipe::FieldData::clear_int32_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="414" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="753" bodyend="758"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a53372c59ef655edd67c3cb117b650221" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int32_t</type>
+        <definition>int32_t mediapipe::FieldData::int32_value</definition>
+        <argsstring>() const</argsstring>
+        <name>int32_value</name>
+        <qualifiedname>mediapipe::FieldData::int32_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="415" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="772" bodyend="775"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1af90b7e046ffa1125c88d95f7d57e0488" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::set_int32_value</definition>
+        <argsstring>(int32_t value)</argsstring>
+        <name>set_int32_value</name>
+        <qualifiedname>mediapipe::FieldData::set_int32_value</qualifiedname>
+        <param>
+          <type>int32_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="416" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="776" bodyend="779"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a59f0c53982b1fc8cb4c3d248aef6cf86" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::FieldData::has_int64_value</definition>
+        <argsstring>() const</argsstring>
+        <name>has_int64_value</name>
+        <qualifiedname>mediapipe::FieldData::has_int64_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="423" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="785" bodyend="787"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a80b4b87308f7b77603d3ccb35d5edfc3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::clear_int64_value</definition>
+        <argsstring>()</argsstring>
+        <name>clear_int64_value</name>
+        <qualifiedname>mediapipe::FieldData::clear_int64_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="427" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="791" bodyend="796"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a0c34c46019e9435620e2b754b9d5b934" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t mediapipe::FieldData::int64_value</definition>
+        <argsstring>() const</argsstring>
+        <name>int64_value</name>
+        <qualifiedname>mediapipe::FieldData::int64_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="428" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="810" bodyend="813"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a9b94f5442d26552da0d6a90c72ca1305" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::set_int64_value</definition>
+        <argsstring>(int64_t value)</argsstring>
+        <name>set_int64_value</name>
+        <qualifiedname>mediapipe::FieldData::set_int64_value</qualifiedname>
+        <param>
+          <type>int64_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="429" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="814" bodyend="817"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a1a3f1e22f0102beb643ccbe0cca6dfa1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::FieldData::has_uint32_value</definition>
+        <argsstring>() const</argsstring>
+        <name>has_uint32_value</name>
+        <qualifiedname>mediapipe::FieldData::has_uint32_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="436" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="823" bodyend="825"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a215b530b0eab303fd06daee350864b1c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::clear_uint32_value</definition>
+        <argsstring>()</argsstring>
+        <name>clear_uint32_value</name>
+        <qualifiedname>mediapipe::FieldData::clear_uint32_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="440" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="829" bodyend="834"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a43059066a48431e19d1279a81b376205" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t mediapipe::FieldData::uint32_value</definition>
+        <argsstring>() const</argsstring>
+        <name>uint32_value</name>
+        <qualifiedname>mediapipe::FieldData::uint32_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="441" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="848" bodyend="851"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a0cb079230712fd58a99e1f0145728d1a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::set_uint32_value</definition>
+        <argsstring>(uint32_t value)</argsstring>
+        <name>set_uint32_value</name>
+        <qualifiedname>mediapipe::FieldData::set_uint32_value</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="442" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="852" bodyend="855"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1adbfcf4a725e1635fcb0bd3353ce44a3f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::FieldData::has_uint64_value</definition>
+        <argsstring>() const</argsstring>
+        <name>has_uint64_value</name>
+        <qualifiedname>mediapipe::FieldData::has_uint64_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="449" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="861" bodyend="863"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a56e26b4be9b47a315ea39ffd03d211da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::clear_uint64_value</definition>
+        <argsstring>()</argsstring>
+        <name>clear_uint64_value</name>
+        <qualifiedname>mediapipe::FieldData::clear_uint64_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="453" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="867" bodyend="872"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a3578ba7c977d69e9d30dd130b3befba2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t mediapipe::FieldData::uint64_value</definition>
+        <argsstring>() const</argsstring>
+        <name>uint64_value</name>
+        <qualifiedname>mediapipe::FieldData::uint64_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="454" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="886" bodyend="889"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1ac39c28697111c8b831eb84394c587d83" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::set_uint64_value</definition>
+        <argsstring>(uint64_t value)</argsstring>
+        <name>set_uint64_value</name>
+        <qualifiedname>mediapipe::FieldData::set_uint64_value</qualifiedname>
+        <param>
+          <type>uint64_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="455" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="890" bodyend="893"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a4088e45815764577712b49a71bb6ecd8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::FieldData::has_double_value</definition>
+        <argsstring>() const</argsstring>
+        <name>has_double_value</name>
+        <qualifiedname>mediapipe::FieldData::has_double_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="462" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="899" bodyend="901"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1ac1981369f2c9e2f17868af3ea72a2370" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::clear_double_value</definition>
+        <argsstring>()</argsstring>
+        <name>clear_double_value</name>
+        <qualifiedname>mediapipe::FieldData::clear_double_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="466" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="905" bodyend="910"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a8d8861ab64dc06f2fad55502e213d5b1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double mediapipe::FieldData::double_value</definition>
+        <argsstring>() const</argsstring>
+        <name>double_value</name>
+        <qualifiedname>mediapipe::FieldData::double_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="467" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="924" bodyend="927"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1ab2e57ae435ab6ad19209002c53128159" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::set_double_value</definition>
+        <argsstring>(double value)</argsstring>
+        <name>set_double_value</name>
+        <qualifiedname>mediapipe::FieldData::set_double_value</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="468" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="928" bodyend="931"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a9647349cb5e1c13f3999e2a17e7660a5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::FieldData::has_float_value</definition>
+        <argsstring>() const</argsstring>
+        <name>has_float_value</name>
+        <qualifiedname>mediapipe::FieldData::has_float_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="475" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="937" bodyend="939"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a42ddbc9bdd5055700591f84255a1a924" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::clear_float_value</definition>
+        <argsstring>()</argsstring>
+        <name>clear_float_value</name>
+        <qualifiedname>mediapipe::FieldData::clear_float_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="479" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="943" bodyend="948"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a1fd6ad9becc63197b7f51323041e3402" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float mediapipe::FieldData::float_value</definition>
+        <argsstring>() const</argsstring>
+        <name>float_value</name>
+        <qualifiedname>mediapipe::FieldData::float_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="480" column="9" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="962" bodyend="965"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a98539475efb3281c03b71bbb582e5cee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::set_float_value</definition>
+        <argsstring>(float value)</argsstring>
+        <name>set_float_value</name>
+        <qualifiedname>mediapipe::FieldData::set_float_value</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="481" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="966" bodyend="969"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1af41f79f00875ab8c3d5d7bfc7b904622" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::FieldData::has_bool_value</definition>
+        <argsstring>() const</argsstring>
+        <name>has_bool_value</name>
+        <qualifiedname>mediapipe::FieldData::has_bool_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="488" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="975" bodyend="977"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a30bf864f5b7fde486875eef4f05b6116" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::clear_bool_value</definition>
+        <argsstring>()</argsstring>
+        <name>clear_bool_value</name>
+        <qualifiedname>mediapipe::FieldData::clear_bool_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="492" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="981" bodyend="986"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a62eee7709e123fedae2191e76b0647f4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::FieldData::bool_value</definition>
+        <argsstring>() const</argsstring>
+        <name>bool_value</name>
+        <qualifiedname>mediapipe::FieldData::bool_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="493" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1000" bodyend="1003"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a4398690c798b1f33b8ff3c4834236f6e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::set_bool_value</definition>
+        <argsstring>(bool value)</argsstring>
+        <name>set_bool_value</name>
+        <qualifiedname>mediapipe::FieldData::set_bool_value</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="494" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1004" bodyend="1007"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1ab795003dcc32a57c0ea014569ab6f89f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::FieldData::has_enum_value</definition>
+        <argsstring>() const</argsstring>
+        <name>has_enum_value</name>
+        <qualifiedname>mediapipe::FieldData::has_enum_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="501" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1013" bodyend="1015"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1abab6b49a57af827a35f5a21229d0865c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::clear_enum_value</definition>
+        <argsstring>()</argsstring>
+        <name>clear_enum_value</name>
+        <qualifiedname>mediapipe::FieldData::clear_enum_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="505" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1019" bodyend="1024"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a0eb153ecde2d3dfc6d321459b58b5c4f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int32_t</type>
+        <definition>int32_t mediapipe::FieldData::enum_value</definition>
+        <argsstring>() const</argsstring>
+        <name>enum_value</name>
+        <qualifiedname>mediapipe::FieldData::enum_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="506" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1038" bodyend="1041"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a99cb6a37bd4da570663fd8f884081811" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::set_enum_value</definition>
+        <argsstring>(int32_t value)</argsstring>
+        <name>set_enum_value</name>
+        <qualifiedname>mediapipe::FieldData::set_enum_value</qualifiedname>
+        <param>
+          <type>int32_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="507" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1042" bodyend="1045"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1aa89c00188afbbfefb18377c2d4eb0d03" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::FieldData::has_string_value</definition>
+        <argsstring>() const</argsstring>
+        <name>has_string_value</name>
+        <qualifiedname>mediapipe::FieldData::has_string_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="514" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1051" bodyend="1053"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1af5e66acba93d98fdc87aad2afa463ed8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::clear_string_value</definition>
+        <argsstring>()</argsstring>
+        <name>clear_string_value</name>
+        <qualifiedname>mediapipe::FieldData::clear_string_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="518" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1057" bodyend="1062"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1acbd55d776bf06b644a9089910a4a6d8b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string &amp; mediapipe::FieldData::string_value</definition>
+        <argsstring>() const</argsstring>
+        <name>string_value</name>
+        <qualifiedname>mediapipe::FieldData::string_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="519" column="21" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1063" bodyend="1066"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a605d753576813d2b02e86ebed9f99384" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ArgT0</type>
+            <defval>const std::string&amp;</defval>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>ArgT</declname>
+            <defname>ArgT</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void mediapipe::FieldData::set_string_value</definition>
+        <argsstring>(ArgT0 &amp;&amp;arg0, ArgT... args)</argsstring>
+        <name>set_string_value</name>
+        <qualifiedname>mediapipe::FieldData::set_string_value</qualifiedname>
+        <param>
+          <type>ArgT0 &amp;&amp;</type>
+          <declname>arg0</declname>
+        </param>
+        <param>
+          <type>ArgT...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="521" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1068" bodyend="1076"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1ac3cd45316a98ad176bfe20f84a1973aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string *</type>
+        <definition>std::string * mediapipe::FieldData::mutable_string_value</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_string_value</name>
+        <qualifiedname>mediapipe::FieldData::mutable_string_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="522" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1077" bodyend="1081"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a96fff4d9114c6523e4dfbaba946f99cf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PROTOBUF_NODISCARD std::string *</type>
+        <definition>std::string * mediapipe::FieldData::release_string_value</definition>
+        <argsstring>()</argsstring>
+        <name>release_string_value</name>
+        <qualifiedname>mediapipe::FieldData::release_string_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="523" column="34" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1105" bodyend="1113"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a63233cadbf467982fd28bdf65e032823" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::set_allocated_string_value</definition>
+        <argsstring>(std::string *string_value)</argsstring>
+        <name>set_allocated_string_value</name>
+        <qualifiedname>mediapipe::FieldData::set_allocated_string_value</qualifiedname>
+        <param>
+          <type>std::string *</type>
+          <declname>string_value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="524" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1114" bodyend="1127"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a648a306f9ea54ba5629418a8b1b0ce08" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::FieldData::has_message_value</definition>
+        <argsstring>() const</argsstring>
+        <name>has_message_value</name>
+        <qualifiedname>mediapipe::FieldData::has_message_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="532" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1133" bodyend="1135"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1afb914acc59809d42ff880179bdb87226" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::clear_message_value</definition>
+        <argsstring>()</argsstring>
+        <name>clear_message_value</name>
+        <qualifiedname>mediapipe::FieldData::clear_message_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="536" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1139" bodyend="1146"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a37b2c27f1e8b5bed13274faf5fc21c06" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::mediapipe::MessageData &amp;</type>
+        <definition>const ::mediapipe::MessageData &amp; mediapipe::FieldData::message_value</definition>
+        <argsstring>() const</argsstring>
+        <name>message_value</name>
+        <qualifiedname>mediapipe::FieldData::message_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="537" column="34" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1166" bodyend="1169"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1acf86a82bdc456f06068a21c7b7117671" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PROTOBUF_NODISCARD::mediapipe::MessageData *</type>
+        <definition>mediapipe::MessageData * mediapipe::FieldData::release_message_value</definition>
+        <argsstring>()</argsstring>
+        <name>release_message_value</name>
+        <qualifiedname>mediapipe::FieldData::release_message_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="538" column="47" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1147" bodyend="1160"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a9aa327a0e3b83a3f2968501c290d9601" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::MessageData *</type>
+        <definition>mediapipe::MessageData * mediapipe::FieldData::mutable_message_value</definition>
+        <argsstring>()</argsstring>
+        <name>mutable_message_value</name>
+        <qualifiedname>mediapipe::FieldData::mutable_message_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="539" column="28" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1197" bodyend="1201"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a8c39ad65e3490307f801bce6d18dde33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::set_allocated_message_value</definition>
+        <argsstring>(::mediapipe::MessageData *message_value)</argsstring>
+        <name>set_allocated_message_value</name>
+        <qualifiedname>mediapipe::FieldData::set_allocated_message_value</qualifiedname>
+        <param>
+          <type>::mediapipe::MessageData *</type>
+          <declname>message_value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="540" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.cc" bodystart="402" bodyend="416"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a8e078969950da9afc70aef53b900d476" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::unsafe_arena_set_allocated_message_value</definition>
+        <argsstring>(::mediapipe::MessageData *message_value)</argsstring>
+        <name>unsafe_arena_set_allocated_message_value</name>
+        <qualifiedname>mediapipe::FieldData::unsafe_arena_set_allocated_message_value</qualifiedname>
+        <param>
+          <type>::mediapipe::MessageData *</type>
+          <declname>message_value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="545" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1181" bodyend="1188"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a4ca6e0f4edfa4da0fafaef358eb13430" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::MessageData *</type>
+        <definition>mediapipe::MessageData * mediapipe::FieldData::unsafe_arena_release_message_value</definition>
+        <argsstring>()</argsstring>
+        <name>unsafe_arena_release_message_value</name>
+        <qualifiedname>mediapipe::FieldData::unsafe_arena_release_message_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="547" column="28" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1170" bodyend="1180"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a8582c40326ffd94735eee90b915b5f66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::clear_value</definition>
+        <argsstring>()</argsstring>
+        <name>clear_value</name>
+        <qualifiedname>mediapipe::FieldData::clear_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="549" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.cc" bodystart="506" bodyend="556"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a9c21ca528ccbdb59fa4f5d5f59291696" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>ValueCase</type>
+        <definition>FieldData::ValueCase mediapipe::FieldData::value_case</definition>
+        <argsstring>() const</argsstring>
+        <name>value_case</name>
+        <qualifiedname>mediapipe::FieldData::value_case</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="550" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1209" bodyend="1211"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a3078f13b55691ab0f2119e0d5a264e3d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::PROTOBUF_NAMESPACE_ID::Descriptor *</type>
+        <definition>static const ::PROTOBUF_NAMESPACE_ID::Descriptor * mediapipe::FieldData::descriptor</definition>
+        <argsstring>()</argsstring>
+        <name>descriptor</name>
+        <qualifiedname>mediapipe::FieldData::descriptor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="293" column="52" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="293" bodyend="295"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1ab28108360d75b3a889e166b0346e8032" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::PROTOBUF_NAMESPACE_ID::Descriptor *</type>
+        <definition>static const ::PROTOBUF_NAMESPACE_ID::Descriptor * mediapipe::FieldData::GetDescriptor</definition>
+        <argsstring>()</argsstring>
+        <name>GetDescriptor</name>
+        <qualifiedname>mediapipe::FieldData::GetDescriptor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="296" column="52" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="296" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a2cf1b94368bd1712452f36ceeac12c2b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::PROTOBUF_NAMESPACE_ID::Reflection *</type>
+        <definition>static const ::PROTOBUF_NAMESPACE_ID::Reflection * mediapipe::FieldData::GetReflection</definition>
+        <argsstring>()</argsstring>
+        <name>GetReflection</name>
+        <qualifiedname>mediapipe::FieldData::GetReflection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="299" column="52" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="299" bodyend="301"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1ab6324f20a896a9f7ef2ddd29e96f8dc3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const FieldData &amp;</type>
+        <definition>static const FieldData &amp; mediapipe::FieldData::default_instance</definition>
+        <argsstring>()</argsstring>
+        <name>default_instance</name>
+        <qualifiedname>mediapipe::FieldData::default_instance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="302" column="26" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="302" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1aab1cb14d68997a67e2feded20459915d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const FieldData *</type>
+        <definition>static const FieldData * mediapipe::FieldData::internal_default_instance</definition>
+        <argsstring>()</argsstring>
+        <name>internal_default_instance</name>
+        <qualifiedname>mediapipe::FieldData::internal_default_instance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="319" column="33" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="319" bodyend="322"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a2bfb5060f8301b493f0660e004ffbfc2" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::MergeImpl</definition>
+        <argsstring>(::PROTOBUF_NAMESPACE_ID::Message *to, const ::PROTOBUF_NAMESPACE_ID::Message &amp;from)</argsstring>
+        <name>MergeImpl</name>
+        <qualifiedname>mediapipe::FieldData::MergeImpl</qualifiedname>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::Message *</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>const ::PROTOBUF_NAMESPACE_ID::Message &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="358" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.cc" bodystart="831" bodyend="835"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a9796e48656e8819981f3024720f7320c" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::PROTOBUF_NAMESPACE_ID::StringPiece</type>
+        <definition>::PROTOBUF_NAMESPACE_ID::StringPiece mediapipe::FieldData::FullMessageName</definition>
+        <argsstring>()</argsstring>
+        <name>FullMessageName</name>
+        <qualifiedname>mediapipe::FieldData::FullMessageName</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="377" column="47" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="377" bodyend="379"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1afa6bc4963df4d45ec485d36baacb980a" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::ArenaDtor</definition>
+        <argsstring>(void *object)</argsstring>
+        <name>ArenaDtor</name>
+        <qualifiedname>mediapipe::FieldData::ArenaDtor</qualifiedname>
+        <param>
+          <type>void *</type>
+          <declname>object</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="384" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.cc" bodystart="496" bodyend="499"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a47ca41fd2b5765e5b623b674348fa384" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::SharedCtor</definition>
+        <argsstring>()</argsstring>
+        <name>SharedCtor</name>
+        <qualifiedname>mediapipe::FieldData::SharedCtor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="370" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.cc" bodystart="478" bodyend="480"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a7b22386be0f5f135a7408683336808c7" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::SharedDtor</definition>
+        <argsstring>()</argsstring>
+        <name>SharedDtor</name>
+        <qualifiedname>mediapipe::FieldData::SharedDtor</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="371" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.cc" bodystart="489" bodyend="494"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1ac167597198543efbaac167b26bbf365c" prot="private" static="no" const="yes" explicit="no" inline="no" final="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::SetCachedSize</definition>
+        <argsstring>(int size) const final</argsstring>
+        <name>SetCachedSize</name>
+        <qualifiedname>mediapipe::FieldData::SetCachedSize</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="372" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.cc" bodystart="502" bodyend="504"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1ae022464c2308360cb5b93b41b3eca79a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::InternalSwap</definition>
+        <argsstring>(FieldData *other)</argsstring>
+        <name>InternalSwap</name>
+        <qualifiedname>mediapipe::FieldData::InternalSwap</qualifiedname>
+        <param>
+          <type>FieldData *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="373" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.cc" bodystart="903" bodyend="908"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1ace4b38fb409a04f1fb20b4f601e9a224" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::RegisterArenaDtor</definition>
+        <argsstring>(::PROTOBUF_NAMESPACE_ID::Arena *arena)</argsstring>
+        <name>RegisterArenaDtor</name>
+        <qualifiedname>mediapipe::FieldData::RegisterArenaDtor</qualifiedname>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::Arena *</type>
+          <declname>arena</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="385" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.cc" bodystart="500" bodyend="501"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a08d0ce832ec95b977dbd95565a4f91e4" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::FieldData::_internal_has_int32_value</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_has_int32_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_has_int32_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="412" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="744" bodyend="746"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a54254229ad1bd58250e9e5b2feeca4bc" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int32_t</type>
+        <definition>int32_t mediapipe::FieldData::_internal_int32_value</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_int32_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_int32_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="418" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="759" bodyend="764"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1aa31f9db247ea70cf3aa9eb0ee12e3af1" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::_internal_set_int32_value</definition>
+        <argsstring>(int32_t value)</argsstring>
+        <name>_internal_set_int32_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_set_int32_value</qualifiedname>
+        <param>
+          <type>int32_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="419" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="765" bodyend="771"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a3ea3ece336afa63164abef1f0fac0908" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::FieldData::_internal_has_int64_value</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_has_int64_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_has_int64_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="425" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="782" bodyend="784"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a4fc15725381405855a20ab0691ca0f68" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t mediapipe::FieldData::_internal_int64_value</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_int64_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_int64_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="431" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="797" bodyend="802"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a1b9503ad926263346da03b93de746d51" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::_internal_set_int64_value</definition>
+        <argsstring>(int64_t value)</argsstring>
+        <name>_internal_set_int64_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_set_int64_value</qualifiedname>
+        <param>
+          <type>int64_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="432" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="803" bodyend="809"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a209473be9a005c2abc6c38be5e276eea" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::FieldData::_internal_has_uint32_value</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_has_uint32_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_has_uint32_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="438" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="820" bodyend="822"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a82365eb55513668b4a46d28750fad726" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t mediapipe::FieldData::_internal_uint32_value</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_uint32_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_uint32_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="444" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="835" bodyend="840"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a195c9c36ad742482dbc138bf83295734" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::_internal_set_uint32_value</definition>
+        <argsstring>(uint32_t value)</argsstring>
+        <name>_internal_set_uint32_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_set_uint32_value</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="445" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="841" bodyend="847"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a18ff7b1db5c4f5a22e0d2d11e2a317be" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::FieldData::_internal_has_uint64_value</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_has_uint64_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_has_uint64_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="451" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="858" bodyend="860"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1af84b55cbd7b1f00094f052c428c34f77" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t mediapipe::FieldData::_internal_uint64_value</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_uint64_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_uint64_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="457" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="873" bodyend="878"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a8e851f170bff5f7cb96ec1367d978b72" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::_internal_set_uint64_value</definition>
+        <argsstring>(uint64_t value)</argsstring>
+        <name>_internal_set_uint64_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_set_uint64_value</qualifiedname>
+        <param>
+          <type>uint64_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="458" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="879" bodyend="885"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a01da72cb823bdcd6a19ea9e6890a18dc" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::FieldData::_internal_has_double_value</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_has_double_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_has_double_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="464" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="896" bodyend="898"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a597c9eefb5b09315c0501dc668c6266d" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double mediapipe::FieldData::_internal_double_value</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_double_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_double_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="470" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="911" bodyend="916"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1ab57ea25901751c2915062cbd741f771b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::_internal_set_double_value</definition>
+        <argsstring>(double value)</argsstring>
+        <name>_internal_set_double_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_set_double_value</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="471" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="917" bodyend="923"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a774fc91b367a6b7d79d61d82ef9afeb3" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::FieldData::_internal_has_float_value</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_has_float_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_has_float_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="477" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="934" bodyend="936"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1abf5291d116375450f0f6e1ff157f2dc4" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float mediapipe::FieldData::_internal_float_value</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_float_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_float_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="483" column="9" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="949" bodyend="954"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a8d37ee73636814c7b8557f938ee3aff8" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::_internal_set_float_value</definition>
+        <argsstring>(float value)</argsstring>
+        <name>_internal_set_float_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_set_float_value</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="484" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="955" bodyend="961"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1ad6f3f1a45ad2deecdcc6b6cfc41b8964" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::FieldData::_internal_has_bool_value</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_has_bool_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_has_bool_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="490" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="972" bodyend="974"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a396f0bed442bee24e57049957fe804ed" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::FieldData::_internal_bool_value</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_bool_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_bool_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="496" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="987" bodyend="992"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1add46fcbd82c9061c325a41b18308e6bc" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::_internal_set_bool_value</definition>
+        <argsstring>(bool value)</argsstring>
+        <name>_internal_set_bool_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_set_bool_value</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="497" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="993" bodyend="999"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a6b3bcb799911b1e3cd29c1fbc8da733c" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::FieldData::_internal_has_enum_value</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_has_enum_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_has_enum_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="503" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1010" bodyend="1012"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1aa26f9647be3bc2c5d067b992d62fbf72" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int32_t</type>
+        <definition>int32_t mediapipe::FieldData::_internal_enum_value</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_enum_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_enum_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="509" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1025" bodyend="1030"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a68c673565242a510f6952b449613dcf1" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::_internal_set_enum_value</definition>
+        <argsstring>(int32_t value)</argsstring>
+        <name>_internal_set_enum_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_set_enum_value</qualifiedname>
+        <param>
+          <type>int32_t</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="510" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1031" bodyend="1037"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a3f4c3b8b1f27cb43f94a36acd817f669" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::FieldData::_internal_has_string_value</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_has_string_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_has_string_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="516" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1048" bodyend="1050"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a985d528105a1607740f426e92bb66921" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string &amp; mediapipe::FieldData::_internal_string_value</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_string_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_string_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="526" column="21" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1082" bodyend="1087"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a66c6515cc14b98af605eb981b9754e72" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>PROTOBUF_ALWAYS_INLINE void</type>
+        <definition>void mediapipe::FieldData::_internal_set_string_value</definition>
+        <argsstring>(const std::string &amp;value)</argsstring>
+        <name>_internal_set_string_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_set_string_value</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="527" column="38" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1088" bodyend="1095"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a75e4034cfd54c95487b3aff382c5bbc2" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string *</type>
+        <definition>std::string * mediapipe::FieldData::_internal_mutable_string_value</definition>
+        <argsstring>()</argsstring>
+        <name>_internal_mutable_string_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_mutable_string_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="528" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1096" bodyend="1104"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a4440d6f83065c7737cf652d88bb4da1d" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::FieldData::_internal_has_message_value</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_has_message_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_has_message_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="534" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1130" bodyend="1132"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1afb01bd1a8d3d298ba5b748626a0fe268" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ::mediapipe::MessageData &amp;</type>
+        <definition>const ::mediapipe::MessageData &amp; mediapipe::FieldData::_internal_message_value</definition>
+        <argsstring>() const</argsstring>
+        <name>_internal_message_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_message_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="542" column="34" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1161" bodyend="1165"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a09ad0e0be611b4656c23148005d5e561" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>::mediapipe::MessageData *</type>
+        <definition>mediapipe::MessageData * mediapipe::FieldData::_internal_mutable_message_value</definition>
+        <argsstring>()</argsstring>
+        <name>_internal_mutable_message_value</name>
+        <qualifiedname>mediapipe::FieldData::_internal_mutable_message_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="543" column="28" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1189" bodyend="1196"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a5fd4f99b13d862f63082e32dc8dfe7ce" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::set_has_int32_value</definition>
+        <argsstring>()</argsstring>
+        <name>set_has_int32_value</name>
+        <qualifiedname>mediapipe::FieldData::set_has_int32_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="554" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="750" bodyend="752"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a66b8253fd4bec6f4c8eb3f2c95ebc0e7" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::set_has_int64_value</definition>
+        <argsstring>()</argsstring>
+        <name>set_has_int64_value</name>
+        <qualifiedname>mediapipe::FieldData::set_has_int64_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="555" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="788" bodyend="790"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1acd7ccaee095d5e4a415867fa05445eec" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::set_has_uint32_value</definition>
+        <argsstring>()</argsstring>
+        <name>set_has_uint32_value</name>
+        <qualifiedname>mediapipe::FieldData::set_has_uint32_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="556" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="826" bodyend="828"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1aff096a187ee396c2bd164344e241257c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::set_has_uint64_value</definition>
+        <argsstring>()</argsstring>
+        <name>set_has_uint64_value</name>
+        <qualifiedname>mediapipe::FieldData::set_has_uint64_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="557" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="864" bodyend="866"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a3fd6ea7baa865f85cd27fbea0bd58ca5" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::set_has_double_value</definition>
+        <argsstring>()</argsstring>
+        <name>set_has_double_value</name>
+        <qualifiedname>mediapipe::FieldData::set_has_double_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="558" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="902" bodyend="904"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a82aaf1ab38222d7ad1959d9175da8bd5" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::set_has_float_value</definition>
+        <argsstring>()</argsstring>
+        <name>set_has_float_value</name>
+        <qualifiedname>mediapipe::FieldData::set_has_float_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="559" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="940" bodyend="942"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a4cfccb490a56fcb5dafa7dea6cd662e8" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::set_has_bool_value</definition>
+        <argsstring>()</argsstring>
+        <name>set_has_bool_value</name>
+        <qualifiedname>mediapipe::FieldData::set_has_bool_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="560" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="978" bodyend="980"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1ac6d4f64af953c70173a3437145f0f7f7" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::set_has_enum_value</definition>
+        <argsstring>()</argsstring>
+        <name>set_has_enum_value</name>
+        <qualifiedname>mediapipe::FieldData::set_has_enum_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="561" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1016" bodyend="1018"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a176be5a42047093a61733d64d8fe69b4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::set_has_string_value</definition>
+        <argsstring>()</argsstring>
+        <name>set_has_string_value</name>
+        <qualifiedname>mediapipe::FieldData::set_has_string_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="562" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1054" bodyend="1056"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a7796078f458ec1e04d963722297c7264" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::set_has_message_value</definition>
+        <argsstring>()</argsstring>
+        <name>set_has_message_value</name>
+        <qualifiedname>mediapipe::FieldData::set_has_message_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="563" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1136" bodyend="1138"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1aec16301ce2dc619b63a912a6341af5aa" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::FieldData::has_value</definition>
+        <argsstring>() const</argsstring>
+        <name>has_value</name>
+        <qualifiedname>mediapipe::FieldData::has_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="565" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1203" bodyend="1205"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1a8b0f757dd5191d05b5f11d013d0b3ea1" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::FieldData::clear_has_value</definition>
+        <argsstring>()</argsstring>
+        <name>clear_has_value</name>
+        <qualifiedname>mediapipe::FieldData::clear_has_value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="566" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="1206" bodyend="1208"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classmediapipe_1_1FieldData_1af1a1b2f7f1b290d11a80b898542cf819" prot="protected" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::FieldData::FieldData</definition>
+        <argsstring>(::PROTOBUF_NAMESPACE_ID::Arena *arena, bool is_message_owned=false)</argsstring>
+        <name>FieldData</name>
+        <qualifiedname>mediapipe::FieldData::FieldData</qualifiedname>
+        <param>
+          <type>::PROTOBUF_NAMESPACE_ID::Arena *</type>
+          <declname>arena</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>is_message_owned</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="381" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.cc" bodystart="417" bodyend="425"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" line="255" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/build/mediapipe/framework/tool/field_data.pb.h" bodystart="256" bodyend="589"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1FieldData_1ab618dbbac4a8d749da0d85c32932df36" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a9b35d94da3444084fc3673b7717b6cfe" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a83a3bd9f30df6e7aca433f6a49ce1ba0" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>::TableStruct_mediapipe_2fframework_2ftool_2ffield_5fdata_2eproto</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a7b52c900604afb075d016dd46d97b25d" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_cached_size_</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a59d92ed7c90c6bce2bfba8d26f6e1ce8" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_class_data_</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a396f0bed442bee24e57049957fe804ed" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_bool_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a597c9eefb5b09315c0501dc668c6266d" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_double_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1aa26f9647be3bc2c5d067b992d62fbf72" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_enum_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1abf5291d116375450f0f6e1ff157f2dc4" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_float_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ad6f3f1a45ad2deecdcc6b6cfc41b8964" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_has_bool_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a01da72cb823bdcd6a19ea9e6890a18dc" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_has_double_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a6b3bcb799911b1e3cd29c1fbc8da733c" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_has_enum_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a774fc91b367a6b7d79d61d82ef9afeb3" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_has_float_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a08d0ce832ec95b977dbd95565a4f91e4" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_has_int32_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a3ea3ece336afa63164abef1f0fac0908" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_has_int64_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a4440d6f83065c7737cf652d88bb4da1d" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_has_message_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a3f4c3b8b1f27cb43f94a36acd817f669" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_has_string_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a209473be9a005c2abc6c38be5e276eea" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_has_uint32_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a18ff7b1db5c4f5a22e0d2d11e2a317be" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_has_uint64_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a54254229ad1bd58250e9e5b2feeca4bc" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_int32_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a4fc15725381405855a20ab0691ca0f68" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_int64_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1afb01bd1a8d3d298ba5b748626a0fe268" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_message_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a09ad0e0be611b4656c23148005d5e561" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_mutable_message_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a75e4034cfd54c95487b3aff382c5bbc2" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_mutable_string_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1add46fcbd82c9061c325a41b18308e6bc" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_set_bool_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ab57ea25901751c2915062cbd741f771b" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_set_double_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a68c673565242a510f6952b449613dcf1" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_set_enum_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a8d37ee73636814c7b8557f938ee3aff8" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_set_float_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1aa31f9db247ea70cf3aa9eb0ee12e3af1" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_set_int32_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a1b9503ad926263346da03b93de746d51" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_set_int64_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a66c6515cc14b98af605eb981b9754e72" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_set_string_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a195c9c36ad742482dbc138bf83295734" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_set_uint32_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a8e851f170bff5f7cb96ec1367d978b72" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_set_uint64_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a985d528105a1607740f426e92bb66921" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_string_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a82365eb55513668b4a46d28750fad726" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_uint32_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1af84b55cbd7b1f00094f052c428c34f77" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_internal_uint64_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ab6bf5c5035d9c184f88d66d455666850" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_InternalParse</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a1e1d75c6cea9c2698188bbaa979588b0" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_InternalSerialize</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ab03429eeb22e9a7d4da3434adbe7043c" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>_oneof_case_</name></member>
+      <member refid="classmediapipe_1_1FieldData_1afa6bc4963df4d45ec485d36baacb980a" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>ArenaDtor</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a62eee7709e123fedae2191e76b0647f4" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>bool_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a245241c9778f49f0d0df704562f042ed" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>ByteSizeLong</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ac5ac0ec020a154eeb81709476fd80116" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>Clear</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a30bf864f5b7fde486875eef4f05b6116" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>clear_bool_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ac1981369f2c9e2f17868af3ea72a2370" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>clear_double_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1abab6b49a57af827a35f5a21229d0865c" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>clear_enum_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a42ddbc9bdd5055700591f84255a1a924" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>clear_float_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a8b0f757dd5191d05b5f11d013d0b3ea1" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>clear_has_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a92a189e04e61a79ad31d5f98c0c080dc" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>clear_int32_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a80b4b87308f7b77603d3ccb35d5edfc3" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>clear_int64_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1afb914acc59809d42ff880179bdb87226" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>clear_message_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1af5e66acba93d98fdc87aad2afa463ed8" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>clear_string_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a215b530b0eab303fd06daee350864b1c" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>clear_uint32_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a56e26b4be9b47a315ea39ffd03d211da" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>clear_uint64_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a8582c40326ffd94735eee90b915b5f66" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>clear_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a150cda0c01a56d26b13b074be2efd0a6" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>CopyFrom</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ab6324f20a896a9f7ef2ddd29e96f8dc3" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>default_instance</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a3078f13b55691ab0f2119e0d5a264e3d" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>descriptor</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a53e6d6be6584548e27d87c125f009bba" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>DestructorSkippable_</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a8d8861ab64dc06f2fad55502e213d5b1" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>double_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a0eb153ecde2d3dfc6d321459b58b5c4f" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>enum_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ae688ffd2da7a4ca4bf5343e194472fd0" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>FieldData</name></member>
+      <member refid="classmediapipe_1_1FieldData_1aa9d614c3038cc46977201151dc85ab55" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>FieldData</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a1aa75f890e2a36653e101b7d580a092e" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>FieldData</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a0613907886ca791ed809d12f331d554b" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>FieldData</name></member>
+      <member refid="classmediapipe_1_1FieldData_1af1a1b2f7f1b290d11a80b898542cf819" prot="protected" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>FieldData</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a1fd6ad9becc63197b7f51323041e3402" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>float_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a9796e48656e8819981f3024720f7320c" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>FullMessageName</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a7bea1697fd488809f2663d170b7ce0d8" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>GetCachedSize</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a5c40d15117056dbbb2cec9e7ffdfd4ca" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>GetClassData</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ab28108360d75b3a889e166b0346e8032" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>GetDescriptor</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a79adf6ea3c0a9c009a3a6c545062cafa" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>GetMetadata</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a2cf1b94368bd1712452f36ceeac12c2b" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>GetReflection</name></member>
+      <member refid="classmediapipe_1_1FieldData_1af41f79f00875ab8c3d5d7bfc7b904622" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>has_bool_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a4088e45815764577712b49a71bb6ecd8" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>has_double_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ab795003dcc32a57c0ea014569ab6f89f" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>has_enum_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a9647349cb5e1c13f3999e2a17e7660a5" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>has_float_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ac92dcc7ef902f2593dcc10c4748414f4" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>has_int32_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a59f0c53982b1fc8cb4c3d248aef6cf86" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>has_int64_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a648a306f9ea54ba5629418a8b1b0ce08" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>has_message_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1aa89c00188afbbfefb18377c2d4eb0d03" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>has_string_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a1a3f1e22f0102beb643ccbe0cca6dfa1" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>has_uint32_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1adbfcf4a725e1635fcb0bd3353ce44a3f" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>has_uint64_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1aec16301ce2dc619b63a912a6341af5aa" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>has_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a53372c59ef655edd67c3cb117b650221" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>int32_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a0c34c46019e9435620e2b754b9d5b934" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>int64_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1aab1cb14d68997a67e2feded20459915d" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>internal_default_instance</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a8683b52a3fd40bccbefeadce141c89f2" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>InternalArenaConstructable_</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ae022464c2308360cb5b93b41b3eca79a" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>InternalSwap</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a327bddf8a5a15ba7fd5f76736e515d55" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>IsInitialized</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ae2b6e68becd1f430cde33792d3dda3f3a7e5e35569513e2339068be1896c71b8e" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>kBoolValue</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a6c10a804dd92926c603ef61e6bc751e2af1bb9a8fdfbe5c3246805259cd911eae" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>kBoolValueFieldNumber</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ae2b6e68becd1f430cde33792d3dda3f3a87105ea68ebbe797753a92942f097340" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>kDoubleValue</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a6c10a804dd92926c603ef61e6bc751e2a3023228468785ecdf8cecc8f693a6b73" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>kDoubleValueFieldNumber</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ae2b6e68becd1f430cde33792d3dda3f3ac4ac1bd2a9ddc589f36e12fe8e19b28c" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>kEnumValue</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a6c10a804dd92926c603ef61e6bc751e2aa8a4bb0f88ddcfcf925959e8409e1ff3" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>kEnumValueFieldNumber</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ae2b6e68becd1f430cde33792d3dda3f3ac406704a6c03454e2910ed5fbf93f6fa" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>kFloatValue</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a6c10a804dd92926c603ef61e6bc751e2a48fae72c2f07dc614a86f27887387554" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>kFloatValueFieldNumber</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a78a3aac8ade44e1c804f9f445338dfb3" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>kIndexInFileMessages</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ae2b6e68becd1f430cde33792d3dda3f3a9c629b5bcafa89b861c6fced41ca0cf7" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>kInt32Value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a6c10a804dd92926c603ef61e6bc751e2ad43b4ad4477fbca918872f23087a4ba2" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>kInt32ValueFieldNumber</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ae2b6e68becd1f430cde33792d3dda3f3adb964f16782819f98285886be6a4cbb2" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>kInt64Value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a6c10a804dd92926c603ef61e6bc751e2adbd129b82ffb70c5fb0c50439decee98" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>kInt64ValueFieldNumber</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ae2b6e68becd1f430cde33792d3dda3f3a8c4f4e63f0b2fd636b17a69c6743e23e" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>kMessageValue</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a6c10a804dd92926c603ef61e6bc751e2acb2f0c010aea75aa57f4d7f37c83d6ba" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>kMessageValueFieldNumber</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ae2b6e68becd1f430cde33792d3dda3f3ae9e2967a564949ec02a46b363a32f269" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>kStringValue</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a6c10a804dd92926c603ef61e6bc751e2a4f6ead61e9818be4417383d2aeca6bcc" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>kStringValueFieldNumber</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ae2b6e68becd1f430cde33792d3dda3f3a03ca471e389632d111f1cd9761e046f2" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>kUint32Value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a6c10a804dd92926c603ef61e6bc751e2a07aad946e66fb536247d13fd7a7d3d46" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>kUint32ValueFieldNumber</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ae2b6e68becd1f430cde33792d3dda3f3a06a70cacc2492d1c5ec42251f315e500" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>kUint64Value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a6c10a804dd92926c603ef61e6bc751e2abf057bcb148677669d432e74fd41c22b" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>kUint64ValueFieldNumber</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ab7fd779bfeb7e62fa30e76c216cefdf8" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>MergeFrom</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a2bfb5060f8301b493f0660e004ffbfc2" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>MergeImpl</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a37b2c27f1e8b5bed13274faf5fc21c06" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>message_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a9aa327a0e3b83a3f2968501c290d9601" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>mutable_message_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ac3cd45316a98ad176bfe20f84a1973aa" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>mutable_string_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a34ebf4183ea70d9e13c23254d8ef1f88" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>mutable_unknown_fields</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a5b2a24098dee501b61ce65330ab7fe1e" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>New</name></member>
+      <member refid="classmediapipe_1_1FieldData_1af81de5fe1361e5ac507fe0882d6a917a" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>operator=</name></member>
+      <member refid="classmediapipe_1_1FieldData_1acc40606a53d077019d2c5b47c1b25e09" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>operator=</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ace4b38fb409a04f1fb20b4f601e9a224" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>RegisterArenaDtor</name></member>
+      <member refid="classmediapipe_1_1FieldData_1acf86a82bdc456f06068a21c7b7117671" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>release_message_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a96fff4d9114c6523e4dfbaba946f99cf" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>release_string_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a8c39ad65e3490307f801bce6d18dde33" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>set_allocated_message_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a63233cadbf467982fd28bdf65e032823" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>set_allocated_string_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a4398690c798b1f33b8ff3c4834236f6e" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>set_bool_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ab2e57ae435ab6ad19209002c53128159" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>set_double_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a99cb6a37bd4da570663fd8f884081811" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>set_enum_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a98539475efb3281c03b71bbb582e5cee" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>set_float_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a4cfccb490a56fcb5dafa7dea6cd662e8" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>set_has_bool_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a3fd6ea7baa865f85cd27fbea0bd58ca5" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>set_has_double_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ac6d4f64af953c70173a3437145f0f7f7" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>set_has_enum_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a82aaf1ab38222d7ad1959d9175da8bd5" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>set_has_float_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a5fd4f99b13d862f63082e32dc8dfe7ce" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>set_has_int32_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a66b8253fd4bec6f4c8eb3f2c95ebc0e7" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>set_has_int64_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a7796078f458ec1e04d963722297c7264" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>set_has_message_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a176be5a42047093a61733d64d8fe69b4" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>set_has_string_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1acd7ccaee095d5e4a415867fa05445eec" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>set_has_uint32_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1aff096a187ee396c2bd164344e241257c" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>set_has_uint64_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1af90b7e046ffa1125c88d95f7d57e0488" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>set_int32_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a9b94f5442d26552da0d6a90c72ca1305" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>set_int64_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a605d753576813d2b02e86ebed9f99384" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>set_string_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a0cb079230712fd58a99e1f0145728d1a" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>set_uint32_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ac39c28697111c8b831eb84394c587d83" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>set_uint64_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ac167597198543efbaac167b26bbf365c" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>SetCachedSize</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a47ca41fd2b5765e5b623b674348fa384" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>SharedCtor</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a7b22386be0f5f135a7408683336808c7" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>SharedDtor</name></member>
+      <member refid="classmediapipe_1_1FieldData_1acbd55d776bf06b644a9089910a4a6d8b" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>string_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ae5c20d71aa25e8b7328f1045b935cd8d" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>swap</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ac50806df71124594d6ddb70383e46a7e" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>Swap</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a43059066a48431e19d1279a81b376205" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>uint32_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a3578ba7c977d69e9d30dd130b3befba2" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>uint64_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ad462994902cf0b0abc3f8dc32bf964c1" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>unknown_fields</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a4ca6e0f4edfa4da0fafaef358eb13430" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>unsafe_arena_release_message_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a8e078969950da9afc70aef53b900d476" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>unsafe_arena_set_allocated_message_value</name></member>
+      <member refid="classmediapipe_1_1FieldData_1aeda9cf58d4cd16e2ba39c7b0bad853f1" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>UnsafeArenaSwap</name></member>
+      <member refid="classmediapipe_1_1FieldData_1af34bdf30359050930aa455e08149f339" prot="private" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>value_</name></member>
+      <member refid="classmediapipe_1_1FieldData_1a9c21ca528ccbdb59fa4f5d5f59291696" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>value_case</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ae2b6e68becd1f430cde33792d3dda3f3a9bd2d881956b5ee16e603ea9820073fb" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>VALUE_NOT_SET</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ae2b6e68becd1f430cde33792d3dda3f3" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>ValueCase</name></member>
+      <member refid="classmediapipe_1_1FieldData_1ac51e9c654a3e7d02e85ac9da7eb7c9c3" prot="public" virt="non-virtual"><scope>mediapipe::FieldData</scope><name>~FieldData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

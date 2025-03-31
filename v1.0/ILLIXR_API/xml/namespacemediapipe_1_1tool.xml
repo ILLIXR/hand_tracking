@@ -1,0 +1,2503 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespacemediapipe_1_1tool" kind="namespace" language="C++">
+    <compoundname>mediapipe::tool</compoundname>
+    <innerclass refid="classmediapipe_1_1tool_1_1CallbackCalculator" prot="public">mediapipe::tool::CallbackCalculator</innerclass>
+    <innerclass refid="classmediapipe_1_1tool_1_1CallbackWithHeaderCalculator" prot="public">mediapipe::tool::CallbackWithHeaderCalculator</innerclass>
+    <innerclass refid="classmediapipe_1_1tool_1_1Descriptor" prot="public">mediapipe::tool::Descriptor</innerclass>
+    <innerclass refid="classmediapipe_1_1tool_1_1FieldDescriptor" prot="public">mediapipe::tool::FieldDescriptor</innerclass>
+    <innerclass refid="structmediapipe_1_1tool_1_1IsExtension" prot="public">mediapipe::tool::IsExtension</innerclass>
+    <innerclass refid="classmediapipe_1_1tool_1_1MediaPipeInternalSidePacketToPacketStreamCalculator" prot="public">mediapipe::tool::MediaPipeInternalSidePacketToPacketStreamCalculator</innerclass>
+    <innerclass refid="classmediapipe_1_1tool_1_1MutableOptionsMap" prot="public">mediapipe::tool::MutableOptionsMap</innerclass>
+    <innerclass refid="classmediapipe_1_1tool_1_1OptionsMap" prot="public">mediapipe::tool::OptionsMap</innerclass>
+    <innerclass refid="classmediapipe_1_1tool_1_1OptionsRegistry" prot="public">mediapipe::tool::OptionsRegistry</innerclass>
+    <innerclass refid="classmediapipe_1_1tool_1_1OptionsSyntaxUtil" prot="public">mediapipe::tool::OptionsSyntaxUtil</innerclass>
+    <innerclass refid="classmediapipe_1_1tool_1_1ProtoUtilLite" prot="public">mediapipe::tool::ProtoUtilLite</innerclass>
+    <innerclass refid="classmediapipe_1_1tool_1_1SwitchContainer" prot="public">mediapipe::tool::SwitchContainer</innerclass>
+    <innerclass refid="classmediapipe_1_1tool_1_1TagMap" prot="public">mediapipe::tool::TagMap</innerclass>
+    <innerclass refid="classmediapipe_1_1tool_1_1TemplateExpander" prot="public">mediapipe::tool::TemplateExpander</innerclass>
+    <innerclass refid="classmediapipe_1_1tool_1_1TemplateExpanderImpl" prot="public">mediapipe::tool::TemplateExpanderImpl</innerclass>
+    <innerclass refid="classmediapipe_1_1tool_1_1TypeMap" prot="public">mediapipe::tool::TypeMap</innerclass>
+    <innernamespace refid="namespacemediapipe_1_1tool_1_1anonymous__namespace_02options__registry_8cc_03">mediapipe::tool::anonymous_namespace{options_registry.cc}</innernamespace>
+    <innernamespace refid="namespacemediapipe_1_1tool_1_1anonymous__namespace_02options__syntax__util_8cc_03">mediapipe::tool::anonymous_namespace{options_syntax_util.cc}</innernamespace>
+    <innernamespace refid="namespacemediapipe_1_1tool_1_1anonymous__namespace_02proto__util__lite_8cc_03">mediapipe::tool::anonymous_namespace{proto_util_lite.cc}</innernamespace>
+    <innernamespace refid="namespacemediapipe_1_1tool_1_1anonymous__namespace_02template__expander_8cc_03">mediapipe::tool::anonymous_namespace{template_expander.cc}</innernamespace>
+    <innernamespace refid="namespacemediapipe_1_1tool_1_1options__field__util">mediapipe::tool::options_field_util</innernamespace>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="options__registry_8h_1a09e03c15b98b29a85b5311c15195360b" prot="public" static="no">
+        <type>mediapipe::proto_ns::internal::WireFormatLite::FieldType</type>
+        <definition>typedef ProtoUtilLite::FieldType mediapipe::tool::FieldType</definition>
+        <argsstring></argsstring>
+        <name>FieldType</name>
+        <qualifiedname>mediapipe::tool::FieldType</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_registry.h" line="16" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_registry.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="proto__util__lite_8cc_1a28e3628ce743821077fab9c14e223535" prot="public" static="no">
+        <type>ProtoUtilLite::WireFormatLite</type>
+        <definition>typedef ProtoUtilLite::WireFormatLite mediapipe::tool::WireFormatLite</definition>
+        <argsstring></argsstring>
+        <name>WireFormatLite</name>
+        <qualifiedname>mediapipe::tool::WireFormatLite</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" line="39" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="proto__util__lite_8cc_1aa33e39006133ad7d3c52a2a6a40830c9" prot="public" static="no">
+        <type>ProtoUtilLite::FieldAccess</type>
+        <definition>using mediapipe::tool::FieldAccess = typedef ProtoUtilLite::FieldAccess</definition>
+        <argsstring></argsstring>
+        <name>FieldAccess</name>
+        <qualifiedname>mediapipe::tool::FieldAccess</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" line="40" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="proto__util__lite_8cc_1a9a4a26f1e404ceadd5732cfcca9d1acd" prot="public" static="no">
+        <type>ProtoUtilLite::FieldValue</type>
+        <definition>typedef ProtoUtilLite::FieldValue mediapipe::tool::FieldValue</definition>
+        <argsstring></argsstring>
+        <name>FieldValue</name>
+        <qualifiedname>mediapipe::tool::FieldValue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" line="41" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="proto__util__lite_8cc_1a59357d77fdf11f36cb6b6cae4b5a62d5" prot="public" static="no">
+        <type>ProtoUtilLite::ProtoPath</type>
+        <definition>typedef ProtoUtilLite::ProtoPath mediapipe::tool::ProtoPath</definition>
+        <argsstring></argsstring>
+        <name>ProtoPath</name>
+        <qualifiedname>mediapipe::tool::ProtoPath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" line="42" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="switch__container_8cc_1a42dad113af3be1de281a2f23c239c4f4" prot="public" static="no">
+        <type>std::pair&lt; std::string, int &gt;</type>
+        <definition>using mediapipe::tool::TagIndex = typedef std::pair&lt;std::string, int&gt;</definition>
+        <argsstring></argsstring>
+        <name>TagIndex</name>
+        <qualifiedname>mediapipe::tool::TagIndex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" line="79" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="template__expander_8cc_1ae61d3dc5c717fa1f6fc80e56800cea54" prot="public" static="no">
+        <type>ProtoUtilLite::ProtoPathEntry</type>
+        <definition>using mediapipe::tool::ProtoPathEntry = typedef ProtoUtilLite::ProtoPathEntry</definition>
+        <argsstring></argsstring>
+        <name>ProtoPathEntry</name>
+        <qualifiedname>mediapipe::tool::ProtoPathEntry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/template_expander.cc" line="44" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/template_expander.cc" bodystart="44" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="container__util_8cc_1aa1121a7d75bb483d89904593cc6c0933" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string mediapipe::tool::ChannelTag</definition>
+        <argsstring>(const std::string &amp;tag, int channel)</argsstring>
+        <name>ChannelTag</name>
+        <qualifiedname>mediapipe::tool::ChannelTag</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>tag</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/container_util.cc" line="8" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/container_util.cc" bodystart="8" bodyend="10" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/container_util.h" declline="12" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="container__util_8cc_1a9a56685ed255330912aec297344fa8be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::tool::ParseChannelTag</definition>
+        <argsstring>(const std::string &amp;channel_name, std::string *name, std::string *num)</argsstring>
+        <name>ParseChannelTag</name>
+        <qualifiedname>mediapipe::tool::ParseChannelTag</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>channel_name</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>num</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/container_util.cc" line="13" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/container_util.cc" bodystart="13" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="container__util_8cc_1a149132be8aebe0df96a2b52019131a4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::set&lt; std::string &gt;</type>
+        <definition>std::set&lt; std::string &gt; mediapipe::tool::ChannelTags</definition>
+        <argsstring>(const std::shared_ptr&lt; tool::TagMap &gt; &amp;map)</argsstring>
+        <name>ChannelTags</name>
+        <qualifiedname>mediapipe::tool::ChannelTags</qualifiedname>
+        <param>
+          <type>const std::shared_ptr&lt; tool::TagMap &gt; &amp;</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/container_util.cc" line="25" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/container_util.cc" bodystart="25" bodyend="34" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/container_util.h" declline="17" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="container__util_8cc_1a810748570fff28a28096c7b721169925" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::tool::ChannelCount</definition>
+        <argsstring>(const std::shared_ptr&lt; tool::TagMap &gt; &amp;map)</argsstring>
+        <name>ChannelCount</name>
+        <qualifiedname>mediapipe::tool::ChannelCount</qualifiedname>
+        <param>
+          <type>const std::shared_ptr&lt; tool::TagMap &gt; &amp;</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/container_util.cc" line="36" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/container_util.cc" bodystart="36" bodyend="48" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/container_util.h" declline="20" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="container__util_8cc_1a366af35833303f75d97b9c4d88bd8e5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::tool::Relay</definition>
+        <argsstring>(const InputStreamShard &amp;input, OutputStreamShard *output)</argsstring>
+        <name>Relay</name>
+        <qualifiedname>mediapipe::tool::Relay</qualifiedname>
+        <param>
+          <type>const InputStreamShard &amp;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>OutputStreamShard *</type>
+          <declname>output</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/container_util.cc" line="50" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/container_util.cc" bodystart="50" bodyend="59" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/container_util.h" declline="23" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="container__util_8cc_1addde56cf0b48c0c76597d3651be25eb6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::tool::GetChannelIndex</definition>
+        <argsstring>(const CalculatorContext &amp;cc, int previous_index)</argsstring>
+        <name>GetChannelIndex</name>
+        <qualifiedname>mediapipe::tool::GetChannelIndex</qualifiedname>
+        <param>
+          <type>const CalculatorContext &amp;</type>
+          <declname>cc</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>previous_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/container_util.cc" line="61" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/container_util.cc" bodystart="61" bodyend="94" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/container_util.h" declline="26" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="fill__packet__set_8cc_1aa35ce4b4375ae7a5d9511e99eeac06a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::StatusOr&lt; std::unique_ptr&lt; PacketSet &gt; &gt;</type>
+        <definition>absl::StatusOr&lt; std::unique_ptr&lt; PacketSet &gt; &gt; mediapipe::tool::FillPacketSet</definition>
+        <argsstring>(const PacketTypeSet &amp;input_side_packet_types, const std::map&lt; std::string, Packet &gt; &amp;input_side_packets, int *missing_packet_count_ptr)</argsstring>
+        <name>FillPacketSet</name>
+        <qualifiedname>mediapipe::tool::FillPacketSet</qualifiedname>
+        <param>
+          <type>const PacketTypeSet &amp;</type>
+          <declname>input_side_packet_types</declname>
+        </param>
+        <param>
+          <type>const std::map&lt; std::string, Packet &gt; &amp;</type>
+          <declname>input_side_packets</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>missing_packet_count_ptr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/fill_packet_set.cc" line="28" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/fill_packet_set.cc" bodystart="28" bodyend="71" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/fill_packet_set.h" declline="35" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="name__util_8cc_1a947ca2907089f0b6771e2b256b4373cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string mediapipe::tool::GetUnusedNodeName</definition>
+        <argsstring>(const CalculatorGraphConfig &amp;config, const std::string &amp;node_name_base)</argsstring>
+        <name>GetUnusedNodeName</name>
+        <qualifiedname>mediapipe::tool::GetUnusedNodeName</qualifiedname>
+        <param>
+          <type>const CalculatorGraphConfig &amp;</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>node_name_base</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/name_util.cc" line="29" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/name_util.cc" bodystart="29" bodyend="46" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/name_util.h" declline="31" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="name__util_8cc_1afb1fc25d1f35514bdd40c4b73a261b55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string mediapipe::tool::GetUnusedSidePacketName</definition>
+        <argsstring>(const CalculatorGraphConfig &amp;config, const std::string &amp;input_side_packet_name_base)</argsstring>
+        <name>GetUnusedSidePacketName</name>
+        <qualifiedname>mediapipe::tool::GetUnusedSidePacketName</qualifiedname>
+        <param>
+          <type>const CalculatorGraphConfig &amp;</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>input_side_packet_name_base</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/name_util.cc" line="48" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/name_util.cc" bodystart="48" bodyend="69" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/name_util.h" declline="27" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="name__util_8cc_1a556a9a75127dc214e4c5dc7166868ab6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string mediapipe::tool::CanonicalNodeName</definition>
+        <argsstring>(const CalculatorGraphConfig &amp;graph_config, int node_id)</argsstring>
+        <name>CanonicalNodeName</name>
+        <qualifiedname>mediapipe::tool::CanonicalNodeName</qualifiedname>
+        <param>
+          <type>const CalculatorGraphConfig &amp;</type>
+          <declname>graph_config</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>node_id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/name_util.cc" line="71" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/name_util.cc" bodystart="71" bodyend="94" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/name_util.h" declline="73" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="name__util_8cc_1af10e3b9336b72f94553b98f9a1953a74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string mediapipe::tool::ParseNameFromStream</definition>
+        <argsstring>(const std::string &amp;stream)</argsstring>
+        <name>ParseNameFromStream</name>
+        <qualifiedname>mediapipe::tool::ParseNameFromStream</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/name_util.cc" line="96" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/name_util.cc" bodystart="96" bodyend="101" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/name_util.h" declline="77" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="name__util_8cc_1ab69d0eb8669c6385b1036a9d77a5d0bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::pair&lt; std::string, int &gt;</type>
+        <definition>std::pair&lt; std::string, int &gt; mediapipe::tool::ParseTagIndex</definition>
+        <argsstring>(const std::string &amp;tag_index)</argsstring>
+        <name>ParseTagIndex</name>
+        <qualifiedname>mediapipe::tool::ParseTagIndex</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>tag_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/name_util.cc" line="103" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/name_util.cc" bodystart="103" bodyend="108" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/name_util.h" declline="80" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="name__util_8cc_1a916da55a478fc1c654520ba45b6feaf6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::pair&lt; std::string, int &gt;</type>
+        <definition>std::pair&lt; std::string, int &gt; mediapipe::tool::ParseTagIndexFromStream</definition>
+        <argsstring>(const std::string &amp;stream)</argsstring>
+        <name>ParseTagIndexFromStream</name>
+        <qualifiedname>mediapipe::tool::ParseTagIndexFromStream</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/name_util.cc" line="110" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/name_util.cc" bodystart="110" bodyend="115" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/name_util.h" declline="83" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="name__util_8cc_1a1a9760adf55a433e1f7653691298c6ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string mediapipe::tool::CatTag</definition>
+        <argsstring>(const std::string &amp;tag, int index)</argsstring>
+        <name>CatTag</name>
+        <qualifiedname>mediapipe::tool::CatTag</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>tag</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/name_util.cc" line="117" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/name_util.cc" bodystart="117" bodyend="121" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/name_util.h" declline="86" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="name__util_8cc_1a32d040d971d6643409343e7b57d7efa7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string mediapipe::tool::CatStream</definition>
+        <argsstring>(const std::pair&lt; std::string, int &gt; &amp;tag_index, const std::string &amp;name)</argsstring>
+        <name>CatStream</name>
+        <qualifiedname>mediapipe::tool::CatStream</qualifiedname>
+        <param>
+          <type>const std::pair&lt; std::string, int &gt; &amp;</type>
+          <declname>tag_index</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/name_util.cc" line="123" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/name_util.cc" bodystart="123" bodyend="128" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/name_util.h" declline="89" declcolumn="13"/>
+      </memberdef>
+      <memberdef kind="function" id="options__map_8h_1a6eda14edfc9a14d7ae547e0a9a9ff4c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+          <param>
+            <type>typename std::enable_if&lt; IsExtension&lt; T &gt;::value, int &gt;::type</type>
+            <defval>0</defval>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool mediapipe::tool::HasExtension</definition>
+        <argsstring>(const CalculatorOptions &amp;options)</argsstring>
+        <name>HasExtension</name>
+        <qualifiedname>mediapipe::tool::HasExtension</qualifiedname>
+        <param>
+          <type>const CalculatorOptions &amp;</type>
+          <declname>options</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_map.h" line="33" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_map.h" bodystart="33" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="options__map_8h_1adf5e22f555208610157f7f92f68e7af2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+          <param>
+            <type>typename std::enable_if&lt; IsExtension&lt; T &gt;::value, int &gt;::type</type>
+            <defval>0</defval>
+          </param>
+        </templateparamlist>
+        <type>T *</type>
+        <definition>T * mediapipe::tool::GetExtension</definition>
+        <argsstring>(CalculatorOptions &amp;options)</argsstring>
+        <name>GetExtension</name>
+        <qualifiedname>mediapipe::tool::GetExtension</qualifiedname>
+        <param>
+          <type>CalculatorOptions &amp;</type>
+          <declname>options</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_map.h" line="45" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_map.h" bodystart="45" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="options__map_8h_1a81d19111a014a60e491708aa74e84577" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+          <param>
+            <type>typename std::enable_if&lt;!IsExtension&lt; T &gt;::value, int &gt;::type</type>
+            <defval>0</defval>
+          </param>
+        </templateparamlist>
+        <type>T *</type>
+        <definition>T * mediapipe::tool::GetExtension</definition>
+        <argsstring>(const CalculatorOptions &amp;options)</argsstring>
+        <name>GetExtension</name>
+        <qualifiedname>mediapipe::tool::GetExtension</qualifiedname>
+        <param>
+          <type>const CalculatorOptions &amp;</type>
+          <declname>options</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_map.h" line="54" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_map.h" bodystart="54" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="options__map_8h_1ad4083e2bf3a88927c9d817d79431b76f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void mediapipe::tool::GetExtension</definition>
+        <argsstring>(const CalculatorOptions &amp;options, T *result)</argsstring>
+        <name>GetExtension</name>
+        <qualifiedname>mediapipe::tool::GetExtension</qualifiedname>
+        <param>
+          <type>const CalculatorOptions &amp;</type>
+          <declname>options</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_map.h" line="59" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_map.h" bodystart="59" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="options__map_8h_1a267adbd11e72765c57b8641e0a990dcb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void mediapipe::tool::GetNodeOptions</definition>
+        <argsstring>(const CalculatorGraphConfig::Node &amp;node_config, T *result)</argsstring>
+        <name>GetNodeOptions</name>
+        <qualifiedname>mediapipe::tool::GetNodeOptions</qualifiedname>
+        <param>
+          <type>const CalculatorGraphConfig::Node &amp;</type>
+          <declname>node_config</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_map.h" line="67" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_map.h" bodystart="67" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="options__map_8h_1a1a0f31ca0f82a3b43018cd0367c796ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void mediapipe::tool::SetNodeOptions</definition>
+        <argsstring>(CalculatorGraphConfig::Node &amp;node_config, const T &amp;value)</argsstring>
+        <name>SetNodeOptions</name>
+        <qualifiedname>mediapipe::tool::SetNodeOptions</qualifiedname>
+        <param>
+          <type>CalculatorGraphConfig::Node &amp;</type>
+          <declname>node_config</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_map.h" line="80" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_map.h" bodystart="80" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="options__util_8cc_1aa6525ec93c49ea15a09e0307f04f148e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string mediapipe::tool::ExtensionType</definition>
+        <argsstring>(const std::string &amp;option_fields_tag)</argsstring>
+        <name>ExtensionType</name>
+        <qualifiedname>mediapipe::tool::ExtensionType</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>option_fields_tag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_util.cc" line="35" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_util.cc" bodystart="35" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="options__util_8cc_1a21fe5a0c7b2b55455a4c138cf136cfe5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>FieldPath</type>
+        <definition>FieldPath mediapipe::tool::GetPath</definition>
+        <argsstring>(const std::string &amp;path_tag, const std::string &amp;message_type)</argsstring>
+        <name>GetPath</name>
+        <qualifiedname>mediapipe::tool::GetPath</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path_tag</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>message_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_util.cc" line="44" column="11" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_util.cc" bodystart="44" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="options__util_8cc_1ae21a8bba5cfae16210ae06c631944327" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string mediapipe::tool::MessageType</definition>
+        <argsstring>(FieldData message)</argsstring>
+        <name>MessageType</name>
+        <qualifiedname>mediapipe::tool::MessageType</qualifiedname>
+        <param>
+          <type>FieldData</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_util.cc" line="53" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_util.cc" bodystart="53" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="options__util_8cc_1a0cb374a4b5136f06759fc4c3258099dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::CopyLiteralOptions</definition>
+        <argsstring>(CalculatorGraphConfig::Node parent_node, CalculatorGraphConfig *config)</argsstring>
+        <name>CopyLiteralOptions</name>
+        <qualifiedname>mediapipe::tool::CopyLiteralOptions</qualifiedname>
+        <param>
+          <type>CalculatorGraphConfig::Node</type>
+          <declname>parent_node</declname>
+        </param>
+        <param>
+          <type>CalculatorGraphConfig *</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_util.cc" line="68" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_util.cc" bodystart="68" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="options__util_8cc_1a205af4f6412da65cc67e7391927a2f81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::DefineGraphOptions</definition>
+        <argsstring>(const CalculatorGraphConfig::Node &amp;parent_node, CalculatorGraphConfig *config)</argsstring>
+        <name>DefineGraphOptions</name>
+        <qualifiedname>mediapipe::tool::DefineGraphOptions</qualifiedname>
+        <param>
+          <type>const CalculatorGraphConfig::Node &amp;</type>
+          <declname>parent_node</declname>
+        </param>
+        <param>
+          <type>CalculatorGraphConfig *</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_util.cc" line="115" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_util.cc" bodystart="115" bodyend="119" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_util.h" declline="78" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="options__util_8h_1ab501053630a800e6c90080d77c628a9d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T mediapipe::tool::MergeOptions</definition>
+        <argsstring>(const T &amp;base, const T &amp;options)</argsstring>
+        <name>MergeOptions</name>
+        <qualifiedname>mediapipe::tool::MergeOptions</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>base</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>options</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_util.h" line="31" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_util.h" bodystart="31" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="options__util_8h_1a3b8d7e4a61bf6f3bd52754105f2634a9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T mediapipe::tool::RetrieveOptions</definition>
+        <argsstring>(const T &amp;base, const Packet &amp;options_packet)</argsstring>
+        <name>RetrieveOptions</name>
+        <qualifiedname>mediapipe::tool::RetrieveOptions</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>base</declname>
+        </param>
+        <param>
+          <type>const Packet &amp;</type>
+          <declname>options_packet</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_util.h" line="41" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_util.h" bodystart="41" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="options__util_8h_1a1cef25b937f608d2e690f4769a41722b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T mediapipe::tool::RetrieveOptions</definition>
+        <argsstring>(const T &amp;base, const PacketSet &amp;packet_set, const std::string &amp;tag_name=&quot;OPTIONS&quot;)</argsstring>
+        <name>RetrieveOptions</name>
+        <qualifiedname>mediapipe::tool::RetrieveOptions</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>base</declname>
+        </param>
+        <param>
+          <type>const PacketSet &amp;</type>
+          <declname>packet_set</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>tag_name</declname>
+          <defval>&quot;OPTIONS&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_util.h" line="57" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_util.h" bodystart="57" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="options__util_8h_1aedeccc283f7767aae4a19f570b9e58d5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T mediapipe::tool::RetrieveOptions</definition>
+        <argsstring>(const T &amp;base, const InputStreamShardSet &amp;stream_set, const std::string &amp;tag_name=&quot;OPTIONS&quot;)</argsstring>
+        <name>RetrieveOptions</name>
+        <qualifiedname>mediapipe::tool::RetrieveOptions</qualifiedname>
+        <param>
+          <type>const T &amp;</type>
+          <declname>base</declname>
+        </param>
+        <param>
+          <type>const InputStreamShardSet &amp;</type>
+          <declname>stream_set</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>tag_name</declname>
+          <defval>&quot;OPTIONS&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_util.h" line="68" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/options_util.h" bodystart="68" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="proto__util__lite_8cc_1ab0c1e50f27423670faa553f601ffac35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::tool::IsLengthDelimited</definition>
+        <argsstring>(WireFormatLite::WireType wire_type)</argsstring>
+        <name>IsLengthDelimited</name>
+        <qualifiedname>mediapipe::tool::IsLengthDelimited</qualifiedname>
+        <param>
+          <type>WireFormatLite::WireType</type>
+          <declname>wire_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" line="47" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" bodystart="47" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="proto__util__lite_8cc_1a3e9c6c76f4393e734e142bb73611e438" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::ReadFieldValue</definition>
+        <argsstring>(uint32_t tag, CodedInputStream *in, std::string *result)</argsstring>
+        <name>ReadFieldValue</name>
+        <qualifiedname>mediapipe::tool::ReadFieldValue</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>tag</declname>
+        </param>
+        <param>
+          <type>CodedInputStream *</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" line="52" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" bodystart="52" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="proto__util__lite_8cc_1a840278bd58c7859a26e14712a91cc38c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::ReadPackedValues</definition>
+        <argsstring>(WireFormatLite::WireType wire_type, CodedInputStream *in, std::vector&lt; std::string &gt; *field_values)</argsstring>
+        <name>ReadPackedValues</name>
+        <qualifiedname>mediapipe::tool::ReadPackedValues</qualifiedname>
+        <param>
+          <type>WireFormatLite::WireType</type>
+          <declname>wire_type</declname>
+        </param>
+        <param>
+          <type>CodedInputStream *</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::string &gt; *</type>
+          <declname>field_values</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" line="73" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" bodystart="73" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="proto__util__lite_8cc_1a635168362666e3b4c83ab72cafbb9943" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::GetFieldValues</definition>
+        <argsstring>(uint32_t field_id, CodedInputStream *in, CodedOutputStream *out, std::vector&lt; std::string &gt; *field_values)</argsstring>
+        <name>GetFieldValues</name>
+        <qualifiedname>mediapipe::tool::GetFieldValues</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>field_id</declname>
+        </param>
+        <param>
+          <type>CodedInputStream *</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>CodedOutputStream *</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::string &gt; *</type>
+          <declname>field_values</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" line="92" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" bodystart="92" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="proto__util__lite_8cc_1a906472afd65916cb35837bef4e562468" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::tool::SetFieldValues</definition>
+        <argsstring>(uint32_t field_id, WireFormatLite::WireType wire_type, const std::vector&lt; std::string &gt; &amp;field_values, CodedOutputStream *out)</argsstring>
+        <name>SetFieldValues</name>
+        <qualifiedname>mediapipe::tool::SetFieldValues</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>field_id</declname>
+        </param>
+        <param>
+          <type>WireFormatLite::WireType</type>
+          <declname>wire_type</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>field_values</declname>
+        </param>
+        <param>
+          <type>CodedOutputStream *</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" line="116" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" bodystart="116" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="proto__util__lite_8cc_1ad63a348b5c742fdf37d52928a8bf34ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::SyntaxStatus</definition>
+        <argsstring>(bool ok, const std::string &amp;text, T *result)</argsstring>
+        <name>SyntaxStatus</name>
+        <qualifiedname>mediapipe::tool::SyntaxStatus</qualifiedname>
+        <param>
+          <type>bool</type>
+          <declname>ok</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" line="271" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" bodystart="271" bodyend="277"/>
+      </memberdef>
+      <memberdef kind="function" id="proto__util__lite_8cc_1a80ad962b1342a6907d1a792ae9b12d16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::ParseValue</definition>
+        <argsstring>(const std::string &amp;text, T *result)</argsstring>
+        <name>ParseValue</name>
+        <qualifiedname>mediapipe::tool::ParseValue</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type>T *</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" line="281" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" bodystart="281" bodyend="283"/>
+      </memberdef>
+      <memberdef kind="function" id="proto__util__lite_8cc_1a3503cfcad418cfadb5bcdc8254ab7d28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::ParseValue&lt; double &gt;</definition>
+        <argsstring>(const std::string &amp;text, double *result)</argsstring>
+        <name>ParseValue&lt; double &gt;</name>
+        <qualifiedname>mediapipe::tool::ParseValue&lt; double &gt;</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type>double *</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" line="285" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" bodystart="285" bodyend="287"/>
+      </memberdef>
+      <memberdef kind="function" id="proto__util__lite_8cc_1ab9149e7fb0c9d6c0b2d5e429b457f399" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::ParseValue&lt; float &gt;</definition>
+        <argsstring>(const std::string &amp;text, float *result)</argsstring>
+        <name>ParseValue&lt; float &gt;</name>
+        <qualifiedname>mediapipe::tool::ParseValue&lt; float &gt;</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" line="289" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" bodystart="289" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="proto__util__lite_8cc_1aad33005d2fee53ba4c2c06d7be965e8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::ParseValue&lt; bool &gt;</definition>
+        <argsstring>(const std::string &amp;text, bool *result)</argsstring>
+        <name>ParseValue&lt; bool &gt;</name>
+        <qualifiedname>mediapipe::tool::ParseValue&lt; bool &gt;</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type>bool *</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" line="293" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" bodystart="293" bodyend="295"/>
+      </memberdef>
+      <memberdef kind="function" id="proto__util__lite_8cc_1afa6638b649e72efc4bbd2ef6946c9ee2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::ParseValue&lt; std::string &gt;</definition>
+        <argsstring>(const std::string &amp;text, std::string *result)</argsstring>
+        <name>ParseValue&lt; std::string &gt;</name>
+        <qualifiedname>mediapipe::tool::ParseValue&lt; std::string &gt;</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" line="297" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" bodystart="297" bodyend="301"/>
+      </memberdef>
+      <memberdef kind="function" id="proto__util__lite_8cc_1a54aafd1c4f26618df2ce89ca1bd41441" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::string</type>
+        <definition>std::string mediapipe::tool::FormatValue</definition>
+        <argsstring>(T v)</argsstring>
+        <name>FormatValue</name>
+        <qualifiedname>mediapipe::tool::FormatValue</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" line="305" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" bodystart="305" bodyend="307"/>
+      </memberdef>
+      <memberdef kind="function" id="proto__util__lite_8cc_1ab0a5ee4117fb5cc9fd11cd8224a164b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::WritePrimitive</definition>
+        <argsstring>(void(*writer)(T, proto_ns::io::CodedOutputStream *), const std::string &amp;text, CodedOutputStream *out)</argsstring>
+        <name>WritePrimitive</name>
+        <qualifiedname>mediapipe::tool::WritePrimitive</qualifiedname>
+        <param>
+          <type>void(*)(T, proto_ns::io::CodedOutputStream *)</type>
+          <declname>writer</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type>CodedOutputStream *</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" line="311" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" bodystart="311" bodyend="317"/>
+      </memberdef>
+      <memberdef kind="function" id="proto__util__lite_8cc_1ae95f854ea462a9a4ccc9c03d592c3543" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>static absl::Status mediapipe::tool::SerializeValue</definition>
+        <argsstring>(const std::string &amp;text, FieldType field_type, FieldValue *field_value)</argsstring>
+        <name>SerializeValue</name>
+        <qualifiedname>mediapipe::tool::SerializeValue</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>text</declname>
+        </param>
+        <param>
+          <type>FieldType</type>
+          <declname>field_type</declname>
+        </param>
+        <param>
+          <type>FieldValue *</type>
+          <declname>field_value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" line="320" column="21" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" bodystart="320" bodyend="369"/>
+      </memberdef>
+      <memberdef kind="function" id="proto__util__lite_8cc_1ac1bbe00198b70025653134e07f9b0559" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename CType</type>
+          </param>
+          <param>
+            <type>FieldType</type>
+            <declname>DeclaredType</declname>
+            <defname>DeclaredType</defname>
+          </param>
+        </templateparamlist>
+        <type>absl::Status</type>
+        <definition>static absl::Status mediapipe::tool::ReadPrimitive</definition>
+        <argsstring>(CodedInputStream *input, std::string *result)</argsstring>
+        <name>ReadPrimitive</name>
+        <qualifiedname>mediapipe::tool::ReadPrimitive</qualifiedname>
+        <param>
+          <type>CodedInputStream *</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" line="373" column="21" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" bodystart="373" bodyend="383"/>
+      </memberdef>
+      <memberdef kind="function" id="proto__util__lite_8cc_1ad5589caffd0ead6eab2154886a8f3158" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>static absl::Status mediapipe::tool::DeserializeValue</definition>
+        <argsstring>(const FieldValue &amp;bytes, FieldType field_type, std::string *result)</argsstring>
+        <name>DeserializeValue</name>
+        <qualifiedname>mediapipe::tool::DeserializeValue</qualifiedname>
+        <param>
+          <type>const FieldValue &amp;</type>
+          <declname>bytes</declname>
+        </param>
+        <param>
+          <type>FieldType</type>
+          <declname>field_type</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" line="386" column="21" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" bodystart="386" bodyend="431"/>
+      </memberdef>
+      <memberdef kind="function" id="proto__util__lite_8cc_1aed9f62f9da75798887872bcab9cf6712" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ValueT</type>
+          </param>
+          <param>
+            <type>FieldType</type>
+            <declname>kFieldType</declname>
+            <defname>kFieldType</defname>
+          </param>
+        </templateparamlist>
+        <type>ValueT</type>
+        <definition>static ValueT mediapipe::tool::ReadValue</definition>
+        <argsstring>(absl::string_view field_bytes, absl::Status *status)</argsstring>
+        <name>ReadValue</name>
+        <qualifiedname>mediapipe::tool::ReadValue</qualifiedname>
+        <param>
+          <type>absl::string_view</type>
+          <declname>field_bytes</declname>
+        </param>
+        <param>
+          <type>absl::Status *</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" line="509" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" bodystart="509" bodyend="519"/>
+      </memberdef>
+      <memberdef kind="function" id="proto__util__lite_8cc_1afe7eea11f28387ce22274ff45a6155a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::ReadValue</definition>
+        <argsstring>(absl::string_view field_bytes, FieldType field_type, absl::string_view message_type, FieldData *result)</argsstring>
+        <name>ReadValue</name>
+        <qualifiedname>mediapipe::tool::ReadValue</qualifiedname>
+        <param>
+          <type>absl::string_view</type>
+          <declname>field_bytes</declname>
+        </param>
+        <param>
+          <type>FieldType</type>
+          <declname>field_type</declname>
+        </param>
+        <param>
+          <type>absl::string_view</type>
+          <declname>message_type</declname>
+        </param>
+        <param>
+          <type>FieldData *</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" line="521" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/proto_util_lite.cc" bodystart="521" bodyend="580"/>
+      </memberdef>
+      <memberdef kind="function" id="sink_8cc_1a59ac63cdeb9be01bd5653bc448e20462" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::tool::AddVectorSink</definition>
+        <argsstring>(const std::string &amp;stream_name, CalculatorGraphConfig *config, std::vector&lt; Packet &gt; *dumped_data)</argsstring>
+        <name>AddVectorSink</name>
+        <qualifiedname>mediapipe::tool::AddVectorSink</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>stream_name</declname>
+        </param>
+        <param>
+          <type>CalculatorGraphConfig *</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; Packet &gt; *</type>
+          <declname>dumped_data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/sink.cc" line="76" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/sink.cc" bodystart="76" bodyend="101" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/sink.h" declline="83" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="sink_8cc_1a211e54b64a7e173c1ac54f3beaff7e5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::tool::AddPostStreamPacketSink</definition>
+        <argsstring>(const std::string &amp;stream_name, CalculatorGraphConfig *config, Packet *post_stream_packet)</argsstring>
+        <name>AddPostStreamPacketSink</name>
+        <qualifiedname>mediapipe::tool::AddPostStreamPacketSink</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>stream_name</declname>
+        </param>
+        <param>
+          <type>CalculatorGraphConfig *</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>Packet *</type>
+          <declname>post_stream_packet</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/sink.cc" line="103" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/sink.cc" bodystart="103" bodyend="127" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/sink.h" declline="92" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="sink_8cc_1a5e843e5aceacbb094b58d98bca0c5a4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::tool::AddSidePacketSink</definition>
+        <argsstring>(const std::string &amp;side_packet_name, CalculatorGraphConfig *config, Packet *dumped_packet)</argsstring>
+        <name>AddSidePacketSink</name>
+        <qualifiedname>mediapipe::tool::AddSidePacketSink</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>side_packet_name</declname>
+        </param>
+        <param>
+          <type>CalculatorGraphConfig *</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>Packet *</type>
+          <declname>dumped_packet</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/sink.cc" line="129" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/sink.cc" bodystart="129" bodyend="148" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/sink.h" declline="104" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="sink_8cc_1a49c7acd966e08a38aeab7f21bb8b9f36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::tool::AddCallbackCalculator</definition>
+        <argsstring>(const std::string &amp;stream_name, CalculatorGraphConfig *config, std::string *callback_side_packet_name, bool use_std_function)</argsstring>
+        <name>AddCallbackCalculator</name>
+        <qualifiedname>mediapipe::tool::AddCallbackCalculator</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>stream_name</declname>
+        </param>
+        <param>
+          <type>CalculatorGraphConfig *</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>callback_side_packet_name</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>use_std_function</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/sink.cc" line="150" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/sink.cc" bodystart="150" bodyend="173" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/sink.h" declline="112" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="sink_8cc_1a9b0b93d5896b8a61d5e0532b879ea881" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::tool::AddMultiStreamCallback</definition>
+        <argsstring>(const std::vector&lt; std::string &gt; &amp;streams, std::function&lt; void(const std::vector&lt; Packet &gt; &amp;)&gt; callback, CalculatorGraphConfig *config, std::pair&lt; std::string, Packet &gt; *side_packet)</argsstring>
+        <name>AddMultiStreamCallback</name>
+        <qualifiedname>mediapipe::tool::AddMultiStreamCallback</qualifiedname>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>streams</declname>
+        </param>
+        <param>
+          <type>std::function&lt; void(const std::vector&lt; Packet &gt; &amp;)&gt;</type>
+          <declname>callback</declname>
+        </param>
+        <param>
+          <type>CalculatorGraphConfig *</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>std::pair&lt; std::string, Packet &gt; *</type>
+          <declname>side_packet</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/sink.cc" line="175" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/sink.cc" bodystart="175" bodyend="184" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/sink.h" declline="127" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="sink_8cc_1a3c4492f604e0001e1e247b11891de785" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::tool::AddMultiStreamCallback</definition>
+        <argsstring>(const std::vector&lt; std::string &gt; &amp;streams, std::function&lt; void(const std::vector&lt; Packet &gt; &amp;)&gt; callback, CalculatorGraphConfig *config, std::map&lt; std::string, Packet &gt; *side_packets, bool observe_timestamp_bounds)</argsstring>
+        <name>AddMultiStreamCallback</name>
+        <qualifiedname>mediapipe::tool::AddMultiStreamCallback</qualifiedname>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>streams</declname>
+        </param>
+        <param>
+          <type>std::function&lt; void(const std::vector&lt; Packet &gt; &amp;)&gt;</type>
+          <declname>callback</declname>
+        </param>
+        <param>
+          <type>CalculatorGraphConfig *</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>std::map&lt; std::string, Packet &gt; *</type>
+          <declname>side_packets</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>observe_timestamp_bounds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/sink.cc" line="186" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/sink.cc" bodystart="186" bodyend="219" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/sink.h" declline="132" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="sink_8cc_1afe65489abf34cf15365fad9b18857448" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::tool::AddCallbackWithHeaderCalculator</definition>
+        <argsstring>(const std::string &amp;stream_name, const std::string &amp;stream_header, CalculatorGraphConfig *config, std::string *callback_side_packet_name, bool use_std_function)</argsstring>
+        <name>AddCallbackWithHeaderCalculator</name>
+        <qualifiedname>mediapipe::tool::AddCallbackWithHeaderCalculator</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>stream_name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>stream_header</declname>
+        </param>
+        <param>
+          <type>CalculatorGraphConfig *</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>callback_side_packet_name</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>use_std_function</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/sink.cc" line="221" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/sink.cc" bodystart="221" bodyend="248" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/sink.h" declline="145" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="sink_8cc_1ab11a598d94999bb6113891fa314963b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::tool::REGISTER_CALCULATOR</definition>
+        <argsstring>(CallbackCalculator)</argsstring>
+        <name>REGISTER_CALCULATOR</name>
+        <qualifiedname>mediapipe::tool::REGISTER_CALCULATOR</qualifiedname>
+        <param>
+          <type>CallbackCalculator</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/sink.cc" line="325" column="1" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/sink.cc" declline="325" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="status__util_8cc_1aae072d9d9a6c80390b2e1830deed6ffb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::StatusInvalid</definition>
+        <argsstring>(absl::string_view message)</argsstring>
+        <name>StatusInvalid</name>
+        <qualifiedname>mediapipe::tool::StatusInvalid</qualifiedname>
+        <param>
+          <type>absl::string_view</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/status_util.cc" line="27" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/status_util.cc" bodystart="27" bodyend="29" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/status_util.h" declline="38" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="status__util_8cc_1a6c50fc285a65774b3fbf514b778b7de1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::StatusFail</definition>
+        <argsstring>(absl::string_view message)</argsstring>
+        <name>StatusFail</name>
+        <qualifiedname>mediapipe::tool::StatusFail</qualifiedname>
+        <param>
+          <type>absl::string_view</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/status_util.cc" line="31" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/status_util.cc" bodystart="31" bodyend="33" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/status_util.h" declline="42" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="status__util_8cc_1a7b0d8de15adfa25ac6afd1ff8de960dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::StatusStop</definition>
+        <argsstring>()</argsstring>
+        <name>StatusStop</name>
+        <qualifiedname>mediapipe::tool::StatusStop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/status_util.cc" line="35" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/status_util.cc" bodystart="35" bodyend="38" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/status_util.h" declline="33" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="status__util_8cc_1ae6a4bd2bdc80ea32c027508dbbd46cd5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::AddStatusPrefix</definition>
+        <argsstring>(absl::string_view prefix, const absl::Status &amp;status)</argsstring>
+        <name>AddStatusPrefix</name>
+        <qualifiedname>mediapipe::tool::AddStatusPrefix</qualifiedname>
+        <param>
+          <type>absl::string_view</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>const absl::Status &amp;</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/status_util.cc" line="40" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/status_util.cc" bodystart="40" bodyend="43" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/status_util.h" declline="47" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="status__util_8cc_1ae0d4da37406f52275a3dd72ff6c89cd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::CombinedStatus</definition>
+        <argsstring>(absl::string_view general_comment, const std::vector&lt; absl::Status &gt; &amp;statuses)</argsstring>
+        <name>CombinedStatus</name>
+        <qualifiedname>mediapipe::tool::CombinedStatus</qualifiedname>
+        <param>
+          <type>absl::string_view</type>
+          <declname>general_comment</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; absl::Status &gt; &amp;</type>
+          <declname>statuses</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/status_util.cc" line="45" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/status_util.cc" bodystart="45" bodyend="69" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/status_util.h" declline="55" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="subgraph__expansion_8cc_1af6ef7f46712aa837dbedfbe2945459e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::TransformStreamNames</definition>
+        <argsstring>(proto_ns::RepeatedPtrField&lt; ProtoString &gt; *streams, const std::function&lt; std::string(absl::string_view)&gt; &amp;transform)</argsstring>
+        <name>TransformStreamNames</name>
+        <qualifiedname>mediapipe::tool::TransformStreamNames</qualifiedname>
+        <param>
+          <type>proto_ns::RepeatedPtrField&lt; ProtoString &gt; *</type>
+          <declname>streams</declname>
+        </param>
+        <param>
+          <type>const std::function&lt; std::string(absl::string_view)&gt; &amp;</type>
+          <declname>transform</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.cc" line="46" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.cc" bodystart="46" bodyend="58" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.h" declline="33" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="subgraph__expansion_8cc_1a5c20b50d75f4a020b21f16aca918dc6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::FindIgnoredStreams</definition>
+        <argsstring>(const proto_ns::RepeatedPtrField&lt; ProtoString &gt; &amp;src_streams, const proto_ns::RepeatedPtrField&lt; ProtoString &gt; &amp;dst_streams, std::set&lt; std::string &gt; *result)</argsstring>
+        <name>FindIgnoredStreams</name>
+        <qualifiedname>mediapipe::tool::FindIgnoredStreams</qualifiedname>
+        <param>
+          <type>const proto_ns::RepeatedPtrField&lt; ProtoString &gt; &amp;</type>
+          <declname>src_streams</declname>
+        </param>
+        <param>
+          <type>const proto_ns::RepeatedPtrField&lt; ProtoString &gt; &amp;</type>
+          <declname>dst_streams</declname>
+        </param>
+        <param>
+          <type>std::set&lt; std::string &gt; *</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.cc" line="61" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.cc" bodystart="61" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="subgraph__expansion_8cc_1ad1871b2fa16be6663ea86ff2dd2faa7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::RemoveIgnoredStreams</definition>
+        <argsstring>(proto_ns::RepeatedPtrField&lt; ProtoString &gt; *streams, const std::set&lt; std::string &gt; &amp;missing_streams)</argsstring>
+        <name>RemoveIgnoredStreams</name>
+        <qualifiedname>mediapipe::tool::RemoveIgnoredStreams</qualifiedname>
+        <param>
+          <type>proto_ns::RepeatedPtrField&lt; ProtoString &gt; *</type>
+          <declname>streams</declname>
+        </param>
+        <param>
+          <type>const std::set&lt; std::string &gt; &amp;</type>
+          <declname>missing_streams</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.cc" line="77" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.cc" bodystart="77" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="subgraph__expansion_8cc_1a9912c3c26f79b6b1fffb79684f3c2fc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::TransformNames</definition>
+        <argsstring>(CalculatorGraphConfig *config, const std::function&lt; std::string(absl::string_view)&gt; &amp;transform)</argsstring>
+        <name>TransformNames</name>
+        <qualifiedname>mediapipe::tool::TransformNames</qualifiedname>
+        <param>
+          <type>CalculatorGraphConfig *</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>const std::function&lt; std::string(absl::string_view)&gt; &amp;</type>
+          <declname>transform</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.cc" line="91" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.cc" bodystart="91" bodyend="127" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.h" declline="39" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="subgraph__expansion_8cc_1ac92e52b66fe26c1c25c26c5993cc5c35" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>static absl::Status mediapipe::tool::PrefixNames</definition>
+        <argsstring>(std::string prefix, CalculatorGraphConfig *config)</argsstring>
+        <name>PrefixNames</name>
+        <qualifiedname>mediapipe::tool::PrefixNames</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>prefix</declname>
+        </param>
+        <param>
+          <type>CalculatorGraphConfig *</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.cc" line="135" column="21" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.cc" bodystart="135" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="subgraph__expansion_8cc_1a3edb24ac0b93b8615242385bf320ab99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::FindCorrespondingStreams</definition>
+        <argsstring>(std::map&lt; std::string, std::string &gt; *stream_map, const proto_ns::RepeatedPtrField&lt; ProtoString &gt; &amp;src_streams, const proto_ns::RepeatedPtrField&lt; ProtoString &gt; &amp;dst_streams)</argsstring>
+        <name>FindCorrespondingStreams</name>
+        <qualifiedname>mediapipe::tool::FindCorrespondingStreams</qualifiedname>
+        <param>
+          <type>std::map&lt; std::string, std::string &gt; *</type>
+          <declname>stream_map</declname>
+        </param>
+        <param>
+          <type>const proto_ns::RepeatedPtrField&lt; ProtoString &gt; &amp;</type>
+          <declname>src_streams</declname>
+        </param>
+        <param>
+          <type>const proto_ns::RepeatedPtrField&lt; ProtoString &gt; &amp;</type>
+          <declname>dst_streams</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.cc" line="148" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.cc" bodystart="148" bodyend="180" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.h" declline="52" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="subgraph__expansion_8cc_1a7c44d0bdc6c8ad7e75df197949bdbf9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::ValidateSubgraphFields</definition>
+        <argsstring>(const CalculatorGraphConfig::Node &amp;subgraph_node)</argsstring>
+        <name>ValidateSubgraphFields</name>
+        <qualifiedname>mediapipe::tool::ValidateSubgraphFields</qualifiedname>
+        <param>
+          <type>const CalculatorGraphConfig::Node &amp;</type>
+          <declname>subgraph_node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.cc" line="188" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.cc" bodystart="188" bodyend="198" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.h" declline="60" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="subgraph__expansion_8cc_1ac16cdec7e9d1bfded372161e08cdbaf2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::ConnectSubgraphStreams</definition>
+        <argsstring>(const CalculatorGraphConfig::Node &amp;subgraph_node, CalculatorGraphConfig *subgraph_config)</argsstring>
+        <name>ConnectSubgraphStreams</name>
+        <qualifiedname>mediapipe::tool::ConnectSubgraphStreams</qualifiedname>
+        <param>
+          <type>const CalculatorGraphConfig::Node &amp;</type>
+          <declname>subgraph_node</declname>
+        </param>
+        <param>
+          <type>CalculatorGraphConfig *</type>
+          <declname>subgraph_config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.cc" line="200" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.cc" bodystart="200" bodyend="274" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.h" declline="65" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="subgraph__expansion_8cc_1ad96107514716f0dfb8629213ca0766a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::ExpandSubgraphs</definition>
+        <argsstring>(CalculatorGraphConfig *config, const GraphRegistry *graph_registry, const Subgraph::SubgraphOptions *graph_options, const GraphServiceManager *service_manager)</argsstring>
+        <name>ExpandSubgraphs</name>
+        <qualifiedname>mediapipe::tool::ExpandSubgraphs</qualifiedname>
+        <param>
+          <type>CalculatorGraphConfig *</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>const GraphRegistry *</type>
+          <declname>graph_registry</declname>
+        </param>
+        <param>
+          <type>const Subgraph::SubgraphOptions *</type>
+          <declname>graph_options</declname>
+        </param>
+        <param>
+          <type>const GraphServiceManager *</type>
+          <declname>service_manager</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.cc" line="276" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.cc" bodystart="276" bodyend="326" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.h" declline="72" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="subgraph__expansion_8cc_1af62cd302323a43028174962415b08b98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>CalculatorGraphConfig</type>
+        <definition>CalculatorGraphConfig mediapipe::tool::MakeSingleNodeGraph</definition>
+        <argsstring>(CalculatorGraphConfig::Node node)</argsstring>
+        <name>MakeSingleNodeGraph</name>
+        <qualifiedname>mediapipe::tool::MakeSingleNodeGraph</qualifiedname>
+        <param>
+          <type>CalculatorGraphConfig::Node</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.cc" line="328" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.cc" bodystart="328" bodyend="346" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/subgraph_expansion.h" declline="80" declcolumn="23"/>
+      </memberdef>
+      <memberdef kind="function" id="switch__container_8cc_1a32a7be712a1b18928fce573d487991c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string mediapipe::tool::ChannelName</definition>
+        <argsstring>(const std::string &amp;name, int channel)</argsstring>
+        <name>ChannelName</name>
+        <qualifiedname>mediapipe::tool::ChannelName</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" line="84" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" bodystart="84" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="switch__container_8cc_1ac863cfb6474ebfb650927934460838cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>CalculatorGraphConfig::Node *</type>
+        <definition>CalculatorGraphConfig::Node * mediapipe::tool::BuildDemuxNode</definition>
+        <argsstring>(const std::map&lt; TagIndex, std::string &gt; &amp;input_tags, const CalculatorGraphConfig::Node &amp;container_node, CalculatorGraphConfig *config)</argsstring>
+        <name>BuildDemuxNode</name>
+        <qualifiedname>mediapipe::tool::BuildDemuxNode</qualifiedname>
+        <param>
+          <type>const std::map&lt; TagIndex, std::string &gt; &amp;</type>
+          <declname>input_tags</declname>
+        </param>
+        <param>
+          <type>const CalculatorGraphConfig::Node &amp;</type>
+          <declname>container_node</declname>
+        </param>
+        <param>
+          <type>CalculatorGraphConfig *</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" line="89" column="29" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" bodystart="89" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="switch__container_8cc_1a8a2865c94aace964233d3afd03d65053" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>CalculatorGraphConfig::Node *</type>
+        <definition>CalculatorGraphConfig::Node * mediapipe::tool::BuildMuxNode</definition>
+        <argsstring>(const std::map&lt; TagIndex, std::string &gt; &amp;output_tags, CalculatorGraphConfig *config)</argsstring>
+        <name>BuildMuxNode</name>
+        <qualifiedname>mediapipe::tool::BuildMuxNode</qualifiedname>
+        <param>
+          <type>const std::map&lt; TagIndex, std::string &gt; &amp;</type>
+          <declname>output_tags</declname>
+        </param>
+        <param>
+          <type>CalculatorGraphConfig *</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" line="101" column="29" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" bodystart="101" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="switch__container_8cc_1abb6798bacc2f155e9072d1bbc0cc8495" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>CalculatorGraphConfig::Node *</type>
+        <definition>CalculatorGraphConfig::Node * mediapipe::tool::BuildTimestampNode</definition>
+        <argsstring>(CalculatorGraphConfig *config, bool async_selection)</argsstring>
+        <name>BuildTimestampNode</name>
+        <qualifiedname>mediapipe::tool::BuildTimestampNode</qualifiedname>
+        <param>
+          <type>CalculatorGraphConfig *</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>async_selection</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" line="112" column="29" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" bodystart="112" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="switch__container_8cc_1aa72904162ff5e2b56d860da47ba86add" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::tool::CopyOptions</definition>
+        <argsstring>(const CalculatorGraphConfig::Node &amp;source, CalculatorGraphConfig::Node *dest)</argsstring>
+        <name>CopyOptions</name>
+        <qualifiedname>mediapipe::tool::CopyOptions</qualifiedname>
+        <param>
+          <type>const CalculatorGraphConfig::Node &amp;</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>CalculatorGraphConfig::Node *</type>
+          <declname>dest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" line="124" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" bodystart="124" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="switch__container_8cc_1abc197c4badd0df6ad7c2d38e6392baeb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::tool::ClearContainerOptions</definition>
+        <argsstring>(SwitchContainerOptions *result)</argsstring>
+        <name>ClearContainerOptions</name>
+        <qualifiedname>mediapipe::tool::ClearContainerOptions</qualifiedname>
+        <param>
+          <type>SwitchContainerOptions *</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" line="133" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" bodystart="133" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="switch__container_8cc_1a8f1b5b1e2e5c7733a8006e771bebfc87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::tool::ClearContainerOptions</definition>
+        <argsstring>(CalculatorGraphConfig::Node *dest)</argsstring>
+        <name>ClearContainerOptions</name>
+        <qualifiedname>mediapipe::tool::ClearContainerOptions</qualifiedname>
+        <param>
+          <type>CalculatorGraphConfig::Node *</type>
+          <declname>dest</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" line="138" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" bodystart="138" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="switch__container_8cc_1a17d8215c9dd68542374570ddc04f560b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string mediapipe::tool::UniqueName</definition>
+        <argsstring>(std::string name, std::set&lt; std::string &gt; *names)</argsstring>
+        <name>UniqueName</name>
+        <qualifiedname>mediapipe::tool::UniqueName</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::set&lt; std::string &gt; *</type>
+          <declname>names</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" line="155" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" bodystart="155" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="switch__container_8cc_1a1c9e3f704abfebb001451da362e7871d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::tool::ParseTags</definition>
+        <argsstring>(const proto_ns::RepeatedPtrField&lt; std::string &gt; &amp;streams, std::map&lt; TagIndex, std::string &gt; *result)</argsstring>
+        <name>ParseTags</name>
+        <qualifiedname>mediapipe::tool::ParseTags</qualifiedname>
+        <param>
+          <type>const proto_ns::RepeatedPtrField&lt; std::string &gt; &amp;</type>
+          <declname>streams</declname>
+        </param>
+        <param>
+          <type>std::map&lt; TagIndex, std::string &gt; *</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" line="167" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" bodystart="167" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="switch__container_8cc_1a723e7673803947178f8db3eb455857ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::tool::EraseTag</definition>
+        <argsstring>(const std::string &amp;stream, std::map&lt; TagIndex, std::string &gt; *streams)</argsstring>
+        <name>EraseTag</name>
+        <qualifiedname>mediapipe::tool::EraseTag</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>std::map&lt; TagIndex, std::string &gt; *</type>
+          <declname>streams</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" line="183" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" bodystart="183" bodyend="187"/>
+      </memberdef>
+      <memberdef kind="function" id="switch__container_8cc_1a4e759c0b2b8e74c4e2d85cc0150a7ddb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::tool::EraseTag</definition>
+        <argsstring>(const std::string &amp;stream, proto_ns::RepeatedPtrField&lt; std::string &gt; *streams)</argsstring>
+        <name>EraseTag</name>
+        <qualifiedname>mediapipe::tool::EraseTag</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <param>
+          <type>proto_ns::RepeatedPtrField&lt; std::string &gt; *</type>
+          <declname>streams</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" line="190" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" bodystart="190" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="switch__container_8cc_1a0fcddb2866dcfa1d80b6ecd47efdc5b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mediapipe::tool::GetContainerNodeStreams</definition>
+        <argsstring>(const CalculatorGraphConfig::Node &amp;node, CalculatorGraphConfig::Node *result)</argsstring>
+        <name>GetContainerNodeStreams</name>
+        <qualifiedname>mediapipe::tool::GetContainerNodeStreams</qualifiedname>
+        <param>
+          <type>const CalculatorGraphConfig::Node &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>CalculatorGraphConfig::Node *</type>
+          <declname>result</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" line="203" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" bodystart="203" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="switch__container_8cc_1a41ccd5e6185276115c3a85c52ed451ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::ValidateContract</definition>
+        <argsstring>(const CalculatorGraphConfig::Node &amp;subgraph_node, const Subgraph::SubgraphOptions &amp;subgraph_options)</argsstring>
+        <name>ValidateContract</name>
+        <qualifiedname>mediapipe::tool::ValidateContract</qualifiedname>
+        <param>
+          <type>const CalculatorGraphConfig::Node &amp;</type>
+          <declname>subgraph_node</declname>
+        </param>
+        <param>
+          <type>const Subgraph::SubgraphOptions &amp;</type>
+          <declname>subgraph_options</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" line="217" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" bodystart="217" bodyend="237"/>
+      </memberdef>
+      <memberdef kind="function" id="switch__container_8cc_1acd2630d8bd5b1a563ca7f81c41c95dfb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::tool::HasTag</definition>
+        <argsstring>(const proto_ns::RepeatedPtrField&lt; std::string &gt; &amp;streams, std::string tag)</argsstring>
+        <name>HasTag</name>
+        <qualifiedname>mediapipe::tool::HasTag</qualifiedname>
+        <param>
+          <type>const proto_ns::RepeatedPtrField&lt; std::string &gt; &amp;</type>
+          <declname>streams</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>tag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" line="240" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" bodystart="240" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="switch__container_8cc_1a3e172dc2106d26ca6189fb9d3b8297b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::tool::ContainsTag</definition>
+        <argsstring>(const proto_ns::RepeatedPtrField&lt; std::string &gt; &amp;tags, TagIndex item)</argsstring>
+        <name>ContainsTag</name>
+        <qualifiedname>mediapipe::tool::ContainsTag</qualifiedname>
+        <param>
+          <type>const proto_ns::RepeatedPtrField&lt; std::string &gt; &amp;</type>
+          <declname>tags</declname>
+        </param>
+        <param>
+          <type>TagIndex</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" line="248" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_container.cc" bodystart="248" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="function" id="tag__map_8h_1a82ceab3bee0885a0856a24a19c6647ee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::tool::operator==</definition>
+        <argsstring>(const TagMap::TagData &amp;d1, const TagMap::TagData &amp;d2)</argsstring>
+        <name>operator==</name>
+        <qualifiedname>mediapipe::tool::operator==</qualifiedname>
+        <param>
+          <type>const TagMap::TagData &amp;</type>
+          <declname>d1</declname>
+        </param>
+        <param>
+          <type>const TagMap::TagData &amp;</type>
+          <declname>d2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/tag_map.h" line="135" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/tag_map.h" bodystart="135" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="tag__map__helper_8cc_1a1b88e75644224e086e2bde3c333996c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::StatusOr&lt; std::shared_ptr&lt; TagMap &gt; &gt;</type>
+        <definition>absl::StatusOr&lt; std::shared_ptr&lt; TagMap &gt; &gt; mediapipe::tool::CreateTagMap</definition>
+        <argsstring>(const std::vector&lt; std::string &gt; &amp;tag_index_names)</argsstring>
+        <name>CreateTagMap</name>
+        <qualifiedname>mediapipe::tool::CreateTagMap</qualifiedname>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>tag_index_names</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/tag_map_helper.cc" line="34" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/tag_map_helper.cc" bodystart="34" bodyend="41" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/tag_map_helper.h" declline="26" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="tag__map__helper_8cc_1a90e51f9ccb4f789039f793cd4e1fdc34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::StatusOr&lt; std::shared_ptr&lt; TagMap &gt; &gt;</type>
+        <definition>absl::StatusOr&lt; std::shared_ptr&lt; TagMap &gt; &gt; mediapipe::tool::CreateTagMap</definition>
+        <argsstring>(int num_entries)</argsstring>
+        <name>CreateTagMap</name>
+        <qualifiedname>mediapipe::tool::CreateTagMap</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>num_entries</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/tag_map_helper.cc" line="44" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/tag_map_helper.cc" bodystart="44" bodyend="51" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/tag_map_helper.h" declline="30" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="tag__map__helper_8cc_1a14f5b05334303be80e9602a439c71eb7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::StatusOr&lt; std::shared_ptr&lt; TagMap &gt; &gt;</type>
+        <definition>absl::StatusOr&lt; std::shared_ptr&lt; TagMap &gt; &gt; mediapipe::tool::CreateTagMapFromTags</definition>
+        <argsstring>(const std::vector&lt; std::string &gt; &amp;tags)</argsstring>
+        <name>CreateTagMapFromTags</name>
+        <qualifiedname>mediapipe::tool::CreateTagMapFromTags</qualifiedname>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>tags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/tag_map_helper.cc" line="54" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/tag_map_helper.cc" bodystart="54" bodyend="61" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/tag_map_helper.h" declline="33" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="type__util_8h_1a055ba90106d964dbd05c390a8316e577" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>size_t</type>
+        <definition>size_t mediapipe::tool::GetTypeHash</definition>
+        <argsstring>()</argsstring>
+        <name>GetTypeHash</name>
+        <qualifiedname>mediapipe::tool::GetTypeHash</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/type_util.h" line="140" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/type_util.h" bodystart="140" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="validate_8cc_1a56a330967383b4bf8fed39d32231b3bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::ValidateInput</definition>
+        <argsstring>(const InputCollection &amp;input_collection)</argsstring>
+        <name>ValidateInput</name>
+        <qualifiedname>mediapipe::tool::ValidateInput</qualifiedname>
+        <param>
+          <type>const InputCollection &amp;</type>
+          <declname>input_collection</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate.cc" line="29" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate.cc" bodystart="29" bodyend="45" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate.h" declline="32" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="validate__name_8cc_1a30ea64ae3069b747fc551a12f63f1d42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::GetTagAndNameInfo</definition>
+        <argsstring>(const proto_ns::RepeatedPtrField&lt; ProtoString &gt; &amp;tags_and_names, TagAndNameInfo *info)</argsstring>
+        <name>GetTagAndNameInfo</name>
+        <qualifiedname>mediapipe::tool::GetTagAndNameInfo</qualifiedname>
+        <param>
+          <type>const proto_ns::RepeatedPtrField&lt; ProtoString &gt; &amp;</type>
+          <declname>tags_and_names</declname>
+        </param>
+        <param>
+          <type>TagAndNameInfo *</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" line="45" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" bodystart="45" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="validate__name_8cc_1ac77f62fba322c5b7274d9b06cc1b2336" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::SetFromTagAndNameInfo</definition>
+        <argsstring>(const TagAndNameInfo &amp;info, proto_ns::RepeatedPtrField&lt; ProtoString &gt; *tags_and_names)</argsstring>
+        <name>SetFromTagAndNameInfo</name>
+        <qualifiedname>mediapipe::tool::SetFromTagAndNameInfo</qualifiedname>
+        <param>
+          <type>const TagAndNameInfo &amp;</type>
+          <declname>info</declname>
+        </param>
+        <param>
+          <type>proto_ns::RepeatedPtrField&lt; ProtoString &gt; *</type>
+          <declname>tags_and_names</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" line="71" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" bodystart="71" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="validate__name_8cc_1a7a476ba2e264d00966088805b4a33e45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::ValidateName</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>ValidateName</name>
+        <qualifiedname>mediapipe::tool::ValidateName</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" line="95" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" bodystart="95" bodyend="105" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.h" declline="80" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="validate__name_8cc_1aedca7efbf672dd735d302075f22dbaef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::ValidateNumber</definition>
+        <argsstring>(const std::string &amp;number)</argsstring>
+        <name>ValidateNumber</name>
+        <qualifiedname>mediapipe::tool::ValidateNumber</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>number</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" line="107" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" bodystart="107" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="validate__name_8cc_1aefbd9776a29627f34c0cd2c4030ea50e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::ValidateTag</definition>
+        <argsstring>(const std::string &amp;tag)</argsstring>
+        <name>ValidateTag</name>
+        <qualifiedname>mediapipe::tool::ValidateTag</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>tag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" line="119" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" bodystart="119" bodyend="129" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.h" declline="83" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="validate__name_8cc_1a637ff90e05a090575e4df5a5728c46c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::ParseTagAndName</definition>
+        <argsstring>(absl::string_view tag_and_name, std::string *tag, std::string *name)</argsstring>
+        <name>ParseTagAndName</name>
+        <qualifiedname>mediapipe::tool::ParseTagAndName</qualifiedname>
+        <param>
+          <type>absl::string_view</type>
+          <declname>tag_and_name</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>tag</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" line="131" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" bodystart="131" bodyend="161" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.h" declline="89" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="validate__name_8cc_1a1659d748d97fba1f0ff32ad3726833ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::ParseTagIndexName</definition>
+        <argsstring>(const std::string &amp;tag_index_name, std::string *tag, int *index, std::string *name)</argsstring>
+        <name>ParseTagIndexName</name>
+        <qualifiedname>mediapipe::tool::ParseTagIndexName</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>tag_index_name</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>tag</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" line="163" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" bodystart="163" bodyend="209" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.h" declline="100" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="validate__name_8cc_1a054a3c719b106a65e7da288e9785a11b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::tool::ParseTagIndex</definition>
+        <argsstring>(const std::string &amp;tag_index, std::string *tag, int *index)</argsstring>
+        <name>ParseTagIndex</name>
+        <qualifiedname>mediapipe::tool::ParseTagIndex</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>tag_index</declname>
+        </param>
+        <param>
+          <type>std::string *</type>
+          <declname>tag</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" line="211" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.cc" bodystart="211" bodyend="246" declfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.h" declline="112" declcolumn="14"/>
+      </memberdef>
+      <memberdef kind="function" id="validate__name_8h_1a9b7c84a119a3f927db4a46fa41e95e3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>struct</type>
+        <definition>struct mediapipe::tool::ABSL_DEPRECATED</definition>
+        <argsstring>(&quot;Prefer using mediapipe::tool::TagMap instead, since this structure does &quot; &quot;not &quot; &quot;consider the TAG:INDEX:name notation.&quot;) TagAndNameInfo</argsstring>
+        <name>ABSL_DEPRECATED</name>
+        <qualifiedname>mediapipe::tool::ABSL_DEPRECATED</qualifiedname>
+        <param>
+          <type>&quot;Prefer using mediapipe::tool::TagMap</type>
+          <declname>instead</declname>
+        </param>
+        <param>
+          <type>since this structure does &quot; &quot;not &quot; &quot;consider the TAG:INDEX:name notation.&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.h" line="31" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/validate_name.h" bodystart="36" bodyend="46"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/collection_item_id.h" line="23" column="1"/>
+  </compounddef>
+</doxygen>

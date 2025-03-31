@@ -1,0 +1,413 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structILLIXR_1_1pose__image" kind="struct" language="C++" prot="public">
+    <compoundname>ILLIXR::pose_image</compoundname>
+    <includes refid="hand__tracking__publisher_8hpp" local="no">hand_tracking_publisher.hpp</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structILLIXR_1_1pose__image_1aa93b46cd97b93c3b7f14a1392e253d5d" prot="public" static="no">
+        <type>std::map&lt; data_format::image::image_type, cv::Mat &gt;::const_iterator</type>
+        <definition>typedef std::map&lt;data_format::image::image_type,cv::Mat&gt;::const_iterator ILLIXR::pose_image::img_iterator</definition>
+        <argsstring></argsstring>
+        <name>img_iterator</name>
+        <qualifiedname>ILLIXR::pose_image::img_iterator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="44" column="39" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="44" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structILLIXR_1_1pose__image_1a4eab06f4e5a61e32383a84c211fdc9bc" prot="public" static="no" mutable="no">
+        <type>image_map</type>
+        <definition>image_map ILLIXR::pose_image::images</definition>
+        <argsstring></argsstring>
+        <name>images</name>
+        <qualifiedname>ILLIXR::pose_image::images</qualifiedname>
+        <briefdescription>
+<para>mapping of the current images </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="36" column="33" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structILLIXR_1_1pose__image_1a659de72f7b1797d0d61eaa2b6b5a553e" prot="public" static="no" mutable="no">
+        <type>data_format::multi_pose_map</type>
+        <definition>data_format::multi_pose_map ILLIXR::pose_image::poses</definition>
+        <argsstring></argsstring>
+        <name>poses</name>
+        <qualifiedname>ILLIXR::pose_image::poses</qualifiedname>
+        <briefdescription>
+<para>mapping of poses for each image </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="37" column="33" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structILLIXR_1_1pose__image_1afe95cfeb0221cca898887654ef5093a1" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ILLIXR::pose_image::depth_valid</definition>
+        <argsstring></argsstring>
+        <name>depth_valid</name>
+        <qualifiedname>ILLIXR::pose_image::depth_valid</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>flag to indicate if there is a valid depth image </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="38" column="33" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structILLIXR_1_1pose__image_1a48da728dff8ecabaef7b0c885ea6b9b5" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ILLIXR::pose_image::confidence_valid_</definition>
+        <argsstring></argsstring>
+        <name>confidence_valid_</name>
+        <qualifiedname>ILLIXR::pose_image::confidence_valid_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>flags to indicate if there is a valid confidence image assocaited with the depth image </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="39" column="33" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structILLIXR_1_1pose__image_1a3afc6bd928af32fad1a08e668c869221" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ILLIXR::pose_image::pose_valid</definition>
+        <argsstring></argsstring>
+        <name>pose_valid</name>
+        <qualifiedname>ILLIXR::pose_image::pose_valid</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>flags indicating if the poses are valid </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="40" column="33" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structILLIXR_1_1pose__image_1abb891881cce2aad6a70b37767753523f" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ILLIXR::pose_image::eye_count</definition>
+        <argsstring></argsstring>
+        <name>eye_count</name>
+        <qualifiedname>ILLIXR::pose_image::eye_count</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>the number of &quot;eyes&quot; (input images) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="41" column="33" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structILLIXR_1_1pose__image_1a2f5112f0008a69833a9ecd1d3244da71" prot="public" static="no" mutable="no">
+        <type>data_format::units::eyes</type>
+        <definition>data_format::units::eyes ILLIXR::pose_image::primary</definition>
+        <argsstring></argsstring>
+        <name>primary</name>
+        <qualifiedname>ILLIXR::pose_image::primary</qualifiedname>
+        <initializer>= data_format::units::LEFT_EYE</initializer>
+        <briefdescription>
+<para>the primary eye, will depend on the camera type </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="42" column="33" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="42" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structILLIXR_1_1pose__image_1ae5e20901c5c6521dbe7cc4546410d7e5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>cv::Mat &amp;</type>
+        <definition>cv::Mat &amp; ILLIXR::pose_image::operator[]</definition>
+        <argsstring>(data_format::image::image_type idx)</argsstring>
+        <name>operator[]</name>
+        <qualifiedname>ILLIXR::pose_image::operator[]</qualifiedname>
+        <param>
+          <type>data_format::image::image_type</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Access an image via index <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the image to get (must exist) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A reference to the image </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="51" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="51" bodyend="53"/>
+        <references refid="structILLIXR_1_1pose__image_1a4eab06f4e5a61e32383a84c211fdc9bc" compoundref="hand__tracking__publisher_8hpp" startline="36">images</references>
+      </memberdef>
+      <memberdef kind="function" id="structILLIXR_1_1pose__image_1ab15eb1263ea2072ca43e5a6dd6f95b1b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int ILLIXR::pose_image::format</definition>
+        <argsstring>(data_format::image::image_type idx)</argsstring>
+        <name>format</name>
+        <qualifiedname>ILLIXR::pose_image::format</qualifiedname>
+        <param>
+          <type>data_format::image::image_type</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the format code of the specified image <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The image to query </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The format code </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="60" column="9" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="60" bodyend="62"/>
+        <references refid="structILLIXR_1_1pose__image_1a4eab06f4e5a61e32383a84c211fdc9bc" compoundref="hand__tracking__publisher_8hpp" startline="36">images</references>
+      </memberdef>
+      <memberdef kind="function" id="structILLIXR_1_1pose__image_1abadcfa6cf4b083e1af01c1db3ed1c41d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t ILLIXR::pose_image::size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <qualifiedname>ILLIXR::pose_image::size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reports number of images <simplesect kind="return"><para>The number of images </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="68" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="68" bodyend="70"/>
+        <references refid="structILLIXR_1_1pose__image_1a4eab06f4e5a61e32383a84c211fdc9bc" compoundref="hand__tracking__publisher_8hpp" startline="36">images</references>
+      </memberdef>
+      <memberdef kind="function" id="structILLIXR_1_1pose__image_1ab7739437ec04e7a8c4a8b922e5659d3c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>cv::Mat</type>
+        <definition>cv::Mat ILLIXR::pose_image::at</definition>
+        <argsstring>(const data_format::image::image_type idx) const</argsstring>
+        <name>at</name>
+        <qualifiedname>ILLIXR::pose_image::at</qualifiedname>
+        <param>
+          <type>const data_format::image::image_type</type>
+          <declname>idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Access an image via index <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the image to get (must exist) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The image </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="77" column="14" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="77" bodyend="79"/>
+        <references refid="structILLIXR_1_1pose__image_1a4eab06f4e5a61e32383a84c211fdc9bc" compoundref="hand__tracking__publisher_8hpp" startline="36">images</references>
+      </memberdef>
+      <memberdef kind="function" id="structILLIXR_1_1pose__image_1a2add99e8a863042aee20b1feb48b3a5e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>img_iterator</type>
+        <definition>img_iterator ILLIXR::pose_image::find</definition>
+        <argsstring>(data_format::image::image_type eye) const</argsstring>
+        <name>find</name>
+        <qualifiedname>ILLIXR::pose_image::find</qualifiedname>
+        <param>
+          <type>data_format::image::image_type</type>
+          <declname>eye</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns an iterator to the specified image <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>eye</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The image to get </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An iterator to the requested image </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="86" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="86" bodyend="88"/>
+        <references refid="structILLIXR_1_1pose__image_1a4eab06f4e5a61e32383a84c211fdc9bc" compoundref="hand__tracking__publisher_8hpp" startline="36">images</references>
+      </memberdef>
+      <memberdef kind="function" id="structILLIXR_1_1pose__image_1acf1196f09048c79387638c44eb3f620f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>img_iterator</type>
+        <definition>img_iterator ILLIXR::pose_image::end</definition>
+        <argsstring>() const</argsstring>
+        <name>end</name>
+        <qualifiedname>ILLIXR::pose_image::end</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the iterator to the end of the image map <simplesect kind="return"><para>The &quot;end&quot; iterator </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="94" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="94" bodyend="96"/>
+        <references refid="structILLIXR_1_1pose__image_1a4eab06f4e5a61e32383a84c211fdc9bc" compoundref="hand__tracking__publisher_8hpp" startline="36">images</references>
+      </memberdef>
+      <memberdef kind="function" id="structILLIXR_1_1pose__image_1aa6b7021bf06c94f8435affeb58aeed59" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>img_iterator</type>
+        <definition>img_iterator ILLIXR::pose_image::begin</definition>
+        <argsstring>() const</argsstring>
+        <name>begin</name>
+        <qualifiedname>ILLIXR::pose_image::begin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the iterator to the beginning of the image map <simplesect kind="return"><para>The &quot;begin&quot; iterator </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="102" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="102" bodyend="104"/>
+        <references refid="structILLIXR_1_1pose__image_1a4eab06f4e5a61e32383a84c211fdc9bc" compoundref="hand__tracking__publisher_8hpp" startline="36">images</references>
+      </memberdef>
+      <memberdef kind="function" id="structILLIXR_1_1pose__image_1a4166dabeb35b0780eb6cc3b40b1cf99d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ILLIXR::pose_image::insert</definition>
+        <argsstring>(img_iterator start, img_iterator end)</argsstring>
+        <name>insert</name>
+        <qualifiedname>ILLIXR::pose_image::insert</qualifiedname>
+        <param>
+          <type>img_iterator</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>img_iterator</type>
+          <declname>end</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Insert images based on their iterators <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>start</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The start of the images to insert </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>end</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The end of the images to insert </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="111" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="111" bodyend="113"/>
+        <references refid="structILLIXR_1_1pose__image_1acf1196f09048c79387638c44eb3f620f" compoundref="hand__tracking__publisher_8hpp" startline="94" endline="96">end</references>
+        <references refid="structILLIXR_1_1pose__image_1a4eab06f4e5a61e32383a84c211fdc9bc" compoundref="hand__tracking__publisher_8hpp" startline="36">images</references>
+      </memberdef>
+      <memberdef kind="function" id="structILLIXR_1_1pose__image_1a045853613e3210cd618200efa4f90997" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t ILLIXR::pose_image::count</definition>
+        <argsstring>(data_format::image::image_type imgt) const</argsstring>
+        <name>count</name>
+        <qualifiedname>ILLIXR::pose_image::count</qualifiedname>
+        <param>
+          <type>data_format::image::image_type</type>
+          <declname>imgt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the number of instances of the specified image type <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>imgt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The image type to search for </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number found </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="120" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="120" bodyend="122"/>
+        <references refid="structILLIXR_1_1pose__image_1a4eab06f4e5a61e32383a84c211fdc9bc" compoundref="hand__tracking__publisher_8hpp" startline="36">images</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Holds current input image(s) and pose </para>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" line="35" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/hand_tracking_publisher.hpp" bodystart="35" bodyend="123"/>
+    <listofallmembers>
+      <member refid="structILLIXR_1_1pose__image_1ab7739437ec04e7a8c4a8b922e5659d3c" prot="public" virt="non-virtual"><scope>ILLIXR::pose_image</scope><name>at</name></member>
+      <member refid="structILLIXR_1_1pose__image_1aa6b7021bf06c94f8435affeb58aeed59" prot="public" virt="non-virtual"><scope>ILLIXR::pose_image</scope><name>begin</name></member>
+      <member refid="structILLIXR_1_1pose__image_1a48da728dff8ecabaef7b0c885ea6b9b5" prot="public" virt="non-virtual"><scope>ILLIXR::pose_image</scope><name>confidence_valid_</name></member>
+      <member refid="structILLIXR_1_1pose__image_1a045853613e3210cd618200efa4f90997" prot="public" virt="non-virtual"><scope>ILLIXR::pose_image</scope><name>count</name></member>
+      <member refid="structILLIXR_1_1pose__image_1afe95cfeb0221cca898887654ef5093a1" prot="public" virt="non-virtual"><scope>ILLIXR::pose_image</scope><name>depth_valid</name></member>
+      <member refid="structILLIXR_1_1pose__image_1acf1196f09048c79387638c44eb3f620f" prot="public" virt="non-virtual"><scope>ILLIXR::pose_image</scope><name>end</name></member>
+      <member refid="structILLIXR_1_1pose__image_1abb891881cce2aad6a70b37767753523f" prot="public" virt="non-virtual"><scope>ILLIXR::pose_image</scope><name>eye_count</name></member>
+      <member refid="structILLIXR_1_1pose__image_1a2add99e8a863042aee20b1feb48b3a5e" prot="public" virt="non-virtual"><scope>ILLIXR::pose_image</scope><name>find</name></member>
+      <member refid="structILLIXR_1_1pose__image_1ab15eb1263ea2072ca43e5a6dd6f95b1b" prot="public" virt="non-virtual"><scope>ILLIXR::pose_image</scope><name>format</name></member>
+      <member refid="structILLIXR_1_1pose__image_1a4eab06f4e5a61e32383a84c211fdc9bc" prot="public" virt="non-virtual"><scope>ILLIXR::pose_image</scope><name>images</name></member>
+      <member refid="structILLIXR_1_1pose__image_1aa93b46cd97b93c3b7f14a1392e253d5d" prot="public" virt="non-virtual"><scope>ILLIXR::pose_image</scope><name>img_iterator</name></member>
+      <member refid="structILLIXR_1_1pose__image_1a4166dabeb35b0780eb6cc3b40b1cf99d" prot="public" virt="non-virtual"><scope>ILLIXR::pose_image</scope><name>insert</name></member>
+      <member refid="structILLIXR_1_1pose__image_1ae5e20901c5c6521dbe7cc4546410d7e5" prot="public" virt="non-virtual"><scope>ILLIXR::pose_image</scope><name>operator[]</name></member>
+      <member refid="structILLIXR_1_1pose__image_1a3afc6bd928af32fad1a08e668c869221" prot="public" virt="non-virtual"><scope>ILLIXR::pose_image</scope><name>pose_valid</name></member>
+      <member refid="structILLIXR_1_1pose__image_1a659de72f7b1797d0d61eaa2b6b5a553e" prot="public" virt="non-virtual"><scope>ILLIXR::pose_image</scope><name>poses</name></member>
+      <member refid="structILLIXR_1_1pose__image_1a2f5112f0008a69833a9ecd1d3244da71" prot="public" virt="non-virtual"><scope>ILLIXR::pose_image</scope><name>primary</name></member>
+      <member refid="structILLIXR_1_1pose__image_1abadcfa6cf4b083e1af01c1db3ed1c41d" prot="public" virt="non-virtual"><scope>ILLIXR::pose_image</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

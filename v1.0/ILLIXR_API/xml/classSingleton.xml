@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classSingleton" kind="class" language="C++" prot="public">
+    <compoundname>Singleton</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classSingleton_1a21b34a71562848533c8a690d909e4723" prot="private" static="yes" mutable="no">
+        <type>absl::Mutex</type>
+        <definition>absl::Mutex Singleton&lt; T &gt;::mu_</definition>
+        <argsstring></argsstring>
+        <name>mu_</name>
+        <qualifiedname>Singleton::mu_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/singleton.h" line="60" column="22" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/singleton.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classSingleton_1a83531300ba0de9df598c9197d7cf57fb" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T *</type>
+        <definition>static T * Singleton&lt; T &gt;::get</definition>
+        <argsstring>() ABSL_LOCKS_EXCLUDED(mu_)</argsstring>
+        <name>get</name>
+        <qualifiedname>Singleton::get</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/singleton.h" line="28" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/singleton.h" bodystart="28" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classSingleton_1a81d21cc9a44de787d35103bd52fba5bf" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void Singleton&lt; T &gt;::Destruct</definition>
+        <argsstring>() ABSL_LOCKS_EXCLUDED(mu_)</argsstring>
+        <name>Destruct</name>
+        <qualifiedname>Singleton::Destruct</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/singleton.h" line="49" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/singleton.h" bodystart="49" bodyend="55"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classSingleton_1a85d233d32233694fbab74cb49061f6ee" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>T *instance_</type>
+        <definition>static T *instance_ Singleton&lt; T &gt;::ABSL_GUARDED_BY</definition>
+        <argsstring>(mu_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>Singleton::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>mu_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/singleton.h" line="58" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classSingleton_1ad671725c821e192d46ebdca69b9bd6e4" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool destroyed_</type>
+        <definition>static bool destroyed_ Singleton&lt; T &gt;::ABSL_GUARDED_BY</definition>
+        <argsstring>(mu_)</argsstring>
+        <name>ABSL_GUARDED_BY</name>
+        <qualifiedname>Singleton::ABSL_GUARDED_BY</qualifiedname>
+        <param>
+          <type>mu_</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/singleton.h" line="59" column="26"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/singleton.h" line="24" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/singleton.h" bodystart="24" bodyend="61"/>
+    <listofallmembers>
+      <member refid="classSingleton_1a85d233d32233694fbab74cb49061f6ee" prot="private" virt="non-virtual"><scope>Singleton</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classSingleton_1ad671725c821e192d46ebdca69b9bd6e4" prot="private" virt="non-virtual"><scope>Singleton</scope><name>ABSL_GUARDED_BY</name></member>
+      <member refid="classSingleton_1a81d21cc9a44de787d35103bd52fba5bf" prot="public" virt="non-virtual"><scope>Singleton</scope><name>Destruct</name></member>
+      <member refid="classSingleton_1a83531300ba0de9df598c9197d7cf57fb" prot="public" virt="non-virtual"><scope>Singleton</scope><name>get</name></member>
+      <member refid="classSingleton_1a21b34a71562848533c8a690d909e4723" prot="private" virt="non-virtual"><scope>Singleton</scope><name>mu_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,761 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::api2::TensorsToDetectionsCalculator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">mediapipe::api2::Node</basecompoundref>
+    <innerclass refid="structmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1_1ClassIndexSet" prot="private">mediapipe::api2::TensorsToDetectionsCalculator::ClassIndexSet</innerclass>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1aded1127df79c06827424d6a3da3b54f2" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr Input&lt; std::vector&lt; Tensor &gt; &gt;</type>
+        <definition>constexpr Input&lt;std::vector&lt;Tensor&gt; &gt; mediapipe::api2::TensorsToDetectionsCalculator::kInTensors</definition>
+        <argsstring></argsstring>
+        <name>kInTensors</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::kInTensors</qualifiedname>
+        <initializer>{&quot;TENSORS&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="188" column="26" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="188" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1af94b1b5c48b5882da6b9f7c6a71df82f" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr SideInput&lt; std::vector&lt; Anchor &gt; &gt;::Optional</type>
+        <definition>constexpr SideInput&lt;std::vector&lt;Anchor&gt;&gt;::Optional mediapipe::api2::TensorsToDetectionsCalculator::kInAnchors</definition>
+        <argsstring></argsstring>
+        <name>kInAnchors</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::kInAnchors</qualifiedname>
+        <initializer>{
+      &quot;ANCHORS&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="189" column="41" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="189" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1ae407a1c6de08f9224f1b1eade9eca750" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr SideInput&lt; std::vector&lt; int &gt; &gt;::Optional</type>
+        <definition>constexpr SideInput&lt;std::vector&lt;int&gt;&gt;::Optional mediapipe::api2::TensorsToDetectionsCalculator::kSideInIgnoreClasses</definition>
+        <argsstring></argsstring>
+        <name>kSideInIgnoreClasses</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::kSideInIgnoreClasses</qualifiedname>
+        <initializer>{
+      &quot;IGNORE_CLASSES&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="191" column="41" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="191" bodyend="192"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a1773c38bcf5995418af1be763a325cb6" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr Output&lt; std::vector&lt; Detection &gt; &gt;</type>
+        <definition>constexpr Output&lt;std::vector&lt;Detection&gt; &gt; mediapipe::api2::TensorsToDetectionsCalculator::kOutDetections</definition>
+        <argsstring></argsstring>
+        <name>kOutDetections</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::kOutDetections</qualifiedname>
+        <initializer>{&quot;DETECTIONS&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="193" column="27" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="193" bodyend="193"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1aada3a01c57170876b0910daf6d09bc09" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::api2::TensorsToDetectionsCalculator::num_classes_</definition>
+        <argsstring></argsstring>
+        <name>num_classes_</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::num_classes_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="223" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="223" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1aef97c6fe56ab81d1967778accaac1d38" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::api2::TensorsToDetectionsCalculator::num_boxes_</definition>
+        <argsstring></argsstring>
+        <name>num_boxes_</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::num_boxes_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="224" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="224" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a85e6344a6676021355b3a16ac0fa967b" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::api2::TensorsToDetectionsCalculator::num_coords_</definition>
+        <argsstring></argsstring>
+        <name>num_coords_</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::num_coords_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="225" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="225" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a4cded50c5ce6f298667af330ec5a8072" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::api2::TensorsToDetectionsCalculator::max_results_</definition>
+        <argsstring></argsstring>
+        <name>max_results_</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::max_results_</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="226" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="226" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a2da1939f642d02cd98fe3ba9d087dbaf" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::api2::TensorsToDetectionsCalculator::classes_per_detection_</definition>
+        <argsstring></argsstring>
+        <name>classes_per_detection_</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::classes_per_detection_</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="227" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="227" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a6b17d06866b7488582258390a7b9bc67" prot="private" static="no" mutable="no">
+        <type>BoxFormat</type>
+        <definition>BoxFormat mediapipe::api2::TensorsToDetectionsCalculator::box_output_format_</definition>
+        <argsstring></argsstring>
+        <name>box_output_format_</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::box_output_format_</qualifiedname>
+        <initializer>=
+      mediapipe::TensorsToDetectionsCalculatorOptions::YXHW</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="228" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="228" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a2dddad671491e44d82730dab42d3e6f1" prot="private" static="no" mutable="no">
+        <type>ClassIndexSet</type>
+        <definition>ClassIndexSet mediapipe::api2::TensorsToDetectionsCalculator::class_index_set_</definition>
+        <argsstring></argsstring>
+        <name>class_index_set_</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::class_index_set_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="238" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="238" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a3553c7714c9a7ffa3c1841c8b7f57164" prot="private" static="no" mutable="no">
+        <type>TensorsToDetectionsCalculatorOptions</type>
+        <definition>TensorsToDetectionsCalculatorOptions mediapipe::api2::TensorsToDetectionsCalculator::options_</definition>
+        <argsstring></argsstring>
+        <name>options_</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::options_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="240" column="40" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="240" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1af124c438cc2bb9336ea1cc8f94f679cb" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::api2::TensorsToDetectionsCalculator::scores_tensor_index_is_set_</definition>
+        <argsstring></argsstring>
+        <name>scores_tensor_index_is_set_</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::scores_tensor_index_is_set_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="241" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="241" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a80315ef80a0196a37997d75693eca11f" prot="private" static="no" mutable="no">
+        <type>TensorsToDetectionsCalculatorOptions::TensorMapping</type>
+        <definition>TensorsToDetectionsCalculatorOptions::TensorMapping mediapipe::api2::TensorsToDetectionsCalculator::tensor_mapping_</definition>
+        <argsstring></argsstring>
+        <name>tensor_mapping_</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::tensor_mapping_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="242" column="55" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="242" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a3dee4ef4b764915f18fd3eb6773f0b5b" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt;int&gt; mediapipe::api2::TensorsToDetectionsCalculator::box_indices_</definition>
+        <argsstring></argsstring>
+        <name>box_indices_</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::box_indices_</qualifiedname>
+        <initializer>= {0, 1, 2, 3}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="243" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="243" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a0234015f3c4bc4e5af73f9a078b06100" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::api2::TensorsToDetectionsCalculator::has_custom_box_indices_</definition>
+        <argsstring></argsstring>
+        <name>has_custom_box_indices_</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::has_custom_box_indices_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="244" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="244" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1aecf27f6ae56eb1037d63cc9c6bd91ad6" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; Anchor &gt;</type>
+        <definition>std::vector&lt;Anchor&gt; mediapipe::api2::TensorsToDetectionsCalculator::anchors_</definition>
+        <argsstring></argsstring>
+        <name>anchors_</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::anchors_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="245" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="245" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a89c60ea7981b6548efb00f8dad11dea9" prot="private" static="no" mutable="no">
+        <type>mediapipe::GlCalculatorHelper</type>
+        <definition>mediapipe::GlCalculatorHelper mediapipe::api2::TensorsToDetectionsCalculator::gpu_helper_</definition>
+        <argsstring></argsstring>
+        <name>gpu_helper_</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::gpu_helper_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="248" column="33" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="248" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1acb43e5482bd87872d03aed731118c8df" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint mediapipe::api2::TensorsToDetectionsCalculator::decode_program_</definition>
+        <argsstring></argsstring>
+        <name>decode_program_</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::decode_program_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="249" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="249" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a07bfc5d0cf06c5192df99f29ffa03b53" prot="private" static="no" mutable="no">
+        <type>GLuint</type>
+        <definition>GLuint mediapipe::api2::TensorsToDetectionsCalculator::score_program_</definition>
+        <argsstring></argsstring>
+        <name>score_program_</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::score_program_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="250" column="10" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="250" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1ae839af0484462192577763a2121ab95c" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; Tensor &gt;</type>
+        <definition>std::unique_ptr&lt;Tensor&gt; mediapipe::api2::TensorsToDetectionsCalculator::raw_anchors_buffer_</definition>
+        <argsstring></argsstring>
+        <name>raw_anchors_buffer_</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::raw_anchors_buffer_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="256" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="256" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a06fd1b2da1c395e4ea7da2a1e9afb005" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; Tensor &gt;</type>
+        <definition>std::unique_ptr&lt;Tensor&gt; mediapipe::api2::TensorsToDetectionsCalculator::decoded_boxes_buffer_</definition>
+        <argsstring></argsstring>
+        <name>decoded_boxes_buffer_</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::decoded_boxes_buffer_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="257" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="257" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a824fd98e682e1f514d92d0af713d37f9" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; Tensor &gt;</type>
+        <definition>std::unique_ptr&lt;Tensor&gt; mediapipe::api2::TensorsToDetectionsCalculator::scored_boxes_buffer_</definition>
+        <argsstring></argsstring>
+        <name>scored_boxes_buffer_</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::scored_boxes_buffer_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="258" column="19" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="258" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a3f9b870f8f7a8fa77dae8b939055c6a3" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::api2::TensorsToDetectionsCalculator::gpu_inited_</definition>
+        <argsstring></argsstring>
+        <name>gpu_inited_</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::gpu_inited_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="260" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="260" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a390c6574833834fb4b929d5f863debd4" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::api2::TensorsToDetectionsCalculator::gpu_input_</definition>
+        <argsstring></argsstring>
+        <name>gpu_input_</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::gpu_input_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="261" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="261" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a44e0e4d8d48127fc383fc763333646ee" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::api2::TensorsToDetectionsCalculator::gpu_has_enough_work_groups_</definition>
+        <argsstring></argsstring>
+        <name>gpu_has_enough_work_groups_</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::gpu_has_enough_work_groups_</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="262" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="262" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a544915a9ad91c2ef9a83657c3073fdc9" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mediapipe::api2::TensorsToDetectionsCalculator::anchors_init_</definition>
+        <argsstring></argsstring>
+        <name>anchors_init_</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::anchors_init_</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="263" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="263" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a14d99a26db7d6945a4f3a92f8fb47340" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::api2::TensorsToDetectionsCalculator::MEDIAPIPE_NODE_CONTRACT</definition>
+        <argsstring>(kInTensors, kInAnchors, kSideInIgnoreClasses, kOutDetections)</argsstring>
+        <name>MEDIAPIPE_NODE_CONTRACT</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::MEDIAPIPE_NODE_CONTRACT</qualifiedname>
+        <param>
+          <type>kInTensors</type>
+        </param>
+        <param>
+          <type>kInAnchors</type>
+        </param>
+        <param>
+          <type>kSideInIgnoreClasses</type>
+        </param>
+        <param>
+          <type>kOutDetections</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="194" column="3"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1ab82216ae892451a512f7533e2edd9954" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::TensorsToDetectionsCalculator::Open</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Open</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::Open</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="198" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="282" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a306a457a8c6a8e9f2ddd35b09ca2ab31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::TensorsToDetectionsCalculator::Process</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Process</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::Process</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="199" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="296" bodyend="350"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a009d66e39f8dcd0948f46dba4456ab2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::TensorsToDetectionsCalculator::Close</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Close</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::Close</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="200" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="690" bodyend="711"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a772cf0ad64531a9d413e5a2e9b39674e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::TensorsToDetectionsCalculator::UpdateContract</definition>
+        <argsstring>(CalculatorContract *cc)</argsstring>
+        <name>UpdateContract</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::UpdateContract</qualifiedname>
+        <param>
+          <type>CalculatorContract *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="196" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="267" bodyend="280"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a49782ae8ce463bcfd8b4405a83410ce3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::TensorsToDetectionsCalculator::ProcessCPU</definition>
+        <argsstring>(CalculatorContext *cc, std::vector&lt; Detection &gt; *output_detections)</argsstring>
+        <name>ProcessCPU</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::ProcessCPU</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; Detection &gt; *</type>
+          <declname>output_detections</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="203" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="352" bodyend="517"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a4759c06090b6695f2965314ce14459ef" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::TensorsToDetectionsCalculator::ProcessGPU</definition>
+        <argsstring>(CalculatorContext *cc, std::vector&lt; Detection &gt; *output_detections)</argsstring>
+        <name>ProcessGPU</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::ProcessGPU</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; Detection &gt; *</type>
+          <declname>output_detections</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="205" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="519" bodyend="688"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1ac2be1b4eadc330dde975d35a57ce63e0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::TensorsToDetectionsCalculator::LoadOptions</definition>
+        <argsstring>(CalculatorContext *cc)</argsstring>
+        <name>LoadOptions</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::LoadOptions</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="208" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="713" bodyend="788"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1aca4b9479b7c18148137177d8f575636c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::TensorsToDetectionsCalculator::GpuInit</definition>
+        <argsstring>(CalculatorContext *cc)</argsstring>
+        <name>GpuInit</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::GpuInit</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="209" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="957" bodyend="1306"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1afc243796677192397659d493c3537be3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::TensorsToDetectionsCalculator::DecodeBoxes</definition>
+        <argsstring>(const float *raw_boxes, const std::vector&lt; Anchor &gt; &amp;anchors, std::vector&lt; float &gt; *boxes)</argsstring>
+        <name>DecodeBoxes</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::DecodeBoxes</qualifiedname>
+        <param>
+          <type>const float *</type>
+          <declname>raw_boxes</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; Anchor &gt; &amp;</type>
+          <declname>anchors</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; float &gt; *</type>
+          <declname>boxes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="210" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="790" bodyend="875"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a41d40ded1ed04633f1762d91b5f496b2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::TensorsToDetectionsCalculator::ConvertToDetections</definition>
+        <argsstring>(const float *detection_boxes, const float *detection_scores, const int *detection_classes, std::vector&lt; Detection &gt; *output_detections)</argsstring>
+        <name>ConvertToDetections</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::ConvertToDetections</qualifiedname>
+        <param>
+          <type>const float *</type>
+          <declname>detection_boxes</declname>
+        </param>
+        <param>
+          <type>const float *</type>
+          <declname>detection_scores</declname>
+        </param>
+        <param>
+          <type>const int *</type>
+          <declname>detection_classes</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; Detection &gt; *</type>
+          <declname>output_detections</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="213" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="877" bodyend="925"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1aa2123c7b80f01f67166e926c3995da4b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Detection</type>
+        <definition>Detection mediapipe::api2::TensorsToDetectionsCalculator::ConvertToDetection</definition>
+        <argsstring>(float box_ymin, float box_xmin, float box_ymax, float box_xmax, absl::Span&lt; const float &gt; scores, absl::Span&lt; const int &gt; class_ids, bool flip_vertically)</argsstring>
+        <name>ConvertToDetection</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::ConvertToDetection</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>box_ymin</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>box_xmin</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>box_ymax</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>box_xmax</declname>
+        </param>
+        <param>
+          <type>absl::Span&lt; const float &gt;</type>
+          <declname>scores</declname>
+        </param>
+        <param>
+          <type>absl::Span&lt; const int &gt;</type>
+          <declname>class_ids</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>flip_vertically</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="217" column="13" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="927" bodyend="955"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a9cd86f436b79eb0ea14162a144177faa" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::api2::TensorsToDetectionsCalculator::IsClassIndexAllowed</definition>
+        <argsstring>(int class_index)</argsstring>
+        <name>IsClassIndexAllowed</name>
+        <qualifiedname>mediapipe::api2::TensorsToDetectionsCalculator::IsClassIndexAllowed</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>class_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="221" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="1308" bodyend="1317"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" line="186" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/tensors_to_detections_calculator.cc" bodystart="186" bodyend="264"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1aecf27f6ae56eb1037d63cc9c6bd91ad6" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>anchors_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a544915a9ad91c2ef9a83657c3073fdc9" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>anchors_init_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a3dee4ef4b764915f18fd3eb6773f0b5b" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>box_indices_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a6b17d06866b7488582258390a7b9bc67" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>box_output_format_</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a586aedabbf1f8f9d14e07a7251cc5936" prot="public" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>CalculatorBase</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a2dddad671491e44d82730dab42d3e6f1" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>class_index_set_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a2da1939f642d02cd98fe3ba9d087dbaf" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>classes_per_detection_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a009d66e39f8dcd0948f46dba4456ab2c" prot="public" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>Close</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1aa2123c7b80f01f67166e926c3995da4b" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>ConvertToDetection</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a41d40ded1ed04633f1762d91b5f496b2" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>ConvertToDetections</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1acb43e5482bd87872d03aed731118c8df" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>decode_program_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1afc243796677192397659d493c3537be3" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>DecodeBoxes</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a06fd1b2da1c395e4ea7da2a1e9afb005" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>decoded_boxes_buffer_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a44e0e4d8d48127fc383fc763333646ee" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>gpu_has_enough_work_groups_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a89c60ea7981b6548efb00f8dad11dea9" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>gpu_helper_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a3f9b870f8f7a8fa77dae8b939055c6a3" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>gpu_inited_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a390c6574833834fb4b929d5f863debd4" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>gpu_input_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1aca4b9479b7c18148137177d8f575636c" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>GpuInit</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a0234015f3c4bc4e5af73f9a078b06100" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>has_custom_box_indices_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a9cd86f436b79eb0ea14162a144177faa" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>IsClassIndexAllowed</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1af94b1b5c48b5882da6b9f7c6a71df82f" prot="public" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>kInAnchors</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1aded1127df79c06827424d6a3da3b54f2" prot="public" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>kInTensors</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a1773c38bcf5995418af1be763a325cb6" prot="public" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>kOutDetections</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1ae407a1c6de08f9224f1b1eade9eca750" prot="public" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>kSideInIgnoreClasses</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1ac2be1b4eadc330dde975d35a57ce63e0" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>LoadOptions</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a4cded50c5ce6f298667af330ec5a8072" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>max_results_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a14d99a26db7d6945a4f3a92f8fb47340" prot="public" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>MEDIAPIPE_NODE_CONTRACT</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1aef97c6fe56ab81d1967778accaac1d38" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>num_boxes_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1aada3a01c57170876b0910daf6d09bc09" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>num_classes_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a85e6344a6676021355b3a16ac0fa967b" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>num_coords_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1ab82216ae892451a512f7533e2edd9954" prot="public" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>Open</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a3553c7714c9a7ffa3c1841c8b7f57164" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>options_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a306a457a8c6a8e9f2ddd35b09ca2ab31" prot="public" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>Process</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a49782ae8ce463bcfd8b4405a83410ce3" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>ProcessCPU</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a4759c06090b6695f2965314ce14459ef" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>ProcessGPU</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1ae839af0484462192577763a2121ab95c" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>raw_anchors_buffer_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a07bfc5d0cf06c5192df99f29ffa03b53" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>score_program_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a824fd98e682e1f514d92d0af713d37f9" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>scored_boxes_buffer_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1af124c438cc2bb9336ea1cc8f94f679cb" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>scores_tensor_index_is_set_</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a0cf70172f342c2cc0314af8e76ae982b" prot="public" virt="virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>SourceProcessOrder</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a80315ef80a0196a37997d75693eca11f" prot="private" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>tensor_mapping_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1TensorsToDetectionsCalculator_1a772cf0ad64531a9d413e5a2e9b39674e" prot="public" virt="non-virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>UpdateContract</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a9ced1ccc8a3f7ad59e54a317f4054c90" prot="public" virt="virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>~CalculatorBase</name></member>
+      <member refid="classmediapipe_1_1api2_1_1Node_1acd6b394427fbcc78008356f4f3c0a827" prot="public" virt="virtual"><scope>mediapipe::api2::TensorsToDetectionsCalculator</scope><name>~Node</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

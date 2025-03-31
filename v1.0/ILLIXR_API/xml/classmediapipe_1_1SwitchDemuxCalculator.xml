@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1SwitchDemuxCalculator" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::SwitchDemuxCalculator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">mediapipe::CalculatorBase</basecompoundref>
+    <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classmediapipe_1_1SwitchDemuxCalculator_1a64e7ade680c5eb7a69986e47fde70d20" prot="private" static="no">
+        <type>std::map&lt; CollectionItemId, std::queue&lt; Packet &gt; &gt;</type>
+        <definition>using mediapipe::SwitchDemuxCalculator::PacketQueue =  std::map&lt;CollectionItemId, std::queue&lt;Packet&gt; &gt;</definition>
+        <argsstring></argsstring>
+        <name>PacketQueue</name>
+        <qualifiedname>mediapipe::SwitchDemuxCalculator::PacketQueue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_demux_calculator.cc" line="72" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_demux_calculator.cc" bodystart="72" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1SwitchDemuxCalculator_1a53d3136ee91d8e9e494d9052569d8213" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mediapipe::SwitchDemuxCalculator::channel_index_</definition>
+        <argsstring></argsstring>
+        <name>channel_index_</name>
+        <qualifiedname>mediapipe::SwitchDemuxCalculator::channel_index_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_demux_calculator.cc" line="70" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_demux_calculator.cc" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1SwitchDemuxCalculator_1ac0a9616ef9014f598aa1723197994516" prot="private" static="no" mutable="no">
+        <type>std::set&lt; std::string &gt;</type>
+        <definition>std::set&lt;std::string&gt; mediapipe::SwitchDemuxCalculator::channel_tags_</definition>
+        <argsstring></argsstring>
+        <name>channel_tags_</name>
+        <qualifiedname>mediapipe::SwitchDemuxCalculator::channel_tags_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_demux_calculator.cc" line="71" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_demux_calculator.cc" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1SwitchDemuxCalculator_1a0a885e80733a012a824f2e2b58069a4d" prot="private" static="no" mutable="no">
+        <type>PacketQueue</type>
+        <definition>PacketQueue mediapipe::SwitchDemuxCalculator::input_queue_</definition>
+        <argsstring></argsstring>
+        <name>input_queue_</name>
+        <qualifiedname>mediapipe::SwitchDemuxCalculator::input_queue_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_demux_calculator.cc" line="73" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_demux_calculator.cc" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1SwitchDemuxCalculator_1aedb9e053b60f9f9c1ba3bce36425579a" prot="private" static="no" mutable="no">
+        <type>std::map&lt; Timestamp, int &gt;</type>
+        <definition>std::map&lt;Timestamp, int&gt; mediapipe::SwitchDemuxCalculator::channel_history_</definition>
+        <argsstring></argsstring>
+        <name>channel_history_</name>
+        <qualifiedname>mediapipe::SwitchDemuxCalculator::channel_history_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_demux_calculator.cc" line="74" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_demux_calculator.cc" bodystart="74" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1SwitchDemuxCalculator_1a97e3ad97ae7af9159563687c5267cfb1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::SwitchDemuxCalculator::GetContract</definition>
+        <argsstring>(CalculatorContract *cc)</argsstring>
+        <name>GetContract</name>
+        <qualifiedname>mediapipe::SwitchDemuxCalculator::GetContract</qualifiedname>
+        <param>
+          <type>CalculatorContract *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_demux_calculator.cc" line="59" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_demux_calculator.cc" bodystart="99" bodyend="150"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1SwitchDemuxCalculator_1a5ae1c5ae854f3f85d4edc629f988c414" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::SwitchDemuxCalculator::Open</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Open</name>
+        <qualifiedname>mediapipe::SwitchDemuxCalculator::Open</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_demux_calculator.cc" line="61" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_demux_calculator.cc" bodystart="152" bodyend="192"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1SwitchDemuxCalculator_1a686e551e3ad91ad3dd847f6c4b791e4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::SwitchDemuxCalculator::Process</definition>
+        <argsstring>(CalculatorContext *cc) override</argsstring>
+        <name>Process</name>
+        <qualifiedname>mediapipe::SwitchDemuxCalculator::Process</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_demux_calculator.cc" line="62" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_demux_calculator.cc" bodystart="194" bodyend="198"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1SwitchDemuxCalculator_1ad7844742e464e432784dc2ecbf173064" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::SwitchDemuxCalculator::RecordPackets</definition>
+        <argsstring>(CalculatorContext *cc)</argsstring>
+        <name>RecordPackets</name>
+        <qualifiedname>mediapipe::SwitchDemuxCalculator::RecordPackets</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_demux_calculator.cc" line="65" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_demux_calculator.cc" bodystart="201" bodyend="222"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1SwitchDemuxCalculator_1a4b4a82c90092f54f62a13970e586d0f4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::SwitchDemuxCalculator::ChannelIndex</definition>
+        <argsstring>(Timestamp timestamp)</argsstring>
+        <name>ChannelIndex</name>
+        <qualifiedname>mediapipe::SwitchDemuxCalculator::ChannelIndex</qualifiedname>
+        <param>
+          <type>Timestamp</type>
+          <declname>timestamp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_demux_calculator.cc" line="66" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_demux_calculator.cc" bodystart="225" bodyend="228"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1SwitchDemuxCalculator_1ace0f83c8b3049a74801426e475e468f5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::SwitchDemuxCalculator::SendActivePackets</definition>
+        <argsstring>(CalculatorContext *cc)</argsstring>
+        <name>SendActivePackets</name>
+        <qualifiedname>mediapipe::SwitchDemuxCalculator::SendActivePackets</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_demux_calculator.cc" line="67" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_demux_calculator.cc" bodystart="231" bodyend="269"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_demux_calculator.cc" line="57" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/tool/switch_demux_calculator.cc" bodystart="57" bodyend="75"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1CalculatorBase_1a586aedabbf1f8f9d14e07a7251cc5936" prot="public" virt="non-virtual"><scope>mediapipe::SwitchDemuxCalculator</scope><name>CalculatorBase</name></member>
+      <member refid="classmediapipe_1_1SwitchDemuxCalculator_1aedb9e053b60f9f9c1ba3bce36425579a" prot="private" virt="non-virtual"><scope>mediapipe::SwitchDemuxCalculator</scope><name>channel_history_</name></member>
+      <member refid="classmediapipe_1_1SwitchDemuxCalculator_1a53d3136ee91d8e9e494d9052569d8213" prot="private" virt="non-virtual"><scope>mediapipe::SwitchDemuxCalculator</scope><name>channel_index_</name></member>
+      <member refid="classmediapipe_1_1SwitchDemuxCalculator_1ac0a9616ef9014f598aa1723197994516" prot="private" virt="non-virtual"><scope>mediapipe::SwitchDemuxCalculator</scope><name>channel_tags_</name></member>
+      <member refid="classmediapipe_1_1SwitchDemuxCalculator_1a4b4a82c90092f54f62a13970e586d0f4" prot="private" virt="non-virtual"><scope>mediapipe::SwitchDemuxCalculator</scope><name>ChannelIndex</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a4c90b3bb22ad29984bf0e1436f629f1d" prot="public" virt="virtual"><scope>mediapipe::SwitchDemuxCalculator</scope><name>Close</name></member>
+      <member refid="classmediapipe_1_1SwitchDemuxCalculator_1a97e3ad97ae7af9159563687c5267cfb1" prot="public" virt="non-virtual"><scope>mediapipe::SwitchDemuxCalculator</scope><name>GetContract</name></member>
+      <member refid="classmediapipe_1_1SwitchDemuxCalculator_1a0a885e80733a012a824f2e2b58069a4d" prot="private" virt="non-virtual"><scope>mediapipe::SwitchDemuxCalculator</scope><name>input_queue_</name></member>
+      <member refid="classmediapipe_1_1SwitchDemuxCalculator_1a5ae1c5ae854f3f85d4edc629f988c414" prot="public" virt="non-virtual"><scope>mediapipe::SwitchDemuxCalculator</scope><name>Open</name></member>
+      <member refid="classmediapipe_1_1SwitchDemuxCalculator_1a64e7ade680c5eb7a69986e47fde70d20" prot="private" virt="non-virtual"><scope>mediapipe::SwitchDemuxCalculator</scope><name>PacketQueue</name></member>
+      <member refid="classmediapipe_1_1SwitchDemuxCalculator_1a686e551e3ad91ad3dd847f6c4b791e4e" prot="public" virt="non-virtual"><scope>mediapipe::SwitchDemuxCalculator</scope><name>Process</name></member>
+      <member refid="classmediapipe_1_1SwitchDemuxCalculator_1ad7844742e464e432784dc2ecbf173064" prot="private" virt="non-virtual"><scope>mediapipe::SwitchDemuxCalculator</scope><name>RecordPackets</name></member>
+      <member refid="classmediapipe_1_1SwitchDemuxCalculator_1ace0f83c8b3049a74801426e475e468f5" prot="private" virt="non-virtual"><scope>mediapipe::SwitchDemuxCalculator</scope><name>SendActivePackets</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a0cf70172f342c2cc0314af8e76ae982b" prot="public" virt="virtual"><scope>mediapipe::SwitchDemuxCalculator</scope><name>SourceProcessOrder</name></member>
+      <member refid="classmediapipe_1_1CalculatorBase_1a9ced1ccc8a3f7ad59e54a317f4054c90" prot="public" virt="virtual"><scope>mediapipe::SwitchDemuxCalculator</scope><name>~CalculatorBase</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

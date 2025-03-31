@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1util_1_1tflite_1_1ErrorReporter" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::util::tflite::ErrorReporter</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">tflite::StatefulErrorReporter</basecompoundref>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1util_1_1tflite_1_1ErrorReporter_1ae71d5f28fc8a02ea29798f7edd07c19b" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int mediapipe::util::tflite::ErrorReporter::kBufferSize</definition>
+        <argsstring></argsstring>
+        <name>kBufferSize</name>
+        <qualifiedname>mediapipe::util::tflite::ErrorReporter::kBufferSize</qualifiedname>
+        <initializer>= 1024</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/error_reporter.h" line="28" column="24" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/error_reporter.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1util_1_1tflite_1_1ErrorReporter_1ad63014e62a1b5567efb3194f2fb7147c" prot="private" static="no" mutable="no">
+        <type>char</type>
+        <definition>char mediapipe::util::tflite::ErrorReporter::message_[kBufferSize]</definition>
+        <argsstring>[kBufferSize]</argsstring>
+        <name>message_</name>
+        <qualifiedname>mediapipe::util::tflite::ErrorReporter::message_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/error_reporter.h" line="46" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/error_reporter.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1util_1_1tflite_1_1ErrorReporter_1a41cebaa1818d5794eabb610cbeb1f4cb" prot="private" static="no" mutable="no">
+        <type>char</type>
+        <definition>char mediapipe::util::tflite::ErrorReporter::previous_message_[kBufferSize]</definition>
+        <argsstring>[kBufferSize]</argsstring>
+        <name>previous_message_</name>
+        <qualifiedname>mediapipe::util::tflite::ErrorReporter::previous_message_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/error_reporter.h" line="47" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/error_reporter.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1util_1_1tflite_1_1ErrorReporter_1a16c6d8df162d9c31dcf66bab9b837423" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::util::tflite::ErrorReporter::ErrorReporter</definition>
+        <argsstring>()</argsstring>
+        <name>ErrorReporter</name>
+        <qualifiedname>mediapipe::util::tflite::ErrorReporter::ErrorReporter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/error_reporter.h" line="30" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/error_reporter.cc" bodystart="28" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1util_1_1tflite_1_1ErrorReporter_1a1bc51deaf38e23193fba0a3129c5bad6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mediapipe::util::tflite::ErrorReporter::Report</definition>
+        <argsstring>(const char *format, std::va_list args) override</argsstring>
+        <name>Report</name>
+        <qualifiedname>mediapipe::util::tflite::ErrorReporter::Report</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>std::va_list</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/error_reporter.h" line="37" column="7" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/error_reporter.cc" bodystart="33" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1util_1_1tflite_1_1ErrorReporter_1ad50226d011cb0be991e63aa3a8488ea6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mediapipe::util::tflite::ErrorReporter::HasError</definition>
+        <argsstring>() const</argsstring>
+        <name>HasError</name>
+        <qualifiedname>mediapipe::util::tflite::ErrorReporter::HasError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/error_reporter.h" line="40" column="8" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/error_reporter.cc" bodystart="43" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1util_1_1tflite_1_1ErrorReporter_1ad9f40360c4f40ac8d19d91561a8d5d0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string mediapipe::util::tflite::ErrorReporter::message</definition>
+        <argsstring>() override</argsstring>
+        <name>message</name>
+        <qualifiedname>mediapipe::util::tflite::ErrorReporter::message</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/error_reporter.h" line="42" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/error_reporter.cc" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1util_1_1tflite_1_1ErrorReporter_1a2eea96a0acd63e0dd119454912bb79db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string mediapipe::util::tflite::ErrorReporter::previous_message</definition>
+        <argsstring>()</argsstring>
+        <name>previous_message</name>
+        <qualifiedname>mediapipe::util::tflite::ErrorReporter::previous_message</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/error_reporter.h" line="43" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/error_reporter.cc" bodystart="47" bodyend="47"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/error_reporter.h" line="26" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/util/tflite/error_reporter.h" bodystart="26" bodyend="48"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1util_1_1tflite_1_1ErrorReporter_1a16c6d8df162d9c31dcf66bab9b837423" prot="public" virt="non-virtual"><scope>mediapipe::util::tflite::ErrorReporter</scope><name>ErrorReporter</name></member>
+      <member refid="classmediapipe_1_1util_1_1tflite_1_1ErrorReporter_1ad50226d011cb0be991e63aa3a8488ea6" prot="public" virt="non-virtual"><scope>mediapipe::util::tflite::ErrorReporter</scope><name>HasError</name></member>
+      <member refid="classmediapipe_1_1util_1_1tflite_1_1ErrorReporter_1ae71d5f28fc8a02ea29798f7edd07c19b" prot="public" virt="non-virtual"><scope>mediapipe::util::tflite::ErrorReporter</scope><name>kBufferSize</name></member>
+      <member refid="classmediapipe_1_1util_1_1tflite_1_1ErrorReporter_1ad9f40360c4f40ac8d19d91561a8d5d0e" prot="public" virt="non-virtual"><scope>mediapipe::util::tflite::ErrorReporter</scope><name>message</name></member>
+      <member refid="classmediapipe_1_1util_1_1tflite_1_1ErrorReporter_1ad63014e62a1b5567efb3194f2fb7147c" prot="private" virt="non-virtual"><scope>mediapipe::util::tflite::ErrorReporter</scope><name>message_</name></member>
+      <member refid="classmediapipe_1_1util_1_1tflite_1_1ErrorReporter_1a2eea96a0acd63e0dd119454912bb79db" prot="public" virt="non-virtual"><scope>mediapipe::util::tflite::ErrorReporter</scope><name>previous_message</name></member>
+      <member refid="classmediapipe_1_1util_1_1tflite_1_1ErrorReporter_1a41cebaa1818d5794eabb610cbeb1f4cb" prot="private" virt="non-virtual"><scope>mediapipe::util::tflite::ErrorReporter</scope><name>previous_message_</name></member>
+      <member refid="classmediapipe_1_1util_1_1tflite_1_1ErrorReporter_1a1bc51deaf38e23193fba0a3129c5bad6" prot="public" virt="non-virtual"><scope>mediapipe::util::tflite::ErrorReporter</scope><name>Report</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

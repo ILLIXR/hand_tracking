@@ -1,0 +1,510 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespacemediapipe_1_1api2_1_1types" kind="namespace" language="C++">
+    <compoundname>mediapipe::api2::types</compoundname>
+    <innerclass refid="structmediapipe_1_1api2_1_1types_1_1IndexedType" prot="public">mediapipe::api2::types::IndexedType</innerclass>
+    <innerclass refid="structmediapipe_1_1api2_1_1types_1_1List" prot="public">mediapipe::api2::types::List</innerclass>
+    <innerclass refid="structmediapipe_1_1api2_1_1types_1_1Wrap" prot="public">mediapipe::api2::types::Wrap</innerclass>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="type__list_8h_1ac65d968627d2f4d7c848c0c110b98636" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>As</declname>
+            <defname>As</defname>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Bs</declname>
+            <defname>Bs</defname>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto mediapipe::api2::types::concat</definition>
+        <argsstring>(List&lt; As... &gt;, List&lt; Bs... &gt;) -&gt; List&lt; As..., Bs... &gt;</argsstring>
+        <name>concat</name>
+        <qualifiedname>mediapipe::api2::types::concat</qualifiedname>
+        <param>
+          <type>List&lt; As... &gt;</type>
+        </param>
+        <param>
+          <type>List&lt; Bs... &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" line="18" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" bodystart="18" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="type__list_8h_1a4a622f3de75f438676bda0da1960d4b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>template&lt; typename &gt; class</type>
+            <declname>Pred</declname>
+            <defname>Pred</defname>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto mediapipe::api2::types::filter</definition>
+        <argsstring>(List&lt; Args... &gt;) -&gt; List&lt; Args... &gt;</argsstring>
+        <name>filter</name>
+        <qualifiedname>mediapipe::api2::types::filter</qualifiedname>
+        <param>
+          <type>List&lt; Args... &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" line="24" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" bodystart="24" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="type__list_8h_1a147ee867a936dea9ef42646aa571bd79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>template&lt; typename &gt; class</type>
+            <declname>Pred</declname>
+            <defname>Pred</defname>
+          </param>
+          <param>
+            <type>typename Head</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Tail</declname>
+            <defname>Tail</defname>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto mediapipe::api2::types::filter</definition>
+        <argsstring>(List&lt; Head, Tail... &gt;) -&gt; decltype(concat(typename std::conditional&lt; Pred&lt; Head &gt;::value, List&lt; Head &gt;, List&lt;&gt; &gt;::type{}, filter&lt; Pred &gt;(List&lt; Tail... &gt;{})))</argsstring>
+        <name>filter</name>
+        <qualifiedname>mediapipe::api2::types::filter</qualifiedname>
+        <param>
+          <type>List&lt; Head, Tail... &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" line="29" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" bodystart="29" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="type__list_8h_1a08a59fb4774d02876a093a385fb819ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Pred</type>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto mediapipe::api2::types::filter</definition>
+        <argsstring>(Pred, List&lt;&gt;) -&gt; List&lt;&gt;</argsstring>
+        <name>filter</name>
+        <qualifiedname>mediapipe::api2::types::filter</qualifiedname>
+        <param>
+          <type>Pred</type>
+        </param>
+        <param>
+          <type>List&lt;&gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" line="37" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" bodystart="37" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="type__list_8h_1a909d5c5e07893547dc52deea2023d17c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Pred</type>
+          </param>
+          <param>
+            <type>typename Head</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Tail</declname>
+            <defname>Tail</defname>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto mediapipe::api2::types::filter</definition>
+        <argsstring>(Pred pred, List&lt; Head, Tail... &gt;) -&gt; decltype(concat(typename std::conditional&lt; pred(Head{}), List&lt; Head &gt;, List&lt;&gt; &gt;::type{}, filter(pred, List&lt; Tail... &gt;{})))</argsstring>
+        <name>filter</name>
+        <qualifiedname>mediapipe::api2::types::filter</qualifiedname>
+        <param>
+          <type>Pred</type>
+          <declname>pred</declname>
+        </param>
+        <param>
+          <type>List&lt; Head, Tail... &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" line="42" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" bodystart="42" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="type__list_8h_1a571308505861290100d55ac241f437f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>template&lt; typename... &gt; class</type>
+            <declname>T</declname>
+            <defname>T</defname>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto mediapipe::api2::types::apply</definition>
+        <argsstring>(List&lt; Args... &gt;) -&gt; T&lt; Args... &gt;</argsstring>
+        <name>apply</name>
+        <qualifiedname>mediapipe::api2::types::apply</qualifiedname>
+        <param>
+          <type>List&lt; Args... &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" line="51" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" bodystart="51" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="type__list_8h_1a30e6a8dc9b10fa9f01a8ac68023ea505" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>template&lt; typename &gt; class</type>
+            <declname>Pred</declname>
+            <defname>Pred</defname>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto mediapipe::api2::types::find</definition>
+        <argsstring>(List&lt; Args... &gt;) -&gt; Wrap&lt; void &gt;</argsstring>
+        <name>find</name>
+        <qualifiedname>mediapipe::api2::types::find</qualifiedname>
+        <param>
+          <type>List&lt; Args... &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" line="64" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" bodystart="64" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="type__list_8h_1a2c9f32b46734731019018537aff5c99b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>template&lt; typename &gt; class</type>
+            <declname>Pred</declname>
+            <defname>Pred</defname>
+          </param>
+          <param>
+            <type>typename Head</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Tail</declname>
+            <defname>Tail</defname>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto mediapipe::api2::types::find</definition>
+        <argsstring>(List&lt; Head, Tail... &gt;) -&gt; typename std::conditional&lt; Pred&lt; Head &gt;::value, Wrap&lt; Head &gt;, decltype(find&lt; Pred &gt;(List&lt; Tail... &gt;{}))&gt;::type</argsstring>
+        <name>find</name>
+        <qualifiedname>mediapipe::api2::types::find</qualifiedname>
+        <param>
+          <type>List&lt; Head, Tail... &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" line="69" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" bodystart="69" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="type__list_8h_1ab4070fd159a042e14b6d165ce93087be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Pred</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto mediapipe::api2::types::find</definition>
+        <argsstring>(Pred, List&lt; Args... &gt;) -&gt; Wrap&lt; void &gt;</argsstring>
+        <name>find</name>
+        <qualifiedname>mediapipe::api2::types::find</qualifiedname>
+        <param>
+          <type>Pred</type>
+        </param>
+        <param>
+          <type>List&lt; Args... &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" line="76" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" bodystart="76" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="type__list_8h_1a678a065be46376e8095d5ee990e699e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Pred</type>
+          </param>
+          <param>
+            <type>typename Head</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Tail</declname>
+            <defname>Tail</defname>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto mediapipe::api2::types::find</definition>
+        <argsstring>(Pred pred, List&lt; Head, Tail... &gt;) -&gt; typename std::conditional&lt; pred(Head{}), Wrap&lt; Head &gt;, decltype(find(pred, List&lt; Tail... &gt;{}))&gt;::type</argsstring>
+        <name>find</name>
+        <qualifiedname>mediapipe::api2::types::find</qualifiedname>
+        <param>
+          <type>Pred</type>
+          <declname>pred</declname>
+        </param>
+        <param>
+          <type>List&lt; Head, Tail... &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" line="81" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" bodystart="81" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="type__list_8h_1a71efef36cbfaa94904e0337147fc2ef6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>template&lt; typename &gt; class</type>
+            <declname>Fun</declname>
+            <defname>Fun</defname>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>Items</declname>
+            <defname>Items</defname>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto mediapipe::api2::types::map</definition>
+        <argsstring>(List&lt; Items... &gt;) -&gt; List&lt; typename Fun&lt; Items &gt;::type... &gt;</argsstring>
+        <name>map</name>
+        <qualifiedname>mediapipe::api2::types::map</qualifiedname>
+        <param>
+          <type>List&lt; Items... &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" line="89" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" bodystart="89" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="type__list_8h_1a85c53e004ae5610d95ae41da396cc097" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>constexpr auto</type>
+        <definition>constexpr auto mediapipe::api2::types::head</definition>
+        <argsstring>(List&lt; Args... &gt;) -&gt; Wrap&lt; void &gt;</argsstring>
+        <name>head</name>
+        <qualifiedname>mediapipe::api2::types::head</qualifiedname>
+        <param>
+          <type>List&lt; Args... &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" line="95" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" bodystart="95" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="type__list_8h_1ae8b7ccf88b92c475b81f893cd77a2cbc" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename H</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>T</declname>
+            <defname>T</defname>
+          </param>
+        </templateparamlist>
+        <type>constexpr auto</type>
+        <definition>constexpr auto mediapipe::api2::types::head</definition>
+        <argsstring>(List&lt; H, T... &gt;) -&gt; Wrap&lt; H &gt;</argsstring>
+        <name>head</name>
+        <qualifiedname>mediapipe::api2::types::head</qualifiedname>
+        <param>
+          <type>List&lt; H, T... &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" line="100" column="16" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" bodystart="100" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="type__list_8h_1ad6ee110275bce3ab14785f6801666093" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>constexpr std::size_t</type>
+        <definition>constexpr std::size_t mediapipe::api2::types::length</definition>
+        <argsstring>(List&lt; Args... &gt;)</argsstring>
+        <name>length</name>
+        <qualifiedname>mediapipe::api2::types::length</qualifiedname>
+        <param>
+          <type>List&lt; Args... &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" line="106" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" bodystart="106" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="type__list_8h_1a5e732c7549e3a42bdc7e01808e2f1d8e" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename H</type>
+          </param>
+          <param>
+            <type>typename...</type>
+            <declname>T</declname>
+            <defname>T</defname>
+          </param>
+        </templateparamlist>
+        <type>constexpr std::size_t</type>
+        <definition>constexpr std::size_t mediapipe::api2::types::length</definition>
+        <argsstring>(List&lt; H, T... &gt;)</argsstring>
+        <name>length</name>
+        <qualifiedname>mediapipe::api2::types::length</qualifiedname>
+        <param>
+          <type>List&lt; H, T... &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" line="111" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" bodystart="111" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="type__list_8h_1a41c71fdeaaf4e364fc6593e01daec16d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+          <param>
+            <type>std::size_t...</type>
+            <declname>Is</declname>
+            <defname>Is</defname>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto mediapipe::api2::types::enumerate_impl</definition>
+        <argsstring>(List&lt; Args... &gt;, std::index_sequence&lt; Is... &gt;) -&gt; List&lt; IndexedType&lt; Is, Args &gt;... &gt;</argsstring>
+        <name>enumerate_impl</name>
+        <qualifiedname>mediapipe::api2::types::enumerate_impl</qualifiedname>
+        <param>
+          <type>List&lt; Args... &gt;</type>
+        </param>
+        <param>
+          <type>std::index_sequence&lt; Is... &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" line="123" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" bodystart="123" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="type__list_8h_1a52b02241f014216a47d018f48703e19b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto mediapipe::api2::types::enumerate</definition>
+        <argsstring>(List&lt; Args... &gt; a) -&gt; decltype(enumerate_impl(a, std::index_sequence_for&lt; Args... &gt;{}))</argsstring>
+        <name>enumerate</name>
+        <qualifiedname>mediapipe::api2::types::enumerate</qualifiedname>
+        <param>
+          <type>List&lt; Args... &gt;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" line="129" column="6" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" bodystart="129" bodyend="132"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/api/type_list.h" line="10" column="1"/>
+  </compounddef>
+</doxygen>

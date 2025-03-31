@@ -1,0 +1,1306 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://illixr.github.io/hand_tracking/v1.0/api/tensors__to__floats__calculator_8pb_8h_source/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>File tensors_to_floats_calculator.pb.h - ILLIXR Hand Tracking Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/mkd-extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: none; }
+    .glightbox-clean .gslide-media {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-tensors_to_floats_calculatorpbh" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+
+
+<header class="md-header md-header--shadow" data-md-component="header" style="background-color: #11284b">
+    <nav class="md-header__inner md-grid" aria-label="Header">
+        <a href="../.." title="ILLIXR Hand Tracking Documentation" class="md-header__button md-logo" aria-label="ILLIXR Hand Tracking Documentation" data-md-component="logo">
+            <img src="../../images/icon.png" alt="logo">
+        </a>
+        <label class="md-header__button md-icon" for="__drawer">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+            <div class="md-header__ellipsis">
+                <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ILLIXR Hand Tracking Documentation
+          </span>
+                </div>
+                <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              File tensors_to_floats_calculator.pb.h
+            
+          </span>
+                </div>
+            </div>
+        </div>
+        
+        
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+        
+        
+        
+        <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+        
+        
+        
+        <label class="md-header__button md-icon" for="__search">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+        
+    </nav>
+    
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+    <label class="md-nav__title" for="__drawer" style="background-color:var(--md-nav-hdr-color);color:var(--md-nav-hdr-fg-color);">
+        <a href="../.." title="ILLIXR Hand Tracking Documentation" class="md-nav__button md-logo" aria-label="ILLIXR Hand Tracking Documentation" data-md-component="logo">
+            <img src="../../images/icon.png" alt="logo">
+        </a>
+        ILLIXR Hand Tracking Documentation
+    </label>
+    
+    <ul class="md-nav__list" data-md-scrollfix style="background-color:var(--md-nav-list-color)">
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+    
+    
+    
+    <div class="md-nav__link md-nav__container" style="color:black;">
+        <a href="../.." class="md-nav__link ">
+            
+
+<span class="md-ellipsis">
+    Latest Documentation
+    
+  </span>
+
+
+        </a>
+        
+        
+        <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+            <span class="md-nav__icon md-icon"></span>
+        </label>
+        
+    </div>
+    
+    <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Latest Documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    API
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1" id="__nav_1_2_1_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Hand Tracking
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Hand Tracking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classILLIXR_1_1hand__tracking/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Plugin
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classILLIXR_1_1hand__tracking__publisher/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Publisher
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1_3" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1_3" id="__nav_1_2_1_3_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Data Types
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_2_1_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Data Types
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structht__illixr__handle__t/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    illixr_handle_t
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structmediapipe_1_1ILLIXR_1_1illixr__ht__frame/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    illixr_ht_frame
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structILLIXR_1_1pose__image/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    pose_image
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classmediapipe_1_1ILLIXROutputCalculator/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    ILLIXR Calculator
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1_5" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1_5" id="__nav_1_2_1_5_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    OpenXR
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_2_1_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            OpenXR
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../interface_8h/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Interface
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../ixr__openxr_8hpp/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Func. Implementations
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="md-nav__item md-nav__item--nested">
+
+
+    
+    
+    
+    <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_1_5_3" >
+    
+    
+    <label class="md-nav__link" for="__nav_1_2_1_5_3" id="__nav_1_2_1_5_3_label" tabindex="0" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Structs
+    
+  </span>
+
+
+        <span class="md-nav__icon md-icon"></span>
+    </label>
+    
+    <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_2_1_5_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_2_1_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Structs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structixr__hand__tracker/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    ixr_hand+tracker
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../structixr__session/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    ixr_session
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../classes/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Classes
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../namespacemediapipe/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    Namespaces
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+            
+            
+            
+            
+
+
+
+
+<li class="md-nav__item">
+    <a href="../../LICENSE/" class="md-nav__link" style="color:black;">
+        
+
+<span class="md-ellipsis">
+    License
+    
+  </span>
+
+
+    </a>
+</li>
+
+
+            
+            
+        </ul>
+    </nav>
+    
+</li>
+
+
+        
+    </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+    
+    
+    
+    
+    
+    
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="file-tensors_to_floats_calculatorpbh">File tensors_to_floats_calculator.pb.h</h1>
+<p><a href="../files/"><strong>File List</strong></a> <strong>&gt;</strong> <a href="../dir_32c2e58b04d1b6c837d9408bac6e592c/"><strong>calculators</strong></a> <strong>&gt;</strong> <a href="../dir_e66d33c2acf77fd0e29ca060b007b636/"><strong>tensor</strong></a> <strong>&gt;</strong> <a href="../tensors__to__floats__calculator_8pb_8h/"><strong>tensors_to_floats_calculator.pb.h</strong></a></p>
+<p><a href="../tensors__to__floats__calculator_8pb_8h/">Go to the documentation of this file</a></p>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-0-1"><span class="c1">// Generated by the protocol buffer compiler.  DO NOT EDIT!</span>
+</span><span id="__span-0-2"><span class="c1">// source: mediapipe/calculators/tensor/tensors_to_floats_calculator.proto</span>
+</span><span id="__span-0-3">
+</span><span id="__span-0-4"><span class="cp">#ifndef GOOGLE_PROTOBUF_INCLUDED_mediapipe_2fcalculators_2ftensor_2ftensors_5fto_5ffloats_5fcalculator_2eproto</span>
+</span><span id="__span-0-5"><span class="cp">#define GOOGLE_PROTOBUF_INCLUDED_mediapipe_2fcalculators_2ftensor_2ftensors_5fto_5ffloats_5fcalculator_2eproto</span>
+</span><span id="__span-0-6">
+</span><span id="__span-0-7"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;limits&gt;</span>
+</span><span id="__span-0-8"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+</span><span id="__span-0-9">
+</span><span id="__span-0-10"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;google/protobuf/port_def.inc&gt;</span>
+</span><span id="__span-0-11"><span class="cp">#if PROTOBUF_VERSION &lt; 3019000</span>
+</span><span id="__span-0-12"><span class="cp">#error This file was generated by a newer version of protoc which is</span>
+</span><span id="__span-0-13"><span class="cp">#error incompatible with your Protocol Buffer headers. Please update</span>
+</span><span id="__span-0-14"><span class="cp">#error your headers.</span>
+</span><span id="__span-0-15"><span class="cp">#endif</span>
+</span><span id="__span-0-16"><span class="cp">#if 3019001 &lt; PROTOBUF_MIN_PROTOC_VERSION</span>
+</span><span id="__span-0-17"><span class="cp">#error This file was generated by an older version of protoc which is</span>
+</span><span id="__span-0-18"><span class="cp">#error incompatible with your Protocol Buffer headers. Please</span>
+</span><span id="__span-0-19"><span class="cp">#error regenerate this file with a newer version of protoc.</span>
+</span><span id="__span-0-20"><span class="cp">#endif</span>
+</span><span id="__span-0-21">
+</span><span id="__span-0-22"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;google/protobuf/port_undef.inc&gt;</span>
+</span><span id="__span-0-23"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;google/protobuf/io/coded_stream.h&gt;</span>
+</span><span id="__span-0-24"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;google/protobuf/arena.h&gt;</span>
+</span><span id="__span-0-25"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;google/protobuf/arenastring.h&gt;</span>
+</span><span id="__span-0-26"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;google/protobuf/generated_message_table_driven.h&gt;</span>
+</span><span id="__span-0-27"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;google/protobuf/generated_message_util.h&gt;</span>
+</span><span id="__span-0-28"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;google/protobuf/metadata_lite.h&gt;</span>
+</span><span id="__span-0-29"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;google/protobuf/generated_message_reflection.h&gt;</span>
+</span><span id="__span-0-30"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;google/protobuf/message.h&gt;</span>
+</span><span id="__span-0-31"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;google/protobuf/repeated_field.h&gt;</span><span class="c1">  // IWYU pragma: export</span>
+</span><span id="__span-0-32"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;google/protobuf/extension_set.h&gt;</span><span class="c1">  // IWYU pragma: export</span>
+</span><span id="__span-0-33"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;google/protobuf/generated_enum_reflection.h&gt;</span>
+</span><span id="__span-0-34"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;google/protobuf/unknown_field_set.h&gt;</span>
+</span><span id="__span-0-35"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mediapipe/framework/calculator.pb.h&quot;</span>
+</span><span id="__span-0-36"><span class="c1">// @@protoc_insertion_point(includes)</span>
+</span><span id="__span-0-37"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;google/protobuf/port_def.inc&gt;</span>
+</span><span id="__span-0-38"><span class="cp">#define PROTOBUF_INTERNAL_EXPORT_mediapipe_2fcalculators_2ftensor_2ftensors_5fto_5ffloats_5fcalculator_2eproto</span>
+</span><span id="__span-0-39"><span class="n">PROTOBUF_NAMESPACE_OPEN</span>
+</span><span id="__span-0-40"><span class="k">namespace</span><span class="w"> </span><span class="nn">internal</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-41"><span class="k">class</span><span class="w"> </span><span class="nc">AnyMetadata</span><span class="p">;</span>
+</span><span id="__span-0-42"><span class="p">}</span><span class="w">  </span><span class="c1">// namespace internal</span>
+</span><span id="__span-0-43"><span class="n">PROTOBUF_NAMESPACE_CLOSE</span>
+</span><span id="__span-0-44">
+</span><span id="__span-0-45"><span class="c1">// Internal implementation detail -- do not use these members.</span>
+</span><span id="__span-0-46"><span class="k">struct</span><span class="w"> </span><span class="nc">TableStruct_mediapipe_2fcalculators_2ftensor_2ftensors_5fto_5ffloats_5fcalculator_2eproto</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-47"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">ParseTableField</span><span class="w"> </span><span class="n">entries</span><span class="p">[]</span>
+</span><span id="__span-0-48"><span class="w">    </span><span class="n">PROTOBUF_SECTION_VARIABLE</span><span class="p">(</span><span class="n">protodesc_cold</span><span class="p">);</span>
+</span><span id="__span-0-49"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">AuxiliaryParseTableField</span><span class="w"> </span><span class="n">aux</span><span class="p">[]</span>
+</span><span id="__span-0-50"><span class="w">    </span><span class="n">PROTOBUF_SECTION_VARIABLE</span><span class="p">(</span><span class="n">protodesc_cold</span><span class="p">);</span>
+</span><span id="__span-0-51"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">ParseTable</span><span class="w"> </span><span class="n">schema</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="__span-0-52"><span class="w">    </span><span class="n">PROTOBUF_SECTION_VARIABLE</span><span class="p">(</span><span class="n">protodesc_cold</span><span class="p">);</span>
+</span><span id="__span-0-53"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">FieldMetadata</span><span class="w"> </span><span class="n">field_metadata</span><span class="p">[];</span>
+</span><span id="__span-0-54"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">SerializationTable</span><span class="w"> </span><span class="n">serialization_table</span><span class="p">[];</span>
+</span><span id="__span-0-55"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">offsets</span><span class="p">[];</span>
+</span><span id="__span-0-56"><span class="p">};</span>
+</span><span id="__span-0-57"><span class="k">extern</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">DescriptorTable</span><span class="w"> </span><span class="n">descriptor_table_mediapipe_2fcalculators_2ftensor_2ftensors_5fto_5ffloats_5fcalculator_2eproto</span><span class="p">;</span>
+</span><span id="__span-0-58"><span class="k">namespace</span><span class="w"> </span><span class="nn">mediapipe</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-59"><span class="k">class</span><span class="w"> </span><span class="nc">TensorsToFloatsCalculatorOptions</span><span class="p">;</span>
+</span><span id="__span-0-60"><span class="k">struct</span><span class="w"> </span><span class="nc">TensorsToFloatsCalculatorOptionsDefaultTypeInternal</span><span class="p">;</span>
+</span><span id="__span-0-61"><span class="k">extern</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptionsDefaultTypeInternal</span><span class="w"> </span><span class="n">_TensorsToFloatsCalculatorOptions_default_instance_</span><span class="p">;</span>
+</span><span id="__span-0-62"><span class="p">}</span><span class="w">  </span><span class="c1">// namespace mediapipe</span>
+</span><span id="__span-0-63"><span class="n">PROTOBUF_NAMESPACE_OPEN</span>
+</span><span id="__span-0-64"><span class="k">template</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="o">::</span><span class="n">mediapipe</span><span class="o">::</span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="o">*</span><span class="w"> </span><span class="n">Arena</span><span class="o">::</span><span class="n">CreateMaybeMessage</span><span class="o">&lt;::</span><span class="n">mediapipe</span><span class="o">::</span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Arena</span><span class="o">*</span><span class="p">);</span>
+</span><span id="__span-0-65"><span class="n">PROTOBUF_NAMESPACE_CLOSE</span>
+</span><span id="__span-0-66"><span class="k">namespace</span><span class="w"> </span><span class="nn">mediapipe</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-67">
+</span><span id="__span-0-68"><span class="k">enum</span><span class="w"> </span><span class="nc">TensorsToFloatsCalculatorOptions_Activation</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-69"><span class="w">  </span><span class="n">TensorsToFloatsCalculatorOptions_Activation_NONE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+</span><span id="__span-0-70"><span class="w">  </span><span class="n">TensorsToFloatsCalculatorOptions_Activation_SIGMOID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+</span><span id="__span-0-71"><span class="p">};</span>
+</span><span id="__span-0-72"><span class="kt">bool</span><span class="w"> </span><span class="nf">TensorsToFloatsCalculatorOptions_Activation_IsValid</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+</span><span id="__span-0-73"><span class="k">constexpr</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions_Activation</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions_Activation_Activation_MIN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions_Activation_NONE</span><span class="p">;</span>
+</span><span id="__span-0-74"><span class="k">constexpr</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions_Activation</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions_Activation_Activation_MAX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions_Activation_SIGMOID</span><span class="p">;</span>
+</span><span id="__span-0-75"><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions_Activation_Activation_ARRAYSIZE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions_Activation_Activation_MAX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-0-76">
+</span><span id="__span-0-77"><span class="k">const</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">EnumDescriptor</span><span class="o">*</span><span class="w"> </span><span class="nf">TensorsToFloatsCalculatorOptions_Activation_descriptor</span><span class="p">();</span>
+</span><span id="__span-0-78"><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+</span><span id="__span-0-79"><span class="kr">inline</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions_Activation_Name</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">enum_t_value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-80"><span class="w">  </span><span class="k">static_assert</span><span class="p">(</span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">is_same</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions_Activation</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">||</span>
+</span><span id="__span-0-81"><span class="w">    </span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">is_integral</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span>
+</span><span id="__span-0-82"><span class="w">    </span><span class="s">&quot;Incorrect type passed to function TensorsToFloatsCalculatorOptions_Activation_Name.&quot;</span><span class="p">);</span>
+</span><span id="__span-0-83"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">NameOfEnum</span><span class="p">(</span>
+</span><span id="__span-0-84"><span class="w">    </span><span class="n">TensorsToFloatsCalculatorOptions_Activation_descriptor</span><span class="p">(),</span><span class="w"> </span><span class="n">enum_t_value</span><span class="p">);</span>
+</span><span id="__span-0-85"><span class="p">}</span>
+</span><span id="__span-0-86"><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions_Activation_Parse</span><span class="p">(</span>
+</span><span id="__span-0-87"><span class="w">    </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">ConstStringParam</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions_Activation</span><span class="o">*</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-88"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">ParseNamedEnum</span><span class="o">&lt;</span><span class="n">TensorsToFloatsCalculatorOptions_Activation</span><span class="o">&gt;</span><span class="p">(</span>
+</span><span id="__span-0-89"><span class="w">    </span><span class="n">TensorsToFloatsCalculatorOptions_Activation_descriptor</span><span class="p">(),</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+</span><span id="__span-0-90"><span class="p">}</span>
+</span><span id="__span-0-91"><span class="c1">// ===================================================================</span>
+</span><span id="__span-0-92">
+</span><span id="__span-0-93"><span class="k">class</span><span class="w"> </span><span class="nc">TensorsToFloatsCalculatorOptions</span><span class="w"> </span><span class="k">final</span><span class="w"> </span><span class="o">:</span>
+</span><span id="__span-0-94"><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">Message</span><span class="w"> </span><span class="cm">/* @@protoc_insertion_point(class_definition:mediapipe.TensorsToFloatsCalculatorOptions) */</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-95"><span class="w"> </span><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-0-96"><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-0-97"><span class="w">  </span><span class="o">~</span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+</span><span id="__span-0-98"><span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="p">(</span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">ConstantInitialized</span><span class="p">);</span>
+</span><span id="__span-0-99">
+</span><span id="__span-0-100"><span class="w">  </span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="o">&amp;</span><span class="w"> </span><span class="n">from</span><span class="p">);</span>
+</span><span id="__span-0-101"><span class="w">  </span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="p">(</span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">from</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span>
+</span><span id="__span-0-102"><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-103"><span class="w">    </span><span class="o">*</span><span class="k">this</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">from</span><span class="p">);</span>
+</span><span id="__span-0-104"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-105">
+</span><span id="__span-0-106"><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="o">&amp;</span><span class="w"> </span><span class="n">from</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-107"><span class="w">    </span><span class="n">CopyFrom</span><span class="p">(</span><span class="n">from</span><span class="p">);</span>
+</span><span id="__span-0-108"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+</span><span id="__span-0-109"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-110"><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">from</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-111"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">&amp;</span><span class="n">from</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+</span><span id="__span-0-112"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">GetOwningArena</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">from</span><span class="p">.</span><span class="n">GetOwningArena</span><span class="p">()</span>
+</span><span id="__span-0-113"><span class="w">  </span><span class="cp">#ifdef PROTOBUF_FORCE_COPY_IN_MOVE</span>
+</span><span id="__span-0-114"><span class="w">        </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">GetOwningArena</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span>
+</span><span id="__span-0-115"><span class="w">  </span><span class="cp">#endif  </span><span class="c1">// !PROTOBUF_FORCE_COPY_IN_MOVE</span>
+</span><span id="__span-0-116"><span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-117"><span class="w">      </span><span class="n">InternalSwap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">from</span><span class="p">);</span>
+</span><span id="__span-0-118"><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-119"><span class="w">      </span><span class="n">CopyFrom</span><span class="p">(</span><span class="n">from</span><span class="p">);</span>
+</span><span id="__span-0-120"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-121"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+</span><span id="__span-0-122"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-123">
+</span><span id="__span-0-124"><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">UnknownFieldSet</span><span class="o">&amp;</span><span class="w"> </span><span class="n">unknown_fields</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-125"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">_internal_metadata_</span><span class="p">.</span><span class="n">unknown_fields</span><span class="o">&lt;::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">UnknownFieldSet</span><span class="o">&gt;</span><span class="p">(</span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">UnknownFieldSet</span><span class="o">::</span><span class="n">default_instance</span><span class="p">);</span>
+</span><span id="__span-0-126"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-127"><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">UnknownFieldSet</span><span class="o">*</span><span class="w"> </span><span class="n">mutable_unknown_fields</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-128"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">_internal_metadata_</span><span class="p">.</span><span class="n">mutable_unknown_fields</span><span class="o">&lt;::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">UnknownFieldSet</span><span class="o">&gt;</span><span class="p">();</span>
+</span><span id="__span-0-129"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-130">
+</span><span id="__span-0-131"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">Descriptor</span><span class="o">*</span><span class="w"> </span><span class="n">descriptor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-132"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">GetDescriptor</span><span class="p">();</span>
+</span><span id="__span-0-133"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-134"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">Descriptor</span><span class="o">*</span><span class="w"> </span><span class="n">GetDescriptor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-135"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">default_instance</span><span class="p">().</span><span class="n">GetMetadata</span><span class="p">().</span><span class="n">descriptor</span><span class="p">;</span>
+</span><span id="__span-0-136"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-137"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">Reflection</span><span class="o">*</span><span class="w"> </span><span class="n">GetReflection</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-138"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">default_instance</span><span class="p">().</span><span class="n">GetMetadata</span><span class="p">().</span><span class="n">reflection</span><span class="p">;</span>
+</span><span id="__span-0-139"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-140"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="o">&amp;</span><span class="w"> </span><span class="n">default_instance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-141"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="n">internal_default_instance</span><span class="p">();</span>
+</span><span id="__span-0-142"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-143"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="o">*</span><span class="w"> </span><span class="n">internal_default_instance</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-144"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="o">*&gt;</span><span class="p">(</span>
+</span><span id="__span-0-145"><span class="w">               </span><span class="o">&amp;</span><span class="n">_TensorsToFloatsCalculatorOptions_default_instance_</span><span class="p">);</span>
+</span><span id="__span-0-146"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-147"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">kIndexInFileMessages</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-0-148"><span class="w">    </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-149">
+</span><span id="__span-0-150"><span class="w">  </span><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="p">(</span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="o">&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-151"><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">Swap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
+</span><span id="__span-0-152"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-153"><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">Swap</span><span class="p">(</span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="o">*</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-154"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">other</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">this</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-0-155"><span class="w">  </span><span class="cp">#ifdef PROTOBUF_FORCE_COPY_IN_SWAP</span>
+</span><span id="__span-0-156"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">GetOwningArena</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="o">&amp;&amp;</span>
+</span><span id="__span-0-157"><span class="w">        </span><span class="n">GetOwningArena</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">other</span><span class="o">-&gt;</span><span class="n">GetOwningArena</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-158"><span class="w">   </span><span class="cp">#else  </span><span class="c1">// PROTOBUF_FORCE_COPY_IN_SWAP</span>
+</span><span id="__span-0-159"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">GetOwningArena</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">other</span><span class="o">-&gt;</span><span class="n">GetOwningArena</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-160"><span class="w">  </span><span class="cp">#endif  </span><span class="c1">// !PROTOBUF_FORCE_COPY_IN_SWAP</span>
+</span><span id="__span-0-161"><span class="w">      </span><span class="n">InternalSwap</span><span class="p">(</span><span class="n">other</span><span class="p">);</span>
+</span><span id="__span-0-162"><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-163"><span class="w">      </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">GenericSwap</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">other</span><span class="p">);</span>
+</span><span id="__span-0-164"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-165"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-166"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">UnsafeArenaSwap</span><span class="p">(</span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="o">*</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-167"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">other</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">this</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-0-168"><span class="w">    </span><span class="n">GOOGLE_DCHECK</span><span class="p">(</span><span class="n">GetOwningArena</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">other</span><span class="o">-&gt;</span><span class="n">GetOwningArena</span><span class="p">());</span>
+</span><span id="__span-0-169"><span class="w">    </span><span class="n">InternalSwap</span><span class="p">(</span><span class="n">other</span><span class="p">);</span>
+</span><span id="__span-0-170"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-171">
+</span><span id="__span-0-172"><span class="w">  </span><span class="c1">// implements Message ----------------------------------------------</span>
+</span><span id="__span-0-173">
+</span><span id="__span-0-174"><span class="w">  </span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="o">*</span><span class="w"> </span><span class="n">New</span><span class="p">(</span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">Arena</span><span class="o">*</span><span class="w"> </span><span class="n">arena</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">final</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-175"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">CreateMaybeMessage</span><span class="o">&lt;</span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="o">&gt;</span><span class="p">(</span><span class="n">arena</span><span class="p">);</span>
+</span><span id="__span-0-176"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-177"><span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">Message</span><span class="o">::</span><span class="n">CopyFrom</span><span class="p">;</span>
+</span><span id="__span-0-178"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">CopyFrom</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="o">&amp;</span><span class="w"> </span><span class="n">from</span><span class="p">);</span>
+</span><span id="__span-0-179"><span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">Message</span><span class="o">::</span><span class="n">MergeFrom</span><span class="p">;</span>
+</span><span id="__span-0-180"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">MergeFrom</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="o">&amp;</span><span class="w"> </span><span class="n">from</span><span class="p">);</span>
+</span><span id="__span-0-181"><span class="w">  </span><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-0-182"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">MergeImpl</span><span class="p">(</span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">Message</span><span class="o">*</span><span class="w"> </span><span class="n">to</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">Message</span><span class="o">&amp;</span><span class="w"> </span><span class="n">from</span><span class="p">);</span>
+</span><span id="__span-0-183"><span class="w">  </span><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-0-184"><span class="w">  </span><span class="n">PROTOBUF_ATTRIBUTE_REINITIALIZES</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">Clear</span><span class="p">()</span><span class="w"> </span><span class="k">final</span><span class="p">;</span>
+</span><span id="__span-0-185"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">IsInitialized</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">final</span><span class="p">;</span>
+</span><span id="__span-0-186">
+</span><span id="__span-0-187"><span class="w">  </span><span class="kt">size_t</span><span class="w"> </span><span class="n">ByteSizeLong</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">final</span><span class="p">;</span>
+</span><span id="__span-0-188"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">_InternalParse</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">ParseContext</span><span class="o">*</span><span class="w"> </span><span class="n">ctx</span><span class="p">)</span><span class="w"> </span><span class="k">final</span><span class="p">;</span>
+</span><span id="__span-0-189"><span class="w">  </span><span class="kt">uint8_t</span><span class="o">*</span><span class="w"> </span><span class="n">_InternalSerialize</span><span class="p">(</span>
+</span><span id="__span-0-190"><span class="w">      </span><span class="kt">uint8_t</span><span class="o">*</span><span class="w"> </span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">EpsCopyOutputStream</span><span class="o">*</span><span class="w"> </span><span class="n">stream</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">final</span><span class="p">;</span>
+</span><span id="__span-0-191"><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">GetCachedSize</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">final</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">_cached_size_</span><span class="p">.</span><span class="n">Get</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-192">
+</span><span id="__span-0-193"><span class="w">  </span><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-0-194"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">SharedCtor</span><span class="p">();</span>
+</span><span id="__span-0-195"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">SharedDtor</span><span class="p">();</span>
+</span><span id="__span-0-196"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">SetCachedSize</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">final</span><span class="p">;</span>
+</span><span id="__span-0-197"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">InternalSwap</span><span class="p">(</span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="o">*</span><span class="w"> </span><span class="n">other</span><span class="p">);</span>
+</span><span id="__span-0-198">
+</span><span id="__span-0-199"><span class="w">  </span><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-0-200"><span class="w">  </span><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">AnyMetadata</span><span class="p">;</span>
+</span><span id="__span-0-201"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">StringPiece</span><span class="w"> </span><span class="n">FullMessageName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-202"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;mediapipe.TensorsToFloatsCalculatorOptions&quot;</span><span class="p">;</span>
+</span><span id="__span-0-203"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-204"><span class="w">  </span><span class="k">protected</span><span class="o">:</span>
+</span><span id="__span-0-205"><span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="p">(</span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">Arena</span><span class="o">*</span><span class="w"> </span><span class="n">arena</span><span class="p">,</span>
+</span><span id="__span-0-206"><span class="w">                       </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_message_owned</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+</span><span id="__span-0-207"><span class="w">  </span><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-0-208"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">ArenaDtor</span><span class="p">(</span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">object</span><span class="p">);</span>
+</span><span id="__span-0-209"><span class="w">  </span><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">RegisterArenaDtor</span><span class="p">(</span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">Arena</span><span class="o">*</span><span class="w"> </span><span class="n">arena</span><span class="p">);</span>
+</span><span id="__span-0-210"><span class="w">  </span><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-0-211">
+</span><span id="__span-0-212"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ClassData</span><span class="w"> </span><span class="n">_class_data_</span><span class="p">;</span>
+</span><span id="__span-0-213"><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">Message</span><span class="o">::</span><span class="n">ClassData</span><span class="o">*</span><span class="n">GetClassData</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">final</span><span class="p">;</span>
+</span><span id="__span-0-214">
+</span><span id="__span-0-215"><span class="w">  </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">Metadata</span><span class="w"> </span><span class="n">GetMetadata</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">final</span><span class="p">;</span>
+</span><span id="__span-0-216">
+</span><span id="__span-0-217"><span class="w">  </span><span class="c1">// nested types ----------------------------------------------------</span>
+</span><span id="__span-0-218">
+</span><span id="__span-0-219"><span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions_Activation</span><span class="w"> </span><span class="n">Activation</span><span class="p">;</span>
+</span><span id="__span-0-220"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">Activation</span><span class="w"> </span><span class="n">NONE</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-0-221"><span class="w">    </span><span class="n">TensorsToFloatsCalculatorOptions_Activation_NONE</span><span class="p">;</span>
+</span><span id="__span-0-222"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">Activation</span><span class="w"> </span><span class="n">SIGMOID</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-0-223"><span class="w">    </span><span class="n">TensorsToFloatsCalculatorOptions_Activation_SIGMOID</span><span class="p">;</span>
+</span><span id="__span-0-224"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">Activation_IsValid</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-225"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions_Activation_IsValid</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+</span><span id="__span-0-226"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-227"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">Activation</span><span class="w"> </span><span class="n">Activation_MIN</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-0-228"><span class="w">    </span><span class="n">TensorsToFloatsCalculatorOptions_Activation_Activation_MIN</span><span class="p">;</span>
+</span><span id="__span-0-229"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">Activation</span><span class="w"> </span><span class="n">Activation_MAX</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-0-230"><span class="w">    </span><span class="n">TensorsToFloatsCalculatorOptions_Activation_Activation_MAX</span><span class="p">;</span>
+</span><span id="__span-0-231"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Activation_ARRAYSIZE</span><span class="w"> </span><span class="o">=</span>
+</span><span id="__span-0-232"><span class="w">    </span><span class="n">TensorsToFloatsCalculatorOptions_Activation_Activation_ARRAYSIZE</span><span class="p">;</span>
+</span><span id="__span-0-233"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">EnumDescriptor</span><span class="o">*</span>
+</span><span id="__span-0-234"><span class="w">  </span><span class="n">Activation_descriptor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-235"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions_Activation_descriptor</span><span class="p">();</span>
+</span><span id="__span-0-236"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-237"><span class="w">  </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+</span><span id="__span-0-238"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">Activation_Name</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">enum_t_value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-239"><span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">is_same</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Activation</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">||</span>
+</span><span id="__span-0-240"><span class="w">      </span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">is_integral</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span>
+</span><span id="__span-0-241"><span class="w">      </span><span class="s">&quot;Incorrect type passed to function Activation_Name.&quot;</span><span class="p">);</span>
+</span><span id="__span-0-242"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions_Activation_Name</span><span class="p">(</span><span class="n">enum_t_value</span><span class="p">);</span>
+</span><span id="__span-0-243"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-244"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">Activation_Parse</span><span class="p">(</span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">ConstStringParam</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+</span><span id="__span-0-245"><span class="w">      </span><span class="n">Activation</span><span class="o">*</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-246"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">TensorsToFloatsCalculatorOptions_Activation_Parse</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+</span><span id="__span-0-247"><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-248">
+</span><span id="__span-0-249"><span class="w">  </span><span class="c1">// accessors -------------------------------------------------------</span>
+</span><span id="__span-0-250">
+</span><span id="__span-0-251"><span class="w">  </span><span class="nl">enum</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-252"><span class="w">    </span><span class="n">kActivationFieldNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-0-253"><span class="w">  </span><span class="p">};</span>
+</span><span id="__span-0-254"><span class="w">  </span><span class="c1">// optional .mediapipe.TensorsToFloatsCalculatorOptions.Activation activation = 1 [default = NONE];</span>
+</span><span id="__span-0-255"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">has_activation</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-256"><span class="w">  </span><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-0-257"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">_internal_has_activation</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-258"><span class="w">  </span><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-0-259"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">clear_activation</span><span class="p">();</span>
+</span><span id="__span-0-260"><span class="w">  </span><span class="o">::</span><span class="n">mediapipe</span><span class="o">::</span><span class="n">TensorsToFloatsCalculatorOptions_Activation</span><span class="w"> </span><span class="n">activation</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-261"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">set_activation</span><span class="p">(</span><span class="o">::</span><span class="n">mediapipe</span><span class="o">::</span><span class="n">TensorsToFloatsCalculatorOptions_Activation</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+</span><span id="__span-0-262"><span class="w">  </span><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-0-263"><span class="w">  </span><span class="o">::</span><span class="n">mediapipe</span><span class="o">::</span><span class="n">TensorsToFloatsCalculatorOptions_Activation</span><span class="w"> </span><span class="n">_internal_activation</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-0-264"><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">_internal_set_activation</span><span class="p">(</span><span class="o">::</span><span class="n">mediapipe</span><span class="o">::</span><span class="n">TensorsToFloatsCalculatorOptions_Activation</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+</span><span id="__span-0-265"><span class="w">  </span><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-0-266">
+</span><span id="__span-0-267"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">kExtFieldNumber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">343499115</span><span class="p">;</span>
+</span><span id="__span-0-268"><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">ExtensionIdentifier</span><span class="o">&lt;</span><span class="w"> </span><span class="o">::</span><span class="n">mediapipe</span><span class="o">::</span><span class="n">CalculatorOptions</span><span class="p">,</span>
+</span><span id="__span-0-269"><span class="w">      </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">MessageTypeTraits</span><span class="o">&lt;</span><span class="w"> </span><span class="o">::</span><span class="n">mediapipe</span><span class="o">::</span><span class="n">TensorsToFloatsCalculatorOptions</span><span class="w"> </span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="o">&gt;</span>
+</span><span id="__span-0-270"><span class="w">    </span><span class="n">ext</span><span class="p">;</span>
+</span><span id="__span-0-271"><span class="w">  </span><span class="c1">// @@protoc_insertion_point(class_scope:mediapipe.TensorsToFloatsCalculatorOptions)</span>
+</span><span id="__span-0-272"><span class="w"> </span><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-0-273"><span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">_Internal</span><span class="p">;</span>
+</span><span id="__span-0-274">
+</span><span id="__span-0-275"><span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w"> </span><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">Arena</span><span class="o">::</span><span class="n">InternalHelper</span><span class="p">;</span>
+</span><span id="__span-0-276"><span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">InternalArenaConstructable_</span><span class="p">;</span>
+</span><span id="__span-0-277"><span class="w">  </span><span class="k">typedef</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">DestructorSkippable_</span><span class="p">;</span>
+</span><span id="__span-0-278"><span class="w">  </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">HasBits</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_has_bits_</span><span class="p">;</span>
+</span><span id="__span-0-279"><span class="w">  </span><span class="k">mutable</span><span class="w"> </span><span class="o">::</span><span class="n">PROTOBUF_NAMESPACE_ID</span><span class="o">::</span><span class="n">internal</span><span class="o">::</span><span class="n">CachedSize</span><span class="w"> </span><span class="n">_cached_size_</span><span class="p">;</span>
+</span><span id="__span-0-280"><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">activation_</span><span class="p">;</span>
+</span><span id="__span-0-281"><span class="w">  </span><span class="k">friend</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="o">::</span><span class="n">TableStruct_mediapipe_2fcalculators_2ftensor_2ftensors_5fto_5ffloats_5fcalculator_2eproto</span><span class="p">;</span>
+</span><span id="__span-0-282"><span class="p">};</span>
+</span><span id="__span-0-283"><span class="c1">// ===================================================================</span>
+</span><span id="__span-0-284">
+</span><span id="__span-0-285">
+</span><span id="__span-0-286"><span class="c1">// ===================================================================</span>
+</span><span id="__span-0-287">
+</span><span id="__span-0-288"><span class="cp">#ifdef __GNUC__</span>
+</span><span id="__span-0-289"><span class="w">  </span><span class="cp">#pragma GCC diagnostic push</span>
+</span><span id="__span-0-290"><span class="w">  </span><span class="cp">#pragma GCC diagnostic ignored &quot;-Wstrict-aliasing&quot;</span>
+</span><span id="__span-0-291"><span class="cp">#endif  </span><span class="c1">// __GNUC__</span>
+</span><span id="__span-0-292"><span class="c1">// TensorsToFloatsCalculatorOptions</span>
+</span><span id="__span-0-293">
+</span><span id="__span-0-294"><span class="c1">// optional .mediapipe.TensorsToFloatsCalculatorOptions.Activation activation = 1 [default = NONE];</span>
+</span><span id="__span-0-295"><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">TensorsToFloatsCalculatorOptions::_internal_has_activation</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-296"><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">_has_bits_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x00000001u</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-297"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+</span><span id="__span-0-298"><span class="p">}</span>
+</span><span id="__span-0-299"><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">TensorsToFloatsCalculatorOptions::has_activation</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-300"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">_internal_has_activation</span><span class="p">();</span>
+</span><span id="__span-0-301"><span class="p">}</span>
+</span><span id="__span-0-302"><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">TensorsToFloatsCalculatorOptions::clear_activation</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-303"><span class="w">  </span><span class="n">activation_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-304"><span class="w">  </span><span class="n">_has_bits_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="mh">0x00000001u</span><span class="p">;</span>
+</span><span id="__span-0-305"><span class="p">}</span>
+</span><span id="__span-0-306"><span class="kr">inline</span><span class="w"> </span><span class="o">::</span><span class="n">mediapipe</span><span class="o">::</span><span class="n">TensorsToFloatsCalculatorOptions_Activation</span><span class="w"> </span><span class="nf">TensorsToFloatsCalculatorOptions::_internal_activation</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-307"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="w"> </span><span class="o">::</span><span class="n">mediapipe</span><span class="o">::</span><span class="n">TensorsToFloatsCalculatorOptions_Activation</span><span class="w"> </span><span class="o">&gt;</span><span class="p">(</span><span class="n">activation_</span><span class="p">);</span>
+</span><span id="__span-0-308"><span class="p">}</span>
+</span><span id="__span-0-309"><span class="kr">inline</span><span class="w"> </span><span class="o">::</span><span class="n">mediapipe</span><span class="o">::</span><span class="n">TensorsToFloatsCalculatorOptions_Activation</span><span class="w"> </span><span class="nf">TensorsToFloatsCalculatorOptions::activation</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-310"><span class="w">  </span><span class="c1">// @@protoc_insertion_point(field_get:mediapipe.TensorsToFloatsCalculatorOptions.activation)</span>
+</span><span id="__span-0-311"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">_internal_activation</span><span class="p">();</span>
+</span><span id="__span-0-312"><span class="p">}</span>
+</span><span id="__span-0-313"><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">TensorsToFloatsCalculatorOptions::_internal_set_activation</span><span class="p">(</span><span class="o">::</span><span class="n">mediapipe</span><span class="o">::</span><span class="n">TensorsToFloatsCalculatorOptions_Activation</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-314"><span class="w">  </span><span class="n">assert</span><span class="p">(</span><span class="o">::</span><span class="n">mediapipe</span><span class="o">::</span><span class="n">TensorsToFloatsCalculatorOptions_Activation_IsValid</span><span class="p">(</span><span class="n">value</span><span class="p">));</span>
+</span><span id="__span-0-315"><span class="w">  </span><span class="n">_has_bits_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="mh">0x00000001u</span><span class="p">;</span>
+</span><span id="__span-0-316"><span class="w">  </span><span class="n">activation_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+</span><span id="__span-0-317"><span class="p">}</span>
+</span><span id="__span-0-318"><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">TensorsToFloatsCalculatorOptions::set_activation</span><span class="p">(</span><span class="o">::</span><span class="n">mediapipe</span><span class="o">::</span><span class="n">TensorsToFloatsCalculatorOptions_Activation</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-319"><span class="w">  </span><span class="n">_internal_set_activation</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+</span><span id="__span-0-320"><span class="w">  </span><span class="c1">// @@protoc_insertion_point(field_set:mediapipe.TensorsToFloatsCalculatorOptions.activation)</span>
+</span><span id="__span-0-321"><span class="p">}</span>
+</span><span id="__span-0-322">
+</span><span id="__span-0-323"><span class="cp">#ifdef __GNUC__</span>
+</span><span id="__span-0-324"><span class="w">  </span><span class="cp">#pragma GCC diagnostic pop</span>
+</span><span id="__span-0-325"><span class="cp">#endif  </span><span class="c1">// __GNUC__</span>
+</span><span id="__span-0-326">
+</span><span id="__span-0-327"><span class="c1">// @@protoc_insertion_point(namespace_scope)</span>
+</span><span id="__span-0-328">
+</span><span id="__span-0-329"><span class="p">}</span><span class="w">  </span><span class="c1">// namespace mediapipe</span>
+</span><span id="__span-0-330">
+</span><span id="__span-0-331"><span class="n">PROTOBUF_NAMESPACE_OPEN</span>
+</span><span id="__span-0-332">
+</span><span id="__span-0-333"><span class="k">template</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">is_proto_enum</span><span class="o">&lt;</span><span class="w"> </span><span class="o">::</span><span class="n">mediapipe</span><span class="o">::</span><span class="n">TensorsToFloatsCalculatorOptions_Activation</span><span class="o">&gt;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="o">::</span><span class="n">std</span><span class="o">::</span><span class="n">true_type</span><span class="w"> </span><span class="p">{};</span>
+</span><span id="__span-0-334"><span class="k">template</span><span class="w"> </span><span class="o">&lt;&gt;</span>
+</span><span id="__span-0-335"><span class="kr">inline</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">EnumDescriptor</span><span class="o">*</span><span class="w"> </span><span class="n">GetEnumDescriptor</span><span class="o">&lt;</span><span class="w"> </span><span class="o">::</span><span class="n">mediapipe</span><span class="o">::</span><span class="n">TensorsToFloatsCalculatorOptions_Activation</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-336"><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">::</span><span class="n">mediapipe</span><span class="o">::</span><span class="n">TensorsToFloatsCalculatorOptions_Activation_descriptor</span><span class="p">();</span>
+</span><span id="__span-0-337"><span class="p">}</span>
+</span><span id="__span-0-338">
+</span><span id="__span-0-339"><span class="n">PROTOBUF_NAMESPACE_CLOSE</span>
+</span><span id="__span-0-340">
+</span><span id="__span-0-341"><span class="c1">// @@protoc_insertion_point(global_scope)</span>
+</span><span id="__span-0-342">
+</span><span id="__span-0-343"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;google/protobuf/port_undef.inc&gt;</span>
+</span><span id="__span-0-344"><span class="cp">#endif  </span><span class="c1">// GOOGLE_PROTOBUF_INCLUDED_GOOGLE_PROTOBUF_INCLUDED_mediapipe_2fcalculators_2ftensor_2ftensors_5fto_5ffloats_5fcalculator_2eproto</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "content.code.annotate", "content.footnote.tooltips", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../js/jquery.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "zoom"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>

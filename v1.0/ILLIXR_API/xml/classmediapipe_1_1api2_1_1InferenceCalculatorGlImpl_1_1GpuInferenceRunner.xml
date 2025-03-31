@@ -1,0 +1,283 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner" kind="class" language="C++" prot="private">
+    <compoundname>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner</compoundname>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a598c357faf3208fae5e0fcd432b29a17" prot="private" static="no" mutable="no">
+        <type>Packet&lt; TfLiteModelPtr &gt;</type>
+        <definition>Packet&lt;TfLiteModelPtr&gt; mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::model_packet_</definition>
+        <argsstring></argsstring>
+        <name>model_packet_</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::model_packet_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" line="80" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a09b3b3a621ebf62a62a8f1c9063cd76a" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; GlContext &gt;</type>
+        <definition>std::shared_ptr&lt;GlContext&gt; mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::gl_context_</definition>
+        <argsstring></argsstring>
+        <name>gl_context_</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::gl_context_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" line="81" column="21" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1aa18317aab79c0d4134623af9cc9bf94a" prot="private" static="no" mutable="no">
+        <type>TfLiteDelegatePtr</type>
+        <definition>TfLiteDelegatePtr mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::delegate_</definition>
+        <argsstring></argsstring>
+        <name>delegate_</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::delegate_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" line="82" column="23" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a9791794b7ecb4d5361b81687ae6781d0" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; tflite::Interpreter &gt;</type>
+        <definition>std::unique_ptr&lt;tflite::Interpreter&gt; mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::interpreter_</definition>
+        <argsstring></argsstring>
+        <name>interpreter_</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::interpreter_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" line="83" column="21" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a5512c4c73dd2991b68c84a1acfe17c35" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::unique_ptr&lt; Tensor &gt; &gt;</type>
+        <definition>std::vector&lt;std::unique_ptr&lt;Tensor&gt; &gt; mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::gpu_buffers_in_</definition>
+        <argsstring></argsstring>
+        <name>gpu_buffers_in_</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::gpu_buffers_in_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" line="84" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a4896908df2f4a015417b846e75a76810" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::unique_ptr&lt; Tensor &gt; &gt;</type>
+        <definition>std::vector&lt;std::unique_ptr&lt;Tensor&gt; &gt; mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::gpu_buffers_out_</definition>
+        <argsstring></argsstring>
+        <name>gpu_buffers_out_</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::gpu_buffers_out_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" line="85" column="17" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a88a74018b192c79d15ac5b5cbd92610e" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::output_size_</definition>
+        <argsstring></argsstring>
+        <name>output_size_</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::output_size_</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" line="86" column="12" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a72caba4991f31d819046a42ced84a66d" prot="private" static="no" mutable="no">
+        <type>InputOutputTensorNames</type>
+        <definition>InputOutputTensorNames mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::input_output_tensor_names_</definition>
+        <argsstring></argsstring>
+        <name>input_output_tensor_names_</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::input_output_tensor_names_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" line="87" column="28" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" bodystart="87" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a63d984a7c0eff804106c775ac2115984" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::~GpuInferenceRunner</definition>
+        <argsstring>()</argsstring>
+        <name>~GpuInferenceRunner</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::~GpuInferenceRunner</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" line="60" column="5" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" bodystart="99" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a5ce461f556e83b0b5be139c6462d9243" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::Init</definition>
+        <argsstring>(CalculatorContext *cc, std::shared_ptr&lt; GlContext &gt; gl_context)</argsstring>
+        <name>Init</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::Init</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; GlContext &gt;</type>
+          <declname>gl_context</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" line="62" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" bodystart="109" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a3f231f8d2915d7747a11449f4e43609c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::LoadModel</definition>
+        <argsstring>(CalculatorContext *cc)</argsstring>
+        <name>LoadModel</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::LoadModel</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" line="64" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" bodystart="133" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a5bfea3f93e5c43b5fc1a3dd4064a59ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::LoadDelegate</definition>
+        <argsstring>(CalculatorContext *cc, const mediapipe::InferenceCalculatorOptions::Delegate &amp;delegate_options)</argsstring>
+        <name>LoadDelegate</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::LoadDelegate</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <param>
+          <type>const mediapipe::InferenceCalculatorOptions::Delegate &amp;</type>
+          <declname>delegate_options</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" line="65" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" bodystart="172" bodyend="233"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1ac2bdecceeb294d4100702c47fdcd2755" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::LoadDelegateAndAllocateTensors</definition>
+        <argsstring>(CalculatorContext *cc, const mediapipe::InferenceCalculatorOptions::Delegate &amp;delegate_options)</argsstring>
+        <name>LoadDelegateAndAllocateTensors</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::LoadDelegateAndAllocateTensors</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <param>
+          <type>const mediapipe::InferenceCalculatorOptions::Delegate &amp;</type>
+          <declname>delegate_options</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" line="69" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" bodystart="158" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a447fc5b05a1338d17157b6950f77cc37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>absl::Status</type>
+        <definition>absl::Status mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::Process</definition>
+        <argsstring>(CalculatorContext *cc, const TensorSpan &amp;input_tensors, std::vector&lt; Tensor &gt; &amp;output_tensors)</argsstring>
+        <name>Process</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::Process</qualifiedname>
+        <param>
+          <type>CalculatorContext *</type>
+          <declname>cc</declname>
+        </param>
+        <param>
+          <type>const TensorSpan &amp;</type>
+          <declname>input_tensors</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; Tensor &gt; &amp;</type>
+          <declname>output_tensors</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" line="73" column="18" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" bodystart="235" bodyend="271"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a8d6450c03aa970855bfb5a2e0bc7b184" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const InputOutputTensorNames &amp;</type>
+        <definition>const InputOutputTensorNames &amp; mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::GetInputOutputTensorNames</definition>
+        <argsstring>() const</argsstring>
+        <name>GetInputOutputTensorNames</name>
+        <qualifiedname>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner::GetInputOutputTensorNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" line="75" column="34" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" bodystart="274" bodyend="277"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" line="58" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/calculators/tensor/inference_calculator_gl.cc" bodystart="58" bodyend="88"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1aa18317aab79c0d4134623af9cc9bf94a" prot="private" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner</scope><name>delegate_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a8d6450c03aa970855bfb5a2e0bc7b184" prot="public" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner</scope><name>GetInputOutputTensorNames</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a09b3b3a621ebf62a62a8f1c9063cd76a" prot="private" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner</scope><name>gl_context_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a5512c4c73dd2991b68c84a1acfe17c35" prot="private" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner</scope><name>gpu_buffers_in_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a4896908df2f4a015417b846e75a76810" prot="private" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner</scope><name>gpu_buffers_out_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a5ce461f556e83b0b5be139c6462d9243" prot="public" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner</scope><name>Init</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a72caba4991f31d819046a42ced84a66d" prot="private" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner</scope><name>input_output_tensor_names_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a9791794b7ecb4d5361b81687ae6781d0" prot="private" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner</scope><name>interpreter_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a5bfea3f93e5c43b5fc1a3dd4064a59ab" prot="public" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner</scope><name>LoadDelegate</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1ac2bdecceeb294d4100702c47fdcd2755" prot="public" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner</scope><name>LoadDelegateAndAllocateTensors</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a3f231f8d2915d7747a11449f4e43609c" prot="public" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner</scope><name>LoadModel</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a598c357faf3208fae5e0fcd432b29a17" prot="private" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner</scope><name>model_packet_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a88a74018b192c79d15ac5b5cbd92610e" prot="private" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner</scope><name>output_size_</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a447fc5b05a1338d17157b6950f77cc37" prot="public" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner</scope><name>Process</name></member>
+      <member refid="classmediapipe_1_1api2_1_1InferenceCalculatorGlImpl_1_1GpuInferenceRunner_1a63d984a7c0eff804106c775ac2115984" prot="public" virt="non-virtual"><scope>mediapipe::api2::InferenceCalculatorGlImpl::GpuInferenceRunner</scope><name>~GpuInferenceRunner</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

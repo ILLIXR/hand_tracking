@@ -1,0 +1,222 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classmediapipe_1_1GlobalFactoryRegistry" kind="class" language="C++" prot="public">
+    <compoundname>mediapipe::GlobalFactoryRegistry</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename R</type>
+      </param>
+      <param>
+        <type>typename...</type>
+        <declname>Args</declname>
+        <defname>Args</defname>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classmediapipe_1_1GlobalFactoryRegistry_1a08f9db26898516c6792c85c5e6e2bdd2" prot="private" static="no">
+        <type>FunctionRegistry&lt; R, Args... &gt;</type>
+        <definition>using mediapipe::GlobalFactoryRegistry&lt; R, Args &gt;::Functions =  FunctionRegistry&lt;R, Args...&gt;</definition>
+        <argsstring></argsstring>
+        <name>Functions</name>
+        <qualifiedname>mediapipe::GlobalFactoryRegistry::Functions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/registration.h" line="350" column="3" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/registration.h" bodystart="350" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmediapipe_1_1GlobalFactoryRegistry_1aa41a39886ee31d534e9b798357dfed0a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>RegistrationToken</type>
+        <definition>static RegistrationToken mediapipe::GlobalFactoryRegistry&lt; R, Args &gt;::Register</definition>
+        <argsstring>(absl::string_view name, typename Functions::Function func)</argsstring>
+        <name>Register</name>
+        <qualifiedname>mediapipe::GlobalFactoryRegistry::Register</qualifiedname>
+        <param>
+          <type>absl::string_view</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>typename Functions::Function</type>
+          <declname>func</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/registration.h" line="353" column="28" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/registration.h" bodystart="353" bodyend="356"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlobalFactoryRegistry_1a3e159ea877e2a961d2f5999444068412" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args2</declname>
+            <defname>Args2</defname>
+          </param>
+        </templateparamlist>
+        <type>Functions::ReturnType</type>
+        <definition>static Functions::ReturnType mediapipe::GlobalFactoryRegistry&lt; R, Args &gt;::CreateByName</definition>
+        <argsstring>(absl::string_view name, Args2 &amp;&amp;... args)</argsstring>
+        <name>CreateByName</name>
+        <qualifiedname>mediapipe::GlobalFactoryRegistry::CreateByName</qualifiedname>
+        <param>
+          <type>absl::string_view</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>Args2 &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/registration.h" line="362" column="41" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/registration.h" bodystart="362" bodyend="365"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlobalFactoryRegistry_1add71bcf8abcb751773af8c6162b6bdb3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool mediapipe::GlobalFactoryRegistry&lt; R, Args &gt;::IsRegistered</definition>
+        <argsstring>(absl::string_view name)</argsstring>
+        <name>IsRegistered</name>
+        <qualifiedname>mediapipe::GlobalFactoryRegistry::IsRegistered</qualifiedname>
+        <param>
+          <type>absl::string_view</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/registration.h" line="370" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/registration.h" bodystart="370" bodyend="372"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlobalFactoryRegistry_1a4dc9f85707b57d19f1e9a8505fb6ee0c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::unordered_set&lt; std::string &gt;</type>
+        <definition>static std::unordered_set&lt; std::string &gt; mediapipe::GlobalFactoryRegistry&lt; R, Args &gt;::GetRegisteredNames</definition>
+        <argsstring>()</argsstring>
+        <name>GetRegisteredNames</name>
+        <qualifiedname>mediapipe::GlobalFactoryRegistry::GetRegisteredNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/registration.h" line="374" column="29" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/registration.h" bodystart="374" bodyend="376"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlobalFactoryRegistry_1ab6dc6588128f86932225dad10024c621" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args2</declname>
+            <defname>Args2</defname>
+          </param>
+          <param>
+            <type>absl::enable_if_t&lt; std::is_convertible&lt; std::tuple&lt; Args2... &gt;, std::tuple&lt; Args... &gt; &gt;::value, int &gt;</type>
+            <defval>0</defval>
+          </param>
+        </templateparamlist>
+        <type>Functions::ReturnType</type>
+        <definition>static Functions::ReturnType mediapipe::GlobalFactoryRegistry&lt; R, Args &gt;::CreateByNameInNamespace</definition>
+        <argsstring>(absl::string_view ns, absl::string_view name, Args2 &amp;&amp;... args)</argsstring>
+        <name>CreateByNameInNamespace</name>
+        <qualifiedname>mediapipe::GlobalFactoryRegistry::CreateByNameInNamespace</qualifiedname>
+        <param>
+          <type>absl::string_view</type>
+          <declname>ns</declname>
+        </param>
+        <param>
+          <type>absl::string_view</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>Args2 &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/registration.h" line="385" column="41" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/registration.h" bodystart="385" bodyend="388"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlobalFactoryRegistry_1abc84f200f65253c85024be97b6500fbd" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool mediapipe::GlobalFactoryRegistry&lt; R, Args &gt;::IsRegistered</definition>
+        <argsstring>(absl::string_view ns, absl::string_view name)</argsstring>
+        <name>IsRegistered</name>
+        <qualifiedname>mediapipe::GlobalFactoryRegistry::IsRegistered</qualifiedname>
+        <param>
+          <type>absl::string_view</type>
+          <declname>ns</declname>
+        </param>
+        <param>
+          <type>absl::string_view</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/registration.h" line="392" column="15" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/registration.h" bodystart="392" bodyend="394"/>
+      </memberdef>
+      <memberdef kind="function" id="classmediapipe_1_1GlobalFactoryRegistry_1a37725b1b0bedd970d0b2ada4dde028c2" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Functions *</type>
+        <definition>static Functions * mediapipe::GlobalFactoryRegistry&lt; R, Args &gt;::functions</definition>
+        <argsstring>()</argsstring>
+        <name>functions</name>
+        <qualifiedname>mediapipe::GlobalFactoryRegistry::functions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/registration.h" line="397" column="20" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/registration.h" bodystart="397" bodyend="400"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmediapipe_1_1GlobalFactoryRegistry_1abe0e0fceb2370ab69fdefb7f3702bf21" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mediapipe::GlobalFactoryRegistry&lt; R, Args &gt;::GlobalFactoryRegistry</definition>
+        <argsstring>()=delete</argsstring>
+        <name>GlobalFactoryRegistry</name>
+        <qualifiedname>mediapipe::GlobalFactoryRegistry::GlobalFactoryRegistry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/registration.h" line="403" column="3"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/registration.h" line="349" column="1" bodyfile="/home/friedel/devel/ILLIXR-plugins/hand_tracking/mediapipe/framework/deps/registration.h" bodystart="349" bodyend="404"/>
+    <listofallmembers>
+      <member refid="classmediapipe_1_1GlobalFactoryRegistry_1a3e159ea877e2a961d2f5999444068412" prot="public" virt="non-virtual"><scope>mediapipe::GlobalFactoryRegistry</scope><name>CreateByName</name></member>
+      <member refid="classmediapipe_1_1GlobalFactoryRegistry_1ab6dc6588128f86932225dad10024c621" prot="public" virt="non-virtual"><scope>mediapipe::GlobalFactoryRegistry</scope><name>CreateByNameInNamespace</name></member>
+      <member refid="classmediapipe_1_1GlobalFactoryRegistry_1a08f9db26898516c6792c85c5e6e2bdd2" prot="private" virt="non-virtual"><scope>mediapipe::GlobalFactoryRegistry</scope><name>Functions</name></member>
+      <member refid="classmediapipe_1_1GlobalFactoryRegistry_1a37725b1b0bedd970d0b2ada4dde028c2" prot="public" virt="non-virtual"><scope>mediapipe::GlobalFactoryRegistry</scope><name>functions</name></member>
+      <member refid="classmediapipe_1_1GlobalFactoryRegistry_1a4dc9f85707b57d19f1e9a8505fb6ee0c" prot="public" virt="non-virtual"><scope>mediapipe::GlobalFactoryRegistry</scope><name>GetRegisteredNames</name></member>
+      <member refid="classmediapipe_1_1GlobalFactoryRegistry_1abe0e0fceb2370ab69fdefb7f3702bf21" prot="private" virt="non-virtual"><scope>mediapipe::GlobalFactoryRegistry</scope><name>GlobalFactoryRegistry</name></member>
+      <member refid="classmediapipe_1_1GlobalFactoryRegistry_1add71bcf8abcb751773af8c6162b6bdb3" prot="public" virt="non-virtual"><scope>mediapipe::GlobalFactoryRegistry</scope><name>IsRegistered</name></member>
+      <member refid="classmediapipe_1_1GlobalFactoryRegistry_1abc84f200f65253c85024be97b6500fbd" prot="public" virt="non-virtual"><scope>mediapipe::GlobalFactoryRegistry</scope><name>IsRegistered</name></member>
+      <member refid="classmediapipe_1_1GlobalFactoryRegistry_1aa41a39886ee31d534e9b798357dfed0a" prot="public" virt="non-virtual"><scope>mediapipe::GlobalFactoryRegistry</scope><name>Register</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
