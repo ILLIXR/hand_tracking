@@ -20,30 +20,25 @@
 
 namespace mediapipe {
 namespace file {
-absl::Status GetContents(absl::string_view file_name, std::string* output,
-                         bool read_as_binary = true);
+    absl::Status GetContents(absl::string_view file_name, std::string* output, bool read_as_binary = true);
 
-absl::Status SetContents(absl::string_view file_name,
-                         absl::string_view content);
+    absl::Status SetContents(absl::string_view file_name, absl::string_view content);
 
-absl::Status AppendStringToFile(absl::string_view file_name,
-                                absl::string_view contents);
+    absl::Status AppendStringToFile(absl::string_view file_name, absl::string_view contents);
 
-absl::Status MatchInTopSubdirectories(const std::string& parent_directory,
-                                      const std::string& file_name,
-                                      std::vector<std::string>* results);
+    absl::Status MatchInTopSubdirectories(const std::string& parent_directory, const std::string& file_name,
+                                          std::vector<std::string>* results);
 
-absl::Status MatchFileTypeInDirectory(const std::string& directory,
-                                      const std::string& file_suffix,
-                                      std::vector<std::string>* results);
+    absl::Status MatchFileTypeInDirectory(const std::string& directory, const std::string& file_suffix,
+                                          std::vector<std::string>* results);
 
-absl::Status Exists(absl::string_view file_name);
+    absl::Status Exists(absl::string_view file_name);
 
-absl::Status IsDirectory(absl::string_view file_name);
+    absl::Status IsDirectory(absl::string_view file_name);
 
-absl::Status RecursivelyCreateDir(absl::string_view path);
+    absl::Status RecursivelyCreateDir(absl::string_view path);
 
-}  // namespace file
-}  // namespace mediapipe
+} // namespace file
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_DEPS_FILE_HELPERS_H_
+#endif // MEDIAPIPE_DEPS_FILE_HELPERS_H_

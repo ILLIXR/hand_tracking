@@ -15,18 +15,16 @@
 #ifndef MEDIAPIPE_CALCULATORS_TENSOR_TFLITE_DELEGATE_PTR_H_
 #define MEDIAPIPE_CALCULATORS_TENSOR_TFLITE_DELEGATE_PTR_H_
 
+#include "tensorflow/lite/c/c_api_types.h"
+
 #include <functional>
 #include <memory>
-
-#include "tensorflow/lite/c/c_api_types.h"
 
 namespace mediapipe {
 
 // TODO: Consider renaming TfLiteDelegatePtr.
-using TfLiteDelegatePtr =
-    std::unique_ptr<TfLiteOpaqueDelegate,
-                    std::function<void(TfLiteOpaqueDelegate*)>>;
+using TfLiteDelegatePtr = std::unique_ptr<TfLiteOpaqueDelegate, std::function<void(TfLiteOpaqueDelegate*)>>;
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_CALCULATORS_TENSOR_TFLITE_DELEGATE_PTR_H_
+#endif // MEDIAPIPE_CALCULATORS_TENSOR_TFLITE_DELEGATE_PTR_H_

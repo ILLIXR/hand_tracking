@@ -27,12 +27,13 @@ extern "C" void MediaPipe_RegisterTfLiteOpResolver(tflite::MutableOpResolver*);
 
 // This resolver is used for the custom ops introduced by
 // `MediaPipe_RegisterTfLiteOpResolver` (see above).
-class CpuOpResolver
-    : public tflite::ops::builtin::BuiltinOpResolverWithoutDefaultDelegates {
- public:
-  CpuOpResolver() { MediaPipe_RegisterTfLiteOpResolver(this); }
+class CpuOpResolver : public tflite::ops::builtin::BuiltinOpResolverWithoutDefaultDelegates {
+public:
+    CpuOpResolver() {
+        MediaPipe_RegisterTfLiteOpResolver(this);
+    }
 };
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_UTIL_TFLITE_CPU_OP_RESOLVER_H_
+#endif // MEDIAPIPE_UTIL_TFLITE_CPU_OP_RESOLVER_H_

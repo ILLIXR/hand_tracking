@@ -20,6 +20,6 @@ namespace mediapipe::util::tflite {
 
 // Returns
 bool IsDynamicTensor(const TfLiteTensor& tensor);
-}  // namespace mediapipe::util::tflite
+} // namespace mediapipe::util::tflite
 
-#endif  // MEDIAPIPE_UTIL_TFLITE_UTILS_H_
+#endif // MEDIAPIPE_UTIL_TFLITE_UTILS_H_

@@ -15,17 +15,17 @@
 #ifndef MEDIAPIPE_PORT_OPENCV_IMGPROC_INC_H_
 #define MEDIAPIPE_PORT_OPENCV_IMGPROC_INC_H_
 
-#include <opencv2/core/version.hpp>
-
 #include "mediapipe/framework/port/opencv_core_inc.h"
 
-#ifdef CV_VERSION_EPOCH  // for OpenCV 2.x
-#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/core/version.hpp>
+
+#ifdef CV_VERSION_EPOCH // for OpenCV 2.x
+    #include <opencv2/imgproc/imgproc.hpp>
 #else
-#include <opencv2/imgproc.hpp>
-#if CV_VERSION_MAJOR == 4
-#include <opencv2/imgproc/types_c.h>
-#endif
+    #include <opencv2/imgproc.hpp>
+    #if CV_VERSION_MAJOR == 4
+        #include <opencv2/imgproc/types_c.h>
+    #endif
 #endif
 
-#endif  // MEDIAPIPE_PORT_OPENCV_IMGPROC_INC_H_
+#endif // MEDIAPIPE_PORT_OPENCV_IMGPROC_INC_H_

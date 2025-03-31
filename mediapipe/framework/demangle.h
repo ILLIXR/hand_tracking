@@ -16,25 +16,23 @@
 #define MEDIAPIPE_FRAMEWORK_DEMANGLE_H_
 
 #ifndef MEDIAPIPE_HAS_CXA_DEMANGLE
-// We only support some compilers that support __cxa_demangle.
-// TODO: Checks if Android NDK has fixed this issue or not.
-#if defined(__ANDROID__) && (defined(__i386__) || defined(__x86_64__))
-#define MEDIAPIPE_HAS_CXA_DEMANGLE 0
-#elif (__GNUC__ >= 4 || (__GNUC__ >= 3 && __GNUC_MINOR__ >= 4)) && \
-    !defined(__mips__)
-#define MEDIAPIPE_HAS_CXA_DEMANGLE 1
-#elif defined(__clang__) && !defined(_MSC_VER)
-#define MEDIAPIPE_HAS_CXA_DEMANGLE 1
-#else
-#define MEDIAPIPE_HAS_CXA_DEMANGLE 0
-#endif
+    // We only support some compilers that support __cxa_demangle.
+    // TODO: Checks if Android NDK has fixed this issue or not.
+    #if defined(__ANDROID__) && (defined(__i386__) || defined(__x86_64__))
+        #define MEDIAPIPE_HAS_CXA_DEMANGLE 0
+    #elif (__GNUC__ >= 4 || (__GNUC__ >= 3 && __GNUC_MINOR__ >= 4)) && !defined(__mips__)
+        #define MEDIAPIPE_HAS_CXA_DEMANGLE 1
+    #elif defined(__clang__) && !defined(_MSC_VER)
+        #define MEDIAPIPE_HAS_CXA_DEMANGLE 1
+    #else
+        #define MEDIAPIPE_HAS_CXA_DEMANGLE 0
+    #endif
 #endif
 
 #include <stdlib.h>
-
 #include <string>
 #if MEDIAPIPE_HAS_CXA_DEMANGLE
-#include <cxxabi.h>
+    #include <cxxabi.h>
 #endif
 
 namespace mediapipe {
@@ -65,21 +63,21 @@ namespace mediapipe {
 // Prefer using MediaPipeTypeStringOrDemangled<T>() when possible (defined
 // in type_map.h).
 inline std::string Demangle(const char* mangled) {
-  int status = 0;
-  char* demangled = nullptr;
+    int   status    = 0;
+    char* demangled = nullptr;
 #if MEDIAPIPE_HAS_CXA_DEMANGLE
-  demangled = abi::__cxa_demangle(mangled, nullptr, nullptr, &status);
+    demangled = abi::__cxa_demangle(mangled, nullptr, nullptr, &status);
 #endif
-  std::string out;
-  if (status == 0 && demangled != nullptr) {  // Demangling succeeeded.
-    out.append(demangled);
-    free(demangled);
-  } else {
-    out.append(mangled);
-  }
-  return out;
+    std::string out;
+    if (status == 0 && demangled != nullptr) { // Demangling succeeeded.
+        out.append(demangled);
+        free(demangled);
+    } else {
+        out.append(mangled);
+    }
+    return out;
 }
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_FRAMEWORK_DEMANGLE_H_
+#endif // MEDIAPIPE_FRAMEWORK_DEMANGLE_H_

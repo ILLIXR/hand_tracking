@@ -13,36 +13,35 @@
 // limitations under the License.
 
 #include "mediapipe/framework/deps/registration.h"
-#include "mediapipe/util/unused.hpp"
 
 #include "absl/container/flat_hash_set.h"
+#include "mediapipe/util/unused.hpp"
 
 namespace mediapipe {
 
 namespace {
 
-// List of namespaces that can register calculators inside the namespace
-// and still refer to them using an unqualified name.  This allowlist
-// is meant to facilitate migration from unqualified to fully qualified
-// calculator names.
-constexpr char const* kTopNamespaces[] = {
-    "mediapipe",
-};
+    // List of namespaces that can register calculators inside the namespace
+    // and still refer to them using an unqualified name.  This allowlist
+    // is meant to facilitate migration from unqualified to fully qualified
+    // calculator names.
+    constexpr char const* kTopNamespaces[] = {
+        "mediapipe",
+    };
 
-template <size_t SIZE, class T>
-inline size_t array_size(T (&arr)[SIZE]) {
-    UNUSED(arr);
-  return SIZE;
-}
+    template<size_t SIZE, class T>
+    inline size_t array_size(T (&arr)[SIZE]) {
+        UNUSED(arr);
+        return SIZE;
+    }
 
-}  // namespace
+} // namespace
 
 /*static*/
 const absl::flat_hash_set<std::string>& NamespaceAllowlist::TopNamespaces() {
-  static absl::flat_hash_set<std::string>* result =
-      new absl::flat_hash_set<std::string>(
-          kTopNamespaces, kTopNamespaces + array_size(kTopNamespaces));
-  return *result;
+    static absl::flat_hash_set<std::string>* result =
+        new absl::flat_hash_set<std::string>(kTopNamespaces, kTopNamespaces + array_size(kTopNamespaces));
+    return *result;
 }
 
-}  // namespace mediapipe
+} // namespace mediapipe

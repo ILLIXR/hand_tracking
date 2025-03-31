@@ -17,4 +17,4 @@
 
 #include "mediapipe/framework/deps/singleton.h"
 
-#endif  // MEDIAPIPE_PORT_SINGLETON_H_
+#endif // MEDIAPIPE_PORT_SINGLETON_H_

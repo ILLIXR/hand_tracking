@@ -20,9 +20,9 @@
 namespace mediapipe {
 namespace tflite_operations {
 
-TfLiteRegistration* RegisterMaxUnpooling2D();
+    TfLiteRegistration* RegisterMaxUnpooling2D();
 
-}  // namespace tflite_operations
-}  // namespace mediapipe
+} // namespace tflite_operations
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_UTIL_TFLITE_OPERATIONS_MAX_UNPOOLING_H_
+#endif // MEDIAPIPE_UTIL_TFLITE_OPERATIONS_MAX_UNPOOLING_H_

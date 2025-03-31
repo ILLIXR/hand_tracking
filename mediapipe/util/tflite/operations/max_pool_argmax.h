@@ -20,9 +20,9 @@
 namespace mediapipe {
 namespace tflite_operations {
 
-TfLiteRegistration* RegisterMaxPoolingWithArgmax2D();
+    TfLiteRegistration* RegisterMaxPoolingWithArgmax2D();
 
-}  // namespace tflite_operations
-}  // namespace mediapipe
+} // namespace tflite_operations
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_UTIL_TFLITE_OPERATIONS_MAX_POOL_ARGMAX_H_
+#endif // MEDIAPIPE_UTIL_TFLITE_OPERATIONS_MAX_POOL_ARGMAX_H_

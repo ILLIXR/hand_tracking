@@ -24,7 +24,7 @@
 #include "mediapipe/framework/port/proto_ns.h"
 
 #if !defined(MEDIAPIPE_PROTO_LITE)
-#include "google/protobuf/text_format.h"
-#endif  // !defined(MEDIAPIPE_PROTO_LITE)
+    #include "google/protobuf/text_format.h"
+#endif // !defined(MEDIAPIPE_PROTO_LITE)
 
-#endif  // MEDIAPIPE_PORT_CORE_PROTO_INC_H_
+#endif // MEDIAPIPE_PORT_CORE_PROTO_INC_H_

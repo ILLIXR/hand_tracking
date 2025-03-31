@@ -17,4 +17,4 @@
 
 #include "mediapipe/framework/deps/source_location.h"
 
-#endif  // MEDIAPIPE_PORT_SOURCE_LOCATION_H_
+#endif // MEDIAPIPE_PORT_SOURCE_LOCATION_H_

@@ -22,16 +22,15 @@ limitations under the License.
 namespace mediapipe {
 namespace internal {
 
-template <>
-class ViewProvider<FrameBuffer> {
- public:
-  virtual ~ViewProvider() = default;
-  virtual std::shared_ptr<const FrameBuffer> GetReadView(
-      types<FrameBuffer>) const = 0;
-  virtual std::shared_ptr<FrameBuffer> GetWriteView(types<FrameBuffer>) = 0;
-};
+    template<>
+    class ViewProvider<FrameBuffer> {
+    public:
+        virtual ~ViewProvider()                                                          = default;
+        virtual std::shared_ptr<const FrameBuffer> GetReadView(types<FrameBuffer>) const = 0;
+        virtual std::shared_ptr<FrameBuffer>       GetWriteView(types<FrameBuffer>)      = 0;
+    };
 
-}  // namespace internal
-}  // namespace mediapipe
+} // namespace internal
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_GPU_FRAME_BUFFER_VIEW_H_
+#endif // MEDIAPIPE_GPU_FRAME_BUFFER_VIEW_H_

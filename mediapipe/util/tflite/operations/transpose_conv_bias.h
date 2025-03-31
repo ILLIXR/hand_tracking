@@ -21,9 +21,9 @@
 namespace mediapipe {
 namespace tflite_operations {
 
-TfLiteRegistration* RegisterConvolution2DTransposeBias();
+    TfLiteRegistration* RegisterConvolution2DTransposeBias();
 
-}  // namespace tflite_operations
-}  // namespace mediapipe
+} // namespace tflite_operations
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_UTIL_TFLITE_OPERATIONS_TRANSPOSE_CONV_BIAS_H_
+#endif // MEDIAPIPE_UTIL_TFLITE_OPERATIONS_TRANSPOSE_CONV_BIAS_H_

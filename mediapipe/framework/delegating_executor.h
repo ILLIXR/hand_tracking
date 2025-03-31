@@ -20,19 +20,19 @@
 namespace mediapipe {
 namespace internal {
 
-// An executor that delegates the running of tasks using a callback.
-class DelegatingExecutor : public Executor {
- public:
-  explicit DelegatingExecutor(
-      std::function<void(std::function<void()>)> callback)
-      : callback_(std::move(callback)) {}
-  void Schedule(std::function<void()> task) override;
+    // An executor that delegates the running of tasks using a callback.
+    class DelegatingExecutor : public Executor {
+    public:
+        explicit DelegatingExecutor(std::function<void(std::function<void()>)> callback)
+            : callback_(std::move(callback)) { }
 
- private:
-  std::function<void(std::function<void()>)> callback_;
-};
+        void Schedule(std::function<void()> task) override;
 
-}  // namespace internal
-}  // namespace mediapipe
+    private:
+        std::function<void(std::function<void()>)> callback_;
+    };
 
-#endif  // MEDIAPIPE_FRAMEWORK_DELEGATING_EXECUTOR_H_
+} // namespace internal
+} // namespace mediapipe
+
+#endif // MEDIAPIPE_FRAMEWORK_DELEGATING_EXECUTOR_H_

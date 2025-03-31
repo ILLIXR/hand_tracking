@@ -26,9 +26,7 @@ typedef internal::Collection<Packet> PacketSet;
 
 // A similar construct for output side packets.
 class OutputSidePacket;
-typedef internal::Collection<OutputSidePacket,
-                             internal::CollectionStorage::kStorePointer>
-    OutputSidePacketSet;
+typedef internal::Collection<OutputSidePacket, internal::CollectionStorage::kStorePointer> OutputSidePacketSet;
 
 // Similar constructs for input and output streams.
 // TODO: Remove InputStreamSet and OutputStreamSet.
@@ -44,6 +42,6 @@ typedef internal::Collection<InputStreamShard> InputStreamShardSet;
 class OutputStreamShard;
 typedef internal::Collection<OutputStreamShard> OutputStreamShardSet;
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_FRAMEWORK_PACKET_SET_H_
+#endif // MEDIAPIPE_FRAMEWORK_PACKET_SET_H_

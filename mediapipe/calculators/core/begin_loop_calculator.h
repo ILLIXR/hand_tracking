@@ -79,134 +79,125 @@ namespace mediapipe {
 //   - Iterable packets have to be consumable (have a unique owner) or items
 //     items have to be copyable, which is not the case e.g. for Tensors.
 
-template <typename IterableT>
+template<typename IterableT>
 class BeginLoopCalculator : public CalculatorBase {
-  using ItemT = typename IterableT::value_type;
+    using ItemT = typename IterableT::value_type;
 
- public:
-  static absl::Status GetContract(CalculatorContract* cc) {
-    // The below enables processing of timestamp bound updates, and that enables
-    // correct timestamp propagation by the companion EndLoopCalculator.
-    //
-    // For instance, Process() function will be still invoked even if upstream
-    // calculator has updated timestamp bound for ITERABLE input instead of
-    // providing actual value.
-    cc->SetProcessTimestampBounds(true);
+public:
+    static absl::Status GetContract(CalculatorContract* cc) {
+        // The below enables processing of timestamp bound updates, and that enables
+        // correct timestamp propagation by the companion EndLoopCalculator.
+        //
+        // For instance, Process() function will be still invoked even if upstream
+        // calculator has updated timestamp bound for ITERABLE input instead of
+        // providing actual value.
+        cc->SetProcessTimestampBounds(true);
 
-    // A non-empty packet in the optional "TICK" input stream wakes up the
-    // calculator.
-    // DEPRECATED as timestamp bound updates are processed by default in this
-    // calculator.
-    if (cc->Inputs().HasTag("TICK")) {
-      cc->Inputs().Tag("TICK").SetAny();
-    }
-
-    // An iterable collection in the input stream.
-    RET_CHECK(cc->Inputs().HasTag("ITERABLE"));
-    cc->Inputs().Tag("ITERABLE").Set<IterableT>();
-
-    // An element from the collection.
-    RET_CHECK(cc->Outputs().HasTag("ITEM"));
-    cc->Outputs().Tag("ITEM").Set<ItemT>();
-
-    RET_CHECK(cc->Outputs().HasTag("BATCH_END"));
-    cc->Outputs()
-        .Tag("BATCH_END")
-        .Set<Timestamp>(
-            // A flush signal to the corresponding EndLoopCalculator for it to
-            // emit the aggregated result with the timestamp contained in this
-            // flush signal packet.
-        );
-
-    // Input streams tagged with "CLONE" are cloned to the corresponding
-    // "CLONE" output streams at loop timestamps.
-    RET_CHECK(cc->Inputs().NumEntries("CLONE") ==
-              cc->Outputs().NumEntries("CLONE"));
-    if (cc->Inputs().NumEntries("CLONE") > 0) {
-      for (int i = 0; i < cc->Inputs().NumEntries("CLONE"); ++i) {
-        cc->Inputs().Get("CLONE", i).SetAny();
-        cc->Outputs().Get("CLONE", i).SetSameAs(&cc->Inputs().Get("CLONE", i));
-      }
-    }
-
-    return absl::OkStatus();
-  }
-
-  absl::Status Process(CalculatorContext* cc) final {
-    Timestamp last_timestamp = loop_internal_timestamp_;
-    if (!cc->Inputs().Tag("ITERABLE").IsEmpty()) {
-      // Try to consume the ITERABLE packet if possible to obtain the ownership
-      // and emit the item packets by moving them.
-      // If the ITERABLE packet is not consumable, then try to copy each item
-      // instead. If the ITEM type is not copy constructible, an error will be
-      // returned.
-      auto iterable_ptr_or =
-          cc->Inputs().Tag("ITERABLE").Value().Consume<IterableT>();
-      if (iterable_ptr_or.ok()) {
-        for (auto& item : *iterable_ptr_or.value()) {
-          Packet item_packet = MakePacket<ItemT>(std::move(item));
-          cc->Outputs().Tag("ITEM").AddPacket(
-              item_packet.At(loop_internal_timestamp_));
-          ForwardClonePackets(cc, loop_internal_timestamp_);
-          ++loop_internal_timestamp_;
+        // A non-empty packet in the optional "TICK" input stream wakes up the
+        // calculator.
+        // DEPRECATED as timestamp bound updates are processed by default in this
+        // calculator.
+        if (cc->Inputs().HasTag("TICK")) {
+            cc->Inputs().Tag("TICK").SetAny();
         }
-      } else {
-        if constexpr (std::is_copy_constructible<ItemT>()) {
-          const IterableT& collection =
-              cc->Inputs().Tag("ITERABLE").template Get<IterableT>();
-          for (const auto& item : collection) {
-            cc->Outputs().Tag("ITEM").AddPacket(
-                MakePacket<ItemT>(item).At(loop_internal_timestamp_));
-            ForwardClonePackets(cc, loop_internal_timestamp_);
+
+        // An iterable collection in the input stream.
+        RET_CHECK(cc->Inputs().HasTag("ITERABLE"));
+        cc->Inputs().Tag("ITERABLE").Set<IterableT>();
+
+        // An element from the collection.
+        RET_CHECK(cc->Outputs().HasTag("ITEM"));
+        cc->Outputs().Tag("ITEM").Set<ItemT>();
+
+        RET_CHECK(cc->Outputs().HasTag("BATCH_END"));
+        cc->Outputs()
+            .Tag("BATCH_END")
+            .Set<Timestamp>(
+                // A flush signal to the corresponding EndLoopCalculator for it to
+                // emit the aggregated result with the timestamp contained in this
+                // flush signal packet.
+            );
+
+        // Input streams tagged with "CLONE" are cloned to the corresponding
+        // "CLONE" output streams at loop timestamps.
+        RET_CHECK(cc->Inputs().NumEntries("CLONE") == cc->Outputs().NumEntries("CLONE"));
+        if (cc->Inputs().NumEntries("CLONE") > 0) {
+            for (int i = 0; i < cc->Inputs().NumEntries("CLONE"); ++i) {
+                cc->Inputs().Get("CLONE", i).SetAny();
+                cc->Outputs().Get("CLONE", i).SetSameAs(&cc->Inputs().Get("CLONE", i));
+            }
+        }
+
+        return absl::OkStatus();
+    }
+
+    absl::Status Process(CalculatorContext* cc) final {
+        Timestamp last_timestamp = loop_internal_timestamp_;
+        if (!cc->Inputs().Tag("ITERABLE").IsEmpty()) {
+            // Try to consume the ITERABLE packet if possible to obtain the ownership
+            // and emit the item packets by moving them.
+            // If the ITERABLE packet is not consumable, then try to copy each item
+            // instead. If the ITEM type is not copy constructible, an error will be
+            // returned.
+            auto iterable_ptr_or = cc->Inputs().Tag("ITERABLE").Value().Consume<IterableT>();
+            if (iterable_ptr_or.ok()) {
+                for (auto& item : *iterable_ptr_or.value()) {
+                    Packet item_packet = MakePacket<ItemT>(std::move(item));
+                    cc->Outputs().Tag("ITEM").AddPacket(item_packet.At(loop_internal_timestamp_));
+                    ForwardClonePackets(cc, loop_internal_timestamp_);
+                    ++loop_internal_timestamp_;
+                }
+            } else {
+                if constexpr (std::is_copy_constructible<ItemT>()) {
+                    const IterableT& collection = cc->Inputs().Tag("ITERABLE").template Get<IterableT>();
+                    for (const auto& item : collection) {
+                        cc->Outputs().Tag("ITEM").AddPacket(MakePacket<ItemT>(item).At(loop_internal_timestamp_));
+                        ForwardClonePackets(cc, loop_internal_timestamp_);
+                        ++loop_internal_timestamp_;
+                    }
+                } else {
+                    return absl::InternalError("The element type is not copiable. Consider making the "
+                                               "BeginLoopCalculator the sole owner of the input packet so that "
+                                               "the "
+                                               "items can be consumed and moved.");
+                }
+            }
+        }
+
+        // The collection was empty and nothing was processed.
+        if (last_timestamp == loop_internal_timestamp_) {
+            // Increment loop_internal_timestamp_ because it is used up now.
             ++loop_internal_timestamp_;
-          }
-        } else {
-          return absl::InternalError(
-              "The element type is not copiable. Consider making the "
-              "BeginLoopCalculator the sole owner of the input packet so that "
-              "the "
-              "items can be consumed and moved.");
+            for (auto it = cc->Outputs().begin(); it < cc->Outputs().end(); ++it) {
+                it->SetNextTimestampBound(loop_internal_timestamp_);
+            }
         }
-      }
+
+        // The for loop processing the input collection already incremented
+        // loop_internal_timestamp_. To emit BATCH_END packet along the last
+        // non-BATCH_END packet, decrement by one.
+        cc->Outputs()
+            .Tag("BATCH_END")
+            .AddPacket(MakePacket<Timestamp>(cc->InputTimestamp()).At(Timestamp(loop_internal_timestamp_ - 1)));
+        return absl::OkStatus();
     }
 
-    // The collection was empty and nothing was processed.
-    if (last_timestamp == loop_internal_timestamp_) {
-      // Increment loop_internal_timestamp_ because it is used up now.
-      ++loop_internal_timestamp_;
-      for (auto it = cc->Outputs().begin(); it < cc->Outputs().end(); ++it) {
-        it->SetNextTimestampBound(loop_internal_timestamp_);
-      }
-    }
-
-    // The for loop processing the input collection already incremented
-    // loop_internal_timestamp_. To emit BATCH_END packet along the last
-    // non-BATCH_END packet, decrement by one.
-    cc->Outputs()
-        .Tag("BATCH_END")
-        .AddPacket(MakePacket<Timestamp>(cc->InputTimestamp())
-                       .At(Timestamp(loop_internal_timestamp_ - 1)));
-    return absl::OkStatus();
-  }
-
- private:
-  void ForwardClonePackets(CalculatorContext* cc, Timestamp output_timestamp) {
-    if (cc->Inputs().NumEntries("CLONE") > 0) {
-      for (int i = 0; i < cc->Inputs().NumEntries("CLONE"); ++i) {
-        if (!cc->Inputs().Get("CLONE", i).IsEmpty()) {
-          auto input_packet = cc->Inputs().Get("CLONE", i).Value();
-          cc->Outputs()
-              .Get("CLONE", i)
-              .AddPacket(std::move(input_packet).At(output_timestamp));
+private:
+    void ForwardClonePackets(CalculatorContext* cc, Timestamp output_timestamp) {
+        if (cc->Inputs().NumEntries("CLONE") > 0) {
+            for (int i = 0; i < cc->Inputs().NumEntries("CLONE"); ++i) {
+                if (!cc->Inputs().Get("CLONE", i).IsEmpty()) {
+                    auto input_packet = cc->Inputs().Get("CLONE", i).Value();
+                    cc->Outputs().Get("CLONE", i).AddPacket(std::move(input_packet).At(output_timestamp));
+                }
+            }
         }
-      }
     }
-  }
 
-  // Fake timestamps generated per element in collection.
-  Timestamp loop_internal_timestamp_ = Timestamp(0);
+    // Fake timestamps generated per element in collection.
+    Timestamp loop_internal_timestamp_ = Timestamp(0);
 };
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_CALCULATORS_CORE_BEGIN_LOOP_CALCULATOR_H_
+#endif // MEDIAPIPE_CALCULATORS_CORE_BEGIN_LOOP_CALCULATOR_H_

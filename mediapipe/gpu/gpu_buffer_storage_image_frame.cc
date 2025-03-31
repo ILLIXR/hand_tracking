@@ -15,58 +15,49 @@ limitations under the License.
 
 #include "mediapipe/gpu/gpu_buffer_storage_image_frame.h"
 
-#include <memory>
-#include <vector>
-
 #include "absl/log/absl_check.h"
 #include "mediapipe/framework/formats/frame_buffer.h"
 #include "mediapipe/framework/formats/image_frame.h"
+
+#include <memory>
+#include <vector>
 
 namespace mediapipe {
 
 namespace {
 
-FrameBuffer::Format FrameBufferFormatForImageFrameFormat(
-    ImageFormat::Format format) {
-  switch (format) {
-    case ImageFormat::SRGB:
-      return FrameBuffer::Format::kRGB;
-    case ImageFormat::SRGBA:
-      return FrameBuffer::Format::kRGBA;
-    case ImageFormat::GRAY8:
-      return FrameBuffer::Format::kGRAY;
-    default:
-      return FrameBuffer::Format::kUNKNOWN;
-  }
+    FrameBuffer::Format FrameBufferFormatForImageFrameFormat(ImageFormat::Format format) {
+        switch (format) {
+        case ImageFormat::SRGB:
+            return FrameBuffer::Format::kRGB;
+        case ImageFormat::SRGBA:
+            return FrameBuffer::Format::kRGBA;
+        case ImageFormat::GRAY8:
+            return FrameBuffer::Format::kGRAY;
+        default:
+            return FrameBuffer::Format::kUNKNOWN;
+        }
+    }
+
+    std::shared_ptr<FrameBuffer> ImageFrameToFrameBuffer(std::shared_ptr<ImageFrame> image_frame) {
+        FrameBuffer::Format format = FrameBufferFormatForImageFrameFormat(image_frame->Format());
+        ABSL_CHECK(format != FrameBuffer::Format::kUNKNOWN) << "Invalid format. Only SRGB, SRGBA and GRAY8 are supported.";
+        const FrameBuffer::Dimension          dimension{/*width=*/image_frame->Width(),
+                                               /*height=*/image_frame->Height()};
+        const FrameBuffer::Stride             stride{/*row_stride_bytes=*/image_frame->WidthStep(),
+                                         /*pixel_stride_bytes=*/image_frame->ByteDepth() * image_frame->NumberOfChannels()};
+        const std::vector<FrameBuffer::Plane> planes{{image_frame->MutablePixelData(), stride}};
+        return std::make_shared<FrameBuffer>(planes, dimension, format);
+    }
+
+} // namespace
+
+std::shared_ptr<const FrameBuffer> GpuBufferStorageImageFrame::GetReadView(internal::types<FrameBuffer>) const {
+    return ImageFrameToFrameBuffer(image_frame_);
 }
 
-std::shared_ptr<FrameBuffer> ImageFrameToFrameBuffer(
-    std::shared_ptr<ImageFrame> image_frame) {
-  FrameBuffer::Format format =
-      FrameBufferFormatForImageFrameFormat(image_frame->Format());
-  ABSL_CHECK(format != FrameBuffer::Format::kUNKNOWN)
-      << "Invalid format. Only SRGB, SRGBA and GRAY8 are supported.";
-  const FrameBuffer::Dimension dimension{/*width=*/image_frame->Width(),
-                                         /*height=*/image_frame->Height()};
-  const FrameBuffer::Stride stride{
-      /*row_stride_bytes=*/image_frame->WidthStep(),
-      /*pixel_stride_bytes=*/image_frame->ByteDepth() *
-          image_frame->NumberOfChannels()};
-  const std::vector<FrameBuffer::Plane> planes{
-      {image_frame->MutablePixelData(), stride}};
-  return std::make_shared<FrameBuffer>(planes, dimension, format);
+std::shared_ptr<FrameBuffer> GpuBufferStorageImageFrame::GetWriteView(internal::types<FrameBuffer>) {
+    return ImageFrameToFrameBuffer(image_frame_);
 }
 
-}  // namespace
-
-std::shared_ptr<const FrameBuffer> GpuBufferStorageImageFrame::GetReadView(
-    internal::types<FrameBuffer>) const {
-  return ImageFrameToFrameBuffer(image_frame_);
-}
-
-std::shared_ptr<FrameBuffer> GpuBufferStorageImageFrame::GetWriteView(
-    internal::types<FrameBuffer>) {
-  return ImageFrameToFrameBuffer(image_frame_);
-}
-
-}  // namespace mediapipe
+} // namespace mediapipe

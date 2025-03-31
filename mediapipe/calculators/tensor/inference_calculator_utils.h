@@ -26,29 +26,22 @@ namespace mediapipe {
 // Returns number of threads to configure XNNPACK delegate with.
 // Returns user provided value if specified. Otherwise, tries to choose optimal
 // number of threads depending on the device.
-int GetXnnpackNumThreads(
-    const bool opts_has_delegate,
-    const mediapipe::InferenceCalculatorOptions::Delegate& opts_delegate);
+int GetXnnpackNumThreads(const bool opts_has_delegate, const mediapipe::InferenceCalculatorOptions::Delegate& opts_delegate);
 
-absl::Status CopyCpuInputIntoInterpreterTensor(const Tensor& input_tensor,
-                                               tflite::Interpreter& interpreter,
+absl::Status CopyCpuInputIntoInterpreterTensor(const Tensor& input_tensor, tflite::Interpreter& interpreter,
                                                int input_tensor_index);
 
-absl::Status CopyCpuInputIntoTfLiteTensor(const Tensor& input_tensor,
-                                          TfLiteTensor& tflite_tensor);
+absl::Status CopyCpuInputIntoTfLiteTensor(const Tensor& input_tensor, TfLiteTensor& tflite_tensor);
 
-absl::Status CopyInterpreterTensorIntoCpuOutput(
-    const tflite::Interpreter& interpreter, int output_tensor_index,
-    Tensor& output_tensor);
+absl::Status CopyInterpreterTensorIntoCpuOutput(const tflite::Interpreter& interpreter, int output_tensor_index,
+                                                Tensor& output_tensor);
 
-absl::Status CopyTfLiteTensorIntoCpuOutput(const TfLiteTensor& tflite_tensor,
-                                           Tensor& output_tensor);
+absl::Status CopyTfLiteTensorIntoCpuOutput(const TfLiteTensor& tflite_tensor, Tensor& output_tensor);
 
 // Converts TfLiteTensor to mediapipe::Tensor, returns InvalidArgumentError if
 // the type is not supported.
-absl::StatusOr<Tensor> ConvertTfLiteTensorToTensor(
-    const TfLiteTensor& tflite_tensor);
+absl::StatusOr<Tensor> ConvertTfLiteTensorToTensor(const TfLiteTensor& tflite_tensor);
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_CALCULATORS_TENSOR_INFERENCE_CALCULATOR_UTILS_H_
+#endif // MEDIAPIPE_CALCULATORS_TENSOR_INFERENCE_CALCULATOR_UTILS_H_

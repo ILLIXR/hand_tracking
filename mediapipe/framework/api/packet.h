@@ -10,463 +10,474 @@
 #ifndef MEDIAPIPE_FRAMEWORK_API2_PACKET_H_
 #define MEDIAPIPE_FRAMEWORK_API2_PACKET_H_
 
-#include <functional>
-#include <type_traits>
-#include <utility>
-
 #include "absl/log/absl_check.h"
 #include "absl/meta/type_traits.h"
 #include "mediapipe/framework/api2/tuple.h"
 #include "mediapipe/framework/packet.h"
 #include "mediapipe/framework/port/logging.h"
 
+#include <functional>
+#include <type_traits>
+#include <utility>
+
 namespace mediapipe {
 namespace api2 {
 
-using Timestamp = mediapipe::Timestamp;
-using HolderBase = mediapipe::packet_internal::HolderBase;
+    using Timestamp  = mediapipe::Timestamp;
+    using HolderBase = mediapipe::packet_internal::HolderBase;
 
-template <typename T>
-class Packet;
+    template<typename T>
+    class Packet;
 
-struct AnyType {
-  AnyType() = delete;
-};
+    struct AnyType {
+        AnyType() = delete;
+    };
 
-// Type-erased packet.
-class PacketBase {
- public:
-  // Empty.
-  PacketBase() = default;
-  // Copy.
-  PacketBase(const PacketBase&) = default;
-  PacketBase& operator=(const PacketBase&) = default;
-  // Move.
-  PacketBase(PacketBase&&) = default;
-  PacketBase& operator=(PacketBase&&) = default;
+    // Type-erased packet.
+    class PacketBase {
+    public:
+        // Empty.
+        PacketBase() = default;
+        // Copy.
+        PacketBase(const PacketBase&)            = default;
+        PacketBase& operator=(const PacketBase&) = default;
+        // Move.
+        PacketBase(PacketBase&&)            = default;
+        PacketBase& operator=(PacketBase&&) = default;
 
-  // Get timestamp.
-  Timestamp timestamp() const { return timestamp_; }
-  // The original API has a Timestamp method, but it shadows the Timestamp
-  // type within this class, which is annoying.
-  // Timestamp Timestamp() const { return timestamp_; }
+        // Get timestamp.
+        Timestamp timestamp() const {
+            return timestamp_;
+        }
 
-  PacketBase At(Timestamp timestamp) const&;
-  PacketBase At(Timestamp timestamp) &&;
+        // The original API has a Timestamp method, but it shadows the Timestamp
+        // type within this class, which is annoying.
+        // Timestamp Timestamp() const { return timestamp_; }
 
-  bool IsEmpty() const { return payload_ == nullptr; }
+        PacketBase At(Timestamp timestamp) const&;
+        PacketBase At(Timestamp timestamp) &&;
 
-  template <typename T>
-  Packet<T> As() const;
+        bool IsEmpty() const {
+            return payload_ == nullptr;
+        }
 
-  // Returns the reference to the object of type T if it contains
-  // one, crashes otherwise.
-  template <typename T>
-  const T& Get() const;
+        template<typename T>
+        Packet<T> As() const;
 
-  // Conversion to old Packet type.
-  operator mediapipe::Packet() const& { return ToOldPacket(*this); }
-  operator mediapipe::Packet() && { return ToOldPacket(std::move(*this)); }
+        // Returns the reference to the object of type T if it contains
+        // one, crashes otherwise.
+        template<typename T>
+        const T& Get() const;
 
-  // Note: Consume is included for compatibility with the old Packet; however,
-  // it relies on shared_ptr.unique(), which is deprecated and is not guaranteed
-  // to give exact results.
-  template <typename T>
-  absl::StatusOr<std::unique_ptr<T>> Consume() {
-    // Using the implementation in the old Packet for now.
-    mediapipe::Packet old =
-        packet_internal::Create(std::move(payload_), timestamp_);
-    auto result = old.Consume<T>();
-    if (!result.ok())
-      payload_ = packet_internal::GetHolderShared(std::move(old));
-    return result;
-  }
+        // Conversion to old Packet type.
+        operator mediapipe::Packet() const& {
+            return ToOldPacket(*this);
+        }
 
- protected:
-  explicit PacketBase(std::shared_ptr<HolderBase> payload)
-      : payload_(std::move(payload)) {}
+        operator mediapipe::Packet() && {
+            return ToOldPacket(std::move(*this));
+        }
 
-  std::shared_ptr<HolderBase> payload_;
-  Timestamp timestamp_;
+        // Note: Consume is included for compatibility with the old Packet; however,
+        // it relies on shared_ptr.unique(), which is deprecated and is not guaranteed
+        // to give exact results.
+        template<typename T>
+        absl::StatusOr<std::unique_ptr<T>> Consume() {
+            // Using the implementation in the old Packet for now.
+            mediapipe::Packet old    = packet_internal::Create(std::move(payload_), timestamp_);
+            auto              result = old.Consume<T>();
+            if (!result.ok())
+                payload_ = packet_internal::GetHolderShared(std::move(old));
+            return result;
+        }
 
-  template <typename T>
-  friend PacketBase PacketBaseAdopting(const T* ptr);
-  friend PacketBase FromOldPacket(const mediapipe::Packet& op);
-  friend PacketBase FromOldPacket(mediapipe::Packet&& op);
-  friend mediapipe::Packet ToOldPacket(const PacketBase& p);
-  friend mediapipe::Packet ToOldPacket(PacketBase&& p);
-};
+    protected:
+        explicit PacketBase(std::shared_ptr<HolderBase> payload)
+            : payload_(std::move(payload)) { }
 
-PacketBase FromOldPacket(const mediapipe::Packet& op);
-PacketBase FromOldPacket(mediapipe::Packet&& op);
-mediapipe::Packet ToOldPacket(const PacketBase& p);
-mediapipe::Packet ToOldPacket(PacketBase&& p);
+        std::shared_ptr<HolderBase> payload_;
+        Timestamp                   timestamp_;
 
-template <typename T>
-inline const T& PacketBase::Get() const {
-  ABSL_CHECK(payload_);
-  packet_internal::Holder<T>* typed_payload = payload_->As<T>();
-  ABSL_CHECK(typed_payload) << absl::StrCat(
-      "The Packet stores \"", payload_->DebugTypeName(), "\", but \"",
-      MediaPipeTypeStringOrDemangled<T>(), "\" was requested.");
-  return typed_payload->data();
-}
+        template<typename T>
+        friend PacketBase        PacketBaseAdopting(const T* ptr);
+        friend PacketBase        FromOldPacket(const mediapipe::Packet& op);
+        friend PacketBase        FromOldPacket(mediapipe::Packet&& op);
+        friend mediapipe::Packet ToOldPacket(const PacketBase& p);
+        friend mediapipe::Packet ToOldPacket(PacketBase&& p);
+    };
 
-// This is used to indicate that the packet could be holding one of a set of
-// types, e.g. Packet<OneOf<A, B>>.
-//
-// A Packet<OneOf<T...>> has an interface similar to std::variant<T...>.
-// However, we cannot use std::variant directly, since it requires that the
-// contained object be stored in place within the variant.
-// Suppose we have a stream that accepts an Image or an ImageFrame, and it
-// receives a Packet<ImageFrame>. To present it as a
-// std::variant<Image, ImageFrame> we would have to move the ImageFrame into
-// the variant (or copy it), but that is not compatible with Packet's existing
-// ownership model.
-// We could have Get() return a std::variant<std::reference_wrapper<Image>,
-// std::reference_wrapper<ImageFrame>>, but that would just make user code more
-// convoluted.
-//
-// TODO: should we just use Packet<T...>?
-template <class... T>
-struct OneOf {};
+    PacketBase        FromOldPacket(const mediapipe::Packet& op);
+    PacketBase        FromOldPacket(mediapipe::Packet&& op);
+    mediapipe::Packet ToOldPacket(const PacketBase& p);
+    mediapipe::Packet ToOldPacket(PacketBase&& p);
 
-namespace internal {
+    template<typename T>
+    inline const T& PacketBase::Get() const {
+        ABSL_CHECK(payload_);
+        packet_internal::Holder<T>* typed_payload = payload_->As<T>();
+        ABSL_CHECK(typed_payload) << absl::StrCat("The Packet stores \"", payload_->DebugTypeName(), "\", but \"",
+                                                  MediaPipeTypeStringOrDemangled<T>(), "\" was requested.");
+        return typed_payload->data();
+    }
 
-template <class T>
-inline void CheckCompatibleType(const HolderBase& holder, internal::Wrap<T>) {
-  const packet_internal::Holder<T>* typed_payload = holder.As<T>();
-  ABSL_CHECK(typed_payload) << absl::StrCat(
-      "The Packet stores \"", holder.DebugTypeName(), "\", but \"",
-      MediaPipeTypeStringOrDemangled<T>(), "\" was requested.");
-  //  ABSL_CHECK(payload_->has_type<T>());
-}
+    // This is used to indicate that the packet could be holding one of a set of
+    // types, e.g. Packet<OneOf<A, B>>.
+    //
+    // A Packet<OneOf<T...>> has an interface similar to std::variant<T...>.
+    // However, we cannot use std::variant directly, since it requires that the
+    // contained object be stored in place within the variant.
+    // Suppose we have a stream that accepts an Image or an ImageFrame, and it
+    // receives a Packet<ImageFrame>. To present it as a
+    // std::variant<Image, ImageFrame> we would have to move the ImageFrame into
+    // the variant (or copy it), but that is not compatible with Packet's existing
+    // ownership model.
+    // We could have Get() return a std::variant<std::reference_wrapper<Image>,
+    // std::reference_wrapper<ImageFrame>>, but that would just make user code more
+    // convoluted.
+    //
+    // TODO: should we just use Packet<T...>?
+    template<class... T>
+    struct OneOf { };
 
-template <class... T>
-inline void CheckCompatibleType(const HolderBase& holder,
-                                internal::Wrap<OneOf<T...>>) {
-  bool compatible = (holder.As<T>() || ...);
-  ABSL_CHECK(compatible)
-      << "The Packet stores \"" << holder.DebugTypeName() << "\", but one of "
-      << absl::StrJoin(
-             {absl::StrCat("\"", MediaPipeTypeStringOrDemangled<T>(), "\"")...},
-             ", ")
-      << " was requested.";
-}
+    namespace internal {
 
-// TODO: remove usage of internal::Generic and simply use AnyType.
-using Generic = ::mediapipe::api2::AnyType;
+        template<class T>
+        inline void CheckCompatibleType(const HolderBase& holder, internal::Wrap<T>) {
+            const packet_internal::Holder<T>* typed_payload = holder.As<T>();
+            ABSL_CHECK(typed_payload) << absl::StrCat("The Packet stores \"", holder.DebugTypeName(), "\", but \"",
+                                                      MediaPipeTypeStringOrDemangled<T>(), "\" was requested.");
+            // ABSL_CHECK(payload_->has_type<T>());
+        }
 
-template <class V, class U>
-struct IsCompatibleType : std::false_type {};
-template <class V>
-struct IsCompatibleType<V, V> : std::true_type {};
-template <class V>
-struct IsCompatibleType<V, internal::Generic> : std::true_type {};
-template <class V, class... U>
-struct IsCompatibleType<V, OneOf<U...>>
-    : std::integral_constant<bool, (std::is_same_v<V, U> || ...)> {};
+        template<class... T>
+        inline void CheckCompatibleType(const HolderBase& holder, internal::Wrap<OneOf<T...>>) {
+            bool compatible = (holder.As<T>() || ...);
+            ABSL_CHECK(compatible) << "The Packet stores \"" << holder.DebugTypeName() << "\", but one of "
+                                   << absl::StrJoin({absl::StrCat("\"", MediaPipeTypeStringOrDemangled<T>(), "\"")...}, ", ")
+                                   << " was requested.";
+        }
 
-}  // namespace internal
+        // TODO: remove usage of internal::Generic and simply use AnyType.
+        using Generic = ::mediapipe::api2::AnyType;
 
-template <typename T>
-inline Packet<T> PacketBase::As() const {
-  if (!payload_) return Packet<T>().At(timestamp_);
-  internal::CheckCompatibleType(*payload_, internal::Wrap<T>{});
-  return Packet<T>(payload_).At(timestamp_);
-}
+        template<class V, class U>
+        struct IsCompatibleType : std::false_type { };
 
-template <>
-inline Packet<internal::Generic> PacketBase::As<internal::Generic>() const;
+        template<class V>
+        struct IsCompatibleType<V, V> : std::true_type { };
 
-template <typename T = internal::Generic>
-class Packet;
+        template<class V>
+        struct IsCompatibleType<V, internal::Generic> : std::true_type { };
+
+        template<class V, class... U>
+        struct IsCompatibleType<V, OneOf<U...>> : std::integral_constant<bool, (std::is_same_v<V, U> || ...)> { };
+
+    } // namespace internal
+
+    template<typename T>
+    inline Packet<T> PacketBase::As() const {
+        if (!payload_)
+            return Packet<T>().At(timestamp_);
+        internal::CheckCompatibleType(*payload_, internal::Wrap<T>{});
+        return Packet<T>(payload_).At(timestamp_);
+    }
+
+    template<>
+    inline Packet<internal::Generic> PacketBase::As<internal::Generic>() const;
+
+    template<typename T = internal::Generic>
+    class Packet;
 #if __cplusplus >= 201703L
-// Deduction guide to silence -Wctad-maybe-unsupported.
-explicit Packet() -> Packet<internal::Generic>;
-#endif  // C++17
+    // Deduction guide to silence -Wctad-maybe-unsupported.
+    explicit Packet() -> Packet<internal::Generic>;
+#endif // C++17
 
-template <>
-class Packet<internal::Generic> : public PacketBase {
- public:
-  Packet() = default;
+    template<>
+    class Packet<internal::Generic> : public PacketBase {
+    public:
+        Packet() = default;
 
-  Packet<internal::Generic> At(Timestamp timestamp) const&;
-  Packet<internal::Generic> At(Timestamp timestamp) &&;
+        Packet<internal::Generic> At(Timestamp timestamp) const&;
+        Packet<internal::Generic> At(Timestamp timestamp) &&;
 
- protected:
-  explicit Packet(std::shared_ptr<HolderBase> payload)
-      : PacketBase(std::move(payload)) {}
+    protected:
+        explicit Packet(std::shared_ptr<HolderBase> payload)
+            : PacketBase(std::move(payload)) { }
 
-  friend PacketBase;
-};
+        friend PacketBase;
+    };
 
-// Having Packet<T> subclass Packet<Generic> will require hiding some methods
-// like As. May be better not to subclass, and allow implicit conversion
-// instead.
-template <typename T>
-class Packet : public Packet<internal::Generic> {
- public:
-  Packet() = default;
+    // Having Packet<T> subclass Packet<Generic> will require hiding some methods
+    // like As. May be better not to subclass, and allow implicit conversion
+    // instead.
+    template<typename T>
+    class Packet : public Packet<internal::Generic> {
+    public:
+        Packet() = default;
 
-  Packet<T> At(Timestamp timestamp) const&;
-  Packet<T> At(Timestamp timestamp) &&;
+        Packet<T> At(Timestamp timestamp) const&;
+        Packet<T> At(Timestamp timestamp) &&;
 
-  const T& Get() const {
-    ABSL_CHECK(payload_);
-    packet_internal::Holder<T>* typed_payload = payload_->As<T>();
-    ABSL_CHECK(typed_payload);
-    return typed_payload->data();
-  }
-  const T& operator*() const { return Get(); }
-  const T* operator->() const { return &Get(); }
+        const T& Get() const {
+            ABSL_CHECK(payload_);
+            packet_internal::Holder<T>* typed_payload = payload_->As<T>();
+            ABSL_CHECK(typed_payload);
+            return typed_payload->data();
+        }
 
-  template <typename U, typename TT = T>
-  std::enable_if_t<!std::is_abstract_v<TT>, TT> GetOr(U&& v) const {
-    return IsEmpty() ? static_cast<T>(std::forward<U>(v)) : **this;
-  }
+        const T& operator*() const {
+            return Get();
+        }
 
-  // Note: Consume is included for compatibility with the old Packet; however,
-  // it relies on shared_ptr.unique(), which is deprecated and is not guaranteed
-  // to give exact results.
-  absl::StatusOr<std::unique_ptr<T>> Consume() {
-    return PacketBase::Consume<T>();
-  }
+        const T* operator->() const {
+            return &Get();
+        }
 
- private:
-  explicit Packet(std::shared_ptr<HolderBase> payload)
-      : Packet<internal::Generic>(std::move(payload)) {}
+        template<typename U, typename TT = T>
+        std::enable_if_t<!std::is_abstract_v<TT>, TT> GetOr(U&& v) const {
+            return IsEmpty() ? static_cast<T>(std::forward<U>(v)) : **this;
+        }
 
-  friend PacketBase;
-  template <typename U, typename... Args>
-  friend Packet<U> MakePacket(Args&&... args);
-  template <typename U>
-  friend Packet<U> PacketAdopting(const U* ptr);
-  template <typename U>
-  friend Packet<U> PacketAdopting(std::unique_ptr<U> ptr);
-};
+        // Note: Consume is included for compatibility with the old Packet; however,
+        // it relies on shared_ptr.unique(), which is deprecated and is not guaranteed
+        // to give exact results.
+        absl::StatusOr<std::unique_ptr<T>> Consume() {
+            return PacketBase::Consume<T>();
+        }
 
-namespace internal {
-template <class... F>
-struct Overload : F... {
-  using F::operator()...;
-};
-template <class... F>
-explicit Overload(F...) -> Overload<F...>;
+    private:
+        explicit Packet(std::shared_ptr<HolderBase> payload)
+            : Packet<internal::Generic>(std::move(payload)) { }
 
-template <class T, class... U>
-struct First {
-  using type = T;
-};
+        friend PacketBase;
+        template<typename U, typename... Args>
+        friend Packet<U> MakePacket(Args&&... args);
+        template<typename U>
+        friend Packet<U> PacketAdopting(const U* ptr);
+        template<typename U>
+        friend Packet<U> PacketAdopting(std::unique_ptr<U> ptr);
+    };
 
-template <class T>
-struct AddStatus {
-  using type = absl::StatusOr<T>;
-};
-template <class T>
-struct AddStatus<absl::StatusOr<T>> {
-  using type = absl::StatusOr<T>;
-};
-template <>
-struct AddStatus<absl::Status> {
-  using type = absl::Status;
-};
-template <>
-struct AddStatus<void> {
-  using type = absl::Status;
-};
+    namespace internal {
+        template<class... F>
+        struct Overload : F... {
+            using F::operator()...;
+        };
+        template<class... F>
+        explicit Overload(F...) -> Overload<F...>;
 
-template <class R, class F, class... A>
-struct CallAndAddStatusImpl {
-  typename AddStatus<R>::type operator()(const F& f, A&&... a) {
-    return f(std::forward<A>(a)...);
-  }
-};
-template <class F, class... A>
-struct CallAndAddStatusImpl<void, F, A...> {
-  absl::Status operator()(const F& f, A&&... a) {
-    f(std::forward<A>(a)...);
-    return {};
-  }
-};
+        template<class T, class... U>
+        struct First {
+            using type = T;
+        };
 
-template <class F, class... A>
-auto CallAndAddStatus(const F& f, A&&... a) {
-  return CallAndAddStatusImpl<absl::result_of_t<F(A...)>, F, A...>()(
-      f, std::forward<A>(a)...);
-}
+        template<class T>
+        struct AddStatus {
+            using type = absl::StatusOr<T>;
+        };
 
-}  // namespace internal
+        template<class T>
+        struct AddStatus<absl::StatusOr<T>> {
+            using type = absl::StatusOr<T>;
+        };
 
-template <class... T>
-class Packet<OneOf<T...>> : public PacketBase {
- public:
-  Packet() = default;
+        template<>
+        struct AddStatus<absl::Status> {
+            using type = absl::Status;
+        };
 
-  template <class U>
-  using AllowedType = std::enable_if_t<(std::is_same_v<U, T> || ...)>;
+        template<>
+        struct AddStatus<void> {
+            using type = absl::Status;
+        };
 
-  template <class U, class = AllowedType<U>>
-  Packet(const Packet<U>& p) : PacketBase(p) {}
-  template <class U, class = AllowedType<U>>
-  Packet<OneOf<T...>>& operator=(const Packet<U>& p) {
-    PacketBase::operator=(p);
-    return *this;
-  }
+        template<class R, class F, class... A>
+        struct CallAndAddStatusImpl {
+            typename AddStatus<R>::type operator()(const F& f, A&&... a) {
+                return f(std::forward<A>(a)...);
+            }
+        };
 
-  template <class U, class = AllowedType<U>>
-  Packet(Packet<U>&& p) : PacketBase(std::move(p)) {}
-  template <class U, class = AllowedType<U>>
-  Packet<OneOf<T...>>& operator=(Packet<U>&& p) {
-    PacketBase::operator=(std::move(p));
-    return *this;
-  }
+        template<class F, class... A>
+        struct CallAndAddStatusImpl<void, F, A...> {
+            absl::Status operator()(const F& f, A&&... a) {
+                f(std::forward<A>(a)...);
+                return {};
+            }
+        };
 
-  Packet<OneOf<T...>> At(Timestamp timestamp) const& {
-    return Packet<OneOf<T...>>(*this).At(timestamp);
-  }
-  Packet<OneOf<T...>> At(Timestamp timestamp) && {
-    timestamp_ = timestamp;
-    return std::move(*this);
-  }
+        template<class F, class... A>
+        auto CallAndAddStatus(const F& f, A&&... a) {
+            return CallAndAddStatusImpl<absl::result_of_t<F(A...)>, F, A...>()(f, std::forward<A>(a)...);
+        }
 
-  template <class U, class = AllowedType<U>>
-  const U& Get() const {
-    ABSL_CHECK(payload_);
-    packet_internal::Holder<U>* typed_payload = payload_->As<U>();
-    ABSL_CHECK(typed_payload);
-    return typed_payload->data();
-  }
+    } // namespace internal
 
-  template <class U, class = AllowedType<U>>
-  bool Has() const {
-    return payload_ && payload_->As<U>();
-  }
+    template<class... T>
+    class Packet<OneOf<T...>> : public PacketBase {
+    public:
+        Packet() = default;
 
-  template <class... F>
-  auto Visit(const F&... args) const {
-    ABSL_CHECK(payload_);
-    auto f = internal::Overload{args...};
-    using FirstT = typename internal::First<T...>::type;
-    using ResultType = absl::result_of_t<decltype(f)(const FirstT&)>;
-    static_assert(
-        (std::is_same_v<ResultType, absl::result_of_t<decltype(f)(const T&)>> &&
-         ...),
-        "All visitor overloads must have the same return type");
-    return Invoke<decltype(f), T...>(f);
-  }
+        template<class U>
+        using AllowedType = std::enable_if_t<(std::is_same_v<U, T> || ...)>;
 
-  // Note: Consume is included for compatibility with the old Packet; however,
-  // it relies on shared_ptr.unique(), which is deprecated and is not guaranteed
-  // to give exact results.
-  template <class U, class = AllowedType<U>>
-  absl::StatusOr<std::unique_ptr<U>> Consume() {
-    return PacketBase::Consume<U>();
-  }
+        template<class U, class = AllowedType<U>>
+        Packet(const Packet<U>& p)
+            : PacketBase(p) { }
 
-  template <class... F>
-  auto ConsumeAndVisit(const F&... args) {
-    ABSL_CHECK(payload_);
-    auto f = internal::Overload{args...};
-    using FirstT = typename internal::First<T...>::type;
-    using VisitorResultType =
-        absl::result_of_t<decltype(f)(std::unique_ptr<FirstT>)>;
-    static_assert(
-        (std::is_same_v<VisitorResultType,
-                        absl::result_of_t<decltype(f)(std::unique_ptr<T>)>> &&
-         ...),
-        "All visitor overloads must have the same return type");
-    using ResultType = typename internal::AddStatus<VisitorResultType>::type;
-    return InvokeConsuming<ResultType, decltype(f), T...>(f);
-  }
+        template<class U, class = AllowedType<U>>
+        Packet<OneOf<T...>>& operator=(const Packet<U>& p) {
+            PacketBase::operator=(p);
+            return *this;
+        }
 
- protected:
-  explicit Packet(std::shared_ptr<HolderBase> payload)
-      : PacketBase(std::move(payload)) {}
+        template<class U, class = AllowedType<U>>
+        Packet(Packet<U>&& p)
+            : PacketBase(std::move(p)) { }
 
-  friend PacketBase;
+        template<class U, class = AllowedType<U>>
+        Packet<OneOf<T...>>& operator=(Packet<U>&& p) {
+            PacketBase::operator=(std::move(p));
+            return *this;
+        }
 
- private:
-  template <class F, class U>
-  auto Invoke(const F& f) const {
-    return f(Get<U>());
-  }
+        Packet<OneOf<T...>> At(Timestamp timestamp) const& {
+            return Packet<OneOf<T...>>(*this).At(timestamp);
+        }
 
-  template <class F, class U, class V, class... W>
-  auto Invoke(const F& f) const {
-    return Has<U>() ? f(Get<U>()) : Invoke<F, V, W...>(f);
-  }
+        Packet<OneOf<T...>> At(Timestamp timestamp) && {
+            timestamp_ = timestamp;
+            return std::move(*this);
+        }
 
-  template <class R, class F, class U>
-  auto InvokeConsuming(const F& f) -> R {
-    auto maybe_value = Consume<U>();
-    if (maybe_value.ok())
-      return internal::CallAndAddStatus(f, std::move(maybe_value).value());
-    else
-      return maybe_value.status();
-  }
+        template<class U, class = AllowedType<U>>
+        const U& Get() const {
+            ABSL_CHECK(payload_);
+            packet_internal::Holder<U>* typed_payload = payload_->As<U>();
+            ABSL_CHECK(typed_payload);
+            return typed_payload->data();
+        }
 
-  template <class R, class F, class U, class V, class... W>
-  auto InvokeConsuming(const F& f) -> R {
-    return Has<U>() ? InvokeConsuming<R, F, U>(f)
-                    : InvokeConsuming<R, F, V, W...>(f);
-  }
-};
+        template<class U, class = AllowedType<U>>
+        bool Has() const {
+            return payload_ && payload_->As<U>();
+        }
 
-template <>
-inline Packet<internal::Generic> PacketBase::As<internal::Generic>() const {
-  if (!payload_) return Packet<internal::Generic>().At(timestamp_);
-  return Packet<internal::Generic>(payload_).At(timestamp_);
-}
+        template<class... F>
+        auto Visit(const F&... args) const {
+            ABSL_CHECK(payload_);
+            auto f           = internal::Overload{args...};
+            using FirstT     = typename internal::First<T...>::type;
+            using ResultType = absl::result_of_t<decltype(f)(const FirstT&)>;
+            static_assert((std::is_same_v<ResultType, absl::result_of_t<decltype(f)(const T&)>> && ...),
+                          "All visitor overloads must have the same return type");
+            return Invoke<decltype(f), T...>(f);
+        }
 
-inline PacketBase PacketBase::At(Timestamp timestamp) const& {
-  return PacketBase(*this).At(timestamp);
-}
+        // Note: Consume is included for compatibility with the old Packet; however,
+        // it relies on shared_ptr.unique(), which is deprecated and is not guaranteed
+        // to give exact results.
+        template<class U, class = AllowedType<U>>
+        absl::StatusOr<std::unique_ptr<U>> Consume() {
+            return PacketBase::Consume<U>();
+        }
 
-inline PacketBase PacketBase::At(Timestamp timestamp) && {
-  timestamp_ = timestamp;
-  return std::move(*this);
-}
+        template<class... F>
+        auto ConsumeAndVisit(const F&... args) {
+            ABSL_CHECK(payload_);
+            auto f                  = internal::Overload{args...};
+            using FirstT            = typename internal::First<T...>::type;
+            using VisitorResultType = absl::result_of_t<decltype(f)(std::unique_ptr<FirstT>)>;
+            static_assert((std::is_same_v<VisitorResultType, absl::result_of_t<decltype(f)(std::unique_ptr<T>)>> && ...),
+                          "All visitor overloads must have the same return type");
+            using ResultType = typename internal::AddStatus<VisitorResultType>::type;
+            return InvokeConsuming<ResultType, decltype(f), T...>(f);
+        }
 
-template <typename T>
-inline Packet<T> Packet<T>::At(Timestamp timestamp) const& {
-  return Packet<T>(*this).At(timestamp);
-}
+    protected:
+        explicit Packet(std::shared_ptr<HolderBase> payload)
+            : PacketBase(std::move(payload)) { }
 
-template <typename T>
-inline Packet<T> Packet<T>::At(Timestamp timestamp) && {
-  timestamp_ = timestamp;
-  return std::move(*this);
-}
+        friend PacketBase;
 
-inline Packet<internal::Generic> Packet<internal::Generic>::At(
-    Timestamp timestamp) const& {
-  return Packet<internal::Generic>(*this).At(timestamp);
-}
+    private:
+        template<class F, class U>
+        auto Invoke(const F& f) const {
+            return f(Get<U>());
+        }
 
-inline Packet<internal::Generic> Packet<internal::Generic>::At(
-    Timestamp timestamp) && {
-  timestamp_ = timestamp;
-  return std::move(*this);
-}
+        template<class F, class U, class V, class... W>
+        auto Invoke(const F& f) const {
+            return Has<U>() ? f(Get<U>()) : Invoke<F, V, W...>(f);
+        }
 
-template <typename T, typename... Args>
-Packet<T> MakePacket(Args&&... args) {
-  return Packet<T>(std::make_shared<packet_internal::Holder<T>>(
-      new T(std::forward<Args>(args)...)));
-}
+        template<class R, class F, class U>
+        auto InvokeConsuming(const F& f) -> R {
+            auto maybe_value = Consume<U>();
+            if (maybe_value.ok())
+                return internal::CallAndAddStatus(f, std::move(maybe_value).value());
+            else
+                return maybe_value.status();
+        }
 
-template <typename T>
-Packet<T> PacketAdopting(const T* ptr) {
-  return Packet<T>(std::make_shared<packet_internal::Holder<T>>(ptr));
-}
+        template<class R, class F, class U, class V, class... W>
+        auto InvokeConsuming(const F& f) -> R {
+            return Has<U>() ? InvokeConsuming<R, F, U>(f) : InvokeConsuming<R, F, V, W...>(f);
+        }
+    };
 
-template <typename T>
-Packet<T> PacketAdopting(std::unique_ptr<T> ptr) {
-  return Packet<T>(std::make_shared<packet_internal::Holder<T>>(ptr.release()));
-}
+    template<>
+    inline Packet<internal::Generic> PacketBase::As<internal::Generic>() const {
+        if (!payload_)
+            return Packet<internal::Generic>().At(timestamp_);
+        return Packet<internal::Generic>(payload_).At(timestamp_);
+    }
 
-}  // namespace api2
-}  // namespace mediapipe
+    inline PacketBase PacketBase::At(Timestamp timestamp) const& {
+        return PacketBase(*this).At(timestamp);
+    }
 
-#endif  // MEDIAPIPE_FRAMEWORK_API2_PACKET_H_
+    inline PacketBase PacketBase::At(Timestamp timestamp) && {
+        timestamp_ = timestamp;
+        return std::move(*this);
+    }
+
+    template<typename T>
+    inline Packet<T> Packet<T>::At(Timestamp timestamp) const& {
+        return Packet<T>(*this).At(timestamp);
+    }
+
+    template<typename T>
+    inline Packet<T> Packet<T>::At(Timestamp timestamp) && {
+        timestamp_ = timestamp;
+        return std::move(*this);
+    }
+
+    inline Packet<internal::Generic> Packet<internal::Generic>::At(Timestamp timestamp) const& {
+        return Packet<internal::Generic>(*this).At(timestamp);
+    }
+
+    inline Packet<internal::Generic> Packet<internal::Generic>::At(Timestamp timestamp) && {
+        timestamp_ = timestamp;
+        return std::move(*this);
+    }
+
+    template<typename T, typename... Args>
+    Packet<T> MakePacket(Args&&... args) {
+        return Packet<T>(std::make_shared<packet_internal::Holder<T>>(new T(std::forward<Args>(args)...)));
+    }
+
+    template<typename T>
+    Packet<T> PacketAdopting(const T* ptr) {
+        return Packet<T>(std::make_shared<packet_internal::Holder<T>>(ptr));
+    }
+
+    template<typename T>
+    Packet<T> PacketAdopting(std::unique_ptr<T> ptr) {
+        return Packet<T>(std::make_shared<packet_internal::Holder<T>>(ptr.release()));
+    }
+
+} // namespace api2
+} // namespace mediapipe
+
+#endif // MEDIAPIPE_FRAMEWORK_API2_PACKET_H_

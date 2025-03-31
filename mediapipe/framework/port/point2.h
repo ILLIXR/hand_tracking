@@ -17,4 +17,4 @@
 
 #include "mediapipe/framework/deps/point2.h"
 
-#endif  // MEDIAPIPE_PORT_POINT2_H_
+#endif // MEDIAPIPE_PORT_POINT2_H_

@@ -17,4 +17,4 @@
 
 #include "mediapipe/framework/deps/numbers.h"
 
-#endif  // MEDIAPIPE_PORT_NUMBERS_H_
+#endif // MEDIAPIPE_PORT_NUMBERS_H_

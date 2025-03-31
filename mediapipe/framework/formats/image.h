@@ -15,9 +15,6 @@
 #ifndef MEDIAPIPE_FRAMEWORK_FORMATS_IMAGE_H_
 #define MEDIAPIPE_FRAMEWORK_FORMATS_IMAGE_H_
 
-#include <cstdint>
-#include <utility>
-
 #include "absl/synchronization/mutex.h"
 #include "mediapipe/framework/formats/image_format.pb.h"
 #include "mediapipe/framework/formats/image_frame.h"
@@ -27,20 +24,23 @@
 #include "mediapipe/gpu/gpu_buffer_storage_image_frame.h"
 #include "mediapipe/gpu/image_frame_view.h"
 
+#include <cstdint>
+#include <utility>
+
 #if !MEDIAPIPE_DISABLE_GPU
 
-#if defined(__APPLE__)
-#include <CoreVideo/CoreVideo.h>
+    #if defined(__APPLE__)
+        #include "mediapipe/objc/CFHolder.h"
+        #include "mediapipe/objc/util.h"
 
-#include "mediapipe/objc/CFHolder.h"
-#include "mediapipe/objc/util.h"
-#endif  // defined(__APPLE__)
+        #include <CoreVideo/CoreVideo.h>
+    #endif // defined(__APPLE__)
 
-#if !MEDIAPIPE_GPU_BUFFER_USE_CV_PIXEL_BUFFER  // OSX, use GL textures.
-#include "mediapipe/gpu/gl_texture_buffer.h"
-#endif  // MEDIAPIPE_GPU_BUFFER_USE_CV_PIXEL_BUFFER
+    #if !MEDIAPIPE_GPU_BUFFER_USE_CV_PIXEL_BUFFER // OSX, use GL textures.
+        #include "mediapipe/gpu/gl_texture_buffer.h"
+    #endif // MEDIAPIPE_GPU_BUFFER_USE_CV_PIXEL_BUFFER
 
-#endif  // !MEDIAPIPE_DISABLE_GPU
+#endif // !MEDIAPIPE_DISABLE_GPU
 
 namespace mediapipe {
 
@@ -59,145 +59,164 @@ using ImageFrameSharedPtr = std::shared_ptr<ImageFrame>;
 // TODO Refactor Image to use 'Impl' class delegation system.
 //
 class Image {
- public:
-  // Default constructor creates invalid object.
-  Image() = default;
+public:
+    // Default constructor creates invalid object.
+    Image() = default;
 
-  // Copy and move constructors and assignment operators are supported.
-  Image(const Image& other) = default;
-  Image(Image&& other) = default;
-  Image& operator=(const Image& other) = default;
-  Image& operator=(Image&& other) = default;
+    // Copy and move constructors and assignment operators are supported.
+    Image(const Image& other)            = default;
+    Image(Image&& other)                 = default;
+    Image& operator=(const Image& other) = default;
+    Image& operator=(Image&& other)      = default;
 
-  // Creates an Image representing the same image content as the ImageFrame
-  // the input shared pointer points to, and retaining shared ownership.
-  explicit Image(ImageFrameSharedPtr image_frame)
-      : gpu_buffer_(std::make_shared<GpuBufferStorageImageFrame>(
-            std::move(image_frame))) {
-    use_gpu_ = false;
-  }
+    // Creates an Image representing the same image content as the ImageFrame
+    // the input shared pointer points to, and retaining shared ownership.
+    explicit Image(ImageFrameSharedPtr image_frame)
+        : gpu_buffer_(std::make_shared<GpuBufferStorageImageFrame>(std::move(image_frame))) {
+        use_gpu_ = false;
+    }
 
-  // CPU getters.
-  ImageFrameSharedPtr GetImageFrameSharedPtr() const {
-    // Write view currently because the return type does not point to const IF.
-    return gpu_buffer_.GetWriteView<ImageFrame>();
-  }
+    // CPU getters.
+    ImageFrameSharedPtr GetImageFrameSharedPtr() const {
+        // Write view currently because the return type does not point to const IF.
+        return gpu_buffer_.GetWriteView<ImageFrame>();
+    }
 
-  // Creates an Image representing the same image content as the input GPU
-  // buffer in platform-specific representations.
+    // Creates an Image representing the same image content as the input GPU
+    // buffer in platform-specific representations.
 #if !MEDIAPIPE_DISABLE_GPU
-#if MEDIAPIPE_GPU_BUFFER_USE_CV_PIXEL_BUFFER
-  explicit Image(CFHolder<CVPixelBufferRef> pixel_buffer)
-      : Image(mediapipe::GpuBuffer(std::move(pixel_buffer))) {}
-  explicit Image(CVPixelBufferRef pixel_buffer)
-      : Image(mediapipe::GpuBuffer(pixel_buffer)) {}
-#else
-  explicit Image(mediapipe::GlTextureBufferSharedPtr texture_buffer)
-      : Image(mediapipe::GpuBuffer(std::move(texture_buffer))) {}
-#endif  // MEDIAPIPE_GPU_BUFFER_USE_CV_PIXEL_BUFFER
-  explicit Image(mediapipe::GpuBuffer gpu_buffer) {
-    use_gpu_ = true;
-    gpu_buffer_ = gpu_buffer;
-  }
+    #if MEDIAPIPE_GPU_BUFFER_USE_CV_PIXEL_BUFFER
+    explicit Image(CFHolder<CVPixelBufferRef> pixel_buffer)
+        : Image(mediapipe::GpuBuffer(std::move(pixel_buffer))) { }
 
-  // GPU getters.
-#if MEDIAPIPE_GPU_BUFFER_USE_CV_PIXEL_BUFFER
-  CVPixelBufferRef GetCVPixelBufferRef() const {
-    if (use_gpu_ == false) ConvertToGpu();
-    return mediapipe::GetCVPixelBufferRef(gpu_buffer_);
-  }
-#else
-  mediapipe::GlTextureBufferSharedPtr GetGlTextureBufferSharedPtr() const {
-    if (use_gpu_ == false) ConvertToGpu();
-    return gpu_buffer_.internal_storage<mediapipe::GlTextureBuffer>();
-  }
-#endif  // MEDIAPIPE_GPU_BUFFER_USE_CV_PIXEL_BUFFER
-#endif  // !MEDIAPIPE_DISABLE_GPU
+    explicit Image(CVPixelBufferRef pixel_buffer)
+        : Image(mediapipe::GpuBuffer(pixel_buffer)) { }
+    #else
+    explicit Image(mediapipe::GlTextureBufferSharedPtr texture_buffer)
+        : Image(mediapipe::GpuBuffer(std::move(texture_buffer))) { }
+    #endif // MEDIAPIPE_GPU_BUFFER_USE_CV_PIXEL_BUFFER
+    explicit Image(mediapipe::GpuBuffer gpu_buffer) {
+        use_gpu_    = true;
+        gpu_buffer_ = gpu_buffer;
+    }
 
-  // Provides access to the underlying GpuBuffer storage.
-  // Automatically uploads from CPU to GPU if needed and requested through the
-  // `upload_to_gpu` argument.
-  const mediapipe::GpuBuffer GetGpuBuffer(bool upload_to_gpu = true) const {
-    if (!use_gpu_ && upload_to_gpu) ConvertToGpu();
-    return gpu_buffer_;
-  }
+        // GPU getters.
+    #if MEDIAPIPE_GPU_BUFFER_USE_CV_PIXEL_BUFFER
+    CVPixelBufferRef GetCVPixelBufferRef() const {
+        if (use_gpu_ == false)
+            ConvertToGpu();
+        return mediapipe::GetCVPixelBufferRef(gpu_buffer_);
+    }
+    #else
+    mediapipe::GlTextureBufferSharedPtr GetGlTextureBufferSharedPtr() const {
+        if (use_gpu_ == false)
+            ConvertToGpu();
+        return gpu_buffer_.internal_storage<mediapipe::GlTextureBuffer>();
+    }
+    #endif // MEDIAPIPE_GPU_BUFFER_USE_CV_PIXEL_BUFFER
+#endif     // !MEDIAPIPE_DISABLE_GPU
 
-  // Returns image properties.
-  int width() const;
-  int height() const;
-  int channels() const;
-  int step() const;  // Row size in bytes.
-  bool UsesGpu() const { return use_gpu_; }
-  ImageFormat::Format image_format() const;
-  mediapipe::GpuBufferFormat format() const;
+    // Provides access to the underlying GpuBuffer storage.
+    // Automatically uploads from CPU to GPU if needed and requested through the
+    // `upload_to_gpu` argument.
+    const mediapipe::GpuBuffer GetGpuBuffer(bool upload_to_gpu = true) const {
+        if (!use_gpu_ && upload_to_gpu)
+            ConvertToGpu();
+        return gpu_buffer_;
+    }
 
-  // Converts to true iff valid.
-  explicit operator bool() const { return operator!=(nullptr); }
+    // Returns image properties.
+    int width() const;
+    int height() const;
+    int channels() const;
+    int step() const; // Row size in bytes.
 
-  bool operator==(const Image& other) const;
-  bool operator!=(const Image& other) const { return !operator==(other); }
+    bool UsesGpu() const {
+        return use_gpu_;
+    }
 
-  // Allow comparison with nullptr.
-  bool operator==(std::nullptr_t other) const;
-  bool operator!=(std::nullptr_t other) const { return !operator==(other); }
+    ImageFormat::Format        image_format() const;
+    mediapipe::GpuBufferFormat format() const;
 
-  // Allow assignment from nullptr.
-  Image& operator=(std::nullptr_t other);
+    // Converts to true iff valid.
+    explicit operator bool() const {
+        return operator!=(nullptr);
+    }
 
-  // Lock/Unlock pixel data.
-  // Should be used exclusively by the PixelLock helper class.
-  void LockPixels() const ABSL_EXCLUSIVE_LOCK_FUNCTION();
-  void UnlockPixels() const ABSL_UNLOCK_FUNCTION();
+    bool operator==(const Image& other) const;
 
-  // Helper utility for GPU->CPU data transfer.
-  bool ConvertToCpu() const;
-  // Helper utility for CPU->GPU data transfer.
-  // *Requires a valid OpenGL context to be active before calling!*
-  bool ConvertToGpu() const;
+    bool operator!=(const Image& other) const {
+        return !operator==(other);
+    }
 
- private:
-  mutable mediapipe::GpuBuffer gpu_buffer_;
-  mutable bool use_gpu_ = false;
+    // Allow comparison with nullptr.
+    bool operator==(std::nullptr_t other) const;
+
+    bool operator!=(std::nullptr_t other) const {
+        return !operator==(other);
+    }
+
+    // Allow assignment from nullptr.
+    Image& operator=(std::nullptr_t other);
+
+    // Lock/Unlock pixel data.
+    // Should be used exclusively by the PixelLock helper class.
+    void LockPixels() const ABSL_EXCLUSIVE_LOCK_FUNCTION();
+    void UnlockPixels() const ABSL_UNLOCK_FUNCTION();
+
+    // Helper utility for GPU->CPU data transfer.
+    bool ConvertToCpu() const;
+    // Helper utility for CPU->GPU data transfer.
+    // *Requires a valid OpenGL context to be active before calling!*
+    bool ConvertToGpu() const;
+
+private:
+    mutable mediapipe::GpuBuffer gpu_buffer_;
+    mutable bool                 use_gpu_ = false;
 };
 
-inline int Image::width() const { return gpu_buffer_.width(); }
+inline int Image::width() const {
+    return gpu_buffer_.width();
+}
 
-inline int Image::height() const { return gpu_buffer_.height(); }
+inline int Image::height() const {
+    return gpu_buffer_.height();
+}
 
 inline ImageFormat::Format Image::image_format() const {
-  return mediapipe::ImageFormatForGpuBufferFormat(gpu_buffer_.format());
+    return mediapipe::ImageFormatForGpuBufferFormat(gpu_buffer_.format());
 }
 
 inline mediapipe::GpuBufferFormat Image::format() const {
-  return gpu_buffer_.format();
+    return gpu_buffer_.format();
 }
 
 inline bool Image::operator==(std::nullptr_t other) const {
-  return gpu_buffer_ == other;
+    return gpu_buffer_ == other;
 }
 
 inline bool Image::operator==(const Image& other) const {
-  return gpu_buffer_ == other.gpu_buffer_;
+    return gpu_buffer_ == other.gpu_buffer_;
 }
 
 inline Image& Image::operator=(std::nullptr_t other) {
-  gpu_buffer_ = other;
-  return *this;
+    gpu_buffer_ = other;
+    return *this;
 }
 
 inline int Image::channels() const {
-  return ImageFrame::NumberOfChannelsForFormat(image_format());
+    return ImageFrame::NumberOfChannelsForFormat(image_format());
 }
 
 inline int Image::step() const {
-  return gpu_buffer_.GetReadView<ImageFrame>()->WidthStep();
+    return gpu_buffer_.GetReadView<ImageFrame>()->WidthStep();
 }
 
 inline void Image::LockPixels() const {
-  ConvertToCpu();  // Download data if necessary.
+    ConvertToCpu(); // Download data if necessary.
 }
 
-inline void Image::UnlockPixels() const {}
+inline void Image::UnlockPixels() const { }
 
 // Helper class for getting access to Image CPU data,
 // and handles automatically locking/unlocking CPU data access.
@@ -216,57 +235,65 @@ inline void Image::UnlockPixels() const {}
 // Note: should be used in separate minimal scope where possible; see example^.
 //
 class PixelReadLock {
- public:
-  explicit PixelReadLock(const Image& image) {
-    buffer_ = &image;
-    if (buffer_) {
-      buffer_->LockPixels();
-      frame_ = buffer_->GetImageFrameSharedPtr();
+public:
+    explicit PixelReadLock(const Image& image) {
+        buffer_ = &image;
+        if (buffer_) {
+            buffer_->LockPixels();
+            frame_ = buffer_->GetImageFrameSharedPtr();
+        }
     }
-  }
-  ~PixelReadLock() {
-    if (buffer_) buffer_->UnlockPixels();
-  }
-  PixelReadLock(const PixelReadLock&) = delete;
 
-  const uint8_t* Pixels() const {
-    if (frame_) return frame_->PixelData();
-    return nullptr;
-  }
+    ~PixelReadLock() {
+        if (buffer_)
+            buffer_->UnlockPixels();
+    }
 
-  PixelReadLock& operator=(const PixelReadLock&) = delete;
+    PixelReadLock(const PixelReadLock&) = delete;
 
- private:
-  const Image* buffer_ = nullptr;
-  std::shared_ptr<ImageFrame> frame_;
+    const uint8_t* Pixels() const {
+        if (frame_)
+            return frame_->PixelData();
+        return nullptr;
+    }
+
+    PixelReadLock& operator=(const PixelReadLock&) = delete;
+
+private:
+    const Image*                buffer_ = nullptr;
+    std::shared_ptr<ImageFrame> frame_;
 };
 
 class PixelWriteLock {
- public:
-  explicit PixelWriteLock(Image* image) {
-    buffer_ = image;
-    if (buffer_) {
-      buffer_->LockPixels();
-      frame_ = buffer_->GetImageFrameSharedPtr();
+public:
+    explicit PixelWriteLock(Image* image) {
+        buffer_ = image;
+        if (buffer_) {
+            buffer_->LockPixels();
+            frame_ = buffer_->GetImageFrameSharedPtr();
+        }
     }
-  }
-  ~PixelWriteLock() {
-    if (buffer_) buffer_->UnlockPixels();
-  }
-  PixelWriteLock(const PixelWriteLock&) = delete;
 
-  uint8_t* Pixels() {
-    if (frame_) return frame_->MutablePixelData();
-    return nullptr;
-  }
+    ~PixelWriteLock() {
+        if (buffer_)
+            buffer_->UnlockPixels();
+    }
 
-  PixelWriteLock& operator=(const PixelWriteLock&) = delete;
+    PixelWriteLock(const PixelWriteLock&) = delete;
 
- private:
-  const Image* buffer_ = nullptr;
-  std::shared_ptr<ImageFrame> frame_;
+    uint8_t* Pixels() {
+        if (frame_)
+            return frame_->MutablePixelData();
+        return nullptr;
+    }
+
+    PixelWriteLock& operator=(const PixelWriteLock&) = delete;
+
+private:
+    const Image*                buffer_ = nullptr;
+    std::shared_ptr<ImageFrame> frame_;
 };
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_FRAMEWORK_FORMATS_IMAGE_H_
+#endif // MEDIAPIPE_FRAMEWORK_FORMATS_IMAGE_H_

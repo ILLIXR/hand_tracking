@@ -12,8 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include <memory>
-
 #include "mediapipe/calculators/tflite/tflite_custom_op_resolver_calculator.pb.h"
 #include "mediapipe/framework/api2/packet.h"
 #include "mediapipe/framework/calculator_framework.h"
@@ -22,11 +20,13 @@
 #include "mediapipe/util/tflite/op_resolver.h"
 #include "tensorflow/lite/core/api/op_resolver.h"
 
+#include <memory>
+
 namespace mediapipe {
 
 namespace {
-constexpr char kOpResolverTag[] = "OP_RESOLVER";
-}  // namespace
+    constexpr char kOpResolverTag[] = "OP_RESOLVER";
+} // namespace
 
 // This calculator creates a custom op resolver as a side packet that can be
 // used in TfLiteInferenceCalculator. Current custom op resolver supports the
@@ -59,47 +59,44 @@ constexpr char kOpResolverTag[] = "OP_RESOLVER";
 //   }
 // }
 class TfLiteCustomOpResolverCalculator : public CalculatorBase {
- public:
-  static absl::Status GetContract(CalculatorContract* cc) {
-    if (cc->OutputSidePackets().HasTag(kOpResolverTag)) {
-      cc->OutputSidePackets().Tag(kOpResolverTag).Set<tflite::OpResolver>();
-    } else {
-      cc->OutputSidePackets()
-          .Index(0)
-          .Set<tflite::ops::builtin::BuiltinOpResolver>();
-    }
-    return absl::OkStatus();
-  }
-
-  absl::Status Open(CalculatorContext* cc) override {
-    cc->SetOffset(TimestampDiff(0));
-
-    const TfLiteCustomOpResolverCalculatorOptions& options =
-        cc->Options<TfLiteCustomOpResolverCalculatorOptions>();
-
-    std::unique_ptr<tflite::ops::builtin::BuiltinOpResolver> op_resolver;
-    if (options.use_gpu()) {
-      op_resolver = absl::make_unique<mediapipe::OpResolver>();
-    } else {
-      op_resolver = absl::make_unique<mediapipe::CpuOpResolver>();
+public:
+    static absl::Status GetContract(CalculatorContract* cc) {
+        if (cc->OutputSidePackets().HasTag(kOpResolverTag)) {
+            cc->OutputSidePackets().Tag(kOpResolverTag).Set<tflite::OpResolver>();
+        } else {
+            cc->OutputSidePackets().Index(0).Set<tflite::ops::builtin::BuiltinOpResolver>();
+        }
+        return absl::OkStatus();
     }
 
-    if (cc->OutputSidePackets().HasTag(kOpResolverTag)) {
-      cc->OutputSidePackets()
-          .Tag(kOpResolverTag)
-          .Set(mediapipe::api2::PacketAdopting<tflite::OpResolver>(
-              std::move(op_resolver)));
-    } else {
-      cc->OutputSidePackets().Index(0).Set(Adopt(op_resolver.release()));
-    }
-    return absl::OkStatus();
-  }
+    absl::Status Open(CalculatorContext* cc) override {
+        cc->SetOffset(TimestampDiff(0));
 
-  absl::Status Process(CalculatorContext* cc) override {
-      UNUSED(cc);
-    return absl::OkStatus();
-  }
+        const TfLiteCustomOpResolverCalculatorOptions& options = cc->Options<TfLiteCustomOpResolverCalculatorOptions>();
+
+        std::unique_ptr<tflite::ops::builtin::BuiltinOpResolver> op_resolver;
+        if (options.use_gpu()) {
+            op_resolver = absl::make_unique<mediapipe::OpResolver>();
+        } else {
+            op_resolver = absl::make_unique<mediapipe::CpuOpResolver>();
+        }
+
+        if (cc->OutputSidePackets().HasTag(kOpResolverTag)) {
+            cc->OutputSidePackets()
+                .Tag(kOpResolverTag)
+                .Set(mediapipe::api2::PacketAdopting<tflite::OpResolver>(std::move(op_resolver)));
+        } else {
+            cc->OutputSidePackets().Index(0).Set(Adopt(op_resolver.release()));
+        }
+        return absl::OkStatus();
+    }
+
+    absl::Status Process(CalculatorContext* cc) override {
+        UNUSED(cc);
+        return absl::OkStatus();
+    }
 };
+
 REGISTER_CALCULATOR(TfLiteCustomOpResolverCalculator);
 
-}  // namespace mediapipe
+} // namespace mediapipe

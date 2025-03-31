@@ -21,35 +21,39 @@ namespace mediapipe {
 
 namespace {
 
-// -----------------------------------------------------------------
-// RealTimeClock
-//
-// This class is thread-safe.
-class RealTimeClock : public Clock {
- public:
-  virtual ~RealTimeClock() {
-    ABSL_LOG(FATAL) << "RealTimeClock should never be destroyed";
-  }
+    // -----------------------------------------------------------------
+    // RealTimeClock
+    //
+    // This class is thread-safe.
+    class RealTimeClock : public Clock {
+    public:
+        virtual ~RealTimeClock() {
+            ABSL_LOG(FATAL) << "RealTimeClock should never be destroyed";
+        }
 
-  absl::Time TimeNow() override { return absl::Now(); }
+        absl::Time TimeNow() override {
+            return absl::Now();
+        }
 
-  void Sleep(absl::Duration d) override { absl::SleepFor(d); }
+        void Sleep(absl::Duration d) override {
+            absl::SleepFor(d);
+        }
 
-  void SleepUntil(absl::Time wakeup_time) override {
-    absl::Duration d = wakeup_time - TimeNow();
-    if (d > absl::ZeroDuration()) {
-      Sleep(d);
-    }
-  }
-};
+        void SleepUntil(absl::Time wakeup_time) override {
+            absl::Duration d = wakeup_time - TimeNow();
+            if (d > absl::ZeroDuration()) {
+                Sleep(d);
+            }
+        }
+    };
 
-}  // namespace
+} // namespace
 
-Clock::~Clock() {}
+Clock::~Clock() { }
 
 Clock* Clock::RealClock() {
-  static RealTimeClock* rtclock = new RealTimeClock;
-  return rtclock;
+    static RealTimeClock* rtclock = new RealTimeClock;
+    return rtclock;
 }
 
-}  // namespace mediapipe
+} // namespace mediapipe

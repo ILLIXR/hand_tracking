@@ -15,10 +15,6 @@
 #ifndef MEDIAPIPE_CALCULATORS_TENSOR_INFERENCE_CALCULATOR_IO_MAP_H_
 #define MEDIAPIPE_CALCULATORS_TENSOR_INFERENCE_CALCULATOR_IO_MAP_H_
 
-#include <string>
-#include <utility>
-#include <vector>
-
 #include "absl/container/flat_hash_map.h"
 #include "absl/status/status.h"
 #include "absl/status/statusor.h"
@@ -29,50 +25,48 @@
 #include "tensorflow/lite/interpreter.h"
 #include "tensorflow/lite/model_builder.h"
 
+#include <string>
+#include <utility>
+#include <vector>
+
 namespace mediapipe {
 // Maps signature names to a list of input and output tensor names in the
 // order in which they are expected by the model.
-using InputOutputTensorNames =
-    absl::flat_hash_map<SignatureName, SignatureInputOutputTensorNames>;
+using InputOutputTensorNames = absl::flat_hash_map<SignatureName, SignatureInputOutputTensorNames>;
 
 class InferenceIoMapper {
- public:
-  // Extracts the input and output tensor names in the order they are expected
-  // by the model from the provided interpreter. This method can be used by
-  // InferenceCalculator implementations to initialize tensor name-based I/O
-  // remapping.
-  static absl::StatusOr<InputOutputTensorNames>
-  GetInputOutputTensorNamesFromInterpreter(
-      const tflite::Interpreter& interpreter);
+public:
+    // Extracts the input and output tensor names in the order they are expected
+    // by the model from the provided interpreter. This method can be used by
+    // InferenceCalculator implementations to initialize tensor name-based I/O
+    // remapping.
+    static absl::StatusOr<InputOutputTensorNames>
+    GetInputOutputTensorNamesFromInterpreter(const tflite::Interpreter& interpreter);
 
-  // Extracts the input and output tensor names in the order they are expected
-  // by the model from the provided flatbuffer. This method can be used by
-  // InferenceCalculator implementations to initialize tensor name-based I/O
-  // remapping.
-  static absl::StatusOr<InputOutputTensorNames>
-  GetInputOutputTensorNamesFromModel(const tflite::FlatBufferModel& flatbuffer,
-                                     const tflite::OpResolver& op_resolver);
+    // Extracts the input and output tensor names in the order they are expected
+    // by the model from the provided flatbuffer. This method can be used by
+    // InferenceCalculator implementations to initialize tensor name-based I/O
+    // remapping.
+    static absl::StatusOr<InputOutputTensorNames> GetInputOutputTensorNamesFromModel(const tflite::FlatBufferModel& flatbuffer,
+                                                                                     const tflite::OpResolver& op_resolver);
 
-  // Update the internal mapping of input and output tensors according to the
-  // provided initialized tflite interpreter.
-  absl::Status UpdateIoMap(
-      const mediapipe::InferenceCalculatorOptions::InputOutputConfig& io_config,
-      const InputOutputTensorNames& input_output_tensor_names);
+    // Update the internal mapping of input and output tensors according to the
+    // provided initialized tflite interpreter.
+    absl::Status UpdateIoMap(const mediapipe::InferenceCalculatorOptions::InputOutputConfig& io_config,
+                             const InputOutputTensorNames&                                   input_output_tensor_names);
 
-  // Reorders input tensors according to the provided mappings.
-  absl::StatusOr<TensorSpan> RemapInputTensors(
-      const TensorSpan& unmapped_tensors);
+    // Reorders input tensors according to the provided mappings.
+    absl::StatusOr<TensorSpan> RemapInputTensors(const TensorSpan& unmapped_tensors);
 
-  // Reorders output tensors according to the provided mappings.
-  absl::StatusOr<std::vector<Tensor>> RemapOutputTensors(
-      std::vector<Tensor>&& unmapped_tensors);
+    // Reorders output tensors according to the provided mappings.
+    absl::StatusOr<std::vector<Tensor>> RemapOutputTensors(std::vector<Tensor>&& unmapped_tensors);
 
- private:
-  int num_feedback_tensors_ = 0;
-  std::vector<int> input_tensor_indices_;
-  std::vector<int> output_tensor_indices_;
+private:
+    int              num_feedback_tensors_ = 0;
+    std::vector<int> input_tensor_indices_;
+    std::vector<int> output_tensor_indices_;
 };
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_CALCULATORS_TENSOR_INFERENCE_CALCULATOR_IO_MAP_H_
+#endif // MEDIAPIPE_CALCULATORS_TENSOR_INFERENCE_CALCULATOR_IO_MAP_H_

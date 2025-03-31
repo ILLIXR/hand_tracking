@@ -28,27 +28,21 @@
 
 namespace mediapipe {
 
-void MediaPipe_RegisterTfLiteOpResolver(tflite::MutableOpResolver *resolver) {
-  ABSL_CHECK(resolver != nullptr);
-  resolver->AddCustom("MaxPoolingWithArgmax2D",
-                      tflite_operations::RegisterMaxPoolingWithArgmax2D());
-  resolver->AddCustom("MaxUnpooling2D",
-                      tflite_operations::RegisterMaxUnpooling2D());
-  resolver->AddCustom("Convolution2DTransposeBias",
-                      tflite_operations::RegisterConvolution2DTransposeBias());
+void MediaPipe_RegisterTfLiteOpResolver(tflite::MutableOpResolver* resolver) {
+    ABSL_CHECK(resolver != nullptr);
+    resolver->AddCustom("MaxPoolingWithArgmax2D", tflite_operations::RegisterMaxPoolingWithArgmax2D());
+    resolver->AddCustom("MaxUnpooling2D", tflite_operations::RegisterMaxUnpooling2D());
+    resolver->AddCustom("Convolution2DTransposeBias", tflite_operations::RegisterConvolution2DTransposeBias());
 
-  resolver->AddCustom("TransformTensorBilinear",
-                      tflite_operations::RegisterTransformTensorBilinearV2(),
-                      /*version=*/2);
-  resolver->AddCustom("TransformLandmarks",
-                      tflite_operations::RegisterTransformLandmarksV2(),
-                      /*version=*/2);
-  resolver->AddCustom("Landmarks2TransformMatrix",
-                      tflite_operations::RegisterLandmarksToTransformMatrixV2(),
-                      /*version=*/2);
+    resolver->AddCustom("TransformTensorBilinear", tflite_operations::RegisterTransformTensorBilinearV2(),
+                        /*version=*/2);
+    resolver->AddCustom("TransformLandmarks", tflite_operations::RegisterTransformLandmarksV2(),
+                        /*version=*/2);
+    resolver->AddCustom("Landmarks2TransformMatrix", tflite_operations::RegisterLandmarksToTransformMatrixV2(),
+                        /*version=*/2);
 
-  resolver->AddCustom("Resampler", tflite_operations::RegisterResampler(),
-                      /*version=*/1);
+    resolver->AddCustom("Resampler", tflite_operations::RegisterResampler(),
+                        /*version=*/1);
 }
 
-}  // namespace mediapipe
+} // namespace mediapipe

@@ -17,4 +17,4 @@
 
 #include "mediapipe/framework/deps/aligned_malloc_and_free.h"
 
-#endif  // MEDIAPIPE_PORT_ALIGNED_MALLOC_AND_FREE_H_
+#endif // MEDIAPIPE_PORT_ALIGNED_MALLOC_AND_FREE_H_

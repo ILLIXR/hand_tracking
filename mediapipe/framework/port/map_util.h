@@ -21,4 +21,4 @@
 
 #include "mediapipe/framework/deps/map_util.h"
 
-#endif  // MEDIAPIPE_PORT_MAP_UTIL_H_
+#endif // MEDIAPIPE_PORT_MAP_UTIL_H_

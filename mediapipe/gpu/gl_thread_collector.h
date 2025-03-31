@@ -18,60 +18,69 @@
 #include <cstdlib>
 
 #if defined(MEDIAPIPE_USING_LEGACY_SWIFTSHADER)
-#define MEDIAPIPE_NEEDS_GL_THREAD_COLLECTOR 1
+    #define MEDIAPIPE_NEEDS_GL_THREAD_COLLECTOR 1
 #endif
 
 #if MEDIAPIPE_NEEDS_GL_THREAD_COLLECTOR
-#include "absl/synchronization/mutex.h"
-#include "mediapipe/framework/deps/no_destructor.h"
-#endif  // MEDIAPIPE_NEEDS_GL_THREAD_COLLECTOR
+    #include "absl/synchronization/mutex.h"
+    #include "mediapipe/framework/deps/no_destructor.h"
+#endif // MEDIAPIPE_NEEDS_GL_THREAD_COLLECTOR
 
 namespace mediapipe {
 
 #if MEDIAPIPE_NEEDS_GL_THREAD_COLLECTOR
 
 class GlThreadCollector {
- public:
-  static void ThreadStarting() { Collector().ChangeCount(1); }
+public:
+    static void ThreadStarting() {
+        Collector().ChangeCount(1);
+    }
 
-  static void ThreadEnding() { Collector().ChangeCount(-1); }
+    static void ThreadEnding() {
+        Collector().ChangeCount(-1);
+    }
 
- private:
-  GlThreadCollector() { std::atexit(WaitForThreadsToTerminate); }
+private:
+    GlThreadCollector() {
+        std::atexit(WaitForThreadsToTerminate);
+    }
 
-  static GlThreadCollector& Collector() {
-    static NoDestructor<GlThreadCollector> collector;
-    return *collector;
-  }
+    static GlThreadCollector& Collector() {
+        static NoDestructor<GlThreadCollector> collector;
+        return *collector;
+    }
 
-  static void WaitForThreadsToTerminate() { Collector().Wait(); }
+    static void WaitForThreadsToTerminate() {
+        Collector().Wait();
+    }
 
-  void ChangeCount(int delta) {
-    absl::MutexLock l(&mutex_);
-    active_threads_ += delta;
-  }
+    void ChangeCount(int delta) {
+        absl::MutexLock l(&mutex_);
+        active_threads_ += delta;
+    }
 
-  void Wait() {
-    auto done = [this]() {
-      mutex_.AssertReaderHeld();
-      return active_threads_ == 0;
-    };
-    absl::MutexLock l(&mutex_);
-    mutex_.Await(absl::Condition(&done));
-  }
+    void Wait() {
+        auto done = [this]() {
+            mutex_.AssertReaderHeld();
+            return active_threads_ == 0;
+        };
+        absl::MutexLock l(&mutex_);
+        mutex_.Await(absl::Condition(&done));
+    }
 
-  absl::Mutex mutex_;
-  int active_threads_ ABSL_GUARDED_BY(mutex_) = 0;
-  friend NoDestructor<GlThreadCollector>;
+    absl::Mutex         mutex_;
+    int active_threads_ ABSL_GUARDED_BY(mutex_) = 0;
+    friend NoDestructor<GlThreadCollector>;
 };
 #else
 class GlThreadCollector {
- public:
-  static void ThreadStarting() {}
-  static void ThreadEnding() {}
+public:
+    static void ThreadStarting() { }
+
+    static void ThreadEnding() { }
 };
-#endif  // MEDIAPIPE_NEEDS_GL_THREAD_COLLECTOR
+#endif // MEDIAPIPE_NEEDS_GL_THREAD_COLLECTOR
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_GPU_GL_THREAD_COLLECTOR_H_
+#endif // MEDIAPIPE_GPU_GL_THREAD_COLLECTOR_H_

@@ -14,8 +14,6 @@
 
 #include "mediapipe/util/resource_util.h"
 
-#include <iostream>
-
 #include "absl/strings/str_split.h"
 #include "mediapipe/framework/deps/file_path.h"
 #include "mediapipe/framework/port/file_helpers.h"
@@ -23,24 +21,27 @@
 #include "mediapipe/util/resource_util_custom.h"
 #include "mediapipe/util/resource_util_internal.h"
 
+#include <iostream>
+
 namespace mediapipe {
 
 namespace {
-ResourceProviderFn resource_provider_ = nullptr;
-}  // namespace
+    ResourceProviderFn resource_provider_ = nullptr;
+} // namespace
 
-absl::Status GetResourceContents(const std::string& path, std::string* output,
-                                 bool read_as_binary) {
-  if (resource_provider_) {
-    return resource_provider_(path, output);
-  }
-  return internal::DefaultGetResourceContents(path, output, read_as_binary);
+absl::Status GetResourceContents(const std::string& path, std::string* output, bool read_as_binary) {
+    if (resource_provider_) {
+        return resource_provider_(path, output);
+    }
+    return internal::DefaultGetResourceContents(path, output, read_as_binary);
 }
 
-bool HasCustomGlobalResourceProvider() { return resource_provider_ != nullptr; }
+bool HasCustomGlobalResourceProvider() {
+    return resource_provider_ != nullptr;
+}
 
 void SetCustomGlobalResourceProvider(ResourceProviderFn fn) {
-  resource_provider_ = std::move(fn);
+    resource_provider_ = std::move(fn);
 }
 
-}  // namespace mediapipe
+} // namespace mediapipe

@@ -21,8 +21,8 @@
 namespace mediapipe {
 
 namespace tool {
-class TagMap;
-}  // namespace tool
+    class TagMap;
+} // namespace tool
 
 // TagMap allows access to a collection using a tag and index value.
 // The underlying data in the collection is stored in a flat array.
@@ -33,140 +33,175 @@ class TagMap;
 // For example, accidentally using Inputs().Get(2) when Inputs().Index(2)
 // was meant will cause a type error.
 class CollectionItemId {
- public:
-  // Static function to return an invalid id.
-  static const CollectionItemId GetInvalid() { return CollectionItemId(); }
+public:
+    // Static function to return an invalid id.
+    static const CollectionItemId GetInvalid() {
+        return CollectionItemId();
+    }
 
-  // Construct an invalid CollectionItemId.
-  constexpr CollectionItemId() : value_(-1) {}
+    // Construct an invalid CollectionItemId.
+    constexpr CollectionItemId()
+        : value_(-1) { }
 
-  // Use the default copy constructor, assignment, and destructor.
-  CollectionItemId(const CollectionItemId&) = default;
-  ~CollectionItemId() = default;
-  CollectionItemId& operator=(const CollectionItemId&) = default;
+    // Use the default copy constructor, assignment, and destructor.
+    CollectionItemId(const CollectionItemId&)            = default;
+    ~CollectionItemId()                                  = default;
+    CollectionItemId& operator=(const CollectionItemId&) = default;
 
-  bool IsValid() const { return value_ >= 0; }
-  // Accesses the raw value.
-  constexpr int value() const { return value_; }
+    bool IsValid() const {
+        return value_ >= 0;
+    }
 
-  // Unary operators.
-  bool operator!() const { return value_ == 0; }
-  const CollectionItemId operator+() const { return CollectionItemId(value_); }
-  const CollectionItemId operator-() const { return CollectionItemId(-value_); }
+    // Accesses the raw value.
+    constexpr int value() const {
+        return value_;
+    }
 
-  // Increment and decrement operators.
-  CollectionItemId& operator++() {  // ++x
-    ++value_;
-    return *this;
-  }
-  const CollectionItemId operator++(int postfix_flag) {  // x++
-      UNUSED(postfix_flag);
-    CollectionItemId temp(*this);
-    ++value_;
-    return temp;
-  }
-  CollectionItemId& operator--() {  // --x
-    --value_;
-    return *this;
-  }
-  const CollectionItemId operator--(int postfix_flag) {  // x--
-      UNUSED(postfix_flag);
-    CollectionItemId temp(*this);
-    --value_;
-    return temp;
-  }
+    // Unary operators.
+    bool operator!() const {
+        return value_ == 0;
+    }
 
-  // Action-Assignment operators.
-  CollectionItemId& operator+=(CollectionItemId arg) {
-    value_ += arg.value_;
-    return *this;
-  }
-  CollectionItemId operator+(CollectionItemId arg) const {
-    return CollectionItemId(value_ + arg.value_);
-  }
-  template <typename ArgType>
-  CollectionItemId operator+(ArgType arg) const {
-    return CollectionItemId(value_ + arg);
-  }
+    const CollectionItemId operator+() const {
+        return CollectionItemId(value_);
+    }
 
-  CollectionItemId& operator-=(CollectionItemId arg) {
-    value_ -= arg.value_;
-    return *this;
-  }
-  CollectionItemId operator-(CollectionItemId arg) const {
-    return CollectionItemId(value_ - arg.value_);
-  }
-  template <typename ArgType>
-  CollectionItemId operator-(ArgType arg) const {
-    return CollectionItemId(value_ - arg);
-  }
+    const CollectionItemId operator-() const {
+        return CollectionItemId(-value_);
+    }
 
-  template <typename ArgType>
-  CollectionItemId& operator*=(ArgType arg) {
-    value_ *= arg;
-    return *this;
-  }
-  CollectionItemId operator*(CollectionItemId arg) const {
-    return CollectionItemId(value_ * arg.value_);
-  }
-  template <typename ArgType>
-  CollectionItemId operator*(ArgType arg) const {
-    return CollectionItemId(value_ * arg);
-  }
+    // Increment and decrement operators.
+    CollectionItemId& operator++() { // ++x
+        ++value_;
+        return *this;
+    }
 
-  template <typename ArgType>
-  CollectionItemId& operator/=(ArgType arg) {
-    value_ /= arg;
-    return *this;
-  }
-  CollectionItemId operator/(CollectionItemId arg) const {
-    return CollectionItemId(value_ / arg.value_);
-  }
-  template <typename ArgType>
-  CollectionItemId operator/(ArgType arg) const {
-    return CollectionItemId(value_ / arg);
-  }
+    const CollectionItemId operator++(int postfix_flag) { // x++
+        UNUSED(postfix_flag);
+        CollectionItemId temp(*this);
+        ++value_;
+        return temp;
+    }
 
-  template <typename ArgType>
-  CollectionItemId& operator%=(ArgType arg) {
-    value_ %= arg;
-    return *this;
-  }
-  CollectionItemId operator%(CollectionItemId arg) const {
-    return CollectionItemId(value_ % arg.value_);
-  }
-  template <typename ArgType>
-  CollectionItemId operator%(ArgType arg) const {
-    return CollectionItemId(value_ % arg);
-  }
+    CollectionItemId& operator--() { // --x
+        --value_;
+        return *this;
+    }
 
-  inline bool operator>(CollectionItemId rhs) const {
-    return value_ > rhs.value_;
-  }
-  inline bool operator>=(CollectionItemId rhs) const {
-    return value_ >= rhs.value_;
-  }
-  inline bool operator<(CollectionItemId rhs) const {
-    return value_ < rhs.value_;
-  }
-  inline bool operator<=(CollectionItemId rhs) const {
-    return value_ <= rhs.value_;
-  }
-  inline bool operator==(CollectionItemId rhs) const {
-    return value_ == rhs.value_;
-  }
-  inline bool operator!=(CollectionItemId rhs) const {
-    return value_ != rhs.value_;
-  }
+    const CollectionItemId operator--(int postfix_flag) { // x--
+        UNUSED(postfix_flag);
+        CollectionItemId temp(*this);
+        --value_;
+        return temp;
+    }
 
- private:
-  friend class mediapipe::tool::TagMap;
+    // Action-Assignment operators.
+    CollectionItemId& operator+=(CollectionItemId arg) {
+        value_ += arg.value_;
+        return *this;
+    }
 
-  // Initialization from a value.
-  explicit constexpr CollectionItemId(int init_value) : value_(init_value) {}
+    CollectionItemId operator+(CollectionItemId arg) const {
+        return CollectionItemId(value_ + arg.value_);
+    }
 
-  // The integer value of type int.
-  int value_;
+    template<typename ArgType>
+    CollectionItemId operator+(ArgType arg) const {
+        return CollectionItemId(value_ + arg);
+    }
+
+    CollectionItemId& operator-=(CollectionItemId arg) {
+        value_ -= arg.value_;
+        return *this;
+    }
+
+    CollectionItemId operator-(CollectionItemId arg) const {
+        return CollectionItemId(value_ - arg.value_);
+    }
+
+    template<typename ArgType>
+    CollectionItemId operator-(ArgType arg) const {
+        return CollectionItemId(value_ - arg);
+    }
+
+    template<typename ArgType>
+    CollectionItemId& operator*=(ArgType arg) {
+        value_ *= arg;
+        return *this;
+    }
+
+    CollectionItemId operator*(CollectionItemId arg) const {
+        return CollectionItemId(value_ * arg.value_);
+    }
+
+    template<typename ArgType>
+    CollectionItemId operator*(ArgType arg) const {
+        return CollectionItemId(value_ * arg);
+    }
+
+    template<typename ArgType>
+    CollectionItemId& operator/=(ArgType arg) {
+        value_ /= arg;
+        return *this;
+    }
+
+    CollectionItemId operator/(CollectionItemId arg) const {
+        return CollectionItemId(value_ / arg.value_);
+    }
+
+    template<typename ArgType>
+    CollectionItemId operator/(ArgType arg) const {
+        return CollectionItemId(value_ / arg);
+    }
+
+    template<typename ArgType>
+    CollectionItemId& operator%=(ArgType arg) {
+        value_ %= arg;
+        return *this;
+    }
+
+    CollectionItemId operator%(CollectionItemId arg) const {
+        return CollectionItemId(value_ % arg.value_);
+    }
+
+    template<typename ArgType>
+    CollectionItemId operator%(ArgType arg) const {
+        return CollectionItemId(value_ % arg);
+    }
+
+    inline bool operator>(CollectionItemId rhs) const {
+        return value_ > rhs.value_;
+    }
+
+    inline bool operator>=(CollectionItemId rhs) const {
+        return value_ >= rhs.value_;
+    }
+
+    inline bool operator<(CollectionItemId rhs) const {
+        return value_ < rhs.value_;
+    }
+
+    inline bool operator<=(CollectionItemId rhs) const {
+        return value_ <= rhs.value_;
+    }
+
+    inline bool operator==(CollectionItemId rhs) const {
+        return value_ == rhs.value_;
+    }
+
+    inline bool operator!=(CollectionItemId rhs) const {
+        return value_ != rhs.value_;
+    }
+
+private:
+    friend class mediapipe::tool::TagMap;
+
+    // Initialization from a value.
+    explicit constexpr CollectionItemId(int init_value)
+        : value_(init_value) { }
+
+    // The integer value of type int.
+    int value_;
 };
 
 std::ostream& operator<<(std::ostream& os, CollectionItemId arg);
@@ -175,6 +210,6 @@ CollectionItemId operator+(int lhs, CollectionItemId rhs);
 CollectionItemId operator-(int lhs, CollectionItemId rhs);
 CollectionItemId operator*(int lhs, CollectionItemId rhs);
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_FRAMEWORK_COLLECTION_ITEM_ID_H_
+#endif // MEDIAPIPE_FRAMEWORK_COLLECTION_ITEM_ID_H_

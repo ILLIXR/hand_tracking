@@ -18,14 +18,12 @@
 #include <cstdint>
 
 #ifdef __ANDROID__
-#include "ndk/sources/android/cpufeatures/cpu-features.h"
+    #include "ndk/sources/android/cpufeatures/cpu-features.h"
 #elif _WIN32
-#include <windows.h>
+    #include <windows.h>
 #else
-#include <unistd.h>
+    #include <unistd.h>
 #endif
-#include <fstream>
-
 #include "absl/algorithm/container.h"
 #include "absl/strings/match.h"
 #include "absl/strings/numbers.h"
@@ -34,96 +32,92 @@
 #include "mediapipe/framework/port/canonical_errors.h"
 #include "mediapipe/framework/port/statusor.h"
 
+#include <fstream>
+
 namespace mediapipe {
 namespace {
 
-constexpr uint32_t kBufferLength = 64;
+    constexpr uint32_t kBufferLength = 64;
 
-absl::StatusOr<std::string> GetFilePath(int cpu) {
-  return absl::Substitute(
-      "/sys/devices/system/cpu/cpu$0/cpufreq/cpuinfo_max_freq", cpu);
-}
-
-absl::StatusOr<uint64_t> GetCpuMaxFrequency(int cpu) {
-  auto path_or_status = GetFilePath(cpu);
-  if (!path_or_status.ok()) {
-    return path_or_status.status();
-  }
-  std::ifstream file;
-  file.open(path_or_status.value());
-  if (file.is_open()) {
-    char buffer[kBufferLength];
-    file.getline(buffer, kBufferLength);
-    file.close();
-    uint64_t frequency;
-    if (absl::SimpleAtoi(buffer, &frequency)) {
-      return frequency;
-    } else {
-      return absl::InvalidArgumentError(
-          absl::StrCat("Invalid frequency: ", buffer));
+    absl::StatusOr<std::string> GetFilePath(int cpu) {
+        return absl::Substitute("/sys/devices/system/cpu/cpu$0/cpufreq/cpuinfo_max_freq", cpu);
     }
-  } else {
-    return absl::NotFoundError(
-        absl::StrCat("Couldn't read ", path_or_status.value()));
-  }
-}
 
-std::set<int> InferLowerOrHigherCoreIds(bool lower) {
-  std::vector<std::pair<int, uint64_t>> cpu_freq_pairs;
-  for (int cpu = 0; cpu < NumCPUCores(); ++cpu) {
-    auto freq_or_status = GetCpuMaxFrequency(cpu);
-    if (freq_or_status.ok()) {
-      cpu_freq_pairs.push_back({cpu, freq_or_status.value()});
+    absl::StatusOr<uint64_t> GetCpuMaxFrequency(int cpu) {
+        auto path_or_status = GetFilePath(cpu);
+        if (!path_or_status.ok()) {
+            return path_or_status.status();
+        }
+        std::ifstream file;
+        file.open(path_or_status.value());
+        if (file.is_open()) {
+            char buffer[kBufferLength];
+            file.getline(buffer, kBufferLength);
+            file.close();
+            uint64_t frequency;
+            if (absl::SimpleAtoi(buffer, &frequency)) {
+                return frequency;
+            } else {
+                return absl::InvalidArgumentError(absl::StrCat("Invalid frequency: ", buffer));
+            }
+        } else {
+            return absl::NotFoundError(absl::StrCat("Couldn't read ", path_or_status.value()));
+        }
     }
-  }
-  if (cpu_freq_pairs.empty()) {
-    return {};
-  }
 
-  absl::c_sort(cpu_freq_pairs, [lower](const std::pair<int, uint64_t>& left,
-                                       const std::pair<int, uint64_t>& right) {
-    return (lower && left.second < right.second) ||
-           (!lower && left.second > right.second);
-  });
-  uint64_t edge_freq = cpu_freq_pairs[0].second;
+    std::set<int> InferLowerOrHigherCoreIds(bool lower) {
+        std::vector<std::pair<int, uint64_t>> cpu_freq_pairs;
+        for (int cpu = 0; cpu < NumCPUCores(); ++cpu) {
+            auto freq_or_status = GetCpuMaxFrequency(cpu);
+            if (freq_or_status.ok()) {
+                cpu_freq_pairs.push_back({cpu, freq_or_status.value()});
+            }
+        }
+        if (cpu_freq_pairs.empty()) {
+            return {};
+        }
 
-  std::set<int> inferred_cores;
-  for (const auto& cpu_freq_pair : cpu_freq_pairs) {
-    if ((lower && cpu_freq_pair.second > edge_freq) ||
-        (!lower && cpu_freq_pair.second < edge_freq)) {
-      break;
+        absl::c_sort(cpu_freq_pairs, [lower](const std::pair<int, uint64_t>& left, const std::pair<int, uint64_t>& right) {
+            return (lower && left.second < right.second) || (!lower && left.second > right.second);
+        });
+        uint64_t edge_freq = cpu_freq_pairs[0].second;
+
+        std::set<int> inferred_cores;
+        for (const auto& cpu_freq_pair : cpu_freq_pairs) {
+            if ((lower && cpu_freq_pair.second > edge_freq) || (!lower && cpu_freq_pair.second < edge_freq)) {
+                break;
+            }
+            inferred_cores.insert(cpu_freq_pair.first);
+        }
+
+        // If all the cores have the same frequency, there are no "lower" or "higher"
+        // cores.
+        if (inferred_cores.size() == cpu_freq_pairs.size()) {
+            return {};
+        } else {
+            return inferred_cores;
+        }
     }
-    inferred_cores.insert(cpu_freq_pair.first);
-  }
-
-  // If all the cores have the same frequency, there are no "lower" or "higher"
-  // cores.
-  if (inferred_cores.size() == cpu_freq_pairs.size()) {
-    return {};
-  } else {
-    return inferred_cores;
-  }
-}
-}  // namespace
+} // namespace
 
 int NumCPUCores() {
 #ifdef __ANDROID__
-  return android_getCpuCount();
+    return android_getCpuCount();
 #elif _WIN32
-  SYSTEM_INFO sysinfo;
-  GetSystemInfo(&sysinfo);
-  return sysinfo.dwNumberOfProcessors;
+    SYSTEM_INFO sysinfo;
+    GetSystemInfo(&sysinfo);
+    return sysinfo.dwNumberOfProcessors;
 #else
-  return sysconf(_SC_NPROCESSORS_ONLN);
+    return sysconf(_SC_NPROCESSORS_ONLN);
 #endif
 }
 
 std::set<int> InferLowerCoreIds() {
-  return InferLowerOrHigherCoreIds(/* lower= */ true);
+    return InferLowerOrHigherCoreIds(/* lower= */ true);
 }
 
 std::set<int> InferHigherCoreIds() {
-  return InferLowerOrHigherCoreIds(/* lower= */ false);
+    return InferLowerOrHigherCoreIds(/* lower= */ false);
 }
 
-}  // namespace mediapipe.
+} // namespace mediapipe.

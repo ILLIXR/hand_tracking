@@ -19,9 +19,9 @@
 namespace mediapipe {
 namespace internal {
 
-void DelegatingExecutor::Schedule(std::function<void()> task) {
-  callback_(std::move(task));
-}
+    void DelegatingExecutor::Schedule(std::function<void()> task) {
+        callback_(std::move(task));
+    }
 
-}  // namespace internal
-}  // namespace mediapipe
+} // namespace internal
+} // namespace mediapipe

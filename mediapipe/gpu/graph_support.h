@@ -18,10 +18,10 @@
 
 namespace mediapipe {
 
-static constexpr char kGpuSharedTagName[] = "GPU_SHARED";
+static constexpr char kGpuSharedTagName[]        = "GPU_SHARED";
 static constexpr char kGpuSharedSidePacketName[] = "gpu_shared";
-static constexpr char kGpuExecutorName[] = "__gpu";
+static constexpr char kGpuExecutorName[]         = "__gpu";
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_GPU_GRAPH_SUPPORT_H_
+#endif // MEDIAPIPE_GPU_GRAPH_SUPPORT_H_

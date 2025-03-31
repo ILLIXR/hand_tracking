@@ -15,10 +15,10 @@
 #ifndef MEDIAPIPE_CALCULATORS_TENSOR_TENSOR_SPAN_H_
 #define MEDIAPIPE_CALCULATORS_TENSOR_TENSOR_SPAN_H_
 
-#include <vector>
-
 #include "mediapipe/framework/api2/port.h"
 #include "mediapipe/framework/formats/tensor.h"
+
+#include <vector>
 
 namespace mediapipe {
 
@@ -35,9 +35,7 @@ TensorSpan MakeTensorSpan(const std::vector<Tensor>& tensors);
 //   ... check for any empty input Tensors and handle accordingly ...
 //   MakeTensorSpan(kInTensor(cc));
 // ```
-TensorSpan MakeTensorSpan(api2::internal::MultiplePortAccess<
-                          Tensor, InputStreamShard, CalculatorContext>
-                              tensor_streams);
+TensorSpan MakeTensorSpan(api2::internal::MultiplePortAccess<Tensor, InputStreamShard, CalculatorContext> tensor_streams);
 
 // Utility class to allow for iterating over various containers of Tensors
 // *without* making any deep-copies or keeping any memory alive. Essentially
@@ -45,20 +43,20 @@ TensorSpan MakeTensorSpan(api2::internal::MultiplePortAccess<
 // long as it can be used to extract references or pointers to Tensors.
 // TODO: Extend to have both const and mutable variants.
 class TensorSpan {
- public:
-  TensorSpan() = default;
-  explicit TensorSpan(std::vector<const Tensor*>&& tensor_refs);
+public:
+    TensorSpan() = default;
+    explicit TensorSpan(std::vector<const Tensor*>&& tensor_refs);
 
-  // Accessors
-  // We pattern this after std::vector so that the syntax is familiar to users.
-  // TODO: Would be nice to extend this to have an iterator too.
-  int size() const;
-  const Tensor& operator[](int index) const;
+    // Accessors
+    // We pattern this after std::vector so that the syntax is familiar to users.
+    // TODO: Would be nice to extend this to have an iterator too.
+    int           size() const;
+    const Tensor& operator[](int index) const;
 
- private:
-  std::vector<const Tensor*> tensor_refs_;
+private:
+    std::vector<const Tensor*> tensor_refs_;
 };
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_CALCULATORS_TENSOR_TENSOR_SPAN_H_
+#endif // MEDIAPIPE_CALCULATORS_TENSOR_TENSOR_SPAN_H_

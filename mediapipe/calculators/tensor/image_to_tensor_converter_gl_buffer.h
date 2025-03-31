@@ -19,11 +19,11 @@
 
 #if MEDIAPIPE_OPENGL_ES_VERSION >= MEDIAPIPE_OPENGL_ES_31
 
-#include <memory>
+    #include "mediapipe/calculators/tensor/image_to_tensor_converter.h"
+    #include "mediapipe/framework/calculator_framework.h"
+    #include "mediapipe/framework/port/statusor.h"
 
-#include "mediapipe/calculators/tensor/image_to_tensor_converter.h"
-#include "mediapipe/framework/calculator_framework.h"
-#include "mediapipe/framework/port/statusor.h"
+    #include <memory>
 
 namespace mediapipe {
 
@@ -31,12 +31,10 @@ namespace mediapipe {
 // NOTE: mediapipe::GlCalculatorHelper::UpdateContract invocation must precede
 // converter creation.
 absl::StatusOr<std::unique_ptr<ImageToTensorConverter>>
-CreateImageToGlBufferTensorConverter(CalculatorContext* cc,
-                                     bool input_starts_at_bottom,
-                                     BorderMode border_mode);
+CreateImageToGlBufferTensorConverter(CalculatorContext* cc, bool input_starts_at_bottom, BorderMode border_mode);
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_OPENGL_ES_VERSION >= MEDIAPIPE_OPENGL_ES_31
+#endif // MEDIAPIPE_OPENGL_ES_VERSION >= MEDIAPIPE_OPENGL_ES_31
 
-#endif  // MEDIAPIPE_CALCULATORS_TENSOR_IMAGE_TO_TENSOR_CONVERTER_GL_BUFFER_H_
+#endif // MEDIAPIPE_CALCULATORS_TENSOR_IMAGE_TO_TENSOR_CONVERTER_GL_BUFFER_H_

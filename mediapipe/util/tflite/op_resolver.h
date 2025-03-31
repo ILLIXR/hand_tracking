@@ -20,12 +20,11 @@
 namespace mediapipe {
 
 // This OpResolver is used for supporting "Convolution2DTransposeBias" on GPU.
-class OpResolver
-    : public tflite::ops::builtin::BuiltinOpResolverWithoutDefaultDelegates {
- public:
-  OpResolver();
+class OpResolver : public tflite::ops::builtin::BuiltinOpResolverWithoutDefaultDelegates {
+public:
+    OpResolver();
 };
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_UTIL_TFLITE_OP_RESOLVER_H_
+#endif // MEDIAPIPE_UTIL_TFLITE_OP_RESOLVER_H_

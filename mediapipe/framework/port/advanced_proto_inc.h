@@ -30,4 +30,4 @@
 #include "mediapipe/framework/port/core_proto_inc.h"
 #include "mediapipe/framework/port/proto_ns.h"
 
-#endif  // MEDIAPIPE_PORT_ADVANCED_PROTO_INC_H_
+#endif // MEDIAPIPE_PORT_ADVANCED_PROTO_INC_H_

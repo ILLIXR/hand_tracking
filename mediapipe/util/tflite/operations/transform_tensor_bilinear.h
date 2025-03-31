@@ -20,11 +20,11 @@
 namespace mediapipe {
 namespace tflite_operations {
 
-TfLiteRegistration* RegisterTransformTensorBilinearV1();
+    TfLiteRegistration* RegisterTransformTensorBilinearV1();
 
-TfLiteRegistration* RegisterTransformTensorBilinearV2();
+    TfLiteRegistration* RegisterTransformTensorBilinearV2();
 
-}  // namespace tflite_operations
-}  // namespace mediapipe
+} // namespace tflite_operations
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_UTIL_TFLITE_OPERATIONS_TRANSFORM_TENSOR_BILINEAR_H_
+#endif // MEDIAPIPE_UTIL_TFLITE_OPERATIONS_TRANSFORM_TENSOR_BILINEAR_H_

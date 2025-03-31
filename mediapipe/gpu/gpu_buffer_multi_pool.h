@@ -28,32 +28,31 @@
 #include "mediapipe/gpu/multi_pool.h"
 
 #if MEDIAPIPE_GPU_BUFFER_USE_CV_PIXEL_BUFFER
-#include "mediapipe/gpu/cv_pixel_buffer_pool_wrapper.h"
+    #include "mediapipe/gpu/cv_pixel_buffer_pool_wrapper.h"
 #else
-#include "mediapipe/gpu/gl_texture_buffer_pool.h"
-#endif  // MEDIAPIPE_GPU_BUFFER_USE_CV_PIXEL_BUFFER
+    #include "mediapipe/gpu/gl_texture_buffer_pool.h"
+#endif // MEDIAPIPE_GPU_BUFFER_USE_CV_PIXEL_BUFFER
 
 namespace mediapipe {
 
 class CvPixelBufferPoolWrapper;
 
-class GpuBufferMultiPool : public MultiPool<
+class GpuBufferMultiPool
+    : public MultiPool<
 #if MEDIAPIPE_GPU_BUFFER_USE_CV_PIXEL_BUFFER
-                               CvPixelBufferPoolWrapper,
+          CvPixelBufferPoolWrapper,
 #else
-                               GlTextureBufferPool,
-#endif  // MEDIAPIPE_GPU_BUFFER_USE_CV_PIXEL_BUFFER
-                               internal::GpuBufferSpec, GpuBuffer> {
- public:
-  using MultiPool::MultiPool;
+          GlTextureBufferPool,
+#endif // MEDIAPIPE_GPU_BUFFER_USE_CV_PIXEL_BUFFER
+          internal::GpuBufferSpec, GpuBuffer> {
+public:
+    using MultiPool::MultiPool;
 
-  absl::StatusOr<GpuBuffer> GetBuffer(
-      int width, int height,
-      GpuBufferFormat format = GpuBufferFormat::kBGRA32) {
-    return Get(internal::GpuBufferSpec(width, height, format));
-  }
+    absl::StatusOr<GpuBuffer> GetBuffer(int width, int height, GpuBufferFormat format = GpuBufferFormat::kBGRA32) {
+        return Get(internal::GpuBufferSpec(width, height, format));
+    }
 };
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_GPU_GPU_BUFFER_MULTI_POOL_H_
+#endif // MEDIAPIPE_GPU_GPU_BUFFER_MULTI_POOL_H_

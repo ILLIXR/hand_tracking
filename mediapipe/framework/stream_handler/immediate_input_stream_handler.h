@@ -15,10 +15,6 @@
 #ifndef MEDIAPIPE_FRAMEWORK_STREAM_HANDLER_IMMEDIATE_INPUT_STREAM_HANDLER_H_
 #define MEDIAPIPE_FRAMEWORK_STREAM_HANDLER_IMMEDIATE_INPUT_STREAM_HANDLER_H_
 
-#include <functional>
-#include <memory>
-#include <vector>
-
 #include "absl/base/thread_annotations.h"
 #include "absl/status/status.h"
 #include "absl/synchronization/mutex.h"
@@ -26,6 +22,10 @@
 #include "mediapipe/framework/calculator_framework.h"
 #include "mediapipe/framework/input_stream_handler.h"
 #include "mediapipe/framework/tool/tag_map.h"
+
+#include <functional>
+#include <memory>
+#include <vector>
 
 namespace mediapipe {
 
@@ -39,39 +39,35 @@ namespace mediapipe {
 // non-increasing.  Its Calculator is responsible for accumulating packets
 // with the required timestamps before processing and delivering output.
 class ImmediateInputStreamHandler : public InputStreamHandler {
- public:
-  ImmediateInputStreamHandler() = delete;
-  ImmediateInputStreamHandler(
-      std::shared_ptr<tool::TagMap> tag_map,
-      CalculatorContextManager* calculator_context_manager,
-      const MediaPipeOptions& options, bool calculator_run_in_parallel);
+public:
+    ImmediateInputStreamHandler() = delete;
+    ImmediateInputStreamHandler(std::shared_ptr<tool::TagMap> tag_map, CalculatorContextManager* calculator_context_manager,
+                                const MediaPipeOptions& options, bool calculator_run_in_parallel);
 
- protected:
-  // Reinitializes this InputStreamHandler before each CalculatorGraph run.
-  void PrepareForRun(std::function<void()> headers_ready_callback,
-                     std::function<void()> notification_callback,
-                     std::function<void(CalculatorContext*)> schedule_callback,
-                     std::function<void(absl::Status)> error_callback) override;
+protected:
+    // Reinitializes this InputStreamHandler before each CalculatorGraph run.
+    void PrepareForRun(std::function<void()> headers_ready_callback, std::function<void()> notification_callback,
+                       std::function<void(CalculatorContext*)> schedule_callback,
+                       std::function<void(absl::Status)>       error_callback) override;
 
-  // Returns kReadyForProcess whenever a Packet is available at any of
-  // the input streams, or any input stream becomes done.
-  NodeReadiness GetNodeReadiness(Timestamp* min_stream_timestamp) override;
+    // Returns kReadyForProcess whenever a Packet is available at any of
+    // the input streams, or any input stream becomes done.
+    NodeReadiness GetNodeReadiness(Timestamp* min_stream_timestamp) override;
 
-  // Selects a packet on each stream with an available packet with the
-  // specified timestamp, leaving other input streams unaffected.
-  void FillInputSet(Timestamp input_timestamp,
-                    InputStreamShardSet* input_set) override;
+    // Selects a packet on each stream with an available packet with the
+    // specified timestamp, leaving other input streams unaffected.
+    void FillInputSet(Timestamp input_timestamp, InputStreamShardSet* input_set) override;
 
-  // Returns the number of sync-sets maintained by this input-handler.
-  int SyncSetCount() override;
+    // Returns the number of sync-sets maintained by this input-handler.
+    int SyncSetCount() override;
 
-  absl::Mutex mutex_;
-  // The packet-set builder for each input stream.
-  std::vector<SyncSet> sync_sets_ ABSL_GUARDED_BY(mutex_);
-  // The input timestamp for each kReadyForProcess input stream.
-  std::vector<Timestamp> ready_timestamps_ ABSL_GUARDED_BY(mutex_);
+    absl::Mutex mutex_;
+    // The packet-set builder for each input stream.
+    std::vector<SyncSet> sync_sets_ ABSL_GUARDED_BY(mutex_);
+    // The input timestamp for each kReadyForProcess input stream.
+    std::vector<Timestamp> ready_timestamps_ ABSL_GUARDED_BY(mutex_);
 };
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_FRAMEWORK_STREAM_HANDLER_IMMEDIATE_INPUT_STREAM_HANDLER_H_
+#endif // MEDIAPIPE_FRAMEWORK_STREAM_HANDLER_IMMEDIATE_INPUT_STREAM_HANDLER_H_

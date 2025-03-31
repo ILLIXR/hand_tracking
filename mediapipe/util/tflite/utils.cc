@@ -5,11 +5,11 @@
 namespace mediapipe::util::tflite {
 
 bool IsDynamicTensor(const TfLiteTensor& tensor) {
-  for (int i = 0; i < tensor.dims->size; ++i) {
-    if (tensor.dims->data[i] == -1) {
-      return true;
+    for (int i = 0; i < tensor.dims->size; ++i) {
+        if (tensor.dims->data[i] == -1) {
+            return true;
+        }
     }
-  }
-  return false;
+    return false;
 }
-}  // namespace mediapipe::util::tflite
+} // namespace mediapipe::util::tflite

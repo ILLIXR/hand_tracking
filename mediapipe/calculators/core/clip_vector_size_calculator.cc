@@ -14,20 +14,18 @@
 
 #include "mediapipe/calculators/core/clip_vector_size_calculator.h"
 
-#include <vector>
-
 #include "mediapipe/framework/calculator_framework.h"
 #include "mediapipe/framework/formats/detection.pb.h"
 #include "mediapipe/framework/formats/rect.pb.h"
 
+#include <vector>
+
 namespace mediapipe {
 
-typedef ClipVectorSizeCalculator<::mediapipe::NormalizedRect>
-    ClipNormalizedRectVectorSizeCalculator;
+typedef ClipVectorSizeCalculator<::mediapipe::NormalizedRect> ClipNormalizedRectVectorSizeCalculator;
 REGISTER_CALCULATOR(ClipNormalizedRectVectorSizeCalculator);
 
-typedef ClipVectorSizeCalculator<::mediapipe::Detection>
-    ClipDetectionVectorSizeCalculator;
+typedef ClipVectorSizeCalculator<::mediapipe::Detection> ClipDetectionVectorSizeCalculator;
 REGISTER_CALCULATOR(ClipDetectionVectorSizeCalculator);
 
-}  // namespace mediapipe
+} // namespace mediapipe

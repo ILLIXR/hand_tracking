@@ -20,9 +20,9 @@
 namespace mediapipe {
 
 // Graph service to request pooled buffer objects.
-inline constexpr GraphService<MemoryManager> kMemoryManagerService(
-    "MemoryManagerService", GraphServiceBase::kDisallowDefaultInitialization);
+inline constexpr GraphService<MemoryManager> kMemoryManagerService("MemoryManagerService",
+                                                                   GraphServiceBase::kDisallowDefaultInitialization);
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_FRAMEWORK_MEMORY_MANAGER_SERVICE_H_
+#endif // MEDIAPIPE_FRAMEWORK_MEMORY_MANAGER_SERVICE_H_

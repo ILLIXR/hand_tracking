@@ -15,39 +15,37 @@
 #ifndef MEDIAPIPE_FRAMEWORK_MEDIAPIPE_PROFILING_H_
 #define MEDIAPIPE_FRAMEWORK_MEDIAPIPE_PROFILING_H_
 
-#include "mediapipe/util/unused.hpp"
 #include "mediapipe/framework/platform_specific_profiling.h"
+#include "mediapipe/util/unused.hpp"
 #ifdef MEDIAPIPE_PROFILER_AVAILABLE
-#include "mediapipe/framework/profiler/graph_profiler.h"
+    #include "mediapipe/framework/profiler/graph_profiler.h"
 #else
-#include "mediapipe/framework/profiler/graph_profiler_stub.h"
+    #include "mediapipe/framework/profiler/graph_profiler_stub.h"
 #endif
 
 #ifdef MEDIAPIPE_PROFILER_AVAILABLE
-#define MEDIAPIPE_PROFILER_SCOPE_INTERNAL(event_type, calculator_context) \
-  mediapipe::GraphProfiler::Scope graph_profiler_scope(                   \
-      mediapipe::TraceEvent::event_type, calculator_context,              \
-      calculator_context->GetProfilingContext())
+    #define MEDIAPIPE_PROFILER_SCOPE_INTERNAL(event_type, calculator_context)                                       \
+        mediapipe::GraphProfiler::Scope graph_profiler_scope(mediapipe::TraceEvent::event_type, calculator_context, \
+                                                             calculator_context->GetProfilingContext())
 #else
-#define MEDIAPIPE_PROFILER_SCOPE_INTERNAL(method_name, calculator_context)
+    #define MEDIAPIPE_PROFILER_SCOPE_INTERNAL(method_name, calculator_context)
 #endif
 
-#define MEDIAPIPE_PROFILING(method_name, calculator_context) \
-  MEDIAPIPE_PROFILER_SCOPE_INTERNAL(method_name, calculator_context)
+#define MEDIAPIPE_PROFILING(method_name, calculator_context) MEDIAPIPE_PROFILER_SCOPE_INTERNAL(method_name, calculator_context)
 
 namespace mediapipe {
 
 // Log a TraceEvent to the GraphTracer.
 inline void LogEvent(ProfilingContext* context, TraceEvent event) {
 #ifdef MEDIAPIPE_PROFILER_AVAILABLE
-  if (context) {
-    context->LogEvent(event);
-  }
+    if (context) {
+        context->LogEvent(event);
+    }
 #else
     UNUSED(context);
     UNUSED(event);
 #endif
 }
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_FRAMEWORK_MEDIAPIPE_PROFILING_H_
+#endif // MEDIAPIPE_FRAMEWORK_MEDIAPIPE_PROFILING_H_

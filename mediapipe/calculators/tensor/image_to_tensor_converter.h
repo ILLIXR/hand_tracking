@@ -23,31 +23,29 @@
 namespace mediapipe {
 
 struct Size {
-  int width;
-  int height;
+    int width;
+    int height;
 };
 
 // Converts image to tensor.
 class ImageToTensorConverter {
- public:
-  virtual ~ImageToTensorConverter() = default;
+public:
+    virtual ~ImageToTensorConverter() = default;
 
-  // Converts image to tensor.
-  // @image contains image to extract from.
-  // @roi describes region of interest within the image to extract (absolute
-  // values).
-  // @range_min/max describes output tensor range image pixels should converted
-  // to.
-  // @tensor_buffer_offset an inteter representing the offset of the tensor
-  // buffer the result should be written to.
-  // @output_tensor a tensor with pre-defined shape. The "Convert" is
-  // responsible of populating the content into the output tensor.
-  virtual absl::Status Convert(const mediapipe::Image& input,
-                               const RotatedRect& roi, float range_min,
-                               float range_max, int tensor_buffer_offset,
-                               Tensor& output_tensor) = 0;
+    // Converts image to tensor.
+    // @image contains image to extract from.
+    // @roi describes region of interest within the image to extract (absolute
+    // values).
+    // @range_min/max describes output tensor range image pixels should converted
+    // to.
+    // @tensor_buffer_offset an inteter representing the offset of the tensor
+    // buffer the result should be written to.
+    // @output_tensor a tensor with pre-defined shape. The "Convert" is
+    // responsible of populating the content into the output tensor.
+    virtual absl::Status Convert(const mediapipe::Image& input, const RotatedRect& roi, float range_min, float range_max,
+                                 int tensor_buffer_offset, Tensor& output_tensor) = 0;
 };
 
-}  // namespace mediapipe
+} // namespace mediapipe
 
-#endif  // MEDIAPIPE_CALCULATORS_TENSOR_IMAGE_TO_TENSOR_CONVERTER_H_
+#endif // MEDIAPIPE_CALCULATORS_TENSOR_IMAGE_TO_TENSOR_CONVERTER_H_
