@@ -60,6 +60,7 @@ function(make_proto_binary)
                 ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}_linked.cc
                 ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}.inc
     )
+    add_dependencies(docs_dummy_target ${make_proto_binary_FILE_BASE_NAME}_linked)
     target_include_directories(${make_proto_binary_FILE_BASE_NAME}_linked PUBLIC
                                ${CMAKE_SOURCE_DIR}
                                ${CMAKE_BINARY_DIR}

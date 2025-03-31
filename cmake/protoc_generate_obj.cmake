@@ -4,7 +4,7 @@ Generate protbuf files and object library
 .. command:: protobuf_generate_obj
 
   Process the given protbuf file into C++ files and object library::
-    
+
     protobuf_generate_obj(<PROTO_PATH> <OBJ_NAME> [DESCRIPTORS])
 
   ``PROTO_PATH``
@@ -162,7 +162,7 @@ function(my_protobuf_generate)
                 ARGS ${protobuf_generate_PROTOC_OPTIONS} --${protobuf_generate_LANGUAGE}_out ${_plugin_options}:${protobuf_generate_PROTOC_OUT_DIR} ${_plugin} ${_dll_desc_out} ${_protobuf_include_path} ${_abs_file}
                 DEPENDS ${_abs_file} protobuf::protoc ${protobuf_generate_DEPENDENCIES}
                 COMMENT ${_comment}
-                VERBATIM )
+                VERBATIM)
     endforeach()
 
     set_source_files_properties(${_generated_srcs_all} PROPERTIES GENERATED TRUE)
@@ -214,6 +214,7 @@ function(protobuf_generate_obj)
                                ${CURRENT_CMAKE_SOURCE_DIR}/mediapipe
                                ${CMAKE_BINARY_DIR}
     )
+    add_dependencies(docs_dummy_target ${library_base_name})
     if(protobuf_generate_obj_DESCRIPTORS)
         set(TEMP $CACHE{PROTOBUF_DESCRIPTORS})
         list(APPEND TEMP ${DESCRIPTOR_FILES})

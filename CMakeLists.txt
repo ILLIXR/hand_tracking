@@ -57,7 +57,9 @@ set(CMAKE_MODULE_PATH
     ${CMAKE_MODULE_PATH}
     ${CMAKE_INSTALL_PREFIX}/lib/cmake
 )
-
+add_custom_target(docs_dummy_target
+                  COMMAND ${CMAKE_COMMAND} -E echo ""
+)
 find_package(PkgConfig)
 
 if(ILLIXR_ROOT)
@@ -99,38 +101,39 @@ endif()
 
 include(mediapipe/protobuf.cmake)
 include(cmake/encoder.cmake)
-file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/mediapipe/calculators/tensor)
+set(CURRENT_BUILD_DIR "${CMAKE_CURRENT_BINARY_DIR}" CACHE INTERNAL "")
+file(MAKE_DIRECTORY ${CURRENT_BUILD_DIR}/mediapipe/calculators/tensor)
 foreach(ITEM ${PROTOBUF_DESCRIPTORS})
     get_filename_component(_FILE ${ITEM} NAME_WE)
     add_custom_target(${_FILE}_desc
                       ALL
-                      COMMAND cat ${ITEM} >> ${CMAKE_BINARY_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin_temp
+                      COMMAND cat ${ITEM} >> ${CURRENT_BUILD_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin_temp
                       DEPENDS encode_as_c_string ${ITEM}
     )
     list(APPEND FILE_DEPS ${_FILE}_desc)
 endforeach()
 add_custom_target(move_temp_bin ALL
-                  COMMAND mv ${CMAKE_BINARY_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin_temp ${CMAKE_BINARY_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin
+                  COMMAND mv ${CURRENT_BUILD_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin_temp ${CURRENT_BUILD_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin
                   DEPENDS ${FILE_DEPS}
-                  BYPRODUCTS ${CMAKE_BINARY_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin
+                  BYPRODUCTS ${CURRENT_BUILD_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin
 )
 
 add_custom_target(encode_descriptor_sets ALL
-                  COMMAND ${CMAKE_COMMAND} -E env "LD_LIBRARY_PATH=${CMAKE_INSTALL_PREFIX}/lib" ${CMAKE_BINARY_DIR}/encode_as_c_string
-                  ${CMAKE_BINARY_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin > ${CMAKE_BINARY_DIR}/mediapipe/calculators/tensor/inference_calculator_proto_descriptors.inc
+                  COMMAND ${CMAKE_COMMAND} -E env "LD_LIBRARY_PATH=${CMAKE_INSTALL_PREFIX}/lib" ${CURRENT_BUILD_DIR}/encode_as_c_string
+                  ${CURRENT_BUILD_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin > ${CURRENT_BUILD_DIR}/mediapipe/calculators/tensor/inference_calculator_proto_descriptors.inc
                   DEPENDS encode_as_c_string move_temp_bin
-                  BYPRODUCTS ${CMAKE_BINARY_DIR}/mediapipe/calculators/tensor/inference_calculator_proto_descriptors.inc
+                  BYPRODUCTS ${CURRENT_BUILD_DIR}/mediapipe/calculators/tensor/inference_calculator_proto_descriptors.inc
 )
 
 include(cmake/message_util.cmake)
 add_custom_target(make_message_type
                   COMMAND message_type_util
-                  --input_path=${CMAKE_BINARY_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin --root_type_macro_output_path=${CMAKE_BINARY_DIR}/mediapipe/calculators/tensor/inference_calculator_options_lib_type_name.h
+                  --input_path=${CURRENT_BUILD_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin --root_type_macro_output_path=${CURRENT_BUILD_DIR}/mediapipe/calculators/tensor/inference_calculator_options_lib_type_name.h
                   DEPENDS message_type_util
-                  BYPRODUCTS ${CMAKE_BINARY_DIR}/mediapipe/calculators/tensor/inference_calculator_options_lib_type_name.h
+                  BYPRODUCTS ${CURRENT_BUILD_DIR}/mediapipe/calculators/tensor/inference_calculator_options_lib_type_name.h
 )
 #add_custom_target(encode_cleanup ALL
-#                  COMMAND rm ${CMAKE_BINARY_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin
+#                  COMMAND rm ${CURRENT_BUILD_DIR}/inference_calculator_proto_transitive-transitive-descriptor-set.proto.bin
 #                  DEPENDS encode_descriptor_sets make_message_type
 #)
 
@@ -171,7 +174,7 @@ target_include_directories(${PLUGIN_NAME} PUBLIC
                            ${ILLIXR_HDR_PATH}
                            ${ILLIXR_ROOT}
                            ${OpenCV_INCLUDE_DIRS}
-                           ${CMAKE_BINARY_DIR}
+                           ${CURRENT_BUILD_DIR}
                            ${CMAKE_SOURCE_DIR}
 )
 
