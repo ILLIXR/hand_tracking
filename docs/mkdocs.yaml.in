@@ -1,23 +1,94 @@
-site_name: ILLIXR Hand Tracking Docs
-theme: readthedocs
+site_name: ILLIXR Hand Tracking Documentation
+theme:
+  name: material
+  custom_dir: @MKDOCS_DOCS_DIR@/overrides
+  palette:
+    # Light Mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Light mode
+      primary: custom
+      accent: custom
+    # Dark Mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Dark mode
+      primary: custom
+      accent: custom
+  features:
+    - search.suggest
+    - content.code.annotate
+    - content.footnote.tooltips
+    - navigation.indexes
+  language: en
 site_dir: @MKDOCS_BUILD_DIR@
 site_url: https://illixr.github.io/hand_tracking
 markdown_extensions:
-    - codehilite
-    - fenced_code
-    - footnotes
-    - admonition
+  - fenced_code
+  - footnotes
+  - admonition
+  - pymdownx.highlight:
+      use_pygments: true
+      pygments_lang_class: true
+      line_spans: __span
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - md_in_html
+  - attr_list
 extra_css:
-    - css/code-box-copy.css
-    - css/prism.min.css
-    - css/styles.css
+  - css/mkd-extra.css
 extra_javascript:
-    - js/clipboard.min.js
-    - js/code-box-copy.js
-    - js/prism.min.js
+  - js/jquery.min.js@MIKE_VERSIONING@
+plugins:
+  - search@MKDOCS_MIKE@
+  - mkdoxy:
+      save-api: @MKDOCS_DOCS_DIR@
+      projects:
+        ILLIXR_API:
+          src-dirs: @DOXYGEN_SOURCE_DIR@
+          api-path: ../api
+          full-doc: True
+          doxy-cfg-file: @MKDOCS_DOXY_CFG@
+  - include-markdown:
+      encoding: ascii
+      opening_tag: "{!"
+      closing_tag: "!}"
+  - glightbox:
+      touchNavigation: true
+      effect: zoom
+      slide_effect: zoom
+      zoomable: true
+      draggable: false
+      background: none
+      shadow: false
+      manual: true
+      caption_position: bottom
 docs_dir: @MKDOCS_DOCS_DIR@
 nav:
-    - 'Latest Documentation':
-        - 'Intro': index.md
-        - 'API': api/html/annotated.html
-        - 'License': LICENSE.md
+  - 'Latest Documentation':
+      - 'Intro': index.md
+      - 'API':
+          - 'Hand Tracking':
+              - 'Plugin': api/classILLIXR_1_1hand__tracking.md
+              - 'Publisher': api/classILLIXR_1_1hand__tracking__publisher.md
+              - 'Data Types':
+                  - 'illixr_handle_t': api/structht__illixr__handle__t.md
+                  - 'illixr_ht_frame': api/structmediapipe_1_1ILLIXR_1_1illixr__ht__frame.md
+                  - 'pose_image': api/structILLIXR_1_1pose__image.md
+              - 'ILLIXR Calculator': api/classmediapipe_1_1ILLIXROutputCalculator.md
+              - 'OpenXR':
+                  - 'Interface': api/interface_8h.md
+                  - 'Func. Implementations': api/ixr__openxr_8hpp.md
+                  - 'Structs':
+                      - 'ixr_hand+tracker': api/structixr__hand__tracker.md
+                      - 'ixr_session': api/structixr__session.md
+          - 'Classes': api/classes.md
+          - 'Namespaces': api/namespacemediapipe.md
+      - 'License': LICENSE.md
+not_in_nav:
+  api/*
