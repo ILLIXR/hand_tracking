@@ -1,10 +1,12 @@
 #pragma once
 
-#include "hand_tracking_publisher.hpp"
 #include "illixr/phonebook.hpp"
 #include "illixr/plugin.hpp"
 #include "illixr/switchboard.hpp"
 #include "mediapipe/framework/calculator_graph.h"
+
+#include "hand_tracking_publisher.hpp"
+
 #if !MEDIAPIPE_DISABLE_GPU
     #include "mediapipe/gpu/gl_calculator_helper.h"
 #endif
