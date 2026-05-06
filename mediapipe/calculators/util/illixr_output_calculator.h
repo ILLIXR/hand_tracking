@@ -31,7 +31,7 @@ protected:
     ::mediapipe::ILLIXROutputCalculatorOptions options_;
 
 private:
-    // Indicates if image frame is available as input.
+    // Indicates if the image frame is available as input.
     bool                 image_frame_available_ = false;
     mediapipe::ImageData img_data_;
 
@@ -41,9 +41,8 @@ private:
 };
 
 template<class T>
-::ILLIXR::data_format::rect* make_rect(const T in_rect, bool normalized) {
-    return new ::ILLIXR::data_format::rect(
-        in_rect.x_center(), in_rect.y_center(), in_rect.width(), in_rect.height(), in_rect.rotation(),
-        (normalized) ? ::ILLIXR::data_format::units::PERCENT : ::ILLIXR::data_format::units::PIXEL);
+::ILLIXR::data_format::shapes::rect* make_rect(const T in_rect, bool normalized) {
+    return new ::ILLIXR::data_format::shapes::rect(
+        in_rect.x_center(), in_rect.y_center(), in_rect.width(), in_rect.height(), in_rect.rotation(), normalized);
 }
 } // namespace mediapipe

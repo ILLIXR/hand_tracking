@@ -199,11 +199,11 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
     if (cc->Inputs().HasTag(kHandPointsTag) && !cc->Inputs().Tag(kHandPointsTag).IsEmpty()) {
         const auto& hp = cc->Inputs().Tag(kHandPointsTag).Get<std::vector<Points>>();
         for (int i = 0; i < (int) hp.size(); i++) {
-            auto hand_points  = absl::make_unique<::ILLIXR::data_format::ht::hand_points>();
-            hand_points->unit = ::ILLIXR::data_format::units::PERCENT;
+            auto hand_points  = absl::make_unique<::ILLIXR::ht::hand_points>();
+            hand_points->normalized = true;
             for (auto j = 0; j < hp[i].points_size(); j++) {
                 auto pnt = hp[i].points(j);
-                hand_points->at(j).set(pnt.x(), pnt.y(), pnt.z(), ::ILLIXR::data_format::units::PERCENT);
+                hand_points->at(j).set(pnt.x(), pnt.y(), pnt.z(), true);
             }
             if (i == left_idx)
                 frame_data->left_hand_points = hand_points.release();
@@ -214,7 +214,7 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
     }
 
     if (cc->Inputs().HasTag(palm_map.at(palm_input)) && !cc->Inputs().Tag(palm_map.at(palm_input)).IsEmpty()) {
-        ::ILLIXR::data_format::rect* p_rect;
+        ::ILLIXR::data_format::shapes::rect* p_rect;
         if (palm_input == palm_input_type::NORM_RECT || palm_input == palm_input_type::RECT) {
             if (palm_input == palm_input_type::NORM_RECT) {
                 const auto& rect = cc->Inputs().Tag(kNormPalmRectTag).Get<NormalizedRect>();
@@ -261,7 +261,7 @@ absl::Status ILLIXROutputCalculator::Process(CalculatorContext* cc) {
         component_count++;
     }
     if (cc->Inputs().HasTag(hand_map.at(hand_input)) && !cc->Inputs().Tag(hand_map.at(hand_input)).IsEmpty()) {
-        ::ILLIXR::data_format::rect* h_rect;
+        ::ILLIXR::data_format::shapes::rect* h_rect;
         if (hand_input == hand_input_type::NORM_RECT || hand_input == hand_input_type::RECT) {
             if (hand_input == hand_input_type::NORM_RECT) {
                 const auto& rect = cc->Inputs().Tag(kNormHandRectTag).Get<NormalizedRect>();

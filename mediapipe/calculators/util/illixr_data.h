@@ -1,5 +1,5 @@
 #pragma once
-#include "illixr/data_format/hand_tracking_data.hpp"
+#include "hand_tracking_data.hpp"
 #include "mediapipe/framework/port/opencv_core_inc.h"
 
 #include <vector>
@@ -11,15 +11,15 @@ struct illixr_ht_frame {
 
     size_t                                   image_id;
     ::ILLIXR::data_format::image::image_type type;
-    ::ILLIXR::data_format::rect*             left_palm  = nullptr;
-    ::ILLIXR::data_format::rect*             right_palm = nullptr;
-    ::ILLIXR::data_format::rect*             left_hand  = nullptr;
-    ::ILLIXR::data_format::rect*             right_hand = nullptr;
+    ::ILLIXR::data_format::shapes::rect*     left_palm  = nullptr;
+    ::ILLIXR::data_format::shapes::rect*     right_palm = nullptr;
+    ::ILLIXR::data_format::shapes::rect*     left_hand  = nullptr;
+    ::ILLIXR::data_format::shapes::rect*     right_hand = nullptr;
 
-    float                                   left_confidence   = 0.;
-    float                                   right_confidence  = 0.;
-    ::ILLIXR::data_format::ht::hand_points* left_hand_points  = nullptr;
-    ::ILLIXR::data_format::ht::hand_points* right_hand_points = nullptr;
+    float                      left_confidence   = 0.;
+    float                      right_confidence  = 0.;
+    ::ILLIXR::ht::hand_points* left_hand_points  = nullptr;
+    ::ILLIXR::ht::hand_points* right_hand_points = nullptr;
 
     ~illixr_ht_frame() {
         delete image;

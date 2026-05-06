@@ -1,7 +1,7 @@
 #define DOUBLE_INCLUDE
+#include "hand_tracking_data.hpp"
 #include "illixr/data_format/camera_data.hpp"
-#include "illixr/data_format/hand_tracking_data.hpp"
-#include "illixr/data_format/pose.hpp"
+#include "illixr/data_format/poses/head_pose.hpp"
 #include "illixr/threadloop.hpp"
 #include "mediapipe/calculators/util/illixr_data.h"
 #include "mediapipe/framework/calculator_graph.h"
@@ -33,13 +33,13 @@ namespace ht { /**
  * Holds current input image(s) and pose
  */
 struct pose_image {
-    image_map                   images;              //!< mapping of the current images
-    data_format::multi_pose_map poses;               //!< mapping of poses for each image
-    bool                        depth_valid = false; //!< flag to indicate if there is a valid depth image
-    bool confidence_valid_ = false; //!< flags to indicate if there is a valid confidence image assocaited with the depth image
-    bool pose_valid        = false; //!< flags indicating if the poses are valid
-    int  eye_count         = 0;     //!< the number of "eyes" (input images)
-    data_format::units::eyes primary = data_format::units::LEFT_EYE; //!< the primary eye, will depend on the camera type
+    image_map images;                        //!< mapping of the current images
+    data_format::pose::head_pose_map poses;  //!< mapping of poses for each image
+    bool depth_valid       = false;          //!< flag to indicate if there is a valid depth image
+    bool confidence_valid_ = false;          //!< flags to indicate if there is a valid confidence image assocaited with the depth image
+    bool pose_valid        = false;          //!< flags indicating if the poses are valid
+    int  eye_count         = 0;              //!< the number of "eyes" (input images)
+    data_format::pose::side primary = data_format::pose::LEFT; //!< the primary eye, will depend on the camera type
 
     typedef std::map<data_format::image::image_type, cv::Mat>::const_iterator img_iterator;
 
@@ -122,8 +122,6 @@ struct pose_image {
     }
 };
 
-void transform(const data_format::pose_data& pose, data_format::ht::hand_points& hp);
-
 /**
  * Plugin for hand tracking
  */
@@ -181,14 +179,14 @@ protected:
     void _p_one_iteration() override;
 
 private:
-    void calculate_proper_position(std::map<data_format::ht::hand, data_format::ht::hand_points>& thp);
+    void calculate_proper_position(std::map<data_format::pose::side, ht::hand_points>& thp);
 
-    const std::shared_ptr<switchboard>               switchboard_;
-    switchboard::writer<data_format::ht::ht_frame>   ht_publisher_;
-    switchboard::reader<data_format::pose_type>      pose_reader_;
-    switchboard::reader<data_format::camera_data>    camera_reader_;
-    switchboard::reader<data_format::depth_type>     depth_reader_;
-    switchboard::reader<data_format::rgb_depth_type> rgb_depth_reader_;
+    const std::shared_ptr<switchboard>                     switchboard_;
+    switchboard::writer<ht::ht_frame>                      ht_publisher_;
+    switchboard::reader<data_format::pose::head_pose_type> pose_reader_;
+    switchboard::reader<data_format::camera_data>          camera_reader_;
+    switchboard::reader<data_format::depth_type>           depth_reader_;
+    switchboard::reader<data_format::rgb_depth_type>       rgb_depth_reader_;
 
     std::map<data_format::image::image_type, mediapipe::OutputStreamPoller*> poller_ = {
         {data_format::image::LEFT_EYE, nullptr}, {data_format::image::RIGHT_EYE, nullptr}, {data_format::image::RGB, nullptr}};
@@ -208,17 +206,17 @@ private:
     size_t            last_frame_id_ = 0;
     mediapipe::Packet packet_;
 
-    std::map<data_format::image::image_type, cv::Mat>                 results_images_;
-    std::map<data_format::units::eyes, data_format::ht::ht_detection> detections_;
+    std::map<data_format::image::image_type, cv::Mat>   results_images_;
+    std::map<data_format::pose::side, ht::ht_detection> detections_;
 
     std::unordered_map<size_t, pose_image> raw_data_;
 
-    data_format::pose_data    current_pose_;
-    data_format::pose_data    initial_pose_;
+    data_format::pose::head_pose_data    current_pose_;
+    data_format::pose::head_pose_data    initial_pose_;
     pose_image                current_raw_;
     cv::Mat                   current_confidence_;
     cv::Mat                   current_depth_;
-    data_format::ht::position last_position_;
+    ht::position              last_position_;
     ht::input_type            last_input_ = ht::RIGHT;
 
     data_format::camera_data cam_data_;

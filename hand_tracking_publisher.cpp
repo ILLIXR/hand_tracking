@@ -12,8 +12,8 @@ constexpr float NANO = 1. / (1000. * 1000. * 1000.);
 ILLIXR::hand_tracking_publisher::hand_tracking_publisher(const std::string& name_, ::ILLIXR::phonebook* pb_)
     : threadloop(name_, pb_)
     , switchboard_{pb_->lookup_impl<switchboard>()}
-    , ht_publisher_{switchboard_->get_writer<data_format::ht::ht_frame>("ht")}
-    , pose_reader_{switchboard_->get_reader<data_format::pose_type>("pose")}
+    , ht_publisher_{switchboard_->get_writer<ht::ht_frame>("ht")}
+    , pose_reader_{switchboard_->get_reader<data_format::pose::head_pose_type>("pose")}
     , camera_reader_{switchboard_->get_reader<data_format::camera_data>("cam_data")}
     , depth_reader_{switchboard_->get_reader<data_format::depth_type>("depth")}
     , rgb_depth_reader_{switchboard_->get_reader<data_format::rgb_depth_type>("rgb_depth")} {
@@ -25,15 +25,15 @@ ILLIXR::hand_tracking_publisher::hand_tracking_publisher(const std::string& name
     b_intp::named_mutex::remove(illixr_shm_mutex_swap[0]);
     b_intp::named_mutex::remove(illixr_shm_mutex_swap[1]);
 
-    size_t o1 = sizeof(ILLIXR::data_format::ht::raw_ht_data);
+    size_t o1 = sizeof(ILLIXR::data_format::pose::raw_ht_data);
 
     managed_shm_           = b_intp::managed_shared_memory(b_intp::create_only, illixr_shm_name, o1 * 4);
     current_shm_mutex_idx_ = new b_intp::named_mutex(b_intp::open_or_create, illixr_shm_mutex_latest);
     shm_mutex_[0]          = new b_intp::named_mutex(b_intp::open_or_create, illixr_shm_mutex_swap[0]);
     shm_mutex_[1]          = new b_intp::named_mutex(b_intp::open_or_create, illixr_shm_mutex_swap[1]);
     try {
-        ht_raw_data_[0]   = managed_shm_.construct<ILLIXR::data_format::ht::raw_ht_data>(illixr_shm_swap[0])();
-        ht_raw_data_[1]   = managed_shm_.construct<ILLIXR::data_format::ht::raw_ht_data>(illixr_shm_swap[1])();
+        ht_raw_data_[0]   = managed_shm_.construct<ILLIXR::data_format::pose::raw_ht_data>(illixr_shm_swap[0])();
+        ht_raw_data_[1]   = managed_shm_.construct<ILLIXR::data_format::pose::raw_ht_data>(illixr_shm_swap[1])();
         current_swap_idx_ = managed_shm_.construct<int>(illixr_shm_current)(0);
     } catch (std::exception& e) {
         spdlog::get("illixr")->error("[hand_tracking_publisher] " + std::string(e.what()));
@@ -61,8 +61,8 @@ ILLIXR::hand_tracking_publisher::~hand_tracking_publisher() {
         delete i.second;
 // if we are building the openXR interface, clean up the shared memory
 #ifdef ENABLE_OXR
-    managed_shm_.destroy<ILLIXR::data_format::ht::raw_ht_data>(illixr_shm_swap[0]);
-    managed_shm_.destroy<ILLIXR::data_format::ht::raw_ht_data>(illixr_shm_swap[1]);
+    managed_shm_.destroy<ILLIXR::data_format::pose::raw_ht_data>(illixr_shm_swap[0]);
+    managed_shm_.destroy<ILLIXR::data_format::pose::raw_ht_data>(illixr_shm_swap[1]);
     managed_shm_.destroy<int>(illixr_shm_current);
     b_intp::named_mutex::remove(illixr_shm_mutex_latest);
     b_intp::named_mutex::remove(illixr_shm_mutex_swap[0]);
@@ -113,19 +113,19 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
 
     size_t                         end_time   = std::chrono::high_resolution_clock::now().time_since_epoch().count();
     size_t                         start_time = output_frame.image_id;
-    data_format::units::eyes       out_type;
+    data_format::pose::side        out_type;
     data_format::image::image_type out_img_type;
     switch (output_frame.type) {
     case data_format::image::LEFT_EYE:
-        out_type     = data_format::units::LEFT_EYE;
+        out_type     = data_format::pose::LEFT;
         out_img_type = data_format::image::LEFT_EYE_PROCESSED;
         break;
     case data_format::image::RIGHT_EYE:
-        out_type     = data_format::units::RIGHT_EYE;
+        out_type     = data_format::pose::RIGHT;
         out_img_type = data_format::image::RIGHT_EYE_PROCESSED;
         break;
     case data_format::image::RGB:
-        out_type     = data_format::units::LEFT_EYE;
+        out_type     = data_format::pose::LEFT;
         out_img_type = data_format::image::LEFT_EYE_PROCESSED;
         break;
     default:
@@ -140,7 +140,7 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
         }
         current_raw_ = raw_data_.extract(output_frame.image_id).mapped();
         if (frame_count_ == 2 && detections_.size() == 1) {
-            // we are missing a component so drop the partial frame
+            // we are missing a component, so drop the partial frame
             results_images_.clear();
             detections_.clear();
         }
@@ -166,31 +166,31 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
 
     // take the current detection and hold on to it
     detections_.emplace(out_type,
-                        data_format::ht::ht_detection{end_time - start_time, output_frame.left_palm, output_frame.right_palm,
-                                                      output_frame.left_hand, output_frame.right_hand,
-                                                      output_frame.left_confidence, output_frame.right_confidence,
-                                                      output_frame.left_hand_points, output_frame.right_hand_points});
+                        ht::ht_detection{end_time - start_time, output_frame.left_palm, output_frame.right_palm,
+                                         output_frame.left_hand, output_frame.right_hand,
+                                         output_frame.left_confidence, output_frame.right_confidence,
+                                         output_frame.left_hand_points, output_frame.right_hand_points});
     last_frame_id_ = output_frame.image_id;
     // if we have all the expected data for the frame, put it all together and publish
     if (detections_.size() == frame_count_) {
-        std::map<data_format::ht::hand, data_format::ht::hand_points> hp{
-            {data_format::ht::LEFT_HAND, data_format::ht::hand_points()},
-            {data_format::ht::RIGHT_HAND, data_format::ht::hand_points()}};
+        std::map<data_format::pose::side, ht::hand_points> hp{
+            {data_format::pose::LEFT, ht::hand_points()},
+            {data_format::pose::RIGHT, ht::hand_points()}};
 
         // get the current pose
         if (current_raw_.pose_valid) {
             if (current_raw_.eye_count == 1) {
-                current_pose_ = static_cast<data_format::pose_data>(current_raw_.poses.at(current_raw_.primary));
+                current_pose_ = static_cast<data_format::pose::head_pose_data>(current_raw_.poses.at(current_raw_.primary));
             } else {
-                current_pose_ = static_cast<data_format::pose_data>(
-                    current_raw_.poses.at(data_format::units::non_primary(current_raw_.primary)));
+                current_pose_ = static_cast<data_format::pose::head_pose_data>(
+                    current_raw_.poses.at(data_format::pose::non_primary(current_raw_.primary)));
             }
         } else {
             auto pose = pose_reader_.get_ro_nullable();
             if (pose == nullptr) {
-                current_pose_ = data_format::pose_data({0., 0., 0.}, {0., 0., 0., 0.});
+                current_pose_ = data_format::pose::head_pose_data({0., 0., 0.}, {0., 0., 0., 0.});
             } else {
-                current_pose_ = static_cast<data_format::pose_data>(*pose.get());
+                current_pose_ = static_cast<data_format::pose::head_pose_data>(*pose.get());
             }
         }
 
@@ -199,7 +199,7 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
 
         // need to correct the y-axis to have 0 in the bottom left corner
         for (auto& det : detections_) {
-            for (const data_format::ht::hand h : data_format::ht::hand_map) {
+            for (const data_format::pose::side h : ht::hand_map) {
                 det.second.palms.at(h).flip_y(img_size_y_);
                 det.second.hands.at(h).flip_y(img_size_y_);
                 det.second.points.at(h).flip_y(img_size_y_);
@@ -207,20 +207,20 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
         }
 
         auto current_position =
-            data_format::ht::position(hp, current_pose_.unit, std::chrono::system_clock::now().time_since_epoch().count());
+            ht::position(hp, std::chrono::system_clock::now().time_since_epoch().count());
 
-        std::map<data_format::ht::hand, data_format::ht::velocity> velocity = {};
+        std::map<data_format::pose::side, ht::velocity> velocity = {};
         // calculate the velocity, but only if the last points were valid
         if (last_position_.valid) {
-            velocity[data_format::ht::LEFT_HAND] = data_format::ht::velocity(
-                current_position.points[data_format::ht::LEFT_HAND], last_position_.points[data_format::ht::LEFT_HAND],
+            velocity[data_format::pose::LEFT] = ht::velocity(
+                current_position.points[data_format::pose::LEFT], last_position_.points[data_format::pose::LEFT],
                 static_cast<float>(current_position.time - last_position_.time) * NANO);
-            velocity[data_format::ht::RIGHT_HAND] = data_format::ht::velocity(
-                current_position.points[data_format::ht::RIGHT_HAND], last_position_.points[data_format::ht::RIGHT_HAND],
+            velocity[data_format::pose::RIGHT] = ht::velocity(
+                current_position.points[data_format::pose::RIGHT], last_position_.points[data_format::pose::RIGHT],
                 static_cast<float>(current_position.time - last_position_.time) * NANO);
         } else {
-            velocity[data_format::ht::LEFT_HAND]  = data_format::ht::velocity();
-            velocity[data_format::ht::RIGHT_HAND] = data_format::ht::velocity();
+            velocity[data_format::pose::LEFT]  = ht::velocity();
+            velocity[data_format::pose::RIGHT] = ht::velocity();
         }
         // Convert back to opencv for display or saving.
         time_point current_time(
@@ -234,14 +234,12 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
         } else {
             idx_to_use = 0;
         }
-        data_format::ht::ht_frame current_frame{current_time,
+        ht_frame current_frame{current_time,
                                                 results_images_,
                                                 detections_,
                                                 hp,
                                                 velocity,
-                                                current_pose_,
-                                                (current_pose_.valid) ? data_format::coordinates::WORLD
-                                                                      : data_format::coordinates::VIEWER};
+                                                current_pose_};
         {
             // copy the current frame to shared memory
             b_intp::scoped_lock<b_intp::named_mutex> lock(*shm_mutex_[idx_to_use]);
@@ -249,16 +247,15 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
         }
         if (dump_data)
             std::cout << *ht_raw_data_[idx_to_use] << std::endl;
-        ht_publisher_.put(ht_publisher_.allocate<data_format::ht::ht_frame>(data_format::ht::ht_frame{current_frame}));
+        ht_publisher_.put(ht_publisher_.allocate<ht_frame>(ht_frame{current_frame}));
         {
             b_intp::scoped_lock<b_intp::named_mutex> lock(*current_shm_mutex_idx_);
             *current_swap_idx_ = idx_to_use;
         }
 #else
 
-        ht_publisher_.put(ht_publisher_.allocate<data_format::ht::ht_frame>(data_format::ht::ht_frame{
-            current_time, results_images_, detections_, hp, velocity, current_pose_,
-            (current_pose_.valid) ? data_format::coordinates::WORLD : data_format::coordinates::VIEWER}));
+        ht_publisher_.put(ht_publisher_.allocate<ht::ht_frame>(ht::ht_frame{
+            current_time, results_images_, detections_, hp, velocity, current_pose_}));
 #endif
         results_images_.clear();
         detections_.clear();
@@ -266,7 +263,7 @@ void ILLIXR::hand_tracking_publisher::_p_one_iteration() {
 }
 
 void ILLIXR::hand_tracking_publisher::calculate_proper_position(
-    std::map<data_format::ht::hand, data_format::ht::hand_points>& hp) {
+    std::map<data_format::pose::side, ht::hand_points>& hp) {
     if (current_raw_.depth_valid) {
         current_depth_ = current_raw_.at(data_format::image::DEPTH);
     } else {
@@ -297,17 +294,16 @@ void ILLIXR::hand_tracking_publisher::calculate_proper_position(
         rot = current_pose_.orientation.toRotationMatrix();
 
     for (auto& item : detections_)
-        data_format::denormalize(item.second, static_cast<float>(img_size_x_), static_cast<float>(img_size_y_),
-                                 data_format::units::PIXEL);
+        denormalize(item.second, static_cast<float>(img_size_x_), static_cast<float>(img_size_y_));
     // only use left eye detections, as the depth map is expressed as left eye distance
-    for (auto h : data_format::ht::hand_map) {
+    for (auto h : ht::hand_map) {
         auto& primary_eye = detections_.at(current_raw_.primary).points.at(h);
         if (!primary_eye.valid) {
             continue;
         }
 
-        data_format::ht::hand_points hand_pnts(current_pose_.unit);
-        for (int i = 0; i < data_format::ht::NUM_LANDMARKS; i++) {
+        ht::hand_points hand_pnts{};
+        for (int i = 0; i < ht::NUM_LANDMARKS; i++) {
             if (primary_eye[i].x() == 0. || primary_eye[i].y() == 0. || !primary_eye[i].valid) {
                 hand_pnts[i].confidence = 0.;
                 hand_pnts[i].valid      = false;
@@ -331,14 +327,13 @@ void ILLIXR::hand_tracking_publisher::calculate_proper_position(
 
                 // use parallax to determine distance
                 if ((!current_confidence_.empty() && confidence <= .05) ||
-                    distance <= data_format::units::convert(current_pose_.unit, data_format::units::MILLIMETER, 10) ||
-                    distance >= data_format::units::convert(current_pose_.unit, data_format::units::METER, 20.)) {
+                    distance <= 10 || distance >= 2000) {
                     if (current_raw_.eye_count == 1) {
                         //
                     } else {
-                        auto secondary_eye = detections_.at(data_format::units::non_primary(current_raw_.primary)).points.at(h);
+                        auto secondary_eye = detections_.at(data_format::pose::non_primary(current_raw_.primary)).points.at(h);
 
-                        auto   secondary = cam_data_[data_format::units::non_primary(current_raw_.primary)];
+                        auto   secondary = cam_data_[data_format::pose::non_primary(current_raw_.primary)];
                         double theta_xr  = std::atan((secondary.center_x - secondary_eye[i].x()) *
                                                      std::tan(secondary.horizontal_fov / 2.) / secondary.center_x);
                         double theta_yr  = std::atan((secondary.center_y - secondary_eye[i].y()) *

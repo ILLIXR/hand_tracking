@@ -79,9 +79,10 @@ if(ZED_FOUND)
         add_definitions(-DHAVE_ZED)
     endif()
 endif()
-find_package(protobuf 3.19...3.21 QUIET CONFIG)
-if(NOT protobuf_FOUND)
-    pkg_check_modules(protobuf REQUIRED protobuf>=3.19 protobuf<=3.21)
+#find_package(protobuf QUIET CONFIG)
+find_package(Protobuf REQUIRED)
+if(NOT Protobuf_FOUND)
+    pkg_check_modules(protobuf REQUIRED protobuf>=3.19)
 endif()
 pkg_check_modules(glog REQUIRED libglog)
 pkg_check_modules(egl REQUIRED egl)
@@ -150,12 +151,15 @@ add_library(${PLUGIN_NAME} SHARED
             plugin.hpp
             hand_tracking_publisher.cpp
             hand_tracking_publisher.hpp
+            hand_tracking_data.hpp
+            point.hpp
+            ${ILLIXR_HDR_PATH}/illixr/data_format/normalize.hpp
+            ${ILLIXR_HDR_PATH}/illixr/data_format/shape.hpp
             ${ILLIXR_HDR_PATH}/illixr/data_format/misc.hpp
             ${ILLIXR_HDR_PATH}/illixr/data_format/zed_cam.hpp
             ${ILLIXR_HDR_PATH}/illixr/threadloop.hpp
             ${ILLIXR_HDR_PATH}/illixr/data_format/camera_data.hpp
-            ${ILLIXR_HDR_PATH}/illixr/data_format/hand_tracking_data.hpp
-            ${ILLIXR_HDR_PATH}/illixr/data_format/pose.hpp
+            ${ILLIXR_HDR_PATH}/illixr/data_format/poses/head_pose.hpp
             ${ILLIXR_HDR_PATH}/illixr/plugin.hpp
             ${ILLIXR_HDR_PATH}/illixr/phonebook.hpp
             ${ILLIXR_HDR_PATH}/illixr/switchboard.hpp
@@ -172,7 +176,7 @@ target_link_libraries(${PLUGIN_NAME} PUBLIC
                       absl::flags_parse
                       fmt
 )
-
+message("${ILLIXR_HDR_PATH}")
 target_include_directories(${PLUGIN_NAME} PUBLIC
                            ${ILLIXR_HDR_PATH}
                            ${ILLIXR_ROOT}
