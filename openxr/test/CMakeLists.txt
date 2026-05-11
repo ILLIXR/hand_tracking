@@ -69,7 +69,7 @@ else()
 endif()
 
 target_link_libraries(illixr_oxr_test PRIVATE ${LINUX_LIBS} ${X11_LIBRARIES} ${SDL2_LIBRARIES} OpenGL::GL fmt)
-target_include_directories(illixr_oxr_test PRIVATE ${X11_INCLUDE_DIR} ${SDL2_INCLUDE_DIRS} ${gl_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/external/openxr_headers ${ILLIXR_HDR_PATH})
+target_include_directories(illixr_oxr_test PRIVATE ${X11_INCLUDE_DIR} ${SDL2_INCLUDE_DIRS} ${gl_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR}/external/openxr_headers ${ILLIXR_HDR_PATH})
 
 target_compile_options(illixr_oxr_test PRIVATE -pedantic -Wall -Wextra -Wno-unused-parameter)
 

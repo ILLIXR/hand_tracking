@@ -114,6 +114,7 @@ target_include_directories(${PLUGIN_NAME} BEFORE PUBLIC ${Protobuf_INCLUDE_DIRS}
 target_include_directories(${PLUGIN_NAME} PUBLIC
                            ${CMAKE_BINARY_DIR}
                            ${CMAKE_SOURCE_DIR}
+                           ${CMAKE_CURRENT_SOURCE_DIR}
                            ${glog_INCLUDEDIR}
                            ${ZLIB_INCLUDE_DIR}
                            ${gflags_INCLUDE_DIR}

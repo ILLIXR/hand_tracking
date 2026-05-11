@@ -54,9 +54,11 @@ if(HT_ENABLE_GRAPH_PROFILER)
 endif()
 set(CMAKE_MODULE_PATH
     ${CMAKE_SOURCE_DIR}/cmake
+    ${CMAKE_CURRENT_SOURCE_DIR}/cmake
     ${CMAKE_MODULE_PATH}
     ${CMAKE_INSTALL_PREFIX}/lib/cmake
 )
+set(MEDIAPIPE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR} CACHE PATH "" FORCE)
 add_custom_target(docs_dummy_target
                   COMMAND ${CMAKE_COMMAND} -E echo ""
 )
@@ -183,6 +185,7 @@ target_include_directories(${PLUGIN_NAME} PUBLIC
                            ${OpenCV_INCLUDE_DIRS}
                            ${CURRENT_BUILD_DIR}
                            ${CMAKE_SOURCE_DIR}
+                           ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 if(BUILD_OXR_INTERFACE)

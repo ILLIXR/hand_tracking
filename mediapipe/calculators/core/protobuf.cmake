@@ -1,4 +1,4 @@
-include(${CMAKE_SOURCE_DIR}/cmake/protoc_generate_obj.cmake)
+include(${MEDIAPIPE_SOURCE_DIR}/cmake/protoc_generate_obj.cmake)
 
 protobuf_generate_obj(PROTO_PATH calculators/core OBJ_NAME flow_limiter_calculator)
 protobuf_generate_obj(PROTO_PATH calculators/core OBJ_NAME gate_calculator)

@@ -1,4 +1,4 @@
-include(${CMAKE_SOURCE_DIR}/cmake/make_pb_binary.cmake)
+include(${MEDIAPIPE_SOURCE_DIR}/cmake/make_pb_binary.cmake)
 
 set(HRGT_LIBRARIES
     $<TARGET_OBJECTS:calculators.core.gate_calculator_proto>

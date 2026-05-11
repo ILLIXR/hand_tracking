@@ -1,18 +1,18 @@
-include(${CMAKE_SOURCE_DIR}/cmake/make_pb_binary.cmake)
+include(${MEDIAPIPE_SOURCE_DIR}/cmake/make_pb_binary.cmake)
 
-configure_file(${CMAKE_SOURCE_DIR}/mediapipe/modules/hand_landmark/hand_landmark_model_loader.pbtxt.in
-               ${CMAKE_SOURCE_DIR}/mediapipe/modules/hand_landmark/hand_landmark_model_loader.pbtxt
+configure_file(${MEDIAPIPE_SOURCE_DIR}/mediapipe/modules/hand_landmark/hand_landmark_model_loader.pbtxt.in
+               ${MEDIAPIPE_SOURCE_DIR}/mediapipe/modules/hand_landmark/hand_landmark_model_loader.pbtxt
                @ONLY
 )
 
 if(HT_ENABLE_GPU)
-    configure_file(${CMAKE_SOURCE_DIR}/mediapipe/modules/hand_landmark/hand_landmark_gpu.pbtxt.in
-                   ${CMAKE_SOURCE_DIR}/mediapipe/modules/hand_landmark/hand_landmark_gpu.pbtxt
+    configure_file(${MEDIAPIPE_SOURCE_DIR}/mediapipe/modules/hand_landmark/hand_landmark_gpu.pbtxt.in
+                   ${MEDIAPIPE_SOURCE_DIR}/mediapipe/modules/hand_landmark/hand_landmark_gpu.pbtxt
                    @ONLY
     )
 else()
-    configure_file(${CMAKE_SOURCE_DIR}/mediapipe/modules/hand_landmark/hand_landmark_cpu.pbtxt.in
-                   ${CMAKE_SOURCE_DIR}/mediapipe/modules/hand_landmark/hand_landmark_cpu.pbtxt
+    configure_file(${MEDIAPIPE_SOURCE_DIR}/mediapipe/modules/hand_landmark/hand_landmark_cpu.pbtxt.in
+                   ${MEDIAPIPE_SOURCE_DIR}/mediapipe/modules/hand_landmark/hand_landmark_cpu.pbtxt
                    @ONLY
     )
 endif()
@@ -234,8 +234,8 @@ make_proto_binary(BINARY_NAME palm_detection_detection_to_roi_graph_text_to_bina
 include(${CMAKE_CURRENT_LIST_DIR}/calculators/build.cmake)
 
 install(FILES
-        ${CMAKE_SOURCE_DIR}/mediapipe/modules/hand_landmark/hand_landmark_full.tflite
-        ${CMAKE_SOURCE_DIR}/mediapipe/modules/hand_landmark/hand_landmark_lite.tflite
-        ${CMAKE_SOURCE_DIR}/mediapipe/modules/hand_landmark/handedness.txt
+        ${MEDIAPIPE_SOURCE_DIR}/mediapipe/modules/hand_landmark/hand_landmark_full.tflite
+        ${MEDIAPIPE_SOURCE_DIR}/mediapipe/modules/hand_landmark/hand_landmark_lite.tflite
+        ${MEDIAPIPE_SOURCE_DIR}/mediapipe/modules/hand_landmark/handedness.txt
         DESTINATION ${CMAKE_INSTALL_PREFIX}/share/mediapipe/modules/hand_landmark
 )

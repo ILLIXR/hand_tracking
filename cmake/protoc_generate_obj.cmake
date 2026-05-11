@@ -211,7 +211,7 @@ function(protobuf_generate_obj)
 
     target_include_directories(${library_base_name} PUBLIC
                                ${Protobuf_INCLUDE_DIRS}
-                               ${CURRENT_CMAKE_SOURCE_DIR}/mediapipe
+                               ${MEDIAPIPE_SOURCE_DIR}/mediapipe
                                ${CMAKE_BINARY_DIR}
     )
     add_dependencies(docs_dummy_target ${library_base_name})

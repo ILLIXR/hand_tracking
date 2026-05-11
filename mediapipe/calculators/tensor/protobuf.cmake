@@ -1,4 +1,4 @@
-include(${CMAKE_SOURCE_DIR}/cmake/protoc_generate_obj.cmake)
+include(${MEDIAPIPE_SOURCE_DIR}/cmake/protoc_generate_obj.cmake)
 
 protobuf_generate_obj(PROTO_PATH calculators/tensor OBJ_NAME image_to_tensor_calculator)
 protobuf_generate_obj(PROTO_PATH calculators/tensor OBJ_NAME inference_calculator DESCRIPTORS)

@@ -1,4 +1,4 @@
-include(${CMAKE_SOURCE_DIR}/cmake/protoc_generate_obj.cmake)
+include(${MEDIAPIPE_SOURCE_DIR}/cmake/protoc_generate_obj.cmake)
 
 protobuf_generate_obj(PROTO_PATH framework OBJ_NAME calculator_options DESCRIPTORS)
 protobuf_generate_obj(PROTO_PATH framework OBJ_NAME mediapipe_options DESCRIPTORS)

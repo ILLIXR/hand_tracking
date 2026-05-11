@@ -14,19 +14,19 @@ find_package(Boost REQUIRED CONFIG)
 find_package(OpenCV 4 REQUIRED)
 find_package(spdlog REQUIRED)
 
-if(NOT EXISTS "${CMAKE_SOURCE_DIR}/openxr/external/OpenXR-SDK-release-1.0.34")
-    if(NOT EXISTS "${CMAKE_SOURCE_DIR}/openxr/external/oxr_sdk.zip")
-        file(DOWNLOAD https://github.com/KhronosGroup/OpenXR-SDK/archive/refs/tags/release-1.0.34.zip ${CMAKE_SOURCE_DIR}/openxr/external/oxr_sdk.zip SHOW_PROGRESS)
+if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/openxr/external/OpenXR-SDK-release-1.0.34")
+    if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/openxr/external/oxr_sdk.zip")
+        file(DOWNLOAD https://github.com/KhronosGroup/OpenXR-SDK/archive/refs/tags/release-1.0.34.zip ${CMAKE_CURRENT_SOURCE_DIR}/openxr/external/oxr_sdk.zip SHOW_PROGRESS)
     endif()
     if(${CMAKE_MINOR_VERSION} LESS 18)
-        execute_process(COMMAND unzip -d ${CMAKE_SOURCE_DIR}/openxr/external ${CMAKE_SOURCE_DIR}/openxr/external/oxr_sdk.zip)
+        execute_process(COMMAND unzip -d ${CMAKE_CURRENT_SOURCE_DIR}/openxr/external ${CMAKE_CURRENT_SOURCE_DIR}/openxr/external/oxr_sdk.zip)
     else()
-        file(ARCHIVE_EXTRACT INPUT ${CMAKE_SOURCE_DIR}/openxr/external/oxr_sdk.zip DESTINATION ${CMAKE_SOURCE_DIR}/openxr/external)
+        file(ARCHIVE_EXTRACT INPUT ${CMAKE_CURRENT_SOURCE_DIR}/openxr/external/oxr_sdk.zip DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/openxr/external)
     endif()
 endif()
 
 add_library(OXR_HEADERS INTERFACE)
-target_include_directories(OXR_HEADERS INTERFACE ${CMAKE_SOURCE_DIR}/openxr/external/OpenXR-SDK-release-1.0.34/include)
+target_include_directories(OXR_HEADERS INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/openxr/external/OpenXR-SDK-release-1.0.34/include)
 
 
 add_library(openxr_illixr_ht SHARED
@@ -44,6 +44,7 @@ target_include_directories(openxr_illixr_ht PUBLIC
                            ${Boost_INCLUDE_DIRS}
                            ${OpenCV_INCLUDE_DIRS}
                            ${CMAKE_SOURCE_DIR}
+                           ${MEDIAPIPE_SOURCE_DIR}
                            ${CMAKE_BINARY_DIR}
 )
 

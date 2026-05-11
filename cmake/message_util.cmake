@@ -1,13 +1,13 @@
 add_executable(message_type_util
-               ${CMAKE_SOURCE_DIR}/mediapipe/framework/tool/message_type_util.cc
-               ${CMAKE_SOURCE_DIR}/mediapipe/framework/deps/file_helpers.h
-               ${CMAKE_SOURCE_DIR}/mediapipe/framework/deps/file_helpers.cc
-               ${CMAKE_SOURCE_DIR}/mediapipe/framework/deps/status.h
-               ${CMAKE_SOURCE_DIR}/mediapipe/framework/deps/status.cc
-               ${CMAKE_SOURCE_DIR}/mediapipe/framework/deps/status_builder.h
-               ${CMAKE_SOURCE_DIR}/mediapipe/framework/deps/status_builder.cc
-               ${CMAKE_SOURCE_DIR}/mediapipe/framework/deps/file_path.h
-               ${CMAKE_SOURCE_DIR}/mediapipe/framework/deps/file_path.cc
+               ${MEDIAPIPE_SOURCE_DIR}/mediapipe/framework/tool/message_type_util.cc
+               ${MEDIAPIPE_SOURCE_DIR}/mediapipe/framework/deps/file_helpers.h
+               ${MEDIAPIPE_SOURCE_DIR}/mediapipe/framework/deps/file_helpers.cc
+               ${MEDIAPIPE_SOURCE_DIR}/mediapipe/framework/deps/status.h
+               ${MEDIAPIPE_SOURCE_DIR}/mediapipe/framework/deps/status.cc
+               ${MEDIAPIPE_SOURCE_DIR}/mediapipe/framework/deps/status_builder.h
+               ${MEDIAPIPE_SOURCE_DIR}/mediapipe/framework/deps/status_builder.cc
+               ${MEDIAPIPE_SOURCE_DIR}/mediapipe/framework/deps/file_path.h
+               ${MEDIAPIPE_SOURCE_DIR}/mediapipe/framework/deps/file_path.cc
                $<TARGET_OBJECTS:framework.calculator_options_proto>
                $<TARGET_OBJECTS:framework.calculator_proto>
                $<TARGET_OBJECTS:framework.packet_generator_proto>
@@ -23,6 +23,7 @@ target_include_directories(message_type_util PUBLIC
                            ${gflags_INCLUDE_DIR}
                            ${Protobuf_INCLUDE_DIRS}
                            ${CMAKE_SOURCE_DIR}
+                           ${MEDIAPIPE_SOURCE_DIR}
 
 )
 target_link_libraries(message_type_util PUBLIC

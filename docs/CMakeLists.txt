@@ -74,7 +74,7 @@ from mkdocs_glightbox import plugin
 
             set(PIP_RUN NO)
             if(UV_FOUND)
-                execute_process(COMMAND ${UV_FOUND} pip install -r ${CMAKE_SOURCE_DIR}/docs/requirements.txt
+                execute_process(COMMAND ${UV_FOUND} pip install -r ${CMAKE_CURRENT_SOURCE_DIR}/docs/requirements.txt
                                 RESULT_VARIABLE PIP_RESULT
                                 ERROR_VARIABLE PIP_MESSAGE
                 )
@@ -85,7 +85,7 @@ from mkdocs_glightbox import plugin
                 else()
                     set(_pip_args "--user")
                 endif()
-                execute_process(COMMAND ${Python3_EXECUTABLE} -m pip install ${_pip_args} -r ${CMAKE_SOURCE_DIR}/docs/requirements.txt
+                execute_process(COMMAND ${Python3_EXECUTABLE} -m pip install ${_pip_args} -r ${CMAKE_CURRENT_SOURCE_DIR}/docs/requirements.txt
                                 RESULT_VARIABLE PIP_RESULT
                                 ERROR_VARIABLE PIP_MESSAGE
                 )
@@ -96,7 +96,7 @@ from mkdocs_glightbox import plugin
             endif()
             if(PIP_RUN)
                 if(NOT ${PIP_RESULT} EQUAL 0)
-                    message(WARNING "Could not install Python packages. Output from pip was:\n${PIP_MESSAGE}\n\n Cannot build documentation\n  See ${CMAKE_SOURCE_DIR}/docs/requirements.txt for package listing.")
+                    message(WARNING "Could not install Python packages. Output from pip was:\n${PIP_MESSAGE}\n\n Cannot build documentation\n  See ${CMAKE_CURRENT_SOURCE_DIR}/docs/requirements.txt for package listing.")
                     set(BUILD_DOCS NO CACHE BOOL "")
                 else()
                     set(PY_PACKAGES_FOUND ON CACHE BOOL "" FORCE)
@@ -110,7 +110,7 @@ if(BUILD_DOCS)
     find_program(DOT_EXEC dot)
     set(DOC_BUILD_DIR "${CURRENT_BUILD_DIR}/_docs/docs" CACHE INTERNAL "")
     set(DOC_ROOT_BUILD_DIR "${CURRENT_BUILD_DIR}/docs/docs")
-    file(COPY ${CMAKE_SOURCE_DIR}/docs/docs
+    file(COPY ${MEDIAPIPE_SOURCE_DIR}/docs/docs
          DESTINATION ${CURRENT_BUILD_DIR}/_docs
          FOLLOW_SYMLINK_CHAIN
          PATTERN "*.in" EXCLUDE
@@ -130,7 +130,7 @@ if(BUILD_DOCS)
     set(DOXYGEN_BUILD_DIR "${DOC_BUILD_DIR}/api" CACHE INTERNAL "")
     set(DOXYGEN_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_DATAROOTDIR}/doc/ILLIXR_hand_tracking" CACHE INTERNAL "")
     set(DOXY_DOC_DIR "${CMAKE_INSTALL_DATAROOTDIR}/doc/ILLIXR_hand_tracking" CACHE INTERNAL "")
-    set(DOXYGEN_SOURCE_DIR "${CMAKE_SOURCE_DIR}/plugin.hpp ${CMAKE_SOURCE_DIR}/plugin.cpp ${CMAKE_SOURCE_DIR}/hand_tracking_publisher.hpp ${CMAKE_SOURCE_DIR}/hand_tracking_publisher.cpp ${CMAKE_SOURCE_DIR}/openxr/interface.h ${CMAKE_SOURCE_DIR}/openxr/interface.cpp ${CMAKE_SOURCE_DIR}/openxr/ixr_openxr.hpp ${CMAKE_SOURCE_DIR}/openxr/openxr.cpp ${CMAKE_SOURCE_DIR}/mediapipe ${CURRENT_BUILD_DIR}/modules ${CURRENT_BUILD_DIR}/graphs ${CURRENT_BUILD_DIR}/mediapipe")
+    set(DOXYGEN_SOURCE_DIR "${MEDIAPIPE_SOURCE_DIR}/plugin.hpp ${MEDIAPIPE_SOURCE_DIR}/plugin.cpp ${MEDIAPIPE_SOURCE_DIR}/hand_tracking_publisher.hpp ${MEDIAPIPE_SOURCE_DIR}/hand_tracking_publisher.cpp ${MEDIAPIPE_SOURCE_DIR}/openxr/interface.h ${MEDIAPIPE_SOURCE_DIR}/openxr/interface.cpp ${MEDIAPIPE_SOURCE_DIR}/openxr/ixr_openxr.hpp ${MEDIAPIPE_SOURCE_DIR}/openxr/openxr.cpp ${MEDIAPIPE_SOURCE_DIR}/mediapipe ${CURRENT_BUILD_DIR}/modules ${CURRENT_BUILD_DIR}/graphs ${CURRENT_BUILD_DIR}/mediapipe")
     set(DOXYGEN_EXCLUDE_FILES "")
     configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in ${CURRENT_BUILD_DIR}/_docs/Doxyfile)
 

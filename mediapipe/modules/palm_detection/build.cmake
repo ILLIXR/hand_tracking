@@ -1,7 +1,7 @@
-include(${CMAKE_SOURCE_DIR}/cmake/make_pb_binary.cmake)
+include(${MEDIAPIPE_SOURCE_DIR}/cmake/make_pb_binary.cmake)
 
-configure_file(${CMAKE_SOURCE_DIR}/mediapipe/modules/palm_detection/palm_detection_model_loader.pbtxt.in
-               ${CMAKE_SOURCE_DIR}/mediapipe/modules/palm_detection/palm_detection_model_loader.pbtxt
+configure_file(${MEDIAPIPE_SOURCE_DIR}/mediapipe/modules/palm_detection/palm_detection_model_loader.pbtxt.in
+               ${MEDIAPIPE_SOURCE_DIR}/mediapipe/modules/palm_detection/palm_detection_model_loader.pbtxt
                @ONLY
 )
 
@@ -70,7 +70,7 @@ make_proto_binary(BINARY_NAME palm_detection_graph_text_to_binary_graph
                   PROTO_LIBRARIES ${PDGT_LIBRARIES})
 
 install(FILES
-        ${CMAKE_SOURCE_DIR}/mediapipe/modules/palm_detection/palm_detection_full.tflite
-        ${CMAKE_SOURCE_DIR}/mediapipe/modules/palm_detection/palm_detection_lite.tflite
+        ${MEDIAPIPE_SOURCE_DIR}/mediapipe/modules/palm_detection/palm_detection_full.tflite
+        ${MEDIAPIPE_SOURCE_DIR}/mediapipe/modules/palm_detection/palm_detection_lite.tflite
         DESTINATION ${CMAKE_INSTALL_PREFIX}/share/mediapipe/modules/palm_detection
 )

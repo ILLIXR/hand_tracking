@@ -6,10 +6,10 @@ function(make_proto_binary)
     set(FILE_PATH_NAME  "${make_proto_binary_FILE_ROOT}/${make_proto_binary_FILE_BASE_NAME}")
     set(SUBGRAPH_INC_FILE_PATH ${FILE_PATH_NAME}.inc)
     add_executable(${make_proto_binary_BINARY_NAME}
-                   ${CMAKE_SOURCE_DIR}/mediapipe/framework/deps/ret_check.cc
-                   ${CMAKE_SOURCE_DIR}/mediapipe/framework/deps/status_builder.cc
-                   ${CMAKE_SOURCE_DIR}/mediapipe/framework/deps/status.cc
-                   ${CMAKE_SOURCE_DIR}/mediapipe/framework/tool/text_to_binary_graph.cc
+                   ${MEDIAPIPE_SOURCE_DIR}/mediapipe/framework/deps/ret_check.cc
+                   ${MEDIAPIPE_SOURCE_DIR}/mediapipe/framework/deps/status_builder.cc
+                   ${MEDIAPIPE_SOURCE_DIR}/mediapipe/framework/deps/status.cc
+                   ${MEDIAPIPE_SOURCE_DIR}/mediapipe/framework/tool/text_to_binary_graph.cc
                    ${make_proto_binary_PROTO_LIBRARIES}
     )
     target_include_directories(${make_proto_binary_BINARY_NAME} BEFORE PUBLIC
@@ -17,7 +17,7 @@ function(make_proto_binary)
     )
     get_target_property(TFL_INCLUDE_DIR tensorflow-lite::tensorflow-lite${TF_POSTFIX} INTERFACE_INCLUDE_DIRECTORIES)
     target_include_directories(${make_proto_binary_BINARY_NAME} PUBLIC
-                               ${CMAKE_SOURCE_DIR}
+                               ${MEDIAPIPE_SOURCE_DIR}
                                ${CMAKE_BINARY_DIR}
                                ${glog_INCLUDE_DIR}
                                ${CMAKE_INSTALL_PREFIX}/include
@@ -42,7 +42,7 @@ function(make_proto_binary)
     add_custom_command(TARGET ${make_proto_binary_BINARY_NAME}
                        POST_BUILD
                        COMMAND ${CMAKE_COMMAND} -E env "LD_LIBRARY_PATH=${CMAKE_INSTALL_PREFIX}/lib" ./${make_proto_binary_BINARY_NAME}
-                       ARGS --proto_source=${CMAKE_SOURCE_DIR}/mediapipe/${FILE_PATH_NAME}.pbtxt --proto_output=${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}.binarypb
+                       ARGS --proto_source=${MEDIAPIPE_SOURCE_DIR}/mediapipe/${FILE_PATH_NAME}.pbtxt --proto_output=${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}.binarypb
                        COMMENT "Processing protobuf file from mediapipe/${FILE_PATH_NAME}.pbtxt"
                        VERBATIM
                        BYPRODUCTS ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}.binarypb
@@ -62,7 +62,7 @@ function(make_proto_binary)
     )
     add_dependencies(docs_dummy_target ${make_proto_binary_FILE_BASE_NAME}_linked)
     target_include_directories(${make_proto_binary_FILE_BASE_NAME}_linked PUBLIC
-                               ${CMAKE_SOURCE_DIR}
+                               ${MEDIAPIPE_SOURCE_DIR}
                                ${CMAKE_BINARY_DIR}
     )
     target_link_libraries(${make_proto_binary_FILE_BASE_NAME}_linked PUBLIC
