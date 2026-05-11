@@ -161,15 +161,15 @@ extra:
     # ---------------------------------------------------------
     # begin processing
     # ---------------------------------------------------------
-    add_custom_target(doc_mkdocs
+    add_custom_target(doc_ht_mkdocs
                       COMMAND ${MKDOCS_EXEC} build -c -f ${CURRENT_BUILD_DIR}/_docs/mkdocs.yaml)
-    add_dependencies(doc_mkdocs docs_dummy_target)
-    add_custom_target(doc_mkdocs_api
+    add_dependencies(doc_ht_mkdocs docs_dummy_target)
+    add_custom_target(doc_ht_mkdocs_api
                       COMMAND ${MKDOCS_EXEC} build -c -f ${CURRENT_BUILD_DIR}/_docs/mkdocs.yaml
     )
-    add_dependencies(doc_mkdocs_api doc_mkdocs)
-    add_custom_target(docs ALL)
-    add_dependencies(docs doc_mkdocs_api)
+    add_dependencies(doc_ht_mkdocs_api doc_ht_mkdocs)
+    add_custom_target(ht_docs ALL)
+    add_dependencies(ht_docs doc_ht_mkdocs_api)
 
 endif()
 
