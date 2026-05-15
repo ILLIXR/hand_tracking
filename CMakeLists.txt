@@ -148,6 +148,7 @@ if(HT_ENABLE_GPU)
     set(HT_PROCESSOR "_gpu")
 endif()
 set(PLUGIN_NAME plugin.hand_tracking${HT_PROCESSOR}${ILLIXR_BUILD_SUFFIX})
+set(ILLIXR_HT_PLUGIN ${PLUGIN_NAME} CACHE STRING "" FORCE)
 add_library(${PLUGIN_NAME} SHARED
             plugin.cpp
             plugin.hpp
