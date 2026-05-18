@@ -47,7 +47,7 @@ function(make_proto_binary)
                        VERBATIM
                        BYPRODUCTS ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}.binarypb
     )
-    add_custom_command(COMMAND ${CMAKE_COMMAND} -E env "LD_LIBRARY_PATH=${CMAKE_INSTALL_PREFIX}/lib" ${CMAKE_BINARY_DIR}/encode_as_c_string
+    add_custom_command(COMMAND ${CMAKE_COMMAND} -E env "LD_LIBRARY_PATH=${CMAKE_INSTALL_PREFIX}/lib" ${ILLIXR_HT_BINARY_DIR}/encode_as_c_string
                        ARGS ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}.binarypb > ${CMAKE_BINARY_DIR}/${FILE_PATH_NAME}.inc
                        COMMENT "Producing include file from ${FILE_PATH_NAME}.binarypb"
                        VERBATIM

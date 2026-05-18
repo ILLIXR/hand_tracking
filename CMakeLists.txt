@@ -21,6 +21,7 @@ cmake_dependent_option(BUILD_OXR_TEST "Whether to build the OpenXR test" OFF BUI
 option(TFLIBRARY_POSTFIX "Postfix to attach to XNNPACK and tensorflow libraries to identify the specuific version needed" OFF)
 cmake_dependent_option(HT_ENABLE_WEB_PROFILING "Whether to enable web profiling" ON HT_ENABLE_GRAPH_PROFILER OFF)
 option(BUILD_DOCS "Build the documentation" OFF)
+set(ILLIXR_HT_BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR} CACHE PATH "" FORCE)
 
 if(BUILD_OXR_INTERFACE)
     add_definitions(-DENABLE_OXR)

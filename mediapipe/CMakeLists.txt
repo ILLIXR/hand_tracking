@@ -1,3 +1,4 @@
+include_directories(BEFORE ${CMAKE_CURRENT_BINARY_DIR}/..)
 target_sources(${PLUGIN_NAME} PUBLIC
                $<TARGET_OBJECTS:calculators.util.annotation_overlay_calculator_proto>
                $<TARGET_OBJECTS:calculators.util.association_calculator_proto>
