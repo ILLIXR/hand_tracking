@@ -92,12 +92,12 @@ namespace internal {
         virtual ~StaticAccessToStatusHandler() { }
 
         virtual absl::Status FillExpectations(const MediaPipeOptions& extendable_options,
-                                              PacketTypeSet*          input_side_packets)    = 0;
+                                              PacketTypeSet*          input_side_packets) = 0;
         virtual absl::Status HandlePreRunStatus(const MediaPipeOptions& extendable_options, const PacketSet& input_side_packets,
-                                                const absl::Status& pre_run_status) = 0;
+                                                const absl::Status& pre_run_status)       = 0;
         virtual absl::Status HandleStatus(const MediaPipeOptions& extendable_options,
                                           const PacketSet&        input_side_packets, //
-                                          const absl::Status&     run_status)           = 0;
+                                          const absl::Status&     run_status)             = 0;
     };
 
     using StaticAccessToStatusHandlerRegistry = GlobalFactoryRegistry<std::unique_ptr<StaticAccessToStatusHandler>>;

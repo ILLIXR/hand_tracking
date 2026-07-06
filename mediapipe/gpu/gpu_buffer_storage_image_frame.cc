@@ -42,10 +42,10 @@ namespace {
     std::shared_ptr<FrameBuffer> ImageFrameToFrameBuffer(std::shared_ptr<ImageFrame> image_frame) {
         FrameBuffer::Format format = FrameBufferFormatForImageFrameFormat(image_frame->Format());
         ABSL_CHECK(format != FrameBuffer::Format::kUNKNOWN) << "Invalid format. Only SRGB, SRGBA and GRAY8 are supported.";
-        const FrameBuffer::Dimension          dimension{/*width=*/image_frame->Width(),
+        const FrameBuffer::Dimension dimension{/*width=*/image_frame->Width(),
                                                /*height=*/image_frame->Height()};
-        const FrameBuffer::Stride             stride{/*row_stride_bytes=*/image_frame->WidthStep(),
-                                         /*pixel_stride_bytes=*/image_frame->ByteDepth() * image_frame->NumberOfChannels()};
+        const FrameBuffer::Stride    stride{/*row_stride_bytes=*/image_frame->WidthStep(),
+                                            /*pixel_stride_bytes=*/image_frame->ByteDepth() * image_frame->NumberOfChannels()};
         const std::vector<FrameBuffer::Plane> planes{{image_frame->MutablePixelData(), stride}};
         return std::make_shared<FrameBuffer>(planes, dimension, format);
     }

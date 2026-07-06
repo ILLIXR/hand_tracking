@@ -1,5 +1,5 @@
 #ifndef OPENXR_LOADER_NEGOTIATION_H_
-#define OPENXR_LOADER_NEGOTIATION_H_ 1
+    #define OPENXR_LOADER_NEGOTIATION_H_ 1
 
 /*
 ** Copyright 2017-2024, The Khronos Group Inc.
@@ -12,30 +12,30 @@
 **
 */
 
-#include "openxr.h"
+    #include "openxr.h"
 
-#ifdef __cplusplus
+    #ifdef __cplusplus
 extern "C" {
-#endif
+    #endif
 
-// XR_LOADER_VERSION_1_0 is a preprocessor guard. Do not pass it to API calls.
-#define XR_LOADER_VERSION_1_0 1
+    // XR_LOADER_VERSION_1_0 is a preprocessor guard. Do not pass it to API calls.
+    #define XR_LOADER_VERSION_1_0 1
 
-#define XR_CURRENT_LOADER_API_LAYER_VERSION 1
+    #define XR_CURRENT_LOADER_API_LAYER_VERSION 1
 
-#define XR_CURRENT_LOADER_RUNTIME_VERSION 1
+    #define XR_CURRENT_LOADER_RUNTIME_VERSION 1
 
-#define XR_LOADER_INFO_STRUCT_VERSION 1
+    #define XR_LOADER_INFO_STRUCT_VERSION 1
 
-#define XR_API_LAYER_INFO_STRUCT_VERSION 1
+    #define XR_API_LAYER_INFO_STRUCT_VERSION 1
 
-#define XR_RUNTIME_INFO_STRUCT_VERSION 1
+    #define XR_RUNTIME_INFO_STRUCT_VERSION 1
 
-#define XR_API_LAYER_NEXT_INFO_STRUCT_VERSION 1
+    #define XR_API_LAYER_NEXT_INFO_STRUCT_VERSION 1
 
-#define XR_API_LAYER_CREATE_INFO_STRUCT_VERSION 1
+    #define XR_API_LAYER_CREATE_INFO_STRUCT_VERSION 1
 
-#define XR_API_LAYER_MAX_SETTINGS_PATH_SIZE 512
+    #define XR_API_LAYER_MAX_SETTINGS_PATH_SIZE 512
 
 typedef enum XrLoaderInterfaceStructs {
     XR_LOADER_INTERFACE_STRUCT_UNINTIALIZED          = 0,
@@ -109,8 +109,8 @@ typedef XrResult(XRAPI_PTR* PFN_xrNegotiateLoaderApiLayerInterface)(const XrNego
                                                                     const char*                  layerName,
                                                                     XrNegotiateApiLayerRequest*  apiLayerRequest);
 
-#ifndef XR_NO_PROTOTYPES
-    #ifdef XR_EXTENSION_PROTOTYPES
+    #ifndef XR_NO_PROTOTYPES
+        #ifdef XR_EXTENSION_PROTOTYPES
 XRAPI_ATTR XrResult XRAPI_CALL xrCreateApiLayerInstance(const XrInstanceCreateInfo* info, const XrApiLayerCreateInfo* layerInfo,
                                                         XrInstance* instance);
 
@@ -120,11 +120,11 @@ XRAPI_ATTR XrResult XRAPI_CALL xrNegotiateLoaderRuntimeInterface(const XrNegotia
 XRAPI_ATTR XrResult XRAPI_CALL xrNegotiateLoaderApiLayerInterface(const XrNegotiateLoaderInfo* loaderInfo,
                                                                   const char*                  layerName,
                                                                   XrNegotiateApiLayerRequest*  apiLayerRequest);
-    #endif /* XR_EXTENSION_PROTOTYPES */
-#endif     /* !XR_NO_PROTOTYPES */
+        #endif /* XR_EXTENSION_PROTOTYPES */
+    #endif     /* !XR_NO_PROTOTYPES */
 
-#ifdef __cplusplus
+    #ifdef __cplusplus
 }
-#endif
+    #endif
 
 #endif

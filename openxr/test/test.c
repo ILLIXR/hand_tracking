@@ -24,25 +24,25 @@ int main(int argc, char** argv) {
     (void) argv;
     struct ApplicationState* app = malloc(sizeof(struct ApplicationState));
     *app                         = (struct ApplicationState) {
-                                .oxr        = {.form_factor     = XR_FORM_FACTOR_HEAD_MOUNTED_DISPLAY,
-                                               .view_type       = XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO,
-                                               .play_space_type = XR_REFERENCE_SPACE_TYPE_STAGE,
+        .oxr        = {.form_factor     = XR_FORM_FACTOR_HEAD_MOUNTED_DISPLAY,
+                       .view_type       = XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO,
+                       .play_space_type = XR_REFERENCE_SPACE_TYPE_STAGE,
 
-                                               .instance   = XR_NULL_HANDLE,
-                                               .session    = XR_NULL_HANDLE,
-                                               .system_id  = XR_NULL_SYSTEM_ID,
-                                               .state      = XR_SESSION_STATE_UNKNOWN,
-                                               .play_space = XR_NULL_HANDLE,
+                       .instance   = XR_NULL_HANDLE,
+                       .session    = XR_NULL_HANDLE,
+                       .system_id  = XR_NULL_SYSTEM_ID,
+                       .state      = XR_SESSION_STATE_UNKNOWN,
+                       .play_space = XR_NULL_HANDLE,
 
-                                               .view_count       = 0,
-                                               .viewconfig_views = NULL,
-                                               .projection_views = NULL,
-                                               .views            = NULL},
-                                .quad_layer = {.pixel_width = 320, .pixel_height = 240},
-                                .gl_renderer =
+                       .view_count       = 0,
+                       .viewconfig_views = NULL,
+                       .projection_views = NULL,
+                       .views            = NULL},
+        .quad_layer = {.pixel_width = 320, .pixel_height = 240},
+        .gl_renderer =
             {
-                                        .near_z = 0.01f,
-                                        .far_z  = 100.0f,
+                .near_z = 0.01f,
+                .far_z  = 100.0f,
             },
 
     };
