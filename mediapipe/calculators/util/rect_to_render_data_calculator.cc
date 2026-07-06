@@ -48,7 +48,7 @@ namespace {
 
         return options.oval()  ? options.filled() ? annotation->mutable_filled_oval()->mutable_oval()->mutable_rectangle()
                                                   : annotation->mutable_oval()->mutable_rectangle()
-             : options.filled() ? annotation->mutable_filled_rectangle()->mutable_rectangle()
+            : options.filled() ? annotation->mutable_filled_rectangle()->mutable_rectangle()
                                : annotation->mutable_rectangle();
     }
 
