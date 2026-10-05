@@ -429,12 +429,12 @@ namespace intops {
 // Define operators that take one StrongInt and one native integer argument.
 // These operators are defined in terms of their op-equal member function
 // cousins, mostly.
-#define STRONG_INT_VS_NUMERIC_BINARY_OP(op)                                                                           \
-    template<typename TagType, typename ValueType, typename ValidatorType, typename NumType>                          \
-    inline StrongInt<TagType, ValueType, ValidatorType> operator op(StrongInt<TagType, ValueType, ValidatorType> lhs, \
-                                                                    NumType                                      rhs) {                                    \
-        lhs op## = rhs;                                                                                               \
-        return lhs;                                                                                                   \
+#define STRONG_INT_VS_NUMERIC_BINARY_OP(op)                                                                             \
+    template<typename TagType, typename ValueType, typename ValidatorType, typename NumType>                            \
+    inline StrongInt<TagType, ValueType, ValidatorType> operator op(StrongInt<TagType, ValueType, ValidatorType> lhs,   \
+                                                                    NumType                                      rhs) { \
+        lhs op## = rhs;                                                                                                 \
+        return lhs;                                                                                                     \
     }
 // This is used for commutative operators between one StrongInt and one native
 // integer argument.  That is a long way of saying "multiplication".

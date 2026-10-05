@@ -63,8 +63,8 @@ namespace api2 {
             absl::Status LoadDelegate(CalculatorContext*                                     cc,
                                       const mediapipe::InferenceCalculatorOptions::Delegate& delegate_options);
             absl::Status
-                         LoadDelegateAndAllocateTensors(CalculatorContext*                                     cc,
-                                                        const mediapipe::InferenceCalculatorOptions::Delegate& delegate_options);
+            LoadDelegateAndAllocateTensors(CalculatorContext*                                     cc,
+                                           const mediapipe::InferenceCalculatorOptions::Delegate& delegate_options);
             absl::Status Process(CalculatorContext* cc, const TensorSpan& input_tensors, std::vector<Tensor>& output_tensors);
             const InputOutputTensorNames& GetInputOutputTensorNames() const;
 
