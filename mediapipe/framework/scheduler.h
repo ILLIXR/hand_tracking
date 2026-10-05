@@ -200,7 +200,7 @@ namespace internal {
             STATE_CANCELLING  = 3, // The scheduler is being cancelled. The scheduler
                                    // cannot be paused in this state so that
                                    // scheduler_queue_ can be drained.
-            STATE_TERMINATED = 4,  // The scheduler has terminated.
+            STATE_TERMINATED  = 4, // The scheduler has terminated.
         };
 
         // Sorts the source nodes in unopened_sources_ by source layer.

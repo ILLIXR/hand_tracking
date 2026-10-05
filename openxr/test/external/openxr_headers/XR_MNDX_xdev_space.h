@@ -7,18 +7,18 @@
  * @ingroup external_openxr
  */
 #ifndef XR_MNDX_XDEV_SPACE_H
-#define XR_MNDX_XDEV_SPACE_H 1
+    #define XR_MNDX_XDEV_SPACE_H 1
 
-#include "openxr_extension_helpers.h"
+    #include "openxr_extension_helpers.h"
 
-#ifdef __cplusplus
+    #ifdef __cplusplus
 extern "C" {
-#endif
+    #endif
 
-// Extension number 445 (444 prefix)
-#define XR_MNDX_xdev_space                1
-#define XR_MNDX_xdev_space_SPEC_VERSION   1
-#define XR_MNDX_XDEV_SPACE_EXTENSION_NAME "XR_MNDX_xdev_space"
+    // Extension number 445 (444 prefix)
+    #define XR_MNDX_xdev_space                1
+    #define XR_MNDX_xdev_space_SPEC_VERSION   1
+    #define XR_MNDX_XDEV_SPACE_EXTENSION_NAME "XR_MNDX_xdev_space"
 
 XR_DEFINE_ATOM(XrXDevIdMNDX)
 XR_DEFINE_HANDLE(XrXDevListMNDX)
@@ -78,8 +78,8 @@ typedef XrResult(XRAPI_PTR* PFN_xrDestroyXDevListMNDX)(XrXDevListMNDX xdevList);
 typedef XrResult(XRAPI_PTR* PFN_xrCreateXDevSpaceMNDX)(XrSession session, const XrCreateXDevSpaceInfoMNDX* createInfo,
                                                        XrSpace* space);
 
-#ifdef __cplusplus
+    #ifdef __cplusplus
 }
-#endif
+    #endif
 
 #endif

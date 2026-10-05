@@ -76,7 +76,7 @@ namespace internal {
                                               PacketTypeSet*                output_side_packets) = 0;
         virtual absl::Status Generate(const PacketGeneratorOptions& extendable_options, //
                                       const PacketSet&              input_side_packets, //
-                                      PacketSet*                    output_side_packets)             = 0;
+                                      PacketSet*                    output_side_packets)         = 0;
     };
 
     using StaticAccessToGeneratorRegistry = GlobalFactoryRegistry<std::unique_ptr<StaticAccessToGenerator>>;
